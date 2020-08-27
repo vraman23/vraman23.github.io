@@ -76,14 +76,13 @@ This would imply that $P(E) = 0$.  However, $$[0, 1] \subseteq \bigcup_{q \in [-
 The issue is the step where we pick $x_B$, since we need to pick $x_B$ from uncountably many points, which assumes the axiom of choice.  It was proved by Robert M. Solovay that all models of set theory excluding the axiom of choice have the property that all sets are Lebesgue measurable.
 
 Our goal is thus to come up with a general framework where things can be consistently defined for a large class of sets.  
-\subsection{Measure Theory Beginnings}  For the definitions, we take $\Omega$ to be the state space.
+\subsection{Measure Theory Beginnings}  For the definitions, we take $\Omega$ to be the state space, $\Sigma$ a sigma-algebra or sigma-field.  $\Sigma \subset 2^\Omega$, a subset of $\Omega$
 \begin{definition}[Sigma-Algebra]  Suppose $\Sigma$ follows the following properties:
 \begin{enumerate}
 \item $\emptyset \in \Sigma$
 \item $A \in \Sigma \Rightarrow A^c \in \Sigma$
 \item $A_1, A_2, \dots \in \Sigma$, then $\bigcup A_i \in \Sigma$
 \end{enumerate}
-Note that $2$ and $3$ imply $1$ since $(A \cup A^c)^c = \emptyset$.  Then $\Sigma$ is a sigma-algebra.
+Note that $2$ and $3$ imply $1$ since $(A \cup A^c)^c = \emptyset$.  Then 
 \end{definition}
-Note that we also have countable intersections(this is an easy exercise).
 \end{document}

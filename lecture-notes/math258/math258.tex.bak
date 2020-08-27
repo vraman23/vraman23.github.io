@@ -112,7 +112,7 @@ $\hat{f}(\xi + u) - \hat{f}(\xi) = \int f(x)e^{-ix\xi}(e^{-ixu}-1)dx$.  If we le
 $$\|\hat{f}\|_{L^2}^2 = (2\pi)^d \|f\|_{L^2}^2.$$
 \end{proposition}
 
-\begin{thm}[[Plancherel's Theorem] $\pi: L^1\cap L^2 \rightarrow L^2$ extends uniquely to $\hat{\pi}: L^2(\R^d) \rightarrow L^2(\R^d)$, linear, bounded, 
+\begin{thm}[Plancherel's Theorem] $\pi: L^1\cap L^2 \rightarrow L^2$ extends uniquely to $\hat{\pi}: L^2(\R^d) \rightarrow L^2(\R^d)$, linear, bounded, 
 $\|\hat{\pi}f\|_{L^2}^2 = (2\pi)^d\|f\|_{L^2}^2$,
 and for all $f \in L^2$, we have an inverse Fourier Transform,
 $\check{f}(y) = \int f(\xi)e^{iy\xi}d\xi$ for $f \in L^1 \cap L^2$, and $\check{\cdot}$ also extends.  
