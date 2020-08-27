@@ -1,0 +1,376 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                     %
+% pseudocode.sty, by Dario Sneidermanis.                              %
+%                                                                     %
+% Based on package `clrscode3e', written by Thomas H. Cormen:         %
+%                                                                     %
+% Package for producing pseudocode in the style of Cormen, Leiserson, %
+% Rivest, and Stein, Introduction to Algorithms, Third edition.       %
+%                                                                     %
+% http://www.cs.dartmouth.edu/~thc/clrscode/                          %
+%                                                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\ProvidesPackage{pseudocode}
+
+
+\RequirePackage{graphics}
+\RequirePackage{xparse}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting commands %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Typesets constants.
+% Usage examples:
+%   \const{true}
+%   \const{nil}
+\newcommand{\const}[1]{\textnormal{\scshape#1}}
+
+% Typesets variables.
+% Usage examples:
+%   \var{key}
+%   \var{left-sum}
+%   \var{i}
+\newcommand{\var}[1]{\ensuremath{\hspace*{-0.5pt}\mathit{\text@hyphens#1}}}
+
+% Typesets functions.
+% Usage examples:
+%   \func{Insertion-Sort}{}
+%   \func{Dijkstra}{G, s}
+%   \func{Dijkstra}{G = graph, s = vertex}
+\NewDocumentCommand{\func}{m g} {\@@function{\textnormal{\scshape#1}}{#2}}
+
+% Typesets fixed functions.
+% Usage examples:
+%   \fixfunc{sin}{x}
+%   \fixfunc{out-degree}{G, v}
+\NewDocumentCommand{\fixfunc}{m g} {%
+    \@@function{\ensuremath{{\mathop{\text@hyphens\operator@font#1}\nolimits}}}{#2}%
+}
+
+% Typesets object attributes.
+% Usage examples:
+%   \member{user}{name}
+\newcommand{\member}[2]{\var{#1}\ensuremath{.\@@tsp\@@tsp}\var{#2}}
+
+% Typesets array elements.
+% Usage examples:
+%   \at{names}{pos}
+\newcommand{\at}[2]{\ensuremath{\var{#1}\@@tsp[\@@surround{\var{#2}}]}}
+
+% Typesets keywords.
+% Usage examples:
+%   \keyword{for}
+%   \keyword{if}
+\newcommand{\kw}[1]{\textbf{#1}}
+
+% Symbol for typesetting subarray ranges.
+% Usage examples:
+%   $[1 \twodots n]$
+\newcommand{\twodots}{\mathinner{\ldotp\ldotp}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pseudocode2 environment %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newif\if@@activepseudocode\@@activepseudocodefalse
+
+\newcounter{@@indentlevel}
+
+\NewDocumentEnvironment{pseudocode2}{o}
+{%
+    \if@@activepseudocode\PackageError{pseudocode}{Nested pseudocode environments not supported!}\fi%
+    \global\@@activepseudocodetrue%
+    \setcounter{@@indentlevel}{0}%
+    \newenvironment{block}{\addtocounter{@@indentlevel}{1}}{\addtocounter{@@indentlevel}{-1}}%
+    \addtolength{\topsep}{0.5ex}%
+    \def\@@indent{\textbf{else} }%
+    \begin{trivlist}%
+        \item\parindent=0pt%
+        \@nobreaktrue\IfValueT{#1}{#1\rule[-2ex]{0pt}{0pt}\\}%
+        \begin{minipage}[t]{1000pt}% TODO: fix this hardcoded size
+            \begin{tabbing}%
+                99\=\@@indent\=\@@indent\=\@@indent\=\@@indent\=\@@indent\=\@@indent\=\@@indent\=\@@indent\=\@@indent\=\+\kill%
+} {%
+            \end{tabbing}%
+        \end{minipage}%
+    \end{trivlist}%
+    \addtolength{\topsep}{-0.5ex}%
+    \global\@@activepseudocodefalse%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pseudocode environment %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% When we make a pseudocode, we save the code part into a box before printing it.
+% We do not actually print the code until we know how many line numbers there
+% are.
+\newsavebox{\savecode}
+
+% The \ifprocname command tells us whether this procedure has been given a name.
+% yet.
+\newif\ifprocname
+
+% The \iffirstcodeline command tells us whether we are about to produce the
+% first line other than the procedure declaration.
+\newif\iffirstcodeline
+
+% \digitwidth gives the width of a single digit.  All digits are the same width.
+% We'll need this amount to do the right thing for line numbers.
+\newlength{\digitwidth}
+\settowidth{\digitwidth}{0}
+
+% Assume that the width of the pseudocode is the width of the text, minus the width
+% of 2 digits.  We'll correct for that later.
+\newlength{\pseudocodewidth}
+\setlength{\pseudocodewidth}{\linewidth} % Thanks, David Etherington!
+\addtolength{\pseudocodewidth}{-2\digitwidth}
+
+% The codelinenumber counter counts the current line number.
+\newcounter{codelinenumber}
+
+% The indent counter keeps track of the current indentation level.
+\newcounter{indent}
+
+% The "pseudocode" environment produces an unbreakable section of code.
+\newenvironment{pseudocode}{%
+    % this proc hasn't been given a name yet
+    \global\procnamefalse%
+    % producing the first line
+    \setcounter{codelinenumber}{0}%
+    \setcounter{indent}{0}%
+    \firstcodelinetrue%
+    % distance between numbers and code
+    \setlength{\tabbingsep}{1em}%
+    % Initialize \@lilabel to allow a pageref \label cmd at the beginning of the
+    % pseudocode
+    \global\let\@lilabel\@currentlabel
+    \def\@currentlabel{\@lilabel}%
+    % save the code into a box
+    \begin{lrbox}{\savecode}%
+    % it'll be a minipage
+    \begin{minipage}[t]{\pseudocodewidth}%
+    % set up the tab stops
+    \def\codeindent{\textbf{else} }%
+    \begin{tabbing}%
+    99\=\codeindent\=\codeindent\=\codeindent\=\codeindent\=\codeindent\=\codeindent\=\codeindent\=\codeindent\=\codeindent\=\+\kill%
+}{%
+    % Here's what's run at the end of a pseudocode environment.  Start by making
+    % sure that we have ended at indent level 0.  Otherwise, print a warning.
+    \ifnum\value{indent}=0\else\typeout{Warning: Indentation ends at level \theindent\space in pseudocode on page \thepage.}\fi%
+    % close all open environments
+    \end{tabbing}%
+    \end{minipage}%
+    \end{lrbox}%
+    % for the following trivlist
+    \addtolength{\topsep}{0.5ex}%
+    \begin{trivlist}\item\parindent=0pt%
+        % If there was a procedure name given, print it now but with a little
+        % space below, and disallow a page break after the procedure name.
+        \@nobreaktrue%
+        \ifprocname\saveprocname\rule[-2ex]{0pt}{0pt}\\ \fi%
+        % Put in the right amount of space, depending on whether we reached
+        % double digits in the line numbers.
+        \ifnum\value{codelinenumber}>9\hspace*{2\digitwidth}\else\hspace*{1\digitwidth}\fi%
+        % Now print the code
+        \usebox{\savecode}%
+    \end{trivlist}%
+    \addtolength{\topsep}{-0.5ex}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pseudocode environment commands %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Function name.
+\NewDocumentCommand{\function}{ m g } {%
+    \global\def\saveprocname{\func{#1}{#2}}%
+    \global\procnametrue%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pseudocode indentation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% counter for recursive indenting code.
+\newcounter{thisindent}
+
+% \putindents is a recursive macro that indents a number of times given by the
+% counter thisindent.
+\newcommand{\putindents}{%
+    \ifnum\value{thisindent}>0\>\addtocounter{thisindent}{-1}\putindents\fi%
+}
+
+\newcommand{\Indent}{\setcounter{thisindent}{\value{indent}}\putindents}
+
+
+
+% Indent the next line one level more.
+\newcommand{\Indentmore}{\addtocounter{indent}{1}}
+
+
+% should this line have a number.
+\newif\ifnumberedline\numberedlinetrue
+
+% \liprint actually prints the line number and sets up the indentation.
+\newcommand{\liprint}{%
+    \protected@xdef\@lilabel{\thecodelinenumber}%
+    \ifnumberedline\thecodelinenumber\fi\'\Indent%
+}
+
+% The \li command starts a new numbered line. The optional defines sets with a
+% little extra the space above.
+\newcommand{\li}[1][2pt]{%
+    \global\numberedlinetrue%
+    \iffirstcodeline\global\firstcodelinefalse\else\\[#1] \fi
+    \stepcounter{codelinenumber}%
+    \liprint%
+}
+
+\newcommand{\liempty}{\li[0pt]\li[0pt]}
+
+
+\providecommand{\numref}[1]{%
+  \@ifundefined{r@#1}{000}{%
+    \expandafter\expandafter\expandafter\@firstoftwo
+    \csname r@#1\endcsname
+  }%
+}
+
+% \setlinenumber sets the line number to its argument.
+\newcommand{\setlinenumber}[1]{%
+    \setcounter{codelinenumber}{\numref{#1}}%
+    \addtocounter{codelinenumber}{-1}%
+}
+
+% \setlinenumberplus sets the line number to its first argument plus its second
+% argument.
+\newcommand{\setlinenumberplus}[2]{%
+    \setcounter{codelinenumber}{\numref{#1}}%
+    \addtocounter{codelinenumber}{-1}\addtocounter{codelinenumber}{#2}%
+}
+
+% The \zi command starts a new unnumbered line.
+\newcommand{\zi}{%
+    \global\numberedlinefalse%
+    \iffirstcodeline\global\firstcodelinefalse\else\\ \fi
+    \liprint%
+}
+
+% Temporarily make all lines indented so that they start at the end of a given
+% text.
+\newcommand{\Startalign}[1]{\\ \pushtabs\FakeIndent#1\=\kill}
+\newcommand{\Stopalign}{\poptabs}
+\newcommand{\FakeIndent}{\setcounter{thisindent}{\value{indent}}\putfakeindents}
+\newcommand{\putfakeindents}{\ifnum\value{thisindent}>0\textbf{else }\addtocounter{thisindent}{-1}\putfakeindents\fi}
+
+
+%%%%%%%%%%%%
+% Keywords %
+%%%%%%%%%%%%
+
+
+\newcommand{\For}{\textbf{for} }
+\newcommand{\To}{\ifmmode\ \textrm{\textbf{to}}\ \else\textbf{to}\ \fi}
+\newcommand{\By}{\ifmmode\ \textrm{\textbf{by}}\ \else\textbf{by}\ \fi}
+\newcommand{\Downto}{\ifmmode\ \textrm{\textbf{downto}}\ \else\textbf{downto}\ \fi}
+\newcommand{\While}{\textbf{while} }
+\newcommand{\Repeat}{\textbf{repeat}\>\addtocounter{indent}{1}}
+\newcommand{\Until}{\kill\addtocounter{indent}{-1}\liprint\textbf{until} }
+\newcommand{\If}{\textbf{if} }
+\newcommand{\Then}{\>\addtocounter{indent}{1}}
+\newcommand{\Else}{\kill\addtocounter{indent}{-1}\liprint\textbf{else}\>\addtocounter{indent}{1}}
+\newcommand{\End}{\addtocounter{indent}{-1}}
+\newcommand{\ElseIf}{\kill\addtocounter{indent}{-1}\liprint\textbf{elseif} }
+\newcommand{\ElseNoIf}{\kill\addtocounter{indent}{-1}\liprint\textbf{else} \addtocounter{indent}{1}}
+\newcommand{\Do}{\>\addtocounter{indent}{1}}
+\newcommand{\Return}{\textbf{return} }
+\newcommand{\CommentSymbol}{\texttt{\textbf{/\hspace*{-0.3em}/}}}
+\newcommand{\Comment}{\CommentSymbol\ }
+\newcommand{\RComment}{\`\CommentSymbol\ }
+\newcommand{\Goto}{\textbf{goto} }
+\newcommand{\Error}{\textbf{error} } % optionally followed by string argument.
+\newcommand{\EndTest}{\textbf{:}}
+\newcommand{\Spawn}{\ifmmode\textbf{spawn}\ \else\textbf{spawn} \fi}
+\newcommand{\Sync}{\textbf{sync}}
+\newcommand{\Parfor}{\textbf{parallel for} }
+
+
+%%%%%%%%%%%%%%%%
+% Misc helpers %
+%%%%%%%%%%%%%%%%
+
+
+% Tiny space.
+\newcommand{\@@tsp}{\hspace*{0.5pt}}
+
+% Forces hyphens.
+\newcommand{\text@hyphens}{\mathcode`\-=`\-\relax}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% @@function helper %
+%%%%%%%%%%%%%%%%%%%%%
+
+
+% Tells if we are parsing the first function argument.
+\newif\if@@firstarg
+
+% Typesets function calls/declarations.
+\NewDocumentCommand{\@@function}{m >{\SplitList{,}} g} {%
+    #1%
+    \IfValueT{#2} {%
+        \textrm{\@@tsp(%
+            \@@surround{%
+                \global\@@firstargtrue%
+                \ProcessList{#2}{\@@parsearg}%
+                \global\@@firstargfalse%
+            }%
+        )}%
+    }%
+}
+
+% Splits a function argument.
+\NewDocumentCommand{\@@parsearg}{>{\SplitArgument{1}{:}} m} {\@@printarg#1}
+
+% Parses a function argument.
+\NewDocumentCommand{\@@printarg}{m m} {%
+    \if@@firstarg\global\@@firstargfalse\else{\textit{,\ }}\fi%
+    \var{#1}%
+    \IfValueT{#2} {\textrm{\@@tsp :\ #2\@@tsp}}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% @@surround helper %
+%%%%%%%%%%%%%%%%%%%%%
+
+
+% Holds the width of the text being surrounded.
+\newlength{\@@paramlen}
+
+% Holds the maximum accepted length without spaces.
+\newlength{\@@maxlen}\settowidth{\@@maxlen}{\var{W}}
+
+% Surrounds text with spaces depending on its length.
+\newcommand{\@@surround}[1]{%
+    \settowidth{\@@paramlen}{\var{#1}}%
+    \ifdim\@@paramlen>\@@maxlen\@@tsp\@@tsp\@@tsp\fi%
+    #1%
+    \ifdim\@@paramlen>\@@maxlen\@@tsp\@@tsp\fi%
+}
+
+\endinput
