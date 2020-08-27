@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 AUG 2020 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 AUG 2020 11:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -192,16 +192,16 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/asymptote/asymptote.sty
 Package: asymptote 2016/11/26 v1.33 Asymptote style file for LaTeX
+
+(./math222a.pre)
 \ASYbox=\box31
 \ASYdimen=\dimen112
 \c@asy=\count101
 \AsyStream=\write3
 \AsyPreStream=\write4
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -1391,7 +1391,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \c@hintitem=\count324
 \c@thm=\count325
 
-No file math222a.aux.
+(./math222a.aux)
 \openout1 = `math222a.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -1410,7 +1410,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 11.
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 11.
@@ -1459,6 +1459,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
 LaTeX Info: Redefining \nameref on input line 11.
+
+(./math222a.out) (./math222a.out)
 \@outlinefile=\write6
 \openout6 = `math222a.out'.
 
@@ -1556,14 +1558,20 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 Package tocbasic Info: character protrusion at toc deactivated on input line 28
 .
+ (./math222a.toc
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 16.42503pt
+number indent calculated (toc, 1): 0.0pt
+)
 \tf@toc=\write7
 \openout7 = `math222a.toc'.
 
  [2]
 LaTeX Font Info:    Try loading font information for TS1+cmss on input line 31.
 
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1577,22 +1585,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 34.
 (./math222a.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 34.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 34.
-
-
-Package rerunfilecheck Warning: File `math222a.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `math222a.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `math222a.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 34.
  ) 
 Here is how much of TeX's memory you used:
- 38736 strings out of 492616
- 761850 string characters out of 6129482
- 977367 words of memory out of 5000000
- 42129 multiletter control sequences out of 15000+600000
+ 38756 strings out of 492616
+ 762213 string characters out of 6129482
+ 977527 words of memory out of 5000000
+ 42139 multiletter control sequences out of 15000+600000
  541461 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,20n,91p,9110b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1603,10 +1604,10 @@ usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/l
 ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
 local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on math222a.pdf (3 pages, 59255 bytes).
+Output written on math222a.pdf (3 pages, 59314 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  6 named destinations out of 1000 (max. 500000)
  10357 words of extra memory for PDF output out of 12000 (max. 10000000)
 

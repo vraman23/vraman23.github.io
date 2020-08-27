@@ -9,16 +9,16 @@
 \declaretheorem[style=thmbluebox,name={Theorem}]{thm}
 
 \begin{document}
-\title{Math 222a}
+\title{CS 170}
 \author{Vishal Raman}
 \thispagestyle{empty}
 $ $
 \vfill
 \begin{center}
 
-\centerline{\huge \textbf{Math 222a Lecture Notes, Fall 2020}}
-\centerline{\Large \textbf{Partial Differential Equations} } 
-\centerline{Professor: Daniel Tataru}
+\centerline{\huge \textbf{CS 170 Lecture Notes, Fall 2020}}
+\centerline{\Large \textbf{Algorithms and Intractable Problems} } 
+\centerline{Professor: Avishay Tal, Umesh Vazirani}
 \centerline{Vishal Raman}
 \end{center}
 \vfill
