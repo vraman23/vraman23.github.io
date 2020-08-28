@@ -9,6 +9,9 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+
+\let \phi \varphi
 
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
@@ -50,41 +53,42 @@ There are some simple solutions $e^{inx}e^{-\gamma n^2t}|_{t=0} = e^{inx}$.  The
 
 \subsection{Fourier Analysis}
 We take a circle $\{z \in \C : |z = 1|\}$, which can also be thought of as $\R/(2\pi\Z)$, with the map $x \mapsto e^{ix}$. 
- Suppose we have $G$ a finite abelian group, and $\hat{G} = \{\text{hom }\phi:G \rightarrow \R/\Z \}$.  $\hat{G}$ is also a group(sums of homomorphisms are clearly homomorphisms).
+ Suppose we have $G$ a finite abelian group, and $\hat{G} = \{\text{hom }\phi:G \rightarrow \R/\Z \}$, the dual group.  $\hat{G}$ is also a group, formally known as the set of characters.
 
-\begin{example} If we take $G = \Z_N = \Z/N\Z$, with the map $x \mapsto e^{2\pi i xn/N}$, all the homomorphisms are clearly in the form of the quotient map. 
+\begin{example} If we take $G = \Z_N = \Z/N\Z$, with the map $x \mapsto e^{2\pi i xn/N}$, for $n \in Z_n$.
 
  Similarly, taking $G \cong Z_{N_1} \times \Z_{N_2} \times \dots$, we take $x \mapsto \prod e^{2\pi i xn/N_i}$.
 \end{example}
 
-Take $e_\phi(x) = e^{2\pi i \phi(x)}$, where $\phi: G \mapsto \R/\Z$.  Working in $L^2(G)$, we note the following:
+Take $e_\xi(x) = e^{2\pi i \xi(x)}$, where $\xi: G \mapsto \R/\Z$.  Working in $L^2(G)$, we note the following:
 
-\begin{fact} If $\phi \ne \varphi$, then $\left<e_\phi, e_\varphi \right> = 0$.
+\begin{fact} If $\xi \ne \varphi$, then $\left<e_\xi, e_\varphi \right> = 0$.
 \end{fact}
 \begin{proof}
-$\sum_{x \in G} \phi(x) \overline{\varphi(x)} = \sum_{u} \phi(u+x)\overline{\varphi(u+x)}$
+$$\sum_{x \in G} \xi(x) \overline{\varphi(x)} = \sum_{u} \xi(u+y)\overline{\varphi(u+y)} - \left (\sum_u \xi(u)\overline{\varphi(u)}\right ) \xi(y) \overline{\varphi(u)}.$$
+Hence, either $\left < \xi, \phi\right > = 0$ or $\xi(y)\overline{\phi}(y) = 1$ for all $y \in G$, which implies $\xi = \phi$.
 \end{proof}
 If follows that $\{e_f : f \in \hat{G}\}$ is an orthonormal set in $L^2(G)$ Then, the dimension is $|\hat{G}| = |G| = \dim(L^2(G))$.  Hence, the set forms an orthonormal basis for $L^2(G)$.
 
-Then, for all $f \in L^2(G)$,  we have $$\|f\|_{L^2(G)}^2 = \sum_{\phi \in \hat{G}} |\left <f, e^\phi\right >|^2,$$
-$$f = \sum_{e_{\phi} \in \hat{G}} \left <f , e_{\phi}\right >e_\phi.$$
+Then, for all $f \in L^2(G)$,  we have $$\|f\|_{L^2(G)}^2 = \sum_{\phi \in \hat{G}} |\left <f, e_\xi\right >|^2,$$
+$$f = \sum_{e_{\xi} \in \hat{G}} \left <f , e_{\xi}\right >e_\phi.$$
 
 \subsection{On Tori of Arbitrary Dimension}
-We define $\Pi = \R/2\pi\Z$, from $[0, 2\pi]$.  We then work on $\Pi^d$, $d \ge 1$.  
+We define $\T = \R/2\pi\Z$, from $[0, 2\pi]$.  We then work on $\T^d$, $d \ge 1$.  
 
-For $f \in L^2(\Pi^d)$, we define $$\hat{f}(n) = (2pi)^{-d}\int f(x)e^{-inx}dx.$$
+For $f \in L^2(\T^d)$, we define $$\hat{f}(n) = (2\pi)^{-d}\int f(x)e^{-inx}dx.$$
 
-We have an inner product $\left <f, g\right > = \int_{\Pi^d} f(x) \overline{g(x)}d\mu(x)$ defined over a Lebesgue measure. 
+We have an inner product $\left <f, g\right > = \int_{\T^d} f(x) \overline{g(x)}d\mu(x)$ defined over a Lebesgue measure or Euclidean measure on $\T^d$. 
 
 \begin{thm}[Parseval's Theorem] For all $f \in L^2(\Pi^d)$,
 $$\|f\|_{L^2}^2 = (2 \pi)^d \sum_{n \in \Z^d}|\hat{f}(n)|^2,$$
-$$f = \sum_{n \in \Z^d} \hat{f}(n)e^{inx}.$$
+and we have 
+$$f = \sum_{n \in \Z^d} \hat{f}(n)e^{inx},$$ in the sense that 
+$$\|f - \sum_{n \in \Z^d} \hat{f}(n)e^{inx}\|_L^2 \rightarrow 0.$$ 
 \end{thm}
-We mean $$\|f - \sum_{n \in \Z^d} \hat{f}(n)e^{inx}\|_L^2 \rightarrow 0,$$ almost uniform convergence.
-
 Note: you can usually figure out the constant with the simplest example, $f = 1$.  
 \begin{proof}
-Take $\Pi^d, e_n(x) = e^{inx}$.  The $\{(2\pi)^{-d/2}e^n:n \in \Z^d\}$ is orthonormal(left as an exercise).  Then, for all $f$, $\sum_{n} \left <f, (2\pi)^{-d/2} e_n\right > \le \|f\|_{L^2}^2$, with equality if the set is a basis(Bessel's inequality).  
+Take $\T^d, e_n(x) = e^{in\cdot x}$.  The $\{(2\pi)^{-d/2}e^n:n \in \Z^d\}$ is orthonormal(left as an exercise).  Then, for all $f$, $\sum_{n} \left <f, (2\pi)^{-d/2} e_n\right > \le \|f\|_{L^2}^2$, with equality if the set is a basis(Bessel's inequality).  
 
 It suffices to show that $\text{span}\{e_n\}$ is dense in $L^2$.  Take $P = \text{span}\{e_n\}$, and note that $P$ is an algebra of continuous functions on $\Pi^d$,  closed under conjugation, contains $1$, and separates points.  Hence, the Stone-Weierstrass theorem implies that $P$ is dense in $C^o(\Pi^d)$ with respect to $\|\cdot\|_{C^o}$.  Then $C^o \subset L^2$ is dense(general theory about Compact Hausdorff spaces, Radon Measures).  
 
@@ -117,33 +121,36 @@ $\|\hat{\pi}f\|_{L^2}^2 = (2\pi)^d\|f\|_{L^2}^2$,
 and for all $f \in L^2$, we have an inverse Fourier Transform,
 $\check{f}(y) = \int f(\xi)e^{iy\xi}d\xi$ for $f \in L^1 \cap L^2$, and $\check{\cdot}$ also extends.  
 
-Finally, $$\|f - (2pi)^{-d}\int_{|\xi| \le R} \hat{f}(\xi)e^{ix\xi}dxi\|_{L^2} \rightarrow 0.$$
+Finally, $$\|f - (2\pi)^{-d}\int_{|\xi| \le R} \hat{f}(\xi)e^{ix\xi}d\xi\|_{L^2} \rightarrow 0.$$
 \end{thm}
 Note that $\check{f}(y) = \hat{f}(-y)$.
 \begin{proof}
 We first prove that $\|f\|_{L^2}^2 = (2\pi)^{-d}\|\hat{f}\|_{L^2}^2$ for all $f \in L^1 \cap L^2$.  We prove this for a dense subspace $\mathscr{P} $ of $L^2$.  We will show later that there exists a subspace $V \subset L^2(\R^d)$ so that $V$ is dense in $L^2$, $V \subset L^1$, $\forall f \in V,$ there exists $C_f < \infty$, so for all $\xi \in \R^d$, $|\hat{f}(\xi)| \le C_f(f(\xi))^{-d}$ and $f$ is continuous with compact support.
 
-We are given $f: \R^d \rightarrow \C$ supported where $|x |\le R = R_f < \infty$.  For large $t \ge 0$, define $f_t(x) = f(tx)$(this shrinks the support of $f$), supported where $|x| \le R/t < \pi$.  We can then think of $f_t: \mathbf{T}^d \rightarrow \C$.  
+We are given $f: \R^d \rightarrow \C$ supported where $|x |\le R = R_f < \infty$.  For large $t \ge 0$, define $f_t(x) = f(tx)$(this shrinks the support of $f$), supported where $|x| \le R/t < \pi$.  We can then think of $f_t: \T^d \rightarrow \C$.  
 
 Now, we calculate
 \begin{align*}
-\hat{f}_{t}(n) & = (2\pi)^d\int_{\mathbf{T}^d} f_t(x)e^{-inx}dx\\
+\hat{f}_{t}(n) & = (2\pi)^d\int_{\T^d} f_t(x)e^{-inx}dx\\
 &= t^{-d}(2\pi)^d \int_{R^d} f(x)e^{-in/ty}dy \\
-&= t^{-d} (2\pi)^{-d}\hat{f}(n/t),
+&= t^{-d} (2\pi)^{-d}\hat{f}(t^{-1}n),
 \end{align*}
-where the first hat is on $\mathbf{T}^d$ and the second is on $\R^d$, so the Fourier coeficients in the euclidean case are scalar multiples of the Fourier coefficients in the Tori case.  
+where the first hat is on $\T^d$ and the second is on $\R^d$, so the Fourier coeficients in the euclidean case are scalar multiples of the Fourier coefficients in the Tori case.  
 
 Thus,
-$$\|f_t\|_{L^2(\mathbf{T}^d)}^2 = t^{-d}\|f\|_{L^2(\R^d)}^2 = c_d\sum_{n \in \Z^d}|\hat{f}_t(n)|^2 = c_d't^{-2d}\sum_{n} |\hat{f}(n/t)|^2$$
+$$\|f_t\|_{L^2(\T^d)}^2 = t^{-d}\|f\|_{L^2(\R^d)}^2 = c_d\sum_{n \in \Z^d}|\hat{f}_t(n)|^2 = c_d't^{-2d}\sum_{n} |\hat{f}(t^{-1}n)|^2$$
 
 Hence,
-$$\|f\|_{L^2(\R^d)}^2 = c_d't^{-d}\sum_{n} |\hat{f}(n/t)|^2.$$
+$$\|f\|_{L^2(\R^d)}^2 = c_d't^{-d}\sum_{n} |\hat{f}(t^{-1}n)|^2.$$
 
-This has a nice tiling Riemann sum interpretation:
-
+This has a nice tiling Riemann sum interpretation: if we take $\R^d$ and tile it with cubes of sidelength $1/t$ where one corner is at $t^{-1}n$ for $n \in \Z^d$, then
+$$\|f\|_{L^2(\R^d)}^2 = c_d' t^{-d}\sum_{n}\left |\hat{f}(t^{-1}n)\right |^2 = \int_{\R^d}|g_t|^2 dx,$$
+where $g(x) = \hat{f}(t^{-1}n)$.
+ 
 We claim 
 $$\int_{\R^d}|g_t|^2 \rightarrow \int_{\R^d}|\hat{f}|^2,$$
-which follows from the dominated convergence theorem:  where we take a sequence over $t$ going to infinity, with dominator $C_f^2(1 + |\xi|)^{-2d}$.
+which follows from the dominated convergence theorem:  where we take a sequence over $t$ going to infinity, with dominator $C_f^2(1 + |\xi|)^{-2d}$ in $L^1$ and $|\hat{f}(\xi)| \le C_f^2(1 + |\xi|)^{-2d}$. Furthermore, we have $g_t(\xi) \rightarrow \hat{f}(\xi)$ as $t \rightarrow 0$, and $\hat{f}$ is continuous so $g_t$ is pointwise convergent, and we have
+$$|g_t(\xi)| = |\hat{f}(t^{-1}n)| \le C_f(1 + |t^{-1}n|)^{-d} \le C'(1 + |\xi|)^{-d}.$$
 \end{proof}
 
 
