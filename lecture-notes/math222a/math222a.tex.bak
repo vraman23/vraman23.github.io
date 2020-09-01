@@ -8,6 +8,25 @@
 \renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
 \declaretheorem[style=thmbluebox,name={Theorem}]{thm}
 
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+
+\let \phi \varphi
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+
+
 \begin{document}
 \title{Math 222a}
 \author{Vishal Raman}
@@ -28,7 +47,90 @@ $ $
 \tableofcontents
 \newpage
 %\maketitle
-\section{August 27th, 2020}
+\section{September 1st, 2020}
+\subsection{Introduction}
+Partial differential equations apply to functions $u: \R^n \rightarrow \R(\C)$, where $u$ refers to the space dimension.  Usually, $n \ge 2$($n=1$ corresponds to ODEs).   
 
+We present the following notation: \begin{itemize}
+\item $\frac{\partial}{\partial x_i} u = \partial_i u$
+\item There is also multi-index notation, where $\alpha = (\alpha_1, \dots, \alpha_n)$ and $\partial^\alpha u = \partial_1^{\alpha_1}\partial_2^{\alpha_2} \dots \partial_n^{\alpha_n} u$.  The size of $\alpha$ is given by $|\alpha| = \sum_{i=1}^n \alpha_i$.
+\item $C(\R^n)$, continuous functions in $\R^n$.
+\item $C(\Omega)$, $\Omega \subset \R^n$, continuous functions in $\Omega$.
+\item $C^1(\R^n), C^1(\Omega)$, continuously differentiable functions.
+\item $C^k(\R^n), C^k(\Omega)$, $k$-times differentiable.
+\item $C^\infty(\R^n) = \bigcap_{k=0}^{\infty} C^k(\R^n)$.
+\end{itemize}
 
+We consider an example PDE, 
+$$F(u, \partial u, \partial^2 u, \dots, \partial^k u) = 0.$$
+In the above, $k \ge 1$ and $k$ is the \textbf{order} of the equation.  We also have the shorthand $F(\partial ^{\le k}u) = 0$.  
+
+\subsection{Classification of PDE's}
+\begin{definition}[Linear PDE] The PDE is a linear function of its arguments.  We can apply multi-index notation, as follows:
+$$\sum_{|\alpha| < k} c_\alpha \partial^{\alpha}u = f(x).$$
+If $f(x) = 0$, the PDE is \textbf{homogeneous}, otherwise it is \textbf{inhomogeneous}.
+\end{definition}
+This can be separated into linear PDEs with constant coefficients, $c_{\alpha } \in \R, \C$ and variables coefficients, $c_{\alpha} = c_{\alpha}(x)$.  [In this class, we focus on constant coefficient PDEs, but many of the techniques can be extended to variable coefficient PDEs.]
+\begin{definition}[Nonlinear PDE]We look at a function $F = F(u, \partial u, \dots, \partial^k u)$.  The highest order terms are take the \textit{leading role}. 
+\begin{itemize}
+\item Semilinear PDE's: $F$ is linear, with constant or variable coefficients in $\partial^k u$: $$\sum_{|\alpha| = k} c_{\alpha}(x)\partial^\alpha u = N(\partial^{\le k-1}u).$$
+The LHS is called the principal part, and the RHS is the perturbative role.
+\item Quasilinear PDE's: 
+$$\sum_{|\alpha|=k} c_{\alpha}(\partial^{\le k-1} u) \partial^{\alpha}u = N(\partial^{\le k-1}u).$$
+\item Fully Nonlinear PDE's: $F(\partial^{\le k} u) = 0$, with a nonlinear dependence on $\partial^k u$.  
+\end{itemize}
+\end{definition}
+Some examples:
+\begin{itemize}
+\item Linear, homogeneous, variable coefficients, order 1:$$\sum_{k=1}^u c_k(x)\partial_k(u) = 0.$$
+\item Define $\Delta = \partial_1^2 + \dots + \partial_n^2$, the Laplacian operator.  We have a linear, constant coefficients, inhomogeneous, order 2:$$\Delta u = f.$$
+\item Semilinear, order 2: $$\Delta u = u^3.$$ [Note that translation invariance makes homogeneous vs inhomogeneous not useful for classification in the case of nonlinear PDE's.]
+\item Harmonic Map Equation:
+$$\Delta u = u |\nabla u|^2.$$
+It is still semilinear, but with a stronger nonlienarity.
+\item Monge Ampere Equation:
+$$\R^2, \partial_1^2 u \partial_2^2 u - (\partial_1 \partial_2 u)^2 = 0.$$
+It is a fully nonlinear equation.
+\end{itemize}
+
+\subsection{Initial Value Problems}
+We have various types of problems:
+\begin{itemize}
+\item (Stationary Problems) With $u : \R^n \rightarrow \R$,$$F(\partial^{\le k} u) = 0,$$ might describe an equilibrium configuration of a physical system.
+\item (Evolution Equations) With $u : \R\times \R^n\rightarrow \R$, $u(t, x)$ describes the state at time $t$.  We can think about the order in $x$ or in $t$. 
+\end{itemize}
+\begin{definition}[Initial Value Problem/Cauchy Problem] A PDE with initial conditions.
+\end{definition}
+\begin{example} Consider the heat equation:
+$$\partial_t u = \Delta_x u,$$
+$$ u(t = 0, x) = u_o(x).$$
+The equation is first order in $t$, but second order in $x$.
+\end{example} 
+\begin{example}
+In $[\R \times \R]$, the vibrating string:
+$$\partial_t^2 u = \partial_x^2 u,$$
+$$u(t=0, x) = u_0(x),$$
+$$\partial_t u(t=0, x) = u_1(x).$$
+Note that this equation is second order in time, and requires 2 pieces of initial data.
+
+An easier problem: Compute the Taylor series of $u$ at some point $(0, x_0)$. It requires $\partial_t^{\alpha} \partial_x^{\beta} u(0, x_0)$.  
+\begin{itemize}
+\item This is obvious if we have no time derivative or exactly 1.  
+\item Second order time derivatives come from the equation.
+\item Third order or higher time derivatives come from differentiating the equation:
+$$\partial_t^3 u = \partial_x^2 \partial_t u.$$
+\end{itemize}
+\end{example}
+\subsection{Boundary Value Problems}
+We begin with an example.
+\begin{example} Take $\Delta u = f$ in $\Omega \subset \R^3$, which represents equilibrium for temperature in a solid.  To solve, we need information about the boundary of $\Omega$.  For example,
+$$\Delta u = f \in \Omega,$$
+$$u = g \in \partial \Omega.$$
+\end{example}
+\subsection{Fluid Classification}
+We take $u : \R^n \rightarrow \R(\C)$, and 
+$$F(\partial^{\le k} u) =  0.$$
+This is considered to be a \textbf{scalar equation}.
+
+We could also take a \textbf{system} of equations, where $u: \R^n \rightarrow \R^m(\C^m)$, where $u = [u_i]$ a column of equations.  These are often more difficult than scalar equation.
 \end{document}

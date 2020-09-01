@@ -44,16 +44,10 @@ $ $
 \subsection{Example: Fibonacci Numbers} 
 Consider the sequence $0, 1, 1, 2, 3, 5, 8, ...$ defined by $F_0 = 0, F_1 = 1, F_n = F_{n-1} + F_{n-2}$ for $n \ge 2$.  We might write a function for calculating the $n$-th Fibonacci number as follows:
 \begin{lstlisting}[language=C++, caption={N-th Fibonacci Number}]
-#include <iostream>
-
-using namespace std;
-
 int fib(int n)
-{
     if (n == 0) return 0;
     if (n == 1) return 1;
     else return fib(n-1) + fib(n-2);
-}
 \end{lstlisting}
 
 \end{document}
