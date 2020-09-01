@@ -6,6 +6,7 @@
 \newif\ifevanfancy\evanfancytrue
 \newif\ifevanhdr\evanhdrtrue
 \newif\ifevanhref\evanhreftrue
+\newif\ifevansetup\evansetuptrue
 \newif\ifevanthm\evanthmtrue
 \newif\ifevansecthm\evansecthmfalse
 \newif\ifevanht\evanhtfalse
