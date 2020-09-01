@@ -153,5 +153,117 @@ $$\int_{\R^d}|g_t|^2 \rightarrow \int_{\R^d}|\hat{f}|^2,$$
 which follows from the dominated convergence theorem:  where we take a sequence over $t$ going to infinity, with dominator $C_f^2(1 + |\xi|)^{-2d}$ in $L^1$ and $|\hat{f}(\xi)| \le C_f^2(1 + |\xi|)^{-2d}$. Furthermore, we have $g_t(\xi) \rightarrow \hat{f}(\xi)$ as $t \rightarrow 0$, and $\hat{f}$ is continuous so $g_t$ is pointwise convergent, and we have
 $$|g_t(\xi)| = |\hat{f}(t^{-1}n)| \le C_f(1 + |t^{-1}n|)^{-d} \le C'(1 + |\xi|)^{-d}.$$
 \end{proof}
+\newpage
+\section{September 1st, 2020}
+\subsection{Proof of Plancherel's Theorem}
+Last time
+\begin{itemize}
+\item $\R^d$, $$\hat{f}(\xi) = \int_{\R^d} e^{-ix \cdot \xi} f(x)dx.$$
+\item $V = (f \in L_1 \cap L_2(\R^d)) : |\hat{f}(\xi)|\left <\xi \right >^d$ is a bounded linear function, $\left< x\right > = (1 + |x|^2)^{1/2} \ge 1, = |x|$ for $x$ large.
+\item Claim: $V$ is dense in $L^2(\R^d)$.  Then $\|\hat{f}\|_{L^2} = (2\pi)^{d/2}\|f\|_{L^2}$ for all $f \in V$ so there exists a unique bounded linear operator $\mathscr{F}$ on $L^2(\R^d)$, where $\mathscr{F}$ takes a function to it's fourier transform.
+\item We discussed some properties of $\mathscr{F}$.
+\begin{itemize}
+\item $\|\mathscr{F}f\|_2 = (2\pi)^{d/2} \|f\|_2$
+\item $\mathscr{F}$ is onto.
+\item For all $f \in L^2$, $$\left\|f - (2\pi )^{-d} \int_{|\xi| \le R}e^{ix \cdot \xi}\mathscr{F}(f)(\xi) d\xi \right \|_{L^2}\rightarrow 0,$$
+in the limit where $R \rightarrow \infty$.
+\end{itemize}
+\end{itemize}
+First note that $\mathscr{F}$ has closed range(this was an exercise).  It suffices to show: If $g \in L^2, g \perp \mathscr{F}(f) $ for all $f \in V$, then $g = 0$.
+\begin{proof} First, note that 
+$$0 = \left <g, \mathscr{F}(f)\right >= \left <\mathscr{F}^*(g),f\right >,$$ 
+and for all $g \in V$, $$\mathscr{F}^*g(x) = \int g(\xi)e^{ix \cdot \xi}d\xi$$
+Therefore, $\mathscr{F}^*(g)(x) = (\mathscr{F}g)(-x)$ for all $g \in V$, which is dense in $L^2$.  Hence, $\mathscr{F}g = 0$, and the Fourier transform preserves norms, so $g = 0$.
+\end{proof}
+We also claimed the following:
+Let $f \in L^2$:
+$$\|f(x) - (2\pi)^{-d}\int_{|\xi| \le R} (\mathscr{F}f)(\xi)e^{ix\cdot \xi}d\xi\|_2^2 \rightarrow 0.$$
+\begin{proof}
+Let $g_r = (2\pi)^{-d}\int_{|\xi| \le R} (\mathscr{F}f)(\xi)e^{ix\cdot \xi}d\xi$.We have to show $\langle f, g_r \rangle \rightarrow \|f\|_2^2$.  Then
+$$\|f - g_r\|_2^2 = \|f\|_2^2 + \|g_r\|_2^2 - 2 \text{Re}\langle f, g_r \rangle \rightarrow \|f\|_2^2 + \|f\|_2^2 - 2 \|f\|_2^2.$$
+\begin{align*}
+\left <f, g_R\right > &= (2\pi)^{-d} \int f(x) \overline{\int_{|\xi| \le R} (\mathscr{F}f)(\xi)e^{ix \cdot \xi}d\xi} dx\\
+&= (2\pi)^{-d} \int_{|\xi| \le R} \left (\int f(x)e^{-ix \cdot \xi} dx\right ) \overline{(\mathscr{F}f)(\xi) d\xi}\\
+&= (2\pi)^{-d} \int_{|\xi| \le R} |\mathscr{F}f(\xi)|^2 d\xi \rightarrow (2\pi)^{-d} \|\mathscr{F}f\|_2^2 = \|f\|_2^2.
+\end{align*}
+However, it's not clear that we can use Fubini's theorem.  We would need $f \in L^1 \cap L^2$.  But this is not an issue as $L^1 \cap L^2 \subset L^2$ is dense, so if we let $\epsilon > 0, f = G+h, \|h\|_2 \le \epsilon$ and $G \in L^1 \cap L^2$.  Showing the convergence from here is an exercise.
+\end{proof}
+We still need $V = (f \in L^1 \cap L^2 : \left <\xi\right>^d (\hat{f}(\xi)) \text{ is bounded})$ is dense in $L^2$.  We'll discuss this in the future.
+\subsection{Introduction to Convolution}
+Our meta definition is $f * g(x) = \int f(x-y)g(y) dy$, but it will depend on the conditions of the function for the integral to be defined.
 
+ Convolution is generally associated to a group, where
+$$\int_G f(xy^{-1}g(y)d\mu(y)),$$
+with the Haar measure(done in 202b).
+
+If we substitute $y = x-u$, then $$f *g(x) = \int f(u)g(x-u)du = g * f(x).$$  It is also associative: $(f * g)* g = f * (g * h)$ for all $f, g, h$(involves Fubini's theorem).
+
+We can formally write
+$$f * g(x) = \int_{\R^d \times \R^d} f(u)g(v) d\lambda_x(u, v),$$
+where $\lambda_x$ is supported on $\Lambda = \{(u, v) : u+v = \lambda \}$(an affline subspace).  If we have a subset $E \subset \Lambda$, $\lambda_x(E) = |\pi_1(E)| = |\pi_2(E)|$, where $\pi_i$ are Lebesgue measure s of projections on the $i$-th factor.  Note the following: suppose that $f, g$ are continuous with compact support.  Then $\text{supp}(f * g) \subset \text{supp}(f) + \text{supp}(g)$, where $A + B = \{a+b : (a, b) \in A \times B\}$.
+
+Let $T : C_0^0(\R^d) \rightarrow C_b^0(\R^d)$ be bounded, linear and $T \circ \tau_y  = \tau_y \circ T$ for all $x \in \R^d$ ($\tau_y f(x) = f(x + y)$, a translation).  Then, there exists a Complex Radon measure $\mu$ on $\R^d$ so that for all $f \in C_{0}^0$, $T(f) = f * \mu$, where 
+$$f * \mu(x) = \int f(x-y) d\mu(y).$$
+
+In the case of $\T^1$, $f(x) = \sum_{n = -\infty}^{\infty} \hat{f}(n) e^{inx}$ for all $f \in L^2$. Suppose we wanted to consider the partial sums, 
+$$\sum_{n  = -N}^N \hat{f}(n)e^{inx} = S_N(f)(x).$$
+In what sense does $S_N f \rightarrow f$, and for which functions $f$ do we have convergence?
+
+$$S_N(f)(x) = \sum_{n = -N}^N e^{inx}(2\pi)^{-1}\int_{-\pi}^{\pi} f(y)e^{-iny}dy = (2\pi)^{-1} \int f(y) \sum_{n = -N}^N e^{in(x-y)} dy$$
+$$= (2\pi)^{-1} \int_{-\pi}^{\pi} f(y) D_n(x-y)dy.$$
+
+The Dirichlet Kernels, $D_N(x) = \sum_{n = -N}^N e^{inx} = \frac{\sin{(N+1/2)x}}{\sin{(x/2)}}$ if $x \ne 0$ or $D_N(x) = 2N+1$ if $x = 0$.
+\subsection{General Convolution}
+\begin{thm} Let $f, g \in L^1(\R^d)$.  Then, the following are true:
+\begin{itemize}
+\item $y \mapsto f(x-y)g(y) \in L^1(\R^d)$ for almost every $x \in \R^d$.
+\item $x \mapsto \int f(x-y)g(y) dy$ is Lebesgue measurable.
+\item $f * g \in L^1(\R^d)$ and $\|f * g\|_1 \le \|f\|_1 \|g\|_1$.
+\item If $f, g \ge 0$, then $\|f * g\|_1 = \int f * g = \int f \int g$.
+\item The operation commutative and associative, so $L^1$ is an algebra, but it no multiplicative identity, so no inverses.
+\item For $f, g \in L^1$, $(\hat{f \star g}) = \hat{f}\cdot\hat{g}$.
+\end{itemize}
+In other words, convolution is a nice bilinear operation.
+\end{thm}
+\begin{proof}
+Let $F(x, y) = f(x-y)g(y)$, $F : \R^{d+d} \rightarrow \C$ is Lebesgue measurable. We claim that $F \in L^1(\R^d \times \R^d)$. It follows from  
+$$\int |F(x, y)|dxdy = \int |f(x-y)| |g(y)| dx dy = \int |g(y)| dy  \int |f(x)|dx = \|g\|_1\|f\|_1 < \infty.$$
+
+Now, $F \in L^1$, so by Fubini's theorem, for almost every $x, y \rightarrow f(x-y)g(y) \in L^1$ and $x \mapsto \int f(x-y)g(y) dy$ is Lebesgue measurable.
+
+$$ \|f* g\|_1=\int |f*g(x)|dx = \int \left |\int f(x-y)g(y)dy\right |dx \le \int \int |f(x-y)||g(y)|dy dx = \|f\|_1\|g\|_1.$$
+
+Note that $\int (f * g)(x)dx = \|f\|_1\|g\|_1,$ for non-negative functions.
+
+Finally, 
+\begin{align*}
+(f*g)^\wedge (\xi) &= \int e^{-ix \cdot \xi} \left (\int f(x-y)g(y)dy\right)dx \\
+&= \int \left (\int e^{-ix\cdot \xi}f(x-y)dx\right ) dy, x = u+y\\
+&= \int \left (e^{-i(u+y)\cdot \xi}f(u)du\right)g(y)dy \\
+&= \int e^{-iy\cdot \xi} \hat{f}(u)g(y)dy\\
+&= \hat{f}(\xi) \cdot \hat{g}(\xi).
+\end{align*}
+\end{proof}
+\begin{example}[A Warning] In $\R^1$, $f(x) = |x|^{-2/3} 1_{|x| \le 1}$, which has an asymptote at $0$.  $f \in L^1$, and 
+$$(f*f)(0) = \int_{-1}^1 |u|^{-4/3}dy= + \infty.$$
+\end{example}
+\begin{proposition} Let $p \in [1, \infty]$.  Let $f \in L^1, g \in L^p$.  Then,
+\begin{itemize}
+\item $y \mapsto f(x-y) g(y) \in L^1$ for almost every $x \in \R^d$.
+\item $x \mapsto \int f(x-y)g(y)dy$ is Lebesgue measurable.
+\item $f*g \in L^p(\R^d)$, $\|f * g\|_p \le \|f\|_1 \|g\|_p$.
+\end{itemize}
+\end{proposition}
+\begin{proof} 
+For $p = \infty$, $\int f(x-y)g(y)dy \in C_0(\R^d)$.  
+
+If $1 < p < \infty$, $L^P \subset L^1 + L^\infty$, as follows:
+$$f(x) = f(x)1_{|f(x)| \le 1} + f(x)1_{f(x) > 1}.$$
+
+We can prove the rest with Minkowski's inequality, or a simpler way.  Let $q = p' = \frac{p}{p-1}$ (hence $\frac{1}{q} + \frac{1}{p} = 1$).  
+We use the norm definition,
+$$\|f * g\|_p = \sup_{\|h\|_q \le 1} \int |g* f| \cdot |h|. $$
+$$\int |g*f|\cdot h \le \int (|g|*|f|)\cdot h = \int \int |g(x-y)||f(y)|dy h(x)dx$$
+$$= \int |f(y)| \int |g(x-y)s|h(x)dxdy \le \int |f(y)| \|g\|_p *1 dy = \|f\|_1 \|g\|_p.$$
+\end{proof}
 \end{document}

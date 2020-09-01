@@ -132,5 +132,20 @@ We take $u : \R^n \rightarrow \R(\C)$, and
 $$F(\partial^{\le k} u) =  0.$$
 This is considered to be a \textbf{scalar equation}.
 
-We could also take a \textbf{system} of equations, where $u: \R^n \rightarrow \R^m(\C^m)$, where $u = [u_i]$ a column of equations.  These are often more difficult than scalar equation.
+We could also take a \textbf{system} of equations, where $u: \R^n \rightarrow \R^m(\C^m)$, where $u = [u_i]$ a column of equations.  These are often more difficult than scalar equation.  We should have 
+$$F(\partial^{\le k} u) = 0,$$
+but $F : \R^{(\cdot)} \rightarrow \R^m(\C^m).$
+\begin{example} A 2-system:
+$$\Delta u = v,$$
+$$\Delta v = -u.$$
+\end{example}
+We can often reduce the order of a scalar equation by turning it into a system:
+\begin{example} Consider the vibrating string, $$\partial_t^2 u = \partial_x^2 u.$$
+If we take $v = \partial_t u$, the it suffices to solve the system,
+$$\partial_t u = v,$$
+$$\partial_t v = \partial_x^2 u.$$
+We van reduce it further by saying $u_1 = \partial_x u, u_2 = \partial_t u$ for the system,
+$$\partial_t u_1 = \partial_x u_2,$$
+$$\partial_t u_2 = \partial_x u_1.$$
+\end{example}
 \end{document}
