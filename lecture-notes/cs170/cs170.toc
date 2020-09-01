@@ -1,2 +1,3 @@
-\contentsline {section}{\numberline {1}August 27th, 2020}{3}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Example: Fibonacci Numbers}{3}{subsection.1.1}% 
+\contentsline {section}{\numberline {1}September 1st, 2020}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Naive Multiplication}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Divide and Conquer: Karatsuba's Algorithm}{3}{subsection.1.2}% 
