@@ -261,7 +261,9 @@ If $1 < p < \infty$, $L^P \subset L^1 + L^\infty$, as follows:
 $$f(x) = f(x)1_{|f(x)| \le 1} + f(x)1_{f(x) > 1}.$$
 
 We can prove the rest with Minkowski's inequality, or a simpler way.  Let $q = p' = \frac{p}{p-1}$ (hence $\frac{1}{q} + \frac{1}{p} = 1$).  
-
-$$\|f * g\|_p = $$
+We use the norm definition,
+$$\|f * g\|_p = \sup_{\|h\|_q \le 1} \int |g* f| \cdot |h|. $$
+$$\int |g*f|\cdot h \le \int (|g|*|f|)\cdot h = \int \int |g(x-y)||f(y)|dy h(x)dx$$
+$$= \int |f(y)| \int |g(x-y)s|h(x)dxdy \le \int |f(y)| \|g\|_p *1 dy = \|f\|_1 \|g\|_p.$$
 \end{proof}
 \end{document}

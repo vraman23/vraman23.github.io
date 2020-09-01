@@ -12,6 +12,10 @@
 \newcommand{\T}{\mathbb T}
 
 \let \phi \varphi
+\let \hat \widehat
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
 
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
@@ -221,7 +225,7 @@ The Dirichlet Kernels, $D_N(x) = \sum_{n = -N}^N e^{inx} = \frac{\sin{(N+1/2)x}}
 \item $f * g \in L^1(\R^d)$ and $\|f * g\|_1 \le \|f\|_1 \|g\|_1$.
 \item If $f, g \ge 0$, then $\|f * g\|_1 = \int f * g = \int f \int g$.
 \item The operation commutative and associative, so $L^1$ is an algebra, but it no multiplicative identity, so no inverses.
-\item For $f, g \in L^1$, $(\hat{f \star g}) = \hat{f}\cdot\hat{g}$.
+\item For $f, g \in L^1$, $(\widehat{f \star g}) = \widehat{f}\cdot\widehat{g}$.
 \end{itemize}
 In other words, convolution is a nice bilinear operation.
 \end{thm}
@@ -264,6 +268,6 @@ We can prove the rest with Minkowski's inequality, or a simpler way.  Let $q = p
 We use the norm definition,
 $$\|f * g\|_p = \sup_{\|h\|_q \le 1} \int |g* f| \cdot |h|. $$
 $$\int |g*f|\cdot h \le \int (|g|*|f|)\cdot h = \int \int |g(x-y)||f(y)|dy h(x)dx$$
-$$= \int |f(y)| \int |g(x-y)s|h(x)dxdy \le \int |f(y)| \|g\|_p *1 dy = \|f\|_1 \|g\|_p.$$
+$$= \int |f(y)| \int |g(x-y)|h(x)dxdy \le \int |f(y)| \|g\|_p *1 dy = \|f\|_1 \|g\|_p .$$
 \end{proof}
 \end{document}
