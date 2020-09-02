@@ -2,6 +2,8 @@
 \usepackage[sexy]{evan}
 \usepackage{graphicx}
 
+
+
 \usepackage{answers}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -9,6 +11,10 @@
 \renewcommand{\solutionextension}{out}
 \renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
 \declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 \lstset{
     frame=tb, % draw a frame at the top and bottom of the code block
@@ -30,8 +36,8 @@ $ $
 
 \centerline{\huge \textbf{CS 170 Lecture Notes, Fall 2020}}
 \centerline{\Large \textbf{Algorithms and Intractable Problems} } 
-\centerline{Professor: Avishay Tal, Umesh Vazirani}
-\centerline{Vishal Raman}
+\centerline{Professors: Avishay Tal, Umesh Vazirani}
+\centerline{Scribe: Vishal Raman}
 \end{center}
 \vfill
 $ $
@@ -79,4 +85,26 @@ $$T(n) = 4T\left (\frac{n}{2}\right ) + O(n).$$
 \includegraphics[scale=0.5]{rec.png}
 \end{center}
 Note that the depth of the recursion tree is $\log n$ and there are $4^{\log n} = n^2$ leaves.  But this would have the same runtime as the naive algorithm, so more work is required to optimize.
+
+We note the following trick from Gauss:
+$$(a+bi)(c+di) = (ac-bd) + (ad+bc),$$
+and note that $$(a+b)(c+d) = (ac+bd) + (ad+bc),$$
+so it suffices to compute $ac, bd, (a+b)(c+d)$, since $(a+b)(c+d)-ac-bd = ad+bc$, which is the other term.
+
+We can apply the trick in the following way:
+$$(2^{n/2}x_L + x_R)(2^{n/2}y_L + y_R) = 2^n x_Lx_L + 2^{n/2}(x_Ly_R + x_Ry+L) + x_Ry_R$$
+and $$(x_L+x_R)(y_L+y_R) = x_Ly_L + x_Ry_R + (x_Ly_R+y_Lx_R).$$
+Our new recurrence relation is
+$$T(n) = 3T\left (\frac{n}{2}\right ) + O(n).$$
+Now, the branching factor is only $3$, so the number of leaves is given by $$3^{\log n} = n^{\log 3}.$$
+
+\subsection{Master Theorem}
+We have the following method of solving recurrence relations:
+\begin{thm}[Master Theorem] If $T(n) = aT(\ceil{n/b}) + O(n^d)$ for constants $a > 0, b > 1, d \ge 0$, then
+$$T(n) = \begin{cases}
+O(n^d) & \text{ if } d > \log_b a \\ 
+O(n^d \log n) & \text{ if } d = log_b a \\
+O(n^{\log_b a}) & \text{ if } d < log_b a
+\end{cases}$$
+\end{thm}
 \end{document}
