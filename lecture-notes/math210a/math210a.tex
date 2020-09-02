@@ -1,0 +1,92 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\E}{\mathbb E}
+\newcommand{\PP}{\mathbb P}
+
+
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cU}{\mathcal{U}}
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+
+\begin{document}
+\title{Math 210a}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{Math 210a Lecture Notes, Fall 2020}}
+\centerline{\Large \textbf{Theoretical Statistics} } 
+\centerline{Professor: William Fithian}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+\section{August 27th, 2020}
+\subsection{Measure Theory Basics}
+\begin{definition}[Informal Measure] Given a set $X$, a measure $\mu$ is a map from the subsets $A \subseteq X$ to $[0, \infty]$. 
+\end{definition}
+Some examples include:
+\begin{itemize}
+\item The Counting Measure:  $X$ is countable, $\nu(A) = |A|$, the cardinality of $A$.
+\item The Lebesgue Measure: $X = \R^n$, $\lambda(A) = \int_A dA =$ Volume$(A)$.
+\item Standard Gaussian Distribution: Take $\phi(x) = \frac{1}{(2\pi)^{n/2}}e^{-\frac{1}{2}\sum_{x_i^2}}$.  Then
+$$P(A) = \int_A \phi(x)dA.$$
+For $Z \sim N_n(0, I_n)$, it is denoted $\mathbb{P}$.
+\end{itemize}
+In general, the domain of a measure $\mu$ is not be all subsets of $X$.  We require $\SF \subseteq 2^X$ to be a $\sigma$-field/algebra.   
+Examples of $\sigma$-algebras:
+\begin{itemize}
+\item If $X$ is countable, $\SF = 2^X$ is a sigma-field.
+\item if $X = \R^n$, $\SF$ is the smallest sigma-field containing all the open rectangles of $\R^n$.
+\end{itemize}
+\begin{definition}[Formal Measure] Given a \textbf{measurable space} $(X, \SF)$, a measure is a map $\mu: \SF \rightarrow [0, \infty]$ satisfying the property that 
+$$\mu\left (\bigcup_{i=1}^{\infty} A_i\right ) = \sum_{i=1}^{\infty} \mu(A_i)$$ for disjoint $A_i$.
+\end{definition}
+\begin{definition}[Probability Measure] $\mu$ is a probability measure if it is a measure with $\mu(X) = 1$.
+\end{definition}
+Measures give us a "weight" of sets in a space.  We first define 
+$$\int 1\{x \in A\}d\mu(x) = \mu(A).$$
+Then, $$\int \sum_{i=1}^{\infty} c_i 1\{x \in A_i\}d\mu(x) = \sum_{i=1}^{\infty} c_i \mu(A_i).$$
+For other nice functions, we can approximate them by taking limits of functions of the above form.
+Examples of integrals:
+\begin{itemize}
+\item Counting: $\int f d\nu = \sum_{x \in X} f(x)$.
+\item Lebesgue: $\int f d\mu = \int_X f(x)dx_1\dots dx_n$.
+\item Gaussian: $\int f dP = \int_X f(x)\phi(x)dx_1 \dots dx_n = \E[f(z)]$ for random normal variables.
+\end{itemize}
+\subsection{Densities}
+We can see that the Lebesgue and Gaussian measures are very similar.  
+\begin{definition}[Absolutely Continuous] Given $(X, \SF)$, two measures $P, \mu$, $P$ is absolutely continuous with respect to $\mu$(or $P << \mu$ or $\mu$ dominates $P$) if $P(A) = 0$ whenever $\mu(A) = 0$.
+\end{definition}
+\begin{definition}[Radon-Nikodym Derivative]
+If $P << \mu$, we can also define a density function $p: X \rightarrow [0, \infty]$ with $P(A) = \int_A p(x)d\mu(x)$.  We write $p(x) = \frac{dP}{d\mu}(x)$, and it is called the \textbf{Radon-Nikodym derivative}.
+\end{definition}
+If $P$ is a probability measure, $\mu$ Lebesgue, then $p(x)$ is called a \textbf{probability density function}(pdf).  If $\mu$ is a counting measure, then $p(x)$ is called a \textbf{probability mass function}.
+\end{document}

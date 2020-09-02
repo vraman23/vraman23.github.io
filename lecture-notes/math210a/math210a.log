@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  2 SEP 2020 18:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  2 SEP 2020 12:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**cs189.tex
-(./cs189.tex
+**math210a.tex
+(./math210a.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
@@ -193,7 +193,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (/usr/local/texlive/2019/texmf-dist/tex/latex/asymptote/asymptote.sty
 Package: asymptote 2016/11/26 v1.33 Asymptote style file for LaTeX
 
-(./cs189.pre)
+(./math210a.pre)
 \ASYbox=\box31
 \ASYdimen=\dimen112
 \c@asy=\count101
@@ -201,8 +201,7 @@ Package: asymptote 2016/11/26 v1.33 Asymptote style file for LaTeX
 \AsyPreStream=\write4
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -252,7 +251,7 @@ Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )))
-\openout4 = `cs189.pre'.
+\openout4 = `math210a.pre'.
 
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -1391,29 +1390,30 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 ))
 \c@hintitem=\count324
 \c@thm=\count325
- (./cs189.aux)
-\openout1 = `cs189.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 42.
+(./math210a.aux)
+\openout1 = `math210a.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 31.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    ... okay on input line 31.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1446,7 +1446,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box71
-Package hyperref Info: Link coloring ON on input line 42.
+Package hyperref Info: Link coloring ON on input line 31.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1456,13 +1456,13 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count332
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
-LaTeX Info: Redefining \nameref on input line 42.
+LaTeX Info: Redefining \ref on input line 31.
+LaTeX Info: Redefining \pageref on input line 31.
+LaTeX Info: Redefining \nameref on input line 31.
 
-(./cs189.out) (./cs189.out)
+(./math210a.out) (./math210a.out)
 \@outlinefile=\write6
-\openout6 = `cs189.out'.
+\openout6 = `math210a.out'.
 
 Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           Using `bookmark' together with `hyperref' is recommended,
@@ -1470,7 +1470,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           You can avoid loading `bookmark' with KOMA-Script option
 (scrartcl)           `bookmarkpackage=false' before \begin{document} and
 (scrartcl)           you can avoid this message with `\usepackage{bookmark}'
-(scrartcl)           before \begin{document} on input line 42.
+(scrartcl)           before \begin{document} on input line 31.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -1494,28 +1494,28 @@ Package tocstyle Warning: Usage of `tocstyle' with new `tocbasic' detected.
 (tocstyle)                You may also get additional warnings because of
 (tocstyle)                redefined `\numberline'. Ignore them.
 
-Package tocstyle Info: prepare \l@part for redefinition on input line 42.
-Package tocstyle Info: prepare \l@section for redefinition on input line 42.
-Package tocstyle Info: prepare \l@subsection for redefinition on input line 42.
+Package tocstyle Info: prepare \l@part for redefinition on input line 31.
+Package tocstyle Info: prepare \l@section for redefinition on input line 31.
+Package tocstyle Info: prepare \l@subsection for redefinition on input line 31.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 42.
+LaTeX Font Info:    Try loading font information for U+msa on input line 31.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 42.
+LaTeX Font Info:    Try loading font information for U+msb on input line 31.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 42.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 31.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 Package tocstyle Info: prepare \l@subsubsection for redefinition on input line 
-42.
-Package tocstyle Info: prepare \l@table for redefinition on input line 42.
-Package tocstyle Info: prepare \l@figure for redefinition on input line 42.
+31.
+Package tocstyle Info: prepare \l@table for redefinition on input line 31.
+Package tocstyle Info: prepare \l@figure for redefinition on input line 31.
 
 
 Package tocstyle Warning: unexpected \@dottedtocline definition!
@@ -1534,9 +1534,9 @@ p \parindent #2\relax \@afterindenttrue \interlinepenalty \@M \leavevmode \@tem
 pdima #3\relax \advance \leftskip \@tempdima \null \nobreak \hskip -\leftskip {
 #4}\nobreak \leaders \hbox {$\m@th \mkern \@dotsep mu\hbox {.}\mkern \@dotsep m
 u$}\hfill \nobreak \hb@xt@ \@pnumwidth {\hfil \normalfont \normalcolor #5\kern 
--\p@ \kern \p@ }\par }\fi  on input line 42.
+-\p@ \kern \p@ }\par }\fi  on input line 31.
 \c@lstlisting=\count334
-LaTeX Info: Redefining \microtypecontext on input line 42.
+LaTeX Info: Redefining \microtypecontext on input line 31.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1556,44 +1556,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package tocbasic Info: character protrusion at toc deactivated on input line 59
+Package tocbasic Info: character protrusion at toc deactivated on input line 48
 .
- (./cs189.toc
+ (./math210a.toc
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
 text indent calculated (toc, 1): 12.04504pt
 number indent calculated (toc, 1): 0.0pt
-number indent by \l@... (toc, 2):  16.42503pt
-text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
-number indent by \l@... (toc, 2):  16.42503pt
-text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
-number indent by \l@... (toc, 2):  16.42503pt
-text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
-number indent by \l@... (toc, 2):  16.42503pt
-text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
-number indent by \l@... (toc, 1):  0.0pt
-text indent by \l@... (toc, 1):  16.42503pt
-number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
-number indent calculated (toc, 1): 0.0pt
-number indent by \l@... (toc, 2):  16.42503pt
-text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  12.04504pt
@@ -1606,10 +1576,10 @@ text indent calculated (toc, 2): 19.46669pt
 number indent calculated (toc, 2): 12.04504pt
 )
 \tf@toc=\write7
-\openout7 = `cs189.toc'.
+\openout7 = `math210a.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for TS1+cmss on input line 62.
+LaTeX Font Info:    Try loading font information for TS1+cmss on input line 51.
 
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1619,101 +1589,50 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
-nput line 66.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 78.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
-t line 78.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 95.
-
-Overfull \hbox (26.9948pt too wide) in paragraph at lines 98--99
-\OT1/cmr/m/n/10.95 (-20) We model the prob-lem as a Least-Squares prob-lem. We 
-have points $(\OML/cmm/m/it/10.95 x[]; y[]\OT1/cmr/m/n/10.95 (-20) )\OML/cmm/m/
-it/10.95 ; \OT1/cmr/m/n/10.95 (-20) (\OML/cmm/m/it/10.95 x[]; y[]\OT1/cmr/m/n/1
-0.95 (-20) )\OML/cmm/m/it/10.95 ; [] ; \OT1/cmr/m/n/10.95 (-20) (\OML/cmm/m/it/
-10.95 x[]; y[]\OT1/cmr/m/n/10.95 (-20) )$.
- []
-
-[3]
-<matrixMultiply.png, id=90, 677.53125pt x 215.80624pt>
-File: matrixMultiply.png Graphic file (type png)
-<use matrixMultiply.png>
-Package pdftex.def Info: matrixMultiply.png  used on input line 116.
-(pdftex.def)             Requested size: 338.76479pt x 107.90285pt.
-<svd.png, id=92, 877.2775pt x 232.87pt>
-File: svd.png Graphic file (type png)
-<use svd.png>
-Package pdftex.def Info: svd.png  used on input line 131.
-(pdftex.def)             Requested size: 438.63768pt x 116.43471pt.
-
-Overfull \hbox (20.38213pt too wide) in paragraph at lines 131--132
- [] 
- []
-
-[4 <./matrixMultiply.png> <./svd.png>] [5]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 161.
- [6]
-<graph.png, id=122, 353.32pt x 199.74625pt>
-File: graph.png Graphic file (type png)
-<use graph.png>
-Package pdftex.def Info: graph.png  used on input line 184.
-(pdftex.def)             Requested size: 176.65956pt x 99.87288pt.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 196.
- [7 <./graph.png>]
-<lambda.png, id=131, 384.43625pt x 155.58125pt>
-File: lambda.png Graphic file (type png)
-<use lambda.png>
-Package pdftex.def Info: lambda.png  used on input line 227.
-(pdftex.def)             Requested size: 288.32648pt x 116.68564pt.
- [8 <./lambda.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 230.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
- (./cs189.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 230.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
-Package rerunfilecheck Info: File `cs189.out' has not changed.
+nput line 53.
+ [3]
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+ (./math210a.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
+Package rerunfilecheck Info: File `math210a.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
  ) 
 Here is how much of TeX's memory you used:
- 39039 strings out of 492616
- 768009 string characters out of 6129482
- 986845 words of memory out of 5000000
- 42358 multiletter control sequences out of 15000+600000
- 543533 words of font info for 77 fonts, out of 8000000 for 9000
+ 38816 strings out of 492616
+ 763105 string characters out of 6129482
+ 984648 words of memory out of 5000000
+ 42167 multiletter control sequences out of 15000+600000
+ 542861 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,21n,91p,9107b,1007s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,20n,91p,9110b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr
-/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
-/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on cs189.pdf (8 pages, 1048166 bytes).
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texl
+ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/tex
+live/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
+Output written on math210a.pdf (4 pages, 176866 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 14537 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 12421 words of extra memory for PDF output out of 14400 (max. 10000000)
 
