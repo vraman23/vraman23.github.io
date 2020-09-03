@@ -148,4 +148,85 @@ We van reduce it further by saying $u_1 = \partial_x u, u_2 = \partial_t u$ for 
 $$\partial_t u_1 = \partial_x u_2,$$
 $$\partial_t u_2 = \partial_x u_1.$$
 \end{example}
+\newpage
+\section{September 3rd, 2020}
+\subsection{Picard-Lindeloff Theorem}
+Consider the example, $x' = f(x), x(0) = x_0$, $x: \R \rightarrow \R^n$.  We ask for existence, uniqueness,  continuous dependence on initial data.
+\begin{definition}[Locally Lipschitz]
+A \textbf{Lipschitz} continuous function $f$ is one that satisfies, $$|f(x) - f(y)| \le c|x-y|.$$  A function is \textbf{Locally Lipschitz} if for each $R$, there exists $c(R)$ such that 
+$$|f(x) - f(y)| \le c(r)|x - y|, x, y \in \text{Ball}(0, R).$$
+
+As examples, $f(x) = x$ is Lipschitz, $f(x) = x^2$ is not Lipschitz, but is locally Lipschitz.
+\end{definition}
+
+\begin{definition}[Locally well-posed] For each $x_0 \in \R^n$, there exists $T > 0$(lifespan) and a unique solution $u \in C^1[0, T; \R^n]$ with the property that $u_0 = x_0$ and the solution has a Lipschitz dependence on the data: $x_0, y_0$ initial data, $T = T(x_0)$.  For $T_1 < T$, there exists $\epsilon > 0$ such that if $|y_0 - x_0| \le \epsilon$ then $T(y) > T_1$ and $$\sup_{t \in [0, T_1]} |x(t) - y(t)| \le \tilde{C}|x_0 - y_0|.$$
+\end{definition}
+\begin{center}
+\includegraphics[scale=0.5]{localLipschitz.png}
+\end{center}
+\begin{thm}[Picard-Lindelof] Assume that $f$ is locally Lipschitz continuous.  Then the ODE is locally well-posed.
+\end{thm}
+
+\subsection{Contraction Principle}
+We will use the "Contraction principle" - recall the following definitions:
+\begin{definition}[Fixed-point Problem] Let $X$ be a Banach space,let $D \subset X$ be a closed subset of $X$, and let $F : D \rightarrow D$. Question: Can we solve the equation $F(u) = u$ where $u \in D$.
+\end{definition}
+\begin{definition}[Contraction] $$\|F(u) - F(v)\|_X \le L\|u - v\|,$$
+where $L < 1$.
+\end{definition}
+If $F$ is a contraction, then it has a unique fixed point.  The existence proof follows an iterative construction: start with an arbitrary element $u_0 \in D$ and define $u_{n+1} = F(u_n)$.  We would show $\{u_n\}$ is a Cauchy sequence, so it converges.
+
+We now prove the theorem.  We have $x' = f(x), x(0) = x_0$, so 
+$$x(t) = x_0 + \int_{0}^t f(x(s))ds, t \in [0, T].$$
+We choose $X = C[0, T; \R^n]$, $F(x)(t) = x_0 + \int_{0}^t f(x(s))ds.$ Then $x$ solves the ODE in $(0, T)$ if $F(x) = x$.
+\begin{center}
+\includegraphics[scale=0.5]{ball.png}
+\end{center}
+We have to choose $R, T$.  Then
+$$D = \{x \in X : \|x - x_0 \|_X \le R\}.$$
+
+Let $R = |x_0|$.  Next, we choose $T$ so that $F : D \rightarrow D$ is Lipschitz.  For $F: D \rightarrow D$, we estimate the size of $F(x) - x_0$.
+\begin{align*}
+F(x)(t) - x_0| &= \left |\int_0^t f(x(s))ds\right | \\
+&\le \left |\int_0^t f(x_0(s))ds\right | + \left | \int_0^t f(x) - f(x_0) ds \right | \\
+&\le T |f(x_0)| + CT\|x - x_0\|_X  \\
+\end{align*}
+Hence,
+$$\|F(x) - x_0\| \le T(|f(x_0)| + CR).$$
+Thus, we choose $T$ such that $T(|f(x_0)| + CR) \le R$.
+
+Now look at differences: For $x, y \in D$,
+\begin{align*}
+|F(x)(t) - F(y)(t)| &\le \int_{0}^t |f(x(s)) - f(y(s))| ds\\
+&\le T C\sup_{s \in [0, T]} |x(s) - y(s)| \\
+\end{align*}
+thus,
+$$\|F(x) - F(y)\|_X \le CT \|x - y\|_X,$$
+so we can choose $T$ so that $CT\|x-y \|_X < 1$.
+
+By the contraction principle, there exists a unique solution $x \in D$.  
+
+To prove uniqueness of a solution, we have to show that any solution has to stay in $D$, up to time $T$.
+
+\begin{center}
+\includegraphics[scale=0.5]{unique.png}
+\end{center}
+Suppose a solution $\tilde{x}$ leave the ball before time $T$.  We repeat the above computation up to the exit time $T_0$.  Then, $T_0(|f(x_0) + CR|) < T$, since $T_0 < T$.  This is a contradiction since $T_0$ is the exit time.
+
+\subsection{Bootstrap Argument}
+Consider a bootstrap argument:  try to solve an equation and show that the solution $x$ satisfies some bound $\|x\|_T \le R$.  The difficulty is that a priori, we do not know any bound on $\|x\|_T$.  The solution:  make a bootstrap assumption, $\|x\|_T \le 2R$ and show that $\|x \|_T \le R$ under this assumption.  
+\begin{center}
+\includegraphics[scale=0.5]{bootstrap.png}
+\end{center}
+
+So far, we know uniqueness in $[0, T]$, where $T=T(x_0)$ given by the contraction argument.  We now show global uniqueness:  Suppose we have a solution $x_0$ with maximal lifespan $T_{max}(x_0)$.   Suppose $y$ is another solution.  We look at the maximal $T$ so that $x = y$ in $[0, T)$.  We now think of $T$ as the initial time.  We $x(T) = y(T)$ from continuity. Then, the solution is unique up to some time $T+T_0$, so $x = y$ in $[T, T+T_0]$, contradicting the maximality of $T$.  This is called a "continuity argument".
+
+Next, we compare two solutions:  We have $x(0) = x_0, x: [0, T) \rightarrow R^n$.  We choose $T_1 < T$.  Then $x: [0, T_1] \rightarrow \R^n$.  We compare $x$ with a "nearby" solution $y(0) = y_0$ close to $x_0$.  We have$\|x\|_{X_{T_1}} \le R$ since we have continuity on a compact set.  We claim the following: if $|y_0 - x_0| < \epsilon$, then $x, y$ stay close.  We make a bootstrap assumption $\|y\|_{X_{T_1}} \le 2R$.  
+
+$$\frac{d}{dt}|x-y|^2 = 2(x-y)(f(x) - f(y)) \le 2C|x-y|^2.$$
+
+This is the \textit{Gronwall Inequality}.  It follows that $$|x-y|^2(t) \le e^{2ct}|x-y|^2(0) = e^{2ct}|x_0 - y_0|^2.$$
+To close the bootstrap:
+$$\|y\|_{X_{T_1}} \le \|x\|_{X_{T_1}} + \|x-y\|_{X_{T_1}} \le R + e^{cT_1}\|x_0 - y_0\| \le \frac{3R}{2},$$
+which is better than the bootstrap assumption.
 \end{document}

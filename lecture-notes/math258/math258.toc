@@ -7,3 +7,7 @@
 \contentsline {subsection}{\numberline {2.1}Proof of Plancherel's Theorem}{7}{subsection.2.1}% 
 \contentsline {subsection}{\numberline {2.2}Introduction to Convolution}{8}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}General Convolution}{9}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}September 3rd, 2020}{11}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Convolution and Continuity}{11}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Convolution and Differentiation}{11}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Approximation}{12}{subsection.3.3}% 

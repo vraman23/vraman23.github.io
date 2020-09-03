@@ -270,4 +270,116 @@ $$\|f * g\|_p = \sup_{\|h\|_q \le 1} \int |g* f| \cdot |h|. $$
 $$\int |g*f|\cdot h \le \int (|g|*|f|)\cdot h = \int \int |g(x-y)||f(y)|dy h(x)dx$$
 $$= \int |f(y)| \int |g(x-y)|h(x)dxdy \le \int |f(y)| \|g\|_p *1 dy = \|f\|_1 \|g\|_p .$$
 \end{proof}
+\pagebreak
+\section{September 3rd, 2020}
+\subsection{Convolution and Continuity}
+Recall convolution:
+$$f * g(x) = \int f(x-y)g(y)dy, f*\mu(x) = \int_{\R^d}f(x-y)d\mu(y),$$
+where $f$ is continuous, bounded, $\mu$ is a complex Radon measure($|\mu|$ is finite) 
+\begin{proposition} Let $T : C_0^0 \rightarrow C_b^0$.  Suppose $T$ is translation invariant: $T \circ \tau_y = \tau_y \circ T$ for all $y \in \R^d$.  [There exists $A < \infty : \|Tf\|_{C_0} \le A\|f\|_{C_0}$ for all $f$. Recall $\|f\|_{C_0} = \sup_x |f(x)|,$ and $C_0^0, C_b^0$ are Banach spaces.]  There exists a complex radon measure $\mu$ such that $Tf = f * \mu$ for all $f$.
+\end{proposition}
+\begin{proof}
+Given $T: C_0^0 \rightarrow C_b^0$, consider the map $\ell : \C_0^0 \rightarrow \C$ given by $f \mapsto (Tf)(0)$.  It is clear that $\ell$ is linear.  Furthermore, $\ell$ is bounded, since $$|Tf(0)| \le \|Tf\|_{C_0} \le A\|f\|_{C_0},$$
+so $\ell \in (C_0^0)^*.$  Recall the Riesz Representation Theorem, there exists $\nu$, a complex Radon measure, such that for all $f \in C_0^0$
+$$\ell(f) = \int f d\nu.$$
+
+Let $y \in \R^d$.  We have 
+$$Tf(-y) = Tf(0 - y) = (\tau_yTf)(0) = T(\tau_y f)(0) = \int \tau_y f(x) d\nu(x) = \int f(x-y)d\nu(x).$$
+Similarly, for all $x$, $(Tf)(-x) = \int f(y-x)d\nu(y)$.  [See lecture notes for correct algebra, sad].
+\end{proof}
+\subsection{Convolution and Differentiation}
+Informally,
+$$\frac{\partial}{\partial x_j} \int f(x-y)g(y)dy = \int \frac{\partial f}{\partial x_j}f(x-y)g(y)dy.$$
+\begin{proposition} Assume $f \in C^1(\R^d), g \in L^1$ and $f, \nabla f$ is bounded.    Then
+$$f*g \in C^1, \frac{\partial}{\partial x_j}(f \star g) = \left (\frac{\partial f}{\partial x_j}\right) * g.$$
+\end{proposition}
+\begin{proof}
+We assume $d=1$ for clarity. 
+$$\frac{(f*g)(x+t) - (f*g)(x)}{t} = \int \frac{f(x+t-y) - f(x-y)}{t}g(y)dy. $$
+Let $t \rightarrow 0$.  Use DCT, with dominator $$|g(y)|\cdot \sup_{t, u} \frac{|f(u+t) - f(u)|}{|t|}.$$ The supremum is finite by the mean value theorem.
+\end{proof}
+\begin{example} Take $g \in L^\infty$, $f \in C_1$, and there exists $a < \infty$ such that for all $x$, $$|f(x)| + |\nabla f(x)| \le A \<x\>^{-\gamma}.$$
+Hence, $f, \nabla f \in L^1$.  Then $f * g \in C^1, \nabla(f*g) =(\nabla f)*g.$
+\end{example}
+We can iterate this: Under appropriate conditions
+$$\frac{\partial ^{\alpha}(f*g)}{\partial x^{\alpha}} = \frac{\partial ^{\alpha}f}{\partial x^{\alpha}}*g,$$
+$$\frac{\partial ^{\alpha+\beta}(f*g)}{\partial x^{\alpha_\beta}} = \frac{\partial ^{\alpha}f}{\partial x^{\alpha}}*\frac{\partial ^{\beta}g}{\partial x^{\beta}}.$$
+
+\begin{proposition} If $f \in L^1$ and $g \in L^{\infty}$, then $f * g \in C_b^0$.  
+\end{proposition}
+\begin{proof}
+Recall:  If $f \in L^1(\R^d)$, then $y \mapsto \tau_y f \in L^1$ is continuous: As $y\rightarrow 0$, 
+$$\|\tau_y f - f\|_1 \rightarrow 0.$$
+
+Then,
+$$(f*g)(x) - (f*g)(x') = \int (f(x-y) - f(x' - y))g(y)dy = \int[ f(x-y) - (\tau_u f)(x-y) ]g(y)dy,$$
+where $u = x'-x$.  As $u \rightarrow 0$, $\|f - \tau_u f\|_1 \rightarrow 0$, and $g \in \L^\infty$, so the integral approaches $0$, as desired.
+\end{proof}
+\subsection{Approximation}
+\begin{definition}[Approximate Identity Sequence] An approximate identity sequence for $\R^d$ is $(\phi_n)_{n \in \N}, \phi_n \in L^1(\R^d)$ with the following conditions:
+\begin{itemize}
+\item $\int_{\R^d}\phi_n = 1$.
+\item For all $\delta > 0$, $\int_{|x| \ge \delta}|\phi_n|dx \rightarrow 0$ as $n \rightarrow \infty$.
+\end{itemize}
+\end{definition}
+\begin{thm} Let $(\phi_n)$ be an approximate identity sequence in $\R^d$.  \begin{enumerate}
+\item Let $f \in C_b^0$ be uniformly continuous.  Then $f * \phi_n \rightarrow f$ uniformly.
+\item Let $f \in C_b^0$.  Then $f * \phi_n \rightarrow f$ uniformly on every compact set.
+\item If $1 \le p \le \infty$, then for all $f \in L^p$, $\|f * \phi_n - f\|_p \rightarrow 0$.
+\end{enumerate}
+[All the above limits are taken for $n \rightarrow \infty$.]
+\end{thm}
+\begin{proof}
+\begin{align*}
+f*\phi_n(x) - f(x) &= \int f(x-y)\phi_n(y)dy - f(x) \\
+&= \int(f(x-y) - f(x))\phi_n(y)dy\\
+\end{align*}
+Then,
+$$|f*\phi_n(x) - f(x)| \le \int |f(x-y)-f(x)||\phi_n(y)|dy.$$
+Let $\delta > 0$.   Then,
+$$\int |f(x-y)-f(x)||\phi_n(y)|dy = \int_{|y \le \delta|} |f(x-y)-f(x)||\phi_n(y)|dy + \int_{|y \ge \delta|} |f(x-y)-f(x)||\phi_n(y)|dy.$$
+
+\begin{align*}
+\int_{|y \le \delta|} |f(x-y)-f(x)||\phi_n(y)|dy  &\le \|\phi_n\|_1 \cdot \sup_{x, |y| \le \delta} |f(x-y) - f(x)|\\
+&= \|\phi_n\|_1 \cdot \omega_f(\delta) \\
+& \le A \cdot \omega_f(\delta).
+\end{align*}
+Then
+\begin{align*}
+\int_{|y \ge \delta|} |f(x-y)-f(x)||\phi_n(y)|dy &\le \int_{|y| \ge \delta} 2\|f\|_{C^0} \cdot |\phi_n(y)| dy \\
+&\le 2 \|f\|_{C^0}\int_{|y|\ge \delta}|\phi_n|dy.
+\end{align*}
+Hence
+$$|f*\phi_n(x) - f(y)| \le A\omega_f(\delta) +  2 \|f\|_{C^0}\int_{|y|\ge \delta}|\phi_n|dy.$$
+
+Taking the $\lim \sup$, the second term goes to $0$,
+so for all $\delta > 0$,
+$$\lim_{n\rightarrow \infty} \sup \|f * \phi_n - f\|_{C^0} \le A \omega_f(\delta).$$
+Since $f$ is uniformly continuous, $\lim_{\delta \rightarrow 0} \omega_f(\delta) = 0$, which proves the claim.
+\end{proof}
+\begin{corollary} $C^\infty \cap L^p$ is dense in $L^p$ for all $1 \le p \le \infty$.
+\end{corollary}
+\begin{proof}
+We want to construct $(\phi_n)$ with $\phi_n \in C_0^{\infty}$.  
+
+We claim there exists a function $\phi \in C_0^{\infty}(\R^d)$ with $\int \phi = 1$ and $\phi \ge 0$.  In $d = 1$, take $h(x) = 1{x > 0} e^{-\|x\|}$.  Then, define $\phi(x) = h(x) h(1-x) \in C_0^\infty$.  Then, we normalize $\phi$.
+
+Now, take $\phi_n(x) = n^d \phi(nx)$.
+\end{proof}
+\begin{example} Let $\phi \ge 0$, $\int \phi = 1$.  Define $\phi_n(x) = n^{d}\phi(nx)$.  Then $\int \phi_n = 1$.  
+
+Furthermore,
+$$\int_{|x| \ge \delta} n^d \phi(nx) dx = \int_{|y| \ge n\delta} \phi(y)dy \rightarrow 0.$$ 
+\end{example}
+\begin{example} Let $\phi(x) = (2\pi)^{-d/2}e^{-|x^2|/2}, x \in \R^d$.  Let $t > 0$ and $\phi_t(x) = (2\pi)^{-d/2} t^{-d/2} e^{-|x|^2/(2t)}$.  Now $t \rightarrow 0^+$ and 
+$$\int_{|x|\ge \delta} \phi_t(x)dx \rightarrow 0.$$ 
+This is an approximate identity family.
+\end{example}
+\begin{example}[Interpretation of $f*g$]
+$$f * g = \int \tau_y f(x) \cdot g(y)dy.$$
+If $g \ge 0$ and $\int g = 1$, then we have an \textbf{average} of translates of $f$.
+
+As $n \rightarrow \infty$, $g = \phi_n$ so the weight concentrates asymptotically at the origin.
+\end{example}
+
 \end{document}
