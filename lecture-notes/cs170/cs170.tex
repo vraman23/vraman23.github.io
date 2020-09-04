@@ -169,4 +169,5 @@ This has lower constant factors due to memory accessing, but the runtime can be 
 \begin{center}
 \includegraphics[scale=1]{strassen.png}
 \end{center}
+We have $$T(n) = 7T(n/2) + O(N^2) \Longrightarrow T(n) = O(n^{\log_2(7)}).$$
 \end{document}
