@@ -106,4 +106,62 @@ O(n^d \log n) & \text{ if } d = log_b a \\
 O(n^{\log_b a}) & \text{ if } d < log_b a
 \end{cases}$$
 \end{thm}
+\pagebreak
+\section{September 3rd, 2020}
+\subsection{Sorting}
+Recall merge sort: we have an array $a[1, \dots, n]$ and we want to sort the elements in non-decreasing order.  We run merge sort on each half, and merge the two halves by taking 2 pointers and picking the smallest element from one of the two halves.  Merge sort has a runtime of 
+$$T(n) = 2T(n/2) + O(n) \Rightarrow T(n) = O(n \log n).$$
+
+We now consider the problem of counting the number of inversions.  We define an \textbf{inversion} of an array $a$ to be a pair of indicies $i, j$ so that $i < j$ but $a[i] > a[j]$.  
+\begin{center}
+\includegraphics[scale=1]{inversion.png}
+\end{center}
+We will use a divide-and-conquer approach.  We split the two halves, and for each half, we count inversions and sort the halves.  
+
+When calling the recursive operation on $a[1, \dots, n]$ it should return $b[1, \dots, n/2]$, the sorted left half and $k_1$, the number of inversions in the left half, $c[1, \dots, n/2]$ the sorted right half, and $k_2$ the number of inversions in the right half.  Then, when merging both halves, we can read off the number of inversions by counting the number of skipped elements in the right half when inserting elements from the left half.
+\begin{center}
+\includegraphics[scale=1]{countInv.png}
+\end{center}
+The merging operation takes $O(n)$, and we would like $T(n) = 2T(n/2) + O(n)$ to get a runtime of $T(n) = O(n \log n)$.  Proof of correctness can be done by induction on $n$, which is left as an exercise.  
+
+Can we do better than $O(n \log n)$?  As an abstraction, consider an array $a[1, \dots, n]$. 
+ We can make a query $a(i) > a(j)$ for each $i, j \in\{1, \dots, n\}$, for $i < j$.
+\begin{center}
+\includegraphics[scale=1]{sort.png}
+\end{center}
+In order to have a proper sorting algorithm, each leaf must contain exactly one permutation.  Hence, the number of leaves is at least $n!$, the number of permutations with $n$ elements.  The height of the tree(which is the worst case runtime), is given by $$\Omega(\log n!) = \Omega(\log (n/e)^n) = \Omega(n \log n).$$
+\subsection{Median Finding}
+Suppose we have an array $a[1, \dots, n]$.  We wish to find the median of the list.  
+
+Suppose we can pick out some element $\ell$ between $n/4$ and $3n/4$ in the sorted list.  If we make $n$ comparisons with the element, we'd know how many elements are less than the element and how many are larger than it, so we'd know which half contained the median (either $[1, \ell]$ or $[\ell+1, n]$).  
+\begin{center}
+\includegraphics[scale=1]{median.png}
+\end{center}
+If $k < n$, then find the k-th smallest element in the left half.  Otherwise, find the $k-n$-th element in the right half.  We have the following recurrence,
+$$T(n) \le T(\frac{3n}{4}) + O(n) \Rightarrow T(n) = O(n).$$
+
+To actually do this, pick some element at random.  We can show the expected number of times it takes to pick a proper element is $2$.  So, redefine $T(n)$ is be the expected time to find the $k$-th smallest in $n$ element array.
+
+Suppose the time to find the element is $T_1 = n$. Then, the time to find the next element is $T_2 = (3/4)n$, the next would be $T_3 = (3/4)^2n$, so we obtain a geometric series $T = \sum T_i = O(n)$.
+
+Now, $E[T_1] = 2n, E[T_2] = 2(3/4)n, \dots$.  Note that 
+$$E(T) = E(\sum_{i=1}^d T_i) = \sum E(T_i) = O(n),$$
+by linearity of expectation.
+
+Suppose $P[+1] = p$ and $W$ is the waiting time for a heads.  $$E(W) = p + (1-p)(1+E(W)) = 1 + (1-p)E(W) \Rightarrow E(w) = \frac{1}{p}.$$
+
+\subsection{Matrix Multiplication}
+We are given two $n$ by $n$ matrices $X, Y$, and we would like to compute $XY = Z$.   This is naively $O(n^3)$:
+\begin{center}
+\includegraphics[scale=.75]{matrix.png}
+\end{center}
+Note that
+$$Z_{ij} = \sum_{k=1}^n X_{ik}Y_{kj}.$$
+
+We try a divide-and-conquer approach.  Split $X$ and $Y$ as follows:
+\begin{center}
+\includegraphics[scale=.75]{split.png}
+\end{center}
+Then,
+$$T(n) = 8T(n/2) + O(n^2) \Rightarrow T(n) = O(n^3).$$
 \end{document}

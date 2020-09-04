@@ -6,3 +6,5 @@
 \contentsline {subsection}{\numberline {2.1}Measures}{5}{subsection.2.1}% 
 \contentsline {subsection}{\numberline {2.2}Sigma algebras}{6}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Uniform Measure on the Borel Sets}{6}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}September 3rd, 2020}{8}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Uniform Measure on the Borel Sets}{8}{subsection.3.1}% 

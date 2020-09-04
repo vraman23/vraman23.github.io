@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 SEP 2020 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  3 SEP 2020 19:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1579,6 +1579,26 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  12.04504pt
 text indent calculated (toc, 2): 19.46669pt
 number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 12.04504pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
 )
 \tf@toc=\write7
 \openout7 = `cs170.toc'.
@@ -1593,7 +1613,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<multiply.png, id=52, 140.525pt x 203.76125pt>
+<multiply.png, id=60, 140.525pt x 203.76125pt>
 File: multiply.png Graphic file (type png)
 <use multiply.png>
 Package pdftex.def Info: multiply.png  used on input line 52.
@@ -1608,12 +1628,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<dac.png, id=54, 314.17375pt x 86.3225pt>
+<dac.png, id=62, 314.17375pt x 86.3225pt>
 File: dac.png Graphic file (type png)
 <use dac.png>
 Package pdftex.def Info: dac.png  used on input line 77.
 (pdftex.def)             Requested size: 157.08649pt x 43.16113pt.
-<rec.png, id=55, 224.84pt x 93.34875pt>
+<rec.png, id=63, 224.84pt x 93.34875pt>
 File: rec.png Graphic file (type png)
 <use rec.png>
 Package pdftex.def Info: rec.png  used on input line 84.
@@ -1625,45 +1645,84 @@ Package mdframed Info: mdframed detected package amsthm
 Package hyperref Info: bookmark level for unknown thm defaults to 0 on input li
 ne 102.
  [4 <./rec.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
+<inversion.png, id=105, 177.66376pt x 32.12pt>
+File: inversion.png Graphic file (type png)
+<use inversion.png>
+Package pdftex.def Info: inversion.png  used on input line 117.
+(pdftex.def)             Requested size: 177.66331pt x 32.1199pt.
+<countInv.png, id=106, 341.275pt x 68.255pt>
+File: countInv.png Graphic file (type png)
+<use countInv.png>
+Package pdftex.def Info: countInv.png  used on input line 123.
+(pdftex.def)             Requested size: 341.27415pt x 68.25482pt.
+<sort.png, id=107, 294.09875pt x 134.5025pt>
+File: sort.png Graphic file (type png)
+<use sort.png>
+Package pdftex.def Info: sort.png  used on input line 130.
+(pdftex.def)             Requested size: 294.09802pt x 134.50215pt.
+ [5 <./inversion.png> <./countInv.png> <./sort.png>]
+<median.png, id=116, 304.13625pt x 72.27pt>
+File: median.png Graphic file (type png)
+<use median.png>
+Package pdftex.def Info: median.png  used on input line 138.
+(pdftex.def)             Requested size: 304.1355pt x 72.2698pt.
+<matrix.png, id=117, 473.77pt x 108.405pt>
+File: matrix.png Graphic file (type png)
+<use matrix.png>
+Package pdftex.def Info: matrix.png  used on input line 156.
+(pdftex.def)             Requested size: 355.32663pt x 81.30354pt.
+<split.png, id=118, 448.67625pt x 96.36pt>
+File: split.png Graphic file (type png)
+<use split.png>
+Package pdftex.def Info: split.png  used on input line 163.
+(pdftex.def)             Requested size: 336.50636pt x 72.2698pt.
+ [6 <./median.png> <./matrix.png>]
+<strassen.png, id=125, 236.885pt x 153.57375pt>
+File: strassen.png Graphic file (type png)
+<use strassen.png>
+Package pdftex.def Info: strassen.png  used on input line 170.
+(pdftex.def)             Requested size: 236.88441pt x 153.57336pt.
+ [7 <./split.png> <./strassen.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
  (./cs170.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
 Package rerunfilecheck Info: File `cs170.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
  ) 
 Here is how much of TeX's memory you used:
- 39403 strings out of 492616
- 770942 string characters out of 6129482
- 1160525 words of memory out of 5000000
- 42754 multiletter control sequences out of 15000+600000
- 542022 words of font info for 66 fonts, out of 8000000 for 9000
+ 39468 strings out of 492616
+ 771708 string characters out of 6129482
+ 1161525 words of memory out of 5000000
+ 42788 multiletter control sequences out of 15000+600000
+ 542789 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,20n,91p,9107b,1419s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,21n,91p,9107b,1419s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/t
-exmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on cs170.pdf (4 pages, 233159 bytes).
+}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
+ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/te
+xmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
+Output written on cs170.pdf (7 pages, 436731 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 12956 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 225 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 13535 words of extra memory for PDF output out of 14400 (max. 10000000)
 
