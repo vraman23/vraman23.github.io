@@ -11,3 +11,7 @@
 \contentsline {subsection}{\numberline {3.1}Convolution and Continuity}{11}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Convolution and Differentiation}{11}{subsection.3.2}% 
 \contentsline {subsection}{\numberline {3.3}Approximation}{12}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}September 8th, 2020}{15}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Fourier Transform Identities}{15}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}The Gaussian}{16}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Schwartz Spaces}{17}{subsection.4.3}% 

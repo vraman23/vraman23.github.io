@@ -381,5 +381,107 @@ If $g \ge 0$ and $\int g = 1$, then we have an \textbf{average} of translates of
 
 As $n \rightarrow \infty$, $g = \phi_n$ so the weight concentrates asymptotically at the origin.
 \end{example}
+\pagebreak
+\section{September 8th, 2020}
+\subsection{Fourier Transform Identities}
+We have many functorial identities.
+\begin{enumerate}
+\item For $f \in L^1$, $$(\tau_y f)^{\wedge}(\xi) = e^{-iy \cdot \xi}\hat{f}(\xi).$$
+\item For $f, g \in L^1(\R)$, $$(f * g)^{\wedge} = \hat{f} \cdot \hat{g}.$$
+\item For $f \in L^1$, $$(e^{ix \cdot \eta}f)^{\wedge}(\xi) = \hat{f}(\xi - \eta).$$
+\item We use the notation $$\xi^{\alpha} = \prod_{j=1}^d \xi_j^{\alpha_j}.$$
 
+For $f \in C^0, C^{|\alpha|}, C_0^0$, 
+$$(\partial^{\alpha} f)^{\wedge}(\xi) = (i\xi)^{\alpha}\hat{f}(\xi).$$
+This comes from the fact that 
+$$\int_{\R^d} \left (\frac{\partial}{\partial x_k}f(x)\right) e^{-ix \cdot \xi}dx,$$
+so we integrate by parts, use Fubini in $\R^d$ and induct on $|\alpha|$.
+
+\item For $f \in C_0^{\infty}$, $$(X^\beta f(x))^\wedge(\xi) = (i\partial_{\xi})^{\beta}\hat{f}(\xi),$$
+where
+$$x^\beta = \prod_{j=1}^d x_j^{\beta_j}, (i\partial_\xi)^{\beta} = i^{|\beta|}\partial^{\beta}.$$
+\item For $f \in C_0^{\infty}$, $$(\partial_x^{\alpha}f)^{\wedge}(\xi) = (i\xi)^{\alpha}\hat{f}(\xi).$$
+\item If $L \in GL(d)$, $L : \R^d \rightarrow \R^d$, linear invertible, then for all $f \in L61$,
+$$(f \circ L)^{\wedge}(\xi) = |\det(L)|^{-1} \hat{f}\circ((L^*)^{-1})(\xi).$$
+The proof follows from the substitution $x = L^{-1}(y)$ and $(L^{-1})^* = (L^*)^{-1}$
+\end{enumerate}
+\begin{corollary} $$V = \{f \in (L^1 \cap L^2)(\R^d): \exists A = A_f < \infty, |\hat{f}(\xi)| \le A_f\< \xi \> ^{-d}\}$$ is dense in $L^2(\R^d)$.
+\end{corollary}
+\begin{proof}
+We showed last time that $C_0^{\infty}$ is dense in $L^2(\R^d)$.  We need to show that $f \in C_0^{\infty}$ implies that $\hat{f}(\xi) = O(\<\xi\>^{-N})$ for all $N \le \infty$.  
+
+WLOG, assume $\xi \ne 0$, $\xi_d \ne 0, |\xi_d| \ge \frac{|\xi|}{d}$. Then, 
+\begin{align*}
+\int f(x) e^{-ix\cdot \xi}dx  &= (-i \xi_d)^{-1}\int f(x) \frac{\partial}{\partial x_d}(e^{-ix\cdot \xi})dx \\
+&= (-i \xi_d)^{-1} \int_{\R^d} \frac{\partial f}{\partial x_d}(x) e^{-ix \cdot \xi}dx \le \infty.
+\end{align*}
+We can pick up as many factors of $\xi_d$ as we'd like to get arbitrary bounds.
+\end{proof}
+\subsection{The Gaussian }
+\begin{fact}$(d \ge 1)$ Take $e^{-z|x|^2/2} = f(x) = f_z(x)$.  Assume $Re(z) \ge 0 \rightarrow f_z \in L^1$.
+$$(e^{-z|x|^2/2})^{\wedge}(\xi) = (2\pi)^{d/2}z^{-d/2}e^{-|\xi|^2/(2z)}.$$
+\end{fact}
+We consider $z^{-d/2}$ in the principal branch.  When $z=1$, $(e^{-|x|^2/2})^{\wedge}(\xi) = (2\pi)^{d/2}e^{-|\xi|^2/2}.$
+
+Note the fact
+$$I = \int_{-\infty}^{\infty} e^{-x^2/2}dx = \sqrt{2\pi}.$$
+
+In order to calculate
+$$\int_R e^{-x^2/2}e^{-ix\xi} dx,$$
+we have 
+$$x^2/2 + ix\xi = \frac{1}{2}(x^2 + 2ix \xi) = 1/2(x + i\xi)^2 + \xi^2/2,$$
+so $$e^{-\xi^2/2}\int_{\R} e^{-(x+i\xi)^2/2} = e^{-\xi^2/2}\sqrt{2\pi}.$$
+
+If $F(x) = \prod_{j=1}^d f_j(x_j)$, then $\hat{F}(\xi) = \prod_{j=1}^d \hat{f}_j (\xi_j)$.
+
+For $z \in \R^+$, $e^{-z|x|^2/2} = e^{-|L(x)|^2/2}$, where 
+$$L(x) = z^{1/2}x.$$
+Then, we use $(f \circ L)^\wedge(\xi) = |\det(L)|^{-1} \hat{f}((L^*)^{-1}(\xi)).$
+For $Re(z) \ge 0$,
+$$\int f(x)e^{-ix \cdot \xi}dx = \int e^{-z|x|^2/2}e^{-ix\cdot \xi}dx.$$
+We claim that this is a homomorphic function of $z$ in $Re(z) > 0$.
+\begin{fact} If $f \in L^1(\R^d)$ and $\hat{f }\in L^1$, then
+$$f = (2\pi)^{-d} (\hat{f})^{\vee}, \check{g}(x) = \int g(\xi)e^{ix \cdot \xi}d\xi.$$
+\end{fact}
+\begin{corollary} If $f \in L^1$, $\hat{f} = 0$, then $f = 0$ almost everywhere.
+\end{corollary}
+\begin{proof}
+Given $f, \hat{f} \in L^1$.  Let $\phi \in C_0^{\infty}$ with $\int \phi = 1$.  Let $\phi_n(x) = n^d \phi(nx)$.  Define $f_n = f * \phi_n$.  We know that $f_n \rightarrow f$ in $L^1$ as $n \rightarrow \infty$.  
+
+Moreover, $f_n \in L^2$, since $f_n \in L^1 * L^2$.  For each $n$, we have $$\| (2\pi)^{-d} \int_{|\xi| \le R} \hat{f}_n(\xi)e^{ix \cdot \xi}d\xi - f_n(x)\|_{L^2} \rightarrow 0,$$
+as $R \rightarrow \infty$.
+
+Note that $$\hat{f_n}(\xi) = \hat{f}(\xi) \hat{\phi_n}(\xi) = \hat{f}(\xi) \hat{\phi}(n^{-1}\xi).$$
+As $n \rightarrow \infty$, $\hat{\phi}(n^{-1}\xi) \rightarrow \hat{\phi}(0) = \int \phi = 1.$
+Hence,
+$$\hat{f_n}(\xi) \rightarrow \hat{f}(\xi).$$
+Furthermore
+$$\int_{|\xi| \le R} \hat{f_n}(\xi)e^{ix\cdot \xi} d\xi \rightarrow \int_{\R^d} \hat{f_n}(\xi) e^{ix\cdot \xi}d\xi,$$
+since $\hat{f_n} \in L^1$ as $R \rightarrow \infty$.
+
+Hence, we have that $$(2\pi)^{-d}\int_{\R^d}\hat{f}(\xi)\hat{\phi}(n^{-1}\xi)e^{ix\cdot \xi} d\xi = f_n(x),$$
+in the $L^2$ norm.  Now, letting $n \rightarrow \infty$, $f_n = f * \phi_n \rightarrow f$ in the $L^1$ norm.
+$$\int_{\R^d} \hat{f}(\xi)\hat{\phi}(n^{-1}\xi) e^{ix \cdot \xi}d\xi \rightarrow \int_{\R^d}\hat{f}(\xi)e^{ix\cdot \xi}d\xi = (\hat{f})^{\vee}(x),$$
+by the dominated convergence theorem.  Thus,
+$$f(x) = (2\pi)^{-d}(\hat{f})^{\vee}(x).$$
+But we actually proved a stronger result:  $g \in L^1 \Longrightarrow \check{g} \in C^0$, so if $g = \hat{f}$, $(\hat{f})^{\vee} \in C^0$ if $f \in L^1$, so if $f, \hat{f}$ are in $L^1$, then $f$ agrees almost everywhere with $(2\pi)^{-d}(\hat{f})^\vee \in C^0$.
+\end{proof}
+\begin{example} Take $f(x) = 1_{[0, 1]}(x)$.  Hence $\hat{f} \not \in L^1$.  Essentially, we have that $|\hat{f}(\xi)| \approx \frac{1}{|\xi|}$ as $|\xi| \rightarrow \infty$.
+\end{example}
+\subsection{Schwartz Spaces}
+\begin{definition}[Schwartz Space] $$\mathscr{S} = \mathscr{S}(\R^d) = \{f : \R^d \rightarrow \C, f \in C^{\infty}, \forall N, \alpha, x \mapsto \<x\>^N\frac{\partial^{\alpha}f}{\partial x^{\alpha}} \text{ is bounded.}\}.$$
+\end{definition}
+It is clear that $\mathscr{S}$ is a vector space over $\C$.  Furthermore, $\mathscr{S}$ is a topological vector space.  
+
+The topology on $\mathscr{S}$ is defined by a countable family of seminorms.  
+$$\|f\|_{M, N} = \sup_{x \in \R^d} \<x\>^N \sum_{0 \le |\beta| \le M} \left |\frac{\partial^\beta f}{\partial x^\beta}(x)\right |.$$
+We have that $f \in \mathscr{S}$ if and only if $f \in C^{\infty}$ and for all $M, N \in \N, \|f\|_{M, N} < \infty$.
+
+A neighborhood base for the topology at $g$ would be 
+$$V(g, M, N, \epsilon) = \{f \in \mathscr{S} : \|f-g\|_{M, N} < \epsilon\}.$$
+
+Note that if $\rho_n$ is a metric,
+$$\sum_{n=1}^{\infty} 2^{-n}\left (\frac{\rho_n}{1+\rho_n}\right )$$ is also a metric, but it wouldn't preserve the vector space condition.  Next time, we will prove the following theorem:
+\begin{thm} $\wedge:\mathscr{S} \rightarrow \mathscr{S}$ is a linear, bijective homeomorphism.
+\end{thm}
 \end{document}
