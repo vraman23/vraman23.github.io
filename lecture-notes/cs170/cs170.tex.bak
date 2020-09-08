@@ -164,4 +164,10 @@ We try a divide-and-conquer approach.  Split $X$ and $Y$ as follows:
 \end{center}
 Then,
 $$T(n) = 8T(n/2) + O(n^2) \Rightarrow T(n) = O(n^3).$$
+
+This has lower constant factors due to memory accessing, but the runtime can be further improved with Strassen's algorithm:
+\begin{center}
+\includegraphics[scale=1]{strassen.png}
+\end{center}
+We have $$T(n) = 7T(n/2) + O(N^2) \Longrightarrow T(n) = O(n^{\log_2(7)}).$$
 \end{document}

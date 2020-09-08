@@ -8,3 +8,7 @@
 \contentsline {subsection}{\numberline {2.1}Picard-Lindeloff Theorem}{7}{subsection.2.1}% 
 \contentsline {subsection}{\numberline {2.2}Contraction Principle}{7}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Bootstrap Argument}{9}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}September 8th, 2020}{10}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Observations regarding Picard-Lindelof}{10}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Linearization of an ODE}{11}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Our First Partial Differential Equation}{11}{subsection.3.3}% 

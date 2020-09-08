@@ -229,4 +229,81 @@ This is the \textit{Gronwall Inequality}.  It follows that $$|x-y|^2(t) \le e^{2
 To close the bootstrap:
 $$\|y\|_{X_{T_1}} \le \|x\|_{X_{T_1}} + \|x-y\|_{X_{T_1}} \le R + e^{cT_1}\|x_0 - y_0\| \le \frac{3R}{2},$$
 which is better than the bootstrap assumption.
+\section{September 8th, 2020}
+Last lecture, we discussed the ordinary differential equation $x' = f(x)$ in $R^n$ with $x(0) = x_0$.  
+We proved the Pircard-Lindelof theorem: if $f$ is locally Lip. then this problem is locally well-posed and the solution has a local Lip. dependence on the initial data.  We proved this by the contraction principle, using Picard iterations.
+\subsection{Observations regarding Picard-Lindelof}
+We note the following observations:
+\begin{enumerate}
+\item The result is local, so it can blow up in finite time.  
+
+For example, take $x' = x^2, x(0) = x_0 > 0$.  The positive solutions to the ODE are $x(t) = \frac{1}{T - t}, T \ge 0$, where $T$ is the blow up time.  In this case, it is $T = \frac{1}{x_0}.$
+\item If $f$ is not Lipschitz, then uniqueness might fail.
+
+Take $x' = \sqrt{x}, x(0) = 0$.  An obvious solution is $x = 0$.  Other solutions are like $x(t) = ct^2$.  We can generate infinitely many solutions from here.
+\begin{center}
+\includegraphics[scale=0.5]{notunique.png}
+\end{center}
+But solutions might still exist:
+\begin{thm}[Peano] If $f$ is continuous, then a local solution exists.
+\end{thm}
+The proof uses Schauder's fixed point theorem.
+
+\item What if $f \in C_{loc}^1$, the space of differentiable functions on a compact set?
+\begin{thm} If $f \in C_{loc}^1$, then the flow map $x_0 \mapsto x(t, x_0) = \Phi(t, x_0)$ is of class $C^1$. 
+\end{thm}
+\begin{proof}
+We give a sketch.  Take $x_0, x_0^h$ and assume $\frac{d}{dh}x_0^h(0)$ exists and show that $\frac{d}{dh}x^h$ exists.  The linearized equation about $h = 0$ is $\dot{y} = Df(x_0)y, y_0 = \frac{d}{dh}x_0^h$.  We expect that $$x^h(t) = x(t) + hy(t) + o(h).$$
+Let $\tilde{x}^h(t) = x(t) + hy(t)$.  We claim that this is an "approximate solution", in the sense that $$\dot{\tilde{x}}^h(t) = f(\tilde{x}^h(t)) + o(h).$$
+Furthermore, we have close initial data in the sense that
+$$|x_0^h - \tilde{x}_0^h| \le o(h).$$
+We repeat the difference bound for one exact and one approximate solution and show that 
+$$|x^h(t) - \tilde{x}^h(t)| \le o(h)$$
+\end{proof}
+This implies that the Flow map is a group of local diffeomorphisms:
+$$\Phi(t) \circ \Phi(s) = \Phi(t+s).$$
+\end{enumerate}
+\subsection{Linearization of an ODE}
+The leads us to the notion of the linearization of the ODE: If we consider $x_0 \rightarrow x_0^h$, a one parameter family of data, assume this is $C^1$ in $h$.  The corresponding solution $x_0^h \rightarrow x^h(t)$ also in $C^1$ in $h$.  
+
+What can we say about $$y^h(t) = \frac{d}{dh}x^h(t)?$$  We have $\dot{x}^h = f(x^h), x^h(0) = x_0.$  If we differentiate with respect to $h$, we have $\dot{y}^h = Df(x^h)y^h, y^h(0) = \frac{d}{dh}x_0^h.$, 
+where $Df(x^h)$ is the differential of $f$, $\left (\frac{\partial f_i}{\partial x_j}\right )_{n\times m}$.   This is a linear ODE with variable coefficients.
+\begin{center}
+\includegraphics[scale=0.5]{linear.png}
+\end{center}
+\begin{proposition} If the linearized equation is well-posed, then we have Lip. dependence of solutions on the initial data.
+\end{proposition}
+\subsection{Our First Partial Differential Equation}
+Our first example is scalar first order equations in $\R^n$, $$F(x, u, Du) = 0 \in \R^n, y:\R^n \rightarrow \R.$$
+Today, we look at the case of linear, constant coefficients:
+$$\sum a^i \partial_i u = f(x).$$
+We will write this as $a^i \partial_i u$ following the Einstein summation convention.
+Take $A = (a_1, \dots, a_n)$, so we have $A \cdot Du = f(x)$, with $A \ne 0$.  This can be interpreted as a directional derivative of $u$ in the direction $A$.
+$$\frac{d}{dt}u(x(t)) = A \cdot Du(x(t)) = f(x(t)).$$
+Note the fundamental theorem of calculus,
+$$u(x(t)) = u(x_0) +\int_0^t f(x(t))dx.$$
+
+Suppose we have a $C^1$ surface $\Sigma$ and we are asked to solve a $PDE$ with inidtial data $u = u_0$
+ on $\Sigma$.  
+ \begin{center}
+\includegraphics[scale=0.5]{sigma.png}
+\end{center}
+But things can go wrong.  If $\Sigma$ is a circle, we'd could have two intersection points.  Furthermore, we could miss the circle entirely and have no solutions.   Our solution in this case would be to assume that each line intersects $\Sigma$ exactly once.  However, if solutions are tangent, perturbations of the surface cause problems.  
+
+To solve all these issues, we assume that $A$ is always transversal to $\Sigma$.  This can be written in terms of $N$, the normal vector to $\Sigma$, namely,
+$$A \cdot N \ne 0.$$
+\begin{definition}[Noncharacteristic Surface] If $A \cdot N \ne 0$, then we say the surface $\Sigma$ is noncharacteristic.
+\end{definition}
+ \begin{center}
+\includegraphics[scale=0.5]{bad.png}
+\end{center}
+We can have solutions that solve the equation at every point but not differentiable everywhere.
+We learn 2 lessons from this example:
+\begin{enumerate}
+\item We need to enlarge the notion of what is a solution, this leads to the theory of distributions.
+\item There are solutions to our PDE with a jump discontinuity along characteristic surfaces. ($\Gamma$ in the picture)
+\end{enumerate}
+After applying a change of coordinates, we have a Cauchy problem:
+$$u_t + AD_x u = f, u(t=0) = u_0,$$
+where $u_t$ is nonzero, corresponding to the condition that the surface is noncharacteristic.
 \end{document}
