@@ -474,5 +474,14 @@ But we actually proved a stronger result:  $g \in L^1 \Longrightarrow \check{g} 
 It is clear that $\mathscr{S}$ is a vector space over $\C$.  Furthermore, $\mathscr{S}$ is a topological vector space.  
 
 The topology on $\mathscr{S}$ is defined by a countable family of seminorms.  
-$$\|f\|_{M, N} = \sup_{x \in \R^d} $$
+$$\|f\|_{M, N} = \sup_{x \in \R^d} \<x\>^N \sum_{0 \le |\beta| \le M} \left |\frac{\partial^\beta f}{\partial x^\beta}(x)\right |.$$
+We have that $f \in \mathscr{S}$ if and only if $f \in C^{\infty}$ and for all $M, N \in \N, \|f\|_{M, N} < \infty$.
+
+A neighborhood base for the topology at $g$ would be 
+$$V(g, M, N, \epsilon) = \{f \in \mathscr{S} : \|f-g\|_{M, N} < \epsilon\}.$$
+
+Note that if $\rho_n$ is a metric,
+$$\sum_{n=1}^{\infty} 2^{-n}\left (\frac{\rho_n}{1+\rho_n}\right )$$ is also a metric, but it wouldn't preserve the vector space condition.  Next time, we will prove the following theorem:
+\begin{thm} $\wedge:\mathscr{S} \rightarrow \mathscr{S}$ is a linear, bijective homeomorphism.
+\end{thm}
 \end{document}

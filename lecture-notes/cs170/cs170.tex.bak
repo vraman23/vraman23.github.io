@@ -170,4 +170,15 @@ This has lower constant factors due to memory accessing, but the runtime can be 
 \includegraphics[scale=1]{strassen.png}
 \end{center}
 We have $$T(n) = 7T(n/2) + O(N^2) \Longrightarrow T(n) = O(n^{\log_2(7)}).$$
+\pagebreak
+\section{September 8th, 2020}
+\subsection{Fast Fourier Transform}
+The Fast Fourier Transform(FFT) is a method of multiplying two polynomials
+$$\left (\sum_{i=0}^{n-1}a_ix^i\right )\left (\sum_{i=0}^{n-1}b_ib^i\right ) = \sum_{i, j} a_ib_j x^{i+j},$$
+which naively is done in $O(n^2)$.  With FFT, we can do it in $O(n \log n)$.
+\begin{itemize}
+\item It allows us to do fast integer multiplication.  We can reduce it from $O(n^{\log 3})$ to $O(n \log n)$.
+\item Signal processing algorithms:  If we sample times $a_0, a_1, a_2, \dots, a_{n-1}$ from a signal, we can reconstruct the output signal from a unit input at time $t=0$, if our processor is a linear, time-invariant one.  
+\end{itemize}
+
 \end{document}

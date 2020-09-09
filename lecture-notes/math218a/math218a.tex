@@ -265,4 +265,61 @@ We'll sketch the existence proof.  Suppose we have $\mu$ on $\Sigma_a$.  For exa
 Define the outer measure, $\mu_*(B) = \inf \sum_{i=1}^{\infty}\mu(A_i)$ defined over covers of $B$.  Some properties are $\mu_*(B_1) \le \mu_*(B_2)$ if $B_1 \subseteq B_2$, $\mu_*(\emptyset) = 0$, and $\mu_*(\bigcup C_i) \le \sum_{i=1}^{\infty} \mu_*(C_i)$.
 
 Define $\SA = \{A : \mu_*(E) = \mu_*(E \cap A) + \mu_*(E \cap A^C) \forall E\}.$  $\SA$ is a sigma algebra containing $\Sigma_a$ and $\mu_*$ is a measure when restricted to $\SA$.  
+\pagebreak
+\section{September 8th, 2020}
+Last time, we completed the construction of the uniform measure on the Borel sets.  
+\subsection{The Outer Measure}
+On an algebra $\Sigma_a$,  let $\Sigma_a^\sigma$ be the elements formed by taking countable unions of elements of $\Sigma_a$.  Let $\Sigma_a^{\sigma \delta}$ contain countable intersections of elements of $\Sigma_a^\sigma$.  Notice that from the definition of an outer measure, for any set $B$, there exists a set $B' \in \Sigma_a^{\sigma \delta}$ such that $$B \subset B', \mu_*(B) = \mu_*(B').$$
+
+This implies that $\mu_*(B' \setminus B) = 0$ and for every $N$ such that $\mu_*(N) = 0$, we can check that $N$ belongs to $\SA$.  Remark:  The construction defines the measure $\mu_*$ on sets of the form 
+$A \cup B$, where $A$ is a Borel set and $\mu_*(B) = 0$.  It is easy to check that $\mu_*(B) = 0$ implies that there exists a Borel set $C$ such that $\mu_*(C) = 0$ and $B \subseteq C$.  Thus, we call it the completion of Borel sets.  This is a strictly larger sigma-algebra than the Borel sets, which follows from comparing cardinalities.  Namely, the cardinality of the Borel sets is $2^{\N_0}$.  Observe the Lebesgue sigma algebra contains $2^\text{Cantor Set} = 2^C$.
+
+Meausres on the real line are characterized by distribution functions, which are non-decreasing right continuous functions $F$.  One can adopt the same strategy to define a measure on the real line by defining $\mu((a, b]) = F(b) - F(a)$.  Similarly, given $\mu$ on $(R, B(R))$, we can check that $F(b) = \mu((-\infty, b])$ is a distribution function. 
+
+We can also consider $(\R^d, B(\R^d))$, the Borel sets on $\R^d$.  We claim that this is
+$$\Sigma ((a_1, b_1) \times (a_2, b_2) \times \dots \times (a_d, b_d)) = \Sigma (B_1, B_2, \dots, B_d: B_i \in B(R)).$$
+
+For distribution functions on $\R^d$, consider the lexigraphical partial order.  We would like them to satisfy,
+\begin{itemize}
+\item $F(x)$ is non-decreasing
+\item $F(x)$ is right continuous: If $x_i \downarrow x$, then $F(x_i) \rightarrow F(x)$.
+\item $F(x) \rightarrow 0$ as $x \downarrow -\infty$, $F(x) \rightarrow 1$ as $x \rightarrow \infty$.
+\end{itemize}
+The properties above are not actually enough to define a measure. (Consider the semibox in $\R^2$).  
+
+However, for any $F$ such that $F(A) \ge 0$ for any $A \in \Sigma_{semi}$, the strategy to build a measure on $B(\R^d)$ from $\Sigma_{semi}\rightarrow \Sigma_a \rightarrow B(R^d)$ works.
+
+\subsection{Functions Between Measure Spaces}
+Suppose we have two measure spaces $(\Omega_1, \Sigma_1), (\Omega_2, \Sigma_2)$ and a function $f:\Omega_1 \rightarrow \Omega_2$.
+\begin{definition}[Measurable Function] $f$ is said to be \textbf{measurable} if $f^{-1}(A_2) \in \Sigma_1$ for all $A \in \Sigma_2$.  If $(\Omega_2, \Sigma_2) = (\R, B(\R))$, then $f$ will be called a \textbf{random variable}.
+\end{definition}
+
+\begin{proposition} If $\Sigma_2 = \Sigma(\SA)$, then to check $f$ is measurable, it suffices to check $f^{-1}(B) \in \Sigma_1$ for all $B \in \SA$.
+\end{proposition}
+\begin{proof}
+$$\Sigma' = \{B : f^{-1}(B) \in \Sigma_1\}$$ is a sigma-algebra: If $B \in \Sigma'$, then $B^c \in \Sigma'$, since $f^{-1}(B^c) = (f^{-1}(B))^c$.  $\Omega \in \Sigma'$ since $f^{-1}(\Omega_2) = \Omega_1$.  It is easy to check countable unions.  $\Sigma'$ is a sigma algebra containing $\SA$, so $\Sigma'$ contains $\Sigma(\SA).$  
+\end{proof}
+
+\begin{fact} If we have $f: (\Omega_1, \Sigma_1, \mu_1) \rightarrow (\Omega_2, \Sigma_2)$, $f$ induces a measure $\mu_2$ on $(\Omega_2, \Sigma_2)$ where $\mu_2(B) = \mu(f^{-1}(B))$ for all $B \in \Sigma_2$.
+\end{fact}
+
+Some properties:
+\begin{itemize}
+\item If we have $f: (\Omega_1, \Sigma_1) \rightarrow  (\Omega_2, \Sigma_2), g:  (\Omega_2, \Sigma_2)\rightarrow (\Omega_3, \Sigma_3)$, then $h = g \circ f$ is measurable. 
+\item If $X_1, X_2$ are two random variables, then $(X_1, X_2)$ is a measurable function into $(\R^2, B(\R^2))$.
+
+We know that $B(\R^2) = \Sigma(I_1 \times I_2)$ for intervals.  Finally, $$(X_1, X_2)^{-1}(I_1 \times I_2) = X_1^{-1}(I_1) \cap X_2^{-1}(I_2)$$, so$ (X_1, X_2)^{-1}(I_1 \times I_2)$ is measurable.
+\item Suppose $F$ is a continuous function from $(\Omega_1, B(\Omega_1)) \rightarrow (\Omega_2, B(\Omega_2))$. Then $F$ is measurable, since the preimage of open sets is open.
+\item if $X_1, X_2, \dots, X_d$ is a random variable, then $X_1 + X_2 + \dots + X_d$ is a random variable.
+\item If $f_n$ are random variables and $f_n \rightarrow f$ pointwise.  Then, $f$ is measurable.
+\begin{proof}
+Consider the set $\{f > x\} = \bigcup_{n=1}^{\infty}\bigcap_{m = n}^{\infty} \{f_m > x\}$ is measurable.  Then $(x, \infty)_{x \in \R}$ is a generating set.
+\end{proof}
+\item$ X: (\Omega_1, \Sigma_1, \mu_1) \rightarrow (R, B(R))$ induces a measure $\mu$ on $(R, B(R))$, where $\mu(B) = \mu_1(X^{-1}(B))$ for all $B \in B(R)$.  It also induces a distribution function $F$, which is nondecreasing, right continuous, and $F(x) \uparrow 1$ and $x \rightarrow \infty$, $F(x) \downarrow 0$ as $x \rightarrow -\infty$.  
+\end{itemize}
+
+Given a distribution function, is there a random variable?  Given a distribution function, we can construct a measure on $\R$ by the Caratheodory Extension Theorem.  Let $I: (R, B(R), \mu) \rightarrow (R, B(R))$.  We could also take $X: ([0, 1], B([0, 1], \mu) \rightarrow (R, B(R))$, where $\mu$ is uniform.  Suppose $F$ is continuous and strictly monotone.  We want $X$ to induce the distribution $F$, so it suffices to show $X^{-1}(\infty, y) = [0, F(y)]$.  If we define $X(F(y)) = y,$, we get the above, but that's not always well defined.  For general distributions, one can come up with various definitions of an "inverse" which induces the desired properties.  One particular choice is
+$$w \in (0, 1), X(\omega) = \sup\{y : F(y) < \omega\}.$$
+
+It is an exercise to check that $\{\omega: X(\omega) < x\} = \{\omega : \omega \le F(x) \}$, which implies that $X$ is measureable.
 \end{document}

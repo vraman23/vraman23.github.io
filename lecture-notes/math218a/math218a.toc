@@ -8,3 +8,6 @@
 \contentsline {subsection}{\numberline {2.3}Uniform Measure on the Borel Sets}{6}{subsection.2.3}% 
 \contentsline {section}{\numberline {3}September 3rd, 2020}{8}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Uniform Measure on the Borel Sets}{8}{subsection.3.1}% 
+\contentsline {section}{\numberline {4}September 8th, 2020}{11}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}The Outer Measure}{11}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Functions Between Measure Spaces}{11}{subsection.4.2}% 
