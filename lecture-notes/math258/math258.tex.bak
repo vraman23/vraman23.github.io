@@ -10,6 +10,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb C}
 \newcommand{\T}{\mathbb T}
+\newcommand{\SRS}{\mathscr {S}}
 
 \let \phi \varphi
 \let \hat \widehat
@@ -484,4 +485,114 @@ Note that if $\rho_n$ is a metric,
 $$\sum_{n=1}^{\infty} 2^{-n}\left (\frac{\rho_n}{1+\rho_n}\right )$$ is also a metric, but it wouldn't preserve the vector space condition.  Next time, we will prove the following theorem:
 \begin{thm} $\wedge:\mathscr{S} \rightarrow \mathscr{S}$ is a linear, bijective homeomorphism.
 \end{thm}
+\pagebreak
+\section{September 10th, 2020}
+\subsection{Schwartz Space, continued}
+Last time, we introduced the Schwartz space,
+$$\mathscr{S} = \mathscr{S}(\R^d) = \{f  \in C^{\infty}: \forall M, N \|f\|_{M, N} < \infty\},$$
+$$\|f\|_{M, N} = \sup_x\{ \<x\>^M \sum_{|\alpha| = 0}^N \left |\frac{\partial^\alpha f}{\partial x^{\alpha}}\right |\}.$$
+An equivalent formulation is $x^\beta \partial^{\alpha} f$ is bounded for all $\alpha, \beta$.
+\begin{thm} The fourier transform, $\wedge:\mathscr{S} \rightarrow \mathscr{S}$ is a linear, bijective homeomorphism.
+\end{thm}
+\begin{proof}
+Note that if $f \in \mathscr S$, then $\hat{f} \in C^{\infty}$.
+This is clear since 
+$$\partial_{\xi}^{\alpha}\int f(x) e^{-ix \cdot \xi}dx = \int f(x) \partial_{xi}^{\alpha} (e^{-ix \cdot \xi})dx.$$
+Hence $f \cdot \<x\>^N$ is in $L^1$ for all $N$.
+
+Note the following identities:
+$$(\partial_{x}^{\alpha} f)^{\wedge} = (i\xi)^{\alpha} \hat{f}(\xi), (x^{\beta}f)^\wedge = (i \partial_xi)^\beta \hat{f}(\xi),$$
+which can be verified from repeated integration by parts.
+
+We claim that $\xi^\beta \partial_\xi ^{\alpha}\hat{f}$ is bounded for all $\alpha, \beta$. Moreover, there exists $M, N$ such that $$\sup_{xi}|\xi^\beta \partial_\xi ^{\alpha \hat{f}(\xi)}| \le C_{\alpha, \beta} \|f\|_{M, N}.$$
+
+Note that $$|\xi^\beta \partial_\xi ^{\alpha \hat{f}(\xi)}| = |(\partial_x^\beta x^\alpha f)^\wedge(\xi) |,$$
+so $$\sup_{xi}|\xi^\beta \partial_\xi ^{\alpha \hat{f}(\xi)}| \le  \|(\partial_x^\beta x^\alpha f)^\wedge(\xi) \|_{L^1} \le C_d \sup_x| \<x\>^{d+1} \partial_x^\beta (x^{\alpha} f)|.$$
+By the Leibniz rule, we can commute $\partial_x^{\beta}$, which gives the result.
+
+Hence, we have proved that $\hat{\mathscr S} \subset \mathscr S$, and $\wedge: \mathscr S \rightarrow \mathscr S$ is continuous.   and the same holds for $f \mapsto \check{f}$, so $f \in \mathscr S \Rightarrow f \in L^1$ and $\hat{f} \in L^1$, so $\wedge$ is 1-1 on $\S$ and $\vee$ is onto, so we get that $\wedge$ is onto.
+\end{proof}
+
+\subsection{Tempered Distributions}
+We will consider the dual of the Schwartz space,
+$$\mathscr S' = \{\phi: \mathscr S \rightarrow \C, \text{ linear and continuous}\}.$$
+Recall, continuity by definition is given by the existence of $M, N, C < \infty$ so that for all $f \in \mathscr S$, $|\phi(f)| \le C \|f\|_{M, N}.$
+\begin{example}[Dirac Mass] We can take $\phi(f) = f(0)$, the dirac mass.  We can also take $\phi(f) = \partial^{\alpha} f(y_0)$.  
+
+Let $\mu$ be a complex Radon measure, $h \in L_{loc}^1$, $\int_{|x| \le R}|h|dx \le C_h\<R\>^{A_h}.$  We can define
+$$\phi(f) = \int \partial^\alpha f(x) \cdot h(x) d\mu(x) \in \C.$$
+\end{example}
+\begin{thm} Every $\phi \in \mathscr S'$ is a finite linear combination of $f \mapsto \int \partial^\alpha f \cdot h d\mu$, with $h, \mu, \alpha$ as before.
+\end{thm}
+The proof is left as an exercise.  The key ingredient is the Riesz Representation theorem and the Hahn-Banach theorem.
+
+$\mathscr S'$ is given a weak topology: a neighborhood hood base of $\phi \in \mathscr S'$ is given by choosing $J$, a finite index set, $\epsilon > 0$ and $f_j \in \mathscr S (j \in J)$.  Then
+$$V = \{\psi \in \mathscr S' : |\psi(f_j) - \phi(f_j)| < \epsilon\ \forall j \in J\}. $$
+
+\begin{definition} For $\phi \in \mathscr S'$, $\hat{\phi}$ is a map $f \in \mathscr S \mapsto \phi(\hat{f})$.  Then $\hat{\phi}:\mathscr S \mapsto \C$ is linear.  Similarly, we can define $\check{\phi}: \mathscr S \rightarrow \C$, linear.  
+\end{definition}
+We can verify that $\hat{\phi} \in \mathscr S'$.  Note that 
+$$|\hat{\phi}(f)| = |\phi(\hat{f})| \le C_{\phi} \|\hat{f}\|_{M, N} \le C' \|f\|_{M', N'}.$$
+
+\begin{thm} $\wedge: \mathscr S' \rightarrow \mathscr S'$ is a bijective homeomorphism.  
+\end{thm}
+\begin{proof}
+We first show that $\phi \mapsto \hat{\phi}$ is continuous at $\psi$.  
+Given $V$, a neighborhood of $\psi$: $J$ finite, $\epsilon > 0$, $f_j : j \in J$
+, we need to control $|\hat{\phi}(f_j) - \hat{\psi}(f_j)| < \epsilon$ for every $j \in J$.
+The neighborhood $W = \{\phi: |\phi(\hat{f_j}) - \psi(\hat{f}_j)| < \epsilon \forall j \in J\}$ gives the desired bound.
+
+Now we claim for all $\phi \in \mathscr S'$, $(\hat{\phi})^{\vee} = (2\pi)^d \phi$.  This comes from
+$$(\hat{\phi})^{\vee} (f) = \hat{\phi}(\check{f}) = \phi((\check{f})^{\wedge}) = \phi((2\pi)^d f).$$
+Hence $\wedge$ is 1-1 and onto, so we conclude that it is a bijective homeomorphism.
+\end{proof}
+We can define a partial derivative of a distribution, $\partial^\alpha \phi$, with $\partial^\alpha: \mathscr S' \rightarrow \mathscr S'$ continuous, linear.  This is a bit shocking:  Take $\phi = h \in L_{loc}^1$ with $\int_{|x| \le R}|h|dx \le C_h R^{A_h}$.  This defines a distribution $f \mapsto \int fh = \phi(f)$.  That means, we have a way of essentially differentiating anything.
+
+Note that we have a natural map $i : \mathscr S \rightarrow \mathscr S'$ injective, where $i(g)(f) = \int_{\R^d} f g$.  Then, we take $g \mapsto i(g)$.  Note that $i$ is a continuous map.
+
+Given some linear operator $T : \mathscr S \rightarrow \mathscr S$, we want to associate an extension $\tilde{T}: \tilde{T}(i(g)) = i(T(g))$ for all $g \in \mathscr S$.  
+
+Define $T':\mathscr S' \rightarrow \mathscr S'$, where $T'(\phi)(f) = \phi(T(f))$.  It's easy to check that $T' \in \End(\mathscr S')$, but there are some bad examples.
+\begin{example}  If we take $T(f) = \frac{df}{dx}$, $\int f \cdot g' = - \int f' \cdot g$, then 
+$$T(i(g)) = -i(T(g)).$$
+\end{example}
+Suppose we have some $T \in \End(\mathscr S)$ and a transpose $A \in \End(\mathscr S)$ in the sense that 
+$$\int T(f)g = \int f A(g) \forall f, g \in \mathscr S.$$
+
+For example, $T = \frac{d}{dx}, A = -\frac{d}{dx}.$  With $T, A \in \End(\mathscr S)$, we can define $\tilde{T}(\phi)(f) = \phi(A'(f))$, which defines our extension.
+\begin{proposition} $i(\mathscr S)$ is dense in $\mathscr S'$.
+\end{proposition}
+\begin{definition}[Convolution for Distributions] If $f \in \mathscr S$ and $\phi \in \mathscr S'$, then
+$$\phi * f(x) = \phi(f_x), f_x(y) = f(x-y).$$
+One can show that $\phi * f \in C^{\infty}$ if $f \in \mathscr{S}$. 
+\end{definition}
+\begin{proposition} Let $(\phi_n) \in \mathscr S'$.  If $\phi_n \rightarrow \phi$ in $\mathscr S'$, then 
+$\phi_n f \rightarrow \phi(f) \forall f \in \mathscr S$.
+\end{proposition}
+\begin{proposition} Let $(\phi_n) \in \mathscr S'$.  If $\phi_n \rightarrow 0$ in $\mathscr S'$.  Then there exists $M, N < \infty$ such that for all $n$ and for all $f \in \mathscr S$, 
+$$|\phi_n(f)| \le C_n \|f\|_{M, N},$$
+and $C_n \rightarrow 0$ as $n \rightarrow \infty$.
+\end{proposition}
+The proof uses the Baire Category Theorem.  Recall $\mathscr S$ is a complete metrizable space, where we define a norm from
+$$\sum_{M, N} 2^{-M-N} \frac{\|f\|_{M, N}}{1 + \|f\|_{M, N}}.$$
+
+For $d \ge 1$, define $g(x) = e^{-i\lambda |x|^2/2}, \lambda \in \R$.  Note that $g \in L^{\infty}$, $|g| \equiv 1$.  
+
+We define $\hat{g}(\xi) = (2\pi)^{d/2}(i\lambda)^{-d/2}e^{-i|\xi|^2/(2\lambda)}$, for $\lambda \ne 0$.  If we take $g \mapsto i(g) \in \SRS '$, note that $(i(g))^{\wedge} = i$, so we are in fact doing a normal fourier transform.
+
+
+Define $g_z(x) = e^{-z\lambda |x|^2/2}$, for $z \in \C$, $Re(z) \ge 0$.  We claim that as $z \rightarrow i\lambda$, $g_z \rightarrow g$ in the topology of $\SRS '$.  Furthermore,
+$$\int fg_z \rightarrow \int fg$$
+for all $f \in \SRS$ by the dominated convergence theorem, with dominator $|f|$, since $|g_z| \le 1$, $|g| \equiv 1$.
+
+We know that $\hat{g}_z \rightarrow \hat{g}$ in $\SRS'$ as $z \rightarrow i\lambda$.  Note that 
+$$\hat{g}_z(\xi) = (2\pi)^{d/2} z^{-d/2}e^{-|\xi|^2/(2z)}.$$
+
+If $Re(z) > 0$, then $g_z \in \SRS$.
+
+Then as $z \rightarrow i \lambda$,
+$$(2\pi)^{d/2} z^{-d/2}e^{-|\xi|^2/(2z)} \rightarrow (2\pi)^{d/2}(i\lambda)^{-d/2}e^{-|\xi|^2/(2i\lambda)}.$$
+
+So $\hat{g}_z \rightarrow \hat{g}$ in $\SRS'$, so we have the result.
+
 \end{document}

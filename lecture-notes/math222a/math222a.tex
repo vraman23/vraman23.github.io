@@ -306,4 +306,141 @@ We learn 2 lessons from this example:
 After applying a change of coordinates, we have a Cauchy problem:
 $$u_t + AD_x u = f, u(t=0) = u_0,$$
 where $u_t$ is nonzero, corresponding to the condition that the surface is noncharacteristic.
-\end{document}
+\pagebreak
+\section{September 10th, 2020}
+Last time:
+\begin{itemize}
+\item We began discussing first order scalar equations.  
+\begin{itemize}
+\item Linear, Constant Coefficients, 
+$$a^j \partial_j u = f.$$
+\item We interpret the equation as a directional derivative, so solving the equation reduces to integration along straight lines.
+\item For initial data, $u = u_0$ on $\Sigma$, for the problem to be well poser, we need $\Sigma$ to be \textbf{noncharacteristic}, namely 
+$$A \cdot N \ne 0,$$
+where $A = (a_j),$ $N$ is the normal vector to the surface.
+\item Our model problem was an evolution in $(t, x),$ where $$u_t + a^j\partial_j u = f, u(t=0) = u_0.$$
+\end{itemize}
+\end{itemize}
+\subsection{Linear, Variable Coefficients}
+We have equations of the form
+$$a^j(x)\partial_j u = f,$$
+the \textbf{Transport equation}. 
+ \begin{center}
+\includegraphics[scale=0.5]{curve.png}
+\end{center}
+Now, we have integration on curves instead of straight lines.  We think about this as ode's along curves $\gamma$ so that $A$ is tangent to $\gamma$ at every point: 
+$$\dot{x} = A(x), x(0) = x_0, x(t) = \Phi(t, x_0).$$
+We can rewrite this in the form
+$$\frac{d}{dt} u(\Phi(t, x_0)) = f(\Phi(t, x_0)),$$
+which reduces to the fundamental theorem of calculus in 2 steps:
+\begin{enumerate}
+\item Solve the ode
+\item Integrate
+\end{enumerate}
+We can also add Cauchy data, $u = u_0$ on $\Sigma$.  For the problem to be well-posed, we need $\Sigma$ to be noncharacteristic, $A \cdot N \ne 0$.
+ \begin{center}
+\includegraphics[scale=0.5]{char.png}
+\end{center}
+\begin{thm} Assume that $A \in C_{loc}^1$, $\Sigma$ is a $C^1$ noncharacteristic surface.  Then the problem
+$$\begin{cases}
+A \cdot Du = f  \in C\\
+u = u_0 \in C \text{ on } \Sigma
+\end{cases}$$
+admits a unique continuous solution.
+Note that if $(f, u_0) \in C$, then we can get $u \in C$ and if $(f,u_0) \in C^1$, then we can get $u \in C^1$.
+\end{thm}
+
+Having a local diffeomorphism is equivalent to showing $\Sigma$ is noncharacteristic.  We show this by showing the differential is nonzero.
+ \begin{center}
+\includegraphics[scale=0.6]{diffe.png}
+\end{center}
+Take a change of coordinates 
+$$x = \Phi(x_0, t).$$
+In the new coordinates, the equation becomes
+$$\frac{\partial u}{\partial t} = f, u_{t=0} = u_0,$$
+which reduces completely to the fundamental theorem of calculus.
+\subsection{Semilinear Equations}
+We have equations of the form
+$$a^j(x) \partial_j u = f(x, u).$$
+We can still interpret this as a directional derivative, with an ODE:
+$$\begin{cases}
+x' = A(x)\\
+x(0) = x_0
+\end{cases}$$
+with a Flow map $(x_0, t) = \phi(x_0, t)$.  We still require our surface $\Sigma$ to be noncharacteristic.
+
+The equation along characteristics is
+$$\begin{cases}
+\frac{\partial}{\partial t} u (\phi(x_0, t)) = f(\phi(x_0, t), u(\phi(x_0, t)))\\
+u(\phi(x_0, 0)) = u_0(x_0).
+\end{cases}
+$$
+Then, we solve for the characteristics, and solve the ode along the characteristics.  
+\subsection{Quasilinear Equations}
+We have equations of the form
+$$\begin{cases}
+a^j(x, u)\partial_j u = f(x, u)\\
+u = u_0 \text{ on } \Sigma
+\end{cases}$$
+A priori, we can no longer draw the vector field, since a given point will depend on the solution $u$.  
+
+Suppose we already have a solution $u \in C^1$.  Then, we have a well-defined vector field $A = A(x, u)$.  We can also consider the flow of $A$.
+
+ \begin{center}
+\includegraphics[scale=0.6]{quasi.png}
+\end{center}
+Given initial data $x(0) = x_0, u(0) = u_0(x_0)$, we have a Cauchy problem.  From this, we conclude that a good strategy for the problem is the following:
+\begin{itemize}
+\item Given $x_0$ on $\Sigma$, solve the above system for $x, u$.  
+$$X = \phi(t, x_0, u_0), u = U(t, x_0, u_0).$$
+\item Define the candidate solution $u$ as $$u(\phi(t, x_0, u_0)) = U(t, x_0, u_0).$$
+\end{itemize}
+Remark: We still want $\Sigma$ to be noncharacteristic: $A(x_0, u_0(x_0)) \cdot N(x_0) \ne 0$.  In this case, we say the problem is noncharacteristic, since it depends on the initial data.
+\begin{thm} Let $a^j(x, u), f(x, u)$ be $C^1$ functions, $u_0 \in C^1(\Sigma)$ and $\Sigma$ noncharacteristic.  Then, the problem
+$$\begin{cases}
+a^j(x, u)\partial_j u = \delta(x, u)\\
+u = u_0 \text{ on }\Sigma
+\end{cases}$$
+has a unique local solution.
+\end{thm}
+\begin{proof} We outline the steps.
+\begin{enumerate}
+\item Solve the characteristic ode:
+$$\begin{cases}
+\dot{x} = A(x, u)\\
+\dot{u} = f(x, u)\\
+x(0) = x_0 \in \Sigma \\
+u(0) = u_0(x_0)
+\end{cases}.$$
+This gives us a local diffeomorphism:
+$$(x_0, u_0(x_0), t) \rightarrow (x, u).$$
+\item Define the candidate solution
+$$u(\phi(x_0, u_0(x_0, t))) = U(x_0, u_0(x_0), t).$$
+\item Verify that the solution is $C^1$, which comes from $C^1$ dependence for ODE's and for the local diffeomorphism.
+\item Verify that the solution is unique.  [Suppose we have two solutions $u_1, u_2$ with the same initial data.   Then if their characteristic ode's have the same data, they have the same solutions, which implies that the characteristics are the same and $u_1 = u_2$ on characteristics.]
+\end{enumerate}
+\end{proof}
+The key observation is that solutions given by the theorem are local solutions.
+\subsection{Classical model problem: Burgers' Equation}
+Consider the Burgers Equation: we use coordinates $(t, x) \in \R \times \R$.
+$$\begin{cases}
+u_t + u \cdot u_x = 0\\
+u(t = 0) = u_0(x)
+\end{cases}$$
+ \begin{center}
+\includegraphics[scale=0.5]{burger.png}
+\end{center}
+If we choose a point $x_0$, the characteristic system: denote by $s$ the parameter along characteristics.  
+$$\begin{cases}
+\dot t = 1, t(0) = 0\\
+\dot x = u, x(0) = x_0\\
+\dot u = 0, u(0) = u_0(x_0)
+\end{cases}$$
+Our first equation is $t = s$, which tells us that $t$ is the natural parameter along characteristics.  The third equation gives us that $u = u_0(x_0)$, which is constant along characteristics.  Then, $x(t) + x_0 + tu_0(x_0)$.  In particular, characteristics are straight lines.  
+ \begin{center}
+\includegraphics[scale=0.5]{intersect.png}
+\end{center}
+Characteristics can intersect, which loses the $C^1$ well-posedness.  To find the first $C^1$ blow-up time, we look at the first point where $x_0 \rightarrow x$ is no longer a diffeomorphism.  
+$$\frac{\partial x}{\partial x_0} = 1 + tu_0'(x_0),$$
+so we encounter a singularity when $tu_0'(x_0) + 1 = 0 \Rightarrow t = -\frac{1}{u_0'(x_0)}$
+ \end{document}

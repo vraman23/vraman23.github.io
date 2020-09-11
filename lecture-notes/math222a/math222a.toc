@@ -12,3 +12,8 @@
 \contentsline {subsection}{\numberline {3.1}Observations regarding Picard-Lindelof}{10}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Linearization of an ODE}{11}{subsection.3.2}% 
 \contentsline {subsection}{\numberline {3.3}Our First Partial Differential Equation}{11}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}September 10th, 2020}{13}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Linear, Variable Coefficients}{13}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Semilinear Equations}{14}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Quasilinear Equations}{15}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Classical model problem: Burgers' Equation}{16}{subsection.4.4}% 

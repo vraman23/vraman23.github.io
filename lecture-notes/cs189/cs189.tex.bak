@@ -226,5 +226,12 @@ Consider the plot of $\|A\hat{w} - b\|^2$ as a function of $\lambda$.
 \begin{center}
 \includegraphics[scale=0.75]{lambda.png}
 \end{center}
-We would always want $\lambda = 0$ given the training data.  $\lambda$ is a hyperparameter, where if we tried to optimize it, we would also get $0$.
+We would always want $\lambda = 0$ given the training data.  $\lambda$ is a hyperparameter, where if we tried to optimize it, we would always get $0$.
+\pagebreak
+\section{September 9th, 2020}
+\subsection{Test Sets}
+\subsection{Validation and Hyper-parameters}
+\subsection{K-fold Cross-Validation}
+\subsection{Probability and Toy Models}
+
 \end{document}

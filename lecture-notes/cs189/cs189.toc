@@ -7,3 +7,8 @@
 \contentsline {subsection}{\numberline {2.1}Universal Function Approximation and Features}{6}{subsection.2.1}% 
 \contentsline {subsection}{\numberline {2.2}Ridge Regression}{7}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Hyperparameters}{8}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}September 9th, 2020}{9}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Test Sets}{9}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Validation and Hyper-parameters}{9}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}K-fold Cross-Validation}{9}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Probability and Toy Models}{9}{subsection.3.4}% 

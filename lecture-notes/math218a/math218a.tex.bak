@@ -322,4 +322,95 @@ Given a distribution function, is there a random variable?  Given a distribution
 $$w \in (0, 1), X(\omega) = \sup\{y : F(y) < \omega\}.$$
 
 It is an exercise to check that $\{\omega: X(\omega) < x\} = \{\omega : \omega \le F(x) \}$, which implies that $X$ is measureable.
+\section{September 10th, 2020}
+\subsection{Integration}
+We work in $(\Omega, \Sigma, \mu)$ a sigma-finite measure space.  Often, we take it to be a probability measure.  The goal is to define a notion of integration for measurable functions and the behavior of integration with limits.  Consider a function $f: \Omega \rightarrow \R$ measurable with the Borel Sigma-algebra.  
+
+Our strategy is as follows:
+\begin{enumerate}
+\item Consider simple functions.
+\item Extend to bounded functions.
+\item Extend to general functions.
+\end{enumerate}
+\subsection{Simple Functions}
+\begin{definition}[Simple Function] Consider $f = 1_E$, where $\mu(E) < \infty$, an indicator function.  A \textbf{simple function} is a linear combination of indicator functions,
+$$f = \sum_{i=1}^k c_i 1_{A_i}, \mu(A_i) < \infty,$$
+where $A_i$ are disjoint.  
+
+We'll define the integral of a simple function as 
+$$\int f d\mu = \sum_{i=1}^k c_i \mu(A_i).$$
+\end{definition}
+First, note that any $f = \sum_{i=1}^k d_i 1_{B_i}$ can be represented as $\sum_{i=1}^k c_i 1_{A_i}$, where they are disjoint.  We verify that our definition is well defined.  Suppose
+$$f = \sum_{i=1}^k c_i 1_{A_i} = \sum_{j=1}^m e_j 1_{F_j}.$$
+Then, observe that for $i, j$ such that $A_i \cap F_j \ne \emptyset$, then $c_i = e_j$.  So, we have $f = \sum_{i, j} d_{i, j} 1_{A_i \cap F_j}$, and we can check that $d_{ij} = c_i = e_j$. 
+Thus,
+$$\sum_{i=1}^k c_i \mu(A_i) = \sum_{i, j} d_{ij}\mu(A_i \cap F_j) = \sum_{j=1}^m e_j \mu(F_j).$$
+
+Some properties:
+\begin{itemize}
+\item If $f \ge 0$ then $\int f \ge 0$.
+\item $\int af = a \int f$.
+\item $\int (f+g) = \int f + \int g$.
+\item If $g \le f$ then $\int g \le \int f$.
+\item if $g = f$, $\int g = \int f$.
+\item $|\int f| \le \int |f|.$ 
+\end{itemize}
+\subsection{Bounded Functions}
+Suppose $|f| \le M$ and $f$ vanishes outside $E$ and $\mu(E) < \infty$.
+
+We can approximate from above or below:
+$$\sup \int_{g \le f} g \le \inf \int_{h \ge f} h$$
+To prove equality, it suffices to show that there exists $g, h$ such that $\int h - \int g \le \epsilon$.  It suffices to construct $h$ such that $h-f < \epsilon$ and $f-g < \epsilon$.  Then $\int h - \int g \le 2 \epsilon \mu(E)$.
+
+Note that the range of $f$ is $[-M, M]$, so we can discretize the interval into smaller intervals $I_1, \dots, I_k$ of size $\epsilon$.   
+
+Then, define $A_1 = f^{-1}(I_1) \cap E$, and $f^{-1}(I_j) \cap E = A_j$.  Then.
+ $$h = \sum ((j+1) \epsilon - M) 1_{A_j}, g = \sum j\epsilon - M)1_{A_j}.$$
+ 
+ Thus, $\int f = \sup \int g = \inf \int h.$
+ 
+ Observe that the new definition agrees with the old definition when $f$ is simple.
+ 
+ As an exercise, we'll verify $\int f+g = \int f + \int g$.  Take Suppose $\int h_1 \ge \int f \ge \int g_1$ with $\int h_1 - g_1 < \epsilon$, and $\int h_2 \ge \int g \ge \int g_2$ with $\int h_2 - g_2 < \epsilon$.
+ 
+ Then
+ $$h_1 + h_2 \ge f+g \ge g_1 + g_2,$$
+ and $$\int h_1 + \int h_2 < \int g_1 + g_2 + 2\epsilon = \int g_1 + \int g_2 + 2\epsilon.$$
+ \subsection{General Functions}
+ Assume $f \ge 0$.  Note that we can no longer approximate from above, so we approximate from below:
+ $$\int f = \sup\{\int h, h \le f, \text{ bounded }\}.$$
+ 
+Clearly, the definition agrees with the old one for bounded functions with finite support.
+
+As an exercise, we'll prove that $\int f+g = \int f + \int g$.  If we have a bounded $h_1 \le f, h_2 \le g$, then $h_1 + h_2 \le f+g$, which implies that $\int h_1 + h_2 = \int h_1 + \int h_2 \le \int f+g$.  and $\sup \int h_1 + \sup \int h_2 = \int f+\int g$, so $\int f + \int g \le \int f+g$.
+
+\begin{lemma} Suppose $E_n \uparrow \Omega$, $\mu(E_n)< \infty$.  Now, consider $(f \wedge n)1_{E_n}$, where $f\wedge n$ is the minimum of $f, n$.  Then, the function is bounded and has finite support.  Note that $(f \wedge n)1_{E_n}$.  We claim that
+$$\int (f \wedge n)1_{E_n} \uparrow \int f.$$
+\end{lemma}
+\begin{proof}
+It is clear that $$\lim \int (f \wedge n) 1_{E_n} \le \int f,$$
+since $h_n = (f \wedge n)1_{E_n}$ is contained in the set of bounded functions for which the supremum is $\int f$.  
+
+If suffices to show that $\lim \int (f \wedge n)1_{E_n} \ge \int f$.  Take $h$ bounded such that $\int f < \int g + \epsilon$.  There is a set $E$ such that $g \le M$ on $E$ and $g$ is $0$ on $E^c$.  
+
+$g \le f$, so for any $n \ge M$, $h_n \ge g$ on $E_n \cap E$.
+We claim that $$\int h_n \ge \int g - M \mu(E \setminus E_n).$$  Then $E_n \uparrow \Omega$, so $\mu(E \setminus E_n) \rightarrow 0$.
+\end{proof}
+Now, we conclude the original proof.  Note that 
+$\int f+g = \lim \int((f+g)\wedge n)1_{E_n}$,
+so $$\int ((f+g)\wedge n)1_{E_n} \le \int (f\wedge n) 1_{E_n} + \int (g \wedge n)1_{E_n}.$$
+Taking limits gives the desired result.
+\subsection{Arbitrary Measurable Functions}
+Define $\int f$ only when $\int |f| < \infty$.  Define $$f = f^+ - f^-,$$
+where $f^+ = f \vee 0, f^- = f \wedge 0$.
+
+Then $$\int f = \int f^+ - \int f^-.$$
+\begin{lemma} If $f_1, f_2$ nonnegative and $f = f_1 - f_2$, then
+$$\int f = \int f_1 - \int f_2.$$
+\end{lemma}
+\begin{proof}
+$f = f^+ - f^- = f_1 - f_2$, so $$f^+ + f_2 = f_1 + f^-,$$
+then $$\int f^+ + \int f_2 = \int f_1 + \int f^-,$$
+so $$\int f = \int f^+ - \int f^- = \int f_1 - \int f_2.$$
+\end{proof}
 \end{document}

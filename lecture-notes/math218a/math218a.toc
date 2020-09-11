@@ -11,3 +11,9 @@
 \contentsline {section}{\numberline {4}September 8th, 2020}{11}{section.4}% 
 \contentsline {subsection}{\numberline {4.1}The Outer Measure}{11}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Functions Between Measure Spaces}{11}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}September 10th, 2020}{13}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Integration}{13}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Simple Functions}{13}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Bounded Functions}{14}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}General Functions}{14}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.5}Arbitrary Measurable Functions}{15}{subsection.5.5}% 
