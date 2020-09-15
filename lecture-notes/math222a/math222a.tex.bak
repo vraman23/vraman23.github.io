@@ -436,11 +436,112 @@ $$\begin{cases}
 \dot x = u, x(0) = x_0\\
 \dot u = 0, u(0) = u_0(x_0)
 \end{cases}$$
-Our first equation is $t = s$, which tells us that $t$ is the natural parameter along characteristics.  The third equation gives us that $u = u_0(x_0)$, which is constant along characteristics.  Then, $x(t) + x_0 + tu_0(x_0)$.  In particular, characteristics are straight lines.  
+Our first equation is $t = s$, which tells us that $t$ is the natural parameter along characteristics.  The third equation gives us that $u = u_0(x_0)$, which is constant along characteristics.  Then, $x(t) = x_0 + tu_0(x_0)$.  In particular, characteristics are straight lines.  
  \begin{center}
 \includegraphics[scale=0.5]{intersect.png}
 \end{center}
 Characteristics can intersect, which loses the $C^1$ well-posedness.  To find the first $C^1$ blow-up time, we look at the first point where $x_0 \rightarrow x$ is no longer a diffeomorphism.  
 $$\frac{\partial x}{\partial x_0} = 1 + tu_0'(x_0),$$
 so we encounter a singularity when $tu_0'(x_0) + 1 = 0 \Rightarrow t = -\frac{1}{u_0'(x_0)}$
- \end{document}
+\pagebreak
+\section{September 15th, 2020}
+\subsection{Fully Nonlinear PDEs}
+We have an equation $F(x, u, Du) = 0 \in \R^n$, where $Du = (\partial_1 u, \dots, \partial_n u)$.  So far, we've been able to interpret the equation as a directional derivative in the direction of $u$.  Naively, it isn't clear how to apply that approach to this system.
+
+First, we compute the linearized equation: We have $u(h)$, a one parameter family of solutions, and take $V = \frac{d}{dh}u(h)\vert_{h = 0}.$  The $h = 0$ corresponds to the original solution.  We get that $$F_u(x, u, Du) \cdot v + F_{Du}(x, u, Du) \cdot Dv = 0.$$
+We improve the notation by noting that $F: \R^n \times \R \times R^n \rightarrow \R$, and we denote $p = Du$ for convenience.  
+
+We can rewrite the equation as 
+$$F_u(x, u, Du)v + F_p(x, u, Du) \cdot Dv = F_u(x, u, Du)v + F_{p_j}(x, u, Du) \cdot \partial_j v = 0.$$
+
+The key observation is that the linearized equation is a transport equation.  The vector field is $F_p(x, u, Du)$.  Then, we have the ordinary differential equation:
+$$\dot{x}(s) = F_p(x, u, Du),$$
+which are the integral curves of the vector field.  If we have a solution, we can compute it using the chain rule:
+$$\dot u = F_p(x, u, Du) \cdot Du.$$
+We also need $\dot{(Du)}$.  We can compute this directly with chain rule, or we can simply differentiate the original equation:
+$$\frac{\partial F}{\partial x_j} + \frac{\partial F}{\partial u} \cdot \frac{\partial u}{\partial x_j} + \frac{\partial F}{\partial p_j}\cdot \frac{\partial^2 u}{\partial x_jx_k} = 0.$$
+Interpreting this as a directional derivative of $\frac{\partial u}{\partial x_j}$, we have 
+$$F_p \cdot D \frac{\partial u}{\partial x_j} = -F_i \cdot \frac{\partial u}{\partial x_j} - F_x,$$
+$$\dot{\left (\frac{\partial u}{\partial x_j}\right )} = -F_u \frac{\partial u}{\partial x_j} - F_x.$$
+
+We think of the three equations as a system of ODEs:
+$$\begin{cases}
+\dot{x} = F_p(x, u, p)\\
+\dot u = F_p(x, u, Du) \cdot Du\\
+\dot p = - F_u \cdot p - F_x
+\end{cases}
+$$
+\begin{lemma} Suppose $u$ is a $C^2$ solution to our PDE.  Consider the solution to $(x, u, p)$ to the characteristic system above, with initial data $x(0) = x_0, u(0) = u(x_0), p(0) = Du(x_0)$.  Then, $$u(x(s)) = u(s),$$
+$$Du(x(s)) = p(s).$$
+\end{lemma}
+The goal is to use this property in order to construct solutions.  
+
+Add to the ODE an initial solution $u = u_0$ on a surface $\Sigma$.  Can we solve (locally) the initial value problem?
+$$\begin{cases}
+F(x, u, Du) = 0 \\
+u = u_0 \in \Sigma
+\end{cases}.$$
+To compute characteristics starting at $x_0$, we need $x_0, u(x_0), Du(x_0)$.  We have the first two, since $u(x_0) = u_0(x_0)$.  However, $Du(x_0)$ is not immediately obvious, since $u_0$ is only on $\Sigma$, in $n-1$ variables.  In other words, we can't compute derivatives in the normal direction to $\Sigma$.  
+
+In a frame of $x_0$ where $\Sigma = \{x_n = 0\}$,we are given $\frac{\partial u}{\partial x'} =\frac{\partial u_0}{\partial x'}$, the tangential derivatives, but not $\frac{\partial u}{\partial x_n}$.
+
+We use the equation at $x_0$: 
+$$F(x_0, u_0(x_0), Du(x_0)) = 0.  $$
+
+We think the above as an equation for $\partial_u u(x_0)$.  Either we cannot solve it, in which case there is no solution to the PDE, or we can solve it, with some issues, namely:
+\begin{itemize}
+\item The solution might not be unique, in which case we make a choice that is consistent around $x_0$.
+\item The outcome $\partial_n u(x_0) = G(x_0, u_0(x_0), D'u_0(x_0))$, which we want to solve smoothly. Using the "Implicit Function theorem", this happens if $\boxed{F_{p_n}(x_0, u_0(x_0), p) \ne 0}$.
+\end{itemize}
+\begin{thm} Consider the PDE:
+$$\begin{cases}
+F(x, u, Du) = 0 \\
+u \vert_{\Sigma} = u_0
+\end{cases}.$$
+Let $x_0 \in \Sigma$, and $p_0$ so that 
+\begin{itemize}
+\item $F(x, u_0, p_0) = 0$
+\item $p_0 \cdot T = Du_0 \cdot T$, where  $T$ is tangential
+\item $F_p(x_0, u_0, p_0) \cdot N \ne 0$.
+\item $F_p(x_0, u_0, p_0) \cdot N \ne 0$, the noncharacteristic condition.
+\end{itemize}
+(Notice that the third and fourth conditions are the same!  They come from two different places, the implicit function theorem, and our conditions on initial data.)
+
+Then, there exists a unique $C^2$ solution of our PDE "near" $x_0$.
+\end{thm}
+Remark:  The solution might be only local because characteristics may intersect.
+
+Remark: We work in $C^2$ for convenience, but the theorem holds in $C^1$.
+\begin{proof}
+The proof has 3 key steps:
+\begin{itemize}
+\item The construction of the solution.
+\item The verification of the equation.
+\item Verify uniqueness.
+\item We would also like continuous/Lipschitz dependence on the initial data, but this part is omitted.  [It uses the linearized equation]
+\end{itemize}
+We begin with the construction.  We use the method of characteristics.  
+$$\begin{cases}
+\dot{x} = F_p(x, z, p)\\
+\dot z = F_p(x, z, p) \cdot Du\\
+\dot p = - F_u \cdot p - F_x
+\end{cases}
+$$
+Find initial data for this system on $\Sigma:$ $x(0) = x_0, z(0) = u_0(x_0), p(0) = p_0$, which is obtained by solution $F(x_0, u_0(x_0), p_0) = 0$.  Recall that $p_0$ is broken into $p_T = Du_0(x_0)$ tangential, and $p_N$, normal.  We can solve this smoothly with the Implicit Function Theorem by the noncharacteristic condition.  
+
+We solve the characteristic system with the initial data, and the outcome is a pair of functions 
+$$x(s, x_0), z(s, x_0), p(s, x_0),$$
+which is defined for $x_0$ is a neighborhood of the original point, $s$ in a neighborhood of $0$.
+
+We want to define one solution $u$: We set $u(x(s, x_0)) = z(s, x_0)$.  Instead, we want $u$ as a function of $x$,
+$$(s, x_0) \rightarrow x$$ needs to be invertible, i. e. a local diffeomorphism.
+
+This equivalent to having 
+$$\det \left [\frac{\partial x(s, x_0)}{\partial (s, x_0)}\right ] \ne 0,$$
+which is equivalent to the noncharacteristic condition(we showed this before).  Now, we have $u$ defined in a neighborhood at $x_0$.
+
+The next objective is to show that for $u$, we have
+$$\boxed{Du(x(x_0, s)) = p(x_0, s)}.$$
+We'll do this next time, but suppose we have this condition.  Then to show that $u$ solves the equation, we need that $F(x(x_0, s), u(x_0, s), p(x_0, s)) = 0$.
+\end{proof}
+\end{document}
