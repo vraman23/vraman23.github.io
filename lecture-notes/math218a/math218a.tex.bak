@@ -413,4 +413,118 @@ $f = f^+ - f^- = f_1 - f_2$, so $$f^+ + f_2 = f_1 + f^-,$$
 then $$\int f^+ + \int f_2 = \int f_1 + \int f^-,$$
 so $$\int f = \int f^+ - \int f^- = \int f_1 - \int f_2.$$
 \end{proof}
+\pagebreak
+\section{September 15th, 2020}
+\subsection{Properties of Integrals with Limits}
+We assume for simplicity that our measure space $(\Omega, \Sigma, \mu)$ is finite.  Last time, we defined integrals for measurable functions starting with indicators, to simple functions, to non-negative functions, and finally to general functions.
+
+Observe that if $f$ is $0$ almost surely, then $\int f = 0$.  Suppose $\{f_n\}$ is a set of measurable functions and $f_n \rightarrow f$ pointwise almost everywhere, then $\lim f_n$ is measurable.  In other words, there exists a set $E$ such that $\mu(E) = 0$ and $f_n$ converges on $E^c$.  Define $f$ to be $0$ on $E$ and $\lim f_n$ on $E^c$.  Note that $f$ is measurable.  Suppose $f_n$ "converge" to $f$.  When can one expect $\int f_n$ to converge to $\int f$?
+
+\begin{definition}[Convergence in Measure] We say $f_n \rightarrow f$ in measure if given $\epsilon > 0$, $$\lim_{n \rightarrow \infty} \mu\left (|f_n - f| > \epsilon\right ) = 0$$  We denote this by $f_n \xrightarrow{\mu} f$.
+\end{definition}
+\begin{exercise} If $\mu(\Omega) < \infty$, then $f_n \rightarrow f$ almost everywhere implies that $f_n \xrightarrow{\mu} f$.
+\end{exercise}
+\begin{example} Suppose $f_n = 1_{[-n, n]}$ over $\R$.  Then $f_n \rightarrow f = 1_{\R}$, but $\mu(|f_n - f| > \epsilon) = \infty$.
+
+Recall continuity of measure from below: If $A_n \uparrow A$ then $\mu(A_n) \uparrow \mu(A)$, but if $\mu(A) = \infty$, then $\mu(A) - \mu(A_n) = \infty$ for all $n$.  This doesn't happen for $\mu(\Omega) < \infty$.
+\end{example}
+\begin{example} If $f_n \xrightarrow{\mu} f$, then does $f_n \rightarrow f$ almost everywhere?  No:  Take $\Omega = [0, 1]$, $f = 0$ and $f_1 = 1_{[0, 1/n]}, f_2 = 1_{[1/n, 2/n]}, ..., f_n = 1_{[n-1/n, 1]}, f_{n+1} = 1_{[0, 1/(n+1)]}, ...$
+
+There is always some interval where $f_n = 1$, so it does not converge pointwise to $0$.
+\end{example}
+\begin{example} If $f_n \xrightarrow{\mu} f$, then does $\int f_n \rightarrow \int f$?  No.
+Take $f_n = \frac{1}{n}1_{[0, n]}$.  
+\end{example}
+\begin{thm}[Bounded Convergence Theorem] Suppose $\mu$ is finite and $f_n$ are supposed on $E$ such that $\mu(E)  < \infty$.
+
+If $|f_n| < M$ and $f_n \xrightarrow{\mu} f$, then $\int f_n \rightarrow \int f$.
+\end{thm}
+\begin{proof}
+$f$ must be $0$ almost everywhere outside $E$.  Define $F = \{|f_n - f| < \epsilon\}$.  Note that 
+$$\left |\int_E f_n - \int_E f\right | \le \int_{F \cap E} |f_n - f| + \int_{E\cap F^c} |f_n - f|$$
+$$\le \epsilon \mu(E) + 2M\mu(F^c \cap E) \xrightarrow{\epsilon \rightarrow 0} 0.$$
+\end{proof}
+\begin{thm}[Fatou's Lemma] If $f_n \ge 0$ then
+$$\liminf_{n \rightarrow \infty} \int f_n d\mu \ge \int \left (\liminf_{n \rightarrow \infty} f_n\right )d\mu.$$
+\end{thm}
+\begin{proof}
+Let $g_n(x) = \inf_{m\ge n}f_m(x)$.  Then $g_n(x) \uparrow g = \liminf f_n$.  
+
+We know that $f_n \ge g_n$.  This implies that $\int f_n \ge \int g_n$.  We have that
+$$\liminf \int f_n \ge \liminf \int g_n = \lim \int g_n.$$
+
+Hence, It suffices to show that 
+$$\lim \int g_n \ge \int g.$$
+
+Recall that $g_n \uparrow g$ so $\lim g_n = g$.  Consider $g_n \wedge m$, a bounded function. Note that $g_n \wedge m \uparrow g \wedge m$, so by the Bounded Convergence Theorem,
+$$\int (g_n \wedge m) \uparrow \int (g \wedge m).$$
+Furthermore, we have 
+$$\int g_n \ge \int (g_n \wedge m),$$
+so $$\lim \int g_n \ge \lim \int (g_n \wedge m) \uparrow \int (g \wedge m) \uparrow \int g,$$
+where the last inequality comes from approximation by bounded functions of finite support.
+\end{proof}
+\begin{thm}[Monotone Convergence Theorem] If $f_n \ge 0$ and $f_n \uparrow f$, then $\int f_n \uparrow \int f$.
+\end{thm}
+\begin{proof}
+Note that $\int f \ge \lim_{n \rightarrow \infty} \int f_n$ since $\int f \ge \int f_n$.  Then $\int f \le \lim_{n \rightarrow} \int f_n$ by Fatou's lemma.
+\end{proof}
+\begin{thm}[Dominated Convergence Theorem] If $|f_n| \le g$ where $\int g \le \infty$ and $f_n \rightarrow f$ pointwise, then
+$$\int f_n \rightarrow \int f.$$
+\end{thm}
+\begin{proof}
+Note that $f_n + g \ge 0$, and $f_n + g \rightarrow f+g$ so by Fatou's lemma,
+$$\liminf_{n \rightarrow \infty} \int f_n + g  \ge \int f+g d\mu,$$
+which implies that $\liminf_{n \rightarrow \infty} \int f_n \ge \int f.$
+
+Then, applying the result to $g-f_n$, we have $$\liminf_{n \rightarrow \infty} -f_n\ge \int -f \Rightarrow \limsup_{n \rightarrow \infty} f_n \le \int f,$$
+which implies that $\lim \int f_n = \int f$, as desired.
+\end{proof}
+
+\subsection{Expected Value}
+We have been discussing measurable functions, but these can easily be translated into the language of random variables.  Namely, if $X$ is a random variable and $\int |X| < \infty$, then $\int X = E(X)$, the expectation of $X$.
+
+\begin{itemize}
+\item $X_n \ge 0$, then $X_n \uparrow X \rightarrow E(X_n) \rightarrow E(X)$.
+\item $|X_n| < Y$, $X_n \rightarrow X$, $E(Y) < \infty$, then $E(X_n) \rightarrow E(X)$.
+\end{itemize}
+\subsection{Change of measure for Integrals}
+We have a random measurable map $$X: (\Omega_1, \Sigma_1, \mu_1) \rightarrow (\Omega_2, \Sigma_2) \xrightarrow{f} (\R, B(\R)).$$  
+Then $f \circ X: (\Omega_1, \Sigma_1) \rightarrow (\R, B(\R))$, and if $\int |f \circ X| < \infty$, then $X$ induces a measure $\mu_2$ on $(\Omega_2, \Sigma_2)$ with $\mu_2(A) = \mu_1(X^{-1}(A)).$
+Hence, we can discuss
+$$\int_{\Omega_2}f d\mu_2.$$
+\begin{thm}[Change of Measure]
+$$\int_{\Omega_1} f \circ X d\mu_1 = \int_{\Omega_2} f d\mu_2.$$
+\end{thm}
+\begin{proof}
+Let $f = 1_{E}$ for $E \in \Sigma_2$.
+$$\int_{\Omega_2} f d\mu_2 = \mu_2(E) = \mu_1(X^{-1}(E)).$$
+Then $f \circ X = 1(X^{-1}(E))$, so 
+$$\int f \circ X = \mu_1(X^{-1}(E)).$$
+
+For simple functions, we can use linearity of integrals for the result.  For nonnegative functions, we construct a monotone sequence of functions which increase to $f$.  One possible choice is 
+$$f_n = \frac{\floor{2^n f}}{2^n} \wedge n.$$
+
+We know that $f_n \uparrow f$ and $\int_{\Omega_1} f_n \circ X = \int_{\Omega_2} f_n$, and $f_n \circ X \uparrow f \circ X$, so by the monotone convergence theorem,
+$$\int_{\Omega_1} f_n \circ X \rightarrow \int_{\Omega_1} f\circ X,$$
+and $$\int_{\Omega_2} f_n \rightarrow \int_{\Omega_2} f,$$
+so it follows that $\int_{\Omega_1}f \circ X = \int_{\Omega_2} f,$ as desired.
+\end{proof}
+\subsection{Product Measures}
+We will relate high dimensional integrals with low dimensional ones with the notion of Product Measures.
+
+Let $(\Omega_1, \Sigma_1, \mu_1), (\Omega_2, \Sigma_2, \mu_2)$ be measure spaces.  Consider $(\Omega_1 \times \Omega_2, \Sigma(\Sigma_1 \times \Sigma_2))$.  Note that $\Sigma_1 \times \Sigma_2$ is a semialgebra.  From here, we construct the product measure.
+\begin{thm} There exists a unique measure on $\Sigma_p = \Sigma_1 \times \Sigma_2$, $\mu$ such that 
+$$\mu(A \times B) = \mu_1(A) \mu_2(B)$$
+for all $A \times B \in \Sigma_p$.  We will call this the product measure.
+\end{thm}
+\begin{proof}
+Given a countable additive sigma-finite measure on a semi-algebra, it admits a unique extension to the generated sigma-algebra by Caratheodory's extension theorem.  To prove the existence and uniqueness, it suffices to check countable additivity on $\Sigma_1 \times \Sigma_2$.  
+
+If we have $A \times B = \bigcup A_i \times B_i$, we want $$\mu(A \times B) = \mu_1(A)\mu_2(B) = \sum \mu_1(A_i)\mu_2(B_i).$$
+
+Our strategy is to product to one dimension less. Fix $x \in A$.  Note that $B = \{y : (x, y) \in A \times B\}$.  But $A \times B = \bigcup A_i \times B_i.$  Consider all $A_i$'s that contain $x$.  Then, the corresponding $B_i$'s form a disjoint partition of $B$.  We know that $\mu_2(B) = \sum_{x \in A_i} \mu_2(B_i)$ for all $x \in A$, so in particular
+$$1_A\mu_2(B) = \sum 1_A \mu_2(B_i).$$
+We claim that the two functions are pointwise same on $\Omega_1$.  Then, we integrate (uses MCT) with respect to $\mu_1$ to get
+$$\mu_1(A)\mu_2(B) = \lim_{n \rightarrow \infty} \sum_{i=1}^n \mu_1(A_i)\mu_2(B_i).$$
+\end{proof}
 \end{document}

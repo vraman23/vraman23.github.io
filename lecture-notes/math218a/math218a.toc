@@ -17,3 +17,8 @@
 \contentsline {subsection}{\numberline {5.3}Bounded Functions}{14}{subsection.5.3}% 
 \contentsline {subsection}{\numberline {5.4}General Functions}{14}{subsection.5.4}% 
 \contentsline {subsection}{\numberline {5.5}Arbitrary Measurable Functions}{15}{subsection.5.5}% 
+\contentsline {section}{\numberline {6}September 15th, 2020}{16}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Properties of Integrals with Limits}{16}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Expected Value}{18}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Change of measure for Integrals}{18}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}Product Measures}{19}{subsection.6.4}% 

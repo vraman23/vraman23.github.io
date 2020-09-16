@@ -594,5 +594,106 @@ Then as $z \rightarrow i \lambda$,
 $$(2\pi)^{d/2} z^{-d/2}e^{-|\xi|^2/(2z)} \rightarrow (2\pi)^{d/2}(i\lambda)^{-d/2}e^{-|\xi|^2/(2i\lambda)}.$$
 
 So $\hat{g}_z \rightarrow \hat{g}$ in $\SRS'$, so we have the result.
+\pagebreak
+\section{September 15th, 2020}
+\subsection{Poisson Summation Formula}
+Define $\mathscr{F}(f)(\xi) = \int_{\R^d} f(x)e^{-2\pi i x \cdot \xi}dx$.  We have that $\|\mathscr{F}(f)\|_{L^2} = \|f\|_{L^2}$ for all $f \in L^2 \cap L^1$.
 
+\begin{thm} For all $f \in \SRS$, $$\sum_{n \in \Z^d} \mathscr{F}(f)(n) = \sum_{k \in \Z^d}f(k).$$
+This has a nice interpretation: suppose we define $\delta_n(g) = g(n)$.  We have $\delta_n \in \SRS'$, and
+$$\mathscr{F}\left (\sum_{n \in \Z^d} \delta_n\right ) = \sum_{k \in \Z^d} \delta_k.$$
+\end{thm}
+\begin{proof}
+Given $f \in \SRS$, set $g: \R^d/\Z^d \rightarrow \C$, defined by $g(x) = \sum_{n \in \Z^d} f(x+n)$.  Note that $g$ is periodic: $g(x + e_j) = g(x)$ for all $1 \le j \le d$.  
+
+\begin{align*}
+g(x) &= \sum_{k \in \Z^d} \left(\int g(y) e^{-2\pi i k \cdot y}dy \right ) e^{ik \cdot x}.
+\end{align*}
+Note that 
+\begin{align*}
+ \sum_{n} f(n) = g(0) &= \sum_{k} \int e^{-2\pi i k \cdot y} \sum_{n} f(y+n) dy \\
+ &= \sum_k \int_{[0, 1]^d} \sum _n e^{-2\pi i k \cdot (y + n)} f(y+n)
+ &= \sum_{k} \int_{R^d} f(u)e^{-2\pi i k \cdot u}du = \sum_{k} \hat{f}(k).
+\end{align*}
+Because $f$ is a Schwartz function, all these series converge and we can easily swap sums and integrals.
+\end{proof}
+
+\begin{example} There are lots of functions that are their own Fourier transforms.  Take $x^n e^{-x^2/2}$, for $n \in \Z_{\ge 0}$.  Apply Gram-Schmidt in the order of $\Z_{\ge 0}$.  We get an orthonormal basis $P_n(x)e^{-x^2/2},$ where $P_n = c_nx^n + O(|x|^{n-2}).$
+
+If $n \equiv 0 \pmod 4$, $$(P_n e^{-x^2/2})^\wedge = (2\pi)^{1/2}P_n e^{-x^2/2}.$$
+\end{example}
+\subsection{Size of Fourier Coefficients}
+Remark:  If $f \in C_c^k(\R^d)$ or $C^k(\T^d)$, then $$\hat{f}(\xi) = O(\left <\xi\right >^{-k}).$$
+This comes from $\left (\frac{\partial f}{\partial x_j}\right )\hat{\xi} = i \xi_j \hat{f}(\xi)$.
+
+We can have a stronger bound,
+$$\<\xi\>^k \hat{f} \in L^2, \ell^2.$$
+The proof is the same since $\xi^\alpha \hat{f} \in L^2/ \ell^2$ whenever $0 \le |\alpha| \le k$.   
+
+Recall the class $$\text{Lip} = \left\{f : \R^d \rightarrow \C : \sup_{x \ne y} \frac{|f(x) - f(y)|}{|x-y|} < \infty\right\}.$$
+\begin{proposition} Assume $f \in \text{Lip}$ and has compact support.  Then, $$\hat{f}(\xi) = O(\<\xi\>^{-1}),$$
+$$\<\xi\> \hat{f} \in L^2.$$
+\end{proposition}
+\begin{proof}
+We have $f \in C_0^0(\R^d) \cap \text{Lip}$.  
+Assuming $\xi \ne 0$, 
+$$\hat{f}(\xi) = \int f(x) e^{-ix\cdot \xi}dx = \frac{1}{2} \int f(x)e^{-ix \cdot \xi}dx + \frac{1}{2} \int f(x + \frac{\pi}{\xi})e^{-i(x+\frac{\pi}{\xi})\xi}dx.$$
+Since $e^{-i(\pi/\xi) \xi} = -1$, we have
+$$\frac{1}{2} \int [f(x) - f(x+\pi/\xi)]e^{-ix \cdot \xi} dx.$$
+Because $f$ is Lipschitz, $f(x) - f(x+\pi/\xi) \in O(|\xi|^{-1})$, so it's clear the whole integral is bounded.
+
+\begin{definition}[Holder Class] Define $\Lambda_{\alpha}(0 < \alpha < 1)$, as 
+$f: \sup_{x \ne y} \frac{|f(x) - f(y)|}{|x-y|^{\alpha}} < \infty$. 
+
+Note that $\alpha > \beta \Rightarrow \Lambda_\alpha \subset \Lambda_\beta$.  Furthermore $\text{Lip} \subset \Lambda_\alpha$.
+\end{definition}
+We can state a similar proposition as above for Holder classes.
+\begin{example} Let $0 < \alpha < 1$,
+$$f(x) = \sum_{n=0}^{\infty} 2^{-n \alpha} e^{i 2^n x}.$$
+The function $f \in \Lambda_{\alpha}$, but not $\Lambda_\beta$ for any $\beta > \alpha$, since $\hat{f}(2^n) = (2^n)^{-\alpha}$.
+\end{example}
+Let $f \in \text{Lip} \cap C_0^0$.  Claim $f' \in L^{\infty}$ in the $\SRS'$ sense.  In other words, there exists $g \in L^{\infty}$ such that $\int f \phi' = - \int g \phi$ for all $\phi \in \SRS$.
+
+The claim immediately implies that $\xi \hat{f}(\xi) \in L^2$, since $\hat{g} \in L^2 = i \xi \hat{f}$ and has compact support.  
+
+\begin{align*}
+\lim_{t \rightarrow 0} \int f(x) \frac{\phi(x+t) - \phi(x)}{t}dx&= \lim_{t \rightarrow 0} \int \frac{f(x) - f(x-t)}{t}\phi(x)dx\\
+\end{align*}
+Let $f_t = frac{f(x) - f(x-t) }{t}$.  Note that $f_t \in L^\infty(\R)$ and $L^{\infty} = (L^1)^{*}$, so by Alouglu's theorem, there exists a sequence $t_{\nu} \rightarrow 0$ and $g \in (L^1)^8$ with $f_t \rightarrow -g$ in the weak star topology. 
+
+Therefore, $\int f_{t_\nu} \phi \rightarrow -\int g \phi$ as $\nu \rightarrow \infty$.  Thus, $\int f \phi' = -\int g \phi$.
+\end{proof}
+\begin{example} Take $$f(x) = \sum_{n = 0}^{\infty} 2^{-n\alpha}e^{i2^n x}$$ with $\alpha = 1$.  $f$ is not Lipschitz, since $$\sum_{\xi = 2^n} |\xi||\hat{f}(\xi)| = \sum_{n} 1 = \infty.$$
+
+Remark: For $\alpha < 1$, $f$ is nowhere differentiable.
+\end{example}
+\begin{example}
+Take $f \in BV(\R^1)$ with compact support, the class with bounded variation.  Then $|\hat{f}(\xi)| \le \pi V(f) |\xi|^{-1}$.  
+\end{example}
+\begin{lemma}[Riemann-Lebesgue Lemma]  If $f \in L^1(\R^d)$ or $(\T^d)$(then $\hat{f} \in C^0$ bounded), then $|\hat{f}(\xi)| \rightarrow 0$ as $|\xi| \rightarrow \infty$.
+\end{lemma}
+\begin{proof}
+Note that $$\hat{f}(\xi) = \frac{1}{2}\int_{\R^d} (f(x) - f(x+\frac{\pi \xi}{|\xi|^2})) e^{-ix\cdot \xi}dx$$
+Then 
+$$|\hat{f}(\xi)| \le \frac{1}{2} \|f(x) - f(x + \frac{\pi \xi}{|\xi|^2})\|_{L^1} \rightarrow 0.$$
+\end{proof}
+How fast do they go to zero?  Is there a quantitative bound? (Nope) How do we characterize $\hat{L^1}?$  Is $C_{\rightarrow 0}^0 = (L^1)^{\wedge}$? (Nope).
+\begin{proposition} The map $\wedge: L^1(\R^d) \rightarrow C_{\rightarrow 0}^0(\R^d)$ is not onto.  Equivalently, $\vee: C_{\rightarrow 0}^0(\R^d) \not \rightarrow L^1$.
+\end{proposition}
+\begin{proof}
+$\wedge: L^1 \rightarrow C_{\rightarrow 0}^0$ is linear, bounded, and an injective mapping between Banach spaces.  We can apply the Open Mapping Theorem:  if the map was onto, there would exist $A<\infty$ such that $\|f\|_{L^1} \le A \|\hat{f}\|_{C^0}$.  
+
+We claim that $\frac{\|\hat{f}\|_{C_0}}{\|f\|_{L^1}}$ can be arbitrarily small.  Define $f_t(x) = e^{-(1+it)|x|^2/2}$ for $t \in \R$ going to $\infty$.
+
+We know that $$\hat{f}_t(\xi) = (2\pi)^{d/2}(1+it)^{-d/2}e^{-(1-it)|\xi|^2/(2(1+t^2))}.$$
+Hence,
+$$|\hat{f}_t| = (2\pi)^{d/2}(1+t^2)^{-d/4} e^{-|\xi|^2/(2(1+t^2))} \le (2\pi)^{d/2}(1+t^2)(-d/4) \rightarrow 0.$$
+On the other hand $\|f_t\|_{L^1}$ is independent of $t$.  
+\end{proof}
+\begin{thm} Let $w:\R^d \rightarrow (0, \infty)$ and $w(\xi) \rightarrow 0$ as $|\xi|\rightarrow \infty$.  There exists $f \in L^1$ with 
+$$|\hat{f}(\xi)| \ge w(\xi) \forall \xi.$$
+\begin{proof}
+We have a key lemma: Let $w : \R^1 \rightarrow (0, \infty)$ continuous, even, piecewise, $C^2(\R\setminus\{0\}),$ convex on $(0, \infty)$ with compact support.  Then, $\hat{w} \in L^1$ and $\hat{w} \ge 0$, hence, $\|\hat{w}\|_{L^1} = \int \hat{w} = (2\pi)^d w(0).$
+\end{proof}
+\end{thm}
 \end{document}

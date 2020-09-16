@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 SEP 2020 13:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 SEP 2020 14:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1660,6 +1660,21 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  12.04504pt
 text indent calculated (toc, 2): 19.46669pt
 number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 12.04504pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
 )
 \tf@toc=\write7
 \openout7 = `math258.toc'.
@@ -1825,21 +1840,63 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 572.
  [21] [22]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 598.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 598.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 602.
+
+Overfull \hbox (13.15147pt too wide) detected at line 617
+[]
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 621.
+[23]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 634.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 651.
+ [24]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 666.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 671.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 673.
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
+line 673.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 681.
+ [25]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 693.
+ [26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 699.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 699.
  (./math258.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 598.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 598.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 699.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 699.
 Package rerunfilecheck Info: File `math258.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 598.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 699.
  ) 
 Here is how much of TeX's memory you used:
- 39182 strings out of 492616
- 770256 string characters out of 6129482
- 991932 words of memory out of 5000000
- 42399 multiletter control sequences out of 15000+600000
- 543933 words of font info for 87 fonts, out of 8000000 for 9000
+ 39239 strings out of 492616
+ 771176 string characters out of 6129482
+ 992355 words of memory out of 5000000
+ 42423 multiletter control sequences out of 15000+600000
+ 544086 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,21n,91p,9109b,1123s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -1866,10 +1923,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 xmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/texm
 f-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/texmf-
 dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on math258.pdf (22 pages, 311158 bytes).
+Output written on math258.pdf (26 pages, 332539 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 128 named destinations out of 1000 (max. 500000)
- 15629 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 422 compressed objects within 5 object streams
+ 155 named destinations out of 1000 (max. 500000)
+ 15653 words of extra memory for PDF output out of 17280 (max. 10000000)
 
