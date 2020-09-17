@@ -21,3 +21,6 @@
 \contentsline {section}{\numberline {6}September 15th, 2020}{23}{section.6}% 
 \contentsline {subsection}{\numberline {6.1}Poisson Summation Formula}{23}{subsection.6.1}% 
 \contentsline {subsection}{\numberline {6.2}Size of Fourier Coefficients}{23}{subsection.6.2}% 
+\contentsline {section}{\numberline {7}September 17th, 2020}{27}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Size of Fourier Coefficients, continued}{27}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Comparing Size of Functions to Size of Fourier Coefficients}{28}{subsection.7.2}% 

@@ -692,8 +692,85 @@ On the other hand $\|f_t\|_{L^1}$ is independent of $t$.
 \end{proof}
 \begin{thm} Let $w:\R^d \rightarrow (0, \infty)$ and $w(\xi) \rightarrow 0$ as $|\xi|\rightarrow \infty$.  There exists $f \in L^1$ with 
 $$|\hat{f}(\xi)| \ge w(\xi) \forall \xi.$$
+\end{thm}
+
 \begin{proof}
 We have a key lemma: Let $w : \R^1 \rightarrow (0, \infty)$ continuous, even, piecewise, $C^2(\R\setminus\{0\}),$ convex on $(0, \infty)$ with compact support.  Then, $\hat{w} \in L^1$ and $\hat{w} \ge 0$, hence, $\|\hat{w}\|_{L^1} = \int \hat{w} = (2\pi)^d w(0).$
 \end{proof}
+\pagebreak
+\section{September 17th, 2020}
+\subsection{Size of Fourier Coefficients, continued}
+\begin{thm} Let $w:\R^d \rightarrow (0, \infty)$ and $w(\xi) \rightarrow 0$ as $|\xi|\rightarrow \infty$.  There exists $f \in L^1$ with 
+$$|\hat{f}(\xi)| \ge w(\xi) \forall \xi.$$
+\end{thm}
+\begin{proof}
+We have a key lemma: 
+\begin{lemma}
+Let $w : \R^1 \rightarrow (0, \infty)$ continuous, even, piecewise $C^2(\R\setminus\{0\}),$ convex on $(0, \infty)$ with compact support and nondecreasing.  Then, $\hat{w} \in L^1$ and $\hat{w} \ge 0$, hence, $$\|\hat{w}\|_{L^1} = \int \hat{w} = (2\pi)^d w(0).$$
+\end{lemma}
+\begin{proof}
+Note that 
+$$\hat{w}(\xi) = \int_\R w(x) e^{-ix \cdot \xi} dx = \int_{\R} w(x) \cos(x \xi) dx.$$
+Furthermore, note that $|x| \cdot |w'(x)|$ is a bounded function(as $x \rightarrow 0$).  It follows from Jensen's inequality.
+
+\begin{align*}
+\hat{w}(\xi) &= 2 \int_{0}^\infty w(x) \cos(x\xi) \\
+&= 2 \xi^{-2} \int_0^{\infty} w''(x)(1 - \cos(x \xi)) dx
+\ge 0.
+\end{align*}
+It suffices to show the equality $\int_{0}^\infty w(x) \cos(x\xi) = \xi^{-2} \int_0^{\infty} w''(x)(1 - \cos(x \xi))$.  We integrate by parts twice:
+\begin{align*}
+\hat{w}(\xi) &= 2 \int_{0}^\infty w'(x) \xi^{-1}\sin(x \xi)dx \\
+&= 2 \int_0^\infty w''(x) \xi^{-2}(1 - \cos(x \xi))dx .\\
+\end{align*}
+We might have issues at $0$, but we can take a limit for integrating from $\epsilon$ to $\infty$ with boundary terms $w''(\epsilon)(1 - \cos(\epsilon \xi)) \in O(\epsilon^2)$.  Hence, $\hat{w} \ge 0$.
+
+Note that $\hat{w} \in L^1$ and for $|\xi| \ge 1$, $$|\hat{w}(\xi)| \le 2 \xi^{-1} \int_0^\infty |w''(x)|dx \cdot 2$$.  
+Assume $|w'(0)| < \infty$, where the derivative is the right-hand derivative at $0$.  
+
+Then $$\int_0^{\infty} w''(x)dx = -w'(0)$$
+so it follows that $\hat{w} \in L^1$.
+
+Finally,
+$$w(0) = (2\pi)^{-1} (\hat{w})^{\vee}(0) = (2\pi)^{-1} \int \hat{w}(\xi) d\xi = (2\pi)^{-1} \|\hat{w}\|_{L^1},$$
+which gives the desired bound.
+\end{proof}
+
+Let $g: \R \rightarrow [0, \infty]$ continuous, with $g(\xi) \rightarrow 0$ as $\xi \rightarrow \infty$.  
+\begin{lemma} There exists $w: \R \rightarrow (0, \infty)$ so that $w \ge g$ and $w$ is even, convex on $(0, \infty)$,  $w(\xi) \rightarrow 0$ as $|\xi| \rightarrow \infty$, and $w$ is piecewise $C^2$, where we may have infinity many breaks.  
+\end{lemma}
+To prove the theorem, it suffices to find a function $f \in L^1$ such that $\hat{f}(\xi) \ge w(\xi)$ for all $\xi$.
+
+WLOG, $g$ is even(replace $g(\xi) + g(-\xi)$), nonincreasing(we can replace $\tilde{g}(x) = \sup_{y \ge x} g(y)$ for $x \ge 0$).  
+Note that $\check{w}(\xi) = \hat{w}(-\xi)$ so define $f = \hat{w}$.  $\hat{f} = (2\pi) w \ge 2 \pi g$.
+
+To treat $w$, we approximate it with functions of compact support.  Let $t > 0$ and define $w_t = \max(w - t, 0).$  We conclude that $\hat{w_t} \in L^1$ and $\|\hat{w}_t\|_{L^1} = (2\pi) w_t(0)$.  As $t \rightarrow 0^+$, $w_t \rightarrow w$ in $\SRS'$ so $\hat{w}_t \rightarrow \hat{w}$ in $\SRS'$.  We have that $\hat{w}$ is a complex radon measure.
+\begin{fact} If $\mu$ is a complex Radon measure and if $\mu\vert_{\R\setminus 0}$ is absolutely continuous, then $\mu = c \delta_0 + h$ for $h \in L^1$.
+\end{fact}
+
+We know that $w(\xi) \rightarrow 0$ as $|\xi| \rightarrow \infty$ and $\hat{\mu}(\xi) = c + \hat{h}(\xi) $ so $c = 0$ and $\hat{w} \in L^1$ as desired.
+\end{proof}
+
+\subsection{Comparing Size of Functions to Size of Fourier Coefficients}
+We have that $\|\hat f\|_{L^2} = (2\pi)^{-d/2}\|f\|_{L^2}$ and $\|\hat{f} \|_{C^0} \le \|f\|_{L^1}$.  
+
+\begin{thm}[Hausdorff-Young] Let $p \in [1, 2]$.  The n $f \in L^P(\R^d)$ implies that $\hat{f} \in L^1$ for $q = 
+p' = \frac{p}{p-1}$, and $$\|\hat{f}\|_{q} \le C(p, d)\|f\|_p.$$
+
+For $\T^d$, $$\|\hat{f}\|_{\ell^q} \le C(p)^d \|f\|_{L^p(\T^d)}.$$
+\end{thm}
+Note that for $\R^d$, $\wedge: L^p \rightarrow L^r$ is bounded. 
+\begin{proof}
+We must have that $r = p'$.  Fix a function $0 \ne f \in \SRS$.  Define $f_t(x) = f(tx)$ for $t \in \R^+$.  
+$$\hat{f_t}(\xi) = t^{-d}\hat{f}(t^{-1}\xi).$$
+Note that
+$$\|f_t\|_p^p = \int |f(tx)|^p dx = t^{-d} \int |f(y)|^p dy = t^{-d}\|f\|_p^p.$$
+Then $\|\hat{f_t}\|_r = t^{-d} t^{d/r} \|\hat{f}\|_r$, so 
+$$\frac{\|\hat{f_t}\|_r }{\|f_t\|_p} = t^{\gamma} \frac{\|\hat{f}\|_r }{\|f\|_p}$$
+where $\gamma = -d + d/r + d/p$.  We must have that $\gamma = 0$ for the ratio to be bounded, which gives $1 = \frac{1}{p} + \frac{1}{r}$.
+
+For $\T^d$, we can only take $t \rightarrow + \infty$ so $\gamma \le 0$, and we can only conclude that $r \ge p'$.  But $r \ge p'$ implies that $\ell^{p'} \subset \ell^r$, so $\wedge: L^p \rightarrow \ell^{p'} \subset \ell^r$.
+\end{proof}
+\begin{thm}[Riesz-Thoren] Let $(X, \mu), (Y, \nu)$ be $\sigma$-finite measure spaces.  Suppose we have exponents $p_0, p_1, q_0, q_1 \in [1, \infty]$.  Let $S(X)$ be the set of simple functions from $X \rightarrow \C$.  Assume $T: S(X) \rightarrow (L^1 + L^{\infty})(Y)$ is linear and there exists $A_0, A_1 < \infty$ so that for all $f \in S(X)$, $$\|Tf\|_{L^{q_j}} \le A_j\|f\|_{L^p_j}.$$
 \end{thm}
 \end{document}

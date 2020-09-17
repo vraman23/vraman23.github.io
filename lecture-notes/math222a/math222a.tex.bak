@@ -544,4 +544,99 @@ The next objective is to show that for $u$, we have
 $$\boxed{Du(x(x_0, s)) = p(x_0, s)}.$$
 We'll do this next time, but suppose we have this condition.  Then to show that $u$ solves the equation, we need that $F(x(x_0, s), u(x_0, s), p(x_0, s)) = 0$.
 \end{proof}
+\pagebreak
+\section{September 17th, 2020}
+\subsection{Fully Nonlinear PDEs, continued}
+We complete the proof of the theorem from last time. 
+We have functions $x(t, y), z(t, y), p(t, y)$, the solutions to the characteristic system.   They are defined in a neighborhood of $x_0$.    We also saw that the map $(t, y) \mapsto x$ is a local diffeomorphism.  Assuming we have this functions, we recall that $z$ corresponds to $u$, $p$ corresponds to $\nabla u$, so we define the candidate solution $u$ in a neighborhood of $x_0$ by setting
+$$u(x(t, y)) = z(t, y).$$
+This equation implies that $u$ is defined in a neighborhood, but more subtlety, it assumes that we already have a solution.  We defined $p$ in terms of $z$, so how do we know that $p$ actually corresponds to $\nabla u$?  We know that $z$ has a $C^1$ dependence on $t$ and $y$, so $p$ is a $C^1$ function.   Our objective is to show that 
+$$\nabla u(x(t, y)) = p(t, y).$$
+
+Recall, we have that $F(x_0, u_0(x_0), p_0) = 0$, so we know that on $\Sigma$, we have $p = \nabla u$, by the choice of initial data for the characteristic system.  We also know that on $\Sigma$ we have $F(x, u, p) = 0$, $u = z$ by the choice of the normal component of $p$.  
+
+We claim that $F(x, z, p) = 0$ propagates along characteristics.  
+\begin{align*}
+\frac{d}{ds} F(x, z, p) &= F_x\cdot \dot x  + F_z \cdot \dot z + F_p \cdot \dot p \\
+&= F_x \cdot F_p + F_z F_p \cdot p - F_p(F_z \cdot p - F_x)\\
+&= 0.
+\end{align*}
+To prove the theorem, it remains to show that $p = \nabla u$ along each characteristic.  We would like to show that $$p_j(y, t) = \partial_{x_j}u(x(y, t)).$$
+
+We will instead identify the derivatives of $u(x(y, t))$ with respect to $y$ and $t$.
+\begin{itemize}
+\item WRT $t$:\begin{align*}
+\partial_t u(x(y, t)) &= \partial_{x_j}u(x(y, t)) \cdot \partial_t x_j(y, t) \\
+&= \partial_{x_j}u(x(y, t))\cdot F_{p_j}(x(y, t), z(y, t), p(y, t)) \\
+\end{align*}
+We want this to equal $p_j \cdot F_{p_j}(x, z, p)$.  Hence, we need to show that 
+$$\partial_t z(y, t) = p_jF_{p_j}(x, z, p),$$
+by this is given by the characteristic equations.
+\item WRT $y$:
+\begin{align*}
+\partial_{y_k} u(x(y, t)) &= (\partial_{x_j} u)(x(y, t)) \cdot \partial_{y_k}x_j(y, t)\\
+\end{align*}
+We would like this to equal $p_j(y, t) \cdot \partial_{y_k}x_j(y, t)$.  Recall that 
+$\partial_{y_k}z(y, t) = p_j(y, t) \cdot \partial_{y_k}x_j(y, t)$, which is exactly what we need to show.
+\end{itemize} 
+Let $$r_k = \partial_{y_k}z(y, t) - p_j( y, t) \partial_{y_k} x_j(y, t).$$  We want to show that $r_k = 0$ along characteristics.  We know that $r_k = 0$ at $t=0$(on $\Sigma$).  
+
+We will show that $r$ solves an ode:
+$$\dot r = G \cdot r, r(0) = 0.$$
+If this happens, then we get $r=0$.  Note that the linearization gives us equations for $\partial_{y_k} x, \partial_{y_k} z, \partial_{y_k} p$, with 
+$$\begin{cases}
+\dot{\left (\frac{\partial x_j}{\partial y_k}\right )} = F_{p_j x_\ell}\frac{\partial x_\ell}{\partial y_k} + F_{p_j z} \frac{\partial z}{\partial y_k} + F_{p_jp_m} \frac{\partial p_m}{\partial y_k} \\
+\dot{\left (\frac{\partial z}{\partial y_k}\right )} = F_{p_j x_\ell}p_j\frac{\partial x_\ell}{\partial y_k} + F_{p_j z}p_j \frac{\partial z}{\partial y_k} + F_{p_jp_m}p_j \frac{\partial p_m}{\partial y_k}  + F_{p_j}\frac{\partial p_j}{\partial y_k}\\
+\end{cases}$$
+We don't actually need $\dot{\left (\frac{\partial p_\ell}{y_k}\right )}$.
+
+Then 
+\begin{align*}
+\dot r_k &= \dot{[\partial_{y_k}z(y, t)]} - p_j(y, t)\dot{[\partial y_k x_j(y, t)]}\\
+&=p_j \partial_{y_k}x_j(y, t)\\
+&= \frac{\partial p_j}{\partial y_k} F_{p_j} - (F_z \cdot p_j + F_x) \frac{\partial p_j}{\partial y_k}.
+\end{align*}
+We use the fact that $F(x, z, p) = 0$ and apply $\frac{\partial}{\partial y_k}$:
+\begin{align*}
+0 &=F_{x_j} \frac{\partial x_j}{\partial y_j} + F_z \frac{\partial z}{\partial y_k} + F_{p_j} \frac{\partial p_j}{\partial y_k}
+\end{align*}
+Hence 
+\begin{align*}
+\dot r_k &= - F_{x_j} \frac{\partial x_j}{\partial y_k} - F_z \frac{\partial z}{\partial y_k} + (\F_z\cdot p_j + F_{x_j})\frac{\partial x_j}{\partial y_k} \\
+&= -F_z\cdot \left (\frac{\partial z}{\partial y_k} - p_j\frac{\partial x_j}{\partial x_j}\right )\\
+&= -F_z \cdot r_k,
+\end{align*}
+which gives $r=0$.
+
+This gives existence.  For uniqueness, note that two solutions will be the same along characteristics and the characteristic equations are satisfied for $(x, u_1, Du_1), (x, u_2, Du_2)$ with the same initial data so they must coincide.
+
+Some concluding remarks:
+\begin{itemize}
+\item The method of characteristics works for scalar first order equations.
+\item We only get local solutions which last until characteristics start intersecting.
+\end{itemize}
+
+We have two situations where one can go further:
+\begin{itemize}
+\item Hamilton-Jacobi Equations:
+$$\begin{cases}
+u_t + H(x, D_xu) = 0\\
+u(t=0) = u_0
+\end{cases}.
+$$The system of characteristics is 
+$$\begin{cases}
+\dot x = H_p \\
+\dot z = H_p \cdot p \\
+\dot p = -H_x
+\end{cases}.$$
+We can drop the middle equation for a simple pair of equations, which are the equations for Hamiltonian flows.
+\item Conservation Laws:
+$$\begin{cases}
+u_t + F(u)_x= 0\\
+u(0) = u_0
+\end{cases}.
+$$
+Characteristics intersect in this case, which leads to jump discontinuities(shocks).  It also extends to the theory of systems.
+\end{itemize}
+
 \end{document}
