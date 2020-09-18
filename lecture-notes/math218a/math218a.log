@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 SEP 2020 18:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  17 SEP 2020 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1679,6 +1679,21 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  12.04504pt
 text indent calculated (toc, 2): 19.46669pt
 number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 12.04504pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
 )
 \tf@toc=\write7
 \openout7 = `math218a.toc'.
@@ -1780,21 +1795,65 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 516.
  [19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 530.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 530.
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
 
-(./math218a.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 530.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 530.
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 534.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 547.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 562.
+[20]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 578.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 582.
+ [21]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 597.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 608.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 610.
+
+Overfull \hbox (60.91585pt too wide) in paragraph at lines 616--617
+[]\OT1/cmr/m/n/10.95 (-20) The idea is $\OML/cmm/m/it/10.95 E$ \OT1/cmr/m/n/10.
+95 (-20) is in-de-pen-dent of $\OML/cmm/m/it/10.95 X[]; [] ; X[]$\OT1/cmr/m/n/1
+0.95 (-20) , so $\OML/cmm/m/it/10.95 E$ \OT1/cmr/m/n/10.95 (-20) is in-de-pen-d
+ent of $\OML/cmm/m/it/10.95 ^^[\OT1/cmr/m/n/10.95 (-20) (\OML/cmm/m/it/10.95 X[
+]\OT1/cmr/m/n/10.95 (-20) )\OML/cmm/m/it/10.95 ; ^^[\OT1/cmr/m/n/10.95 (-20) (\
+OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 (-20) )\OML/cmm/m/it/10.95 ; [] ; ^^[\
+OT1/cmr/m/n/10.95 (-20) (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 (-20) )$.
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 622.
+[22] [23]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 626.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 626.
+ (./math218a.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 626.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 626.
 Package rerunfilecheck Info: File `math218a.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 530.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 626.
  ) 
 Here is how much of TeX's memory you used:
- 39189 strings out of 492616
- 770231 string characters out of 6129482
- 992578 words of memory out of 5000000
- 42395 multiletter control sequences out of 15000+600000
+ 39253 strings out of 492616
+ 771429 string characters out of 6129482
+ 993001 words of memory out of 5000000
+ 42425 multiletter control sequences out of 15000+600000
  544443 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,21n,91p,9110b,1182s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1820,10 +1879,10 @@ ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
 mf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/texmf
 -dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/texmf-d
 ist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on math218a.pdf (19 pages, 281070 bytes).
+Output written on math218a.pdf (23 pages, 301021 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 362 compressed objects within 4 object streams
- 119 named destinations out of 1000 (max. 500000)
- 15661 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 490 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 153 named destinations out of 1000 (max. 500000)
+ 15685 words of extra memory for PDF output out of 17280 (max. 10000000)
 

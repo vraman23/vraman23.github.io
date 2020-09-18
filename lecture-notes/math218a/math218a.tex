@@ -527,4 +527,100 @@ $$1_A\mu_2(B) = \sum 1_A \mu_2(B_i).$$
 We claim that the two functions are pointwise same on $\Omega_1$.  Then, we integrate (uses MCT) with respect to $\mu_1$ to get
 $$\mu_1(A)\mu_2(B) = \lim_{n \rightarrow \infty} \sum_{i=1}^n \mu_1(A_i)\mu_2(B_i).$$
 \end{proof}
-\end{document}
+\pagebreak
+\section{September 17th, 2020}
+\subsection{Product Measures, Continued}
+We have a semialgebra $\Sigma_1 \times \Sigma_2$ and we denote $\Sigma_{1 \times 2} = \Sigma(\Sigma_1 \times \Sigma_2)$.  Let $E \in \Sigma_{1 \times 2}$.
+\begin{lemma} For any $X \in \Omega_1$, the set
+$$E_x = \{y \in \Sigma_2 : (x, y) \in E\}$$
+is measurable.
+\end{lemma}
+\begin{proof}
+If $E = E_1 \times E_2$, then either $E_x = \emptyset$ or $E_x = E_2$.  We show that the set of $E$ with this property forms a sigma-algebra.  If $E \in \mathcal{A}$, then $(E^c)_x = (E_x)^c$ so $E^c \in \mathcal{A}$.  
+
+If $E_1, E_2, \dots \in \mathcal A$, then
+$$\left (\bigcup_{i=1}^\infty E_i\right )_x = \bigcup_{i=1}^\infty (E_i)_x.$$
+
+Hence, $\mathcal{A}$ is a sigma-algebra containing $\Sigma_1 \times \Sigma_2$, so $\mathcal{A} = \Sigma_{1 \times 2}$.
+\end{proof}
+
+\begin{thm} For any $E \in \Sigma_{1 \times 2}$, 
+$$\mu_1 \times \mu_2(E) = \mu(E) = \int_{\Omega_1} \mu_2(E_x)d\mu_1,$$
+and $\mu_2(E_x)$ is a measurable function from $\Omega_1 \rightarrow \R$.
+\end{thm}
+\begin{proof}
+The result is clear for rectangles.  If $E_1, E_2 \in \mathcal{A}$, then $\mu_2(E_x) = \mu_2(E_{1x}) + \mu_2( E_{2x}) - \mu((E_{1} \cap E_{2})_x)$  We use the $\pi-\lambda$ theorem.  It suffices to show that $\mathcal A$ is a $\lambda$-system and we have that $A \supset \Sigma_1 \times \Sigma_2$, which is a $\pi
+$-system.
+
+It is clear that $\Omega_1 \times \Omega_2 \in \mathcal A$.  We claim that if $E_n \in \mathcal A$, then $E_n \uparrow E$ implies $E \in \mathcal A$.  
+Note that $(E_n)_x \uparrow E_x$ for all $x$ then $\mu_2(E_{nx}) \uparrow \mu_2(E_x)$ and if we define $\mu_2(E_{nx}) = f_n(x)$, then $f_n(x) \uparrow E_x$ is measurable, as desired.  
+Finally, we show that if $E_1 \supset E_2$ and $E_1, E_2 \in \mathcal A$, then $E_1 \setminus E_2 \in \mathcal A$.  This is clear since $(E_1 \setminus E_2)_x = E_{1x} \setminus E_{2x}$ so $\mu((E_1 \setminus E_2)_x) = \mu_2(E_{1x}) - \mu_2(E_{2x})$ is measurable as the difference of finite measurable functions.
+
+The same argument shows that $\mathcal A$ is a $\lambda$-system if we define $\mathcal A$ to be all $E$ so that both conclusions of the theorem hold. 
+
+\end{proof}
+\begin{thm}[Fubini] Let $f \ge 0$ or $\|f\|_1 < \infty$.  Then 
+\begin{enumerate}
+\item For all $x$, $f(x, \cdot)$ is measurable on $\Sigma_2$.
+\item $\int f(x, \cdot)$ is measurable on $\Sigma_1$.
+\item $\int \int f(x, \cdot) = \int f$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+We have verified this for $f = 1_E$.  Suppose $f \ge 0$.  By linearity of integrals and the fact that the sum of measurable functions is measurable, the claim holds for simple functions.  For general $f \ge 0$, take a sequence of simple functions $f_n \uparrow f$.  
+
+Then,
+$$\int \left( \int f_n(x, \cdot) d\mu_2 \right )d\mu_1 = \int f_n d(\mu_1\times \mu_2),$$
+so the result follows from the monotone convergence theorem.
+
+For general $f \in L^1(\R)$, $f = f^+ - f^-$, so we use the above to conclude.
+\end{proof}
+\begin{example}[Not-integrable Function] Let $\Omega_1 = \Omega_2 = \N$.  Suppose $\mu_1, \mu_2$ are counting measures. Let $f(m, m) = 1$, $f(m+1, m) = -1$ and $f(m, n) = 0$.  Then 
+$$\sum_m \sum_n f(m, n) = 1, \sum_n \sum_m f(m, n) = 0.$$
+The failure is that $f \not \in \ell^1$.
+\end{example}
+\begin{example}[Not $\sigma$-finite] Let $\Omega_1 = \Omega_2 = (0, 1)$.  Let $\mu_1$ be the uniform measure and $\mu_2$ be the counting measure.  Let $E = \{(x, x): x \in (0, 1)\}$.   Then $\int \int \mu_2(E_x) d\mu_1 = 1$, but $\int \int \mu_1(E_y) d\mu_2 = 0$. 
+\end{example}
+\subsection{Independence}
+\begin{definition}[Naive Independence] If $X_1, X_2$ are random variables, then $X_1$ and $X_2$ are independent if $$P(X_1 \in E, X_2 \in F) = P(X_1 \in E)P(X_2 \in F).$$
+\end{definition}
+We will generalize this notion.
+\begin{definition}[Independence] For a $(\Omega, \Sigma, \mu)$, if $\Sigma_1, \Sigma_2, \dots, \Sigma_k \subset \Sigma$ are said to be 
+\textbf{mutually independent} if for any subset $\{i_1, i_2, \dots, i_\ell\} \subset \{1, \dots, k\}$ and sets $A_{i_1}, A_{i_2}, \dots, A_{i_\ell}$, $A_{i_j} \in \Sigma_{i_j}$ 
+$$\mu(A_{i_1} \cap \dots \cap A_{i_\ell}) = \prod \mu(A_{i_j}).$$
+
+This is the same as the condition $$\mu(A_1 \cap A_2 \cap \dots A_k) = \prod_{i=1}^k \mu(A_i),$$
+since we take some of the $A_i = \Omega$.
+\end{definition}
+\begin{definition}[Independent Random Variables] $X_1, \dots, X_k$ are mutually independent of $\{\Sigma(X_i)\}$ are mutually independent.
+\end{definition}
+\begin{thm} Suppose $A_1, A_2, \dots \subset \Sigma$ are mutually independent $\pi$-systems.  Then $\Sigma(A_i)$ are also mutually independent.
+\end{thm}
+\begin{proof}
+Wlog, we can assume $\Omega \in A_i$ for all $i$.  Fix $B_2 \in A_2, \dots, B_\ell \in A_\ell$.  For $B_1 \in \Sigma(A_1)$, define the two measures $\mu', \mu''$ as 
+$$\mu'(B_1) = \mu(B_1 \cap B_2 \cap \dots\cap B_\ell),$$
+$$\mu''(B_1) = \mu(B_1) \prod_{i=2}^\ell \mu(B_i).$$  
+
+We claim that $\mu' = \mu''$.  Observe that $\mu'$ and $\mu''$ agree on $A_1$ by hypothesis, so the claim holds by the uniqueness part of the Caratheodory Extension theorem on $\Sigma(A_1)$.
+
+$\Sigma(A_1), A_2, \dots, A_\ell$ are mutually independent $\pi$ systems.  We iterate to get that $\Sigma(A_i)$ are mutually independent.
+\end{proof}
+\begin{example}[Pairwise Independent $\ne$ Mutually Independent]  Take $X_1, X_2, X_3 \in \{0, 1\}$,  Pick $(X_1, X_2, X_3)$ uniformly from all triples $(x_1, x_2, x_3)$ such that $x_1 + x_2 + x_3 = 0 \pmod 2$.  Note that $P(X_i = 1) = P(X_i = 0) = 1/2$.  It is clear that $(X_i, X_j)$ are independent, but $(X_1, X_2, X_3)$ are not independent since $P((X_1, X_2, X_3) = (1, 1, 1)) = 0 \ne (1/2)^3$.
+ \end{example}
+\begin{thm}[Kolmogorov's 0-1 Law]
+ Suppose $X_1, X_2, \dots$ are independent random variables.  Consider $$T_n = \sigma(X_n, X_{n+1}, \dots),$$
+ and let $$T = \cap_{n=1}^{\infty} T_n$$
+ (this is known as a tail-sigma algebra).  Then $T$ is a $\mu$-trivial sigma algebra: for all $E \in T$, $\mu(E) = 0$ or $1$.
+ \end{thm}
+ \begin{proof}
+ The idea is $E$ is independent of $X_1, \dots, X_{n-1}$, so $E$ is independent of $\sigma(X_1), \sigma(X_2), \dots, \sigma(X_{n-1})$.  Hence $E$ is independent of $\bigcap_{i=1}^{n-1}\sigma(X_i)$, so $E$ is independent of $\bigcap_{i=1}^{\infty} \sigma(X_i)$, so $E$ is independent of $\Sigma(X_1, X_2, \dots)$.  But $E \in T \subset \Sigma(X_1, \dots)$, so $P(E \cap E) = P(E)P(E) = P(E)$, so $P(E) = 0$ or $1$.
+ 
+ Claim: If $A_{ij}$ for $j=1, \dots, m_i$ such that $A_{ij}$ are all $\pi$-systems containing $\Omega$ are mutually independent, then $\Sigma(A_{i1}, A_{i2}, \dots, A_{im_i})$ are also mutually independent.  To prove this, let $A_i = \{B_1 \cap B_2 \cap \dots \cap B_{m_i}:B_j \in A_{ij}\}$.
+ 
+ We know that $\Sigma(X_1), \dots $ are independent $\pi$ systems,so $\Sigma(X_1, \dots, X_n)$ and $\Sigma(X_{n+1}, \dots)$ are independent.  Hence $E$ is independent of $\bigcap_{i=1}^\infty \Sigma(X_i)$, so $E$ is independent of $T$, which gives the result. 
+ \end{proof}
+\begin{thm}[Kolmogorov Extension] Take $(\R^n, B(\R^n), \mu_n)$ a consistent family of measures on $\R^n$: for $A \in B(\R^n)$
+$$\mu_{n+1}(A \times \R) = \mu_n(A).$$
+Then there exists a measure $\mu$ on $(\R^\N, B(\R^\N))$ such that $\mu$ agrees with $\mu_n$ on $\R^n \times \R \times \R \times \dots$.
+
+\end{thm}\end{document}

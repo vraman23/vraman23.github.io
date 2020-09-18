@@ -22,3 +22,6 @@
 \contentsline {subsection}{\numberline {6.2}Expected Value}{18}{subsection.6.2}% 
 \contentsline {subsection}{\numberline {6.3}Change of measure for Integrals}{18}{subsection.6.3}% 
 \contentsline {subsection}{\numberline {6.4}Product Measures}{19}{subsection.6.4}% 
+\contentsline {section}{\numberline {7}September 17th, 2020}{20}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Product Measures, Continued}{20}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Independence}{21}{subsection.7.2}% 
