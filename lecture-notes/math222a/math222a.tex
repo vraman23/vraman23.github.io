@@ -25,6 +25,7 @@
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cH}{\mathcal{H}}
 
+\newcommand{\supp}{\text{supp }}
 
 
 \begin{document}
@@ -638,5 +639,109 @@ u(0) = u_0
 $$
 Characteristics intersect in this case, which leads to jump discontinuities(shocks).  It also extends to the theory of systems.
 \end{itemize}
+\pagebreak
+\section{September 22nd, 2020}
+\subsection{Introduction to Distribution Theory}
+We introduce distributions in order to generalize the solutions of equations to functions that are not everywhere differentiable. 
+\begin{example}
+Consider the equation
+$$u_t - u_x = 0.$$
+In the classic sense, we need $u$ to be differentiable.  Recall that $u(t, x) = u_0(t-x)$ solves the equation for $u_0 \in C^1$.  However, even if $u_0$ is not differentiable, we only need it to be differentiable along the directional derivative - we can call that a "generalized solution".
+\end{example}
 
+\begin{example} Let $f(x) = |x|$.  Then, $$f'(x) = \text{sgn } x = \begin{cases} -1, x < 0\\ 1, x > 0
+\end{cases}.$$
+\begin{center}
+\includegraphics[scale=0.5]{images/dist.png}
+\end{center}
+If we approximate $\text{sgn } x$ with differentiable functions $f_\epsilon$, then as $\epsilon \rightarrow 0$, $f_\epsilon' \rightarrow 2\delta_0$, the Dirac mass at $x = 0$, which has integral 2.
+\end{example}
+
+\subsection{Frechet Space}
+We can define norms on $C^k$ as follows
+$$C^0 \Rightarrow \|u\|_{C^0} = \sup |u|, \|u\|_{C^1} = \sup|u| + \sup|\nabla u|, \dots$$
+
+We define the class of seminorms $$P(K, m)(u) = \|u \|_{C^m(K)},$$
+with $K$ compact and $m$ an integer.  The space of seminorms is known as a \textbf{Frechet }space, or a \textbf{locally convex space}.  In a Banach space, the topology is determined by balls $B(0, \epsilon)$(note the use of translation invariance). In the case of a Frechet space, we instead have balls determined by the seminorms:
+$$\left (P_{K_1, m_1} + P_{K_2, m_2} + \dots + P_{K_j, m_j}\right )(u) < \epsilon,$$
+where we have finitely many $P_{K_i, m_i}$.  
+
+Convergence in a Frechet space is given by 
+$$u_j \rightarrow u \Leftrightarrow P_{K, m}(u_j - u) \rightarrow 0$$
+for all $K, m$.  The is the same as saying that 
+$$\partial^\alpha u_j \rightarrow \partial^\alpha u,$$
+uniformly on compact sets.
+
+\subsection{Continuous Functions with Compact Support}
+\begin{definition} $x_0 \not \in \text{supp }u$ if there exists $\epsilon > 0$ such that 
+$$u = 0 \in B(x_0, \epsilon).$$
+\end{definition}
+\begin{example}
+Consider the function $$u(x) = \begin{cases} 1-x^2, x \in [-1, 1] \\ 0, \text{ otherwise}
+\end{cases}.$$
+The support of $u$ is given by $[-1, 1]$.  Note that support is closed, which follows from the fact that the complement is open.  
+\end{example}
+\begin{fact} $\supp u$ is closed.
+\end{fact}
+\begin{proof}If $x_0 \not \in \supp u$ then $u=0 \in B(x_0, \epsilon)$ and for $y \not \in B(x_0, \epsilon)$, we can find $\delta > 0$ such that $u = 0 \in B(y, \delta)$.  Hence, for $u \in C(\R^n), \supp u = \overline{\{x: u(x )\ne 0\}}.$
+\end{proof}
+
+Consider the space $C_0^\infty, C_0^{\infty}(\R^n) = \mathcal{D}$, the space of continuous functions with compact support.  This is a linear space, but it's not clear that the space is nonempty.
+
+\begin{example} The function $$f(x) = \begin{cases} e^{-1/x}, x > 0 \\ 0, x \le 0 \end{cases},$$
+is a continuous function with support $[0, \infty)$.  It is not clear that the function is infinitely differentiable though.  But, we can take $f(x)f(1-x)$, a function with support in $[0, 1]$.
+
+\end{example}
+
+\begin{fact} If $O \subset \R^n$ is an open set, then there exists $f \in C^{\infty}(\R^n)$ such that $\supp f = \overline{O}$. This follows from Urysohn's lemma.
+\end{fact}
+
+What topology do we put on $\mathcal{D}$?  
+
+\begin{definition}[Convergence in $\mathcal{D}$] We let $u_m \rightarrow u$ in $\mathcal D$ if 
+\begin{itemize}
+\item $\partial^\alpha u_m \rightarrow \partial^\alpha u$ uniformly
+\item There exists a compact set $K$ such that $\supp u_m\subseteq K$ for all $m$.
+\end{itemize}
+\end{definition}
+
+We cannot put Banach space on $\mathcal D$, since the norm cannot be well-defined in the case of $C^{\infty}$.  We also cannot put a Frechet space due to cardinality issues.  However, we can say that
+$$\mathcal D = \bigcup_m \{u \in C^{\infty}: \supp u \subset B(0, m)\},$$
+which is the union of locally convex spaces.  This is the \textbf{inductive limit topology}.  We will refer $\mathcal D$ as the space of \textbf{test functions}.
+
+\subsection{The Space of Distributions}
+This is related to the notion of duality in functional analysis. 
+
+\begin{itemize}
+ \item If $X$ is a Banach space, we can define $X^*$, the space of bounded linear functionals on $X$.  More precisely, if we have $$\|x^*\|_{X^*} = \sup_{\|x\|_X \le 1} |x^*(x)|.$$
+ \item If $X$ is a Frechet space, $X^*$ is the space of continuous linear functional on $X$.  We can show that for any functional $x^* \in X^*$,
+ $$|x^*(x)| \le c \sum_{i=1}^n P_{k_i}(x).$$
+ \end{itemize} 
+\begin{definition}[Space of Distributions] The space of distributions $\mathcal D'$ is the dual of $\mathcal D$, the space of test functions.  For any $f \in \mathcal D'$, $f : \mathcal D \rightarrow \R(\C)$, we require $f$ to be continuous:
+$$u_n \rightarrow u \in D, f(u_n) \rightarrow f(u).$$
+\end{definition}
+
+Why can we think of distributions as generalized functions?  For $u \in C^{\infty}(\R^n)$, $v \in \mathcal D$, we can define the action
+$$u(v) = \int_{R^n} u\cdot v dx.$$
+
+This allows us to identify $C^{\infty}(\R^n)$ with a subset of $\mathcal D'$.  Note that this still works for $u \in C(\R^n)$ and for $u \in L^1(\R^n)$.  Furthermore, $u \in L_{loc}^1(\R^n)$, the functions that are integrable in any compact set.
+
+We can conclude that $\mathcal D'$ contains all classical functions in the sense above, but also elements that are not functions.
+
+\begin{example} For the dirac mass $\delta_0$, we have $\int \delta_0 u = u(0)$, so we can define $\delta_0(u) = u(0)$, and similarly, $\delta_x(u) = u(x)$.  This gives us $\delta_x'(u) = -u'(x)$ and 
+$$\delta_x^(\alpha)(u) = (-1)^{|\alpha|}\partial^{\alpha} u(x).$$
+\end{example}
+
+\begin{example} For a function $f \in L_{loc}^1$, $\alpha$ a multiindex,
+$$F(u) = \int_{R^n} f \cdot \partial^{\alpha} u dx.$$
+
+We cannot do $\sum \int f_k \partial^{\alpha_k} u dx$, unless the $\supp f_k \rightarrow \infty$.
+\end{example}
+
+What is the topology on $\mathcal D'$?  
+\begin{definition} $f_n \rightarrow f$ in $\mathcal D'$ if for every $u \in \mathcal D$, we have 
+$$f_n(u) \rightarrow f(u).$$
+\end{definition}
+\begin{example} If $f_n = \delta_{x_n}$ with $x_n \rightarrow y$, $f_n \rightarrow f = \delta_y$. 
+\end{example}
 \end{document}

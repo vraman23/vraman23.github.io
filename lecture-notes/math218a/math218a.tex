@@ -15,6 +15,7 @@
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cU}{\mathcal{U}}
+\renewcommand{\P}{\mathbb{P}}
 
 
 \usepackage{answers}
@@ -623,4 +624,134 @@ $\Sigma(A_1), A_2, \dots, A_\ell$ are mutually independent $\pi$ systems.  We it
 $$\mu_{n+1}(A \times \R) = \mu_n(A).$$
 Then there exists a measure $\mu$ on $(\R^\N, B(\R^\N))$ such that $\mu$ agrees with $\mu_n$ on $\R^n \times \R \times \R \times \dots$.
 
-\end{thm}\end{document}
+\end{thm}
+\pagebreak
+\section{September 22nd, 2020}
+Last time, we discussed product measures, independent random variables/sigma algebras, and how to construct infinitely many independent random variables.  We also proved the $0-1$ law for tail-sigma algebras.
+
+If we have $(\Omega, \Sigma, \P)$ and random variables $X_1, X_2, \dots$, $T_n = \Sigma(X_n, X_{n+1}, \dots)$ and $T_\infty = \bigcap T_n$ is a sigma algebra that is P-trivial.
+
+Any event that does not depend on any finite set of $X_i$'s is in the tail-sigma algebra.  For example, let $Y = \limsup X_i$ and $E = \{Y < t\}$.  Note that $Y$ does not depend on finitely many $X_i$'s.  Another example is $S_n = \sum_{i=1}^n x_i$ and we define $Y = \limsup \frac{S_n}{n}$.
+
+When does $\frac{S_n}{n}$ have a limit?
+
+\subsection{Law of Large Numbers}
+We have $X_1, X_2, \dots$ independent random variables.  What is the asymptotic behavior of $\frac{S_n}{n}$?
+
+
+Suppose $X_1, X_2, \dots$ have $E(X_i^2) < C$, $E(X_iX_j) = 0$ and $E(X_i) = 0$.  Then, 
+$$\frac{S_n}{n} \xrightarrow{\P} 0 \Leftrightarrow \P\left (|\frac{S_n}{n}| > \epsilon \right ) \rightarrow 0.$$ 
+\begin{proof}
+We first note Markov's Inequality: Suppose $X$ is a nonnegative random variable.  For any positive $c$, 
+$$P(X > c) \le \frac{E(X)}{c}.$$
+
+Furthermore, note that $$\left \{ \left| \frac{S_n}{n}\right| > \epsilon\right \} = \left \{\left (\frac{S_n}{n}\right )^2 > \epsilon^2\right \}.$$
+
+By Markov's Inequality,
+$$\P((\frac{S_n}{n})^2 > \epsilon^2) \le \frac{1}{n^2\epsilon^2} E(S_n^2),$$
+and finally,
+$$E(S_n)^2 = E((X_1 + \dots X_n)^2)=\sum EX_i^2 + \sum E(X_iX_j) \le nC$$
+so 
+$$\frac{1}{n^2\epsilon^2} E(S_n^2) \le \frac{nC}{n^2\epsilon^2} = \frac{C}{n\epsilon^2} \rightarrow 0.$$
+\end{proof}
+\begin{corollary}If $X_1, X_2, \dots$ are independent with the same distribution and $E(X_i) = \mu$ $E(X_i^2) = \sigma^2$, then 
+$$\frac{S_n}{n} \xrightarrow{\P} \mu.$$
+\end{corollary}
+\begin{proof}
+Note that $E(\overline{X_i}\overline{X_j}) = E(\overline{X_i})E(\overline{X_j}) = 0$ by Fubini's theorem.  Hence we apply the previous theorem to $\bar{X_i} = X_i - \mu$.
+\end{proof}
+\begin{fact} Chebyshev's Inequality: For any RV X, 
+$$P(|X| > t) \le \frac{E(X^2)}{t^2}.$$
+\end{fact}
+\begin{example}[Polynomial Approximation]
+Task: Given $f:[0, 1] \rightarrow \R$ continuous, and $\epsilon > 0$, find a polynomial $f_n(x)$ such that 
+$$|f_n(x) - f(x)| < \epsilon$$
+for all $x \in [0, 1]$.
+
+Let $$f_n(x) = \sum_{m=0}^n \binom{n}{m}x^m(1-x)^{n-m}f\left (\frac{m}{n}\right ).$$
+We expect $f_n(x) \approx f(x)$ by the Binomial Theorem.  Precisely,
+$$f_n(x) = E\left (f\left (\frac{S_n}{n}\right )\right )$$
+where $S_n \sim Bin(n, x)$ with $S_n = \sum_{i=1}^n X_i$ for $X_i \sim Ber(x)$.  It suffices to show that $\frac{S_n}{n} \approx x$.
+
+By the Law of Large Numbers,
+$$P\left (\left |\frac{S_n}{n} - x\right | > \epsilon\right ) \rightarrow 0.$$
+
+Since $f$ is continuous on $[0, 1]$, it is uniformly continuous, so that given $\delta$, there exists $\epsilon$ such that for all $x, y$ with $|x - y| < \epsilon$, $|f(x)- f(y)| < \delta$.  If we let the event above be $A^c$, then, 
+\begin{align*}
+E(f(S_n/n)) &= E(f(S_n/n)1_A) + E(f(S_n/n)1_{A^c}) \\
+&= f(x)P(A) + E(f(S_n/n) - f(x))1_A) + E(f(S_n/n))1_{A^c} \\
+& \le f(x)P(A) + \delta P(A) + \sup_{x \in [0, 1]} f(x)P(A^c)
+&\rightarrow f(x).
+\end{align*}
+
+Note that $$P(A^c) \le \frac{\text{Var}(S_n)}{n^2 \epsilon^2} \le \frac{1}{n\epsilon^2}$$
+since $\text{Var}(X_i) \le 1$ for $X_i \in [0, 1]$.
+
+Hence, for any $x \in [0, 1]$, $f_n(x) \rightarrow f(x)$ uniformly as $n \rightarrow \infty$.
+ \end{example}
+ 
+Now, our goal is to prove the law of Large Numbers without the second moment assumption.  Namely, for $X_1, X_2, \dots$ iid with $E|X_i| < \infty$, $EX_i = 0$,
+$$\frac{S_n}{n} \xrightarrow{P} 0.$$
+Our strategy is truncation.  
+\begin{definition} For any random variable $X$, we will consider the random variable from $X_M = X1_{|X| < M}$. Note that we have $E(X_M^2) < \infty$ for all $M$ even if $E(X^2) = \infty$.
+\end{definition}
+\begin{thm} Suppose that for each $n$ there exists a constant $b_n$ such that 
+$$\sum_{i=1}^n P(|X_{n_i}| > b_n) \rightarrow 0$$
+and $$\sum_{i=1}^n\frac{ E(\overline{X_{n_i}})^2}{b_n^2} \rightarrow 0.$$
+
+Then
+$$\sum_{i=1}^n\frac{ X_{n_i} - E(\overline{X_{n_i}})}{b_{n}} \rightarrow 0.$$
+\end{thm}
+\begin{proof}
+We first prove that 
+$$Y = \sum_{i=1}^n \frac{\overline{X_{n_i}} - E(\overline{X_{n_i}})}{b_n} \rightarrow 0.$$
+This follows from Chebyshev, since $E(Y) = 0$ and 
+$$\text{Var}(Y) \le \sum_{i=1}^n\frac{E(\overline{X_{n_i}}^2)}{b_n^2}.$$
+
+Then $\sum_{i=1}^n P(|X_{n_i} > bn|) \rightarrow 0$ so if $X_{n_i} < b_n$, $X_{n_i} = \overline{X_{n_i}}$.
+
+Let $B = \{X_{n_i} \ne \overline{X_{n_i}} : i \in \{1, \dots, n\}\}.$  Then $$P(B) \le \sum_{i=1}^n P(|X_{n_i}| > b_n) \rightarrow 0,$$
+so it follows that 
+$$\sum_{i=1}^n\frac{ X_{n_i} - E(\overline{X_{n_i}})}{b_{n}} \rightarrow 0.$$
+\end{proof}
+
+\begin{lemma}
+Suppose $X_1, X_2, \dots$ are iid.  Suppose that $$KP(|X_1| > K) \rightarrow 0.$$
+
+Then
+$$\frac{\sum_{i=1}^n X_i - n E(X_1 1\{|X_1| < n\})}{n} \rightarrow 0$$
+in measure.
+\end{lemma}
+\begin{proof}
+Note that this does not imply $E(X_1) < \infty$.  Form a triangular sequence from the $X_i$'s and let $b_n = n$. 
+ We show that $\sum_{i=1}^n P(|X_i| > n) \rightarrow 0$ and $\sum_{i=1}^n E(\overline{X_i}^2) \rightarrow 0$.
+
+For 2, it suffices to show
+$$E(\overline{X_i}^2)/n \rightarrow 0.$$
+
+Note that $|\overline{X_i}|= |X_i| 1\{|X_i| < n\}.$  Suppose $X$ is a non-negative random variable. 
+Note that 
+$$E(X) \approx \sum_{n=1}^{\infty} P(X > n).$$
+
+Similarly,
+$$E(X^2) \approx \sum_{n=1}^{\infty} nP(X > n).$$
+
+Then 
+$$E(\overline{X_i}^2) \approx \sum_{K = 1}^n KP(X_1 > K).$$
+
+It suffices to show that 
+$$\frac{\sum_{k=1}^n kP(|X_1| > k)}{n} \rightarrow 0,$$
+which follows from the fact that $kP(|X_1| > k) \rightarrow 0$.
+\end{proof}
+
+\begin{thm}[Law of Large Numbers] If $X_1, X_2, \dots$ iid and $E(|X_1|) < \infty$ and $E(X_1)  = 0$, then $S_n/n \rightarrow 0$ in measure.
+\end{thm}
+\begin{proof}
+Note that $kP(|X_1| > k)  \le E(|X_1| 1\{|X_1| > k\}) \rightarrow 0$, by the dominated convergence theorem. By the lemma,
+$$\frac{S_n}{n} - E(\overline{X_1}) \rightarrow 0,$$
+and note that $E(\overline{X_1}) \rightarrow E(X_1) = 0$ by the dominated convergence theorem.
+\end{proof}
+
+ 
+ 
+\end{document}

@@ -773,4 +773,48 @@ For $\T^d$, we can only take $t \rightarrow + \infty$ so $\gamma \le 0$, and we 
 \end{proof}
 \begin{thm}[Riesz-Thoren] Let $(X, \mu), (Y, \nu)$ be $\sigma$-finite measure spaces.  Suppose we have exponents $p_0, p_1, q_0, q_1 \in [1, \infty]$.  Let $S(X)$ be the set of simple functions from $X \rightarrow \C$.  Assume $T: S(X) \rightarrow (L^1 + L^{\infty})(Y)$ is linear and there exists $A_0, A_1 < \infty$ so that for all $f \in S(X)$, $$\|Tf\|_{L^{q_j}} \le A_j\|f\|_{L^p_j}.$$
 \end{thm}
+\pagebreak
+\section{September 22nd, 2020}
+\subsection{Comparing Size of Functions to Size of Fourier Coefficients, continued}
+Recall 
+\begin{thm}[Riesz-Thoren] Let $(X, \mu), (Y, \nu)$ be $\sigma$-finite measure spaces.  Suppose we have exponents $p_0, p_1, q_0, q_1 \in [1, \infty]$.  Let $S(X)$ be the set of simple functions from $X \rightarrow \C$.  Assume $T: S(X) \rightarrow (L^1 + L^{\infty})(Y)$ is linear and there exists $A_0, A_1 < \infty$ so that for all $f \in S(X)$, $$\|Tf\|_{L^{q_j}} \le A_j\|f\|_{L^p_j}.$$
+\end{thm}
+We will prove this later, with an elegant application of complex analysis.
+
+Remark: ($\R^d$) Is it true that $\hat{L^p} \subset L^q$ ($2 < p, q = p'$)?  No.  We sketch the proof.  Suppose it was true.  For $f \in L^p$ with $\|f\|_p \le 1$, define $\ell^f \in (L^{q'})^*$ by
+$$\ell_f(g) = \int g\hat{f}.$$
+This defines a bounded linear functional as desired.  We claim that $\{\ell_f\}$ is pointwise bounded.  Then, by the Uniform Boundedness Principle, it follows that $\ell_f$ are uniformly bounded.  We know that 
+$$\|\ell_f\|_{(L^{q'})^*} = \|\hat{f}\|_{L^(q')'} = \|\hat{f}\|_{L^p}$$
+by the Reverse Holder's Inequality.  This would give the desired inequality.
+
+Finally,
+$$\ell_f(g) = \int g\hat{f} = \int \hat{g} f,$$
+and $\hat{g} \in L^q$.  Then
+$$|\ell_f(g)| = |\int \hat{g}f| \le \|\hat{g}\|_{q} \|f\|_p \le \|\hat{g}\|_{L^q}.$$
+
+\subsection{Rademacher Functions}
+\begin{thm}[Kahane] If $a \in \ell^2$, there exists $f \in L^{\infty}$ such that for all $n$, $|\hat{f}(n)| \ge |a_n|$.
+\end{thm}
+We prove a weaker result.
+\begin{thm} For $\T^d$, $d \ge 1$.  For any $a \in \ell^2$, there exists $f \in \cap_{p < \infty} L^p$ such that for all $n \in \N$,  $$|\hat{f}(n)| = |a_n|$$
+\end{thm}
+We will use \textbf{Rademacher Functions}: $r_n : [0, 1] \rightarrow \{-1,1 \},$ with $n \ge 0$.  We let $r_0(x) = 1$, for $r_n$, we split $[0, 1]$ into $2^n$ intervals and alternate between $1$ and $-1$.Note that $\|r_n\|_{L^2([0, 1])} = 1$.  If $n > m$, then
+$$\int r_n r_m dx = 0.$$  
+\begin{lemma} For $a_j \in \{1, 2,3, \dots\} $, $$\int_{0}^1 \prod_{j=1}^N r_{n_j}^{a_j}dx = 0,$$
+unless every $a_j$ is even.
+\end{lemma}
+
+We can now form a Rademacher Series: 
+$$f(x) = \sum_{n=0}^{\infty} c_n r_n(x).$$
+If $c \in \ell^2$, then $f \in L^2$ and $\|c\|_{\ell^2} = \|f\|_{L^2}$.
+
+\begin{thm}[Khinchine's Inequality] If $c \in \ell^2$ then $f \in \bigcap_{p < \infty} L^p$. For all $p, q \in (0, \infty)$, there exists $A_{p, q} < \infty$ such that for all $c$, $\|f\|_{L^q} \le A\|f\|_{L^p}$.
+\end{thm}
+\begin{proof}
+WLOG, $p = 2q$.  
+$$\int |f|^{2q} = \int f^q \overline{f}^q = \int \sum_{n_1, \dots, n_q} \prod_{j=1}^q c_{n_j}r_{n_j} \sum_{m_1, \dots, m_q} \prod_{i=1}^q \overline{c_{m_i}} r_{m_i}.$$
+which is $$\sum \sum \int_0^1 (\prod_{j=1}^q r_{n_j})(\prod_{i=1}^q r_{m_i})dx.$$
+
+The integral is 0 unless all the $\{m_i\} = \{n_j\}$.   We can bound this above by $q! \|c\|_{\ell^2}^{2q}$.
+\end{proof}
 \end{document}

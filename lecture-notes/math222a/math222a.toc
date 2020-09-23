@@ -21,3 +21,8 @@
 \contentsline {subsection}{\numberline {5.1}Fully Nonlinear PDEs}{18}{subsection.5.1}% 
 \contentsline {section}{\numberline {6}September 17th, 2020}{21}{section.6}% 
 \contentsline {subsection}{\numberline {6.1}Fully Nonlinear PDEs, continued}{21}{subsection.6.1}% 
+\contentsline {section}{\numberline {7}September 22nd, 2020}{24}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Introduction to Distribution Theory}{24}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Frechet Space}{24}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Continuous Functions with Compact Support}{25}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}The Space of Distributions}{26}{subsection.7.4}% 

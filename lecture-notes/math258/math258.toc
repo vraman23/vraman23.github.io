@@ -24,3 +24,6 @@
 \contentsline {section}{\numberline {7}September 17th, 2020}{27}{section.7}% 
 \contentsline {subsection}{\numberline {7.1}Size of Fourier Coefficients, continued}{27}{subsection.7.1}% 
 \contentsline {subsection}{\numberline {7.2}Comparing Size of Functions to Size of Fourier Coefficients}{28}{subsection.7.2}% 
+\contentsline {section}{\numberline {8}September 22nd, 2020}{30}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Comparing Size of Functions to Size of Fourier Coefficients, continued}{30}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Rademacher Functions}{30}{subsection.8.2}% 

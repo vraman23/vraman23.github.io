@@ -25,3 +25,5 @@
 \contentsline {section}{\numberline {7}September 17th, 2020}{20}{section.7}% 
 \contentsline {subsection}{\numberline {7.1}Product Measures, Continued}{20}{subsection.7.1}% 
 \contentsline {subsection}{\numberline {7.2}Independence}{21}{subsection.7.2}% 
+\contentsline {section}{\numberline {8}September 22nd, 2020}{24}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Law of Large Numbers}{24}{subsection.8.1}% 
