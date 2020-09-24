@@ -815,6 +815,113 @@ WLOG, $p = 2q$.
 $$\int |f|^{2q} = \int f^q \overline{f}^q = \int \sum_{n_1, \dots, n_q} \prod_{j=1}^q c_{n_j}r_{n_j} \sum_{m_1, \dots, m_q} \prod_{i=1}^q \overline{c_{m_i}} r_{m_i}.$$
 which is $$\sum \sum \int_0^1 (\prod_{j=1}^q r_{n_j})(\prod_{i=1}^q r_{m_i})dx.$$
 
-The integral is 0 unless all the $\{m_i\} = \{n_j\}$.   We can bound this above by $q! \|c\|_{\ell^2}^{2q}$.
+If the $n$'s and $m$'s are pairwise distinct, we bounded it above by $q!\|c\|_{\ell^2}^{2q} \le C^q q^q \|c\|_{\ell^2}^{2q}$ in general.
+\end{proof}
+\section{September 24th, 2020}
+\subsection{Rademacher Functions, continued}
+We consider $\Omega = [0, 1]$ with Lebesgue measure, a probability space.  Then $\{r_n\}$ are independent random variables: for $N, a_j = \pm 1$.  Consider $B = \{x \in [0, 1] : r_j(x) = a_j , j \in [1, N] \cap \Z, r_{N+1}(x) = 1\}$.  Then, $$\frac{\mu(B)}{\mu(\{x: r_j(x) = a_j\})} = \frac{1}{2}.$$
+
+We were proving the following theorem:
+\begin{thm} For $\T^d$, $d \ge 1$.  For any $a \in \ell^2$, there exists $f \in \bigcap_{p < \infty} L^p$ such that for all $n \in \N$,  $$|\hat{f}(n)| = |a_n|.$$
+\end{thm}
+\begin{proof}
+We have Khinchine's Inequality: For all $p < \infty$, there exists $C_p < \infty$ such that 
+$$\left \|\sum_{n=1}^{\infty} c_nr_n \right \|_{L^p} \le C_p \|c\|_{\ell^2}.$$
+
+We are given $a \in \ell^2$ and we want $f \in L^p(\T^d): |\hat{f}(n)| = |a_n|$ for all $n$.
+
+Define $$f_\omega(x) = \sum_{n \in \Z^d} r_{n}(\omega) a_n e^{in\cdot x}, \omega \in [0, 1] = \Omega.$$
+
+We know that $f_\omega \in L^2(\T^d)$.  Consider
+\begin{align*}
+\int_\Omega \|f_\omega\|_{L^p(\T^d)}^p d\omega &= \int_{\T^d} \int_\Omega \left |\sum_{n} r_n(\omega) a_ne^{in \cdot x}\right |^pd\omega dx\\
+&\le \int_{T^d} C_p^p \|a\|_{\ell^2}^p dx \\
+&= (2\pi)^d C_p^p \|a\|_{\ell^2}.
+\end{align*}
+Hence, the average $\int_\Omega \|f_\omega\|^p_{L^p} d\omega < \infty$, so for almost every $\omega \in \Omega$, $f_\omega \in L^p$. 
+
+Hence, for any $p$, 
+$$|\hat{f}_\omega(n)| = |r_n(\omega) a_n| = |a_n|.$$
+Finally, we can take $p = 2, 4, 6, \dots$, so that the set of all bad $\omega$ is a countable union of Lebesgue null sets.
+
+For almost every $\omega$, $f_\omega \in \bigcap_{p < \infty} L^p$ and $|\hat{f}_\omega(n)| = |a_n|$ for all $n$.
+\end{proof}
+\subsection{Convergence of Fourier Series for 1-dimensional Tori}
+Recall
+$$\hat{f}(n) = (2\pi)^{-1} \int_{\pi}^\pi f(x)e^{-in\cdot x} dx,$$
+where we identify $\pi^1 = [-\pi, pi]$.
+
+The partial sums
+$$S_N f(x) = \sum_{n = -N}^N \hat{f}(n) e^{inx} = f*D_n(x) = (2\pi)^{-1}\int f(x-y) D_n(y) dy,$$
+and recall that
+$$D_N(x) = \sum_{-N}^N e^{inx} = \frac{\sin((N + 1/2)x)}{\sin(x/2)}$$
+if $x \ne 0$, or $2N+1$ if $x = 0$.  Note that $D_N(x) \in C^{\infty}$, so there are no issues with singularities at 0.
+
+\begin{center}
+\includegraphics[scale=0.35]{dn.png}
+\end{center}
+
+Note that $$\frac{1}{2\pi} \int_{-\pi}^\pi D_N(x)dx = \frac{1}{2\pi}\int_{-\pi}^\pi \sum_{n = -N}^N e^{inx}dx = 1.$$
+
+However, $\|D_N\|_{L^1} = \Omega(\log (N)),$ so we don't have an approximate identity sequence. 
+\begin{proof}
+Let $M = N + \frac{1}{2}$.
+\begin{align*}
+\int_{2^{k2\pi/M}}^{2^{(k+1)2\pi/M}} \frac{|\sin(Mx)|}{|\sin(x/2)|}dx &\ge \int_{2^{k2\pi/M}}^{2^{(k+1)2\pi/M}} \frac{2|\sin(Mx)|}{|x|}dx \\
+&\ge 2^{-k} \frac{M}{2\pi}\int_{2^{k2\pi/M}}^{2^{(k+1)2\pi/M}} |\sin(Mx)|dx \\
+&= 2^{-k} \frac{1}{2\pi}\int_{2^{k2\pi}}^{2^{(k+1)2\pi}} |\sin(y)|dy\\
+&= C_0 2^{-k}2^k = C_0.
+\end{align*}
+So $\|D_n\| = \Omega(\log N)$.
+\end{proof}
+
+\begin{thm} There exists a function $f \in C^0(\Pi^1)$ such that $S_Nf(0) \not \rightarrow f(0)$ (and $\{S_Nf(0)\}$ unbounded).
+\end{thm}
+\begin{proof}
+Suppose for all $f \in C^0$, $\{S_Nf(0)\}$ is bounded.
+$$\ell_N(g) = S_N g(0) = \frac{1}{2\pi} \int_{-\pi}^\pi g(-y)D_N(y) dy,$$
+so $\ell_N \in (C_0(\T^1))^*$.  By the Uniform Boundedness Principle, $\ell_N$ is uniformly bounded: $$\|\ell_N\|_{(C^0)^*} = \frac{1}{2\pi} \|D_N\|_1 < \infty.$$
+\end{proof}
+\begin{thm} Let $f \in L^1(\T)$, $x_0 \in \T, a \in \C$.  If 
+$$\int _\T |f(x) - a||x - x_0|^{-1} dx < \infty,$$
+then $S_Nf(x_0)\rightarrow a$.
+\end{thm}
+\begin{proof}
+Let $g(x) = f(x - x_0)$ and reduce to the case where $x_0 = 0$.  Similarly, $g(x) = f(x) - a$ reduces to the case where $a = 0$.
+
+So $\int |f(x)||x|^{-1} < \infty$, and we want $S_Nf(0)$.
+
+\begin{align*}
+2\pi S_Nf(0) &= \int_{-\pi}^\pi \frac{f(x)}{\sin(x/2)} \sin((N+1/2)x)dx ].\\
+\end{align*}
+So we have 
+\begin{align*}
+I &= \int_{-\pi}^\pi g(x)e^{iNx}dx \rightarrow 0,
+\end{align*}
+by the Riemann-Lebesgue Lemma.
+\end{proof}
+\begin{corollary} If $\alpha > 0$, then $S_Nf(x) \rightarrow f(x)$ for all $x$ for all $f \in \Lambda_\alpha$.
+\end{corollary}
+\begin{thm} Let $\alpha \in (0 ,1)$.  There exists $C_\alpha < \infty$ so that for every $f \in \Lambda_\alpha(\T)$, and for all $N$, 
+$$\left\| S_Nf - f\right \|_{C^0} \le C_\alpha N^{-\alpha} \log(N + 2)\|f\|_{\Lambda_\alpha}$$
+\end{thm}
+\begin{proof}
+We can reduce to $S_Nf(0) - f(0)$, $f(0) = 0$.
+
+$\|f\|_{\Lambda_\alpha}$ has norms: $$\sup_{x \ne y} \frac{|f(x) - f(y)|}{|x-y|}.$$
+
+\begin{align*}
+2\pi S_Nf(0) &=\int_{-\pi}^{\pi} f(x) \frac{\sin(Mx)}{\sin(x/2)}, M = N+1/2\\
+\end{align*}
+
+Then 
+$$\left |\int_{|x| \le \delta}f(x)D_N(x)\right | \le \int_{|x| \le \delta} |x|^{\alpha}\|f\|_{\Lambda_\alpha}\frac{2}{|x|}dx = C_\alpha \|f\|_{\Lambda_\alpha}\delta^{\alpha},$$
+and 
+\begin{align*}
+\int_{\delta}^\pi \frac{f(x)}{\sin(x/2)} e^{iMx}dx &= \int_{\delta}^\pi g(x)e^{iMx} dx\\
+&= \frac{1}{2} \int_{\delta}^\pi g(x)e^{iMx} - \frac{1}{2} \int_{\delta + \pi/M}^{\pi + \pi/M} g\left (x-\frac{\pi}{M}\right )e^{iMx}dx\\
+&= \frac{1}{2}\int_{\delta}^\pi [g(x) - g(x-\pi/M)]e^{iMx}dx \pm \frac{1}{2} \int_{\delta}^{\delta+\pi/N} g(x - \pi/M)e^{iMx}dx\\ &\text{               }\pm \frac{1}{2} \int_{\pi}^{\pi+\pi/M} g(x-\pi/M)e^{iMx}
+\end{align*}
+
 \end{proof}
 \end{document}

@@ -27,3 +27,6 @@
 \contentsline {section}{\numberline {8}September 22nd, 2020}{30}{section.8}% 
 \contentsline {subsection}{\numberline {8.1}Comparing Size of Functions to Size of Fourier Coefficients, continued}{30}{subsection.8.1}% 
 \contentsline {subsection}{\numberline {8.2}Rademacher Functions}{30}{subsection.8.2}% 
+\contentsline {section}{\numberline {9}September 24th, 2020}{31}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Rademacher Functions, continued}{31}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Convergence of Fourier Series for 1-dimensional Tori}{32}{subsection.9.2}% 

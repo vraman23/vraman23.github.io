@@ -26,3 +26,7 @@
 \contentsline {subsection}{\numberline {7.2}Frechet Space}{24}{subsection.7.2}% 
 \contentsline {subsection}{\numberline {7.3}Continuous Functions with Compact Support}{25}{subsection.7.3}% 
 \contentsline {subsection}{\numberline {7.4}The Space of Distributions}{26}{subsection.7.4}% 
+\contentsline {section}{\numberline {8}September 24th, 2020}{28}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}The Space of Distributions, continued}{28}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Properties of Distributions}{29}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.3}The support of distributions}{30}{subsection.8.3}% 

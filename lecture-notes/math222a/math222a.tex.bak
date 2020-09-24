@@ -39,7 +39,7 @@ $ $
 \centerline{\huge \textbf{Math 222a Lecture Notes, Fall 2020}}
 \centerline{\Large \textbf{Partial Differential Equations} } 
 \centerline{Professor: Daniel Tataru}
-\centerline{Vishal Raman}
+\centerline{Scribe: Vishal Raman}
 \end{center}
 \vfill
 $ $
@@ -743,5 +743,118 @@ What is the topology on $\mathcal D'$?
 $$f_n(u) \rightarrow f(u).$$
 \end{definition}
 \begin{example} If $f_n = \delta_{x_n}$ with $x_n \rightarrow y$, $f_n \rightarrow f = \delta_y$. 
+\end{example}
+\pagebreak
+\section{September 24th, 2020}
+\subsection{The Space of Distributions, continued}
+Recall, we had $\mathcal D$, the space of test functions, a linear topological space.  The notion of convergence is given by 
+$$u_n \rightarrow u \text{ if } \begin{cases} \exists K : \supp(u_n) \subset K\\
+\partial^\alpha u_n \rightarrow \partial^\alpha u
+\end{cases}.$$
+We also defined $\mathcal D'$ as the space of distributions, continuous functions $f: \mathcal D \rightarrow \R$.  We have $f_n \rightarrow f$ if $f_n(u) \rightarrow f(u)$ for all $u \in D$. We call this \textbf{convergence in the sense of distributions}.
+\begin{example} If we have $C^0 \supset f_n \rightarrow f$ uniformly,
+$$f_n(u) = \int f_n \cdot u dx.$$
+Then
+$$\int f_n \cdot u dx \rightarrow \int f \cdot u dx,$$
+by uniform convergence.
+
+This shows that classical convergence implies convergence in $\mathcal D'$.
+\end{example}
+ \begin{example} Suppose $f_n = \sin{nx}$, bounded functions.  This converges pointwise almost nowhere.  However,
+\begin{align*}
+\int f_n \cdot u dx &=\int u(x)\sin{(nx)}dx\\
+&= \int \frac{1}{n}\cos{(nx)} \partial_x u(x)dx,
+\end{align*}
+so
+$$\left |\int f_n\cdot u dx \right| \le \frac{1}{n} \int_k Cdx \rightarrow 0,$$
+which implies that $\sin (nx) \rightarrow 0$ in $\mathcal D'$.
+ \end{example}
+ \begin{proposition} $\partial_x : \mathcal D \rightarrow \mathcal D$ is continuous.
+ \end{proposition}
+ \begin{example} We defined $\delta_0$, the Dirac mass as some limit of bump functions, $$f_\epsilon(x) = \begin{cases}
+ \frac{1}{2\epsilon}, |x| < \epsilon \\
+ 0, \text{ else}
+ \end{cases}.$$
+ We have $\int f_\epsilon dx = 1$.  We can show formally that $f_\epsilon \rightarrow \delta_0$ in $\mathcal D'$.
+ 
+\begin{align*}
+f_\epsilon(u) &= \int f_\epsilon\cdot u dx\\
+&= \frac{1}{2\epsilon} \int_{-\epsilon}^\epsilon u dx\\
+&= \frac{1}{2}\int_{-1}^1 u(\epsilon x)dx \rightarrow u(0) = \delta_0(u)\\
+\end{align*}
+Remark:  The same works if we take $f_\epsilon =\frac{1}{\epsilon}\phi(\epsilon x)$ where 
+$$\begin{cases}
+\phi \in \mathcal D\\
+\int \phi = 1
+\end{cases}.$$
+\end{example}
+\begin{example} Take $\phi \in \mathcal D$, and define $f_n = \phi(x-n)$.  
+\begin{align*}
+f_n(u) &= \int f_n(x) u(x)dx \rightarrow 0,
+\end{align*}
+since the support of $f_n$ and $u$ are disjoint for large $n$.
+\end{example}
+\subsection{Properties of Distributions}
+For partial differential equations, we need to be able to compute $P(x, \partial)f$ for $f \in \mathcal D'$,
+$$P(x, \partial) = \sum c_\alpha(x) \partial^\alpha.$$
+
+\begin{itemize}
+\item Multiplication by functions: if we have $\phi \in C^{\infty}, f \in \mathcal D'$, what is $\phi f$?
+
+Suppose $f$ was a function.  Then $(\phi f)(x) = \phi(x)f(x)$, so
+$$\phi f(u) = \int (\phi f)udx = \int f \cdot (\phi u)dx = f(\phi u),$$
+\begin{definition} For $\phi \in C^{\infty}, f \in \mathcal D'$, $\phi f(u) = f(\phi u)$.
+\end{definition}
+Note that the map $f \rightarrow \phi f$ is continuous in $\mathcal D'$.
+\item Differentiation of distributions:  for $f \in C^1$, 
+$$\partial_x f(u) = \int (\partial_x f) u dx = -\int f (\partial_x u)dx = -f(\partial_x u)$$
+\begin{definition} For $f \in \mathcal D'$, $\partial_x f(u) = -f(\partial_x u).$
+\end{definition}
+Observe that $\partial: \mathcal D' \rightarrow \mathcal D'$ is continuous.  Furthermore, we have the Leibniz rule,
+$$\partial(\phi f) = \partial \phi \cdot f + \phi \cdot \partial f.$$
+\end{itemize}
+\begin{example} $f(x) = |x|$, $\partial_x f = \text{sgn }x$, and 
+$$\partial_x^2 f(u) = - \partial_x f(\partial_x u) = - \int \partial_x u \cdot \text{sgn }u dx = \int_{-\infty}^0 \partial_x u dx - \int_{0}^\infty  \partial_x u dx = 2 \delta_0(u).$$
+We also have 
+$$\partial_x \delta_0 = \partial_x \delta_0(u) = -\delta_0(\partial_x u) = -\partial_x u(0) = \delta_0'(u).$$
+\end{example}
+\subsection{The support of distributions}
+\begin{definition} Let $f \in \mathcal D'$.  Then $x_0 \not \in \supp f$ if there exists $\epsilon > 0$ such that 
+$f(u) = 0$ whenever $\supp u \in B_\epsilon(x_0)$.  
+\end{definition}
+Note that $(\supp f)^c$ is open, so $\supp f$ is closed.
+\begin{proposition} Any closed set is the support of some distribution.
+\end{proposition}
+\begin{example} If we take $\delta_{x_0}, \supp(\delta_{x_0}) = \{x_0\}$. 
+\end{example}
+We let $\mathcal E' \subset \mathcal D'$ as the distributions with compact support.  
+\begin{proposition} If $f \in \mathcal D'$ has compact support, then $f$ extends to a continuous functional $f: C^{\infty} \rightarrow \R$.  
+\end{proposition}
+\begin{proof}
+We have $f:\mathcal D \rightarrow \R$ with compact support.  Let $\phi \in \mathcal D$, so that $f = 1$ in $B(0, 1)$.  We also define $\phi_R(x) = \phi\left (\frac{x}{R}\right)$.  Then $\phi_R \in D$ and $\phi_R = 1 \in B(0, R)$. 
+
+Let $R \rightarrow \infty$.
+$$\lim_{R \rightarrow \infty} \phi_R = 1$$ in $C^{\infty} = \mathcal E$, but not $\mathcal D$.  
+
+Suppose we take $f \in \mathcal D'$, with compact support.  Let $c\in \mathcal E$.  Then
+$$v = \lim_{\mathcal E} \phi_R v.$$
+Define $f(v) = \lim_{R \rightarrow \infty} f(\phi_R v).$
+
+Take 
+$$f(\phi_{R_1}v) - f(\phi_{R_2}v) = f((\phi_{R_1} - \phi_{R_2}) v).$$
+Then if $R_1 \subseteq R_2$, $\supp(\phi_{R_1} - \phi_{R_2}) \subset B(0, R_1)^c$.  Since $f$ is compactly supported,
+$$f((\phi_{R_1} - \phi_{R_2}) v) = 0$$
+if $R_1 \subset R_2$ are large enough.
+
+Exercise:  Show that this definition does not depend on the choice of $\phi$.
+
+Exercise: Show that $f: \mathcal E \rightarrow \R$ is continuous.
+
+Exercise: Prove the converse: if $f:\mathcal E \rightarrow \R$ is continuous, then $f \in \mathcal E'$.
+
+\end{proof}
+\begin{example} Consider the PDE $(\partial_t - \partial_x) u = 0$.  Formally, any function $u(t, x) = g(t+x)$ should solve this.
+
+Claim: let $g \in L_{loc}^1$.  Then $(\partial_t - \partial_x) u = 0$. 
 \end{example}
 \end{document}

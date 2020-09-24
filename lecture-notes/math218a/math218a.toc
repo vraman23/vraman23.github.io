@@ -27,3 +27,6 @@
 \contentsline {subsection}{\numberline {7.2}Independence}{21}{subsection.7.2}% 
 \contentsline {section}{\numberline {8}September 22nd, 2020}{24}{section.8}% 
 \contentsline {subsection}{\numberline {8.1}Law of Large Numbers}{24}{subsection.8.1}% 
+\contentsline {section}{\numberline {9}September 24th, 2020}{28}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Law of Large Numbers, continued}{28}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Almost Sure Convergence}{29}{subsection.9.2}% 

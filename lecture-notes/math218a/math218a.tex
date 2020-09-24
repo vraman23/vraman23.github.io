@@ -751,7 +751,96 @@ Note that $kP(|X_1| > k)  \le E(|X_1| 1\{|X_1| > k\}) \rightarrow 0$, by the dom
 $$\frac{S_n}{n} - E(\overline{X_1}) \rightarrow 0,$$
 and note that $E(\overline{X_1}) \rightarrow E(X_1) = 0$ by the dominated convergence theorem.
 \end{proof}
+\pagebreak
+\section{September 24th, 2020}
+\subsection{Law of Large Numbers, continued}
+Last time, we began discussing the Law of large numbers.  Recall:
+\begin{itemize}
+\item Markov's Inequality: $$P(|X| > c) \le \frac{E(|X|)}{c}.$$
+\item With $X_1, X_2, \dots$ iid, $E(X_i) = 0$.  When $E(X_1^2) < c$, 
+$$S_n/n \xrightarrow{P} 0.$$
+\item Under 1st Moment condition, we used truncation to make thinks bounded and have second moments.  We discussed triangular arrays and saw a theorem which proves a LLN type of statement for truncated variables.
+\item We showed that the truncation has no limiting effect.  Then, we considered 
+$$\sum X_i 1_{|X_i| < n}/n \rightarrow 0,$$
+which implied the law of large numbers.
+\end{itemize}
+\begin{example} Let $X_1, X_2, \dots$ be iid with $X_i \ge 0$.  Suppose $E(X_1) = \infty$.  Then
+$$\frac{\sum_{i=1}^n X_i}{n} = ?$$
+Let $Y_i \sim X_i 1_{|X_i| < M}$.  Then $S_n'/n \sum_{i=1}^n Y_i/n \rightarrow E(Y_i)$ by the weak law of large numbers.  But by nonnegativity, $S_n/n > S_n'/n \rightarrow E(Y_i)$, but $E(Y_i)$ can be made arbitrarily large by choosing $M$ very large.  
 
- 
- 
+For any $c$,
+$$P\left (\frac{S_n}{n} > c\right ) \rightarrow 1,$$
+so $S_n/n \rightarrow \infty$. 
+\end{example}
+\begin{example} Let $X= 2^i$ with probability $1/2^i$ for $i \ge 1$.  Note $E(X) = \infty$.
+
+Let $X_1, X_2, \dots$ be iid $X$.  What is the growth rate of $S_n$?   One expects to see some $X_i$'s take value comparable to $n$ since $P(X_1 = n) = \frac{1}{n}$.  
+
+We will control the growth with truncation.  Let $\alpha_n = \log n + k(n)$, $b_n = 2^{\alpha_n}$.  We need to show that 
+$$\sum_{i=1}^n P(X_i > b_n) \rightarrow 0,$$
+and $$\frac{\sum_{i=1} ^nE(X_i^2 1_{X_i < b_n})}{b_n^2} \rightarrow 0.$$
+
+Note that $$P(X_i > b_n) \approx \frac{1}{b_n} = \frac{1}{n2^{k(n)}},$$
+so $$\sum P(X_i > b_n) = \frac{1}{2^{k(n)}} \rightarrow 0.$$
+
+Then,
+$$E(X_i^2 1_{X_i < b_n})\approx \sum_{i=1}^{\alpha(n)}2^{2i}/2^i = \sum_{i=1}^{\alpha(n)}2^i \approx 2^{\alpha(n)} = b_n.$$
+
+Then,
+$$\frac{\sum_{i=1} ^nE(X_i^2 1_{X_i < b_n})}{b_n^2} \approx \frac{nb_n}{b_n^2} = \frac{1}{2^{k(n)})} \rightarrow 0.$$
+
+Therefore,
+$$\frac{S_n - nE(\overline{X_i})}{b_n} \rightarrow 0.$$
+
+Note that $E(\overline{X_i}) = \alpha(n)$, so 
+$$\frac{S_n - n(\log n +k(n))}{n2^{k(n)}}$$
+
+If we choose $\log \log n$, then
+$$\frac{S_n - n(\log n + \log \log n)}{n \log n} \rightarrow 0,$$
+so $$\frac{S_n}{n\log n} \rightarrow 1 \Longrightarrow S_n = \Theta(n\log n).$$
+\end{example}
+\subsection{Almost Sure Convergence}
+Let $X_1, X_2, \dots$ iid, $E(X_i) = 0$, $E(X_i^2)< C$.
+
+We know that $$\frac{S_n}{n} \xrightarrow{P} 0,$$
+but do we have $$\frac{S_n}{n} \rightarrow 0,$$
+almost surely?
+
+\begin{lemma}[Borel-Cantelli] If events $E_i$ satisfy $\sum_{i=1}^{\infty} P(E_i) < \infty$, then $P(E_i \text{ infinitely often}) = 0$.
+\end{lemma}
+\begin{example}
+Let $\epsilon > 0$.  We want
+$$P\left (\left |\frac{S_n}{n}\right | > \epsilon,  i. o. \right )  = 0.$$
+
+In order to apply BC, we have to show 
+$$\sum P\left (\left |\frac{S_n}{n}\right | > \epsilon \right )<\infty,$$
+but 
+$$\sum P\left (\left |\frac{S_n}{n}\right | > \epsilon \right ) \approx \frac{1}{\epsilon^2 n} \rightarrow \infty.$$
+
+We try to get around this by assuming a higher moment.  Suppose $E(X^4) < \infty$.  
+
+Then,
+$$\frac{E(S_n^4)}{n^4} = \frac{E((\sum_{i=1}^n X_i)^4)}{n^4}=\frac{nE(X_1^4) + n^2 E(X_1^2X_2^2)}{n^4}\approx \frac{1}{n^2}.$$
+So 
+$$P\left (\left |\frac{S_n}{n}\right| > \epsilon\right ) \le \frac{1}{\epsilon^4}E((S_n/n)^4) \approx \frac{1}{\epsilon^4 n^2},$$
+which gives that 
+$$\sum P\left (\left |\frac{S_n}{n}\right| > \epsilon\right ) < \infty.$$
+\end{example}
+
+Can one use naive Markov to show a subsequence converges?  
+
+If we let $K(n) = n^2$, 
+$$P(|\frac{S_{k(n)}}{k(n)} |> \epsilon) \approx \frac{1}{n^2}$$
+so we can take the infinite sum and it approaches $0$. 
+
+Define $$D(n) = \sup_{k(n) \le i \le k(n+1)} |S_i - S_{k(n)}|.$$
+
+It suffices to show that $$\frac{D(n)}{k(n)} \rightarrow 0.$$
+
+We know that 
+$$P(|D_n/k(n)| > \epsilon) \le \sum_{i=k(n)}^{k(n+1)}P\left (\frac{|S_i - S_{k(n)}|}{k(n)}> \epsilon\right ),$$
+by subadditivity.  By Chebyshev,
+$$\sum_{i=k(n)}^{k(n+1)}P\left (\frac{|S_i - S_{k(n)}|}{k(n)}> \epsilon\right ) \le \sum\frac{i-k(n)}{k(n)^2 \epsilon^2} \le \frac{(k(n+1) - k(n))^2}{2k(n)^2} \approx  \frac{1}{n^2} ,$$
+so $\frac{D_n}{k(n)} \rightarrow 0$ almost surely by BC.
+
 \end{document}
