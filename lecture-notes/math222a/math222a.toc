@@ -30,3 +30,7 @@
 \contentsline {subsection}{\numberline {8.1}The Space of Distributions, continued}{28}{subsection.8.1}% 
 \contentsline {subsection}{\numberline {8.2}Properties of Distributions}{29}{subsection.8.2}% 
 \contentsline {subsection}{\numberline {8.3}The support of distributions}{30}{subsection.8.3}% 
+\contentsline {section}{\numberline {9}September 29th, 2020}{32}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Regularity of Compactly Supported Distributions}{32}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Convolutions}{33}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Convolution of Distributions}{34}{subsection.9.3}% 

@@ -857,4 +857,92 @@ Exercise: Prove the converse: if $f:\mathcal E \rightarrow \R$ is continuous, th
 
 Claim: let $g \in L_{loc}^1$.  Then $(\partial_t - \partial_x) u = 0$. 
 \end{example}
+\pagebreak
+\section{September 29th, 2020}
+Last time,
+\begin{itemize}
+\item We introduced $\mathcal{D}$, the space of test functions, which are smooth with compact support.  Then $\mathcal{E}$ denotes the smooth functions.
+\item We denoted $\mathcal{D}'$, the space of distributions, and $\mathcal{E}'$, the space of compactly supported distributions.
+\end{itemize}
+\subsection{Regularity of Compactly Supported Distributions}
+We introduced $C^k$, the set of $k$-times differentiable functions.  We call $k$ the \textbf{order of regularity}.
+
+Fix $K \subset R^n$ compact, and consider $\mathcal D'(K)$.  To measure such distributions, we only need to consider test functions restricted to $K$,  If we consider $\mathcal{D}(2K)$, a locally convex space with seminorms $$P_\alpha(u) \sup_{2K}|\partial^\alpha u|,$$
+$$P_{\le k}(u) = \sup_{x \in 2K} \sup_{|\alpha| \le K} |\partial^\alpha u(x)|.$$
+
+If $f \in \mathcal D'(K)$, then $f$ must be controlled by finitely many seminorms.  But the seminorms are ordered in increasing order, so it suffices to consider a single index $k$.  Namely, there exists $k$ such that $f(u) \le C P_{\le k}(u).$
+\begin{definition} The smallest $k$ for which the above holds gives the order of $f$, i. e. $-k$.
+\end{definition}
+
+For arbitrary distributions $f$:
+$$f = \sum \chi_{j} f = \sum f_j$$
+where $\chi_j$ is supported in $\{2^{j-1} \le |x| \le 2^{j+1}\}$, with $1 = \sum \chi_j$.  The supports of $f_j$ are going to infinity.  Each $f_j$ has an order $k_n$, but it is possible for $k_j \rightarrow \infty$.
+
+\begin{example} Take $f \in L_{0}^1 \subset \mathcal D'$.  Then $\partial^k f \in \mathcal D'$.  What is the order of $\partial^k f$?
+
+$$\partial^k f(u) = (-1)^{|k|} \int f \partial^k u dx,$$
+so $$|\partial^k f(u)| \le \int |f| \sup |\partial^k u|dx \le \sup|\partial^k u| \int |f|dx.$$
+Hence, the order of $\partial^k f$ is greater than or equal to $-k$.
+\end{example}
+\begin{example} The Dirac mass, $\delta_0$ has order $0$, since $\delta_0(u) = u(x)$ and $|\delta_0(u)| \le \sup |u|$.  Similarly, $\delta_0'$ has order $-1$, $\delta_0''$ has order $-2$.
+\end{example}
+\begin{thm} Any distribution $f$ in a compact set admits a finite representation
+$$f = \sum_{k \in K}\partial^{\alpha_k}f_k,$$
+where $f_k \in L_0^1$ and $K$ is finite.
+\end{thm}
+\subsection{Convolutions}
+Note that $(\mathcal E, +, \cdot)$ is an \textbf{algebra}, which is a vector space under addition and is closed under the multiplication operation.
+
+If we have two test functions $u, v \in \mathcal D$, define $$u * v (x) = \int u(y)v(x-y) dy.$$
+The integral is well-defined since both functions have compact support.
+
+We have some properties:
+\begin{itemize}
+\item Symmetry, $u * v = v * u$.  We see this by making a change of variables, $x-y = z$, $y = x-z$.  Then,
+$$u * v(x) = \int u(x-z)v(z)dz  = v*u(x).$$
+\item Suppose $u *v (x) \ne 0$.  Then, the integrand cannot be identically $0$, so there exists $y \in \R^n$ so that $u(y)v(x-y) \ne 0$.  Then $y \in \supp u$, $x-y \in \supp v$.  Then $$x = y + x-y \in \supp u + \supp v = \{a + b : a \in \supp u, b \in \supp v\}.$$
+
+Hence, we have $$\supp u*v \subset \supp u + \supp v.$$
+\item Regularity of convolutions:
+$$u * v(x) = \int u(y)v(x-y)dy.$$
+If we differentiate under the integral, 
+$$\partial(u * v)(x) = \int u(y) \partial v(x-y)dy.$$
+Hence $$\partial(u*v) = u * \partial v = \partial u * v.$$
+\item The convolution of test functions is a test function: $\mathcal D * \mathcal D \rightarrow \mathcal D$.  \item Observe that for $u*v$ to be well defined, it is enough that one of them has compact support.  Hence $\mathcal D * \mathcal E \rightarrow \mathcal E$.                                       
+\item For rough functions, we can extend this as $u \in \mathcal D$, $v \in L_0^1$, where 
+$$u * v(x) = \int u(x-y)v(y)dy,$$
+so $$|u*v(x)| \le \sup |u|\int |v|dx = \|u\|_\infty \cdot  \|v\|_1.$$
+This gives the inequality,
+$$\|u*v\|_\infty\le \|v\|_1 \cdot \|u\|_\infty.$$
+In addition, if $u$ is smooth, then $u*v$ is also smooth, so 
+$$\partial(u*v) = \partial u * v \Rightarrow \mathcal D * L_0^1 \rightarrow \mathcal D.$$
+\item Associativity: $(u*v)*w = u*(v*w)$.    
+\begin{proof}
+\begin{align*}
+(u*v)*w(x) &= \int(u*v)(y) w(x-y)dy \\
+&=\iint u(z) v(y-z) w(x-y)dydz.
+\end{align*}
+Similarly,
+\begin{align*}
+u*(v*w)(x) &= \iint u(x-y)v(z)w(y-z) dydz.
+\end{align*}
+If we identify the corresponding arguments, the integrals are equal via a change of coordinates.
+\end{proof}
+\item $(\mathcal D, +, *)$ is an algebra.
+\end{itemize}
+\subsection{Convolution of Distributions}
+Note that 
+$$f*u(x) = \int f(y)u(x-y) dy = f(u(x- \cdot)),$$
+hence, the RHS is well defined for any distribution $f$. 
+\begin{definition} $f * u(x) = f(u(x - \cdot)).$
+\end{definition}
+Observe that $u(x-\cdot )$ is differentiable in $x$, so $f*u$ is differentiable and $$\partial f*u(x) = f(\partial u(x-\cdot))) = f(-\partial_y u(x-\cdot)) = \partial f(u(x- \cdot)),$$
+hence,
+  $$\partial_x(f * u) = f * \partial u = \partial f * u.$$
+It follows that $\mathcal D' * \mathcal D = \mathcal E$.  We can also show that $\mathcal E' * \mathcal D = \mathcal D$.
+\begin{example} $$\delta_0 * u(x) = \delta_0(u(x- \cdot)) = u(x).$$  In this sense, $\delta_0$ acts like the identity with respect to convolutions.
+
+Similarly,
+$$\delta_{x_0}*u(x) = u(x-x_0).$$
+\end{example}
 \end{document}
