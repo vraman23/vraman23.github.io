@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  29 SEP 2020 12:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 OCT 2020 12:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1562,183 +1562,203 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 48
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 )
 \tf@toc=\write7
 \openout7 = `math222a.toc'.
@@ -1789,7 +1809,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 144.
 [5] [6]
-<localLipschitz.png, id=164, 522.95375pt x 202.7575pt>
+<localLipschitz.png, id=172, 522.95375pt x 202.7575pt>
 File: localLipschitz.png Graphic file (type png)
 <use localLipschitz.png>
 Package pdftex.def Info: localLipschitz.png  used on input line 166.
@@ -1800,24 +1820,24 @@ Package mdframed Info: mdframed detected package amsthm
 Package hyperref Info: bookmark level for unknown thm defaults to 0 on input li
 ne 168.
  [7 <./localLipschitz.png>]
-<ball.png, id=184, 569.12625pt x 202.7575pt>
+<ball.png, id=192, 569.12625pt x 202.7575pt>
 File: ball.png Graphic file (type png)
 <use ball.png>
 Package pdftex.def Info: ball.png  used on input line 184.
 (pdftex.def)             Requested size: 284.56242pt x 101.3785pt.
-<unique.png, id=185, 489.83pt x 186.6975pt>
+<unique.png, id=193, 489.83pt x 186.6975pt>
 File: unique.png Graphic file (type png)
 <use unique.png>
 Package pdftex.def Info: unique.png  used on input line 213.
 (pdftex.def)             Requested size: 244.9144pt x 93.34851pt.
  [8 <./ball.png>]
-<bootstrap.png, id=191, 308.15125pt x 219.82124pt>
+<bootstrap.png, id=199, 308.15125pt x 219.82124pt>
 File: bootstrap.png Graphic file (type png)
 <use bootstrap.png>
 Package pdftex.def Info: bootstrap.png  used on input line 220.
 (pdftex.def)             Requested size: 154.07524pt x 109.91034pt.
  [9 <./unique.png> <./bootstrap.png>]
-<notunique.png, id=198, 498.86375pt x 133.49875pt>
+<notunique.png, id=206, 498.86375pt x 133.49875pt>
 File: notunique.png Graphic file (type png)
 <use notunique.png>
 Package pdftex.def Info: notunique.png  used on input line 246.
@@ -1829,7 +1849,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 254.
  [10 <./notunique.png>]
-<linear.png, id=211, 625.33624pt x 192.72pt>
+<linear.png, id=219, 625.33624pt x 192.72pt>
 File: linear.png Graphic file (type png)
 <use linear.png>
 Package pdftex.def Info: linear.png  used on input line 273.
@@ -1839,24 +1859,24 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 275.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
 input line 275.
-<sigma.png, id=212, 567.11874pt x 261.97874pt>
+<sigma.png, id=220, 567.11874pt x 261.97874pt>
 File: sigma.png Graphic file (type png)
 <use sigma.png>
 Package pdftex.def Info: sigma.png  used on input line 290.
 (pdftex.def)             Requested size: 283.55867pt x 130.98904pt.
  [11 <./linear.png>]
-<bad.png, id=220, 574.145pt x 289.08pt>
+<bad.png, id=228, 574.145pt x 289.08pt>
 File: bad.png Graphic file (type png)
 <use bad.png>
 Package pdftex.def Info: bad.png  used on input line 299.
 (pdftex.def)             Requested size: 287.0718pt x 144.53964pt.
  [12 <./sigma.png> <./bad.png>]
-<curve.png, id=231, 353.32pt x 102.3825pt>
+<curve.png, id=239, 353.32pt x 102.3825pt>
 File: curve.png Graphic file (type png)
 <use curve.png>
 Package pdftex.def Info: curve.png  used on input line 330.
 (pdftex.def)             Requested size: 176.65956pt x 51.19112pt.
-<char.png, id=232, 617.30624pt x 199.74625pt>
+<char.png, id=240, 617.30624pt x 199.74625pt>
 File: char.png Graphic file (type png)
 <use char.png>
 Package pdftex.def Info: char.png  used on input line 343.
@@ -1865,13 +1885,13 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 345.
  [13 <./curve.png> <./char.png>]
-<diffe.png, id=242, 586.19pt x 513.92pt>
+<diffe.png, id=250, 586.19pt x 513.92pt>
 File: diffe.png Graphic file (type png)
 <use diffe.png>
 Package pdftex.def Info: diffe.png  used on input line 356.
 (pdftex.def)             Requested size: 351.7167pt x 308.35437pt.
  [14 <./diffe.png>]
-<quasi.png, id=250, 562.1pt x 314.17375pt>
+<quasi.png, id=258, 562.1pt x 314.17375pt>
 File: quasi.png Graphic file (type png)
 <use quasi.png>
 Package pdftex.def Info: quasi.png  used on input line 391.
@@ -1880,14 +1900,14 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 400.
  [15 <./quasi.png>]
-<burger.png, id=256, 496.85625pt x 225.84375pt>
+<burger.png, id=264, 496.85625pt x 225.84375pt>
 File: burger.png Graphic file (type png)
 <use burger.png>
 Package pdftex.def Info: burger.png  used on input line 432.
 (pdftex.def)             Requested size: 248.4275pt x 112.92159pt.
 
 [16 <./burger.png>]
-<intersect.png, id=268, 597.23125pt x 205.76875pt>
+<intersect.png, id=276, 597.23125pt x 205.76875pt>
 File: intersect.png Graphic file (type png)
 <use intersect.png>
 Package pdftex.def Info: intersect.png  used on input line 442.
@@ -1919,7 +1939,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 652.
-<images/dist.png, id=304, 552.0625pt x 223.83624pt>
+<images/dist.png, id=312, 552.0625pt x 223.83624pt>
 File: images/dist.png Graphic file (type png)
 <use images/dist.png>
 Package pdftex.def Info: images/dist.png  used on input line 655.
@@ -1994,25 +2014,36 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 943.
  [34]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 948.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 948.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 973.
+ [35]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 992.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 998.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1005.
+ [36] [37]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1025.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1025.
  (./math222a.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 948.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 948.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1025.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1025.
+
 Package rerunfilecheck Info: File `math222a.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 948.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1025.
  ) 
 Here is how much of TeX's memory you used:
- 39380 strings out of 492616
- 772932 string characters out of 6129482
- 991240 words of memory out of 5000000
- 42491 multiletter control sequences out of 15000+600000
- 544698 words of font info for 102 fonts, out of 8000000 for 9000
+ 39414 strings out of 492616
+ 773445 string characters out of 6129482
+ 991426 words of memory out of 5000000
+ 42504 multiletter control sequences out of 15000+600000
+ 544800 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,21n,91p,9110b,1254s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -2037,10 +2068,10 @@ exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 19/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/t
 exmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on math222a.pdf (34 pages, 2083475 bytes).
+Output written on math222a.pdf (37 pages, 2094763 bytes).
 PDF statistics:
- 636 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 189 named destinations out of 1000 (max. 500000)
- 15832 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 684 PDF objects out of 1000 (max. 8388607)
+ 572 compressed objects within 6 object streams
+ 206 named destinations out of 1000 (max. 500000)
+ 15864 words of extra memory for PDF output out of 17280 (max. 10000000)
 

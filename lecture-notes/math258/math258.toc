@@ -30,3 +30,7 @@
 \contentsline {section}{\numberline {9}September 24th, 2020}{31}{section.9}% 
 \contentsline {subsection}{\numberline {9.1}Rademacher Functions, continued}{31}{subsection.9.1}% 
 \contentsline {subsection}{\numberline {9.2}Convergence of Fourier Series for 1-dimensional Tori}{32}{subsection.9.2}% 
+\contentsline {section}{\numberline {10}September 29th, 2020}{36}{section.10}% 
+\contentsline {section}{\numberline {11}October 1st, 2020}{37}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Cesaro Means and Kernels}{37}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Proof of Kolmogorov's Theorem}{38}{subsection.11.2}% 

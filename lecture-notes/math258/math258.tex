@@ -924,4 +924,95 @@ and
 \end{align*}
 
 \end{proof}
+\pagebreak
+\section{September 29th, 2020}
+I missed this lecture.  The notes will be updated upon reviewing the lecture notes.
+\pagebreak
+\section{October 1st, 2020}
+\subsection{Cesaro Means and Kernels}
+We are discussion functions $f : \T \rightarrow \C$.  We defined the \textbf{Cesaro Means} $\sigma_N f = (n+1)^{-1}\sum_{n =0}^N S_n f$.  We showed that $\sigma_N f = f * D_n $(we used the Normalization: $f * g(x) = \frac{1}{2\pi}\int f(x-y)g(y)dy$, so that $\hat{f*g} = \hat{f}\cdot\hat{g}$.)  
+
+Then
+$$\sigma_n f = f * K_N, \hat{K}_N(n) = \begin{cases} 1 - |n|/(N+1), |n| \le N+1 \\ 0, \text{ else}\end{cases}.$$
+
+We also have $f*V_N$, where $V_N = K_{2N+1} - K_N$.  Note that $\|V_n\|_1 \le 3.$  Note that these form an approximate identity sequence.  This is nice because it is even stays exactly at $1$from $0$ until $N+1$ and decreases linearly to $0$.  Hence $\hat{V}_N(n) \le 1$ for all $|n| \le N+1$.  Then
+$$\hat{f*V_N}(n) = \hat{f}(n), |n| \le N+1.$$
+
+We also have \textbf{Poisson Kernels}, where $0 \le r < 1$, $$P_r(x) = \sum_{n = -\infty}^\infty r^{|n|}e^{inx}= \frac{1-r^2}{1-2r\cos(x) + r^2}.$$
+The denominator is $0$ if only if $\cos(x) = 1$ and $r = 1$, but $r < 1$ and $\cos(x) \Leftrightarrow x = 0$.  One can show that this is an approximate identity family.
+
+Note that 
+$$\hat{f * P_r(n)} = \hat{f} \cdot r^{|n|} \xrightarrow{|n| \rightarrow \infty} 0.$$
+This is in effect like a partial sum, but instead a weighted average.
+
+Also note the Dirichlet problem:  Given $|z| < 1$, we would like to find $u$ such that $$\begin{cases} \Delta u = 0, |z| < 1 \\ u(e^{i\theta}) = f(\theta), |z| = 1\end{cases}$$
+
+Let $z = re^{i\theta}$, with the natural parameterization.  
+Then, 
+$$u(re^{i\theta}) = \sum_{n = -\infty}^{\infty} \hat{f}(n)r^{|n|} e^{in\theta}.$$
+
+Note that $r^{|n|}e^{in\theta} = z^n$ if $n \ge 0$ and $r^{|n|}e^{in\theta} = \overline{z}^{-n}$ if $n < 0$.
+We can verify that $\Delta u = 0$ for $r < 1$.  On the boundary, we have exactly $u(e^{i\theta}) = f(\theta)$.
+
+As a final remark, note that for $f \in L^2$, $f * K_N \rightarrow f$ in $L^2$.  But $f*K_N = \sum_{|u| < N+1}(1 - \frac{|n|}{n+1})\hat{f}(n)e^{inx}$, which is a finite linear combination of the characters.  Hence, we have a corollary:
+\begin{corollary} $\text{span}\{e^{inx}: n \in \Z\}$ is dense in $L^2(\T)$.
+\end{corollary}
+\subsection{Proof of Kolmogorov's Theorem}
+\begin{thm}[Kolmogorov] There exists $f \in L^1(\T)$ so that $(S_nf(x): N \in \N)$ diverges for almost every $x \in \T$.
+\end{thm}
+\begin{proof}
+We show that there exists $f \in L^1$ so that $\limsup_{N \rightarrow \infty} |S_N f(x)| = \infty$ almost everywhere.  If we took $f*D_n$, we can make the convolution large at a point, but it's difficult to make the $\sup$ large over many $x$.  
+
+We wish to find $g_j$ so that $\|g_j\|_1 = 1$ and $\sup_{N} |S_Ng_j|$ is large for many $x$.  We then form 
+$$\sum_{j=1}^{\infty}2^{-j} g_j,$$
+which will converge in $L^1$, but the partial sums will get large.  
+
+\begin{lemma} For any $A < \infty$, there exists a Borel probability measure $\mu$ on $\T$ so that for almost every $x \in \T$, $\sup_{N} |S_N(\mu)(x)| \ge A$.
+\end{lemma}
+\begin{proof}
+Note that $S_N(\mu)(x) = \sum_{|n| \le N} \hat{\mu}(n)e^{inx}$ where $\hat{\mu}(n) = \frac{1}{2\pi} \int e^{-inx}d\mu(x).$ 
+
+Let $M < \infty$.  Take $[-\pi, \pi]$ and place $M$ almost equally space points $y_j$, so that $|y_j - \frac{2\pi j}{M}| < \frac{2\pi}{4M}$ and $\{y_j\} \cup \{1\}$ are linearly independent over $\Q$.  We choose $\mu = M^{-1}\sum_{j=1}^M \delta_{y_j}.$
+
+Then 
+\begin{align*}
+2\pi S_N(\mu)(x) &= M^{-1} \sum_{j=1}^M D_N(x-y_j) \\
+&= M^{-1} \sum_{j}  \frac{\sin((N+1/2)(x-y_j))}{\sin(1/2(x-y_j))}.
+\end{align*}
+Suppose $\{y_j: 1 \le j \le m\} \cup \{1\} \cup \{x\}$ is linearly independent over $\Q$.  For each such $x$, we claim there exists $N$ so that $|S_N(\mu)(x)| \le c_0\log (M).$
+
+Choose $N$ such that for every $j$, the sign of the numerator is the sign of the denominator, and the magnitude of the numerator is at least $1/2$ for all $j$.  We want that $\frac{N(x-y_j)}{2\pi} - (-\frac{1}{4\pi}(x-y_j))$ is approximately some prescribed value modulo $\Z$.  Hence, we would like $\{\frac{x-y_j}{2\pi} : 1 \le j \le M\}\cup \{1\}$ to be linearly independent on $\Q$.
+
+Then, recall \textbf{Kroneker}: if $\{t_j : 1 \le j \le M\} \cup \{1\}$ are independent over $\Q$, then for any $s_j \in \R$, $\epsilon> 0$, there exists $n \in \Z$ so that $\|nt_j - s_j\|_{\pmod{\Z}} < \epsilon$, where $\pmod{\Z}$ is distance to the nearest integer.
+
+Then,
+$$(2\pi) S_N(\mu)(x) \ge \frac{1}{2M}\sum_j \frac{1}{\frac{1}{2}|x-y_j|} \ge CM^{-1}\sum_{j=1}^M |x-y_j|^{-1} \le CM^{-1} \sum_{j=1}^{M/2}(j/M)^{-1} = \log(M).$$
+\end{proof}
+\begin{lemma} For every $A < \infty$, $\epsilon > 0$, there exists $K < \infty$ and $\mu$, a probability measure, then
+$\sup_{N \le K} |S_N(\mu)(x)| \ge A$ for all $x \in T \setminus E$ for $|E| < \epsilon$.
+\end{lemma}
+\begin{lemma} For all $A< \infty$, $\epsilon > 0$, there exists $K$ and a trignometric polynomial so that $\|g\|_1 \le 1$ and $\sup_{N \le K} |S_n(g)(x)| \ge A$ for all $x \in \T\setminus E$ for $|E| < \epsilon$.
+\end{lemma}
+\begin{proof}
+Let $\mu$ be a above, $g = \mu * V_K$.  Then $\hat{g}(n) = \hat{\mu}(n)$ for $|n| \le K$.  Hence, $S_N(g) \equiv S_N(\mu)$ whenever $N \le K$.
+
+Then $$\|g\|_1 = \|\mu * V_K\|_1 \le \|V_K\|_1 \le 3.$$ [We replace $g$ with $g/3$ to finish the proof.]
+\end{proof}
+
+\begin{lemma} Define $\tilde S_N f(x) = \sum_{n = -\infty}^{N} \hat{f}(n) e^{inx}$.  For all $A < \infty, \epsilon > 0$, there exists $K < \infty$ so that there exists a polynomial $g$ with $\|g\| \le 1$ and $\sup_{N \le K} |\tilde{S}_N (g)(x)| \ge A$ for all $x \not \in E$, for $|E| < \epsilon$.
+ \end{lemma}
+ 
+ \begin{lemma} In Lemma $11.5$, we can achieve $\hat{g}(n) = 0$ for all $n < 0$.
+ \end{lemma}
+ 
+ Finally, we prove Kolmogorov's Theorem.  We have a family of $g_\alpha$ from Lemma $11.6$ .  Set $$F(x) = \sum_{j=1}^{\infty} 2^{-j}g_{\alpha_j}(x)e^{iT_j x}.$$
+ 
+ We choose $\alpha_j, T_j$ recursively.  Note that $\|f\|_1 < \infty$.   Choose $T_j$ greater than the largest $n \in \N$ so that there exists $\ell < j$ with $(g_{\alpha_\ell}e^{iT_\ell x})^\wedge(n) \ne 0$.  The support of the Fourier transform of $g_{\alpha_j}e^{iT_j x}$ lies to the right of the support of the fourier transform of $\sum_{\ell < j} 2^{-\ell} g_{\alpha_\ell}e^{iT_\ell x}.$
+ 
+ Then, we choose $\alpha_j$ so that for all $x \in E_j$ where $|E_j| < 2^{-j}$, there exists $N$ so that $$|\tilde{S}_N g_{\alpha_j}(x)| \ge 2^{2^j} + \sum_{\ell < j} 2^{-\ell} \|g_{\alpha_\ell}\|_\infty,$$
+ and $\tilde{S}_N(g_{\alpha_\ell})(x) = g_{\alpha_\ell}(x)$ for $\ell < j$.
+ 
+ Then $$\tilde{S}_N(F) = \sum_{\ell < j} 2^{-\ell}g_{\alpha_\ell}(x)e^{iT_\ell x} + \tilde{S}_N(2^{-j}g_{\alpha_j}(x)e^{iT_j x}) + \sum_{\ell > j} \tilde{S}_N(2^{-\ell}g_{\alpha_\ell} e^{iT_\ell x}(x),$$
+ but the last term vanishes and the second term dominates the first.
+\end{proof}
 \end{document}

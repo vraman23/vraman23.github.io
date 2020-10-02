@@ -34,3 +34,7 @@
 \contentsline {subsection}{\numberline {9.1}Regularity of Compactly Supported Distributions}{32}{subsection.9.1}% 
 \contentsline {subsection}{\numberline {9.2}Convolutions}{33}{subsection.9.2}% 
 \contentsline {subsection}{\numberline {9.3}Convolution of Distributions}{34}{subsection.9.3}% 
+\contentsline {section}{\numberline {10}October 1st, 2020}{35}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Convolutions of Distributions, continued}{35}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Distributional Solutions to PDEs}{35}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Fundamental Solutions}{36}{subsection.10.3}% 

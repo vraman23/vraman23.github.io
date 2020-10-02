@@ -945,4 +945,81 @@ It follows that $\mathcal D' * \mathcal D = \mathcal E$.  We can also show that 
 Similarly,
 $$\delta_{x_0}*u(x) = u(x-x_0).$$
 \end{example}
+\pagebreak
+\section{October 1st, 2020}
+\subsection{Convolutions of Distributions, continued}
+\begin{itemize}
+\item Recall the convolution,
+$$u * v(x) = \int u(x-y) v(y)dy,$$
+which is a map from $\mathcal D \times \mathcal D \rightarrow \mathcal D$ and $\mathcal D \times \mathcal E \rightarrow \mathcal E$.  
+\item We also saw that $\mathcal D' \times \mathcal D \rightarrow \mathcal E$.  Similarly, 
+$\mathcal E' \times \mathcal D \rightarrow \mathcal D.$
+\item Note that $\supp(u * v) \subset \supp u + \supp v$, $u * v = v * u$ and $u*(v*w) = (u*v)*w$.  This shows that we have a commutative algebra structure on $\mathcal D$.
+\item $\delta_0$ is the identity with respect to convolutions, $\delta_0 * u = \delta_0$.
+\item Consider $\mathcal D' * \mathcal D:$
+$$f*u(x) = f(u(x - \cdot)).$$
+\end{itemize}
+We will continue to fully extend the notion of convolutions to distributions.  If we take $f \in \mathcal D'$ and $g \in \mathcal E'$, we expect $\mathcal D' * \mathcal E' \rightarrow \mathcal D'$, since we don't have regularity or compact support for $\mathcal D'$.  Similarly, we expect $\mathcal E' * \mathcal E' \rightarrow \mathcal E'$.
+If $f, g$ were functions,
+\begin{align*}
+f*g(\phi) &= \int f * g(x)\phi(x)dx\\
+&= \iint f(y)g(x-y)\phi(x)dxdy \\
+&= \iint f(y)g(z)\phi(y+z) dydz\\
+&= \int f(y)\left (\int g(z)\phi(y+z)dx \right )dy\\
+&=\int f(y) g_z(\phi(y + \cdot_z)) dz \\ 
+&= f_y(g_z(\phi(\cdot_y + \cdot_z))).
+\end{align*}
+Hence $f*g(\phi) = f_y(g_z(\phi(\cdot_y + \cdot_z)))$ for functions.  We take this as the definition for distributions.
+\begin{proposition} This notion of convolution extends the notion of convolution for functions and has the same properties.
+
+Recall that $$\partial (f*g) = \partial f * g = f * \partial g.$$
+\end{proposition}
+\subsection{Distributional Solutions to PDEs}
+Consider constant coefficient partial differential equations:
+$$P(\partial) = \sum){|\alpha| \le k} c_\alpha \partial^\alpha.$$
+We would like to solve the equation $P(\partial)u = f$ in the smooth functions or in distributions: suppose we have $f \in \mathcal D'$.  Do we have a solution $u$?  This question is split into questions of existence and uniqueness(and continuous dependence, but this makes more sense to ask for nonlinear problems).
+
+We refine the questions:
+\begin{itemize}
+\item For $f \in \mathcal D$, we wish to find a local solution $u$.  
+\item We would like uniqueness with restricted behavior at infinity, but which requires considering the kernel of $P(\partial)$.  Consider exponential solutions, $u(x) = e^{x\cdot y}$.  Then $$\partial_j(e^{x\cdot y}) = y_je^{x \cdot y}, $$ $$\partial_x^{\alpha} = y^{\alpha}e^{x \cdot y},$$
+so $$P(\partial)e^{x \cdot y} = P(y)e^{x \cdot y}.$$
+
+Hence, $e^{x \cdot y}$ is in the kernel of $P(\partial)$ if and only if $P(y) = 0.$  In 1-d, we have finitely many roots, but in higher dimensions we have infinitely many roots.  Hence, we consider the restricted setting, with solutions which do not grow exponentially, for example, $y = i\xi$.  Then, $u = e^{ix\xi}$ is a solution if $P(i \xi) = 0$.
+
+\end{itemize}
+\subsection{Fundamental Solutions}
+\begin{thm}[Malgrange-Ehrenpreis] All constant coefficient linear PDE's are solvable.
+\end{thm}
+We will prove the theorem after developing Fourier Anaylsis.  It uses the notion of a fundamental solution for constant coefficient linear PDE's.  We try to solve the equation $P(\partial)u = \delta_x$.  Then, we translate our solution by $x$, which uses the key property that $P(\partial)$ is invariant with respect to translations.
+
+\begin{definition} $K \in \mathcal D'$ is a fundamental solution for $P(\partial)$ if $P(\partial) K = \delta_0$.
+\end{definition}
+\begin{proposition} If $K$ is a fundamental solution, then the function $$u = K*f$$ solves $$P(\partial)u = f.$$
+\end{proposition}
+\begin{proof}
+$$P(\partial)u = P(\partial)(K*f) = P(\partial)K * f = \partial_0 * f = f.$$
+\end{proof}
+Remark:  This is useful for existence, but not for uniqueness.
+\begin{example}
+Consider $P(\partial) = \partial_x$ in $\R$.  We would like to solve $\partial_x K = \partial_0$.  Take $$K(x) = \begin{cases} 0, x < 0 \\1, x > 0 \end{cases},$$
+the Heaviside Function.  More generally, we can take $K + H+c$ for some constant $c$ (which gives all solutions by HW 2.1).
+
+If we want to solve $\partial_x u = f$, one of the solutions is given by $u = f * H$.  If $f$ is a nice function, then
+$$u(x) = \int_\R H(y)f(x-y)dy = \int_{0}^{\infty}f(x-y)dy = \int_{-\infty}^x f(z)dz.$$
+This recovers the fundamental theorem of calculus.
+
+Note that 
+$$f * c = \int f(y)\cdot c dy = c \int f,$$
+which is a constant for compactly supported $f$.
+\end{example}
+In general, $K$ is not unique, even in the class of bounded functions.  
+
+Note that $\supp H = [0, \infty)$ so $\supp f * H \subseteq \supp f + [0, \infty),$ which moves the support to the right.  Then $H$ is the unique forward solution, and $H-1$ is a backward solution.  Note that
+$$(H-1) * f = \int (H-1)(y)f(x-y)dy = - \int_{-\infty}^0 f(x-y)dy = - \int_x^\infty f(z)dz.$$
+
+Using $H$, we solve 
+$$\begin{cases} \partial_x u = f \\ u(-\infty) = 0 \end{cases}$$
+and with $H-1$, we solve
+$$\begin{cases} \partial_x u = f \\ u(\infty) = 0 \end{cases}.$$
 \end{document}

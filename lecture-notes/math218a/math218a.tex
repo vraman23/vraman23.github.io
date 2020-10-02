@@ -842,4 +842,192 @@ $$P(|D_n/k(n)| > \epsilon) \le \sum_{i=k(n)}^{k(n+1)}P\left (\frac{|S_i - S_{k(n
 by subadditivity.  By Chebyshev,
 $$\sum_{i=k(n)}^{k(n+1)}P\left (\frac{|S_i - S_{k(n)}|}{k(n)}> \epsilon\right ) \le \sum\frac{i-k(n)}{k(n)^2 \epsilon^2} \le \frac{(k(n+1) - k(n))^2}{2k(n)^2} \approx  \frac{1}{n^2} ,$$
 so $\frac{D_n}{k(n)} \rightarrow 0$ almost surely by BC.
+\pagebreak
+\section{September 29th, 2020}
+Recall from last time:
+\begin{itemize}
+\item Weak law of Large Numbers, using triangular arrays and truncation,
+\item The Borel-Cantelli Lemma,
+\item The Strong Law of Large Numbers, assuming 4th moments with Markov, and assuming 2nd moments, we proved convergence along a subsequence and controlled oscillations.
+\end{itemize}
+\begin{fact} $X_n \rightarrow X$ in probability if and only if for any sequence of $X_n$, there exists a subsequence which converges almost surely.
+\end{fact}
+Today, we will prove the most general version of SLLN, under the first moment assumption.
+\subsection{General Law of Large Numbers}
+Let $E_1, E_2, \dots$ be pairwise independent events, where $p_i = P(E_i)$.  Assume that $\sum P_i \rightarrow \infty$.  We have $S_n = \sum_{i=1}^n 1_{E_i}$, and we would like to consider $\frac{S_n}{E(S_n)}$.  We claim that 
+$$S_n/E(S_n) \rightarrow 1,$$
+almost surely.
+\begin{proof}
+Let $a_n = \{|S_n - E(S_n)| > \epsilon E(S_n)\}$.  We want to bound $P(a_n)$.  It suffices to prove that for any $\epsilon > 0$, $\sum a_n < \infty$, by the Borel-Cantelli lemma.
+
+Note that
+ $$P(|S_n - E(S_n)| > \epsilon E(S_n)) \le \frac{\text{Var}(S_n)}{\epsilon^2 (E(S_n))^2},$$
+ and $$\text{Var}(S_n) = \sum_{i=1}^n \text{Var}(1_{E_i}) = \sum_{i=1}^n p_i(1-p_i) \le 1.$$
+ Hence, $\text{Var}(S_n) \le E(S_n)$ and 
+ $$a_n \le \frac{E(S_n)}{\epsilon^2(E(S_n))^2} = \frac{1}{\epsilon^2} \frac{1}{E(S_n)}.$$
+ 
+ Denote $E(S_n) = g_n$.  Let $k(n)$ be the least element such that $g_{k(n)} \ge n^2$.  
+ 
+ We have that $$S_{k(n)}/g_{k(n)} \rightarrow 1,$$
+ almost surely, by applying Borel-Cantelli.  It suffices to control the error between the subsequence.
+ 
+ Let $k(n) \le m \le k(n+1)$.  We would like to show that 
+ $$S_m/g_{m} \rightarrow 1.$$
+ But notice that $S_{k(m)} \le S_m \le S_{k(m+1)}$ since indicator functions are nonnegative.  So,
+ $$S_{k(n)}/g_{k(n+1)} \le S_m/g_m \le S_{k(n+1)}/g_{k(n)} = \frac{S_{k(n+1)}}{g_{k(n+1)}}\frac{g_{k(n+1)}}{g_{k(n)}} \approx\frac{S_{k(n+1)}}{g_{k(n+1)}}\frac{(n+1)^2}{n^2} \rightarrow 1.$$
+ We can have a similarly bound for the bottom term, and the result follows from the squeeze theorem.
+\end{proof}
+
+\begin{thm}[Strong Law of Large Numbers] Let $X_1, X_2, \dots$ be iid and $E|X_i| < \infty$, $E(X_i) = 0$.  Then
+$$S_n/n \rightarrow 0$$
+almost surely.
+\end{thm}
+\begin{proof}
+We will prove convergence of $S_n^+/n$ and $S_n^-/n$, where $S_n^+ = \sum_{i=1}^n X_i^+$ and similarly for the negative.  Hence, we can assume without loss of generality that $X_i \ge 0$.  We start by applying truncation: $\bar{X_i} = X_i 1_{|X_i| \le i}.$  
+
+It suffices to prove $\bar{S_n}/n \rightarrow 0$ almost surely.  This follows from the fact that $\bar{X_i} = X_i$ for large enough $i$ almost surely, since $\sum P(\bar{X_i} \ne X_i) = \sum_{i=1}^\infty P(X_i > i) = E(X_i) < \infty.$  
+
+By Markov,
+$$P\left ( \left|\frac{\overline S_n - E(\bar S_n)}{n}\right|> \epsilon\right) \approx \frac{Var(\bar{S_n} - E(\bar{S_n}))}{\epsilon^2 n^2}.$$
+
+This will not necessarily be summable over all $n$, so we choose a subsequence.  We will choose $k(n) = \alpha^n$ for a fixed $\alpha > 1$.  
+
+We need to show that $\sum Var(\overline{S_{k(n)}})/k(n)^2 < \infty$.  Note that 
+$$Var(\overline{S_{k(n)}})/k(n)^2 \le \sum_{i=1}^{k(n)} E \bar{X_i}^2/k(n)^2$$
+and $$E\bar{X_i}^2 \approx \sum_{j=1}^i jP(X> j).$$ 
+
+We can hence rewrite our expression as 
+$$\sum_{n=1}^{\infty} \frac{\sum_{i=1}^{k(n)} \sum_{i=1}^i jP(X > j)}{k(n)^2}\le \sum_{j=1}^{\infty} \sum_{n=1}^{\infty} \frac{jP(X > j)}{k(n)}1(k(n) \ge j) \approx \sum_{j=1}^{\infty} jP(X > j) \cdot \frac{1}{j} \approx E(X),$$
+and we have that $E(X) < \infty$.
+
+Hence 
+$$\frac{\bar{S}_{k(n)} - E(\bar{S}_{k(n)})}{k(n)} \rightarrow 0,$$
+almost surely.
+
+Then, $E(\bar{S}_{k(n)})/k(n) \rightarrow E(x)$ since $E(\bar{X}_i) \rightarrow E(X)$ by DCT, so $\bar{S}_{k(n)}/k(n) \rightarrow E(X)$ almost surely.  Since $\bar{X_i} > 0$, we have 
+$$\bar{S}_{k(n)} \le \bar{S}_m \le \bar{S}_{k(n+1)},$$
+and we can apply the squeezing argument from before but within bounds of $1/\alpha, \alpha$.  It suffices to choose any $\alpha > 1$, so choosing $\alpha$ arbitrarily close to $1$ gives that $\limsup$ and $\liminf$ are both equal to $E(X)$.
+
+Hence,
+$\bar{S}_m/m \rightarrow E(X)$
+almost surely, and by BC we have that $$\frac{S_m}{m} \rightarrow E(X),$$
+when $X\ge 0$ almost surely.  The full theorem comes from splitting $S_m = S_m^+ - S_m^-$.
+\end{proof}
+\begin{corollary} If $X_i$ iid with $E(X_i) = \infty$ then $S_n/n \rightarrow \infty$.  
+\end{corollary}
+\begin{proof}
+Take $X_i^m = X_i 1(X_i < m).$  $E(X_i^m) < \infty$ and $\frac{S_n^m}{n} \rightarrow E(X_i^m)$ and $S_n/n \ge S_n^m/n$ for all $n, m$ so choosing large enough $m$ gives the result.
+\end{proof}
+\subsection{Second Proof of SLLN}
+We will use the following:
+\begin{thm}[Kolmogorov's Maximal Inequality] Let $X_1, X_2, \dots$ be independent with $E(X_i^2) < \infty$, $E(X_i) = 0$.  
+$$P(\max_{k \le n} |S_k| > \epsilon) \le \frac{Var(S_n)}{\epsilon^2}.$$
+\end{thm}
+\begin{proof}
+Let $A_n = \{\max_{k \le n} |S_k| > \epsilon\}$/  Suppose $T_k$ is the event that $k$ is the smallest index such that $|S_k| > \epsilon$.  Then, $$A_n = \bigcup_{k=1}^n T_k.$$
+$$E(S_n^2) \ge E(S_n^2 1_{A_n}) = E(S_n^2 \sum_{k=1}^n 1_{T_k})$$
+$$ = E((S_k + (S_n - S_k))^2 1_{T_k})$$
+$$ = E(S_k^21_{T_k}) + E((S_n-S_k)^21_{T_k}) + E(S_k(S_n - S_k)1_{T_k}).$$
+The last term is $0$ since $S_k$ and $1_{T_k}$ are measurable functions with respect to $\{X_1, \dots, X_k\}$, but $S_n - S_k = \sum_{j=k+1}^n X_j$ is measurable with respect to $\{X_{k+1} \dots, X_{n}\}$.  
+
+Hence,
+$$E(S_n^2 1_{T_k}) \ge E(S_k^2 1_{T_k}) \ge \epsilon^2 P(T_k),$$
+since $|S_k| > \epsilon$ on $T_k$,
+which gives $$P(A_n) \le \frac{Var(S_n)}{\epsilon^2}$$
+by the union bound.
+\end{proof}
+\begin{thm} Suppose $X_1, \dots$ are independent mean 0 random variables.  If $\sum_{i=1}^{\infty} Var(X_i) < \infty$, then $\sum_{i=1}^n X_i$ converges almost surely.
+\end{thm}
+\pagebreak
+\section{October 1st, 2020}
+Last time:
+\begin{itemize}
+\item We covered the SLLN using an exponentially growing convergent subsequence.
+\item Kolmogorov's Maximal Inequality:  Let $X_1, X_2, \dots$ be independent with $E(X_i^2) < \infty$, $E(X_i) = 0$.  
+$$P(\max_{k \le n} |S_k| > \epsilon) \le \frac{Var(S_n)}{\epsilon^2}.$$
+\end{itemize}
+\subsection{Another Proof of SLLN, continued}
+\begin{thm} Suppose $X_1, \dots$ are independent mean 0 random variables.  If $\sum_{i=1}^{\infty} Var(X_i) < \infty$, then $\sum_{i=1}^n X_i$ converges almost surely.
+\end{thm}
+\begin{proof}
+We would like to show that $S_1, S_2, \dots$ converges.  It suffices to show that $(S_i)$ is almost surely Cauchy.  Given any $\epsilon > 0$, there exists $n_0$ such that for all $n_1, n_2 > n_0$ $|S_{n_1} - S_{n_2}| < \epsilon$.
+
+Then,
+$$P\left (\sup_{n \le k \le m} |S_k - S_n| > \epsilon\right ) = \epsilon^{-2}\sum_{k=n}^m Var(X_k).$$
+Hence,
+$$P\left (\sup_{n \le k } |S_k - S_n| > \epsilon\right ) = \epsilon^{-2}\sum_{k=n}^\infty Var(X_k),$$
+where we take the limit $m \rightarrow \infty$ and use continuity from below.  Denote $A_n = \{\sup_{n \le k } |S_k - S_n| > \epsilon\}$.  If we let $B_n = \{\sup_{k_1, k_2 \ge n} |S_{k_1} - S_{k_2}| < 2\epsilon \}$, then $P(B_n) \ge 1-P(A_n)$.  Note that $B_n$ increases and $P(\bigcup B_n) \ge 1 - \lim P(A_n) = 1$, and since $\epsilon$ is arbitrary, taking the intersection over $\epsilon = 1/m$ implies that $S_k$ is Cauchy almost surely.
+\end{proof}
+
+\begin{thm} Suppose $X_i$ are iid with $E|X_i| < \infty$, $E(X_i) = 0$.  Then $\sum_{k=1}^n \frac{X_k}{k}$ converges almost surely.
+\end{thm}
+\begin{proof}
+Let $\overline{X}_k = X_k 1_{|X_k| \le k}$.  We first show that $\sum \overline{X_k}/k$ converges almost surely, and $X_k$ and $\overline{X_k}$ at finitely many points(by BC), which gives the desired result.  
+
+It suffices to show that 
+$$\sum_{k=1}^{\infty} Var(\overline{X_k})/k^2 = \sum_{k=1}^{\infty} E(\overline{X_k}^2)/k^2 < \infty.$$
+
+Then $$E(\overline{X_k}^2) = \sum_{i=1}^{\infty} iP(|\overline{X_k}|  > i) \le \sum_{i=1}^k iP(|X_1| > i).$$
+
+Hence,
+$$\sum_{k=1}^{\infty} E(\overline{X_k}^2)/k^2 \le  \sum_{i=1}^{\infty} iP(|X_1 > i|) \sum_{k=i}^{\infty} \frac{1}{k^2} \approx \sum_{i=1}^{\infty} iP(|X_1 > i|) \frac{1}{i} \approx E|X_1| < \infty.$$
+\end{proof}
+\begin{lemma}[Kronecker's Lemma] Suppose $a_n \uparrow \infty$ and $y_k$ are real numbers such that 
+$\sum_{k=1}y_k/a_k$ converges.  Then $\sum_{k=1}^n y_k/a_n \rightarrow 0$.  
+\end{lemma}
+\begin{proof}
+Note that $\sum_{k=1}^n y_k/a_k = b_n$ with $b_n \rightarrow b$.  Then, $y_k = (b_k - b_{k-1})a_k$.  
+Then 
+\begin{align*}
+a_n^{-1}\sum_{i=1}^n y_k &= a_n^{-1}\sum_{k=1}^n (b_k-b_{k-1})a_k \\
+&= a_n^{-1}\left (a_nb_n +\sum_{k=1}^{n-1}b_k(a_k - a_{k-1})\right ) \\
+&= b_n - \sum_{k-1}^{n-1} b_k\left ( \frac{a_k-a_{k-1}}{a_n}\right )\\
+\end{align*}
+
+Hence, $\sum_{k-1}^{n-1} b_k\left ( \frac{a_k-a_{k-1}}{a_n}\right ) \rightarrow b$ and $b_n \rightarrow b$, so the difference converges to 0.
+\end{proof}
+This implies SLLN, since $\sum X_k/k $ converges almost surely.  We claimed that this was quantitative.
+ 
+\begin{example}[Tighter Bound]
+ Suppose $X_1, X_2, \dots$ are iid and $E(X_i = 0)$, $E(X_1^2) < c$.  We have already proved that $\sum_{i=1}^n X_i/n \rightarrow 0$ almost surely.  We can also show that $$\frac{\sum_{i=1}^n X_i}{\sqrt{n} \log{n}^{1/2+\epsilon}} \rightarrow 0$$ almost surely, for any $\epsilon > 0$.
+\begin{proof}
+ Let $a_k =\sqrt{k} \log{k}^{1/2 + \epsilon}$.  It suffices to show the convergence of 
+ $$\sum_{k=1}^n \frac{X_k}{a_k}.$$
+ 
+ Note that 
+ $$\sum_{k=1}^{\infty} Var(X_k/a_k) \approx \sum_{k=1}^{\infty} \frac{C}{k(\log k)^{1+2\epsilon}} < \infty.$$
+
+\end{proof}
+\end{example}
+ \begin{example}
+ Let $X_1, X_2, \dots$ be iid with $EX_i = 0$.  Assume that $E|X_1|^p < \infty$ for some $p \in (1, 2)$.    Then
+ $S_n/n^{1/p} \rightarrow 0$.  
+ \begin{proof}
+ Let $Y_k = X_k 1_{|X_k| < k^{1/p}}$.  Note that 
+ $$\sum_{k=1}^{\infty} P(Y_k \ne X_k) = \sum_{k=1}^{\infty} P(|X_k|^p > k) \le E|X_1|^p < \infty.$$
+ 
+ We then show the convergence of $$\sum \frac{Y_k - EY_k}{k^{1/p}}.$$ 
+ It suffices to show that $\sum_{k=1}^{\infty} Var(Y_k)/k^{2/p} < \infty$.  Then
+ $$\sum_{k=1}^{\infty} Var(Y_k)/k^{2/p}  \le \sum_{k=1}^{\infty} EY_k^2/k^{2/p},$$ where $m = k_0^{1/p}$.  Then, $EY_k^2 = \sum_{m=1}^{k^{1/p}} m^2 P(x \in [m, m+1])$, so this is approximately
+ $$\sum_{m=1}^{\infty} m^2P(x \in [m, m+1])\sum_{k = k_0}^{\infty}\frac{1}{k^{2/p}} \approx \sum_{m=1}^{\infty} m^2P(x \in [m, m+1]) \frac{1}{k_0^{2/p - 1}},$$
+ and $k_0^{2/p - 1} = m^{2-p}$, so this simplifies to 
+ $$\sum_{m=1}^{\infty} m^p P(x \in [m, m+1]) \approx E|X|^p < \infty.$$
+ 
+Finally $E(Y_k) = -E(X 1_{|X_k| > k^{1/p}})$ and 
+$$E(X 1_{|X_k| > k^{1/p}}) = k^{1/p}E((X/k^{1/p})1_{|X| > k^{1/p}}) \le k^{1/p} E(|X/k^{1/p}|^p 1_{|X| > k^{1/p}}).$$
+This can be written as 
+$$k^{1/p-1} E(|X|^p 1_{|X| > k^{1/p}}) \rightarrow 0,$$
+so 
+$$|\sum EY_k| \le \sum_{k=1}^n k^{1/p-1}b_k \approx_{k=1}^n n^{1/p}b_k \rightarrow 0.$$ 
+ \end{proof}
+ 
+ \end{example}
+\begin{lemma}[Glivenko-Cantelli] Consider a $X_1, X_2, \dots$ iid for some distribution $F$.  Define
+$$F_n(y) = \frac{1}{n}\sum_{i=1}^n 1_{X_i \le y}.$$
+
+Then, almost surely, $$\sup_y |F_n(y) - F(y)| \xrightarrow{n \rightarrow \infty} 0.$$
+\end{lemma}
+\begin{proof}
+The uniformity follows because $F$ and $F_n$ are monotone.  
+\end{proof}
 \end{document}
