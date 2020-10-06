@@ -1,40 +1,44 @@
-\contentsline {section}{\numberline {1}September 1st, 2020}{3}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Introduction}{3}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Classification of PDE's}{3}{subsection.1.2}% 
-\contentsline {subsection}{\numberline {1.3}Initial Value Problems}{4}{subsection.1.3}% 
-\contentsline {subsection}{\numberline {1.4}Boundary Value Problems}{5}{subsection.1.4}% 
-\contentsline {subsection}{\numberline {1.5}Fluid Classification}{5}{subsection.1.5}% 
-\contentsline {section}{\numberline {2}September 3rd, 2020}{7}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Picard-Lindeloff Theorem}{7}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}Contraction Principle}{7}{subsection.2.2}% 
-\contentsline {subsection}{\numberline {2.3}Bootstrap Argument}{9}{subsection.2.3}% 
-\contentsline {section}{\numberline {3}September 8th, 2020}{10}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Observations regarding Picard-Lindelof}{10}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Linearization of an ODE}{11}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Our First Partial Differential Equation}{11}{subsection.3.3}% 
-\contentsline {section}{\numberline {4}September 10th, 2020}{13}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Linear, Variable Coefficients}{13}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Semilinear Equations}{14}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Quasilinear Equations}{15}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Classical model problem: Burgers' Equation}{16}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}September 15th, 2020}{18}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Fully Nonlinear PDEs}{18}{subsection.5.1}% 
-\contentsline {section}{\numberline {6}September 17th, 2020}{21}{section.6}% 
-\contentsline {subsection}{\numberline {6.1}Fully Nonlinear PDEs, continued}{21}{subsection.6.1}% 
-\contentsline {section}{\numberline {7}September 22nd, 2020}{24}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}Introduction to Distribution Theory}{24}{subsection.7.1}% 
-\contentsline {subsection}{\numberline {7.2}Frechet Space}{24}{subsection.7.2}% 
-\contentsline {subsection}{\numberline {7.3}Continuous Functions with Compact Support}{25}{subsection.7.3}% 
-\contentsline {subsection}{\numberline {7.4}The Space of Distributions}{26}{subsection.7.4}% 
-\contentsline {section}{\numberline {8}September 24th, 2020}{28}{section.8}% 
-\contentsline {subsection}{\numberline {8.1}The Space of Distributions, continued}{28}{subsection.8.1}% 
-\contentsline {subsection}{\numberline {8.2}Properties of Distributions}{29}{subsection.8.2}% 
-\contentsline {subsection}{\numberline {8.3}The support of distributions}{30}{subsection.8.3}% 
-\contentsline {section}{\numberline {9}September 29th, 2020}{32}{section.9}% 
-\contentsline {subsection}{\numberline {9.1}Regularity of Compactly Supported Distributions}{32}{subsection.9.1}% 
-\contentsline {subsection}{\numberline {9.2}Convolutions}{33}{subsection.9.2}% 
-\contentsline {subsection}{\numberline {9.3}Convolution of Distributions}{34}{subsection.9.3}% 
-\contentsline {section}{\numberline {10}October 1st, 2020}{35}{section.10}% 
-\contentsline {subsection}{\numberline {10.1}Convolutions of Distributions, continued}{35}{subsection.10.1}% 
-\contentsline {subsection}{\numberline {10.2}Distributional Solutions to PDEs}{35}{subsection.10.2}% 
-\contentsline {subsection}{\numberline {10.3}Fundamental Solutions}{36}{subsection.10.3}% 
+\contentsline {section}{\numberline {1}September 1st, 2020}{4}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Introduction}{4}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Classification of PDE's}{4}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Initial Value Problems}{5}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Boundary Value Problems}{6}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Fluid Classification}{6}{subsection.1.5}% 
+\contentsline {section}{\numberline {2}September 3rd, 2020}{8}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Picard-Lindeloff Theorem}{8}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Contraction Principle}{8}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Bootstrap Argument}{10}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}September 8th, 2020}{11}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Observations regarding Picard-Lindelof}{11}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Linearization of an ODE}{12}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Our First Partial Differential Equation}{12}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}September 10th, 2020}{14}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Linear, Variable Coefficients}{14}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Semilinear Equations}{15}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Quasilinear Equations}{16}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Classical model problem: Burgers' Equation}{17}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}September 15th, 2020}{19}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Fully Nonlinear PDEs}{19}{subsection.5.1}% 
+\contentsline {section}{\numberline {6}September 17th, 2020}{22}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Fully Nonlinear PDEs, continued}{22}{subsection.6.1}% 
+\contentsline {section}{\numberline {7}September 22nd, 2020}{25}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Introduction to Distribution Theory}{25}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Frechet Space}{25}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Continuous Functions with Compact Support}{26}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}The Space of Distributions}{27}{subsection.7.4}% 
+\contentsline {section}{\numberline {8}September 24th, 2020}{29}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}The Space of Distributions, continued}{29}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Properties of Distributions}{30}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.3}The support of distributions}{31}{subsection.8.3}% 
+\contentsline {section}{\numberline {9}September 29th, 2020}{33}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Regularity of Compactly Supported Distributions}{33}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Convolutions}{34}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Convolution of Distributions}{35}{subsection.9.3}% 
+\contentsline {section}{\numberline {10}October 1st, 2020}{36}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Convolutions of Distributions, continued}{36}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Distributional Solutions to PDEs}{36}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Fundamental Solutions}{37}{subsection.10.3}% 
+\contentsline {section}{\numberline {11}October 6th, 2020}{39}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Laplacians}{39}{subsection.11.1}% 
+\contentsline {section}{\numberline {12}Wave Equation in 1+1 Dimension}{40}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Back to Theory of Distributions}{42}{subsection.12.1}% 

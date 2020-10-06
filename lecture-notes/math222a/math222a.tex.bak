@@ -1022,4 +1022,120 @@ Using $H$, we solve
 $$\begin{cases} \partial_x u = f \\ u(-\infty) = 0 \end{cases}$$
 and with $H-1$, we solve
 $$\begin{cases} \partial_x u = f \\ u(\infty) = 0 \end{cases}.$$
+\pagebreak
+\section{October 6th, 2020}
+\subsection{Laplacians}
+We have a PDE $P(\partial) u = f$ and $K \in \mathcal D'$ is a fundamental solution for $P(\partial)$ if $P(\partial)u = \delta_0$.  Then, $u = K * f$ solves the PDE.
+
+\begin{example}[1D Laplacian] Take $P = \partial_x^2$.  We want to solve the equation $\partial_x^2 K = \delta_0$.  Then, integrating once gives $\partial_x K = H + C$, where $H$ is the heaviside function and $C$ is a constant. Integrating again, we get that $$K = \begin{cases}0, x < 0 \\ x, x > 0\end{cases}+Cx + D.$$
+Note that $Cx+D$ solves the homogeneous problem.  
+
+We have some special choices of solutions: 
+\begin{itemize}
+\item The forward solution: $$K = \begin{cases} 0, x < 0 \\ x, x > 0 \end{cases}.$$
+\item The backward solution: $$K = \begin{cases} -x, x < 0 \\ 0, x > 0 \end{cases}.$$
+\item The symmetric solution: $$K = |x|/2.$$
+
+\end{itemize}
+\end{example}
+\begin{example} Let $P = \partial_x^2 - 1$.  
+
+First, we solve the homogeneous equation: $$(\partial_x^2 - 1)K = 0.$$
+The characteristic polynomial is $\lambda^2 - 1= 0$, so $\lambda = \pm 1$.  Hence, $u_{1,2} = e^{\pm x}.$
+
+Next, we find the fundamental solution.  We solve $PK = \delta_0$.  $K$ must solve the homogeneous equation to the left and right of $0$.
+
+$$K(x) = \begin{cases} c_1^{-}u_1 + c_2^{-}u_2, x < 0\\ c_1^{+}u_1 + c_2^{+}u_2, x > 0 \end{cases}$$
+Then, $\partial_x K = K'(x) + [K(0)]\cdot \delta_0$. where $K'(x)$ is the formal derivative of the above and $[K(0)]\delta_0$ is the jump of $K$ at $0$.  Furthermore,
+$$\partial_x^2 K = K''(x) + [K'(0)]\delta_0 + [K(0)]\delta_0'.$$
+
+It follows that 
+$$(\partial_x^2 - 1)K = K''(x) - K + \partial_x^2 K,$$
+so $$(\partial_x^2 - 1)K = [K'(0)]\delta_0 + [K(0)]\delta_0' = \delta_0,$$
+hence, $[K(0)] = 0$ and $[K'(0)] = 1$.
+
+By adding multiples of the homogeneous solution, we can ensure that $c_1^+ = 0, c_2^- = 0$.  
+
+Hence,
+$$K(x) = \begin{cases} c_1^{-}e^{x},  x < 0 \\ c_2^{+}e^{-x}, x > 0\end{cases}.$$
+Using $[u(0)] = 0$ gives $c_1^{-} = c_2^+$.  The second condition $[K'(0)] = 1$ gives $c_1^{-} + c_2^+ = 1$, so $$K(x) = \frac{e^{-|x|}}{2},$$
+which decays exponentially at both ends.
+\end{example}
+\begin{example} We solve $P = \partial_x^2 + 1$.  The solutions to the characteristic equations are $\pm i$ so $ e^{\pm ix} = \cos x \pm i \sin x$ are homogeneous solutions.  Equivalently, we can take $\cos x$ and $\sin x$, since we take complex linear combinations.  We get $K(x) = \frac{1}{2} \sin |x|$ and we can add multiples of the homogeneous solutions.  Namely,
+\begin{itemize}
+\item The forward solution is $\sin x \cdot 1\{x > 0\}$.
+\item The backward solution is $-\sin x \cdot 1\{x < 0\}.$
+\end{itemize}
+\end{example}
+\section{Wave Equation in 1+1 Dimension} We solve $P = \partial_t^2 - \partial_x^2 = (\partial_t + \partial_x) (\partial_t - \partial_x).$
+
+We introduce null coordinates: $u = t+x, v = t-x$.  Then $t = \frac{u+v}{2}, x = \frac{u-v}{2}.$  Hence,
+$$\frac{\partial}{\partial t} = \frac{\partial}{\partial u} \frac{\partial u}{\partial t} + \frac{\partial}{\partial v}\frac{\partial v}{\partial t} = \partial_u + \partial t.$$
+Similarly,
+$$\frac{\partial}{\partial x} = \partial_u - \partial_v.$$
+This implies that 
+$$\partial_t + \partial_x = 2 \partial u, \partial_t - \partial_x = 2\partial v,$$
+so $$P = (\partial_t + \partial_x)(\partial_t - \partial_x) = 4 \partial_u \partial_v.$$
+
+
+In $(u, v)$ coordinates, we solve 
+$$4 \partial_u\partial_v K = \delta_{0, 0} = \delta_{u = 0} \cdot \delta_{v = 0}.$$
+
+We look for solutions 
+$$K(u, v) = K_1(u) K_2(v).$$
+Then, we solve 
+$$\partial_u K_1 = \frac{1}{2} \delta_{u = 0}, \partial_v(K_2) = \frac{1}{2}\delta_{v = 0}.$$
+The forward solutions($t > 0$) are $K_1 = \frac{1}{2}H(u), K_2 = \frac{1}{2}H(v)$, so $K = \frac{1}{4}H(u)H(v).$
+
+We would like to switch this back in the $(t, x)$ coordinates.
+We have $$P_{u, v} K = \delta_{0, 0},$$
+and this corresponds to $$P_{x, y} K = J \delta_{0, 0} = \frac{\delta_{0, 0}}{2}.$$
+where $J = \frac{\partial(x, y)}{\partial(u, v)} = \frac{1}{2}.$
+
+Hence, the fundamental solution in $(x, y)$ is $$K = \frac{1}{2}\cdot 1_{t > x, t > -x}.$$
+
+The solutions to the homogeneous equation are as follows: 
+$$\partial_u \partial_v \phi = 0,$$
+so $$\partial_v \phi = c(v)$$
+and it follows that $$\phi = f(u) + g(v).$$
+
+Going back to $x, y$ coordinates, we find out that $$\phi(x, t) = f(t + x) + g(t-x),$$
+which are both solutions to transport equations, $\partial_t - \partial_x$, $\partial_t+ \partial_x$.
+
+These solve homogeneous equations for $f, g$ differentiable, $f, g$ bounded and $f, g \in\mathcal D'$.  
+
+How do we interpret $f(t+x)$ as a distribution in $(t, x)$?  If $f$ is a function, then 
+$\tilde{f} = f(t+x)$, and 
+$$\tilde f(\phi) = \int \tilde{f} \phi dtdx = \int f(t+x) \phi dtdx = \frac{1}{2}\int f(u)\phi(u, v)dudv = \int f(u) \left(\frac{1}{2}\int \phi dv\right)du = f(\hat \phi),$$
+where $\hat \phi = \int \phi/2$.
+\subsection{Back to Theory of Distributions}
+We would like to approximations of the identity.  The idea is to approximate $\delta_0$ with smooth functions. Let $\phi \in \mathcal D$ with $\int \phi = 1$.  Then $\phi_\epsilon(x) = e^{-n}\phi(x/\epsilon)$, so the the integral is invariant.
+\begin{proposition} $\phi_\epsilon\rightarrow \delta_0$ is in $\mathcal D'$.
+\end{proposition}
+\begin{proof}
+\begin{align*}
+\phi_\epsilon(u) &= \int \phi_\epsilon(x) \cdot u(x)dx \\
+&= \int \phi(y) \cdot u(\epsilon y) dy \\
+&\rightarrow \int \phi u(0) dy = u(0).
+\end{align*}
+So $\phi_\epsilon \rightarrow \delta_0$ in $\mathcal D'$  Hence $\phi_\epsilon$ is an approximation of the identity.  We can also call this a \textbf{mollifier}.
+\end{proof} 
+For $f \in \mathcal D'$, we define the regularizations as $f_\epsilon = f * \phi_\epsilon \in \mathcal E$.  
+
+Note that $$\lim_{\epsilon \rightarrow 0} f_\epsilon = \lim_{\epsilon \rightarrow 0} f*\phi_\epsilon = f*\delta_0 = f$$ in $\mathcal D$. 
+
+For $f_{\epsilon} \in \mathcal E$, $f \in \mathcal D'$ and for $f_{\epsilon} \in \mathcal D$, $f \in \mathcal E'$.
+
+\begin{example} Consider the topology on $C_0(\R^n) = \{f : \R^n \rightarrow \R\}$ with $f $ continuous and $\lim_{x \rightarrow \infty} f(x) = 0$. 
+
+Then $$\|f\|_{C_0} = \sup_{x \in \R^n}|f(x)|.$$
+We have some properties:
+\begin{itemize}
+\item $f_\epsilon \rightarrow f$ is in $C_0(\R^n)$.
+\item $|\partial^{\alpha} f_\epsilon| \le c_{\alpha}\epsilon^{-|\alpha|}.$
+\end{itemize}
+
+We could also consider $f \in L^p$ for $1 \le p < \infty$.  Then $f_{\epsilon} \rightarrow f$ in $L^p$.  
+\end{example} 
+
 \end{document}
