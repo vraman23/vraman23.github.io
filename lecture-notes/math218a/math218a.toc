@@ -35,3 +35,5 @@
 \contentsline {subsection}{\numberline {10.2}Second Proof of SLLN}{33}{subsection.10.2}% 
 \contentsline {section}{\numberline {11}October 1st, 2020}{34}{section.11}% 
 \contentsline {subsection}{\numberline {11.1}Another Proof of SLLN, continued}{34}{subsection.11.1}% 
+\contentsline {section}{\numberline {12}October 6th, 2020}{38}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Convergence of Distributions}{38}{subsection.12.1}% 

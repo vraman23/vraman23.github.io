@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 OCT 2020 18:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 OCT 2020 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1744,6 +1744,16 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  18.06757pt
 text indent calculated (toc, 2): 24.9417pt
 number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 )
 \tf@toc=\write7
 \openout7 = `math218a.toc'.
@@ -1971,21 +1981,51 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 1025.
  [36] [37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1033.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1033.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1036.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1050.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1052.
+
+Overfull \hbox (9.81381pt too wide) in paragraph at lines 1052--1053
+[][]\OT1/cmr/m/n/10.95 (-20) Sup-pose $\OML/cmm/m/it/10.95 X[]$ \OT1/cmr/m/n/10
+.95 (-20) are iid $\OML/cmm/m/it/10.95 Ber\OT1/cmr/m/n/10.95 (-20) (\OMS/cmsy/m
+/n/10.95 ^^F\OT1/cmr/m/n/10.95 (-20) 1)$. Let $\OML/cmm/m/it/10.95 S[] \OT1/cmr
+/m/n/10.95 (-20) = [][] \OML/cmm/m/it/10.95 X[]$ \OT1/cmr/m/n/10.95 (-20) and c
+on-sider $[] \OMS/cmsy/m/n/10.95 ! []$\OT1/cmr/m/n/10.95 (-20) . 
+ []
+
+[38]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1068.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1091.
+ [39] [40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1096.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1096.
  (./math218a.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1033.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1033.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1096.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1096.
 
 Package rerunfilecheck Info: File `math218a.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1033.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1096.
  ) 
 Here is how much of TeX's memory you used:
- 39388 strings out of 492616
- 773632 string characters out of 6129482
- 993888 words of memory out of 5000000
- 42484 multiletter control sequences out of 15000+600000
+ 39421 strings out of 492616
+ 774209 string characters out of 6129482
+ 995076 words of memory out of 5000000
+ 42498 multiletter control sequences out of 15000+600000
  544647 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,21n,91p,9110b,1182s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2012,10 +2052,10 @@ exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 -dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/texmf-d
 ist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/texmf-dis
 t/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on math218a.pdf (37 pages, 367768 bytes).
+Output written on math218a.pdf (40 pages, 382779 bytes).
 PDF statistics:
- 665 PDF objects out of 1000 (max. 8388607)
- 582 compressed objects within 6 object streams
- 221 named destinations out of 1000 (max. 500000)
- 15765 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 705 PDF objects out of 1000 (max. 8388607)
+ 618 compressed objects within 7 object streams
+ 240 named destinations out of 1000 (max. 500000)
+ 15781 words of extra memory for PDF output out of 17280 (max. 10000000)
 

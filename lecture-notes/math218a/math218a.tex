@@ -1030,4 +1030,67 @@ Then, almost surely, $$\sup_y |F_n(y) - F(y)| \xrightarrow{n \rightarrow \infty}
 \begin{proof}
 The uniformity follows because $F$ and $F_n$ are monotone.  
 \end{proof}
+\pagebreak
+\section{October 6th, 2020}
+\subsection{Convergence of Distributions}
+\begin{lemma}[Glivenko-Cantelli] Consider a $X_1, X_2, \dots$ iid for some distribution $F$.  Define
+$$F_n(y) = \frac{1}{n}\sum_{i=1}^n 1_{X_i \le y}.$$
+
+Then, almost surely, $$\sup_y |F_n(y) - F(y)| \xrightarrow{n \rightarrow \infty} 0.$$
+\end{lemma}
+\begin{proof}
+Note that $F_n$ is monotonically increasing from $0$ to $1$.    We divide the real line into intervals depending on $F$ as follows:  Fix $\epsilon > 0$.  Say $Z_0 = -\infty$, $Z_1 = \inf \{y : F(y) \ge \epsilon \epsilon\}$, and $Z_n = \inf \{y : F(y) \ge n \epsilon\}$.  We eventually have a sequence of random variables $\{Z_n\}$.  We also define $Z_{1/\epsilon} = \infty$.  
+
+For any $i$, $\sup |F_n(x) - F(x)|$ is small for all $x \in [Z_i, Z_{i+1})$.   Note that $F(Z_{i+1}) - F(Z_i) \le \epsilon$.  Then, we apply SLLN:  We let $w_j = 1(X_j \le Z_i)$ and $w_j' = 1(X_j < Z_{i+1})$.  Then $E(w_j) = F(Z_i)$ and $E(w_j') = F(Z_{i+1})$.  Then we use SLLN to show that the end points are uniformly close and we sandwich the limit inside $[Z_i, Z_{i+1})$.
+\end{proof}
+
+\begin{definition} Let $F_n, F$ be distribution functions.  We say $F_n \rightarrow F$ in the sense of distributions in $F_n(x) \rightarrow F(x)$ such that $F$ is continuous at $x$.
+\end{definition}
+
+\begin{example} Let $F_n$ be the distribution induced by the point mass at $1/n$.  We see that $F_n(0) = 0$, which does not converge to $F(0)$, which is $1$.  
+\end{example}
+\begin{example} Suppose $X_i$ are iid $Ber(\pm 1)$.  Let $S_n = \sum_{i=1}^n X_i$ and consider $\frac{S_n}{\sqrt{n}} \rightarrow \text{Standard Gaussian}$.
+
+Take any random variable with distribution $F$.  Let $X_n = X + \frac{1}{n}$, then $X_n \rightarrow X$ in distribution.  For any continuity point $z$ of $F$, $F_n(z) \rightarrow F(z)$ and $F_n(z) = F(z - \frac{1}{n})$, so fro all $X_n \le Z, X \le z-\frac{1}{n}$ which implies that 
+$$P(X_n \le z) = P(X \le z-1/n) = F(z-1/n).$$
+\end{example}
+
+We investigate the relationship between notions of convergence.  If $X_n \rightarrow X$ in probability, does $X_n \rightarrow X$ in distribution? Yes.
+
+If $X_n \rightarrow X$ in probability, $P(|X_n -X| > \epsilon) \rightarrow 0$.  Note that 
+$$P(X_n \le z) \le P(X \le z+\epsilon) + P(|X_n - X| > \epsilon),$$
+so $\limsup P(X_n \le z) \le P(X \le z + \epsilon) \le P(X \le z)$.
+
+Then $$P(X_n \le z) \ge P(x \le z-\epsilon) - P(|X_n - X| > \epsilon),$$so $\liminf P(X_n \le Z) \ge P(X \le z - \epsilon) \ge P(X \le z-)$, so $P(X_n \le z) = P(X \le z)$.
+
+The converse does not make sense.  One example that fails where $X_n \rightarrow X$ in distribution but $X_n \not \rightarrow X$ where $X = Ber(\pm 1)$ and $X_1, X_2, \dots$ are all $-X$.  Then $X_i \sim X$, but $X_i - X = -2X$.  
+
+\begin{thm}[Skorokhod Representation] If $F_n \rightarrow F$ in distribution, then there exists a probability space $(\Omega, \Sigma, P)$ and random variables $X_n, X$ defined on $\Omega$ such that $X_n \sim F_n$ and $X_n \rightarrow X$ almost surely.
+\end{thm}
+\begin{proof}
+We did some similar when given a distribution $F$, we constructed a random variable with distribution $F$.  We work in the uniform space $([0, 1], B, P)$.  Then $X_n = F_n^{-1}(\omega) = \sup\{y : F_n(y) < \omega\}$ and $X(\omega) = F^{-1}(\omega) = \sup\{y : F(y) < \omega\}$.  It suffices to show that $F_n^{-1}(\omega) \rightarrow F^{-1}(\omega)$.
+
+Define $F_n'^{-1}(\omega) = \inf \{z : F_n(z) > \omega\}$ and similarly $F_n'^{-1}$. Let $A = \{\omega: F^{-1}(\omega) < F'^{-1}(\omega)\}$.  We showed in homework that $A$ is countable.  We now prove that $X_n \rightarrow X$ in $A^c$.  Suppose that $F_n^{-1}(\omega) \rightarrow z$.  Let $u < z < v$ where $u, v$ are continuity points and $F(u) < \omega - \epsilon$, $F(v) > \omega + \epsilon$.  These can be chosen because the set of discontinuities of a function is countable.  For all large $n$, $F_n(u) < \omega - \epsilon/2$ and $F_n(v) > \omega + \epsilon/2$ because $F_n \rightarrow F$ at all continuity points.  Then $F_n^{-1}(\omega) \ge u$ and $F_n^{-1}(\omega) \le v$, hence $$\limsup_n |F_n^{-1}(\omega) - z| \le u-v.$$
+But $u, v$ were arbitrary continuity points, so $$\limsup_n |F_n^{-1}(\omega) - z|  = 0.$$
+\end{proof}
+\begin{fact} $X_n \rightarrow X$ in distribution if and only if for any bounded continuous function $g$, $E(g(X_n)) \rightarrow E(g(X))$.
+\end{fact}
+\begin{proof}
+If $X_n \rightarrow X$ in distribution, then we have $Y_n \rightarrow Y$ with $Y_n \sim X_n$, $Y \sim X$ so $g(Y_n)$ has the same distribution as $g(X_n)$.  Thus $E(g(Y_n)) = E(g(X_n))$.  Then, $g$ is continuous so $g(Y_n) \rightarrow g(Y)$ almost surely since $Y_n \rightarrow Y$ almost surely, and $g$ is bounded so $E(g(X_n)) = E(g(Y_n)) \rightarrow E(g(Y)) = E(g(X))$.
+
+For the other direction, if $E(g(X_n)) \rightarrow E(g(x))$ for all bounded continuous functions $g$, we choose a mollified indicator function.  Then $E(g(X_n)) \ge P(X_n \le z) $ and $E(g(X_n)) \rightarrow E(g(X)) \le P(x \le z + \epsilon)$.  Hence,
+$$\limsup P(X_n \le z) \le P(x \le z+\epsilon).$$
+Similarly, 
+$$\liminf P(X_n \le z) \ge P(X \le z - \epsilon),$$
+which gives that $P(X_n \le z) \rightarrow P(X \le z)$ by using the fact that $z$ is a continuity point.
+\end{proof}
+This gives an alternate definition of convergence in distribution.
+
+For any topological space and a sequence of measures $\mu_n$ and $\mu$ on $\Omega$, we can say $\mu_n \rightarrow \mu$ in distribution if for all bounded continuous $g : \Omega \rightarrow \R$, $E_{\mu_n}g \rightarrow E_\mu g$.
+
+\begin{thm}[Continuous Mapping Theorem] Suppose $X_n \rightarrow X$ and $g: \R \rightarrow \R$ is a measurable function such that $C_g$ is a set of continuity points of $g$ such that $P(X \in C_g) = 1$, then $g(X_n) \rightarrow g(X)$ in distribution.
+\end{thm}
+\begin{proof}
+Note that the set of continuity points for a measurable function $g$, $C_g$ is measurable.
+\end{proof}
 \end{document}

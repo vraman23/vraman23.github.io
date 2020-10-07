@@ -1015,4 +1015,30 @@ Then $$\|g\|_1 = \|\mu * V_K\|_1 \le \|V_K\|_1 \le 3.$$ [We replace $g$ with $g/
  Then $$\tilde{S}_N(F) = \sum_{\ell < j} 2^{-\ell}g_{\alpha_\ell}(x)e^{iT_\ell x} + \tilde{S}_N(2^{-j}g_{\alpha_j}(x)e^{iT_j x}) + \sum_{\ell > j} \tilde{S}_N(2^{-\ell}g_{\alpha_\ell} e^{iT_\ell x}(x),$$
  but the last term vanishes and the second term dominates the first.
 \end{proof}
+\pagebreak
+\section{October 6th, 2020}
+\subsection{Lucunary Series}
+We define the series $\Lambda \subset \Z$ where $f(x) = \sum_{n \in \Lambda} \hat{f}(n) e^{inx}.$
+Rademacher series tend to be useful when considering these types of series.
+
+\begin{thm} ($\T = \T^1$) Let $\delta > 0$ and $\Lambda = (n_k)$ $(1+\delta)$-lacunary.  For all $p < \infty$, there exists $C = C(p, \delta) < \infty$ so that for all $a \in \ell^2$,
+$$\|\sum_k a_k e^{in_k x}\|_{L^p(\T)} \le C\|a\|_{\ell^2}.$$
+\end{thm}
+\begin{proof}
+We show
+$$\int |\sum_k a_k e^{in_k x}|^p dx \le C\|a\|_{\ell^2}^l.$$
+
+If suffices to prove this for $p = 2q$, $q \in \N$.  Then,
+$$\sum_{k_1,\dots, k_q} \sum_{\ell_1, \ell_q} \prod_{j=1}^{q} a_{k_j}\prod_{m=1}^q \overline{a_{k_m}}\int_{-\pi} ^\pi e^{i(n_{k_1} + \dots -n_{\ell_q})x}dx,$$
+where the integral is $0$ unless the exponent of $e$ is $0$.  
+
+Without loss of generality, $1 + \delta$ is large relative to $q$.  Choose large $N$ and $k \equiv r \pmod N$.  Then,
+$$\Lambda = \bigcup_{n=0}^{N_1} \Lambda_r.$$
+It suffices to prove that $\|\sum_{k \in \Lambda_r} a_k e^{in_k x}\|_{L^{2q}} \le C\|a\|_{\ell^2}.$
+
+We have $n_{k_1} + \dots + n_{k_q} = n_{\ell_1} + \dots + n_{\ell_q}$.  Wlog, $k_q \le k_{q-1} \le \dots \le k_1$.  Then $n_{k_1}$ is the largest, so if $\ell_1, \dots, \ell_q < k_1$, then $RHS < n_{k_1}$.
+\end{proof}
+\begin{thm} Let $\delta, \Lambda$ be as above.  Let $a \in \ell^2, f = \sum_k a_ke^{in_k x}.$  If $f \in L^{\infty}$, then $a \in \ell^1$.
+\end{thm}
+
 \end{document}

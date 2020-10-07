@@ -34,3 +34,5 @@
 \contentsline {section}{\numberline {11}October 1st, 2020}{37}{section.11}% 
 \contentsline {subsection}{\numberline {11.1}Cesaro Means and Kernels}{37}{subsection.11.1}% 
 \contentsline {subsection}{\numberline {11.2}Proof of Kolmogorov's Theorem}{38}{subsection.11.2}% 
+\contentsline {section}{\numberline {12}October 6th, 2020}{40}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Lucunary Series}{40}{subsection.12.1}% 
