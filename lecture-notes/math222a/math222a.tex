@@ -1137,5 +1137,64 @@ We have some properties:
 
 We could also consider $f \in L^p$ for $1 \le p < \infty$.  Then $f_{\epsilon} \rightarrow f$ in $L^p$.  
 \end{example} 
+\pagebreak
+\section{October 8th, 2020}
+\subsection{Homogeneous Functions}
+\begin{definition} A function $f: \R^n \rightarrow \R$ is homogeneous of order $m$ if $f(\lambda x) = \lambda^m f(x)$ for $\lambda \in \R^+$.
+\end{definition}
+\begin{example}[Homogeneous Functions in $\R$] If $m \in \N$, the function $f(x) = x^m$ is homogeneous.  More generally in $\R$, $$f(x) = x_+^m = \begin{cases} 0, x < 0\\ x^m, x > 0\end{cases}$$ or $$f(x) = x_-^m = \begin{cases} (-x)^m, x < 0\\ 0, x > 0\end{cases}.$$
+Linear combinations of these work as well.
+\end{example}
+\begin{example}[Homogeneous Functions in $\R^n$] We consider Polar coordinates: $x = r\Theta$ for $\Theta \in S^n$.  Then $f(x) = r^m g(\Theta)$.
+\end{example}
+These functions are directly distributions if they are locally integrable.  The happens in $\R^n $if $m > -n$.  For example, $\frac{1}{|x|^n}$ is not integrable(a borderline case).
 
+Suppose $f$ is $m$-homogeneous.  Then $\partial f$ is $m-1$ homogeneous.
+
+\subsection{Homogeneous Distributions}
+Let $u_\lambda = \frac{1}{\lambda^n}u(x/\lambda)$ for $u \in \mathcal D$, $\lambda > 0$. In particular, $\int u_\lambda = \int u$.  
+
+Consider a homogeneous function $f$ of order $m$.  Then,
+$$\int f(\lambda x) u(x)dx = \lambda^m \int f(x)u(x)dx.$$
+Furthermore, $$\int f(\lambda x)u(x)dx = \frac{1}{\lambda}\int f(y) u(y/\lambda)dy.$$
+Therefore, $$f(u_\lambda) = \lambda^m f(u).$$
+\begin{definition} A function $f$ is homogeneous of order $m$ if $f(u_\lambda) = \lambda^m f(u)$.
+\end{definition}
+\begin{proposition} If $f$ is $m$ homogeneous, then $\partial f$ is $m-1$ homogeneous.
+\end{proposition} 
+
+\begin{example} Note that $$\delta_0(u_\lambda) = u_\lambda(0) = \frac{1}{\lambda^n} u(0) = \frac{1}{\lambda^n} \delta_0(u).$$
+Hence $\delta_0$ is homogeneous of order $-n$. Similarly, $\delta_0^(\alpha)$ is of order $-n-|\alpha|$.
+\end{example}
+\begin{example}
+We classify all homogeneous distributions of order $-1$ in $\R$.  One example is $\delta_0$, but this is only supported at $0$.   If we assign the value at $x>0 $and $x < 0$ independently, we have to consider $1/x$ and $1/|x|$.  
+
+If we have $1/x$,
+$$\int \frac{u(x)}{x}dx, u \in \mathcal D$$
+will be easy if $u(0) = 0$, but if $u(0) \ne 0$, we have logarithmic divergence.  However, 
+$$\text{pv}\int \frac{u(x)}{x}dx = \lim_{\epsilon \rightarrow 0} \int_{\R\setminus [-\epsilon, \epsilon]}\frac{u(x)}{x}dx.$$
+Now, the integral exists.  In particular,
+$$\lim_{\epsilon \rightarrow 0} \int_{[1, -1] \setminus [-\epsilon, \epsilon]} \frac{u(x)}{x}dx = \lim_{\epsilon \rightarrow 0} \int (u(x)-u(0))/xdx + \int u(0)/xdx,$$
+where the right term is 0 and the left term is well defined.
+
+The function $1/|x|$ turns out to not be homogeneous of order $-1$.
+
+Hence, the space of homogenous distributions of order $-1$ is spanned by $\delta_0$, $\text{p. v.} \frac{1}{x}.$
+\end{example}
+\begin{proposition} There exists a well-defined homogeneous distribution of order $-1$, which is odd and equals $1/x$ away from 0.  We will call this 
+$$f = \text{pv } \frac{1}{x}.$$
+\end{proposition}
+
+What about for distributions of order $m < -1$.  We take $\partial_x x_+^m = x_+^{m-1}$ and $\partial_x x_-^{m-1} = -m x_-^{m-1}$ as definitions.  For $m=0$, we get the homogeneous distributions of order $-1$.  
+
+For homogeneous distributions of order $-n$ in $\R^n$, we have $\delta_0$
+ and $f = \text{pv} |x|^{-n}g(\Theta)$, where $\int_{S^n}g = 0$.  
+ 
+\begin{example}[Calderon-Zygmond Operators]
+Let $P(\partial) u = f$.  Let $K$ be a fundamental solution.  The $u = K*f$ and $f \to K*f$ is our solution operator.  
+
+In 1D, for convolutions of order $-1$, we have $\delta_0$ and $\text{pv }1/x$, which gives $f \to \text{pv }1/x * f = Hf$, the Hilbert transform of $f$.  Note that $H^2 = -1$.
+
+We have similar operators in higher dimensions. 
+\end{example}
 \end{document}

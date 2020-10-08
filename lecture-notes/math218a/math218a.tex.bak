@@ -1093,4 +1093,82 @@ For any topological space and a sequence of measures $\mu_n$ and $\mu$ on $\Omeg
 \begin{proof}
 Note that the set of continuity points for a measurable function $g$, $C_g$ is measurable.
 \end{proof}
+\pagebreak
+\section{October 8th, 2020}
+Last time,
+\begin{itemize}
+\item We defined distributional convergence.
+\item We proved the Skorokhod Representation Theorem.
+\item We showed an equivalent notion of distributional convergence, namely for bounded continuous functions $g$, $E(g(x_n)) \rightarrow E(g(x))$ implies $x_n \rightarrow x$ in distribution.
+\end{itemize}
+\subsection{Weak Convergence}
+\begin{thm}[Continuous Mapping Theorem] Suppose $X_n \rightarrow X$ and $g: \R \rightarrow \R$ is a measurable function such that $C_g$ is a set of continuity points of $g$ such that $P(X \in C_g) = 1$, then $g(X_n) \rightarrow g(X)$ in distribution.
+\end{thm}
+\begin{proof}
+We claimed that $C_g$, the set of continuity points is measurable.  We know that $X_n \rightarrow X$ in distribution, so there exists $Y_n \rightarrow Y$ almost surely with $X_n \sim Y_n$, $X \sim Y$.  Then $g(X_n) \sim g(Y_n)$ and $g(X) \sim g(Y)$.  Then $Y \in C_g$ almost surely because $X \sim Y$.  Therefore, $g(Y_n) \to g(Y)$ almost surely, which implies distributional convergence.  
+\end{proof}
+\subsection{Portmanteau's Lemma}
+We show many equivalent conditions for distributional convergence.
+\begin{enumerate}
+\item $F_n \xrightarrow{d} F$ 
+\item For any open $U$, $\liminf P_n(U) \ge P(u)$.
+\item For any closed $V$, $\limsup P_n(V) \le P_n(V)$.
+\item For any $A$ such that $P(\partial A) = 0$($\partial A = \overline{A}\setminus A^o$), we have $P_n(A) \rightarrow P(A)$.
+\end{enumerate}
+\begin{proof}
+We first show 1 implies 2.  Let $Y_n \sim F_n$, $Y \sim F$ with $Y_n \rightarrow Y$ almost surely.  Let $F_n = 1(Y_n \in U)$, $f = 1(Y \in U)$.  Then $P(Y_n \in U) = P_n(U)$.  Finally, $$\liminf_{n \rightarrow \infty} f_n \ge f.$$
+This is because $f(\omega) = 1$ if $Y (\omega) \in U$ and $0$ otherwise.  Pick $\omega$ such that $f(\omega) = 1$.  Then $Y(\omega) \in U$ and $Y_n(\omega) \rightarrow Y(\omega)$ and $U$ is open, we know that for large $n$, $Y_n(\omega) \in U$.  Hence, $f_n(\omega) = 1$ for large $n$, so $\liminf f_n = 1$.  
+
+Finally, by Fatou's Lemma, 
+$$\liminf P_n(U) \ge \int \liminf f_n \ge \int f = P(U).$$
+
+2 implies 3 is easy.  We take $V^c$, then $P_n(V) = 1 - P_n(V^c)$ and $\limsup P_n(V) = 1 - \liminf P_n(V^c).$
+
+We show 3 implies 4.  Note that $\overline A = A \cup \partial A$ and $P(\overline A) = P(A)$.  Then $A^o = A \setminus \partial A$ and $P(A^o) = P(A)$.  By 2, $\liminf P_n(A^o) \ge P(A)$ and $\limsup P_n(\overline A) \le P(A)$ and $P_n(A^o) \le P_n(A) \le P_n(\overline A)$.  Therefore, $P_n(A) \rightarrow P(A)$.
+
+Finall 4 implies 1.  If $P_n(A) \rightarrow P(A)$ for $P(\partial A) = 0$, then choose $A = (-\infty, x]$ for a continuity point $x$.  Then $P(\{x\}) = 0$, so we get $F_n(x) = P_n(A) \rightarrow P(A) = F(x)$.
+\end{proof}
+\subsection{Helly's Selection Theorem} 
+\begin{thm}Given a sequence of distributions $F_1, F_2, \dots$, there exists a subsequence $n_1, n_2, \dots$ and a right continuous non-decreasing function $F$ so that $F_{n_k}(x) \rightarrow F(x)$ for all continuity points.   
+\end{thm}
+
+Note that $F$ may not be a distribution since $F(\infty) - F(-\infty) \ne 1$.  For example, take $F_n(x) = 1_{x \ge n}$.  Then $F_n(x) = 0$ for $n \ge x$ so $F_n \rightarrow 0$, which is not a distribution.
+\begin{proof}
+We want $F_{n_k}(x) \rightarrow F(x)$.  If we fix $x$, $0 \le F_n(x) \le 1$ so we can pick a subsequence so that $F_{n_k}(x) \rightarrow a$ from the compactness of $[0, 1]$.  We first ensure convergence for the rationals.  Let $\{q_n\}$ be an enumeration of the rationals.  Iteratively choose subsequences $n_k^i$ such that $\{n_k^i\}$ is a subsequence of $\{n_k^{i-1}\}$ and $F_{n_k}^(q_i)$ converges.  
+
+Hence, $F_{n_k^k}(q)$ converges for all $q \in \Q$.  We will call this $\{n^k\}$ for convenience.  Let the limit be $\lim_{k\to \infty} F_{n^k} = G(q)$.
+
+Then, define $F(x) = \inf_{q > x} G(q)$.    We show $F_{n_k}(x) \rightarrow F(x)$ for all $x$ with $F$ continuous at $x$.  Pick $q_1, q_2, q_3\in Q$ so that $q_1 >x > q_2 > q_3$.   Then $F_{n_k}(x) \le F_{n_k}(q_1)$ so $\limsup f_{n_k}(x) \le G(q_1)$ so $\limsup F_{n_k}(x) \le F(x)$. 
+
+Since $x$ is a continuity point, there exists $q_3$ close to $x$ so that $F(q_3) \ge F(x) - \epsilon$, but $F(q_3) = \inf_{q > q_3} G(q)$, so there exists $q_2$ with $q_3 < q_2 < x$ so that $G(q_2) \ge F(q_3) + \epsilon$ so $G(q_2) \ge F(x) - 2\epsilon$.  But $F_{n_k}(x) \ge F_{n_k}(q_2)$ so $\liminf F_{n_k}(x) \ge G(q_2) \ge F(x) - 2\epsilon$ so $\liminf F_{n_k}(x) \ge F(x)$.
+\end{proof}
+When does the limit preserve mass?  
+\begin{definition} Given $\epsilon > 0$, $\{F_n\}$ is tight if there exists $M_\epsilon$ so that $F_n$ in the sequence 
+$$F_n(M_\epsilon) - F_n(-M_{\epsilon}) \ge 1-\epsilon.$$
+\end{definition}
+Tightness is a necessary and sufficient condition for preserving mass.
+\begin{proof}
+We have $F_{n_k} \rightarrow F$ for continuity points.  We show $F$ has mass $1$.  We can assume $M_\epsilon, -M_\epsilon$ are continuity points.  Then 
+\begin{align*}
+F_{n_k}(M_\epsilon) - F_{n_k}(-M_\epsilon) \to F(M_\epsilon) - F(-M_\epsilon) \ge 1 - \epsilon.
+\end{align*}
+\end{proof}
+If a sequence is not tight, then there exists subsequential limits with mass less then $1$.
+\subsection{Fourier Transforms}
+Let $X$ be a random variable with distribution $F$.  For any $t$, define $\phi(t) = E(e^{itx})$.  
+
+We have some properties:
+\begin{itemize}
+\item $\phi(0) = 1$.
+\item $\overline{\phi(t)} = \phi(-t)$.
+\item $|\phi(t) | \le 1$.  
+\begin{proof}
+We use Jensen's Inequality: For a convex function $\phi(x_1, x_2, \dots, x_n)$ with $E|\phi| < \infty$, $E|X_i| < \infty$ for all $i$, then $E(\phi) \ge \phi(EX_1, EX_2, \dots)$.
+
+Take $(x, y) \mapsto (x^2 + y^2)^{1/2}$.  Then 
+$$|\phi(t)| \le E|e^{itx}| = 1.$$
+\end{proof}
+\item $\phi$ is uniformly continuous.  $$|\phi(t+h) - \phi(t)| \le |E(e^{i(t+h)} - e^{itx})| \le  E|e^{itx}(e^{ihx}-1)| =  E|e^{ihx} - 1| \rightarrow 0,$$
+by the Bounded Convergence Theorem.
+\end{itemize}
 \end{document}

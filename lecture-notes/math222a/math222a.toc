@@ -42,3 +42,6 @@
 \contentsline {subsection}{\numberline {11.1}Laplacians}{39}{subsection.11.1}% 
 \contentsline {section}{\numberline {12}Wave Equation in 1+1 Dimension}{40}{section.12}% 
 \contentsline {subsection}{\numberline {12.1}Back to Theory of Distributions}{42}{subsection.12.1}% 
+\contentsline {section}{\numberline {13}October 8th, 2020}{43}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Homogeneous Functions}{43}{subsection.13.1}% 
+\contentsline {subsection}{\numberline {13.2}Homogeneous Distributions}{43}{subsection.13.2}% 

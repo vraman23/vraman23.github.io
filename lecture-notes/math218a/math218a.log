@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 OCT 2020 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 OCT 2020 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1754,11 +1754,37 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  18.06757pt
 text indent calculated (toc, 2): 24.9417pt
 number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+[2]
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 )
 \tf@toc=\write7
 \openout7 = `math218a.toc'.
 
- [2]
+ [3]
 LaTeX Font Info:    Try loading font information for TS1+cmss on input line 48.
 
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
@@ -1781,24 +1807,24 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 68.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
 input line 68.
- [3]
+ [4]
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
 nput line 82.
 
-[4]
+[5]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 107.
 Package hyperref Info: bookmark level for unknown fact defaults to 0 on input l
 ine 133.
- [5]
+ [6]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 137.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 143.
- [6] [7] [8]
+ [7] [8] [9]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 236.
@@ -1807,21 +1833,21 @@ ne 236.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 249.
- [9] [10]
+ [10] [11]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 298.
- [11] [12] [13]
+ [12] [13] [14]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 388.
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
 line 388.
- [14]
+ [15]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 409.
- [15]
+ [16]
 Package hyperref Info: bookmark level for unknown exercise defaults to 0 on inp
 ut line 426.
 Package mdframed Info: mdframed detected package amsthm 
@@ -1839,22 +1865,22 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 448.
- [16]
+ [17]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 467.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 472.
- [17]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 496.
  [18]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 517.
+(mdframed)              on input line 496.
  [19]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 517.
+ [20]
 Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
@@ -1868,14 +1894,14 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 563.
-[20]
+[21]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 579.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 583.
- [21]
+ [22]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 598.
@@ -1899,47 +1925,47 @@ OT1/cmr/m/n/10.95 (-20) (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 (-20) )$.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 623.
-[22] [23]
+[23] [24]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 657.
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on in
 put line 657.
- [24]
+ [25]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 666.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 698.
- [25]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 719.
  [26]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 747.
+(mdframed)              on input line 719.
  [27]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 747.
+ [28]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 767.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 775.
- [28]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 809.
  [29]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 812.
+(mdframed)              on input line 809.
  [30]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 881.
+(mdframed)              on input line 812.
  [31]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 881.
+ [32]
 Overfull \hbox (10.83917pt too wide) detected at line 900
 [] [] \OMS/cmsy/m/n/10.95 ^^T [] [] []\OT1/cmr/m/n/10.95 1(\OML/cmm/m/it/10.95 
 k\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10
@@ -1952,21 +1978,21 @@ ML/cmm/m/it/10.95 jP\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X > j\OT1/cmr/m/n/1
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 916.
-[32]
+[33]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 923.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 939.
- [33]
+ [34]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 950.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 962.
- [34]
+ [35]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 975.
@@ -1976,11 +2002,11 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1003.
- [35]
+ [36]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1025.
- [36] [37]
+ [37] [38]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1036.
@@ -1999,34 +2025,37 @@ Overfull \hbox (9.81381pt too wide) in paragraph at lines 1052--1053
 on-sider $[] \OMS/cmsy/m/n/10.95 ! []$\OT1/cmr/m/n/10.95 (-20) . 
  []
 
-[38]
+[39]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1068.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1091.
- [39] [40]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1096.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1096.
+ [40] [41]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1105.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1132.
+ [42] [43] [44]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1174.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1174.
  (./math218a.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1096.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1096.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1174.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1174.
 
 Package rerunfilecheck Info: File `math218a.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1096.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1174.
  ) 
 Here is how much of TeX's memory you used:
- 39421 strings out of 492616
- 774209 string characters out of 6129482
- 995076 words of memory out of 5000000
- 42498 multiletter control sequences out of 15000+600000
- 544647 words of font info for 101 fonts, out of 8000000 for 9000
+ 39451 strings out of 492616
+ 774560 string characters out of 6129482
+ 994217 words of memory out of 5000000
+ 42507 multiletter control sequences out of 15000+600000
+ 544698 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,21n,91p,9110b,1182s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -2052,10 +2081,10 @@ exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
 -dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/texmf-d
 ist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/texmf-dis
 t/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on math218a.pdf (40 pages, 382779 bytes).
+Output written on math218a.pdf (44 pages, 397632 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 618 compressed objects within 7 object streams
- 240 named destinations out of 1000 (max. 500000)
- 15781 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 762 PDF objects out of 1000 (max. 8388607)
+ 671 compressed objects within 7 object streams
+ 259 named destinations out of 1000 (max. 500000)
+ 15821 words of extra memory for PDF output out of 17280 (max. 10000000)
 
