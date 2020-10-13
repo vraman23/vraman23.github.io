@@ -1171,4 +1171,68 @@ $$|\phi(t)| \le E|e^{itx}| = 1.$$
 \item $\phi$ is uniformly continuous.  $$|\phi(t+h) - \phi(t)| \le |E(e^{i(t+h)} - e^{itx})| \le  E|e^{itx}(e^{ihx}-1)| =  E|e^{ihx} - 1| \rightarrow 0,$$
 by the Bounded Convergence Theorem.
 \end{itemize}
+\pagebreak
+\section{October 13, 2020}
+\subsection{Fourier Transforms, Continued}
+Recall $\phi(t) = E(e^{itx})$.  The broad goal is to study distributional convergence using the characteristic functions.  
+\subsection{Differentiability of Characters}
+When is $\phi(t)$ differentiable?  If $\phi$ is differentiable at $t$, then $\phi'(t) = E(ix e^{itx})$, so $\phi'(0) = E(ix)$.  For this to make sense, we might need $E|X| < \infty$.
+\begin{thm} If $E|X| < \infty$, then $\phi$ is continuously differentiable.   
+\end{thm}
+\begin{proof}
+\begin{align*}
+\lim_{h \rightarrow 0} \frac{\phi(t+h) - \phi(t)}{g} &= E\left (\frac{e^{i(t+h)X} - e^{itX}}{h}\right ) \\
+\end{align*}
+It suffices to show that $$E\left (\frac{e^{i(t+h)X} - e^{itX}}{h} - ixe^{itX}\right ) \rightarrow 0.$$
+\begin{align*}
+E\left (\frac{e^{i(t+h)X} - e^{itX}}{h}  - iXe^{itX}\right) &= E(iXe^{itX}(\frac{^{itX}-1}{ihX} - 1 )) \\
+&= E\left (iXe^{itX}\left ( \frac{\int_0^h e^{inX} - 1 }{h} - 1\right )\right )\\ 
+&\le E(|iXe^{itX}| \sup_{u\le h} |e^{iuX} - 1| ) \rightarrow 0 \\
+\end{align*}
+by DCT, since the argument is at most $2|X|$.
+
+Then, $\phi'$ is continuous since $$\phi'(t+h) - \phi'(t) = E(ixe^{i(t+h)x} 0 e^{itx}) = E(ixe^{itx}[e^{ihx} - 1]) \rightarrow 0$$
+by DCT.
+\end{proof}
+Similarly if $E|X|^k < \infty$, then $\phi(t) \in C^k$.  The proof follows straightforwardly by induction on the moment.
+\begin{lemma} If $\phi$ is twice-differentiable, then $E(X^2) < \infty$.
+\end{lemma}
+\begin{proof}
+Note that 
+$$\frac{2\phi(0) - \phi(h) - \phi(-h)}{h^2} \xrightarrow{h \rightarrow 0} -\phi''(0).$$
+But this quantity is exactly
+$$\frac{2 - 2E(\cos(hx))}{h^2} \to -\phi''(0)$$
+since $\phi(h) = E(\cos(hx) + i\sin(hx))$ and $\phi(-h) = E(\cos(hx) - i\sin(hx))$.
+
+Finally, $\cos(x) = 1 - \frac{x^2}{2}$, so we $f_h(X) \rightarrow X^2$, $f_h(X) \ge 0$ and $E(f_h(x)) \rightarrow \phi''(0)$(where $f_h(X)$ is the term inside the expectation).  It follows that $E(X^2) \le \lim E(f_h(X)) = -\phi''(0)$.   Furthermore, $\phi''(0) = E(-X^2)$.
+\end{proof}
+
+\subsection{Fourier Inversion Formula}
+Let $X \sim \mu$ and $\phi(t) = E(e^{itx})$.  Let $F$ be the distribution induced by $\mu$.  We would like to approximate $F(b) - F(a)$.  
+
+We consider $$\int_{-T}^T\int_{a}^b e^{-iut}\phi(t) du dt = \int_{-T}^T \frac{e^{-iat} - e^{-bt}}{it} \phi(t).$$
+Then $$\int_{-T}^T \frac{e^{-iat} - e^{-bt}}{it} \int_\R e^{itx} d\mu= \int_\R \int_{-T}^T \frac{e^{it(x-a)} - e^{it(x-b)}}{it} = 2\int_\R \int_{0}^T \frac{\sin(t(x-a)) - \sin(t(x-b))}{t}dt.$$
+
+Hence, we have 
+$$2 \int_{\R}d\mu \int_{0^T} \frac{\sin(t(x-a)) - \sin(t(x-b))}{t}dt.$$
+Then, for any $x$, $$\int_{0}^T \frac{\sin (\theta x)}{x} $$ is bounded as $T \rightarrow \infty$ and converges to $\frac{\pi}{2}\text{sgn}(\theta)$. 
+It follows that the integral converges to $\pi \mu(\{a\}) + \pi\mu(\{b\}) + 2\pi \mu(a, b)$.  Dividing by $2\pi$ throughout, gives $$\mu(a,b) + \frac{\mu(\{a\} \cup \{b\})}{2}.$$
+\begin{lemma} If $F_1, F_2$ are two distributions with $\phi_1(t) = \phi_2(t)$, where $\phi_1$ and $\phi_2$ are the characteristics functions, then $F_1 = F_2$.
+\end{lemma}
+\begin{proof}
+Consider the set $A = \{x : \mu_1(x), \mu_2(x) > 0\}$, which is countable. For all $a, b, \in A^c$, $\mu_1([a, b]) = \mu_2([a, b])$.  Then, send $a \to -\infty$ to show $F_1(b) = F_2(b)$ for all $b \in A^c$, but $A^c$ is dense so $F_1 = F_2$ everywhere by right-continuity.
+\end{proof}
+\begin{thm}
+If $\phi(t)$ is integrable, then $F$ has a density: $F[a, b] = \int_{a}^b f dx$ for all $a, b$.
+
+Namely, $$f(x) = \frac{1}{2\pi}\int_\R e^{-ixt}\phi(t)dx.$$
+\end{thm}
+\begin{proof}
+We first show there are no atoms, $\mu(x) = 0$ for all $x$.   Then for $a < x < b$
+$$\mu(x) \le \int |\phi(t)| |b-a| \rightarrow 0.$$
+
+Finally, $$\int_{a}^b\frac{1}{2\pi}\int_\R e^{-iut}\phi(t) = \mu(a, b) = \mu[a, b].$$
+It is easy to show that $f$ is real valued. 
+$$\overline{f}(u) = \int e^{iut}\overline{\phi}(t) = \int_{\R} e^{iut}\phi(-t) = \int_R e^{-iut}\phi(t)dt = f(u).$$
+\end{proof}
 \end{document}

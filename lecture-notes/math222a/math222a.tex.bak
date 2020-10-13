@@ -16,7 +16,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb C}
 \newcommand{\T}{\mathbb T}
-
+\renewcommand{\hat}{\widehat}
 \let \phi \varphi
 
 %From Topology
@@ -1197,4 +1197,87 @@ In 1D, for convolutions of order $-1$, we have $\delta_0$ and $\text{pv }1/x$, w
 
 We have similar operators in higher dimensions. 
 \end{example}
+\pagebreak
+\section{October 13th, 2020}
+\subsection{Introducing the Fourier Transform}
+We use the notation $D_j = \frac{1}{i}\partial_j$.  Then, we consider constant coefficients of the form $P(D)$.  Denote $f_{\xi}(x) = e^{ix \xi}$.  Then $D_j f_\xi(x) = \xi_j f_\xi(x)$.  Hence, we can think of $f_{\xi}(x)$ as a joint eigenfunction for all constant coefficient linear PDOs.
+
+Consider an arbitrary function $u(x)$.  We then think of $u(x)$ of a linear combination of $e^{ix\xi}$'s.  With $\xi \in \R^n$, we represent 
+$$u(x) = \int f(\xi)e^{ix\xi}d\xi.$$
+
+In $\R^n$, suppose $u \in \R^n$ and $\{e_j\}$ an orthonormal frame.  Then, we can represent $$u = \sum c_je_j,$$
+where $c_j = \langle u, e_j\rangle \in \R$.
+
+On the space of functions, 
+$$\langle u, v \rangle = \int_{\R^n} u(x) \overline{v}(x)dx.$$
+This is also the inner product in $L^2(\R^n).$
+
+\begin{definition} The Fourier Transform is $$u(x) \mapsto \hat{u}(\xi) = \frac{1}{(2\pi)^{n/2}}\int u(x) e^{-ix \xi}dx.$$  
+
+The Fourier Inversion Formula is given by 
+$$u(x) = \frac{1}{(2\pi)^{k/2}} \int \hat{u}(\xi)e^{ix \xi}d\xi.$$
+\end{definition}
+
+\subsection{Properties of the Fourier Transform}
+We have 
+\begin{align*}
+\hat{\partial_j u}(\xi) &= \frac{1}{(2\pi)^{n/2}}\int \partial_j u(x)e^{-ix\xi}dx \\
+&= \frac{i\xi_j}{(2\pi)^{n/2}}\int u(x)e^{-ix\xi} dx \\
+&= i\xi_j\hat{u}(\xi) \\
+\Rightarrow \hat{D_j u}(\xi) &=  \xi_j \hat{u}(\xi)\\
+\Rightarrow \hat{P(D)u}(\xi) &= P(\xi)\hat{u}(\xi)
+\end{align*}
+
+Hence, we have a dictionary $\partial_{x_j} \rightarrow i\xi_j$, $D_{x_j} \to \xi_j$, $P(D) \to P(\xi)$.
+
+We also have 
+\begin{align*}
+\hat{x_ju}(\xi) &= \frac{1}{(2\pi)^{n/2}} \int x_j u(x) e^{-ix\xi}dx\\
+&= \frac{i}{(2\pi)^{n/2}} \int u(x)\partial_{\xi_j}e^{-ix\xi}dx \\
+&= i\partial_{\xi_j} \frac{1}{(2\pi)^{n/2}}\int u(x)e^{ix\xi}dx \\
+&= i\partial_{\xi_j} \hat{u}(\xi).
+\end{align*}
+\subsection{Schwartz Space}
+We will consider a space $\mathcal{S}$ with $\mathcal{D} \subset \mathcal S \mathcal E$.  This is the \textbf{Schwartz space}.
+This is a locally convex space, with seminorms
+$$P_{\alpha\beta}(u) = \sup_{x \in \R^n}|x^{\alpha} \partial^{\beta}u(x)|.$$
+Functions in the Schwartz space are "rapidly decreasing", in that they decrease faster than any polynomial decay.
+\begin{example} Consider $e^{-x^2} \in \mathcal S$. Note that $\frac{1}{1+x^2} \not \in \mathcal S$.  If $u \in \mathcal S$, then $|u(x)| \le \frac{c_N}{(1 + |x|)^N}$.
+\end{example}
+\begin{proposition} The Fourier transform takes $\mathcal S \to \mathcal S$.
+\end{proposition}
+\begin{proof}
+Note that $\partial_x: \mathcal S \rightarrow \mathcal S$ and $x: \mathcal S \rightarrow \mathcal S$.  We consider the multiplication operator $u \to x \cdot u$.  Take $u \in \mathcal S$.  We want to show that $\hat{u} \in \mathcal S$.  We want to show that the function $\xi^{\alpha} \partial_{\xi}^{\beta} \hat{u}$ is bounded for all multi-indexes $\alpha, \beta$.
+
+\begin{align*}
+\xi^{\alpha} \partial_\xi^{\beta} \hat{u} &= i^{|\alpha| - |\beta|}\hat{\partial_x^{\alpha} x^{\beta} u} \in \mathcal S \\
+\end{align*}
+so we have an inequality
+$$|\partial_x^{\alpha} x^{\beta} u| \le \frac{c_{N, n}}{(1 + |x|)^N}.$$
+
+Then
+\begin{align*}
+ |\xi^{\alpha}\partial_\xi^{\beta} \hat{u}(\xi)| &= \left|\frac{1}{(2\pi)^{n/2}}\int e^{ix\xi}\partial_x^{\alpha}x^{\beta}u(x)dx\right| \\
+ &\le \int |\partial_x^{\alpha}x^{\beta} u(x)|dx \\
+ &\le c_n \int \frac{1}{1+|x|^N}dx < \infty
+\end{align*}
+for large $N$.  Hence $P(\alpha\beta)(\hat{u}) < \infty$ which implies that $\hat{u} \in \mathcal S$.
+\end{proof}
+\begin{corollary} The inverse Fourier Transform also maps $\mathcal S \to \mathcal S$.
+\end{corollary}
+\subsection{Fourier Norms}
+Observe that for $u \in L^1$, 
+$$\hat{u}(\xi) = \frac{1}{(2\pi)^{n/2}} \int u(x)e^{-ix\xi}dx,$$
+
+Note that 
+$$|\hat{u}(\xi)| \le \frac{1}{(2\pi)^{n/2}} \int |u(x)|dx = \frac{\|u\|_1}{(2\pi)^{n/2}}.$$
+Hence,
+$$\|\hat{u}\|_{\infty} \le \frac{\|u\|_1}{(2\pi)^{n/2}}.$$
+
+By the Lebesgue Dominated Convergence theorem, $\hat{u} \in C_{\to 0}(\R^n)$.
+
+\begin{exercise} $\mathcal F^{-1} \circ \mathcal F = \text{Id}$ on $\mathcal S$.
+\end{exercise}
+
+
 \end{document}

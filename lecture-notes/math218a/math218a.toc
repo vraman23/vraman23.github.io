@@ -42,3 +42,7 @@
 \contentsline {subsection}{\numberline {13.2}Portmanteau's Lemma}{42}{subsection.13.2}% 
 \contentsline {subsection}{\numberline {13.3}Helly's Selection Theorem}{43}{subsection.13.3}% 
 \contentsline {subsection}{\numberline {13.4}Fourier Transforms}{43}{subsection.13.4}% 
+\contentsline {section}{\numberline {14}October 13, 2020}{45}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}Fourier Transforms, Continued}{45}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Differentiability of Characters}{45}{subsection.14.2}% 
+\contentsline {subsection}{\numberline {14.3}Fourier Inversion Formula}{46}{subsection.14.3}% 

@@ -1,0 +1,57 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\SRS}{\mathscr {S}}
+
+\let \phi \varphi
+\let \hat \widehat
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+
+
+\begin{document}
+\title{Applications of Fourier Analysis}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+   We present several theorems and applications of Fourier Analysis in different sub-fields.  
+\end{abstract}
+\section{Kronecker's Theorem}
+We begin with the statement of the theorem.
+\begin{theorem}[Kronecker] Suppose that $k \ge 1$ and $\{x_1, x_2, \dots, x_k, 2\pi\}$ is linearly independent over $\Q$.  Then for any $\epsilon > 0$ and any $z_1, \dots, z_k \in S^1 \subset \C$, there exists $\ell \in \Z$ so that for all $j \le k,$
+$$|e^{i\ell x_j} - z_j| < \epsilon.$$
+\end{theorem}
+Before proving the theorem, we require 2 key lemmas.  
+\begin{lemma} If $f \in L^2(\T^d)$ and $\hat{f} \in \ell^1(\Z^d)$, then the Fourier series of $f$ converges uniformly to a continuous function, which equals $f$ almost everywhere.
+\end{lemma}
+\begin{proof}
+Let $S_Nf(x) = \sum_{|n| \le N} \hat{f}(n)e^{in\cdot x}$, for $x \in \T^d$.  We show that 
+$$\|S_Nf(x) - f\|_\infty \xrightarrow{N \rightarrow \infty} 0.$$
+
+
+\end{proof}
+\end{document}

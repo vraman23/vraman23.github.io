@@ -45,3 +45,8 @@
 \contentsline {section}{\numberline {13}October 8th, 2020}{43}{section.13}% 
 \contentsline {subsection}{\numberline {13.1}Homogeneous Functions}{43}{subsection.13.1}% 
 \contentsline {subsection}{\numberline {13.2}Homogeneous Distributions}{43}{subsection.13.2}% 
+\contentsline {section}{\numberline {14}October 13th, 2020}{45}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}Introducing the Fourier Transform}{45}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Properties of the Fourier Transform}{45}{subsection.14.2}% 
+\contentsline {subsection}{\numberline {14.3}Schwartz Space}{46}{subsection.14.3}% 
+\contentsline {subsection}{\numberline {14.4}Fourier Norms}{46}{subsection.14.4}% 
