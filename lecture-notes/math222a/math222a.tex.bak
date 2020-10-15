@@ -1265,7 +1265,7 @@ for large $N$.  Hence $P(\alpha\beta)(\hat{u}) < \infty$ which implies that $\ha
 \end{proof}
 \begin{corollary} The inverse Fourier Transform also maps $\mathcal S \to \mathcal S$.
 \end{corollary}
-\subsection{Fourier Norms}
+\subsection{Fourier Inversion}
 Observe that for $u \in L^1$, 
 $$\hat{u}(\xi) = \frac{1}{(2\pi)^{n/2}} \int u(x)e^{-ix\xi}dx,$$
 
@@ -1278,6 +1278,83 @@ By the Lebesgue Dominated Convergence theorem, $\hat{u} \in C_{\to 0}(\R^n)$.
 
 \begin{exercise} $\mathcal F^{-1} \circ \mathcal F = \text{Id}$ on $\mathcal S$.
 \end{exercise}
+\pagebreak
+\section{October 15th, 2020}
+\subsection{Fourier Transform in $L^2$}
+Suppose we take a function $u \in \mathcal S$.  We can define $\hat{u} \in \mathcal S$.  Similarly, if we look at $f \in \mathcal S$ we can consider $\check{f} \in \mathcal S$.
 
+Consider 
+\begin{align*}
+\int \hat{u}(\xi) \overline{f}(\xi)d\xi &= \frac{1}{(2\pi)^{n/2}} \iint u(x)e^{-ix\xi}\overline{f}(\xi)d\xi dx \\
+&= \frac{1}{(2\pi)^{n/2}} \iint u(x) \overline{e^{ix\xi}f(\xi)} d\xi dx\\
+&= \int u(x) \overline{\check{f}}dx.
+\end{align*}
 
-\end{document}
+Consider the special case where $f = \hat{u}, \check{f} = u$.  Then we have 
+$$\int |\hat{u}(\xi)|^2 d\xi = \int |u(x)|^2dx,$$
+so in particular,
+$$\|\hat{u}\|_2 = \|u\|_2.$$
+This is known as the\textbf{ Plancherel Formula.} It tells us that the map
+$$u \mapsto \mathcal F u$$
+is an isometry with resepct to the $L^2$ norm.  We use this to extend $\mathcal F : L^2 \to L^2$.  Namely, suppose $u \in L^2(\R^n)$.  Then, there exists a sequence $u_m \in \mathcal S$ (or $\mathcal D$) so that $u_m \to u \in L^2$.  
+Then 
+$$\| \hat{u_m} - \hat{u_k}\|_2 = \|u_m - u_k \|_2 \rightarrow 0,$$
+hence $\hat{u}_m$ is Cauchy in $L^2$, which implies convergence.  We denote 
+$$\hat{u} = \lim_{n \to \infty} \hat{u_m} \in L^2.$$
+Then
+\begin{align*}
+\hat{u}(\xi) &= \int_{\R^n} u(x) e^{-ix\xi}dx \\
+&= \lim_{R \to \infty} \int_{B(0, R)} u(x)e^{-ix\xi}dx \\
+&= \lim_{R \to \infty} \int_{\R^n} 1(x/R)u(x)e^{-ix\xi}dx\\
+\end{align*}
+for a cutoff function $1(x/R)$.
+\subsection{Fourier Transform of Distributions}
+If we omit the conjugates in the above, we have 
+$$\int \hat{u}(\xi)f(\xi)d\xi = \int u(x)\hat{f}(x)dx$$
+If we interpret $u, \hat{u}$ as distributions, then 
+$$\hat{u}(f) = u(\hat{f}).$$
+We would like to use this to define the Fourier Transform of distributions, but note that we cannot have $f$, $\hat{f}$ be test functions in general.  
+
+Recall that 
+$$\mathcal D \subset \mathcal S \subset \mathcal E,$$
+$$\mathcal D' \supset \mathcal S' \supset \mathcal E'.$$
+What is $\mathcal S'$?  This is the space of continuous linear functionals on $\mathcal S$.  We call $\mathcal S'$ the space of \textbf{Tempered Distributions} or \textbf{Temperate Distributions}.
+
+If $f \in \mathcal D'$ then $f \in \mathcal S'$ if and only if 
+$$|f(u)| \le \sum_{\text{finite}} P_{\alpha \beta}(u),$$
+where $$P_{\alpha \beta}(u) = \sup|x^{\alpha}\partial^\beta u(x)|.$$
+
+Suppose $f \in L_{loc}^1$, then for $u \in \mathcal D$,
+$$f(u) = \int fu dx.$$
+
+\begin{example}
+Heuristically, $f$ should only have at most polynomial growth at infinity.  So $x^n \in \mathcal S'$.  On the other hand, $e^{x^2} \not \in \mathcal S'$.  
+
+If we had something like $e^{x^2}e^{ie^{x^4}} \in \mathcal S'$, since the rapid oscillation of the second term trumps the first.
+\end{example}
+\begin{definition}Let $u \in \mathcal S'$.  Define 
+$$\hat{u}(f) = u(\hat{f}).$$
+Now,
+$$\mathcal F: \mathcal S' \to \mathcal S'.$$
+\end{definition}
+\subsection{Fourier Transform in $L^p$}
+Note that $\mathcal F: L^1 \rightarrow L^{\infty}$ and $$\|\hat{u}\|_{\infty} \le \frac{1}{(2\pi)^{n/2}}\|u\|_1,$$
+and $\| \hat{u}\|_2 = \|u\|_2$, so through interprelation, we can get 
+$$\mathcal F : L^p \to L^{q},$$
+where $1 \le p \le 2$ and $\frac{1}{p} + \frac{1}{q} = 1$.  We have 
+$$\|u\|_{q} \le (2\pi)^{n/2(1/2 - 1/p)}\|u\|_p.$$
+
+Similarly, the inverse Fourier transform maps $L^p \to L^q$.  Finally, $\mathcal F: L^p \to L^q$ for $p > 2$, is false. 
+\subsection{Fourier Transforms and Convolutions}
+It is easy to show that $u, v \in \mathcal S$ implies that $u * v \in \mathcal S$.
+
+\begin{align*}
+\hat{u*v}(\xi) &=\frac{1}{(2\pi)^{n/2}} \int e^{-ix\xi} u*v(x)dx \\
+&= \frac{1}{(2\pi)^{n/2}}\iint e^{-ix\xi} u(y)v(x-y)dxdy \\
+&= \frac{1}{(2\pi)^{n/2}} \iint e^{-iy\xi}u(u)e^{-i(x-y)\xi}v(x-y) dxdy \\
+&= (2\pi)^{n/2}\hat{u}(\xi) \hat{v}(\xi)
+\end{align*}
+Then
+$$(\mathcal S, +, \cdot) \leftrightarrow (\mathcal S, +, *)$$
+with maps $\mathcal F$, $\mathcal F^{-1}$.
+ \end{document}

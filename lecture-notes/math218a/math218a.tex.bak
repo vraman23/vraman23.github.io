@@ -1224,4 +1224,96 @@ Consider the set $A = \{x : \mu_1(x), \mu_2(x) > 0\}$, which is countable. For a
 \end{proof}
 \begin{thm}
 If $\phi(t)$ is integrable, then $F$ has a density: $F[a, b] = \int_{a}^b f dx$ for all $a, b$.
+
+Namely, $$f(x) = \frac{1}{2\pi}\int_\R e^{-ixt}\phi(t)dx.$$
+\end{thm}
+\begin{proof}
+We first show there are no atoms, $\mu(x) = 0$ for all $x$.   Then for $a < x < b$
+$$\mu(x) \le \int |\phi(t)| |b-a| \rightarrow 0.$$
+
+Finally, $$\int_{a}^b\frac{1}{2\pi}\int_\R e^{-iut}\phi(t) = \mu(a, b) = \mu[a, b].$$
+It is easy to show that $f$ is real valued. 
+$$\overline{f}(u) = \int e^{iut}\overline{\phi}(t) = \int_{\R} e^{iut}\phi(-t) = \int_R e^{-iut}\phi(t)dt = f(u).$$
+\end{proof}
+\pagebreak
+\section{October 15th, 2020}
+Recall
+\begin{itemize}
+\item Moments of a Random Variable implies smoothness of the characteristic functions In particular, the existence of the $k$-th moment implies that $\phi^{(k)}$ exists and is continuous.
+\item The Inversion Formula: $$\frac{1}{2\pi}\int_{-T}^T\int_{a}^b e^{-itu} \phi(t)dt \xrightarrow{T \to \infty} \frac{1}{2}\mu(\{a, b\}) + \mu(a, b).$$
+\item If $\phi(t)$ is integrable, then a density exists - namely
+$$f(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{-itx}\phi(t).$$
+This implies that $\int_{a}^b f = \mu[a, b]$.  We can also show that $f$ is continuous since $|f(t+h) - f(h)| \rightarrow 0$ uniformly by the dominated convergence theorem.
+\end{itemize}
+\subsection{Characteristic Functions}
+\begin{proposition}
+If $X, Y$ are independent random variables, $\phi_{X+Y}(t) = \phi_X(t) \phi_Y(t)$.
+\end{proposition}
+\begin{proof}
+$$E(e^{it(X+Y)}) = E(e^{itX}e^{itY}) = E(e^{itX})E(e^{itY}).$$
+\end{proof}
+\begin{proposition}
+$$\phi(t) = E\left(\sum_{m=0}^n \frac{(itX)^m}{m!}\right) + o(t^n).$$
+\end{proposition}
+\begin{proof}
+Note that 
+$$\left |\phi(t) - E\left(\sum_{m=0}^n \frac{(itx)^m}{m!}\right)\right | \le E\min(2|x|^n/n!, |x|^{n+1}/(n+1)!).$$
+This follows from the fact that 
+
+$$\int_{0}^x e^{is}(x-s)^n ds = \frac{x^{n+1}}{n+1} + \frac{i}{n+1}\int e^{is}(x-s)^{n+1}ds.$$
+Putting $n=0$ gives 
+$$e^{ix} = 1 + ix + i^2 \int e^{is}(x-s).$$
+It follows by induction that 
+$$e^{ix} - \sum_{m=0}^{n}\frac{(ix)^m}{m!} = \frac{i^{n+1}}{n!}\int_{0}^x e^{is}(x-s)^n dx.$$
+Finally, 
+$$\left |\frac{i^{n+1}}{n!}\int_{0}^x e^{is}(x-s)^n dx \right|\le \int_{0}^x (x-s)^n/n! = \frac{x^{n+1}}{(n+1)!}.$$
+
+Then 
+\begin{align*}
+\frac{1}{n!} \int_{0}^x e^{is}(x-s)^n &= \frac{1}{n!}(e^{is}/i)(x-s)^n|_{0}^x + \int_{0}^x ne^{is}/i(x-s)^{n-1})\\
+&= \frac{1}{n!}(ix^n - in\int_0^x e^{is}(x-s)^{n-1})\\
+&= \frac{1}{(n-1!)}\int(x-s)^{n-1}(1-e^{is}) \\
+&\le 2x^n/n!.
+\end{align*}
+It follows that $|\phi(t) - \sum E(itX)^m/m!| \le E \min(2(tX)^n/n!, (tx)^{n+1}/(n+1)!)$
+\end{proof}
+\subsection{Weak Convergence}
+\begin{thm} For $F_n$ distributions with $\phi_n(t)$, $F_n$ converge in distribution if and only if $\phi_n \rightarrow \phi$(where $\phi$ is continuous at $0$).
+\end{thm}
+\textbf{Remark}:  Consider $N(0, 1)$.  Then $\phi(t) = e^{-t^2}/2$.  It's easy to prove that $\phi'(t) = E(ixe^{itx}) = -t\phi(t)$, using integration by parts to simplify the right side with $\phi(0) = 1$.  If $X \sim N(0, 1)$ $\sigma X \sim N(0, \sigma^2)$ so $\phi(t) = e^{-\sigma^2X^2/2}.$  Then $\phi_n \rightarrow \delta_0$.  But $F_n(x) \rightarrow \frac{1}{2}$ for all $x$.  We will see that continuity at $0$ gives the tightness condition.
+\begin{proof}
+We prove the forward direction.  $F_n \rightarrow F$ in distribution implies that $E(g(X_n)) \to E(g(X))$ for bounded continuous functions.  The result follows since $e^{itx}$ is a bounded continuous function.
+
+We prove the converse.  We first show that $\{F_n\}$ is a tight sequence.
+Note that 
+$$\int_{-u}^u (1-e^{itx}) = 2u - \int_{-u}^u (\cos{tx} + i\sin{tx})dt = 2u - \frac{2\sin{ux}}{x}.$$
+
+Then
+$$\frac{1}{2u} \int_{-u}^u (1-e^{itx})= 1 - \frac{\sin{ux}}{ux}.$$
+Then $|\sin{x}| \le |x|$, so 
+\begin{align*}
+\frac{1}{2u} \int_{-u}^u (1 - \phi_n(t)) &= \int 1 - \frac{\sin{ux}}{ux} d\mu_n \\
+&\ge \frac{1}{2} \mu_n(|x| \ge 2/u).
+\end{align*}
+Then $\phi_n(0) \rightarrow \phi(0) = 1$, so
+$$\mu_n(|x| > 2/u) \le u^{-1} \int_{-u}^u (1-\phi_n(t))dt \rightarrow u^{-1} \int_{-u}^u (1-\phi(t))dt \le 2\epsilon,$$
+for some choice of $u$ from the continuity of $\phi$ at $0$. 
+
+Since $\epsilon$ is arbitrary, it follows that $\mu_n$ is tight.  Now we show that $F_n$ converges to $F$ in distribution.  Note that any subsequence has a convergent subsequence which converges to a distribution.  Then the subsequences converge to $\phi_{n_i} \rightarrow \phi_F$, and $\phi_n \rightarrow \phi$ so $\phi_F = \phi$.  Hence, every subsequence has a convergence converges to the same $F$ by the uniqueness of characteristic functions.  Then $F_n(x) \to F(x)$ for all continuity points $x$ of $F$ and it follows that for $F_n(x)$, and subsequence admits a further subsequence converging to $F(x)$.  Hence $F_n(x) \to F(x)$, since otherwise one can extract a subsequence such that $|F_{{n_i}}(x) - F(x)| > \delta$ for all $i$.
+\end{proof}
+\subsection{Central Limit Theorems}
+Under natural conditions, we will prove that 
+$$\frac{S_n}{\sqrt{n}} \xrightarrow{d} N(0, \sigma^2).$$
+\begin{example} Let $X_i = \pm 1$ with probability $1/2$.  We can analyze binomial coefficients to prove a central limit theorem.
+\end{example}
+\begin{thm} Let $X_i$ be iid $E(X_i) = 0$, $E(X^2) = 1$.  Then
+$$\frac{S_n}{\sqrt{n}} \xrightarrow{d} N(0, 1).$$
+\end{thm}
+\begin{proof}
+Recall that $\phi_z(t) e^{-t^2/2}$.  Hence, we show that $\phi_{S_n/\sqrt{n}}(t) \to e^{-t^2/2}$.
+
+Then $$\phi_{S_n/\sqrt{n}}(t) = \phi_{S_n}(t/\sqrt{n}).$$  Then $S_n = \sum X_i$ iid, so $$\phi_{S_n}(t/\sqrt{n})) = (\phi_{X_1}(t/\sqrt{n}))^n.$$
+
+Then $$|\phi_{X_i}(t/\sqrt{n}) - E\sum_{m=0}^k (itx/\sqrt{n})^m|\le E(\min\{(itx/\sqrt{n})^2, (itx/\sqrt{n})^3\}) = o(t^2/n).$$
+\end{proof}
 \end{document}
