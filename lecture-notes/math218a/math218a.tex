@@ -1301,7 +1301,10 @@ for some choice of $u$ from the continuity of $\phi$ at $0$.
 
 Since $\epsilon$ is arbitrary, it follows that $\mu_n$ is tight.  Now we show that $F_n$ converges to $F$ in distribution.  Note that any subsequence has a convergent subsequence which converges to a distribution.  Then the subsequences converge to $\phi_{n_i} \rightarrow \phi_F$, and $\phi_n \rightarrow \phi$ so $\phi_F = \phi$.  Hence, every subsequence has a convergence converges to the same $F$ by the uniqueness of characteristic functions.  Then $F_n(x) \to F(x)$ for all continuity points $x$ of $F$ and it follows that for $F_n(x)$, and subsequence admits a further subsequence converging to $F(x)$.  Hence $F_n(x) \to F(x)$, since otherwise one can extract a subsequence such that $|F_{{n_i}}(x) - F(x)| > \delta$ for all $i$.
 \end{proof}
-\subsection{Central Limit Theorems}
+
+\pagebreak
+\section{October 20th, 2020}
+\subsection{Basic Central Limit Theorem}
 Under natural conditions, we will prove that 
 $$\frac{S_n}{\sqrt{n}} \xrightarrow{d} N(0, \sigma^2).$$
 \begin{example} Let $X_i = \pm 1$ with probability $1/2$.  We can analyze binomial coefficients to prove a central limit theorem.
@@ -1314,6 +1317,100 @@ Recall that $\phi_z(t) e^{-t^2/2}$.  Hence, we show that $\phi_{S_n/\sqrt{n}}(t)
 
 Then $$\phi_{S_n/\sqrt{n}}(t) = \phi_{S_n}(t/\sqrt{n}).$$  Then $S_n = \sum X_i$ iid, so $$\phi_{S_n}(t/\sqrt{n})) = (\phi_{X_1}(t/\sqrt{n}))^n.$$
 
-Then $$|\phi_{X_i}(t/\sqrt{n}) - E\sum_{m=0}^k (itx/\sqrt{n})^m|\le E(\min\{(itx/\sqrt{n})^2, (itx/\sqrt{n})^3\}) = o(t^2/n).$$
+Then $$|\phi_{X_i}(t/\sqrt{n}) - E\sum_{m=0}^2 (itx/\sqrt{n})^m/m!|\le E(\min\{(itx/\sqrt{n})^2, (itx/\sqrt{n})^3\}) .$$
+
+Then, the expectation simplifies to $1 - t^2/2n$ since $E(X_1) = 0, E(X_1^2) = 1$.
+
+Then,
+$$E = E(\min\{(itx/\sqrt{n})^2, (itx/\sqrt{n})^3\}) = o(t^2/n),$$
+or $\frac{E}{t^2/n} \to 0$ as $t^2/n \to 0$.  This is because $$E = \frac{t^2}{n} E(\min(X^2, t/\sqrt{n}X^3)) \xrightarrow{t^2/n \to 0} 0,$$
+by DCT.
+
+Hence,
+$$\phi_{X_1}(t/\sqrt{n})^n = (1 - t^2/2n + o(t^2/n))^n.$$  
+
+We show that 
+$$(1 - t^2/2n + o(t^2/n))^n \to e^{-t^2/2}.$$
+More generally, we show that if $c_n \to c$, then $(1 + c_n/n)^n \to e^c$.
+
+\begin{lemma} Suppose we have complex numbers $z_1, z_2, \dots, z_n, w_1, w_2, \dots, w_n$ with $|z_i||w_i| \le \theta$.  Then 
+$$\left |\prod_{i=1}^n z_i - \prod_{i=1}^n w_i\right |\le \theta^{n-1}\sum_{i=1}^n |z_i - w_i|.$$
+\end{lemma}
+\begin{proof}
+We use telescoping.
+$$\prod z_i - \prod w_i = \prod_{i=1}^n z_i - \prod_{i=1}^{n-1} z_iw_n  + prod_{i=1}^{n-1} z_iw_n - \prod_{i=1}^{n-2}z_iw_{n-1}w_n + \dots - \prod_{i=1}^{n} w_i. $$
+
+Then, using the triangle inequality and summing the bound gives that 
+$$|\prod z_i - \prod w_i| \le \theta^{n-1} \sum |z_i - w_i|.$$
+\end{proof}
+
+We first bound $$\left|(1 + c_n/n)^n - e^{c_n}\right|.$$
+The whole thing is the same as $|(1 + c_n/n)^n - (e^{c_n/n})^n|$.  Note that $e^{x} \ge 1+x$ for real $x$ and $|e^x - (1+x)| \le |x|^2$ for complex $x$.
+
+Note that $1 + |c_n/n| \le e^{|c_n/n|} = \theta$, so the error is bounded by
+$$ne^{|c_n/n|(n-1)}|e^{c_n/n} - (1 + c_n/n)| \le e^{|c_n/n|(n-1)}|c_n|^2/n,$$
+and it follows that $(1 + c_n/n)^n \to e^{c}$.
+\end{proof}
+\subsection{Lindeberg-Feller CLT}
+\begin{thm}[Lindeberg-Feller]
+We prove CLT for a triangular array of random variables.  Consider
+\begin{align*}
+&X_{11} \\
+&X_{21}, X_{22} \\
+&\dots \\
+&X_{n1}, X_{n2}, \dots, X_{nn}
+\end{align*}
+independent.
+We suppose that $EX_{ni} = 0$, $\sum_{i=1}^n EX_{ni}^2 \to 1$ and $\sum_{i=1}^n E(X_{ni}^2, 1(|X_{ni}| > \epsilon)) \to 0$ for all $\epsilon > 0$.
+
+Let $S_n = \sum_{i=1}^n X_{ni}$.  We show that $S_n \xrightarrow{d} \mathcal N(0, 1)$.
+\end{thm}
+
+
+\begin{example} For the previous example, we had $X_1, X_2, \dots$ and $S_n = \sum_{i=1}^n X_i$.  We take $X_{ni} = X_i/\sqrt{n}$.  We know that $EX_{ni} = 0$ and $E(X_{ni}^2) = \frac{1}{n}$, so $\sum EX_{ni}^2 = 1$.
+
+Then $$\sum_{i=1}^n E(X_{ni}^2, 1(|X_{ni}| > \epsilon))  = nE(X_{ni}^2, 1(|X_{ni}| > \epsilon)) = E(X_1^2 1|X_1| > \epsilon\sqrt{n}) \to 0.$$
+\end{example}
+\begin{proof}
+Note that $\phi_{S_n}(t) = \prod \phi_{X_{ni}}(t)$.  Let $EX_{ni}^2 = \sigma_{ni}^2$.   We have that $\sum \sigma_{ni}^2 = 1$.  We want to show that $\phi_{S_n}(t) \to e^{-t^2/2}.$
+
+Note that
+\begin{align*}
+|\phi_{X_{ni}}(t) - (1 - \sigma_{ni}^2t^2/2)| &\le E(\min(t^2X_{ni}^2, t^3 X_{ni}^3)) \\
+&\le E(t^2 X_{ni}^2 1|X_{ni} > \epsilon|) + E(t^3 X_{ni}^3 1|X_{ni}| < \epsilon|) \\
+&\le E(t^2 X_{ni}^2 1|X_{ni}| > \epsilon) + \epsilon t^3 E(X_{ni}^2 1|X_{ni}| < \epsilon).
+\end{align*}
+If we sum the left and take limits, we have 
+$$\sum_{i=1}^n E_{ni} \le 0 + \epsilon t^3 \xrightarrow{n \to \infty, \epsilon \to 0} 0.$$
+
+Now, from the previous lemma, note that $|\phi_{ni}(t)| \le 1$.  We also have $|1 - \sigma_{ni}^2t^2/2| \le 1$, since $\sup \sigma_{ni}^2 \to 0$.  This is because $$\sigma_{ni}^2 = EX_{ni}^2 = E(X_{ni}^2 | |X_{ni}| < \epsilon) + E(X_{ni}^2| |X_{ni}| > \epsilon) \to 0.$$ Hence,
+$$\left |\prod \phi_{ni}(t) - \prod(1 - \sigma_{ni}^2t^2/2)\right | \to 0.$$
+
+Finally, $$\log \left (\prod(1 - \sigma_{ni}^2t^2/2)\right ) = \sum \log(1 - \sigma_{ni}^2t^2/2) \approx -\sum \sigma_{ni}^2t^2/2 \to -t^2/2,$$
+so $$\phi_{S_n}(t) \to e^{-t^2/2}.$$
+\end{proof}
+\subsection{Kolmogorov Three-Series Theorem}
+\begin{thm}[Kolmogorov Three-Series]  Let $X_1, \dots, X_i, \dots$ be independent and $\sum_{i=1}^n$ converges almost surely.  The above and the following are equivalent.
+For $A > 0$,
+\begin{enumerate}
+\item $\sum_{i=1}^{\infty} P(|X_i| > A) < \infty$.
+\item Where $\overline{X_i} = X_i1(|X_i| < A)$, $\sum_{i=1}^n E\overline{X_i}$ converges.
+\item $\sum_{i=1}^{\infty} Var(\overline{X_i}) < \infty$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+We first prove the converse.  It suffices to show that $\sum \overline{X_i}$ converges almost surely, since $\sum \overline{X_i}$ converges is equivalent to $\sum \overline{X_i}$ converging by BC.  
+
+By the Kolmogorov Maximal Inequality, $\sum Var < \infty$ implies converges of centered independent random variables, so $\sum \overline{X_i} - E(\overline{X_i})$ converges and $\sum E(\overline{X_i})$ converges by assumption, so $\sum \overline{X_i}$ converges.
+
+Now,we prove the forward direction.  The first condition is easy since by BC, $|X_i| < A$ eventually, so $\sum P(|X_i| > A) < \infty$.  We now prove $\sum Var(\overline{X_i}) < \infty$.  Suppose not: let $c_n = \sum_{i=1}^n Var(\overline{X_i})$.  Then $c_n \to \infty$.  Define $\overline{X}_{ni} = \frac{\overline{X_i} - E\overline{X_i}}{\sqrt{C_n}}$.  Note that $E\overline{X_{ni}} = 0$, $\sum_{i=1}^n E\overline{X_{ni}}^2 = 1$.  Finally, for $\epsilon > 0$,
+$$\sum E(\overline{X_{ni}}^2, 1(|X_{ni}| > \epsilon)) \to 0,$$
+since $\overline{X_{ni}} > \epsilon$ implies that $\overline{X_i} - E\overline{X_i} > \epsilon \sqrt{c_n}$.  By Lin-Fell CLT, 
+$$\sum \frac{\overline{X_i} - E\overline{X_i}}{\sqrt{c_n}} \to \mathcal N(0, 1).$$
+But by hypothesis, $\sum \overline{X_i}$ converges almost surely, so
+$$\sum \overline{X_i}/\sqrt{c_n} \to 0,$$
+which is a contradiction.  
+
+Hence, $\sum Var(\overline{X_i}) < \infty$.  By KMI, $\sum \overline{X_i} - E\overline{X_i}$ converges, so $\sum E \overline{X_i}$ converges, giving 2.
 \end{proof}
 \end{document}

@@ -49,4 +49,7 @@
 \contentsline {section}{\numberline {15}October 15th, 2020}{48}{section.15}% 
 \contentsline {subsection}{\numberline {15.1}Characteristic Functions}{48}{subsection.15.1}% 
 \contentsline {subsection}{\numberline {15.2}Weak Convergence}{49}{subsection.15.2}% 
-\contentsline {subsection}{\numberline {15.3}Central Limit Theorems}{50}{subsection.15.3}% 
+\contentsline {section}{\numberline {16}October 20th, 2020}{51}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Basic Central Limit Theorem}{51}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}Lindeberg-Feller CLT}{52}{subsection.16.2}% 
+\contentsline {subsection}{\numberline {16.3}Kolmogorov Three-Series Theorem}{53}{subsection.16.3}% 

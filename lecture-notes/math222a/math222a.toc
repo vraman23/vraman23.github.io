@@ -55,3 +55,6 @@
 \contentsline {subsection}{\numberline {15.2}Fourier Transform of Distributions}{48}{subsection.15.2}% 
 \contentsline {subsection}{\numberline {15.3}Fourier Transform in $L^p$}{49}{subsection.15.3}% 
 \contentsline {subsection}{\numberline {15.4}Fourier Transforms and Convolutions}{50}{subsection.15.4}% 
+\contentsline {section}{\numberline {16}October 20th, 2020}{51}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Fourier Transforms for Compactly Supported Distributions}{51}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}Fourier Transform of Homogeneous Distributions}{51}{subsection.16.2}% 

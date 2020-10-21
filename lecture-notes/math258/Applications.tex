@@ -49,6 +49,9 @@ Before proving the theorem, we require 2 key lemmas.
 \begin{lemma} If $f \in L^2(\T^d)$ and $\hat{f} \in \ell^1(\Z^d)$, then the Fourier series of $f$ converges uniformly to a continuous function, which equals $f$ almost everywhere.
 \end{lemma}
 \begin{proof}
-Let $S_Nf(x) = \sum_{|n| \le N} \hat{f}(n)e^{in\cdot x}$, for $x \in \T^d$.  
+Let $S_Nf(x) = \sum_{|n| \le N} \hat{f}(n)e^{in\cdot x}$, for $x \in \T^d$.  We show that 
+$$\|S_Nf(x) - f\|_\infty \xrightarrow{N \rightarrow \infty} 0.$$
+
+
 \end{proof}
 \end{document}

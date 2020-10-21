@@ -1357,4 +1357,71 @@ It is easy to show that $u, v \in \mathcal S$ implies that $u * v \in \mathcal S
 Then
 $$(\mathcal S, +, \cdot) \leftrightarrow (\mathcal S, +, *)$$
 with maps $\mathcal F$, $\mathcal F^{-1}$.
- \end{document}
+
+\pagebreak
+\section{October 20th, 2020}
+\subsection{Fourier Transforms for Compactly Supported Distributions}
+Recall the Fourier transform, defined by 
+$$\hat{u}(\xi) = \frac{1}{(2\pi)^{n/2}}\int e^{-ix\xi}u(x)dx.$$
+This holds for $u \in \mathcal S$ and $u \in L^1$.  For $u \in \mathcal E'$, we can reinterpret this as 
+$$\hat{u}(\xi) = \frac{1}{(2\pi)^{n/2}} u(e^{-ix\xi}),$$
+in the sense of distributions.
+
+Observation: if $u \in \mathcal E'$, then $\hat{u}$ is a smooth function.  In other words, the regularity of $u$ corresponds to the decay of $\hat{u}$, by the Fourier Transform, and vice versa.  Recall $\hat{u}(\phi) = u(\hat{\phi})$ for $\phi \in \mathcal S$, $u \in \mathcal S'$.
+
+\subsection{Fourier Transform of Homogeneous Distributions}
+A homogeneous function is a function satisfying $f(\lambda x) = \lambda^a f(x)$, where $a$ is the degree of homogeneity.  A homogeneous distribution is a distribution where
+$$f(\phi_\lambda) = \lambda^{-a} f(\phi),$$
+where $$\phi_\lambda(x) = \lambda^{n}\phi(\lambda x),$$
+so that $\int \phi_\lambda = \int \phi$.
+
+Initially, we were working with $\phi \in \mathcal D$, but $f \in \mathcal S'$, so this also holds for $\phi \in \mathcal S$.  
+By definition, we have that
+$$\hat{f}(\phi_\lambda) = f(\hat{\phi_\lambda}).$$
+Finally,
+\begin{align*}
+\hat{\phi_\lambda}(\xi) &= \frac{1}{(2\pi)^{n/2}}\int e^{-ix\xi} \lambda^n \phi(\lambda x)dx \\
+&=\frac{1}{(2\pi)^{n/2}} \int e^{-y(\xi/\lambda)}\phi(y)dy \\
+&= \hat{\phi}(\xi/\lambda).
+\end{align*}
+
+Suppose $f$ is homogeneous of degree $a$, then
+$$\hat{f}(\phi_\lambda) = f(\hat{\phi}_\lambda) = \lambda^nf(\lambda^{-n}\hat{\phi}(\xi/\lambda)) = \lambda^{a+n}f(\hat{\phi}) = \lambda^{a+n} \hat{f}(\phi).$$
+
+\begin{proposition} If $f$ is homogeneous of degree $a$, then $\hat{f}$ is homogeneous of degree $-a-n$.
+\end{proposition}
+\begin{example} 
+Some examples of Fourier transforms:
+\begin{itemize}
+\item $\mathcal F \delta_0 = \frac{1}{(2\pi)^{n/2}} \delta_0(e^{-ix\xi}) = \frac{1}{(2\pi)^{n/2}}.$
+\item $\mathcal F^{-1} \delta_0 = \frac{1}{(2\pi)^{n/2}}.$  Hence, $\mathcal F(1) = (2\pi)^{n/2}\delta_0$.
+\item $\mathcal F(x_j) = \mathcal F(x_j \cdot 1) = -i \partial_{\xi_j}\mathcal F(1) = -i(2\pi)^{n/2} \partial_{\xi_j}\delta_0.$
+\item In 1-D, $\mathcal F(x^n) = (-i)^n (2\pi)^{1/2} \delta_0^{(n)}.$
+\item We have 
+$$\mathcal F(\delta_{x_0})(\xi) = \frac{1}{(2\pi)^{n/2}} \delta_{x_0}(e^{-ix\xi}) = \frac{e^{-ix_0\xi}}{(2\pi)^{n/2}}$$
+and $$\mathcal F^{-1}(\delta_{\xi_0})(x) = \frac{1}{(2\pi)^{n/2}} \delta_{\xi_0}(e^{ix\xi}) = \frac{e^{ix_0x}}{(2\pi)^{n/2}}.$$
+\item For $f \in \mathcal S'$, If $\xi_0 \in \R$, then
+$$[f e^{ix\xi_0} ](\phi) = f(e^{ix\xi_0} \phi)$$
+and $e^{ix\xi_0} \phi \in \mathcal S$, so $fe^{ix\xi_0} \in \mathcal S'$. 
+
+Then, $$\mathcal F(fe^{ix\xi_0})(\xi) = \frac{1}{2(\pi)^{n/2}} \int e^{-ix(\xi - \xi_0)} f(x)dx  = \hat{f}(\xi - \xi_0).$$
+This is called a shift operator for $f$.
+\end{itemize}
+\end{example}
+\begin{example}[Fourier Transform of $PV(1/x)$]
+Let $f = PV(1/x)$.  We can try to argue that 
+$$\hat{f}(\xi) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} PV(\frac{1}{x})e^{-ix\xi}.$$
+The principle value handles convergence at $0$, but what happens at infinity?  It is clear that the integral is not absolutely convergent; however, integrating by parts reveals that the integral is convergent, provided that $\xi \ne 0$.
+
+If $f$ is homogeneous of degree $-1$, then $\hat{f}$ is homogeneous of degree $0$.  Suppose $f$ as being an odd, real-valued function. Then,
+$$\hat{f}(\xi) = \frac{1}{\sqrt{2\pi}}\int e^{-ix\xi} f(x)dx = \frac{1}{\sqrt{2\pi}}\int [cos(x\xi) - i\sin(x\xi)] f(x)dx  = \frac{i}{\sqrt{2\pi}} \int \sin(x\xi)f(x)dx.$$
+Hence, the Fourier transform takes odd, real functions to odd, purely imaginary functions.  It also would take even, real functions to even, real functions.  
+
+Hence $\mathcal F(PV(1/x)) = ic \text{sgn}(\xi).$  Taking $PV(1/x)\cdot x = 1$ gives that the constant is $\frac{1}{2\sqrt{2\pi}}.$
+\end{example}
+\begin{example}[Fourier Transform of $\frac{1}{1+x^2}$]
+Note that $f = \frac{1}{1+x^2} \in L^1$, so $\hat{f} \in C_0$.  We also know that $f$ is real, even, so $\hat{f}$ is real, even.  Then,
+$$\hat{f}(\xi) = \frac{1}{\sqrt{2\pi}}\int \frac{e^{-ix^2}}{1+x^2}dx.$$
+We can compute this integral via complex-analytic methods.
+\end{example}
+\end{document}
