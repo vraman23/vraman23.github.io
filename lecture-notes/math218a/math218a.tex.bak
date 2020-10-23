@@ -1413,4 +1413,67 @@ which is a contradiction.
 
 Hence, $\sum Var(\overline{X_i}) < \infty$.  By KMI, $\sum \overline{X_i} - E\overline{X_i}$ converges, so $\sum E \overline{X_i}$ converges, giving 2.
 \end{proof}
+\pagebreak
+\section{October 22nd, 2020}
+\subsection{CLT with Unbounded Variance}
+Let $X_1, X_2, \dots$ by iid symmetric random variables, and $P(|X_i| > x) = \frac{1}{x^2}$ for all $x > 1 $.  Then
+$$E(X^2) = \int 2xP(|X| > n) = \int 2/x = \infty.$$
+
+We will handle this by using truncation, applying BC, and using CLT for truncated variables.  We want to truncate at the smallest possible level so that BC can still be applied.  
+
+Define $X_i^n = X_i 1(|X_i| \le \sqrt{n} \log \log{n})$ for $i \le n$.  Then,
+$$P(X_1 + \dots + X_n \ne X_1^n + X_2^n + \dots + X_n^n) \le \frac{n}{(\sqrt{n}\log\log n)^2} \to 0.$$
+
+By symmetry, $EX_i^n = 0$.  Then$$E((X_{i}^n)^2) \le \int_{1}^{\sqrt{n}\log \log n}2xP(|X| > n) = \int_{1}^{\sqrt{n}\log \log n} \frac{2}{x} = \log(n(\log \log n)^2) = \log n + 2\log \log \log n.$$
+
+We can also lower bound it by approximately $\log n$, so $E((X_1^n)^2) = \log n + o(\log n)$.  
+Using LF CLT, take $$\frac{X_1^n}{\sqrt{n\log n}},\frac{X_2^n}{\sqrt{n\log n}}, \dots, \frac{X_n^n}{\sqrt{n\log n}}.$$
+
+We show the sum of variances to a limit, and contributions from large variances add up asymptotically to $0$.
+
+Note that 
+$$\sum_{i=1}^n Var(\overline{X_{n, i}}) = n\frac{\log n + o(\log n)}{n \log n} \to 1.$$
+
+Then 
+$$\sum_{i=1}^n E(\overline{X_{n, i}}^2, |\overline{X}_{n, i}| > \epsilon) \to 0,$$
+since $$
+\frac{X_i 1(|X_i| \le \sqrt{n }\log \log n)}{\sqrt{n \log n}} \le \frac{\log \log n}{\sqrt{\log n}} < \epsilon$$
+for large $n$.
+
+By $LF$, $\frac{\overline{S_n}}{\sqrt{n \log n}} \xrightarrow{d} N(0, 1)$, and by $BC$ it follows that $\frac{S_n}{\sqrt{n \log n}} \xrightarrow{d} N(0, 1).$
+\subsection{General Theory of Distributions}
+We have a separable metric space $(S, d)$ and we define distributions convergence in this context.  
+\begin{definition} $X_n \xrightarrow{d} X$ if $Ef(X_n)\ to Ef(X)$ for any bounded continuous function $f$.
+\end{definition}
+\begin{thm}[Equivalent Conditions for Convergence] The following are equivalent.
+\begin{enumerate}
+\item $Ef(X_n) \to Ef(X)$ for all bounded continuous $f$.
+\item For closed $K$, $\limsup P(X_n \in K) \le P(X \in K)$.
+\item For open $U$, $\liminf P(X_n \in U) \ge P(X \in U)$.
+\item For $A$ with $P(\partial A) = 0$, $P(X_n \in A) \to P(A)$.
+\item If $f$ is a bounded measurable function and $D_f$ denotes the discountinuity points of $f$, if $P(X \in D_f) = 0$, then $Ef(X_n) \to Ef(X).$
+\end{enumerate}
+\end{thm}
+Remark: We have not stated a Skorokhod Representation Theorem. 
+\begin{proof}
+We only show 4 implies 5, the rest are trivial.  Suppose $|f(x)| \le K$.  Divide $[-K, K]$ into intervals of size $\epsilon$, and call them $I_i$.  Let $A_i = f^{-1}(I_i)$.  It suffices to show that $P(X_n \in A_i) \to P(X \in A_i)$.  Note that $\partial A_i \subset D_f \cap f^{-1}(i\epsilon) \cup f^{-1}((i+1)\epsilon)$.  Then, we choose the partition so that the boundary points have $0$ mass(which is possible since the set of boundary points with positive mass is countable).  Hence, the boundary probability is $0$ and the result follows.
+\end{proof}
+\subsection{Convergence in $\mathbf{\R^d}$}
+We can talk about distribution functions $F(X) \uparrow 1$ as $X \uparrow \infty$ and $F(X) \downarrow 0$ with $X \downarrow -\infty$ that are right continuous and monotone.  We also require that all rectangles have positive mass.  
+
+Then, we define weak convergence as $F_n(x) \to F(x)$ for all continuity points of $X$.  In $d=1$, there were at most countably many discontinuity points.  In $d > 1$, this is false.  For example, take $Y = U[0, 1]$, $X= 0$ and $(0, Y)$.  The distribution function is given by 
+$$F(x, y) = \begin{cases} 1, x \ge 0, y \ge 1 \\ y, x \ge 0, 0 \le y \le 1,\\ 0 \text{ else}.
+\end{cases}$$
+which is discontinuous at each $(0, y)$.
+
+\begin{exercise} For each coordinate, the discontinuity points for each coordinate $D_i$ is countable.  
+\end{exercise}
+
+\begin{thm} $F_n(x) \to F(x)$ at continuity points is equivalent to $X_n \to X$ in distribution.
+\end{thm}
+\begin{proof}
+If $X_n \to X$ in distribution, then $F_n(x) \to F(x)$ and $x$ is a continuity point, since if $x$ is a continuity point, the hyperplane passing through $x$ has mass $0$ so $P(X \in \partial A) = 0$ so $P(X_n \in A )\to P(X \in A)$, and by definition, this is $F_n(x) \to F(x)$.
+
+If $F_n(x) \to F(x)$ for all continuity points, then given $A = (a_1 \times b_1] \times \dots \times (a_d \times b_d]$, then $P(X_n \in A) \to P(X \in A)$.  Observing that any open set can be approximated from the inside by a disjoint union of such rectangles, we find that $\liminf P(X_n \in U) \ge \lim P(X_n \in B) = P(X \in B) \approx P(X \in U)$.
+\end{proof}
 \end{document}

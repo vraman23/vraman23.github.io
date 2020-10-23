@@ -58,3 +58,7 @@
 \contentsline {section}{\numberline {16}October 20th, 2020}{51}{section.16}% 
 \contentsline {subsection}{\numberline {16.1}Fourier Transforms for Compactly Supported Distributions}{51}{subsection.16.1}% 
 \contentsline {subsection}{\numberline {16.2}Fourier Transform of Homogeneous Distributions}{51}{subsection.16.2}% 
+\contentsline {section}{\numberline {17}October 22nd, 2020}{54}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}PDEs via Fourier Transforms}{54}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}Elliptic PDEs}{54}{subsection.17.2}% 
+\contentsline {subsection}{\numberline {17.3}Fundamental Solutions for PDEs}{55}{subsection.17.3}% 

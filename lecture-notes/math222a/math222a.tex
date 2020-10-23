@@ -1424,4 +1424,67 @@ Note that $f = \frac{1}{1+x^2} \in L^1$, so $\hat{f} \in C_0$.  We also know tha
 $$\hat{f}(\xi) = \frac{1}{\sqrt{2\pi}}\int \frac{e^{-ix^2}}{1+x^2}dx.$$
 We can compute this integral via complex-analytic methods.
 \end{example}
+\pagebreak
+\section{October 22nd, 2020}
+\subsection{PDEs via Fourier Transforms}
+Let $P(D)u = f$ be a constant coefficient linear PDE.  Let $D_j = \frac{1}{i} \partial_j$.  Then,
+$$P(\xi)\hat{u}(\xi) = \hat{f}(\xi).$$
+Formally, 
+$$\hat{u}(\xi) = \hat{f}(\xi) \frac{1}{P(\xi)},$$
+so applying the inverse FT gives 
+$$u = \frac{1}{(2\pi)^{n/2}}f *\left(\frac{1}{P(\xi)}\right)^\vee.$$
+This is a formal computation because $P(\xi)$ might have zeros, and it only applies if $u, f \in \mathcal S'$.  In particular, it excludes all real exponentials.
+
+Recall the \textit{Fundamental Solution}, a convolution operator with the kernel $K$ so that 
+$$P(D)K = \delta_0.$$
+Taking FT gives
+$$\hat{K}(\xi) = \frac{1}{2\pi}^{n/2}\frac{1}{P(\xi)}.$$
+
+We conclude that we can find a fundamental solution by computing the inverse FT of a rational function.  This is easy when $P(\xi) \ne 0$ for all $\xi$, and we can actually conclude the uniqueness of the solution in $\mathcal S'$.  
+\begin{definition} $P$ is called elliptic if $P(\xi) \ne 0$  for $\xi \ne 0$(this is not quite what is used in the literature though).
+\end{definition}
+\subsection{Elliptic PDEs}
+\begin{definition} $P$ is called "strongly elliptic" if $P$ has order $m$ and 
+$$|P(\xi)| \ge C(1 + |\xi|)^m.$$
+\end{definition}
+Some examples:
+\begin{itemize}
+\item For $m = 1$, $P = \partial + 1 = iD + 1$, so $P(\xi) = i\xi + 1$ and 
+$$|P(\xi)| = \sqrt{1 + \xi^2}.$$  
+The solution to the homogeneous equation is $u(x) = e^{-x} \not \in \mathcal S$.
+\item For $m = 2$, take $P = -\partial^2 + 1 = D^2 + 1$.  Then
+$$|P(\xi)| = |1 + \xi^2|.$$
+The fundamental solution is $K(x) = -\frac{1}{2}e^{-|x|}$.  The solution to the homogeneous equation is $e^{\pm x}$.   We also saw that 
+$$K = \frac{1}{\sqrt{2\pi}}\left (\frac{1}{1+\xi^2}\right )^\vee.$$
+\end{itemize}
+\begin{definition} An operator $P$ is locally elliptic if 
+$$|P(\xi)| \ge c|\xi|^m, |\xi| \ge R.$$
+\end{definition}
+The behavior at small $\xi$ corresponds to the behavior at infinity of the fundamental solution.  The behavior of $P$ for $\xi$ in a compact set corresponds to the local behavior for $K$.
+\subsection{Fundamental Solutions for PDEs}
+We start with first order equations: 
+\begin{itemize}
+\item Transport Equation: We have $P(D) = D_1$.  Then, $P(\xi) =\xi_1$ and 
+$\frac{1}{p(\xi)} = \frac{1}{\xi_1}$ has zeros, so we need to interpret it as a distribution.  We can take $PV(1/\xi_1) + c\delta_{\xi_1 = 0}.$  The inverse FT(ignoring $2\pi$ factors) gives 
+$$K(x) =(\text{sgn}(x_1) + c)\delta_{x' = 0}, x^1 = (x_2,\dots, x_n).$$
+\item Consider the Cauchy-Riemann Equations,
+$$\overline{\partial} = \partial_1 + i\partial_2,$$
+$$\partial = \partial_1 - i\partial_2.$$
+A function $f: \C \to \C$ is holomorphic if and only if $\overline{\partial} f = 0$.
+
+Then 
+$$\overline{\partial} = i(D_1 + iD_2),$$
+so 
+$$P(\xi) = i(\xi_1 + i\xi_2).$$
+This vanishes only at the origin.  Hence, it follows under the class of elliptic operators, but not strongly elliptic operators.
+Finally,
+$$\frac{1}{P(\xi)} = \frac{-i}{\xi_1 + i\xi_2} \in L_{loc}^1.$$
+One strategy to compute the inverse FT is by computing it in each variable.  Instead of that, note that $1/P(\xi)$ is $-1$ homogeneous, so $\mathcal F^{-1}(1/P(\xi))$ has $-1$ homogeneity.  
+Hence $K(x) = \frac{1}{r}K(\theta)$.  We rotate coordinates by angle $\theta$ so that $z \to ze^{i\theta}$.  Then $\overline{\partial}$ stays the same.  If we let $A(\theta)$ denote the matrix of rotations, $(A^T)^{-1} = A$ in the Fourier space, so $AA^T = A^TA = I$.
+
+Hence $K(x) = \frac{c}{x_1 + ix_2}$, so we find that 
+$$\left (\frac{1}{\xi_1 + u\xi_2}\right )^\vee = \frac{c}{x_1 + ix_2}.$$
+
+We can find that $|c|^2 = 1$, so it follows that the fundamental solution of $\overline{\partial}$ is $1/z \in L_{loc}^1$.  
+\end{itemize}
 \end{document}

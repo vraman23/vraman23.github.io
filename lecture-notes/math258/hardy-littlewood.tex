@@ -1,0 +1,107 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\SRS}{\mathscr {S}}
+
+\let \phi \varphi
+\let \hat \widehat
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+
+
+\begin{document}
+\title{The Hardy-Littlewood Maximal Function}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+The Hardy-Littlewood maximal operator is a non-linear operator that takes a locally integrable function and returns another function corresponding to the maximum average value the original function can have on balls cenetered at a given point.  It has several applications in Real Analysis and Harmonic Analysis.  We present the lectures notes and solutions to exercises from Math 258(Christ).
+\end{abstract}
+\section{Weak $\mathbf{L^p}$ and Distribution Functions}
+We work in a measure space $(X, \mu)$ that is $\sigma$-finite.  Let $S(X) = S(X, \mu)$ denote the space of simple functions $f: X \to \C$ and $\mathcal M(X)$ denote the space of measure functions.
+
+\begin{definition} The distribution function $\lambda_f$ of $f \in \mathcal M(X)$ is 
+$$\lambda_f(\alpha) = \mu\{x \in X : |f(x)| > \alpha \}.$$
+\end{definition}
+This gives us a way to think about norms in the measure space.  For example, consider the following lemma:
+\begin{lemma} For $p \in (0, \infty)$ and $f \in \mathcal M(X)$,
+$$\|f\|_p^p = \int |f|^p d\mu = p\int_{0}^{\infty} \alpha^{p-1} \lambda_f(\alpha) d\alpha.$$
+\end{lemma}
+\begin{proof}
+Denote $E = \{(x, \alpha): |f(x)| > \alpha\}$.  
+\begin{align*}
+p \int_{0}^{\infty} \alpha^{p-1} \lambda_f(\alpha) d\alpha &= p \int_{0}^{\infty}\alpha^{p-1} \int_X 1_E(x, \alpha)d\mu(x)d\alpha \\
+&= \int_X \int_{0}^{\infty} p\alpha^{p-1} 1(\alpha < |f(x)|)d\alpha d\mu(x) \\
+&= \int_X |f(x)|^p d\mu(x) = \|f\|_p^p.
+\end{align*}
+\end{proof}
+\begin{exercise} Present an alternate proof for simple functions and use the monotone convergence theorem to pass to general functions.
+\end{exercise}
+\begin{proof} Let $f = \sum_{i=1}^n c_j 1_{E_j}$ be a simple function.  Then, $\|f\|_p^p = \sum_{i=1}^n |c_j|^p \mu(E_j)$.
+Note that
+\begin{align*}
+p\int_0^\infty \alpha^{p-1}\lambda_f(\alpha)d\alpha &= \int_0^\infty p\alpha^{p-1} \sum_{i=1}^n \mu(E_j)1(|c_j| > \alpha) \\
+&= \sum_{i=1}^n \mu(E_j) \int_{0}^\infty p\alpha^{p-1}1(|c_j| > \alpha) \\
+&= \sum_{i=1}^n \mu(E_j) \int_{0}^|c_j| p\alpha^{p-1} \\
+&= \sum_{i=1}^n \mu(E_j) |c_j|^p \\
+&= \|f\|_p^p.
+\end{align*}
+For a general nonnegative function $f$, we can write $ f_n\uparrow f$, where $f_n = \sum_{i=1}^n c_{in}1_{E_in}$.  By the monotone convergence theorem, it follows that 
+$$\int |f|^p = \lim_{n \to \infty} \int |f_n|^p = \lim_{n \to \infty} \int_{0}^\infty p\alpha^{p-1}\lambda_{f_n}(\alpha)d\alpha =  \int_{0}^\infty p\alpha^{p-1}\lambda_{f}(\alpha)d\alpha,$$
+by noting that $\lambda_{f_n} \uparrow \lambda_f$ and using the monotone convergence theorem.
+\end{proof}
+\begin{lemma}[Chebyshev's Inequality] If $p \in (0, \infty)$ and $f \in L^p$, then for $\alpha > 0$,
+$$\lambda_f(\alpha) \le \alpha^{-p} \|f\|_p^p.$$
+
+For $p=1$, then gives \textit{Markov's Inequality}:
+$$\lambda_f(\ell) \le \ell^{-1} \|f\|_1.$$
+\end{lemma}
+\begin{proof}
+$$\lambda_f(\alpha) = \int_X 1(|f(x)| > \alpha) d\mu(x) \le \int_X \alpha^{-p}|f(x)|^p d\mu(x)= \alpha^{-p} \|f\|_p^p.$$
+\end{proof}
+Chebyshev's inequality loses information, in the sense that 
+$$p\int_0^{\infty} \alpha^{p-1} \lambda_f(\alpha) d\alpha \le p\|f\|_p^p\int_0^\infty \alpha^{p-1} \alpha^{-p}d\alpha,$$
+and the latter integral diverges.  However, it does allow us to extract useful information from the finiteness of the $L^p$ norms.
+
+\begin{definition} For $p \in [1, \infty)$, define $L^{p, \infty}(X, \mu)$ as the set of functions $f \in \mathcal M(X)$ for which there exists $C < \infty$ with $\lambda_f(\alpha) \le C^p\alpha^{-p}$.
+\end{definition}
+Note that $L^{p, \infty}$ is a quasi-normed vector space.  We prove the triangle inequality:
+\begin{proof}
+\begin{align*}
+\|f + g\|_{p, \infty} &= \inf \{C : \lambda_{f + g}(\alpha) \le C^p \alpha^{-p}\} \\
+&\le \inf \{C : \lambda_{f }(\alpha/2) + \lambda_g(\alpha/2) \le C^p \alpha^{-p}\} \\
+&\le \inf \{C: \lambda_f(\alpha/2) \le C^p \alpha^{-p}/2\} + \inf \{C: \lambda_g(\alpha/2) \le C^p \alpha^{-p}/2\} \\
+&\le 
+\end{align*}
+\end{proof}
+
+\subsection{The Hardy-Littlewood Maximal Operator}
+\begin{definition}[Hardy-Littlewood Maximal Operator]
+Let $f \in L_{loc}^1(\R^d)$, and define $Mf : \R^d \to [0, \infty]$ by 
+$$Mf(x) = \sup_{r > 0} |B(x, r)|^{-1} \int_{B(x, r)} |f(y)|dy.$$
+\end{definition}
+
+\end{document}

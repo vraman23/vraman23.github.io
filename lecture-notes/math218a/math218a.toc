@@ -53,3 +53,7 @@
 \contentsline {subsection}{\numberline {16.1}Basic Central Limit Theorem}{51}{subsection.16.1}% 
 \contentsline {subsection}{\numberline {16.2}Lindeberg-Feller CLT}{52}{subsection.16.2}% 
 \contentsline {subsection}{\numberline {16.3}Kolmogorov Three-Series Theorem}{53}{subsection.16.3}% 
+\contentsline {section}{\numberline {17}October 22nd, 2020}{55}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}CLT with Unbounded Variance}{55}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}General Theory of Distributions}{55}{subsection.17.2}% 
+\contentsline {subsection}{\numberline {17.3}Convergence in $\mathbf {\mathbb {R}^d}$}{56}{subsection.17.3}% 
