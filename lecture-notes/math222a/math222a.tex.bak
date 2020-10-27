@@ -1487,4 +1487,78 @@ $$\left (\frac{1}{\xi_1 + u\xi_2}\right )^\vee = \frac{c}{x_1 + ix_2}.$$
 
 We can find that $|c|^2 = 1$, so it follows that the fundamental solution of $\overline{\partial}$ is $1/z \in L_{loc}^1$.  
 \end{itemize}
+\pagebreak
+\section{October 27th, 2020}
+\subsection{Fundamental Solutions for Partial Differential Operators}
+If we had $P(D)u = f$, where $u, f \in \mathcal S$, then the fundamental solution $K$ is given by 
+$$\hat{K} = \frac{1}{P(\xi)},$$
+where $P(\xi)$ is called the symbol of $P(D)$ and $D = \frac{1}{i}\partial$.  The issue: how do we interpret $\hat{K}$ in the sense of distributions?
+\subsection{The Laplacian, $ \mathbf{n \ge 3}$}
+Suppose $P = -\Delta = \sum_{j=1}^n \partial_j^2$.  Then $P(D) = D^2$.  The symbol is given by $P(\xi) = \xi^2$ and we consider $\frac{1}{\xi^2}$.  This is locally integrable if and only if $n \ge 3$.  For $n = 1$, we computed $K = \frac{1}{2}|x|$.  For $n = 2$, we have logarithmic divergence.  For $n \ge 3$, we can integrate this.  
+
+First, note that $1/|\xi|^2$ is homogeneous of degree $-2$.  We also have spherical symmetry.  What can we say about $K = \mathcal F^{-1}(1/|\xi|^2)$?  This is homogeneous of degree $2 - n > -n$.  It also must be spherically symmetric.  Hence $K(x) = |x|^{2-n} \cdot k(\theta)$.  Then $K(x) = c|x|^{2-n}$ by spherical symmetry.  To find $c$, we compute $-\Delta |x|^{2-n} = 0$ away from $x = 0$.  If we compute $$-\Delta |x|^{2-n}(\phi) = |x|^{2-n}(-\Delta \phi)= -\int_{\R^n} |x|^{2-n} \Delta \phi\, dx = \lim_{\epsilon \to 0} - \int_{\R_n\setminus B_\epsilon} |x|^{2-n} \Delta \phi \, dx.$$
+If we integrate by parts, we find 
+\begin{align*}
+&= \lim_{\epsilon \to 0} \int_{\R^n \setminus B_\epsilon} \nabla |x|^{2-n} \cdot \nabla \phi\, dx - \int_{\partial B_\epsilon} |x|^{2-n} \cdot \nabla \phi \cdot \nu \, d\sigma\\
+&= \lim_{\epsilon \to 0} -\int_{\R^n\setminus B_\epsilon} \Delta |x|^{2-n} \cdot\phi \, dx - \int_{\partial B_\epsilon} |x|^{2-n} \nabla \phi \cdot \nu \, d\sigma  +\int_{\partial B_\epsilon} \nabla |x|^{2-n} \cdot \nu \cdot \phi\,  d\sigma.
+\end{align*}
+where $\nu = -\frac{x}{|x|}$ is the outer normal vector.
+
+The first term is $0$ since $\Delta |x|^{2-n} = 0$.  The second term can is bounded by 
+$$O(\epsilon^{2-n} |\partial B_\epsilon|) = O(\epsilon^{2-n} \epsilon^{n-1}) = O(\epsilon) \to 0.$$
+
+
+Note that $\nabla |x| = \frac{x}{|x|} = \nu$.  It follows that $$\nabla |x|^{2-n} = (2-n) \frac{x}{|x|} |x|^{1-n} = (2-n) x |x|^{-n}.$$
+Hence $$\nabla |x|^{2-n} \cdot \nu = -(2 - n)v|x|^{1-n}.$$
+Then the last contribution is 
+The last contribution is 
+$$\lim_{\epsilon \to 0} \int_{\partial B_1} (n-2)|x|^{1-n} \cdot \phi \,dx.$$
+If we think of $|x| = \epsilon y$ for $|y| = 1$, then we have 
+$$\lim_{\epsilon \to 0} \int_{\partial B_1} (n-2) \epsilon^{1-n} \phi(\epsilon y)\, dy \cdot \epsilon^{n-1}=  \int_{\partial B_1} (n-2) \phi(0) dy = (n-2) \phi(0)|\partial B_1|.$$
+If we let $c_n = |\partial B_1|$, then
+$$-\Delta |x|^{2-n}(\phi) = (n-2) c_n \phi(0) \Longrightarrow -\Delta |x|^{2-n} = (n-2)c_n \delta_0.$$
+Therefore,
+$$K = -\frac{1}{(2-n)c_n} |x|^{2-n}.$$
+\subsection{The Laplacian, n = 2}
+In the case where $n = 2$, $\frac{1}{|\xi|^2}$ is not integrable.  For a simpler example, think of $\frac{1}{|x|}$ in 1D.  We considered $PV(1/x)$ for this computation.  The problem is that it kills the homogeneity.  
+
+$$\frac{1}{|x|} (\phi) = \lim_{\epsilon \to 0} \int_{\R \setminus [-\epsilon, \epsilon]} \phi(x)/|x|dx - 2|\log \epsilon| \cdot \phi(0).$$
+Then 
+$$f(\lambda x) = \frac{1}{\lambda }f(x) - 2\log \lambda \cdot \delta_0.$$
+Applying a fourier transform, we find that 
+$$\hat{f} = c \log |\xi|.$$
+We have that 
+$$\frac{1}{|\xi|^2}(\phi) = \lim_{\epsilon \to 0} \int_{\R^2 \setminus B_\epsilon} \phi(\xi)/|\xi|^2 \, d\xi - 2\pi \phi(0) |\log \epsilon|.$$
+If follows that 
+$$\mathcal F^{-1} PV(1/|\xi|^2) = - 2\pi \log |x|.$$
+We conclude that $K(X) = c \log |x|$.  To exactly determine $c$, note that 
+
+\begin{align*}
+- \Delta K(\phi)&= \lim_{\epsilon \to 0} \int_{\partial B_\epsilon} \nabla (\log |x|)\cdot \nu \cdot \phi\,  d\sigma \\
+&= \int_{\epsilon \to 0} \int_{C(0, \epsilon)} -\frac{1}{|x|} \cdot \phi ds \\
+&= -\phi(0) \frac{2\pi \epsilon}{\epsilon}\\
+&= -2\pi \phi(0). 
+\end{align*}
+It follows that 
+$$K(x) = -\frac{1}{2\pi} \log|x|.$$
+\begin{example}[More General Operators]
+Suppose we have an operator $P(D) = - a^{ij}D_iD_j.$  For example, for $-\Delta$, $A = (a^{ij}) = I_n$.  Then $P(\xi) = a^{ij} \xi_i \xi_j$.  Note that the operator is elliptic if $A$ is positive definite.  After a suitable change of coordinates, this is equivalent to $-\Delta$.
+
+For the fundamental solution, we look at the inverse matrix $A^{-1} = (a_{ij})$, so that 
+$$K = c_m \cdot (a_{ij} x^i x^j)^{1-n/2} (\det A)^{-1/2}.$$
+
+More details can be found in Hormander.
+\end{example}
+\subsection{The Heat Operator}
+We work in $\R \times \R^n$, where $\R$ corresponds to time and $\R^n$ corresponds to space.  Let $P = \partial_t - \Delta_x$.  If we denote $(\tau, \xi)$ as the Fourier variables, we have 
+$$P(D) = i D_t + D_x^2 \Longrightarrow P(\xi) = i\tau + |\xi|^2.$$
+Is $\frac{1}{P(\xi)} = \frac{1}{i\tau + \xi^2}$ integrable?  Consider the region where $|i\tau + \xi^2| = R^2$ for some $R > 0$. Hence $|\xi| \le R$ and $|\tau| \le R^2$, which corresponds to a parabolic ball, which we will denote $B_R$.  Note that $|B_R| = R^{n+2}$, so the integral over $B_R$ is 
+\begin{align*}
+\int_{B_R} \left |\frac{1}{P(\xi)}\right | \approx \frac{1}{R^2} R^{n+2} \approx R^n
+\end{align*} 
+Then, if we let $\R \times \R^n = \bigcap_{R = 2^j} B_R$, then 
+\begin{align*}
+\int_{|\tau, \xi| \le 1} 1/|P(\xi)| &\approx \sum_{R \le 1, R = 2^j} R^n < \infty.
+\end{align*}
+
 \end{document}

@@ -62,3 +62,8 @@
 \contentsline {subsection}{\numberline {17.1}PDEs via Fourier Transforms}{54}{subsection.17.1}% 
 \contentsline {subsection}{\numberline {17.2}Elliptic PDEs}{54}{subsection.17.2}% 
 \contentsline {subsection}{\numberline {17.3}Fundamental Solutions for PDEs}{55}{subsection.17.3}% 
+\contentsline {section}{\numberline {18}October 27th, 2020}{56}{section.18}% 
+\contentsline {subsection}{\numberline {18.1}Fundamental Solutions for Partial Differential Operators}{56}{subsection.18.1}% 
+\contentsline {subsection}{\numberline {18.2}The Laplacian, $ \mathbf {n \ge 3}$}{56}{subsection.18.2}% 
+\contentsline {subsection}{\numberline {18.3}The Laplacian, n = 2}{57}{subsection.18.3}% 
+\contentsline {subsection}{\numberline {18.4}The Heat Operator}{57}{subsection.18.4}% 
