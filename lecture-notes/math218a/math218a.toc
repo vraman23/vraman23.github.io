@@ -57,3 +57,12 @@
 \contentsline {subsection}{\numberline {17.1}CLT with Unbounded Variance}{55}{subsection.17.1}% 
 \contentsline {subsection}{\numberline {17.2}General Theory of Distributions}{55}{subsection.17.2}% 
 \contentsline {subsection}{\numberline {17.3}Convergence in $\mathbf {\mathbb {R}^d}$}{56}{subsection.17.3}% 
+\contentsline {section}{\numberline {18}October 27th, 2020}{57}{section.18}% 
+\contentsline {subsection}{\numberline {18.1}Fourier Inversion in $\mathbb {R}^d$}{57}{subsection.18.1}% 
+\contentsline {subsection}{\numberline {18.2}Convergence of Characters}{57}{subsection.18.2}% 
+\contentsline {subsection}{\numberline {18.3}Multivariate Central Limit Theorem}{58}{subsection.18.3}% 
+\contentsline {subsection}{\numberline {18.4}Poisson Processes}{58}{subsection.18.4}% 
+\contentsline {subsection}{\numberline {18.5}Signed Measures}{59}{subsection.18.5}% 
+\contentsline {section}{\numberline {19}October 29th, 2020}{60}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Decomposition Theorems}{60}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Conditional Expectation}{61}{subsection.19.2}% 

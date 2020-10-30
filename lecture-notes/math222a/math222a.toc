@@ -67,3 +67,7 @@
 \contentsline {subsection}{\numberline {18.2}The Laplacian, $ \mathbf {n \ge 3}$}{56}{subsection.18.2}% 
 \contentsline {subsection}{\numberline {18.3}The Laplacian, n = 2}{57}{subsection.18.3}% 
 \contentsline {subsection}{\numberline {18.4}The Heat Operator}{57}{subsection.18.4}% 
+\contentsline {section}{\numberline {19}October 29th, 2020}{59}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Heat Operator, Continued}{59}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Heat Equation, Cauchy Problem}{59}{subsection.19.2}% 
+\contentsline {subsection}{\numberline {19.3}Schrodinger Equation in $\mathbb {R}\times \mathbb {R}^n, n \ge 1$}{60}{subsection.19.3}% 

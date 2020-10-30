@@ -1560,5 +1560,112 @@ Then, if we let $\R \times \R^n = \bigcap_{R = 2^j} B_R$, then
 \begin{align*}
 \int_{|\tau, \xi| \le 1} 1/|P(\xi)| &\approx \sum_{R \le 1, R = 2^j} R^n < \infty.
 \end{align*}
+\pagebreak
+\section{October 29th, 2020}
+\subsection{Heat Operator, Continued}
+We observed that $\frac{1}{p(\tau, \xi)} \in L^1_{loc}$, so can we find $\mathcal F^{-1} \frac{1}{i\tau + \xi^2}$?
+
+First, take the Fourier transform in $\tau$.  For $\xi \ne 0$, $1/(i\tau + \xi^2)$ is smooth on $\R$, but has a pole at $i\tau = -\xi^2$.  
+
+Then, the inverse FT is given by
+\begin{align*}
+\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \frac{e^{it\tau}}{i\tau + \xi^2} \, d\tau.
+\end{align*}
+If $t < 0$, $e^{it\tau}$ decays exponentially as $\text{Im}(\tau) \to -\infty$.  It follows that the integral is $0$ in this case, pushing the contour down towards $-\infty$.
+
+If $t > 0$, $e^{it\tau}$ decays exponentially as $\text{Im}(\tau) \to \infty$.  The integral is the residue at the pole $\tau = i\xi^2$.  
+
+We find that 
+$$\mathcal F^{-1}\left (\frac{1}{i\tau + \xi^2}\right) = e^{-t\xi^2}.$$
+
+Finally,
+$$\mathcal F_x^{-1} e^{-it\xi^2} = 2^{-n/2}e^{-x^2/4t},$$
+from our previous work on the Fourier transforms of Gaussians.  Hence,
+$$K(t, x) = \frac{1}{(4\pi t)^{n/2}}e^{-x^2/4t} \cdot 1_{t \ge 0}.$$
+Remarks
+\begin{itemize}
+ \item $\supp{K} = \{t \ge 0\}$, since $Pu = f$, which gives $u = K * f$ which adds the supports.  Then, the support of $f$ is moved only in the positive time direction.  We say that $K$ is a forward fundamental solution.
+ \item Suppose $\hat{K_0} \cdot p = 1$.  Then $(\hat{K} - \hat{K_0})\cdot p = 0$.  Since $p$ vanishes only at $0
+$, we have $\supp(\hat{K} - \hat{K_0}) = \{(0, 0)\}$.  Hence, $K - K_0$ is a polynomial.  This further implies that there is a unique forward fundamental solution in $\mathcal S'$.  
+ \end{itemize} 
+\subsection{Heat Equation, Cauchy Problem}
+We have the following Cauchy problem:
+$$\begin{cases}
+(\partial_t - \Delta) u = f, t \ge 0 \\
+u(t= 0) = u_0
+\end{cases}.$$
+
+Considering the homogeneous solution, if we take the FT in $x$, 
+$$
+\begin{cases}
+(\partial_t + \xi^2) \hat{u}(t, \xi) = 0 \\
+\hat{u}(0, \xi) = \hat{u}_0(\xi).
+\end{cases}
+$$
+
+The solution is 
+$$\hat{u}(t, \xi) = \hat{u}_0(\xi) e^{-t\xi^2}.$$
+$$u(t, x) = u_0 * K(t, x).$$
+To connect this with the solution to the inhomogeneous problem:
+\begin{itemize}
+\item We extend to $t < 0$, 
+$$\tilde{u}(t, x) = \begin{cases}
+u(t, x), t = 0 \\
+0, t < 0.
+\end{cases}$$
+\item We compute 
+$$(\partial_t - \Delta)\tilde{u} = \delta_{t = 0} \cdot u_0(x).$$
+\end{itemize}
+
+We solve this by using the fundamental solution,
+\begin{align*}
+\tilde{u} &= u_0(x) \delta_{t=0} *_{t, x} K(t, x) \\
+&= u_0(x) *_x K(t, x).
+\end{align*}
+We could also solve,
+$$(\partial_t - \Delta)K = \delta_{(0, 0)},$$
+which means that $K(t, x)$ is the solution to the Cauchy problem with initial data $u_0 = \delta_{x = 0}$.
+
+Some observations:
+\begin{itemize}
+\item To solve $Pu = f$, we can set $u = f * K$.  Because $K$ decays exponentially as $x \to \infty$, the convolution is well defined even if $f$ has exponential growth.  For example, if $|f| \le e^{x^2/4T}$, the convolution makes sense for $|t| < T$.
+\item We cannot solve the heat equation backward in time.
+$$\hat{u}(t, \xi) = \hat{u}_0(\xi) e^{-t\xi^2}.$$
+This is not in $\mathcal S'$ since $e^{-t\xi^2}$ grows exponentially in $\xi$ for $t < 0$.
+\item The heat equation is a diffusion equation.
+\end{itemize}
+
+\subsection{Schrodinger Equation in $\R \times \R^n, n \ge 1$}
+We have the following Cauchy Problem:
+$$\begin{cases}
+(i \partial_t + \Delta) u = 0 \\
+u(0) = u_0,
+\end{cases},$$
+where $u$ is complex valued.  
+
+We first find the fundamental solution.  Take a spatial Fourier Transform,
+$$\begin{cases}
+(i\partial_t - \xi^2)\hat{u}(t, \xi) = 0 \\
+\hat{u}(0, \xi) = \hat{u}_0(\xi)
+\end{cases}.$$
+We find that $$\hat{u}(t, \xi) = e^{-it\xi^2} \cdot \hat{u}_0(\xi).$$
+Taking an inverse FT, we (formally) find that 
+$$u(t, x) = \mathcal F^{-1}(e^{-it\xi^2}) * u_0 = \frac{1}{(4 \pi i t)^{n/2}} e^{-ix^2/4t}.$$
+However, we are working with complex arguments which requires further inquiry.  
+
+Consider 
+$$F(\epsilon,\xi) = e^{-\epsilon \xi^2/2}.$$
+For $\text{Re}(\epsilon) \ge 0$, $F \in \mathcal S'$ and for $\text{Re}(\epsilon) > 0$, $F \in \mathcal S$.  As a function of $\epsilon$, this is an analytic function.
+
+Then $\check{F}(\epsilon, x)$ is also analytic in $\epsilon$ with values in $\mathcal S$ for $\text{Re}(\epsilon) > 0$.  The same holds for $\text{Re}(\epsilon) > 0$.  
+The trick is to extend to $\epsilon \in i\R$ by using continuity.
+
+Some observations:
+\begin{itemize}
+\item The fundamental solution for the Schrodinger equation corresponds to $u_0 = \delta_0$, so the forward solution is given by $$K_+(t, x) = (4 \pi i t)^{-n/2} e^{ix^2/4t} \cdot 1_{t \ge 0}$$
+\item The backward fundamental solution is given by 
+$$K_-(t, x) = -(4 \pi i t)^{-n/2} e^{ix^2/4t} \cdot 1_{t \le 0}.$$
+\item $K$ is smooth away from $t=0$ but does not decay.
+\end{itemize}
 
 \end{document}

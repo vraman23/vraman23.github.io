@@ -1476,4 +1476,180 @@ If $X_n \to X$ in distribution, then $F_n(x) \to F(x)$ and $x$ is a continuity p
 
 If $F_n(x) \to F(x)$ for all continuity points, then given $A = (a_1 \times b_1] \times \dots \times (a_d \times b_d]$, then $P(X_n \in A) \to P(X \in A)$.  Observing that any open set can be approximated from the inside by a disjoint union of such rectangles, we find that $\liminf P(X_n \in U) \ge \lim P(X_n \in B) = P(X \in B) \approx P(X \in U)$.
 \end{proof}
+\section{October 27th, 2020}
+\subsection{Fourier Inversion in $\R^d$}
+For a distribution $F$ on $\R^d$ with $X \sim F$, 
+$$\phi_X(t) = E(e^{i\left<t, x\right>}),$$
+where $$\langle t, x \rangle = \sum_{i=1}^{d} t_i x_i.$$
+We can show the inversion theorem generalizes:  take $A = [a_1, b_1] \times [a_2, b_2] \times \dots \times [a_d, b_d].$  Suppose $P(\partial A) = 0$.  
+
+In 1D, recall that we had
+$$\frac{1}{2\pi} \int_{-T}^T \frac{e^{-ita} - e^{-itb}}{it} \phi(t) \xrightarrow {T \to \infty}  \mu(a, b) + \frac{1}{2}\mu(\{a, b\}).$$
+Let $t = (t_1, t_2, \dots, t_d)$.  Then 
+$$(2\pi)^{-d}\int_{-T, T}^d \prod_{i=1}^d \psi(t_i, a_i, b_i) \phi(t_i) \to \mu(A),$$
+where $\psi(t, a, b) = \frac{e^{-ita} - e^{-itb}}{it}.$  The result follows from applying Fubini's theorem to get 
+$$\int \prod_{i=1}^{d} \int_{-T}^T \psi(t_i, a_i, b_i) e^{it_i x_i},$$
+and $\int_{-T}^T \psi(t_i, a_i, b_i) e^{it_i x_i} \to 1(X_i \in (a_i, b_i)) + 1/2 1(X_i \in \{a_i, b_i\}).$
+
+It follows that 
+$$\int \prod_{i=1}^{d} \int_{-T}^T \psi(t_i, a_i, b_i) e^{it_i x_i} \to \mu(A^o) = \mu(A).$$
+\subsection{Convergence of Characters}
+\begin{thm} $X_n \Rightarrow X_{\infty}$ if and only if $\phi_{X_n} \to \phi_{X_\infty}$.  
+\end{thm}
+\begin{proof}
+The forward direction follows from the definition of bounded continuous functions converging.  For the converse, we show that $\phi_{X_n} \to \phi_{X_\infty}$ implies tightness, which implies existence of subsequential limits, which implies that every subsequential limit has characteristic function $\phi_{X_\infty}$, which by inversion implies that the limit is unique.  We already have continuity at $0$.  Note that $X_n = (X_n^1, \dots, X_n^d),$ $X_{\infty} = (X_\infty^1, \dots, X_\infty^d).$  We have that $\phi_{X_n^i}(t) \to \phi_{X_\infty^i}(t)$.  It follows that each of $\{X_n^i\}_n$ are tight sequences.  
+
+By tightness, there exists $P(X_n^i \in [-M_i, M_i]^c) < \frac{\epsilon}{d}$.  Then,
+$$P(X_n \in (\bigtimes [-M_i, M_i])^c) \le \epsilon,$$
+so $X_n$ is tight, as desired.
+\end{proof}
+\begin{proposition} $X_n \Rightarrow X_\infty$ if and only if $\langle \theta, X_n \rangle \Rightarrow \langle \theta, X_\infty \rangle$ for all $\theta \in \R^d$.
+\end{proposition}
+\begin{proof}
+We could use the continuous mapping theorem or characteristics functions.  We could also use characteristic functions.  We know that $\phi_{X_n}(t\theta) \to \phi_{X_\infty}(t\theta)$, but note that $\phi_{X_n}(t \theta) = \phi_{\theta \cdot X_n }(t) \to \phi_{\theta X_\infty}(t).$  The other direction is clear taking $\phi_{\theta X_n}(1) = \phi_{X_n} (\theta) \to \phi_{X_\infty}(\theta).$
+\end{proof}
+
+
+\subsection{Multivariate Central Limit Theorem}
+
+\begin{definition}  $X$ is said to have multivariate Gaussian distribution with covariance $\Sigma$ and mean $0$ if 
+$$\phi_X(\theta) = e^{\theta^T \Sigma \theta / 2}.$$
+\end{definition}
+\begin{thm}[Multivariate CLT] If $X_1, \dots$ are iid random vectors with mean $0$ covariance $\Sigma$, then 
+$$\frac{X_1 + X_2 + \dots + X_n}{\sqrt{n}} \xrightarrow{d} \mathcal N(0, \Sigma).$$ 
+\end{thm}
+\begin{proof}
+The proof follows from using 1D CLT and using the lemma above.  
+\end{proof}
+
+\subsection{Poisson Processes}
+\begin{thm}
+Suppose we had a triangular arrow $\{X_n^i\} $ with $X_{i^n} \sim Ber(P_{n, i})$ where $\sum_{i=1}^n P_{n, i} \to \lambda$ and $\max_{1 \le i \le n} P_{n, i} \to 0$.  Then,
+ $$\sum_{i=1}^n X_i^n \xrightarrow{d} Poi(\lambda)$$
+ where $P(X=  k) = e^{i\lambda} \lambda^k/k!$.
+ \end{thm}
+ \begin{proof}
+The characteristic function for a Poisson variable is
+$$\phi_X(t) = \sum e^{itx} e^{-\lambda} \lambda^{k}/k! = e^{-\lambda} \sum (e^{it} \lambda)^k/k! = e^{-\lambda} e^{e^{it \lambda}} = e^{\lambda(e^{it} - 1)}.$$
+
+The characteristic function of $Ber(P_{ni})$ is $$\phi(t) = 1 - P_{ni} + P_{ni} e^{it} = 1 + P_{ni}(e^{it} - 1).$$
+
+Then,
+$$\phi_{X_1^n + \dots + X_n^n}(t) = \prod_{i=1}^n (1 + P_{ni}(e^{it} - 1)) = A.$$
+If we compute $e^{\sum P_{ni}(e_{it} - 1)} = B$.
+
+We find that $$|A - B| \le \sum_{i=1}^n P_{ni} |e^{it} - 1|^2 \le 4 \sum_{i=1}^n P_{ni}^2 \le 4 \max P_{ni} \sum  P_{ni} \to 0.$$
+
+Then $e^{\sum P_i (e^{it} - 1)} \to e^{\lambda(e^{it} - 1)} = \phi_{Poi(\lambda)}(t).$
+\end{proof} 
+\subsection{Signed Measures}
+\begin{definition} In a space $(\Omega, \Sigma)$, we have $\mu : \Sigma \to (-\infty, \infty]$ so that $\mu(\emptyset) = 0$ and 
+if $A = \bigcup E_i$ disjoint, then either $\mu(A) = \infty$ of $\mu(A) < \infty$.  In the first case $\sum \mu(E_i)_{-} < \infty$ and $\sum \mu(E_i)_+ = \infty$.  In the second case, we need $\sum |\mu(E_i)| < \infty$, which implies that $\sum \mu(E_i) = \mu(A)$ is well-defined.
+\end{definition}
+\begin{example}  If $\mu_1, \mu_2$ are finite measures, then $\mu_1 - \mu_2$ is a signed measure.
+\end{example}
+\begin{example}
+In $(\Omega, \Sigma, \mu)$ $f$ is a measurable function with $\int f_- < \infty$ and $\int f_+ = \infty$, then $\nu(A) = \int_A f$ is a signed measure.
+\end{example}
+
+\begin{definition} A set $A \in \Sigma$ is positive if for all $B \subset A$ $\mu(B) \ge 0$.
+\end{definition}
+\begin{lemma} If $A_1, A_2, \dots$ are positive then so is $\bigcup A_i$.  
+\end{lemma}
+
+
+
+\begin{thm}[Hahn Decomposition Theorem] Given signed measures, there exists $A, B$ so that $A$ is negative, $B$ is positive, $A, B$ disjoint and 
+$$\mu(E) = \mu(E\cap A) + \mu(E \cap B).$$
+\end{thm}
+\begin{lemma} Suppose $C$ is such that $\mu(C) < 0$.  Then there exists $D \subset C$ with $\mu(D) < 0$.
+\end{lemma}
+\pagebreak
+\section{October 29th, 2020}
+\subsection{Decomposition Theorems}
+
+\begin{definition} A set $S$ is a null set if all its measurable subsets have $0$ measure.
+\end{definition}
+
+\begin{lemma} Suppose $C$ is such that $\mu(C) < 0$.  Then there exists $D \subset C$ with $\mu(D) < 0$.
+\end{lemma}
+
+\begin{proof}
+We iteratively throw out sets with positive mass.  Is $S$ is negative, we are done.  Otherwise, there are sets of positive mass.  Let $n_1$ be the smallest integer such that there exists $E_1$ with $\mu(E_1) \ge \frac{1}{n_1}$.  Then, consider $S \setminus E_1$ and repeat.  
+
+If the process stops in finite steps, we are done, since $S \setminus (E_1 \cup E_2 \cup \dots\cup E_k)$ is a negative set for some $k$.  If not, let $S' = S \setminus \bigcup_{i=1}^{\infty} E_i$.  Because $\mu$ is a signed measure,
+$$\mu(S) = \mu(S') + \sum_{i=1}^{\infty} \mu(E_i).$$
+Note that $\mu(S) < 0$ and $\mu(S') < 0$, so we must have $\sum_{i=1}^{\infty} \mu(E_i) < \infty$.  Then $S'$ must be negative.  If not, there exists $F \subset S'$ with $\mu(F) > 1/N$ for some N.  But after some $i_0$, $\mu(E_i) < \frac{1}{n}$, so we would have thrown away $F$ instead of the $E_i$, a contradiction.
+\end{proof}
+Now we proof the Hahn Decomposition Theorem:
+\begin{proof}
+If there does not exist any set $S$ with negative measure, we are done.    If not, there exist negative sets.  Let $\alpha = \inf\{\mu(C) : C \text{ negative}\}.$  Let $C_1, C_2, \dots$ be increasing negative sets with $\mu(C_i) \downarrow \alpha$.  We have shown that $B = \bigcup_{i=1}^{\infty} C_i$ is negative.  Then $\mu(B) \ge \alpha$ since $\alpha$ is the infimum.  However, $\mu(B) \le \mu(C_i)$ for all $i$, so $\mu(B) \le \alpha$, which implies that $\mu(B) = \alpha$.
+
+We claim that $B^c$ is positive.  If not, it contains a set with $\mu(D) < 0$, which implies there exists $E \subset D$ with $\mu(E) < 0$ and $E$ is a negative set.  Hence $B \cup E$ is a negative set with $\mu(B \cup E) < \alpha$, a contradiction.
+
+The composition is then $\Omega = B \cup B^c$.  Suppose there is a set $C \cup C^c$ with $C$ negative and $C^c$ positive.  Then $C \cap B^c$ is both negative and positive so it is a null set.  Similarly, $C^c \cap B$ is a null set.  
+\end{proof}
+\begin{definition} Meausres $\mu, \nu$ are mutually singular if there is a set $A$ with $\mu(A) = 0$ and $\nu(A^c) = 0$.
+\end{definition}
+\begin{thm}[Jordan Decomposition] For $\alpha$ a signed measure, there exists mutually singular measures $\alpha^+$ and $\alpha^-$ such that $\alpha = \alpha^+ - \alpha^-$.
+\end{thm}
+\begin{proof}
+We take $\alpha^+ = \alpha \vert_{B^c}$ and $\alpha^- = -\alpha \vert_B$ where $\Omega = B \cup B^c$ is the Hahn Decomposition.  In this case $\alpha^+$ and $\alpha^-$ are unique, since null sets are measure $0$ and don't change the value of the measures.
+\end{proof}
+\begin{thm}[Lebesgue Decomposition Theorem]
+If $\mu_1, \mu_2$ are finite measures, then $\mu_2 = \mu_2^a + \mu_2^s$ such that there exists $g \ge 0$ with $\mu_2^a(E) = \int_E g d\mu_1$ and $\mu_2^s$ is singular with respect to $\mu_1$.
+\end{thm}
+\begin{proof}
+We extract $\mu_2^a$ from $\mu_2$.  Then, consider $\mathcal H = \{h : h \ge 0, \int h\, d\mu_1 \le \mu_2(E), E \in \Sigma\}.$  We want $g$ is to be the maximal element of $h$.    Note that if $h_1, h_2 \in \mathcal H$ then $h_1 \vee h_2 \in \mathcal H$.  If we take $A : \{h_1 > h_2\}$, then 
+$$\int_E h_1 \vee h_2 \, d\mu_1 = \int_{E \cap A} h_1 \, d\mu_1 + \int_{E \cap A^c} h_2\, d\mu_1 \le \mu_2(E \cap A) + \mu_2(E \cap A^c) = \mu_2(E).$$
+
+Let $\alpha = \sup_{h \in \mathcal H} \int h d\mu_1$.  Let $\{h_i\}$ be so that $\int h_i d\mu_1 \uparrow \alpha$.  Then $g = \lim h_i$ is well defined since $h_i$ are increasing and 
+$$\int_E g \, d\mu_1 = \lim \int_E h_i\, d\mu_1 \le \mu_2(E).$$
+Hence, $g \in \mathcal H$ and by MCT, $\int g = \alpha$.  
+
+Define $\mu_2^a(E) = \int_E g\,d\mu_1$.  It suffices to show that $\mu_2' = \mu_2 - \mu_2^a$ is singular with respect to $\mu_1$.
+
+Consider the signed measure $\mu_2' - \epsilon \mu_1$ and consider the positive and negative part $A_\epsilon, B_\epsilon$.  If $\mu_1(A_\epsilon) > 0$ then $g + \epsilon 1_{A_\epsilon} \in \mathcal H$ since 
+$$\int g + \epsilon 1_{A_\epsilon} d\mu_1 = \mu_2^a(E) + \epsilon \mu(1(A_\epsilon \cap E) \le \mu_2^a(E) + \mu_2'(E)= \mu_2(E).$$
+However, $$\int g + \epsilon 1_{A_\epsilon}d\mu_1 = \alpha + \epsilon \mu_1(A_\epsilon) > \alpha,$$
+a contradiction.  
+
+For any $\epsilon$, the positive part of $\mu_2' - \epsilon \mu_1$, $A_\epsilon$ has $0$ $\mu_1$-mass.  Where $B_\epsilon$ is the negative part, take $A = \bigcup_{n=1}^{\infty} A_{1/n}$ and $B = \bigcap_{n=1}^{\infty} B_{1/n}$.  We claim that $\mu_2'(B) = 0$.  If $\mu_2'(B) > 0$, then $\mu_2'(B) - \epsilon \mu_1(B) > 0$ for some small $\epsilon$, but $B$ is contained in the negative set $B_\epsilon$.  
+
+The uniqueness is easy to show.
+ \end{proof}
+ 
+ \begin{definition} $\mu_2$ is said to be absolutely continuous with respect to $\mu_1$( denoted $\mu_2 << \mu_1$) if for any $A$ with $\mu_1(A) = 0$, $\mu_2(A) = 0$.
+ \end{definition}
+ 
+ \begin{thm}[Radon-Nikodym Theorem] Suppose $\mu, \nu$ are $\sigma$-finite measures and $\nu$ is absolutely continuous with respect to $\mu$, then there is a $h \ge 0$, so that $\nu(E) = \int_E h\, d\mu$.
+ \end{thm} 
+\begin{proof}
+By the Lebesgue decomposition, $\mu_2 = \mu_2^a + \mu_2^s$, but $\mu_2 << \mu_1$, $\mu_2^s = 0$.    It's easy to check the uniqueness of $h$ almost surely.
+\end{proof}
+\subsection{Conditional Expectation}
+\begin{definition}  Suppose we have $(\Omega, \Sigma, P)$ and a random measurable variable $X$ with $E|X| < \infty$.  Let $\mathcal F \subset \Sigma$, another $\sigma$-algebra.  We define $E(X | \mathcal F)$ as an $\mathcal F$ measurable function with the property that for all $S \in \mathcal F$,
+$$\int_S E(X | \mathcal F) d\mu = \int_S X d\mu.$$ 
+\end{definition}
+\begin{lemma} 
+$|E(X|\mathcal F)|$ is in $L^1$.  
+\end{lemma}
+\begin{proof}
+Let $A = \{E(X|F) > 0\} \in F$ .  Then
+$$\int |E(X|F)| = \int_A E(X|F) - \int_{A^c} E(X|F) = \int_A X - \int_{A^c} X \le \int |X|.$$
+\end{proof}
+
+We first address \textbf{existence}.  Assume $X \ge 0$.  Define a measure $\mu'$ on $(\Omega, \mathcal F)$ where $\mu'(E) = \int_E X\, d\mu_1.$  We have that $\mu'$ is a measure on $(\Omega, \mathcal F)$.  It is easy to check that $\mu' << \mu_1$.  By RN, there exists $g$ measurable with $\mu'(E) = \int_E g\, d\mu_1$.  The theorem also shows uniqueness almost surely, so we define $E(X|F) = g$.
+
+Now we handle uniqueness.  Suppose $h_1, h_2$ are two versions of $E(X|F)$.  Then
+ $$\int_E h_1 = \int_E h_2 = \int_E X$$
+ and $\int h_1 - h_2 = 0$, so $h_1 = h_2$ almost surely.
+
+Some facts about conditional expectations:
+\begin{itemize}
+\item Suppose $B \in F$ and $X_1 = X_2$ on $B$.  Then $E(X_1|F) = E(X_2|F)$ almost surely on $B$.
+\item Linearity: $X, Y \in \Sigma$, then $E(aY + bY | F) = aE(X|F) + bE(Y|S)$ almost surely.
+\item Monotonicity: $X \le Y$ implies that $E(X|F) \le E(Y|F)$ almost surely.  
+\item $X_n \ge 0$ and $X_n \uparrow X$, $E(X) < \infty$ then $E(X_n|F) \uparrow E(X|F)$.  Then, we adapt the proof of MCT to prove this.  
+\end{itemize}
 \end{document}
