@@ -1,0 +1,11 @@
+Using the fact that
+$$\displaystyle \frac{d|x|}{dx} = sgn(x)$$, $$\displaystyle \frac{d sgn(x)}{dx} = 2\frac{d H(x)}{dx} = 2\delta_0 (x)$$,
+I deduced
+$$\displaystyle D_{x^2y^2} |xy| = \frac{\partial^2 |x|}{\partial x^2}\frac{\partial^2 |y|}{\partial y^2} = 2\delta_{x=0} \cdot 2\delta{y=0} = 4\delta_{(0,0)}$$
+So I concluded $$P = \frac{1}{4}x^2y^2$$
+
+To verify it, I tried to check $$\hat{K}(\xi) = \frac{1}{2\pi} \int \int |xy|e^{-i(\xi_1 x + \xi_2 y)} dx dy = \frac{1}{2\pi}\frac{4}{\xi_1^2 \xi_2^2}$$
+
+$$ \begin{aligned} \hat{K}(\xi) &= \frac{1}{2\pi} \int \int |xy|e^{-i(\xi_1 x + \xi_2 y)} dx dy \\ &= \frac{1}{2\pi} \int |x|e^{-i(\xi_1 x)}dx \int |y|e^{-i(\xi_2 y)} dy \\ &= \frac{1}{2\pi} \int |x|(\cos(\xi_1 x) - i\sin(\xi_1 x)) dx \int |y|(\cos(\xi_2 y) - i\sin(\xi_2 y)) dy \\ &= \frac{4}{2\pi} \int_0^{\infty} x\cos(\xi_1 x) dx \int_0^{\infty} y\cos(\xi_2 y)dy \\ \end{aligned} $$
+
+Here I'd like to derive $$\int_0^{\infty} x\cos(\xi_1 x) dx = \frac{1}{\xi_1}x\sin(\xi_1 x) \bigg|_0^{\infty} + \frac{1}{\xi_1^2}\cos(\xi_1 x) \bigg|_0^{\infty} = \frac{1}{\xi_1^2}$$ but have some problem to deal with the value at $$\infty$$. If I simply disregard the value at $$\infty$$ then I can get the desired answer. However that seems absurd. Did I mislead the equation? I'd appreciate it if you could point out my mistake.

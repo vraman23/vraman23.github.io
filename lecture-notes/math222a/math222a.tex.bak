@@ -1667,5 +1667,95 @@ Some observations:
 $$K_-(t, x) = -(4 \pi i t)^{-n/2} e^{ix^2/4t} \cdot 1_{t \le 0}.$$
 \item $K$ is smooth away from $t=0$ but does not decay.
 \end{itemize}
+\pagebreak
+\section{November 3rd, 2020}
+\subsection{Schrodinger Equation, Physical Interpretation}
+Recall the equation
+$$\begin{cases}
+(i \partial_t + \Delta) u = 0 \\
+u(0) = u_0,
+\end{cases},$$
+with forward fundamental solution 
+$$K_+(t, x) = (4 \pi i t)^{-n/2} e^{ix^2/4t} \cdot 1_{t \ge 0}.$$
 
+The equation comes from quantum mechanics.  Suppose we want to describe the state of an electron at a given time.  Classically, we would need to specify the position and the velocity.  However, in quantum mechanics, we can only describe these up to probability measures.
+
+Suppose the states of the electron correspond to $$S = \{u \in L^2(\R^n), \|u\|_{L^2} = 1\}.$$
+The probability distribution for position is given by $|u|^2dx$, in the sense that 
+$$P(e \in D) = \int_D |u|^2 dx,$$
+$$P(v \in E) = \int_E |\hat{u}(\xi)|^2d\xi.$$
+
+The key dynamical property is that the state function $u$ evolves along the Schrodinger flow:
+$$iu_t + \hbar \Delta u = 0,$$
+where $\hbar$ is Planck's constant.
+
+How well can we predict both the position and velocity of the particle?  In other words, what is the measure of the localization of a particle near a point.  The expected position is given by 
+$$x_0 = \int x |u(x)|^2 dx.$$
+The mean square deviation from the expected position is 
+$$(\delta x)^2\int (x - x_0)^2 |\hat{u}(x)|^2 dx.$$
+
+The expected velocity is 
+$$\xi_0 = \int \xi |u(x)|^2 dx,$$
+and the mean square deviation is 
+$$(\delta \xi)^2 = \int (\xi - \xi_0) |\hat{u}(x)|^2 dx.$$
+
+Can we make both $\delta x, \delta \xi$ small?  
+\begin{thm}[Uncertainty Principle] 
+$$\delta x \cdot \delta \xi \ge c_n[\hbar].$$
+\end{thm}
+\begin{proof}
+Observe that we can reduce the problem to the case $x_0 = 0$ and $\xi_0 = 0$.  We want to compare 
+$$\int x^2 |u|^2 dx, \int \xi^2 |\hat{u}|^2 d\xi.$$
+By Plancherel's theorem, the second integral is $\int |\partial_x u|^2 dx.$
+
+Then,
+\begin{align*}
+(\delta x) \cdot (\delta \xi) &= \left (\int x^2 |u|^2\, dx\right)^{1/2} \cdot \left (\int |\partial_x u|^2\,dx\right)^{1/2}  \\
+&\ge - \text{Re} \int xu \cdot \partial_x \overline{u} \,dx\\ 
+&= - \frac{1}{2}\int x \cdot \partial_x |u|^2 \, dx\\
+&= \frac{n}{2}\int |u|^2 \, dx = n.
+\end{align*}
+Hence, 
+$$\delta x \cdot \delta \xi \ge \frac{n}{2}.$$
+\end{proof}
+For which questions is the inequality sharp?  This happens when Cauchy-Schwartz is sharp, namely $x \cdot u = a \partial_x u$.
+Solving this, we find that $u = e^{\frac{x^2}{2a}}$, for $a < 0$.  With respect to all variables, we find 
+$$u = c_n a^{-n/2}e^{-x^2/2a},$$
+$$\hat{u} = c_n a^{n/2} e^{-a\xi^2/2.}$$
+More generally,
+$$u_{x_0, \xi_0, a} = c_n a^{-n/2} e^{-(x - x_0)^2/2a}e^{i(x -x_0)\xi_0}.$$
+In physics, these states are called \textbf{Coherent States}.
+\subsection{Paley-Wiener Theorem}
+Suppose we have a function $f$ supported in a ball $B(0, R)$.  Note that 
+$$\hat{f}(\xi) = \int_{\R^n} f(x)e^{-ix \xi}\, dx.$$
+Extend $\xi$ to the complex plane, $\xi \in \C^n$.  Because $f$ is compactly supported, $\hat{f}$ is defined for every $\xi \in \C^n$.  Note that $\hat{f}$ is an entire function in $\xi \in \C^n$.  We showed that for $\xi \in \R^n$, then $$|\hat{f}(\xi)| \le c(1 + |\xi|)^N.$$
+
+For $\xi \in \C^n$, we cannot bound the exponential bt $1$, and instead,
+$$|e^{-ix \xi}| = e^{x \cdot \text{Im }  \xi} \le e^{|x| |\text{Im }\xi| }\le e^{R |\text{Im }\xi|}.$$
+\begin{thm}[Paley-Wiener] The $\supp f \subset B(0, R)$ if and only if 
+$$|\hat{f}(\xi)| \le c(1 + |\xi|)^Ne^{R |\text{Im }\xi|}$$
+for some large enough $N$.  
+\end{thm}
+What if $\supp f$ is not in a ball?  Suppose $\supp f \in D$.  
+$$|e^{-ix\xi}| \le \sup_{x \in D} e^{x \cdot Im (\xi)} = e^{\sup_{x \in D} x \cdot Im (\xi)} = e^{\omega_D Im(\xi)},$$
+with $\omega_D$ homogeneous of order $1$.  What happens when we maximize a linear function over a set?  We maximize over the convex hull of $D$ so that $\omega_D$ depends on the extreme points of the convex hull.  
+
+Can we use Paley-Wiener for computing fundamental solutions?  Note that the forward fundamental solution is supported in $t \ge 0$.  What can we say about the Fourier transform of distributions with $t\ge 0$ support?  
+
+$$\hat{u}(\xi) = \int e^{-x\xi}u(x)\, dx.$$
+We first take $\xi \in \R \to \xi \in \C$.  If $x > 0$, then $Re(-ix\xi) = x Im(\xi) \le 0$ if $x >0, Im(\xi) < 0$.
+
+\begin{thm}[Paley-Wiener Extension] $u$ is supported in $[0, \infty)$ if and only if $\hat{u}$ admits a holomorphic extension to the lower half-plane, s. t. 
+$$|\hat{u}(\xi)| \le (1 + |\xi|)^N \cdot |Im(\xi)|^{-N}.$$
+\end{thm}
+\begin{example} Let $P = D_x = \frac{1}{i}\partial_x$.  The fundamental solution is $K = \mathcal F^{-1}(1/\xi)$, up to constants.  
+
+By the above theorem, we should make the choice with a holomorphic extension to the upper half-plane.  Take the limit coming from the upper half-plane:
+$$K_f = \mathcal{F}^{-1} (1/(\xi + io)), K_b = \mathcal{F}^{-1}(1/(\xi - io)).$$
+\end{example}
+\begin{example}
+For the heat equation,
+$$K = \mathcal{F}^{-1} (1/(i\tau + \xi^2)). $$
+This has a unique holomorphic extension to $Im \tau > 0$.
+\end{example}
 \end{document}
