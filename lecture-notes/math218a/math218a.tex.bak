@@ -17,6 +17,7 @@
 \newcommand{\cU}{\mathcal{U}}
 \renewcommand{\P}{\mathbb{P}}
 
+\let \mc \mathcal
 
 \usepackage{answers}
 \Newassociation{hint}{hintitem}{all-hints}
@@ -1652,4 +1653,92 @@ Some facts about conditional expectations:
 \item Monotonicity: $X \le Y$ implies that $E(X|F) \le E(Y|F)$ almost surely.  
 \item $X_n \ge 0$ and $X_n \uparrow X$, $E(X) < \infty$ then $E(X_n|F) \uparrow E(X|F)$.  Then, we adapt the proof of MCT to prove this.  
 \end{itemize}
+\pagebreak
+\section{November 3rd, 2020}
+\subsection{Properties of Conditional Expectations}
+We have a mapping $(\Omega, \Sigma, P) \xrightarrow{X} (\R, B(\R))$, and a subsigma algebra $\mathcal F$ so that $E(X|\mathcal F)$ is the $\mathcal F$-measurable function such that 
+$$\int E(X|\mathcal F) = \int_A X$$
+for all $A \in \mathcal F$.
+
+
+\begin{remark} 
+In a sense, this corresponds to the maximum information of $X$ given the subsigma algebra $\mathcal F$.  
+\end{remark}
+
+\begin{exercise}
+ State and prove versions of Fatou's Lemma, MCT, and DCT for conditional expectation.
+\end{exercise}
+\begin{thm}[Jensen's Inequality] Let $\phi$ be a convex function and $X$ a random variable so that $E|X|, E|\phi(X)| < \infty$.  Then
+$$\phi(E(X|\mathcal F)) \ge \phi(E(X | \mathcal G)) \text{ almost surely.}$$
+\end{thm}
+
+\begin{thm}[Tower Property] Given $\mathcal G_1 \subset \mathcal G_2 \subset \Sigma$,
+$$E(E(X|\mathcal G_2)|\mathcal G_1) = E(X|\mathcal G_1) \text{ almost surely.}$$
+\end{thm}
+\begin{proof}
+For $A \in \mathcal G_1$,
+$$\int_A E(E(X|\mathcal G_2)|\mathcal G_1) = \int_A E(X|\mathcal G_2) = \int_A X = \int_A E(X|\mathcal G_1).$$
+\end{proof}
+
+\begin{thm}  For $\mathcal G \subset \Sigma$, $X$ is a random variable that is independent of $\mathcal G$, which means that $\mathcal G$ and $\Sigma(X)$ are independent as subsigma algebras of $\Sigma$.  Then 
+$$E(X|\mathcal G) = E(X), a.s.$$
+\end{thm}
+\begin{proof}
+For two random variables $Y, S$ independent, $E(YZ) = E(Y)E(Z)$.  Then 
+$$\int_A E(X|G) = \int_A X = \int X1_A = E(X)P(A) = \int_A E(X).$$
+\end{proof}
+\begin{thm}  Suppose $X, Y$ are random variables with $Y$ $\mathcal G$-measurable with $E|X| < \infty$ and $E|XY| < \infty$.  Then $E(XY|G) = YE(X|G)$.  
+\end{thm}
+\begin{proof}
+Take $Y=1_B$ with $B \in \mathcal G$.  Then $E(X1_B|G) = 1_BE(X|G)$.  Then 
+$$\int_A E(X1_B|G) = \int_A X1_B = \int_{A \cap B} X= \int_A E(X|G)1_B.$$
+\end{proof}
+
+\begin{thm} Suppose $X \in L^2$.  If we take $\mathcal G \subset \Sigma$ and $Y$ to be a $G$ measurable function in $L^2$.  Then $E((X-Y)^2) \ge E((X - E(X|G))^2)$.
+\end{thm}  
+\begin{remark} The geometric interpretation of this result is that $E(X|\mathcal G)$ is the projection of $X$ onto $L^2(\mathcal G)$.
+\end{remark}
+\subsection{Regular Conditional Probabilities}
+We will call $P(A|\mathcal G) = E(1_A| \mathcal G)$.  For any $A_1, A_2, \dots$ disjoint,
+$$P(\bigcup A_i | \mc G) = \sum P(A_i \mc G), a.s.$$
+by applying $MCT$ for conditionals to the function $\sum_{i=1}^n 1_{A_i}$.  However, one can face issues to ensure the almost surely condition holds simultaneously for all such families of sets.  This is because the nullsets can depend on the set system $\{A_i\}$, which means for no $\omega \in \Omega$, we can expect $P(\bigcup A_i | \mathcal G) = \sum_{i=1}^n P(A_i | \mathcal G)$ for all sets $A_i$. 
+
+
+\begin{definition}[Regular Conditional Probability].  If we have $f: \Omega \times B(\R)$, for all $A \in B(\R)$, $$f(\cdot, A): \Omega \to [0, 1]$$
+is a version of $P(A|\mathcal G)$ and almost surely, $f(\omega, \cdot)$ is a probability measure.
+\end{definition}
+\begin{remark} These only exist in the case of "nice spaces", namely Polish spaces.  The key thing that make the construction possible is the separability.
+\end{remark}
+\subsection{Martingales}
+We have a stochastic process $X_1, X_2, \dots, X_n, \dots$ measurable random variables with $E|X_n| < \infty$ for all $n$.  
+\begin{definition} A filtration is a sequence of $\Sigma$-algebras,
+$$F_0 \subseteq F_1 \subseteq \dots \subset \Sigma.$$
+\end{definition}
+We assume $X_n$ is $F_n$-measurable.  Since $X_n$ is in $L^1$, we discuss $E(X_n|F_m)$ for $m < n$.  If $m \ge n$ then $E(X_n|F_m) = X_n$ almost surely.
+
+\begin{definition} A process $H_1, H_2, \dots$ is predictable if $H_n$ is $F_{n-1}$ measurable.
+\end{definition}
+
+\begin{definition} Suppose $\{X_n\}$ is $F_n$ adapted.  Then $X_n$ is a martingale if for all $n$, $E(X_n|F_{n-1}) = X_{n-1}$ almost surely.
+\end{definition}
+\begin{example}[Linear Martingale]  Suppose $Z_i$ are all iid $Ber(\pm 1)$.  Then $X_n = \sum_{i=1}^n Z_i$, $F_n = \sigma(Z_1, \dots, Z_n)$.  
+$$E(X_n|F_{n-1}) = E(Z_n + X_{n-1}|F_{n-1}) = X_{n-1} + E(Z_n|F_{n-1}) = X_{n-1}.$$
+\end{example}
+
+\begin{definition} A submartingale is when $E(X_n|F_{n-1}) \ge X_{n-1}$ almost surely, and a supermartingale is when $E(X_n | F_{n-1}) \le X_{n-1}$ almost surely.
+\end{definition}
+\begin{example}[Exponential Martingale] If $X_n$ are iid, $E(X_n) = 1$.  $M_n = \prod_{i=1}^n X_i$ is a martingale.
+\end{example}
+\begin{thm}
+Given a martingale $X_n$, we can generate a new martingale using predictable processes.  Suppose $H_i$ predictable $X_n$ is a martingale.  Then $$Y_n = \sum_{i=1}^n H_n(X_n - X_{n-1})$$ is a martingale.
+\end{thm}
+\begin{proof}
+Note that $Y_n$ is $F_n$-adapted since $X_n, H_n$ are $F_n$-adapted.  Then 
+\begin{align*}
+E(Y_n|F_{n-1}) &= E(\sum_{i=1}^{n-1} H_i(X_i - X_{i-1}) + H_n(X_n - X_{n-1}) | F_{n-1}) \\
+&= Y_n + E(H_n(X_n - X_{n-1}) | F_{n-1}) \\
+%&= Y_n.
+\end{align*}
+
+\end{proof}
 \end{document}

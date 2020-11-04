@@ -66,3 +66,7 @@
 \contentsline {section}{\numberline {19}October 29th, 2020}{60}{section.19}% 
 \contentsline {subsection}{\numberline {19.1}Decomposition Theorems}{60}{subsection.19.1}% 
 \contentsline {subsection}{\numberline {19.2}Conditional Expectation}{61}{subsection.19.2}% 
+\contentsline {section}{\numberline {20}November 3rd, 2020}{63}{section.20}% 
+\contentsline {subsection}{\numberline {20.1}Properties of Conditional Expectations}{63}{subsection.20.1}% 
+\contentsline {subsection}{\numberline {20.2}Regular Conditional Probabilities}{64}{subsection.20.2}% 
+\contentsline {subsection}{\numberline {20.3}Martingales}{64}{subsection.20.3}% 
