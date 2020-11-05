@@ -74,3 +74,7 @@
 \contentsline {section}{\numberline {20}November 3rd, 2020}{62}{section.20}% 
 \contentsline {subsection}{\numberline {20.1}Schrodinger Equation, Physical Interpretation}{62}{subsection.20.1}% 
 \contentsline {subsection}{\numberline {20.2}Paley-Wiener Theorem}{63}{subsection.20.2}% 
+\contentsline {section}{\numberline {21}November 5th, 2020}{65}{section.21}% 
+\contentsline {subsection}{\numberline {21.1}The Wave Equation}{65}{subsection.21.1}% 
+\contentsline {subsection}{\numberline {21.2}Symmetries of the d'Alembertian}{65}{subsection.21.2}% 
+\contentsline {subsection}{\numberline {21.3}Fundamental Solutions}{66}{subsection.21.3}% 
