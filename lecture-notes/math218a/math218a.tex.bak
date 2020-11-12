@@ -1737,8 +1737,177 @@ Note that $Y_n$ is $F_n$-adapted since $X_n, H_n$ are $F_n$-adapted.  Then
 \begin{align*}
 E(Y_n|F_{n-1}) &= E(\sum_{i=1}^{n-1} H_i(X_i - X_{i-1}) + H_n(X_n - X_{n-1}) | F_{n-1}) \\
 &= Y_n + E(H_n(X_n - X_{n-1}) | F_{n-1}) \\
-%&= Y_n.
+&= Y_n.
 \end{align*}
+\end{proof}
+\pagebreak
+\section{November 5th, 2020}
+\subsection{Martingales, Continued}
+Recall the setting: we have a filtration $\mc F_1 \subseteq \dots \subseteq \mc F_n$ and $X_n$ adapted to $(F_n)$ in $L^1$ if $E(X_n|\mc F_{n-1}) = X_{n-1}$ almost surely.  We can extend this to $E(X_n|\mc F_m) = X_m$ for $m \le n$ by iteratively using the tower property.
 
+\begin{example} A simple random walk $S_n = \sum_{i=1}^n X_i$, where $X_i$ are iid $Ber(\pm 1)$, is a martingale.  If we change $X_i \sim Ber(p)$, then it becomes a submartingale because the mean of each entry is strictly positive.  
+\end{example}
+
+\subsection{Predictable Sequences}
+\begin{definition} A sequence $H_n \in F_{n-1}$ is called predictable.
+\end{definition}
+Given a martingale sequence $X_n$ and a predictable process $H_n$, we showed that the process $M_n = \sum_{i=1}^n H_i(X_i - X_{i-1})$ was a martingale, where $M_0 = 0$.
+
+\begin{proposition}Suppose $X_n$ is a submartingale.  Define $M_n = \sum_{i=1}^n H_i(X_i - X_{i-1})$.  If $H_n \ge 0$ and is predictable, then $M_n$ is a submartingale.
+\end{proposition}
+\begin{proof}
+\begin{align*}
+E(M_n|\mc F_{n-1}) &= M_{n-1} + E(H_{n}(X_n - X_{n-1})| \mc F_n) \\
+&= M_{n-1} + H_nE(X_{n} - X_{n-1}| \mc F_n ) \\
+&\ge M_{n-1}.
+\end{align*}
+\end{proof}
+
+\subsection{Stopping Times}
+\begin{definition} A stopping time $\tau$ is a random variable from $(\Omega, \Sigma, \P) \to \N \cup \infty$ such that the event $\{\tau \le n\}$ is $\mc F_n$ measurable.
+\end{definition}
+\begin{remark} Given the filtration, then we should be able to consider the information up to time $n$ to determine whether $\{\tau \le n\}$ is measurable.
+\end{remark}
+\begin{example} Consider the symmetric random walk $S_n = \sum X_i$ which are iid $Ber(\pm 1)$.  Let $F_n = \sigma(X_1, X_2, \dots, X_n)$.  We can pick the stopping time $\tau_0$ as the minimum time so that $S_n = 0$.  
+
+In general, if we look at the last hitting time: $\hat{\tau}$, the max $n$ so that $S_n = 0$ is not a stopping time since we would need to consider all the noise in the future as well.  
+\end{example}
+
+\begin{thm} Suppose $X_n$ is a martingale and $\tau$ is a stopping time.  The process $Z_n = X_{n \wedge \tau}$ is a martingale.
+\end{thm}
+\begin{proof}
+The strategy is to show that $Z_n$ is a transform of $X_n$.  To do this, we have to construct a predictable process $H_n$ such that $(H \cdot X) = Z$.  Define $H_n = 1\{\tau \ge n\}$. 
+
+Then, 
+$$\sum_{i=1}^n H_i(X_i - X_{i-1}) = X_{n \wedge \tau} - X_0.$$
+
+$H_i$ is predictable since $\tau$ is a stopping time, and $H_i = 1_{Z \ge i} = 1 - 1\{Z \le i-1\}$, which is $\mc F_{i-1}$ measurable.  Hence $X_n$ is a martingale so $X_{n \wedge \tau} - M_0$ is a martingale, so $X_{n \wedge \tau}$ is a martingale.
+\end{proof}
+\begin{remark} Observe that the same holds for submartingales and supermartingales.
+\end{remark}
+
+\subsection{Expectation for Stopped Martingales}
+\begin{lemma} If $\tau_1 \le \tau_2$ almost surely for two stopping times, then $E(X_{n \wedge \tau_1}) \le E(X_{n \wedge \tau_2})$ for a submartingale $X_n$.
+\end{lemma}
+\begin{proof}
+It suffices to show that $E(X_{n \wedge \tau_1}) \le E(X_n)$.  It $\tau_1 \ge n$, the result is clear.  
+
+We saw that $H$ is a predictable sequence and $M_n = X_{n \wedge \tau}  - X_0 = (H\cdot X)$.    Call $Z_n = (1 - H) \cdot X$, which is also a submartingale.  
+
+Then $Z_n + M_n = X_n - X_0$ is a submartingale, so $E(Z_n) \ge 0$ for all $n$.  Finally, $$E(Z_n) + E(M_n) = E(X_n) - E(X_0) \Longrightarrow E(M_n) \le E(X_n) - E(X_0)$$
+but $E(M_n) = E(X_{n \wedge \tau}) - E(X_0)$, so it follows that $E(X_{n \wedge \tau}) \le E(X_n)$.
+
+Define $Z_n = X_{n \wedge \tau_2}$.  We know that $Z_n$ is a submartingale.  Then $E(Z_{n \wedge \tau_1}) \le E(Z_n) = E(X_{n \wedge \tau_2})$.
+\end{proof}
+\begin{remark} The same argument shows that if $X_n$ is a martingale, then $E(X_{n \wedge \tau}) = E(X_n) = E(X_0)$ for all $n$ and stopping times $\tau$.  However, it does not follow generally that $E(X_\tau) = E(X_0)$.
+\end{remark}
+\begin{example}  Let $S_0 = 1$, $S_i = 1 + \sum_{i=1}^n X_i$, for $X_i \sim Ber(\pm 1)$.  Take $\tau = \min\{n : S_n = 0\}$.  One can show that $\tau < \infty$ almost surely.  However, $S_0 = 1$, $ES_\tau = 0$.
+\end{example}
+
+\subsection{Convex Functions and Martingales}
+The following theorem will prove to be useful.
+\begin{thm} Suppose $\phi$ is a convex function and $X_n$ is a martingale.  Then $\phi(X_n)$ is a submartingale.
+\end{thm}
+\begin{proof}
+This follows from the conditional Jensen's inequality. 
+$$E(\phi(X_n)| \mc F_{n-1}) \ge \phi(E(X_n|\mc F_{n-1})) = \phi(X_{n-1}).$$
+The above also works in $X_n$ is a submartingale and $\phi$ is increasing as well.
+\end{proof}
+We often choose $\phi(X) = X^+$ or $\phi(X) = (X-a)^+$.
+\begin{thm}[Doob's Maximal Inequality]  Suppose $X_n$ is a submartingale,  Then for any $a > 0$, 
+$$P(\max_{0 \le k \le n} X_k \ge a) \le \frac{E(X_n^+)}{a}.$$
+\end{thm}
+\begin{proof}
+Define $\tau$ to be the stopping time, $\{\inf_{0 \le k \le n} X_k \ge a \}$.  We know that $X_{k \wedge \tau}$ is a submartingale so $E(X_{n \wedge \tau}) \le E(X_n)$.  The LHS can be decomposed in $E(X_{n \wedge \tau}1_{\tau \le n}) + E(X_{n \wedge \tau}1_{\tau > n})$, and $$E(X_{n \wedge \tau}1_{\tau > n}) = E(X_n 1_{\tau > n}),$$
+so it follows that 
+$$E(X_{n \wedge \tau}1_{\tau \le n}) \le E(X_n) - E(X_n 1_{\tau > n}) = E(X_n 1_{\tau \le n}) \le E(X_n^+).$$
+On the other hand, 
+$$E(X_{n \wedge \tau}1_{\tau \le n}) = E(X_\tau 1_{\tau \le n}) \ge a P(\tau \le n),$$
+so it follows that 
+$$aP(\tau \le n) \le E(X_n^+),$$
+which gives the result.
+\end{proof}
+\begin{remark} Recall the Kolmogorov Maximal Inequality, $X_i$ are iid mean $0$, $EX_i^2 < \infty$, $S_k = \sum_{i=1}^k X_i$.  Then $$P(\max_{0 \le k \le n} |S_k| \ge x) \le Var(S_n)/x^2.$$
+This is a corollary of Doob's by considering the submartingale $M_n = S_n^2$.
+\end{remark}
+
+
+\pagebreak
+\section{November 10th, 2020}
+\subsection{Convergence of Martingales}
+Recall Doob's inequality: If $X_n$ is a sub-martingale, then $$P(\sup_{0 \le k \le n} X_k > x) \le E(X_n^+)/x.$$
+
+We begin by proving the upcrossing inequality: 
+\begin{thm}[Upcrossing Inequality] Suppose $X_n$ is a sub-martingale.  Pick $a \le b$.  Define $\tau_0: \inf t: X_t \le a$, $\tau_1: \inf t \ge \tau_0, X_t \ge b, \dots$.  Each of $\tau_0 \to \tau_1$, $\tau_2 \to \tau_3, \dots$ is an upcrossing.  Let $N(a, b, n)$ be the number of crossings up to time $n$.  
+$$E(N(a, b, n)) \le \frac{E((X_n - a)^+) - E((X_0 - a)^+)}{b-a}.$$
+\end{thm}
+\begin{proof}
+Consider the sub-martingale $M_n = (X_n - a)^+ + a$, since $f(x) = (x-a)^+ + a$ is convex and increasing.
+
+Define the predictable process $$H_k = 1_{\tau_0 < k \le \tau_1} + 1_{\tau_2 < k \le \tau_3} + \dots.$$
+
+We know that $H \cdot M$ is a sub-martingale.  $M_n - M_0 = H \cdot M + (1-H) \cdot M$ is a submartingale so 
+$$E(M_n - M_0)\ge E(H \cdot M).$$
+We know that 
+$$E((X_n - a)^+ - E(X_0 - a)^+)\ge H \cdot M \ge (b-a)N(a, b, n) + \text{ some correction}.$$
+\end{proof}
+
+\begin{thm}[Martingale Convergence Theorem] If $X_n$ is a submartingale with $\sup EX^+ < \infty$, then as $n \to \infty$, $X_n $ converges almost surely to a limit $X$ with $E|X| < \infty$.
+\end{thm}
+\begin{proof} Fix $a < b$.  Then 
+$$E(N(a, b, n)) \le \frac{E((X_n - a)^+)}{b-a} \le \frac{E(X_n^+ + |a|)}{b-a}.$$
+
+Then $E(N(a, b, \infty)) < \infty$ since $E(X^+) < \infty$ uniformly in $n$.  Now, choosing $a < b \in \Q$, one can ensure almost surely that 
+$$N(q_1, q_2, \infty) <\infty$$
+for all $q_1 < q_2 \in \Q$.  It follows that 
+$$\bigcap_{a, b \in \Q} \{N(a, b, \infty) < \infty\}$$
+is probability $1$, so it implies that $X_n$ has a limit.  We show that $\limsup X_n = \liminf X_n$.  If not, one can find $$\liminf X_1 < q_1 < q_2 < \limsup X_n.$$
+
+This implies that we have infinitely many crossing between $\liminf X_n$ and $\limsup X_n$ and hence between $q_1, q_2$, which is a contradiction. 
+
+Finally, we show $E|X| < \infty$.  $EX^+ < \infty$ and $X_n \to X$ so $X_n^+ \to X_n^+$.  By Fatou's Lemma, $EX^+ \le \liminf E(X_n^+) < \infty$.  Then,
+$$\sup E(X_n^-) = \sup E(X_n^+) - E(X_n)\le \sup E(X_n^+) - E(X_0) < \infty.$$
+Using Fatou's lemma again shows that $EX_n^- < \infty$, so we have $E|X| < \infty$.
+\end{proof}
+\begin{corollary} If $X_n \ge 0$ is a supermartingale, then $X_n \to X$ almost surely so that $E|X| < \infty$.
+\end{corollary}
+\begin{proof}
+$Y_n = -X_n$ is a sub-martingale and $Y_n^+ = 0$ so $EY_n^+ = 0$.  Hence $\sup E(Y_n^+) < \infty$.  The previous result shows that $Y_n \to Z \in L^1$ almost surely so $X_n \to -Z$.
+\end{proof}
+\subsection{Martingales with Bounded Increments}
+\begin{thm} Suppose $X_n$ is a martingale sequence satisfying $|X_n - X_{n-1}| < K$ almost surely for all $n$.  Then, define 
+$$A = \{X_n \text{ converges}\}, B = \{\limsup X_n = \infty, \liminf X_n = -\infty\}.$$
+Then $P(A \cup B) = 1$. 
+\end{thm}
+\begin{proof}
+Let $\tau = \inf \{t : X_t \ge M\}$.  WLOG take $X_0 = 0$, since $X_n - X_0$ is a martingale.    Define $Y_n = X_{\tau \wedge n}$, which is a martingale.  Then $Y_n^+ \le M+K$ so $EY_n^+ \le M+K$ for all $n$.  By the Martingale Convergence Theorem, $Y_n$ converges almost surely implies that $X_n$ converges on the event $\tau = \infty$.  Sending $M$ to infinity,
+$$\bigcap_{M = 1}^{\infty} \{Y_n \text{ converges}\}.$$
+It follows that $X_n$ converges on the event $\bigcup_{m=1}^{\infty} \{\tau_m = \infty\}$.  Equivalently, $\limsup X_n < \infty$.  On the event $\limsup X_n < \infty$, $X_n$ converges.  Because $X_n$ is a martingale, we can work with $-X_n$ to conclude $X_n$ converges on the event $\{\liminf X_n > -\infty\}$.  So either $X_n$ converges, or $\limsup X_n = \infty$ and $\liminf X_n = -\infty$.
+\end{proof}
+\subsection{Lp inequalities}
+\begin{thm}
+If we have submartingale sequence $X_n$ and $E|X_n|^P < \infty$ for $1 < p < \infty$ for all $n$ then 
+$$E(\max_{0 \le k \le n} X_k^+)^p \le \left (\frac{p}{p-1}\right )^p E((X_n^+)^p).$$
+\end{thm}
+\begin{remark} The statement is \textbf{false} for $p = 1$.
+\end{remark}
+\begin{proof}
+Let $Y_n = \max_{0 \le k \le n} X_k^+.$  By Doob's Maximal inequality, $P(Y_n > \lambda) \le E(X_n^+1{Y_n > \lambda})/\lambda$, so it follows that
+\begin{align*}
+E(Y_n^p) &= \int p\lambda^{p-1} P(Y_n > \lambda) d\lambda \\
+& \le \int p\lambda^{p-2} E(X_n^+ 1_{Y_n > \lambda}) \\
+&= \int p\lambda^{p-2} \int X_n^+ 1_{Y_n > \infty} \\
+&= p \int X_n^+ \int_0^{Y_n} \lambda^{p-2} \\
+&= \frac{p}{p-1} \int X_n^+ (Y_n)^{p-1}.
+\end{align*}
+By Holder's inequality,
+$$E(Y_n^p) \le \frac{p}{p-1} E(X_n^+ Y_n^{p-1}) \le \frac{p}{p-1} E((X_n^+)^p)^{1/p} E(Y_n^{p})^{(p-1)/p}.$$
+
+Dividing by both sides,
+$$E(Y_n^p) \le\left( \frac{p}{p-1}\right)^pE((X_n^+)^p).$$
+However, $E(Y_n^p)$ could be infinite.  To fix this, one can show by truncation the same inequality holds for the truncated version, 
+$$E(|Y_n \wedge M|^p) \le \left (\frac{p}{p-1}\right )^p E(X_n^+)^p.$$
+Taking $M \to \infty$ and applying the monotone convergence theorem gives the result.
 \end{proof}
 \end{document}
+

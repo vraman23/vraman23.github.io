@@ -1,80 +1,86 @@
-\contentsline {section}{\numberline {1}September 1st, 2020}{4}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Introduction}{4}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Classification of PDE's}{4}{subsection.1.2}% 
-\contentsline {subsection}{\numberline {1.3}Initial Value Problems}{5}{subsection.1.3}% 
-\contentsline {subsection}{\numberline {1.4}Boundary Value Problems}{6}{subsection.1.4}% 
-\contentsline {subsection}{\numberline {1.5}Fluid Classification}{6}{subsection.1.5}% 
-\contentsline {section}{\numberline {2}September 3rd, 2020}{8}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Picard-Lindeloff Theorem}{8}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}Contraction Principle}{8}{subsection.2.2}% 
-\contentsline {subsection}{\numberline {2.3}Bootstrap Argument}{10}{subsection.2.3}% 
-\contentsline {section}{\numberline {3}September 8th, 2020}{11}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Observations regarding Picard-Lindelof}{11}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Linearization of an ODE}{12}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Our First Partial Differential Equation}{12}{subsection.3.3}% 
-\contentsline {section}{\numberline {4}September 10th, 2020}{14}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Linear, Variable Coefficients}{14}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Semilinear Equations}{15}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Quasilinear Equations}{16}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Classical model problem: Burgers' Equation}{17}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}September 15th, 2020}{19}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Fully Nonlinear PDEs}{19}{subsection.5.1}% 
-\contentsline {section}{\numberline {6}September 17th, 2020}{22}{section.6}% 
-\contentsline {subsection}{\numberline {6.1}Fully Nonlinear PDEs, continued}{22}{subsection.6.1}% 
-\contentsline {section}{\numberline {7}September 22nd, 2020}{25}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}Introduction to Distribution Theory}{25}{subsection.7.1}% 
-\contentsline {subsection}{\numberline {7.2}Frechet Space}{25}{subsection.7.2}% 
-\contentsline {subsection}{\numberline {7.3}Continuous Functions with Compact Support}{26}{subsection.7.3}% 
-\contentsline {subsection}{\numberline {7.4}The Space of Distributions}{27}{subsection.7.4}% 
-\contentsline {section}{\numberline {8}September 24th, 2020}{29}{section.8}% 
-\contentsline {subsection}{\numberline {8.1}The Space of Distributions, continued}{29}{subsection.8.1}% 
-\contentsline {subsection}{\numberline {8.2}Properties of Distributions}{30}{subsection.8.2}% 
-\contentsline {subsection}{\numberline {8.3}The support of distributions}{31}{subsection.8.3}% 
-\contentsline {section}{\numberline {9}September 29th, 2020}{33}{section.9}% 
-\contentsline {subsection}{\numberline {9.1}Regularity of Compactly Supported Distributions}{33}{subsection.9.1}% 
-\contentsline {subsection}{\numberline {9.2}Convolutions}{34}{subsection.9.2}% 
-\contentsline {subsection}{\numberline {9.3}Convolution of Distributions}{35}{subsection.9.3}% 
-\contentsline {section}{\numberline {10}October 1st, 2020}{36}{section.10}% 
-\contentsline {subsection}{\numberline {10.1}Convolutions of Distributions, continued}{36}{subsection.10.1}% 
-\contentsline {subsection}{\numberline {10.2}Distributional Solutions to PDEs}{36}{subsection.10.2}% 
-\contentsline {subsection}{\numberline {10.3}Fundamental Solutions}{37}{subsection.10.3}% 
-\contentsline {section}{\numberline {11}October 6th, 2020}{39}{section.11}% 
-\contentsline {subsection}{\numberline {11.1}Laplacians}{39}{subsection.11.1}% 
-\contentsline {section}{\numberline {12}Wave Equation in 1+1 Dimension}{40}{section.12}% 
-\contentsline {subsection}{\numberline {12.1}Back to Theory of Distributions}{42}{subsection.12.1}% 
-\contentsline {section}{\numberline {13}October 8th, 2020}{43}{section.13}% 
-\contentsline {subsection}{\numberline {13.1}Homogeneous Functions}{43}{subsection.13.1}% 
-\contentsline {subsection}{\numberline {13.2}Homogeneous Distributions}{43}{subsection.13.2}% 
-\contentsline {section}{\numberline {14}October 13th, 2020}{45}{section.14}% 
-\contentsline {subsection}{\numberline {14.1}Introducing the Fourier Transform}{45}{subsection.14.1}% 
-\contentsline {subsection}{\numberline {14.2}Properties of the Fourier Transform}{45}{subsection.14.2}% 
-\contentsline {subsection}{\numberline {14.3}Schwartz Space}{46}{subsection.14.3}% 
-\contentsline {subsection}{\numberline {14.4}Fourier Inversion}{46}{subsection.14.4}% 
-\contentsline {section}{\numberline {15}October 15th, 2020}{48}{section.15}% 
-\contentsline {subsection}{\numberline {15.1}Fourier Transform in $L^2$}{48}{subsection.15.1}% 
-\contentsline {subsection}{\numberline {15.2}Fourier Transform of Distributions}{48}{subsection.15.2}% 
-\contentsline {subsection}{\numberline {15.3}Fourier Transform in $L^p$}{49}{subsection.15.3}% 
-\contentsline {subsection}{\numberline {15.4}Fourier Transforms and Convolutions}{50}{subsection.15.4}% 
-\contentsline {section}{\numberline {16}October 20th, 2020}{51}{section.16}% 
-\contentsline {subsection}{\numberline {16.1}Fourier Transforms for Compactly Supported Distributions}{51}{subsection.16.1}% 
-\contentsline {subsection}{\numberline {16.2}Fourier Transform of Homogeneous Distributions}{51}{subsection.16.2}% 
-\contentsline {section}{\numberline {17}October 22nd, 2020}{54}{section.17}% 
-\contentsline {subsection}{\numberline {17.1}PDEs via Fourier Transforms}{54}{subsection.17.1}% 
-\contentsline {subsection}{\numberline {17.2}Elliptic PDEs}{54}{subsection.17.2}% 
-\contentsline {subsection}{\numberline {17.3}Fundamental Solutions for PDEs}{55}{subsection.17.3}% 
-\contentsline {section}{\numberline {18}October 27th, 2020}{56}{section.18}% 
-\contentsline {subsection}{\numberline {18.1}Fundamental Solutions for Partial Differential Operators}{56}{subsection.18.1}% 
-\contentsline {subsection}{\numberline {18.2}The Laplacian, $ \mathbf {n \ge 3}$}{56}{subsection.18.2}% 
-\contentsline {subsection}{\numberline {18.3}The Laplacian, n = 2}{57}{subsection.18.3}% 
-\contentsline {subsection}{\numberline {18.4}The Heat Operator}{57}{subsection.18.4}% 
-\contentsline {section}{\numberline {19}October 29th, 2020}{59}{section.19}% 
-\contentsline {subsection}{\numberline {19.1}Heat Operator, Continued}{59}{subsection.19.1}% 
-\contentsline {subsection}{\numberline {19.2}Heat Equation, Cauchy Problem}{59}{subsection.19.2}% 
-\contentsline {subsection}{\numberline {19.3}Schrodinger Equation in $\mathbb {R}\times \mathbb {R}^n, n \ge 1$}{60}{subsection.19.3}% 
-\contentsline {section}{\numberline {20}November 3rd, 2020}{62}{section.20}% 
-\contentsline {subsection}{\numberline {20.1}Schrodinger Equation, Physical Interpretation}{62}{subsection.20.1}% 
-\contentsline {subsection}{\numberline {20.2}Paley-Wiener Theorem}{63}{subsection.20.2}% 
-\contentsline {section}{\numberline {21}November 5th, 2020}{65}{section.21}% 
-\contentsline {subsection}{\numberline {21.1}The Wave Equation}{65}{subsection.21.1}% 
-\contentsline {subsection}{\numberline {21.2}Symmetries of the d'Alembertian}{65}{subsection.21.2}% 
-\contentsline {subsection}{\numberline {21.3}Fundamental Solutions}{66}{subsection.21.3}% 
+\contentsline {section}{\numberline {1}September 1st, 2020}{5}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Introduction}{5}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Classification of PDE's}{5}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Initial Value Problems}{6}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Boundary Value Problems}{7}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Fluid Classification}{7}{subsection.1.5}% 
+\contentsline {section}{\numberline {2}September 3rd, 2020}{9}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Picard-Lindeloff Theorem}{9}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Contraction Principle}{9}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Bootstrap Argument}{11}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}September 8th, 2020}{12}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Observations regarding Picard-Lindelof}{12}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Linearization of an ODE}{13}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Our First Partial Differential Equation}{13}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}September 10th, 2020}{15}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Linear, Variable Coefficients}{15}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Semilinear Equations}{16}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Quasilinear Equations}{17}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Classical model problem: Burgers' Equation}{18}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}September 15th, 2020}{20}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Fully Nonlinear PDEs}{20}{subsection.5.1}% 
+\contentsline {section}{\numberline {6}September 17th, 2020}{23}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Fully Nonlinear PDEs, continued}{23}{subsection.6.1}% 
+\contentsline {section}{\numberline {7}September 22nd, 2020}{26}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Introduction to Distribution Theory}{26}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Frechet Space}{26}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Continuous Functions with Compact Support}{27}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}The Space of Distributions}{28}{subsection.7.4}% 
+\contentsline {section}{\numberline {8}September 24th, 2020}{30}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}The Space of Distributions, continued}{30}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Properties of Distributions}{31}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.3}The support of distributions}{32}{subsection.8.3}% 
+\contentsline {section}{\numberline {9}September 29th, 2020}{34}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Regularity of Compactly Supported Distributions}{34}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Convolutions}{35}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Convolution of Distributions}{36}{subsection.9.3}% 
+\contentsline {section}{\numberline {10}October 1st, 2020}{37}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Convolutions of Distributions, continued}{37}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Distributional Solutions to PDEs}{37}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Fundamental Solutions}{38}{subsection.10.3}% 
+\contentsline {section}{\numberline {11}October 6th, 2020}{40}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Laplacians}{40}{subsection.11.1}% 
+\contentsline {section}{\numberline {12}Wave Equation in 1+1 Dimension}{41}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Back to Theory of Distributions}{43}{subsection.12.1}% 
+\contentsline {section}{\numberline {13}October 8th, 2020}{44}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Homogeneous Functions}{44}{subsection.13.1}% 
+\contentsline {subsection}{\numberline {13.2}Homogeneous Distributions}{44}{subsection.13.2}% 
+\contentsline {section}{\numberline {14}October 13th, 2020}{46}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}Introducing the Fourier Transform}{46}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Properties of the Fourier Transform}{46}{subsection.14.2}% 
+\contentsline {subsection}{\numberline {14.3}Schwartz Space}{47}{subsection.14.3}% 
+\contentsline {subsection}{\numberline {14.4}Fourier Inversion}{47}{subsection.14.4}% 
+\contentsline {section}{\numberline {15}October 15th, 2020}{49}{section.15}% 
+\contentsline {subsection}{\numberline {15.1}Fourier Transform in $L^2$}{49}{subsection.15.1}% 
+\contentsline {subsection}{\numberline {15.2}Fourier Transform of Distributions}{49}{subsection.15.2}% 
+\contentsline {subsection}{\numberline {15.3}Fourier Transform in $L^p$}{50}{subsection.15.3}% 
+\contentsline {subsection}{\numberline {15.4}Fourier Transforms and Convolutions}{51}{subsection.15.4}% 
+\contentsline {section}{\numberline {16}October 20th, 2020}{52}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Fourier Transforms for Compactly Supported Distributions}{52}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}Fourier Transform of Homogeneous Distributions}{52}{subsection.16.2}% 
+\contentsline {section}{\numberline {17}October 22nd, 2020}{55}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}PDEs via Fourier Transforms}{55}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}Elliptic PDEs}{55}{subsection.17.2}% 
+\contentsline {subsection}{\numberline {17.3}Fundamental Solutions for PDEs}{56}{subsection.17.3}% 
+\contentsline {section}{\numberline {18}October 27th, 2020}{57}{section.18}% 
+\contentsline {subsection}{\numberline {18.1}Fundamental Solutions for Partial Differential Operators}{57}{subsection.18.1}% 
+\contentsline {subsection}{\numberline {18.2}The Laplacian, $ \mathbf {n \ge 3}$}{57}{subsection.18.2}% 
+\contentsline {subsection}{\numberline {18.3}The Laplacian, n = 2}{58}{subsection.18.3}% 
+\contentsline {subsection}{\numberline {18.4}The Heat Operator}{58}{subsection.18.4}% 
+\contentsline {section}{\numberline {19}October 29th, 2020}{60}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Heat Operator, Continued}{60}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Heat Equation, Cauchy Problem}{60}{subsection.19.2}% 
+\contentsline {subsection}{\numberline {19.3}Schrodinger Equation in $\mathbb {R}\times \mathbb {R}^n, n \ge 1$}{61}{subsection.19.3}% 
+\contentsline {section}{\numberline {20}November 3rd, 2020}{63}{section.20}% 
+\contentsline {subsection}{\numberline {20.1}Schrodinger Equation, Physical Interpretation}{63}{subsection.20.1}% 
+\contentsline {subsection}{\numberline {20.2}Paley-Wiener Theorem}{64}{subsection.20.2}% 
+\contentsline {section}{\numberline {21}November 5th, 2020}{66}{section.21}% 
+\contentsline {subsection}{\numberline {21.1}The Wave Equation}{66}{subsection.21.1}% 
+\contentsline {subsection}{\numberline {21.2}Symmetries of the d'Alembertian}{66}{subsection.21.2}% 
+\contentsline {subsection}{\numberline {21.3}Fundamental Solutions}{67}{subsection.21.3}% 
+\contentsline {section}{\numberline {22}November 10th, 2020}{68}{section.22}% 
+\contentsline {subsection}{\numberline {22.1}Sobolev Spaces}{68}{subsection.22.1}% 
+\contentsline {subsection}{\numberline {22.2}Alternate construction of the Sobolev Spaces}{68}{subsection.22.2}% 
+\contentsline {subsection}{\numberline {22.3}Large Families of Spaces}{69}{subsection.22.3}% 
+\contentsline {subsection}{\numberline {22.4}Extensions with a Flat Boundary}{70}{subsection.22.4}% 
+\contentsline {subsection}{\numberline {22.5}Sobolev Embeddings}{70}{subsection.22.5}% 

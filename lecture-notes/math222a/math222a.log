@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 NOV 2020 12:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 NOV 2020 12:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1960,11 +1960,42 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  18.06757pt
 text indent calculated (toc, 2): 24.9417pt
 number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+[3]
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 )
 \tf@toc=\write7
 \openout7 = `math222a.toc'.
 
- [3]
+ [4]
 LaTeX Font Info:    Try loading font information for TS1+cmss on input line 51.
 
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
@@ -1984,7 +2015,7 @@ m/m/it/10.95  \OT1/cmr/m/n/10.95 (-20) = (\OML/cmm/m/it/10.95 []; [] ; []\OT
 
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
 nput line 70.
-[4]
+[5]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 105.
@@ -1993,7 +2024,7 @@ t line 105.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 111.
- [5]
+ [6]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 127.
@@ -2009,8 +2040,8 @@ Overfull \hbox (2.97978pt too wide) in paragraph at lines 143--144
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 144.
-[6] [7]
-<localLipschitz.png, id=258, 522.95375pt x 202.7575pt>
+[7] [8]
+<localLipschitz.png, id=274, 522.95375pt x 202.7575pt>
 File: localLipschitz.png Graphic file (type png)
 <use localLipschitz.png>
 Package pdftex.def Info: localLipschitz.png  used on input line 166.
@@ -2020,25 +2051,25 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 168.
 Package hyperref Info: bookmark level for unknown thm defaults to 0 on input li
 ne 168.
- [8 <./localLipschitz.png>]
-<ball.png, id=276, 569.12625pt x 202.7575pt>
+ [9 <./localLipschitz.png>]
+<ball.png, id=292, 569.12625pt x 202.7575pt>
 File: ball.png Graphic file (type png)
 <use ball.png>
 Package pdftex.def Info: ball.png  used on input line 184.
 (pdftex.def)             Requested size: 284.56242pt x 101.3785pt.
-<unique.png, id=277, 489.83pt x 186.6975pt>
+<unique.png, id=293, 489.83pt x 186.6975pt>
 File: unique.png Graphic file (type png)
 <use unique.png>
 Package pdftex.def Info: unique.png  used on input line 213.
 (pdftex.def)             Requested size: 244.9144pt x 93.34851pt.
- [9 <./ball.png>]
-<bootstrap.png, id=283, 308.15125pt x 219.82124pt>
+ [10 <./ball.png>]
+<bootstrap.png, id=299, 308.15125pt x 219.82124pt>
 File: bootstrap.png Graphic file (type png)
 <use bootstrap.png>
 Package pdftex.def Info: bootstrap.png  used on input line 220.
 (pdftex.def)             Requested size: 154.07524pt x 109.91034pt.
- [10 <./unique.png> <./bootstrap.png>]
-<notunique.png, id=290, 498.86375pt x 133.49875pt>
+ [11 <./unique.png> <./bootstrap.png>]
+<notunique.png, id=306, 498.86375pt x 133.49875pt>
 File: notunique.png Graphic file (type png)
 <use notunique.png>
 Package pdftex.def Info: notunique.png  used on input line 246.
@@ -2049,8 +2080,8 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 254.
- [11 <./notunique.png>]
-<linear.png, id=303, 625.33624pt x 192.72pt>
+ [12 <./notunique.png>]
+<linear.png, id=319, 625.33624pt x 192.72pt>
 File: linear.png Graphic file (type png)
 <use linear.png>
 Package pdftex.def Info: linear.png  used on input line 273.
@@ -2060,24 +2091,24 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 275.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
 input line 275.
-<sigma.png, id=304, 567.11874pt x 261.97874pt>
+<sigma.png, id=320, 567.11874pt x 261.97874pt>
 File: sigma.png Graphic file (type png)
 <use sigma.png>
 Package pdftex.def Info: sigma.png  used on input line 290.
 (pdftex.def)             Requested size: 283.55867pt x 130.98904pt.
- [12 <./linear.png>]
-<bad.png, id=312, 574.145pt x 289.08pt>
+ [13 <./linear.png>]
+<bad.png, id=329, 574.145pt x 289.08pt>
 File: bad.png Graphic file (type png)
 <use bad.png>
 Package pdftex.def Info: bad.png  used on input line 299.
 (pdftex.def)             Requested size: 287.0718pt x 144.53964pt.
- [13 <./sigma.png> <./bad.png>]
-<curve.png, id=324, 353.32pt x 102.3825pt>
+ [14 <./sigma.png> <./bad.png>]
+<curve.png, id=340, 353.32pt x 102.3825pt>
 File: curve.png Graphic file (type png)
 <use curve.png>
 Package pdftex.def Info: curve.png  used on input line 330.
 (pdftex.def)             Requested size: 176.65956pt x 51.19112pt.
-<char.png, id=325, 617.30624pt x 199.74625pt>
+<char.png, id=341, 617.30624pt x 199.74625pt>
 File: char.png Graphic file (type png)
 <use char.png>
 Package pdftex.def Info: char.png  used on input line 343.
@@ -2085,14 +2116,14 @@ Package pdftex.def Info: char.png  used on input line 343.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 345.
- [14 <./curve.png> <./char.png>]
-<diffe.png, id=334, 586.19pt x 513.92pt>
+ [15 <./curve.png> <./char.png>]
+<diffe.png, id=350, 586.19pt x 513.92pt>
 File: diffe.png Graphic file (type png)
 <use diffe.png>
 Package pdftex.def Info: diffe.png  used on input line 356.
 (pdftex.def)             Requested size: 351.7167pt x 308.35437pt.
- [15 <./diffe.png>]
-<quasi.png, id=342, 562.1pt x 314.17375pt>
+ [16 <./diffe.png>]
+<quasi.png, id=359, 562.1pt x 314.17375pt>
 File: quasi.png Graphic file (type png)
 <use quasi.png>
 Package pdftex.def Info: quasi.png  used on input line 391.
@@ -2100,30 +2131,30 @@ Package pdftex.def Info: quasi.png  used on input line 391.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 400.
- [16 <./quasi.png>]
-<burger.png, id=349, 496.85625pt x 225.84375pt>
+ [17 <./quasi.png>]
+<burger.png, id=365, 496.85625pt x 225.84375pt>
 File: burger.png Graphic file (type png)
 <use burger.png>
 Package pdftex.def Info: burger.png  used on input line 432.
 (pdftex.def)             Requested size: 248.4275pt x 112.92159pt.
 
-[17 <./burger.png>]
-<intersect.png, id=361, 597.23125pt x 205.76875pt>
+[18 <./burger.png>]
+<intersect.png, id=377, 597.23125pt x 205.76875pt>
 File: intersect.png Graphic file (type png)
 <use intersect.png>
 Package pdftex.def Info: intersect.png  used on input line 442.
 (pdftex.def)             Requested size: 298.61488pt x 102.88411pt.
- [18 <./intersect.png>]
+ [19 <./intersect.png>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 475.
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
 line 475.
- [19]
+ [20]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 497.
- [20] [21]
+ [21] [22]
 Overfull \hbox (11.01237pt too wide) in paragraph at lines 551--553
 \OT1/cmr/m/n/10.95 (-20) We com-plete the proof of the the-o-rem from last time
 . We have func-tions $\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 (-20) (\OML/cmm/m
@@ -2133,19 +2164,19 @@ Overfull \hbox (11.01237pt too wide) in paragraph at lines 551--553
 )$,
  []
 
-[22] [23] [24]
+[23] [24] [25]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 647.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 652.
-<images/dist.png, id=397, 552.0625pt x 223.83624pt>
+<images/dist.png, id=414, 552.0625pt x 223.83624pt>
 File: images/dist.png Graphic file (type png)
 <use images/dist.png>
 Package pdftex.def Info: images/dist.png  used on input line 655.
 (pdftex.def)             Requested size: 276.03056pt x 111.91785pt.
- [25 <./images/dist.png>]
+ [26 <./images/dist.png>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 680.
@@ -2154,18 +2185,18 @@ ine 684.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 691.
- [26]
+ [27]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 731.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 735.
- [27]
+ [28]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 745.
- [28]
+ [29]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 755.
@@ -2178,11 +2209,11 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 774.
- [29]
+ [30]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 791.
- [30]
+ [31]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 816.
@@ -2195,11 +2226,11 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 831.
- [31]
+ [32]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 856.
- [32]
+ [33]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 881.
@@ -2210,15 +2241,15 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 889.
 
-[33] [34]
+[34] [35]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 943.
- [35]
+ [36]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 973.
- [36]
+ [37]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 992.
@@ -2228,18 +2259,18 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1005.
- [37] [38]
+ [38] [39]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1030.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1041.
- [39]
+ [40]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1064.
- [40]
+ [41]
 Overfull \hbox (32.20679pt too wide) detected at line 1109
 []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 '\OT1/cmr/m/n/10.95 ) = [] []\OML/cmm
 /m/it/10.95 'dtdx \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.
@@ -2252,7 +2283,7 @@ n/10.95 )\OML/cmm/m/it/10.95 'dtdx \OT1/cmr/m/n/10.95 = [] [] \OML/cmm/m/it/10.
 /m/n/10.95 = \OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 ([])\OML/cmm/m/it/10.95 ;
  []
 
-[41]
+[42]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1113.
@@ -2270,7 +2301,7 @@ r/m/n/10.95 (-20) with $\OML/cmm/m/it/10.95 f$ \OT1/cmr/m/n/10.95 (-20) con-tin
 0.95 x\OT1/cmr/m/n/10.95 (-20) ) =
  []
 
-[42]
+[43]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1145.
@@ -2283,7 +2314,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1166.
- [43]
+ [44]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1170.
@@ -2293,7 +2324,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1193.
- [44] [45]
+ [45] [46]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1245.
@@ -2305,10 +2336,10 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 1266.
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on in
 put line 1266.
- [46]
+ [47]
 Package hyperref Info: bookmark level for unknown exercise defaults to 0 on inp
 ut line 1279.
- [47]
+ [48]
 (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
@@ -2327,7 +2358,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1283.
 
-[48]
+[49]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1331.
@@ -2344,14 +2375,14 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1340.
 
-[49] [50]
+[50] [51]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1391.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1394.
- [51]
+ [52]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1411.
@@ -2371,7 +2402,7 @@ ML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 dx:
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1422.
-[52] [53] [54] [55]
+[53] [54] [55] [56]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1496.
@@ -2384,11 +2415,11 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1496.
 
-[56]
+[57]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1544.
- [57] [58] [59]
+ [58] [59] [60]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1638.
@@ -2409,15 +2440,15 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1638.
 
-[60] [61]
+[61] [62]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1703.
- [62]
+ [63]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1735.
- [63]
+ [64]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1748.
@@ -2427,14 +2458,14 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1757.
- [64]
-<minkowski.png, id=713, 338.26375pt x 179.67125pt>
+ [65]
+<minkowski.png, id=729, 338.26375pt x 179.67125pt>
 File: minkowski.png Graphic file (type png)
 <use minkowski.png>
 Package pdftex.def Info: minkowski.png  used on input line 1785.
 (pdftex.def)             Requested size: 202.95981pt x 107.80356pt.
- [65 <./minkowski.png>]
-<minkSpace.png, id=720, 581.17125pt x 482.80376pt>
+ [66 <./minkowski.png>]
+<minkSpace.png, id=736, 581.17125pt x 482.80376pt>
 File: minkSpace.png Graphic file (type png)
 <use minkSpace.png>
 Package pdftex.def Info: minkSpace.png  used on input line 1796.
@@ -2442,26 +2473,48 @@ Package pdftex.def Info: minkSpace.png  used on input line 1796.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1807.
- [66 <./minkSpace.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1816.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1816.
+ [67 <./minkSpace.png>]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1828.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1833.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
+ line 1833.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1836.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1844.
+ [68]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1875.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1877.
 
-(./math222a.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1816.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1816.
+[69] [70]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1901.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1901.
+ (./math222a.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1901.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1901.
 
 Package rerunfilecheck Info: File `math222a.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1816.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1901.
  ) 
 Here is how much of TeX's memory you used:
- 39746 strings out of 492616
- 778872 string characters out of 6129482
- 992676 words of memory out of 5000000
- 42671 multiletter control sequences out of 15000+600000
- 547391 words of font info for 118 fonts, out of 8000000 for 9000
+ 39840 strings out of 492616
+ 780388 string characters out of 6129482
+ 992956 words of memory out of 5000000
+ 42732 multiletter control sequences out of 15000+600000
+ 550614 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,21n,91p,9110b,1254s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,21n,95p,9110b,1254s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -2470,27 +2523,28 @@ sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
 /local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
 local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
-cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/
-texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on math222a.pdf (66 pages, 2613235 bytes).
+cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
+l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texl
+ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2019/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/te
+xmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
+Output written on math222a.pdf (70 pages, 2636166 bytes).
 PDF statistics:
- 1123 PDF objects out of 1200 (max. 8388607)
- 971 compressed objects within 10 object streams
- 345 named destinations out of 1000 (max. 500000)
- 19778 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 1194 PDF objects out of 1200 (max. 8388607)
+ 1036 compressed objects within 11 object streams
+ 369 named destinations out of 1000 (max. 500000)
+ 24434 words of extra memory for PDF output out of 24883 (max. 10000000)
 

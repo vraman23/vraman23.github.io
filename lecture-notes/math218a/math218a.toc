@@ -70,3 +70,13 @@
 \contentsline {subsection}{\numberline {20.1}Properties of Conditional Expectations}{63}{subsection.20.1}% 
 \contentsline {subsection}{\numberline {20.2}Regular Conditional Probabilities}{64}{subsection.20.2}% 
 \contentsline {subsection}{\numberline {20.3}Martingales}{64}{subsection.20.3}% 
+\contentsline {section}{\numberline {21}November 5th, 2020}{66}{section.21}% 
+\contentsline {subsection}{\numberline {21.1}Martingales, Continued}{66}{subsection.21.1}% 
+\contentsline {subsection}{\numberline {21.2}Predictable Sequences}{66}{subsection.21.2}% 
+\contentsline {subsection}{\numberline {21.3}Stopping Times}{66}{subsection.21.3}% 
+\contentsline {subsection}{\numberline {21.4}Expectation for Stopped Martingales}{67}{subsection.21.4}% 
+\contentsline {subsection}{\numberline {21.5}Convex Functions and Martingales}{67}{subsection.21.5}% 
+\contentsline {section}{\numberline {22}November 10th, 2020}{69}{section.22}% 
+\contentsline {subsection}{\numberline {22.1}Convergence of Martingales}{69}{subsection.22.1}% 
+\contentsline {subsection}{\numberline {22.2}Martingales with Bounded Increments}{70}{subsection.22.2}% 
+\contentsline {subsection}{\numberline {22.3}Lp inequalities}{70}{subsection.22.3}% 

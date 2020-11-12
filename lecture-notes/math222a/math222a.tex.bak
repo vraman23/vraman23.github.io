@@ -18,7 +18,7 @@
 \newcommand{\T}{\mathbb T}
 \renewcommand{\hat}{\widehat}
 \let \phi \varphi
-
+\let \mc \mathcal
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cB}{\mathcal{B}}
@@ -1812,5 +1812,90 @@ $$K_n = c_n \delta_{t^2 - x^2 = 0}^{(n-3/2)}.$$
 For even dimensions,
 $$K_n = c_n (t^2 - x^2)_+^{-(n-1/2)} \delta_{t^2 - x^2 = 0}^{(n-1/2)}.$$
 
+\pagebreak
+\section{November 10th, 2020}
+\subsection{Sobolev Spaces}
+We have discussed $C, C^k$, and Holder Spaces, $C^\gamma$ for $\gamma \in [0, 1]$.  Lipschitz functions are some times denoted as $C^{0, 1}$.  We can extend this by $C^{k, \gamma}$, for $\gamma \in [0, 1]$.  
 
+The spaces we consider here are $L^p(\R^n)$ spaces for $1 \le p < \infty$, which gave a norm $$\|u\|_{L_p}^p = \int_{\R^n}|u|^p.$$
+
+\begin{definition} The Sobolev space $W^{k, p}$ is the space of functions $u \in L^p$, such that $\partial^\alpha u \in L^p$ for all $|\alpha| \le k$.
+\end{definition}
+We let $k \in \N$.  For $k = 0$, we have the $L^p$ spaces, but for $k > 0$, we have the Sobolev spaces.  We let $1 \le p \le \infty$.  For $p = \infty$,
+$$\|u\|_{L^\infty} = \text{ess}\sup_{\R^n} |u|,$$
+the \textbf{essential supremum}.  We will ignore the difference between the essential supremum and the regular supremum for the notes.
+
+\begin{proposition} We have a norm in $W^{k, p}$ for $1 \le p \le \infty$:
+$$\|u\|_{W^{k, p}}^p = \sum_{|\alpha| < k} \|\partial^\alpha u\|_{L^p}^p.$$
+For $p = \infty$,
+$$\|u\|_{W^{k, \infty}} = \sup_{|\alpha| < k} \sup_x |\partial^\alpha u(x)|.$$
+\end{proposition}
+\begin{remark} The triangle inequality follows from the triangle inequality in $L^p$.
+\end{remark}
+
+\begin{proposition} $W^{k, p}$ is a Banach space.
+\end{proposition}
+\begin{proof}
+Suppose we have a Cauchy sequence $u^n$ in $W^{k, p}$.  Then $\partial^\alpha u^n$ form a Cauchy sequence in $L^p$.  In particular, because $L^p$ is complete, there exists functions $u^\alpha$ such that $\partial^\alpha u^n \to u^\alpha$ in $L^p$.  But then $u_n \to u$ in $L^p$, where $u^\alpha= \partial^\alpha u$ considering distributional limits.  
+\end{proof}
+\subsection{Alternate construction of the Sobolev Spaces}
+We begin as follows.  Start with $\mathcal D$, the space of test functions, and endow it with the $W^{k, p}$ norm.  Then, take the completion with respect to this norm.  It is clear that $\mathcal D \subset W^{k, p}$, but is it dense?
+
+\begin{proposition} $\overline{\mc D} = W^{k, p}$.
+\end{proposition}
+\begin{proof}
+We first show that $W^{k, p}$ functions can be approximated by compactly supported $W^{k, p}$ functions.  Define $\chi_R$ as 
+$$\chi_R(x) = \begin{cases}
+1, |x| < R\\
+(0, 1), R \le |x| \le 2R \\
+0, |x| > 2R
+\end{cases}.$$
+
+We can define $\chi_R(x) = \chi_1(x/R)$.  Then, $|\partial^\alpha \chi_R| \le c_\alpha \cdot R^{-|\alpha|}.$  If $u \in W^{k, p}$, then we can localize it $u_R = \chi_R \cdot u$, where $u_R$ have compact support. 
+
+Then, if $u \in L^p$, then $\chi_R u \to u$ in $L^p$.  Then,
+$$\|u - \chi_R u\|_{L^p} \le \int_{\R^n\setminus B(0, R)} |u|^p dx \to 0.$$
+We know that $$\partial^\alpha u_R = \partial^\alpha(\chi_R u) = \sum_{\beta < \alpha} \binom{\alpha}{\beta} \partial^\beta \chi_R \cdot \partial^{\alpha \cdot \beta} u.$$
+
+For $\beta = 0$, $\chi_R \partial^\alpha u \to \partial^\alpha u$ in $L^p$.   For $\beta > 0$, $\partial^\beta \chi_R \to 0$ uniformly.
+
+We now show the regularity part.  If $u \in W^{k, p}$ with compact support, then define $\mathcal D \ni u_\epsilon = u * \phi_\epsilon$, where $\phi_\epsilon$ are the standard mollifiers.  For $u \in L^p$, we have $u_\epsilon \to u$ in $L^p$ for $1 \le p < \infty$.  Then
+$$\partial^\alpha u_\epsilon = \partial^\alpha(u * \phi_\epsilon) = \partial^\alpha u * \phi_\epsilon \to \partial^\alpha u$$
+in $L^p$, for $|\alpha| \ge K$.  If $p = \infty$, then this fails since $u_n \to u$ in $L^\infty$, so $u \in C$, but there are bounded functions that are not continuous.  
+\end{proof}
+\subsection{Large Families of Spaces} 
+Take $\Omega \subset \R^n$ open, and consider $\mc D(\Omega)$.  Then,
+$$W^{k, p}(\Omega) = \{u \in L^p(\Omega); \partial^\alpha u \in L^p, |\alpha| \le k\}.$$
+But what is the closure of $\mathcal D$ in $W^{k, p}$.  This is a smaller subset of $W^{k, p}$ denoted by $W_0^{k, p}$.
+
+Alternative question: Can we approximate $W^{k, p}$ functions by smooth functions?  We could take $\mc E(\Omega) = C^{\infty}(\Omega)$, which are smooth functions in $\Omega$ with no information on the boundary.  We could also consider $C^{\infty}(\overline{\Omega})$, which is the restriction to $\Omega$ of $C^\infty(\R^n)$ functions.  We also have $\bigcap C^k(\overline{\Omega})$, which are $k$-times differentiable functions with bounded derivatives.  
+
+Question:  Can $u \in \bigcap C^k(\overline{\Omega})$ be extended to $u \in C^{\infty}(\R^n)$.  The answer depends on the regularity properties of $\partial \Omega$.  We can have cusps and other singularities depending on the boundary conditions.
+
+\begin{proposition} $W^{k, p}(\Omega)$ functions can be approximated by smooth functions in $\Omega$(with no restriction on what happens on the boundary).
+\end{proposition}
+\begin{proposition} $W^{k, p}(\Omega)$ functions extend to $W^{k, p}(\R^n)$ functions if $\partial \Omega$ is of class $C^k$.
+\end{proposition}
+The $C^k$ boundary allows us to flatten it under a change of coordinates.
+
+\subsection{Extensions with a Flat Boundary}
+Take a function $u: \R^+ \to \R$ and extend it to $\R$.  Take $u \in L^p(\R^+)$.  A corresponding extension could be $u_* = u$ in $\R^+$ and $0$ in $\R^-$.  However, we would lose continuity at $0$.  We could also reflect across the $y$-axis or take a constant extension.  
+
+We can apply the same extension for $W^{1, p}$ functions. We take 
+$$u_* = \begin{cases}
+u(x), x \ge 0 \\
+a_1 u(-x) + a_2 u(-2x), x \le 0
+\end{cases}.
+$$
+We need to ensure that $a_1 + a_2 = 1$ and $-a_1 - 2a_2 = 1$ to ensure matching functions and matching derivatives respectively.  The same works in $W^{2, p}$, where we add a third coefficient for $u(-3x)$.
+
+\subsection{Sobolev Embeddings}
+The easy part is for 1D.  We look at $W^{1, p}(\R)$.   For $p= 1$, we have $W^{1, 1}(\R)$, the absolutely continuous functions.  We have 
+$$u(x) - u(y) = \int_{x}^y \partial_x u(z)dz.$$
+
+For test functions, this is clear, and we argue by density.  
+$$|u(x) - u(y)| \le \int_x^y |\partial_x u(z)|dz \le \|\partial_x u\|_{L^1}.$$
+Hence $\|u\|_{L^{\infty}} \le \|u\|_{W^{1, 1}}.$
+By density, $\|u\|_C \le \|u\|_{W^{1, 1}},$
+so it follows that $W^{1, 1} \subset C$.
 \end{document}
