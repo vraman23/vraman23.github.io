@@ -1909,5 +1909,93 @@ However, $E(Y_n^p)$ could be infinite.  To fix this, one can show by truncation 
 $$E(|Y_n \wedge M|^p) \le \left (\frac{p}{p-1}\right )^p E(X_n^+)^p.$$
 Taking $M \to \infty$ and applying the monotone convergence theorem gives the result.
 \end{proof}
+\pagebreak
+\section{November 12th, 2020}
+\subsection{Lp Inequalities, continued}
+Last time, we used Doob's Maximal Inequality to show that 
+$$E(|\max_{i \le n} X_i^+|^[) \le \left(\frac{p}{p-1}\right)^p E|X_n|^p.$$
+\begin{example}[Counterexample for $p = 1$] Take a simple random walk with $S_0 = 1, S_1 = X_1, S_2 = X_1 + X_2$ where $X_i \sim Ber(\pm 1)$, iid.  Let $\tau = \inf \{t : S_t = 0\}$.  $S_{n \wedge \tau}$ is a non-negative martingale.
+
+Then, $E(S_{n \wedge \tau})  = ES_0 = 1$.  We will show that 
+$$P(\max_{i \le n} S_{n \wedge \tau} > M) = \frac{1}{M},$$
+so it follows that 
+$$E(\max_{i \le n} S_{n \wedge \tau}) \approx \sum_{m=1}^{\infty} \frac{1}{m} \to \infty.$$
+\end{example}
+
+\subsection{$L^p$ Convergence}
+\begin{thm} Suppose $X_1, X_2, \dots$ is a martingale sequence with $\sup E(|X_n|^p) < \infty$.  Then, there exists a random variable $X$ so that $E|X_n - X|^p \to 0$.
+\end{thm}
+\begin{proof}
+$X_n \in L^p$ implies that $X_n \in L^1$ and $E(|X_n|)^p \le E(|X_n|^p)$.  So $\sup E|X_n| < \infty$ and By Fatou's lemma, $E|X|^p \le \liminf E(|X_n|^p) < \infty$, so $X_n \to X$ almost surely by martingale convergence.  
+
+Using the $L^p$ maximal inequality, $|X_k|$ is a submartingale so 
+$$E(\max_{k \le n} |X_k|^p) \le (p/(p-1))^p E(|X_n|^p).$$
+Sending $n \to \infty$ and using MCT, it follows that 
+$$E(\sup |X_n|^p) < \infty.$$
+
+Finally, $X_n \to X$ so $|X_n - X| \le 2\sup |X_n|$. It follows that $|X_n - X|^p \le (2 \sup |X_n|)^p$ and using the dominated convergence theorem, it follows that $E|X_n - X|^p \to 0$.
+\end{proof}
+\begin{example} From our simple random walk from earlier, $S_{n \wedge \tau} \ge 0$ is a martingale so it converges.  We can show that $S_{n \wedge \tau} \to 0$, since $S_{n \wedge \tau} \to X$ and $|S_{n+1 \wedge \tau} - S_{n \wedge \tau}| = 1$ unless $S_{n \wedge \tau} = 0$.  But $ES_{n \wedge \tau} = 1$, so $S_{n \wedge \tau} \not \to 0$ in $L^1$ since that implies that $ES_{n \wedge \tau} \to 0$.
+\end{example}
+
+\begin{thm}[Doob's Decomposition] Suppose $X_n$ is an $\mc F_n$ adapted submartingale.  Then, there exists a unique predictable non-negative process $A_n$ with $A_0 = 0$ such that $X_n = M_n + A_n$ where $M_n$ is an $\mc F_n$ adapted martingale.
+\end{thm}
+\begin{example} Take $S_n = \sum_{i=1}^n Z_i$ where $Z_i \sim Ber(p)$.  Note that $E(Z_i) = p$ so it is a sub-martingale.  We know that $M_n = \sum Z_i - p$ is a martingale since $E(Z_i - p) = 0$. Then $S_n = M_n + np$.  In this case $A_n = np$.
+\end{example}
+\begin{proof}
+We have $X_n = M_n + A_n$, then $E(X_n | \mc F_{n-1}) = M_{n-1} + A_n = X_{n-1} - A_{n-1} + A_n$.  Hence,
+$$E(X_n|\mc F_{n-1}) - X_{n-1} = E(X_n - X_{n-1}|\mc F_{n-1}) = A_n - A_{n-1} \ge 0,$$
+since $X_n$ is a submartingale.  Then, we have $A_0 = 0$ and $$A_n = \sum_{m=1}^n E(X_m - X_{m-1}|\mc F_{m-1}).$$
+
+$A_n$ is predictable since it is $F_{n-1}$ measurable.  Then, $M_n = X_n - A_n$.    This is a martingale since 
+$$E(M_n | \mc F_{n-1}) = E(X_n | \mc F_{n-1}) - A_n = X_{n-1} - A_{n-1}= M_{n-1}.$$
+\end{proof}
+\subsection{$L^1$ Convergence, Uniform Integrability}
+\begin{definition} $X_n$ is said to be uniformly integrable if given $\epsilon > 0$, there exists $M$ so that 
+$$E(|X_n|1_{|X_n| > M}) < \epsilon.$$
+\end{definition}
+\begin{thm} If $X_n$ is a martingale, then the following are equivalent:
+\begin{itemize}
+\item $X_n$ is UI.
+\item $X_n \to X$ almost surely and in $L^1$ for some $X$.
+\item $X_n = E(X|\mc F_n)$.
+\end{itemize}
+\end{thm}
+\begin{proof}
+Uniform integrability implies that $\sup E|X_n| < \infty$.  By the martingale convergence theorem, we have $X$ so that $X_n \to X$ almost surely and $X \in L^1$.  Convergence in $L^1$ was a homework problem(9.5b).  
+
+For 2 implies 3, we want to show that $X_n \to X$ as, L1 implies that $X_n = E(X|\mc F_n)$.  It suffices to show that 
+$$\int_aA X_n = \int_A X$$
+for $A \in F_n$.  Notice that $\int_A X_n = \int_A X_m$ for $m \ge n$ by the martingale property($E(X_m | \mc F_n) = X_n$).  It follows that $$|E(X; A) - E(X_m; A)| \le E(|X - X_m|; A) \le E|X - X_m| \ to 0.$$
+
+For 3 implies 1, $X_n = E(X|\mc F_n)$ implies that $X_n$ is a martingale since 
+$$E(X_n|\mc F_{n-1}) = E(E(X|\mc F_n) | F_{n-1}) = E(X|\mc F_{n-1}) = X_{n-1}.$$
+This was a homework problem.
+\end{proof}
+\begin{corollary} $X$ is a random variable, then $X_n = E(X|\mc F_n)$ is a martingale.  We know that $X_n \to Y$ almost surely and in $L^1$.  Let $\mc F_\infty = \sigma(\bigcup_{n=0}^{\infty} \mc F_n)$.  Then, $Y = E(X|\mc F_\infty)$.
+\end{corollary}
+\begin{proof}
+It suffices to show that $E(X; A) = E(Y; A)$ for $A \in \mc F_\infty$.  Instead, we show that $E(X; B) = E(Y; B)$ for all $B \in \bigcup_{n=0}^{\infty} \mc F_n$, and use the $\pi-\lambda$ theorem.
+
+Take $B \in F_n$. We know that $E(X; B) = E(X_n; B)$ since $X_n = E(X|\mc F_n)$ and $E(X_n ; B) = E(X_m ; B) \to E(Y ; B)$ since $X_m \to Y$ in $L^1$.  
+\end{proof}
+\subsection{Optimal Stopping Theorem}
+We know that $E(X_0) = E(X_{n \wedge \tau})$ since it is a martingale.  We want to find conditions so that $E(X_0) = E(X_\tau)$.
+\begin{lemma} If $X_n$ is UI and $\tau$ is a stopping time, then $\overline{X_n} = X_{n \wedge \tau}$ is UI.
+\end{lemma}
+\begin{proof}
+We start with 
+$$E(|\overline{X_n}|1_{|\overline{X_n}| > M}) = E(|X_n|1_{|\overline{X_n}| > m}1_{\tau > n}) + E(|X_\tau|1_{|\overline{X_n}| > m}).$$
+Observe that $|\overline{X_{n}}|$ is a submartingale so $E|\overline{X_n}| \le E|X_n|$ since $X_n$ is UI.  Then 
+$$\sup E(|\overline{X_n}|) \le \sup E(|X_n|) < \infty,$$
+so it follows that $|\overline{X_n}| \to |X|$.  It follows that both sets in above are sets of small probability.
+\end{proof}
+
+From the UI, we can show that $E(X_{n \wedge \tau}) \to E(X_\tau)$ and $E(X_{n \wedge \tau}) = E(X_0)$, so $E(X_\tau) = E(X_0)$, as desired.
+
+Other conditions where OST holds:
+\begin{itemize}
+\item $X_n$ is a martingale sequence and $X_n - X_{n-1}$ have the property that $|X_n - X_{n-1}| \le B$ almost surely, and $E(\tau) < \infty$.  
+\end{itemize}
 \end{document}
 

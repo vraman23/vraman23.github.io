@@ -1898,4 +1898,106 @@ $$|u(x) - u(y)| \le \int_x^y |\partial_x u(z)|dz \le \|\partial_x u\|_{L^1}.$$
 Hence $\|u\|_{L^{\infty}} \le \|u\|_{W^{1, 1}}.$
 By density, $\|u\|_C \le \|u\|_{W^{1, 1}},$
 so it follows that $W^{1, 1} \subset C$.
+\pagebreak
+\section{November 12th, 2020}
+\subsection{Morrey Inequalities, 1D}
+We continue in 1D.  Suppose that $u \in \dot{W}^{1, p}$, the homogeneous Sobolev space.  That means that $\partial u \in L^p$.  
+We have 
+$$u(x) - u(y) = \int_{x}^y \partial_x u(z)dz.$$
+
+Let $q$ be the dual exponent for $p$.  It follows that 
+$$|u(x) - u(y)| \le \int_x^y |\partial_x u(z)|dz = \int_\R 1_{[x, y]}|\partial u(z)|dz \le |x-y|^{1/q}\|\partial u\|_{L^p} .$$
+Denote $1/q = \sigma = 1 - 1/p$.  We find that 
+$$\|u\|_{\dot{C}^{\sigma}} := \sup_{x, y} \frac{|u(x) - u(y)|}{|x-y|^{\sigma}} \le \|\partial u\|_{L^p}:= \|u\|_{\dot{W}^{1, p}}$$
+
+This is one of the \textbf{Morrey Inequalities}.  
+\begin{proposition} Consider the special case where $p = \infty$.  We have 
+$$W^{1, \infty} = \text{Lip}.$$
+\end{proposition}
+
+If we work in a homogeneous space, we yield scale invariant inequality:
+$$u(x) \to u(\lambda x) = u_\lambda,$$
+so the inequality for $u$ corresponds to the inequality for $u_\lambda$.  Conversely, if he inequality holds uniformly for all $u_\lambda$, then we must have 
+$$\sigma = 1 - \frac{1}{p}.$$
+\subsection{More Sobolev Inequalities, $n \ge 2$}
+Take $\dot{W}^{1, p} \subset L^q$ in $\R^n$.  Then 
+$$\|u\|_{L^q}\le \|\nabla u \|_{L^p}.$$
+We prove this first for test functions $u \in \mathcal D$.
+
+Consider the transformation $u \to u_\lambda$.   
+
+\begin{align*}
+\| u_\lambda \|_{L^q} &= \left (\int |u(\lambda x)|^q dx \right )^{1/q} \\
+&= \left (\int |u(y)|^q dy/\lambda^n\right )^{1/q} \\
+&= \|u\|_{L^{q}} \cdot \lambda^{-n/q}.
+\end{align*}
+
+
+Note that $\nabla u_\lambda = \lambda \nabla u(\lambda x)$.  Then 
+$$\|\nabla u_\lambda\|_{L^p} = \| \nabla u \|_{L^p} \cdot \lambda^{1 - n/p}.$$
+Hence $$\|u\|_{L^q} \cdot \lambda^{-n/q} \le \|\nabla u\|_{L^p} \cdot \lambda^{1 - n/p}$$
+for all $\lambda > 0$.  It follows that 
+$$\frac{n}{q} = \frac{n}{p} - 1.$$
+This gives us the scaling relation between exponents, noting that $1 \le p < n$.
+\begin{thm}[Gagliardo-Nirenberg-Sobolev Inequality]  For $\dot{W}^{1,p} \subset L^q$, 
+$$\|u\|_{L^q} \le \| u \|_{\dot{W}^{1, p}}$$
+if 
+$$\frac{n}{q} = \frac{n}{p} - 1.$$
+\end{thm}
+\begin{proof}
+We use various inequalities:
+\begin{itemize}
+\item Holder's Inequality
+\item Interpolation Inequalities in $L^p$ spaces: for $p_0 < p < p_1$,
+$$L^{p_0} \cap L^{p_1} \subset L^p,$$
+and 
+$$\|u\|_{L^p} \le \|u\|_{L^{p_0}} ^{1-\theta}\cdot \|u\|_{L^{p_1}}^\theta,$$
+for some $\theta \in [0, 1]$.
+We do a scaling computation:
+$$\frac{1}{p} = \frac{1 - \theta}{p_0} + \frac{\theta}{p_1}, \theta \in [0, 1].$$
+\end{itemize}
+We begin with dimension $n = 2$ and proceed by induction on $n$.  We start with $p = 1$.  We already have that 
+$$\|u\|_{L^{n/n-1}} \le \|\nabla u\|_{1}.$$
+For $n = 1$, this is just $\|u\|_{\infty} \le \|\partial u\|_1$.
+
+For $n = 2$, $\nabla u \in L_{x_1, x_2}^1 = L_{x_1}^1L_{x_2}^1$.  Hence,
+$$\|\nabla u\|_{L^1} = \iint |\nabla u| \, dx_2 dx_1 = \int \|\nabla u(x_1, \cdot)\|_{L^1}\,dx_1.$$
+\begin{remark}The order of the exponents matter if they are not equal.
+\end{remark}
+Then, for $\nabla u \in L^1$, we have $\partial_1 u \in L^1$ and $\partial_2 u \in L^1$.  
+From the first, it follows that $\partial_1 u \in L_{x_1}^1 L_{x_2}^1 \Longrightarrow u \in L_{x_1}^{\infty}L_{x_2}^1$. and from the second, it follows that $u \in L_{x_1}^1 \dot{W}^{1, 1} \Longrightarrow u \in L_{x_1}^1 L_{x_2}^{\infty}$.  Interpolating the two inequalities by picking $\theta = 1/2$, we find that 
+$$\|u\|_{L^2} \le \|u\|_{L_{x_1}^{\infty}L_{x_2}^1}^{1/2} \cdot \|u\|_{L_{x_1}^1 L_{x_2}^{\infty}}^{1/2}.$$
+
+We could have also found this directly:
+\begin{align*}
+\|u\|_2^2 &= \int u^2 dx_1 dx_2 \\
+&= \iint u \cdot u dx_2 dx_1 \\
+&\le \int \|u(x_1)\|_{L_{x_2}^{\infty}} \|u(x_1)\|_{L_{x_2}^1} dx_1\\
+&\le \|u\|_{L_{x_1}^1L_{x_2}^{\infty}}\|u\|_{L_{x_1}^{\infty}L_{x_2}^1}.
+\end{align*}
+
+From $n$ to $n+1$, we have $x = (x_1, x^1)$.  We start by noting that $\nabla u \in L^1$ implies that $\partial_1 u \in L_{x_1}^1 L_{x^1}^1$ and $u \in L_{x_1}^1 \dot{W}_{x^1}^{1, 1}.$  From the first, we have that $u \in L_{x_1}^{\infty} L_{x^1}^1$ and $u \in L_{x_1}^1 L_{x^1}^{n/n-1}$.  We interpolate from here to find that $u \in L^p L^p$.  
+
+We choose 
+$$x_1: \frac{1}{p} = \frac{1 - \theta}{\infty} + \frac{\theta}{1},$$
+$$x^1: \frac{1}{p} = \frac{1 - \theta}{1} + \theta \frac{n-1}{n}.$$
+It follows that $\frac{1}{p} = \theta$, $\frac{1}{p} = 1 - \frac{\theta}{n}$.  Solving this system, we find that 
+$$\frac{1}{p}\left (1 + \frac{1}{n}\right) = 1 \Longrightarrow p = \frac{n+1}{n}. $$
+
+Hence. $\|u\|_{L^q} \le \|\nabla u \|_{L^p}, u \in \mathcal D$ for $p = 1$.  If $p \ge 1$, we do the following: denote $\nu = u^{\gamma}$, $\nu > 1$.  Apply the $p=1$ case of GNS for to $\nu$.
+
+$$\|u^{\gamma} \|_{L^{n/n-1}} \le \|\nabla u \cdot u^{\gamma - 1} \|_{L^1}.$$
+The LHS is $\|u\|_{L^{\gamma n/n-1}}^{\gamma}$.  On the RHS, we have $\|\nabla u\|_{L^p} \cdot \|u^{\gamma-1}\|_{L^{p'}}$, using Holder's inequality. 
+ It suffices to choose $\gamma$ appropriately, namely
+$$\frac{\gamma n}{n-1} = q \Leftrightarrow (\gamma - 1) p' = q.$$
+
+We have the more general case of GNS with $\dot{W}^{k, p} \subset L^q$ provided that 
+$$\frac{n}{q} = \frac{n}{p} - k,$$
+with $1 \le p < n/k$, $k < n$.  For $k = n$, we have $\dot{W}^{n, 1} \subset L^{\infty}$.  
+\end{proof}
+
+
+Look at $\mathcal D$ with norm
+$$\|u\|_{\dot{W}^{1, p}} = \| \nabla u \|_{L^p},$$
+and take the completion - we call this $\dot{W}^{1,p}.$ With $\nabla u \in L^p, u \in L^q$,
 \end{document}
