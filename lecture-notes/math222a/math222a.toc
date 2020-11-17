@@ -87,3 +87,8 @@
 \contentsline {section}{\numberline {23}November 12th, 2020}{71}{section.23}% 
 \contentsline {subsection}{\numberline {23.1}Morrey Inequalities, 1D}{71}{subsection.23.1}% 
 \contentsline {subsection}{\numberline {23.2}More Sobolev Inequalities, $n \ge 2$}{71}{subsection.23.2}% 
+\contentsline {section}{\numberline {24}November 17th, 2020}{74}{section.24}% 
+\contentsline {subsection}{\numberline {24.1}GNS Inequalities}{74}{subsection.24.1}% 
+\contentsline {subsection}{\numberline {24.2}Morrey's Inequalities}{74}{subsection.24.2}% 
+\contentsline {subsection}{\numberline {24.3}GNS with Bounded Domains}{75}{subsection.24.3}% 
+\contentsline {subsection}{\numberline {24.4}Compact Sobolev Embeddings}{76}{subsection.24.4}% 

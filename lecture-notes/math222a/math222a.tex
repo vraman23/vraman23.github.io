@@ -19,6 +19,7 @@
 \renewcommand{\hat}{\widehat}
 \let \phi \varphi
 \let \mc \mathcal
+\let \ol \overline
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cB}{\mathcal{B}}
@@ -27,6 +28,8 @@
 
 \newcommand{\supp}{\text{supp }}
 
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
 
 \begin{document}
 \title{Math 222a}
@@ -1990,10 +1993,113 @@ $$\|u^{\gamma} \|_{L^{n/n-1}} \le \|\nabla u \cdot u^{\gamma - 1} \|_{L^1}.$$
 The LHS is $\|u\|_{L^{\gamma n/n-1}}^{\gamma}$.  On the RHS, we have $\|\nabla u\|_{L^p} \cdot \|u^{\gamma-1}\|_{L^{p'}}$, using Holder's inequality. 
  It suffices to choose $\gamma$ appropriately, namely
 $$\frac{\gamma n}{n-1} = q \Leftrightarrow (\gamma - 1) p' = q.$$
+
+We have the more general case of GNS with $\dot{W}^{k, p} \subset L^q$ provided that 
+$$\frac{n}{q} = \frac{n}{p} - k,$$
+with $1 \le p < n/k$, $k < n$.  For $k = n$, we have $\dot{W}^{n, 1} \subset L^{\infty}$.  
 \end{proof}
 
 
 Look at $\mathcal D$ with norm
 $$\|u\|_{\dot{W}^{1, p}} = \| \nabla u \|_{L^p},$$
-and take the completion - we call this $\dot{W}^{1,p}:$ with $\nabla u \in L^p, u \in L^q$. 
+and take the completion - we call this $\dot{W}^{1,p}.$ 
+
+\pagebreak
+\section{November 17th, 2020}
+\subsection{GNS Inequalities}
+We discussed the embedding $\dot{W}^{1, p} \subset L^q$, which is the sharp Sobolev embedding.  We have a scaling relation $$\frac{n}{p} - 1 = \frac{n}{q},$$
+for $1 \le p < n$.  This gives the embeddings
+$$W^{1, p} \subset L^q, W^{1, p} \subset L^q \rightarrow W^{1, p} \subset L^r, r \in [p, q].$$
+
+The embedding in the case of $p = n$ would be $\dot{W}^{1, n} \subset L^{\infty}$, but this is \textbf{false}: take $u(x) = |\log^\gamma |x||$ for $\gamma << 1$. 
+
+What happens when $p > n$?  Remember the case $\dot{W}^{1,p} \subset \dot{C}^{\gamma}$ for $\gamma = 1 - \frac{1}{p}.$
+
+\subsection{Morrey's Inequalities}
+\begin{thm}[Morrey] We have that $\dot{W}^{1, p}(\R^n) \subset \dot{C}^{\gamma}(\R^n)$, for $\gamma = 1 - \frac{n}{p}$, $n < p < \infty.$
+\end{thm}
+\begin{proof}
+In 1D, we want $$|u(x) - u(y)| \le |x-y|^{\gamma} \|\partial_x u\|_{L^p}.$$
+In higher dimensions, we want 
+$$|u(x) - u(y)| \le |x-y|^{\gamma} \| \nabla u \|_{L^p}.$$
+
+As an intermediate step, we compare $u(x)$ with $u\vert_{B(x, r)}$.  If we take $z \in B(x, r)$, we would like to show that 
+$$\mathrel{\int\!\!\!\!\!\!-}_{B(x, r)}|u(x) - u(z)|\,dz \le \mathrel{\int\!\!\!\!\!\!-}_{B(x, r)}\frac{1}{|x-z|^{n-1}}|\grad u(z)|\, dz.$$
+
+We show that this implies the Morrey Inequality.  Suppose we have two points $x, y$ with $D = B(x, r) \cap B(y, r)$, where $r = |x- y|$.  By the inequality,
+\begin{align*}
+|u(x) - u(y)| &\le |u(x) - u(z)| + |u(y) - u(z)| \\
+&\le  \aint_D |u(x) - u(z)|\,dz + \aint_D |u(y) - u(z)|\, dz \\
+&\le C\aint_{B(x, r)} |u(x) - u(z)|\,dz + C\aint_{B(y, r)} |u(y) - u(z)|\,dz \\
+& \le \aint_{B(x, r)} \frac{|Du(z)|}{|x-z|^{n-1}}\, dz + \aint_{B(y, r)} \frac{|Du(z)|}{|x-z|^{n-1}}\, dz  \\
+&\le \frac{1}{r^n}\|\grad u\|_{L^p} \cdot \||x-z|^{1-n}\|_{L^q} + \frac{1}{r^n}\|\grad u\|_{L^p} \cdot \||y-z|^{1-n}\|_{L^q}
+&\le r^{\gamma}\|\grad u\|_{L^p},
+\end{align*}
+where both $q$ norms are finite since $n < p < \infty$ so $1 < q < \frac{n}{n-1}$.
+
+Hence,
+$$|u(x) - u(y)| \le |x-y|^{\gamma} \|\grad u\|_{L^p}.$$
+Instead of computing $\gamma$, we conclude that it must be the correct one by scaling.  
+
+
+It suffices to show that
+$$\mathrel{\int\!\!\!\!\!\!-}_{B(x, r)}|u(x) - u(z)|\,dz \le \mathrel{\int\!\!\!\!\!\!-}_{B(x, r)}\frac{1}{|x-z|^{n-1}}|\grad u(z)|\, dz.$$
+We parameterize $[x, z]$ as $w = (1-h) x + hz$ for $h \in [0, 1]$.  Then,
+$$u(z) - u(x) = u(w(1)) - u(w(0)) = \int_{0}^1 \frac{d}{dh} u(w(h))\,dh = \int_{0}^1 \grad u(w(h)) \cdot (z-x) \,dz$$
+so 
+$$|u(x) - u(z)| \le \int_{0}^q |\grad u(w(h))|\cdot |z-x|\, dh$$ 
+It follows that 
+$$\aint |u(x) - u(z)| \le \int_{0}^1 \int_B |\grad u(w(h))| \cdot |z-x|\, dh\, dz.$$
+Applying a change of coordinates, we find that 
+$$\aint |u(x) - u(z)| \le \frac{1}{|B|} \int_B \int_{|w-x|/r}^\infty |\grad u(w)| \frac{1}{h}|w-x| h^n  \, dh \, dw $$
+Then $r \ge |z-x| = \frac{1}{h}|w-x|$, so $h \ge |w-x|/r$,  Integrating in $h$, we find that 
+$$|u(x) - u(z)| \le \frac{1}{|B|}\int_B |\grad u(w)| \cdot |w-x| \cdot \left (\frac{r}{|w-x|}\right )^n \le \int_B |\grad u(w)| \cdot \frac{1}{|w-x|^{n-1}}\,dw.$$
+\end{proof}
+
+\subsection{GNS with Bounded Domains}
+We have in general that $\|u\|_q \le \|\grad u\|_{p}$ in $\R^n$.  What happens for $\Omega \subset \R^n$?
+Is it true that $$\|u\|_{L^q(\Omega)} \le \|\grad u\|_{L^p(\Omega)}?$$
+This true if $u$ is compactly supported in $\Omega$ since we can extend $u$ be $0$ outside $\Omega$.  This inequality will be very false otherwise, simply take a constant function.
+
+Define $u_\Omega = \overline{u} = \frac{1}{|\Omega|} \int_\Omega u\, dx$.  
+\begin{thm}[Poincare Inequalities]
+$$\|u-\ol u\|_{L^r} \le \|\grad u\|_{L^p},$$
+for $1 \le r \le q.$
+
+This is true for $r=p$, $p > n, 1 \le r \le \infty$ and $p = n, 1 \le r < \infty$.
+\end{thm}
+\begin{proof}
+If $p > n$, 
+$$\|u-\ol{u} \|_{L^\infty} \le \|\grad u\|_{L^p}.$$
+This is true since by Holder, $\|u - \ol u \|_r \le \|u - \ol u\|_\infty$.
+Applying the previous proof,
+\begin{align*}
+\aint_{B(x, r)\cap \Omega}|u(x) - u(z)| &\le \int_{B(x, r)\cap \Omega} \frac{|\grad u(z)|}{|x-z|^{n-1}}\,dz
+\end{align*}
+
+It follows that we have $$|u(x) - u(y)| \le |x-y|^{\gamma} \|\grad u\|_{L^p},$$
+so 
+\begin{align*}
+|u - \ol u| &=\left  |u(x)  - \aint_\Omega u\, dy\right |\\
+&= \left |\aint_\Omega u(x) - u(y) \, dy\right |\\
+&\le \aint_\Omega |u(x) - u(y)| \, dy\\
+&\le \|\grad u \|_{L^p}.
+\end{align*}
+
+\end{proof}
+
+Consider the special case of Poincare's inequality when $p = n$.
+$$\left ( \aint_B |u - \ol u|^p \right )^{1/p} \le \|\grad u \|_{L^n},$$
+for $1 \le p < \infty$.
+
+The true embedding is that $\dot{W}^{1, n} \subset \text{BMO}$ where 
+$$\|u\|_{\text{BMO}} = \sup_{B} \aint |u - \ol u|\, dx.$$
+\subsection{Compact Sobolev Embeddings}
+An embedding $X \subset Y$ is compact if any bounded sequence in $X$ has a convergent subsequence in $Y$.
+
+When are Sobolev embeddings compact?  Start with $\dot W^{1,p}(\R^n) \subset L^q(\R^n)$.  Take $u_n \in \dot W^{1-p}$ and $\|u_n\|_{\dot W^{1-p} = 1}$.  Is there a convergent subsequence?  
+
+We have two obvious enemies.  Take $\phi \in \mathcal D$, and change it using the symmeteries of $\dot{W}^{1,p}, L^q$.  We have translation invariance: $u_n(x) = \phi(x-  x_n)$.
+
+Then if $\|u_n\|_p = C$, $\|u_n\|_{\dot W^{1,p}} = \tilde{C}$.  If $u_n \to u$ in $L^p$ on a subsequence, then $u_n \to u$ in $\mathcal D'$.  But $u_n \to 0$ in $\mc D'$, so it follows that $u = 0$.  But this is a contradiction since $\|u\|_{p} = \lim \|u_n\|_p = c \ne 0$.
 \end{document}
