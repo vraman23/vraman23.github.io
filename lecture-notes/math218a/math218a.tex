@@ -1979,7 +1979,7 @@ It suffices to show that $E(X; A) = E(Y; A)$ for $A \in \mc F_\infty$.  Instead,
 
 Take $B \in F_n$. We know that $E(X; B) = E(X_n; B)$ since $X_n = E(X|\mc F_n)$ and $E(X_n ; B) = E(X_m ; B) \to E(Y ; B)$ since $X_m \to Y$ in $L^1$.  
 \end{proof}
-\subsection{Optimal Stopping Theorem}
+\subsection{Optimal Stopping Theorems}
 We know that $E(X_0) = E(X_{n \wedge \tau})$ since it is a martingale.  We want to find conditions so that $E(X_0) = E(X_\tau)$.
 \begin{lemma} If $X_n$ is UI and $\tau$ is a stopping time, then $\overline{X_n} = X_{n \wedge \tau}$ is UI.
 \end{lemma}
@@ -1997,5 +1997,83 @@ Other conditions where OST holds:
 \begin{itemize}
 \item $X_n$ is a martingale sequence and $X_n - X_{n-1}$ have the property that $|X_n - X_{n-1}| \le B$ almost surely, and $E(\tau) < \infty$.  
 \end{itemize}
+\pagebreak
+\section{November 17th, 2020}
+\subsection{More Optimal Stopping Conditions}
+
+Other conditions where OST holds:
+\begin{itemize}
+\item $X_n$ is a martingale sequence and $X_n - X_{n-1}$ have the property that $|X_n - X_{n-1}| \le B$ almost surely, and $E(\tau) < \infty$.  
+\item $X_n$ is a martingale sequence and $X_n - X_{n-1}$ have the property that $E(|X_n - X_{n-1}| |\mc F_{n-1}) \le B$ almost surely, and $E(\tau) < \infty$.  
+\begin{proof}
+Suppose $X_0 = 0$. We note that $X_n = \sum_{i=1}^n X_i - X_{i-1}$, so $$X_{n \wedge \tau} = \sum_{i=1}^\tau X_{i} = X+{i-1} = \sum (X_i - X_{i-1}) 1(\tau > i-1).$$
+
+Finally, $|X_{n \wedge \tau}| \le \sum |X_i - X_{i-1}|1_{\tau >i -1} = A$ and it follows that 
+$$\sum E(|X_i - X_{i-1}|1_{\tau > i-1}) = \sum E(E(|X_i - X_{i-1}|1_{\tau > i-1}|F_{i-1})) \le \sum E(1_{t > i-1} B) = BE\tau,$$
+\end{proof}
+\end{itemize}
+
+\begin{remark} The amount of information is somehow "encoded" in the moment of the martingale you take.  
+\end{remark}
+\begin{corollary} Let $\tau = \tau_0$ and consider $S^* = \max_{i < \tau} S_i$.  Then $ES^* = \infty$.
+\end{corollary}
+\begin{proof}
+We can compute 
+$$P(S^* \ge n) = P_1(\tau_x < \tau_0) = \frac{1}{x-1 + 1} = \frac{1}{x}.$$
+\end{proof}
+\subsection{Reverse Martingales}
+For standard $X_0, X_1, \dots$ and a filtration $\mc F_n$ so that $E(X_n|\mc F_{n-1}) = X_{n-1}$ almost surely.
+\begin{definition} We have $F_0 \supset F_1 \supset F_2 \dots$ and 
+$$E(X_i|F_{i+1}) = X_{i+1}$$
+almost surely.  We could also write it this as $E(X_0|F_i)$ for a decreasing sequence of $\Sigma$ algebras $F_0 \supset F_1 \supset \dots$.
+\end{definition}
+
+\begin{lemma} If $X_i$ is a reverse martingale, then there exists $X$ with $X_i \to X$ almost surely, $X_i \to X$ in $L^1$ and $X = E(X_0|F_{\infty})$ where $F_\infty = \bigcap F_i$.
+\end{lemma}
+\begin{proof}
+The proof in the forward direction used the upcrossing lemma: for any $q_1 < q_2$ rational, $\lim E(N(q_1, q_2, n)) < \infty$ if $\sup EX_n^+ < \infty$.
+
+Fixing some $n$ and going from $n \to 0$ gives a forward martingale.  Then if $N'(q_1, q_2, n)$ is the crossing number, 
+$$E(N'(q_1, q_2, n)) \le \frac{E(|X_0| + q_1)}{q_2 - q_1}.$$
+Hence, $\lim E(N'(q_1, q_2, n)) < \infty$ almost surely for all $q_1 < q_2 \in \Q$.  It follows that $X_i$ has a limit almost surely, which we will call $X$.  For $L^1$ convergence, it suffices to show UI.  Each $X_i = E(X_0|F_i)$, so it follows that this is uniformly integrable.  
+
+Finally, $X = \lim X_i$ and hence $\cap F_i$ measurable.  Take $B \in \mc F_\infty$.  It suffices to show that 
+$$\int_B X = \int_B X_0,$$
+which follows from the fact that $B \in F_\infty \subset F_i$ for all $i$ and $E(X_i;B) \to E(X;B)$.
+\end{proof}
+\subsection{Applications of Reverse Martingales}
+\begin{definition} Let $\mathcal E_n = \Sigma (A: A\text{ is invariant under permutation of the first n coordinates})$.  This means that for $\omega \in A$, we have $\sigma \omega \in A$ for $\sigma \in S_n$. Then $\mathcal E = \bigcap \mc E_n$. 
+\end{definition}
+\begin{thm}[Hewitt-Savage 0-1 Law] If $X_0, X_1, X_2, \dots$ iid and $A\in \mc E$ then $P(A) \in \{0, 1\}.$
+\end{thm}
+\begin{proof}
+We want to show that $\mc E$ is independent of itself.  Fix some $K$ and some bounded function $\phi: \R^k \to \R$.  We show this is independent of $\mc E$.  This would imply that $\mc E$ is independent of $\mc E$ since we can take $\phi$ as indicators so that $\Sigma(X_1, X_2, \dots, X_k)$ is independent of $\mc E$.  Then $\bigcup_{k=1}^{\infty} \Sigma(X_1, \dots, X_k)$ is independent of $\mc E$, which is a $\pi$-system, so it follows that 
+$\Sigma(X_1, X_2, \dots)$ is independent of $\mc E$.  But $\mc E$ is a subsigma algebra of the former.  
+
+The first step is to symmetrize $\phi(x_1, x_2, \dots, x_k)$: define 
+$$A_n(\phi) = \frac{1}{(n)_k}\sum_{i} \phi(X_{i_1}, X_{i_2}, \dots, X_{i, k}).$$
+Note that $A_n(\phi)$ is $S_n$ invariant.  Furthermore, $A_n(\phi)$ is $\mc E_n$ measurable and 
+$$A_n\phi = E(A_n\phi|\mc E_n) = \frac{1}{(n)_k} \sum E(\phi(X_{i_1}, \dots, X_{i_k})| \mc E_n).$$
+Since $\mc E_n$ is $S_n$ invariant, it follows that 
+$$E(\phi(X_{i_1}, X_{i_2}, \dots, X_{i_k}) | \mc E_n) = E(\phi(X_1, X_2, \dots, X_k) | \mc E_n).$$
+Hence, we have that 
+$$A_n\phi = E(\phi(X_1, X_2, \dots, X_k)| \mc E_n).$$
+
+This is a reverse martingale since $\mc E_n \downarrow E_n$.  Hence 
+$$A_n\phi \to E(\phi(X_1, X_2, \dots, X_k) | \mc E).$$
+
+It suffices to show that $E(\phi(X_1, X_2, \dots, X_k)| \mc E) = E(\phi(X_1, X_2, \dots, X_k)).$
+\begin{lemma} If $EX^2 < \infty$, $E(X|\mc G) \in \mc F$ with $X$ independent of $\mc F$, then $E(X|\mc G) = E(X)$.
+\end{lemma}
+\begin{proof}
+$$E(E(X|\mc G)X) = E(E(X|\mc G)^2) = E(X^2).$$
+It follows that 
+$$E(E(X|\mc G)^2) = E(X^2),$$
+so Jensen's inequality is sharp for the convex function $x \mapsto x^2$.
+\end{proof}
+
+We know that $A_n\phi \to E(\phi(X_1, X_2, \dots, X_k)| \mc E).$  We prove that $A_n\phi$ is independent of $X_1$.  All the terms in $A_n\phi$ not containing $X_1$ is independent of $X_1$ and is measurable with respect to $\Sigma(X_2, \dots)$.  Then $A_n(\phi)= o(1/n) + A_n'(\phi)$ independent of $X_1$, and the error goes to $0$.  Repeating this for the other $k$ terms gives the result.  
+
+\end{proof}
 \end{document}
 

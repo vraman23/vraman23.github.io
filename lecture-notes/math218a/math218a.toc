@@ -84,4 +84,8 @@
 \contentsline {subsection}{\numberline {23.1}Lp Inequalities, continued}{73}{subsection.23.1}% 
 \contentsline {subsection}{\numberline {23.2}$L^p$ Convergence}{73}{subsection.23.2}% 
 \contentsline {subsection}{\numberline {23.3}$L^1$ Convergence, Uniform Integrability}{74}{subsection.23.3}% 
-\contentsline {subsection}{\numberline {23.4}Optimal Stopping Theorem}{75}{subsection.23.4}% 
+\contentsline {subsection}{\numberline {23.4}Optimal Stopping Theorems}{75}{subsection.23.4}% 
+\contentsline {section}{\numberline {24}November 17th, 2020}{76}{section.24}% 
+\contentsline {subsection}{\numberline {24.1}More Optimal Stopping Conditions}{76}{subsection.24.1}% 
+\contentsline {subsection}{\numberline {24.2}Reverse Martingales}{76}{subsection.24.2}% 
+\contentsline {subsection}{\numberline {24.3}Applications of Reverse Martingales}{77}{subsection.24.3}% 
