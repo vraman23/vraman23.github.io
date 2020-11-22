@@ -1,0 +1,242 @@
+\documentclass[11pt]{article}
+
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{asymptote}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{listings}
+
+
+
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+ %Sets
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\P}{\mathbb P}
+
+\newcommand{\supp}{\text{supp}}
+\newcommand{\SA}{\mathscr A}
+\newcommand{\SB}{\mathscr B}
+
+\let \phi \varphi
+\let \mc \mathcal
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cA}{\mathcal{A}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist} \color{blue} 
+\item[ \hskip \labelsep {\bfseries #1} \hskip\labelsep {\bfseries #2.} \vspace{-5ex}]}{\end{trivlist}}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+\date{September 8, 2020}
+
+{\noindent\Huge\bf  \\[0.5\baselineskip] {\fontfamily{cmr}\selectfont  Stat 205a: Homework 10}         }
+%\\[1\baselineskip] % Title
+{ \\ {\textit{\fontfamily{cmr}\selectfont   \today  }}}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    {\large{Vishal Raman
+}}
+\noindent\makebox[\linewidth]{\rule{8in}{0.4pt}}
+ID: 3034796610, Email: vraman@berkeley.edu
+
+\subsection*{Problem I}
+\begin{proof}
+Suppose $\theta, \tau$ are stopping times for $\mc F_n$.  Then $\{\theta \le n\} \in \mc F_n$ and $\{\tau \le n\} \in \mc F_n$ for all $n$.  Hence,
+$$\{\theta \wedge \tau \le n\} = \{\theta \le n\} \cup \{\tau \le n\} \in \mc F_n,$$
+so $\theta \wedge \tau$ is a stopping time.  Similarly,
+$$\{\theta \vee \tau \le n\} = \{\theta \le n\} \cap \{\tau \le n\} \in \mc F_n,$$
+so $\theta \vee \tau$ is a stopping time. 
+
+Finally, note that 
+\begin{align*}
+\{\theta + \tau \le n\} &= \bigcup_{j=0}^n \{\theta + \tau = j\} \\
+&= \bigcup_{j=0}^n \bigcup_{k=0}^j \{\theta = k\} \cap \{\tau = j-k\}.
+\end{align*}
+Finally, note that $\{\theta = k\} \in \mc F_k \subseteq \mc F_n$ by definition of a stopping time and filtration.  Similarly $\{\tau = j-k\} \in \mc F_{j-k} \subseteq \mc F_n$.  Hence it follows that $\{\theta + \tau \le n\} \in \mc F_n$ as the finite union of elements in $\mc F_n$.
+\end{proof}
+\pagebreak
+\subsection*{Problem II}
+\begin{proof} (Part A)
+Let $0 < M < \infty$.  Define $\tau = \inf \{t : X_t \ge M\}$.  Define $Y_n = X_{n \wedge \tau}$, which is a martingale.  Then $Y_n^+ \le M + \sup \xi_n^+ $, so it follows that $EY_n^+ \le M + E(\sup \xi_n^+) < \infty$ for all $n$.  By the Martingale Convergence Theorem, it follows that $Y_n$ converges almost surely, which implies that $X_n$ converges almost surely on the event $\{\tau = \infty\} = \{ \sup X_n \le M\}$. Finally, since $\sup X_n < \infty$, we vary $M$ until it exceeds $\sup X_n$, which gives the result.
+\end{proof}
+\begin{proof}(Part B)
+Let $Z_n = \prod_{i=1}^n (1+ Y_i)$ and let $Z_0 = 1$.  Note that $Z_n$ is $\mc F_n$ measurable for all $n$.  Define $W_n = X_n/Z_{n-1}$.  Note that $EW_n \le EX_n < \infty$ since $Z_{n} \ge 1$ for all $n$.  Furthermore, $Z_{n-1}$ is $\mc F_{n-1} \subset \mc F_n$ measurable so $W_n = X_n/Z_{n-1}$ is $\mc F_n$ measurable.  
+
+Finally,
+\begin{align*}
+E(X_{n+1}/Z_n | \mc F_n) &= \frac{E(X_{n+1}| \mc F_n)}{\prod_{i=1}^n (1+Y_i)} \\
+&\le \frac{(1+Y_n) X_n}{(1+Y_n) \prod_{i=1}^{m-1}(1+Y_i)} \\
+&=X_n/Z_{n-1}.
+\end{align*}
+Hence, $W_n$ is a supermartingale.  Furthermore, $W_n$ is non-negative since $X_n, Z_n$ are non-negative, so we can show that $W_n$ converges almost surely by the following lemma from class:
+\begin{lemma} 1 If $X_n \ge 0$ is a supermartingale, then $X_n \to X$ almost surely with $EX <\infty$.
+\end{lemma}
+\begin{proof}
+$Y_n = -X_n$ is a sub-martingale and $Y_n^+ = 0$ so $EY_n^+ = 0$.  Hence $\sup E(Y_n^+) < \infty$.  The martingale convergence theorem shows that $Y_n \to Z \in L^1$ almost surely so $X_n \to -Z$.
+\end{proof}
+We have that $W_n$ converges to a random variable $W$ almost surely with $EW < \infty$.  
+
+Next, we show that $Z_n$ converges almost surely.  Equivalently, we show that $$\log Z_n = \sum_{i=1}^n \log (1 + Y_n)$$
+converges almost surely.  
+
+Note that 
+$$Z_n(\omega) = \sum_{i=1}^n \log (1 + Y_n(\omega)) = \sum_{i=1}^n Y_n(\omega) - o(Y_n(\omega)^2).$$
+
+By assumption $\sum_{i=1}^n Y_n$ converges almost surely.   If $\sum_{i=1}^n Y_n(\omega)$ converges then $\sum_{i=1}^n Y_n(\omega)^2$ also converges.  This is because it $Y_n(\omega) \to 0$ so there exists $N$ so that $0 \le Y_n < 1$ for $n \ge N$.  Then, $0 \le Y_n^2 \le Y_n < 1$ so it follows that $\sum_{i=1}^n Y_n(\omega)^2$ converges.  Hence $\log Z_n$ converges almost surely, as desired.
+
+Finally, note that $X_n = W_nZ_{n-1}$ so we conclude by proving the following lemma:
+\begin{lemma} 2  If $X_n \to X$ almost surely and $Y_n \to Y$ almost surely, then $X_nY_n \to XY$ almost surely.
+\end{lemma}
+\begin{proof}
+Let $A = \{\omega : X_n(\omega) \not \to X(\omega)\}$ and $B = \{\omega: Y_n(\omega) \not \to Y(\omega)\}$.  Note that $C = \{\omega : X_n(\omega)Y_n(\omega) \not \to X(\omega)Y(\omega)\} \subset A \cup B$, so it follows that $$0 \le P(C) \le P(A \cup B) \le P(A) + P(B) = 0,$$
+so $P(C) = 0$.  Hence $X_nY_n \to XY$ almost surely.
+\end{proof}
+\end{proof}
+\begin{proof}(Part C)
+Define $Z_n = X_n - \sum_{i=1}^{n-1}Y_i$.  And let $Z_0 = X_0$.  Note that $Z_n$ is $\mc F_n$ measurable since $X_n$ is $\mc F_n$ measurable and $Y_i$ is $\mc F_i \subset \mc F_n$ measurable for $i \le n$.  Note that $E|Z_n| \le E|X_n| + \sum_{i=1}^{n-1} E|Y_i| < \infty$.  Finally,
+\begin{align*}
+E(Z_{n+1} | \mc F_n) &= E(X_{n+1}|\mc F_n) - \sum_{i=1}^n E(Y_i | \mc F_n) \\
+&\le X_n + Y_n - \sum_{i=1}^n Y_i \\
+&= X_n + \sum_{i=1}^{n-1} Y_i \\
+&= Z_n.
+\end{align*}
+Hence, $Z_n$ is a supermartingale.  Let $\tau =\inf \{n : \sum_{i=1}^n Y_i \ge M\}$.  We showed in class that $Z_{n \wedge \tau}$ is a also supermartingale.  Defining $W_n = -Z_{n \wedge \tau}$, we have that $W_n$ is a submartingale satisfying $\sup EW_n^+ < M$ since $X_n$ is non-negative and $\sum_{i=1}^{n-1} Y_i < M$.  By the martingale convergence theorem, we have that $W_n \to W$ almost surely with $E|W| < \infty$ and $Z_{n \wedge \tau}$ converges almost surely.  
+
+Finally, since $\sum Y_i$ converges almost surely and is nonnegative, there exists some $M$ so that $\tau_M = \infty$ almost surely.  Hence,
+$$\lim_{n \to \infty} Z_{n \wedge \tau_M}(\omega) = \lim_{n \to \infty} Z_n(\omega) = \lim_{n \to \infty} (X_n(\omega) - \sum_{i=1}^{n-1} Y_i(\omega)).$$
+Since $Z_n$ converges almost surely and $\sum_{i=1}^n Y_i$ converges almost surely, it follows that $X_n$ converges almost surely, as desired.
+\end{proof}
+\pagebreak
+\subsection*{Problem III}
+\begin{proof}
+We first show that $\mc F_\tau$ is a $\sigma$-algebra.  Note that $\emptyset \cap \{\tau \le i\} = \emptyset \in \mc F_i$ for all $i$ so $\emptyset \in \mc F_\tau$.  Then, suppose $A \in \mc F_\tau$.  Then $A \cap \{\tau \le i\} \in \mc F_i$ for all $i$ so $(A \cap \{\tau \le i\})^c \in \mc F_i$ for all $i$.  Furthermore, note that $\{\tau \le i\} \in \mc F_i$ by definition of a stopping time, so it follows that 
+$$A^c \cap \{\tau \le i\} = (A \cap \{\tau \le i\})^c \cap \{\tau \le i\} \in \mc F_i.$$
+Hence $A^c \in \mc F_\tau$.  Finally, if $\{A_i\}_{i \in \N} \subset \mc F_\tau$ then 
+$$\bigcup_{k\in \N} (A_k \cap \{\tau \le i\}) = \left (\bigcup_{k \in \N} A_k\right ) \cap \{\tau \le i\} \in \mc F_i.$$
+Hence $\mc F_\tau$ is a $\sigma$-algebra, as desired.
+
+Suppose $A \in \mc F_\tau$.  Note that 
+\begin{align*}
+E(X_\tau1_A) &= E(\sum_{k=0}^n X_k 1_{\{\tau = k\}}1_A) \\
+&= \sum_{k=0}^n E(X_k1_{\{\tau = k\} \cap A} ) \\
+&= \sum_{k=0}^n E(E(X_k 1_{\{\tau=k\}\cap A} | \mc F_k))\\
+&= \sum_{k=0}^n E(1_{\{\tau = k\} \cap A}E(X_n|\mc F_k))\\
+&= \sum_{k=0}^n E(1_{\{\tau = k\} \cap A} X_n) \\
+&= \sum_{k=0}^n E(1_A 1_{\{\tau = k\}} X_n) \\
+&= E(1_A X_n).
+\end{align*}
+Hence, $E(X_n|\mc F_\tau) = X_\tau$.
+\end{proof}
+\pagebreak
+\subsection*{Problem IV}
+\begin{proof}(Part A)
+Define $\tau_x = \min \{k \ge 0 : X_k \le -x\}$.  Let $A_n = \{\omega : \min_{k \le n} X_k(\omega) \le -x\}$.  $X_k(\omega) \le -x$ if and only if $k \ge \tau_x$, so it follows that 
+$$A_n = \{\omega: \min_{k \le n} X_k(\omega) \le -x\} = \{\omega: \tau_x(\omega) \le n\}.$$
+Then, note that 
+$$EX_0 = EX_{\tau_x \wedge 0} \le EX_{\tau_x \wedge n}.$$
+
+Furthermore,
+\begin{align*}
+EX_{\tau_x \wedge n} &= E(X_{n \wedge \tau_x}1_{\tau_x \le n}) + E(X_{n \wedge \tau_x} 1_{\tau_x > n}) \\
+&= E(X_{\tau_x} 1_{\tau_x \le n}) + E(X_n 1_{\tau_x < n}) \\
+&\le -xP(A_n) + E(X_n1_{A_n^c})\\
+&\le -xP(A_n) + E(X_n^+),
+\end{align*}
+where we use the fact that $X_n1_{A} \le X_n^+$ for any measurable set $A$.
+
+Hence,
+$$EX_0 \le EX_{\tau_x \wedge n} \le -xP(A_n) + E(X_n^+)$$
+so it follows that 
+$$P(A_n) = P(\min_{k \le n} X_k \le -x) \le \frac{E(X_n^+) - E(X_0)}{x}.$$
+\end{proof}
+\begin{proof}
+Let $\tau = n \wedge \inf\{k : |S_k| > x\}$.  Note that $\tau \le n$ and that we have $S_\tau^2 \le (x + K)^2$.
+
+Note that $Y_n = S_n^2 - s_n^2$ is the quadratic martingale.  It follows that 
+$$0 = EY_0 = EY_{ \tau\wedge 0} = EY_{\tau \wedge n} = EY_{\tau}.$$  Hence, $ES_\tau^2 = Es_\tau^2$.
+
+Let $A = \{\omega: \max_{k \le n} |S_k| \le x\}$.  Note that 
+$$(x+K)^2 \ge ES_\tau^2 = Es_\tau^2 = E(s_\tau^2 1_A) + E(s_\tau^2 1_{A^c}) \ge s_\tau^2 E(1_A) = s_\tau^2 P(A).$$
+Then, note that $\max_{k \le n} |S_k| \le x$ implies that $\tau \ge n$, so $\tau = n$ and it follows that 
+$$P(A) = P(\max_{k \le n} |S_k| \le x) = \frac{(x+K)^2}{s_\tau^2} = \frac{(x+K)^2}{s_n^2}.$$
+\end{proof}
+
+\pagebreak
+\subsection*{Problem V}
+\begin{proof}(Part A)
+Note that 
+$$E|Y_n| \le \sum_{k=1}^n E(|S_{k-1}|1_{|S_{k-1}| \le c}|X_k|1_{|X_k| \le c}) \le \sum_{k=1}^n c^2 = nc^2 < \infty.$$
+
+Furthermore,
+\begin{align*}
+E(Y_{n+1}^{(c)}|\mc F_n) &= \sum_{k=1}^{n+1} E(|S_{k-1}|1_{|S_{k-1}| \le c}X_k1_{|X_k| \le c}|\mc F_n) \\
+&= E(|S_n|1_{|S_n| \le c}X_{n+1}1_{|X_{n+1}|\le c}) + \sum_{k=1}^{n} E(|S_{k-1}|1_{|S_{k-1}| \le c}X_k1_{|X_k| \le c}|\mc F_n) \\
+&= |S_n|1_{|S_n| \le c} E(X_{n+1}1_{|X_{n+1}| \le c}|\mc F_n) + Y_n^{(c)}\\
+&= |S_n|1_{|S_n| \le c} E(X_{n+1}1_{|X_{n+1}| \le c}) + Y_n^{(c)}\\
+&= Y_n^{(c)},
+\end{align*}
+where we use the fact that $|S_n|1_{|S_n|\le c}$ is $\mc F_n$ measurable, $X_{n+1}1_{|X_{n+1}|\le c}$ is independent of $\mc F_n$ and $X_{n+1}$ is symmetric.  
+
+Now, define $Z_n = X_n 1_{|X_n| \le c}$.  Note that $S_n = \sum_{k=1}^n X_k$ converges almost surely implies that $\sum_{k=1}^\infty \text{Var}(Z_k) < \infty$ by the Kolmogorov Three Series theorem.
+
+Hence, we have
+\begin{align*}
+E((Y_n^{(c)})^2) &= E((\sum_{k=1}^n |S_{k-1}|1_{|S_{k-1}| \le c}X_k1_{|X_k| \le c})^2) \\
+&= \sum_{k=1}^n E(S_{k-1}^2 1_{|S_{k-1}|\le c} X_k^2 1_{|X_k|\le c}) + \sum_{i \ne j}^n E(|S_{i-1}||S_{j-1}| X_iX_j 1_{|S_{i-1}|\le c}1_{|S_{j-1}|\le c}1_{|X_i|\le c}1_{|X_j|\le c})\\
+\end{align*}
+
+Note that 
+\begin{align*}
+\sum_{i \ne j}^n E(|S_{i-1}||S_{j-1}| &X_iX_j 1_{|S_{i-1}|\le c}1_{|S_{j-1}|\le c}1_{|X_i|\le c}1_{|X_j|\le c}) \\
+&= \sum_{i \ne j}^n E(|S_{i-1}|X_i1_{|S_{i-1}|\le c}1_{|X_i|\le c})E(|S_{j-1}|X_i1_{|S_{j-1}|\le c}1_{|X_j|\le c}) \\
+&= \sum_{i \ne j}^n E(|S_{i-1}|1_{|S_{i-1}|\le c})E(X_i1_{|X_i|\le c})E(|S_{j-1}|1_{|S_{j-1}|\le c})E(X_j1_{|j_i|\le c}) = 0
+\end{align*}
+since $X_i$ are symmetric.
+
+Furthermore,
+$$\sum_{k=1}^n E(S_{k-1}^2 1_{|S_{k-1}|\le c})E( X_k^2 1_{|X_k|\le c})  \sum_{k=1}^n c^2 \text{Var}(Z_k) = c^2 \sum_{k=1}^n \text{Var}(Z_k) $$
+so $$\sup_n E((Y_n^{(c)})^2) \le c^2 \sum_{k=1}^\infty \text{Var}(Z_k) < \infty,$$ as desired.
+\end{proof}
+\begin{proof}(Part B)
+First, note that $H_k = |S_{k-1}| \in \mc F_{k-1}$ is a non-negative predictable process.  Furthermore, $S_k$ is the linear martingale since $EX_i = 0$, so it follows that $$(H \cdot S)_n = \sum_{k=1}^n |S_{k-1}|(S_k - S_{k-1}) = \sum_{k=1}^n |S_{k-1}|X_k = Y_n$$
+is a martingale.  It suffices to show that $\sup E(Y_n^+) < \infty$, since by the martingale convergence theorem that $Y_n$ converges almost surely.  
+
+Next, we have
+$$E(Y_n) = \sum_{k=1}^n E(|S_{k-1}|)E(X_k) = 0,$$
+so it follows that $E(Y_n^+) = E(Y_n) + E(Y_n^-) = E(Y_n^-).$  Hence, it suffices to show that 
+$\sup E|Y_n| = 2\sup E(Y_n^+) < \infty$.  
+
+Now, note that $Y_n^{(c)} \xrightarrow{c \to \infty} Y_n$ almost surely and hence, in probability.  It suffices to show that $\{Y_n^{(c)}\}$ is uniformly integrable, since it follows that $E|Y_n^{(c)}| \to E|Y_n| < \infty$.  Note that $\phi(x) = x^2$ is convex, so $E(|Y_n^{(c)}|)^2 \le E((Y_n^{(c)})^2) $ by by Jensen's inequality.  Then, $\sup_n E((Y_n^{(c)})^2) < \infty$ from Part A, so $\sup_n E(|Y_n^{(c)}|) < \infty.$   Hence, $Y_n^{(c)}$ is uniformly integrable, as desired.
+\end{proof}
+
+\end{document}

@@ -92,3 +92,7 @@
 \contentsline {subsection}{\numberline {24.2}Morrey's Inequalities}{74}{subsection.24.2}% 
 \contentsline {subsection}{\numberline {24.3}GNS with Bounded Domains}{75}{subsection.24.3}% 
 \contentsline {subsection}{\numberline {24.4}Compact Sobolev Embeddings}{76}{subsection.24.4}% 
+\contentsline {section}{\numberline {25}November 19th, 2020}{77}{section.25}% 
+\contentsline {subsection}{\numberline {25.1}Compact Sobolev Embeddings, continued}{77}{subsection.25.1}% 
+\contentsline {subsection}{\numberline {25.2}Rellich-Kondrachov Theorem}{77}{subsection.25.2}% 
+\contentsline {subsection}{\numberline {25.3}Hardy Spaces}{78}{subsection.25.3}% 

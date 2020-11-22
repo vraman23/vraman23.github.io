@@ -2102,4 +2102,90 @@ When are Sobolev embeddings compact?  Start with $\dot W^{1,p}(\R^n) \subset L^q
 We have two obvious enemies.  Take $\phi \in \mathcal D$, and change it using the symmeteries of $\dot{W}^{1,p}, L^q$.  We have translation invariance: $u_n(x) = \phi(x-  x_n)$.
 
 Then if $\|u_n\|_p = C$, $\|u_n\|_{\dot W^{1,p}} = \tilde{C}$.  If $u_n \to u$ in $L^p$ on a subsequence, then $u_n \to u$ in $\mathcal D'$.  But $u_n \to 0$ in $\mc D'$, so it follows that $u = 0$.  But this is a contradiction since $\|u\|_{p} = \lim \|u_n\|_p = c \ne 0$.
+\pagebreak
+\section{November 19th, 2020}
+\subsection{Compact Sobolev Embeddings, continued}
+If $W^{k, p} \subset L^q$, is this compact?
+
+Some enemies:
+\begin{itemize}
+\item Translation Invariance:  $\phi \in \mc D$, $\phi(x - x_n), x_n \to \infty$ is bounded, but has no convergent subsequence.
+\item Take $\dot{W}^{k, p} \subset L^q$.  This has scaling invariance: Take $\phi(x) \to \lambda^\gamma \phi(\gamma x)$, where $\gamma = \frac{n}{q} = -k + \frac{n}{p}.$  Then $\|\phi_\lambda\|_{L^q} = \|\phi\|_{L^q}$ and $\|\phi_\lambda\|_{\dot{W}^{k, p}} = \|\phi\|_{\dot{W}^{k, p}}$.  As $\phi \to \infty$, $\phi_n(x) \to \phi_{\lambda_n}(x)$.  It follows that $\phi_n$ is of constant size $\ne 0$ in $\dot{W}^{k, p}$ and $L^q$.  
+
+We claim that $\phi_n$ has no convergent subsequence in $L^q$.  Suppose $\phi_n \to \phi \in L^q$.  Then $\phi_n \to \phi$ in $\mc D'$.  Since the supports are converging to $\{0\}$ it follows that $\phi = C\delta_0$, which is not in $L^q$.  We have the same effect if we spread $\phi$ out using scaling.  Then take the $L^\infty$ norm, which will decay to $0$.
+
+Can we switch to inhomogeneous Sobolev embeddings?  If $\dot{W^{k, p} \subset} K^q$ then $W^{k, p} \subset L^q$.  The squeezing is okay, but the spreading is not.  We conclude that scaling symmetry destroys the compactness of sharp Sobolev embeddings, even in a compact set.
+\end{itemize}
+\subsection{Rellich-Kondrachov Theorem}
+\begin{theorem}[Rellich-Korchachov] In a compact domain $\Omega$, we have the compact Sobolev embedding 
+$$W^{k, p}(\Omega) \subset L^r(\Omega), r \in [r, q).$$
+\end{theorem}
+\begin{proof}
+Suppose $\Omega \subset B$, a ball.  Extend $W^{k, p}(\Omega)$ functions to $W^{k, p}(\R^n)$ functions, supported in $B$.  Take a bounded sequence $u_n \in W^{k, p}(\R^n)$ supported in $B$.  We show that $u_n$ has a convergent subsequence in $L^q$.  We use a regularization procedure: $u_n^\epsilon = u_n * \phi_\epsilon$ for a mollifier $\phi_\epsilon$.  Note that $u_n^\epsilon$ is still supported in $2B$.  For any fixed $\epsilon$, the functions $u_n^\epsilon$ are uniformly smooth.  This is because 
+$$\partial^\alpha u_n^\epsilon = u_n * \partial^\alpha \phi_\epsilon.$$
+
+Hence,
+$$\|\partial^\alpha u_n^\epsilon\| \le C \|u_n\|_{L^p}.$$
+
+Then, we use uniform bound and uniform Lipschitz properties in order to use Arzela-Ascoli.  This extracts a convergent subsequence $u_n^\epsilon \to u_\epsilon$ uniformly in $2B$.  This implies that 
+$u_n^\epsilon \to u^\epsilon$ in $L^q$.
+
+Next, we look at $u_n^\epsilon - u_n$.  By Sobolev embeddings, we have 
+$$\|u_n^\epsilon - u_n\|_{L^q} \le C.$$
+We estimate each term in the difference separately.  
+
+On the other hand, we will show that we have smallness in $L^p$.
+$$\|u_n^\epsilon - u_n\|_{L^p} \le \epsilon^{k} \|u_n\|_{W^{k, p}}.$$
+
+Note that $\phi_\epsilon = \phi(x/\epsilon)\epsilon^{-n}$, $\phi \in D$, with $\int \phi = 1$.  In the Fourier space,
+$$\hat{u}_n^\epsilon = \hat{u}_n \cdot \hat{\phi}_\epsilon.$$
+The integral $1$ implies that $\hat{\phi}(0) = 1$.    We can improve the choice of $\hat{\phi}$ so that 
+$$\hat{\phi}(x) = 1 + O(|x|^N),$$
+near $x = 0$.  Then, we can write 
+$$\hat{\phi}(\xi) = 1 + + \xi^k \hat{\psi}(\xi),$$
+by taking a Taylor series smooth at $0$, near $\xi = 0$.
+
+Then 
+$$\hat{u}_n^\epsilon = (2 + (\epsilon' \xi)^k \hat{\psi}(\xi \epsilon)) \cdot \hat{u}.$$
+
+If follows that $u_n^\epsilon = u_n+\epsilon^k \psi_\epsilon*\partial^k \hat{u},$
+so
+$$\|u_n^\epsilon - u_n\|_{p }\le \epsilon^k \cdot \|\partial^k u\|_p.$$
+Interpolating for $p \le r < q$, 
+$$\|u_n^\epsilon - u_n\|_{r} \le C\epsilon^{\gamma(r)}.$$
+
+We finish by using a diagonalization argument, similar to the proof of AA.  We construct a diagonal sequence $u_{nn}^{\epsilon_j} \to u^\epsilon_j$, which is Cauchy in $L^r$.
+\end{proof}
+\subsection{Hardy Spaces}
+We have $H^{k, p} = W^{k, p}$ - can we describe it in the Fourier space?
+For $p=2$, $W^{k, 2} := H^k$.  Then 
+$$\|u\|_{H^k}^2 = \sum_{|\alpha| < K}\|\partial^{\alpha u}\|_2^2 = \sum_{|\alpha| \le k} \| \xi^{\alpha} \hat{u}\|_{2}^2 \approx \|(1 + |\xi|^2)^{k/2} \hat{u}\|_2^2,$$
+a weighted $L^2$ norm.
+
+We can extend this as 
+$$\|u\|_{H^s}^2 = \|(1 + |\xi|^2)^{s/2} \hat{u}\|_{L^2}^2.$$
+
+We have a duality: $(H^s)^* = H^{-s}$, with respect to the $L^2$ pairing.
+Consider the inner product 
+$$\langle u, v\rangle = \int u \overline{v} = \int \hat{u} \overline{\hat v}.$$
+
+Note that 
+$$u \to \hat{u} \to (1 + |\xi|^2)^{s/2}\hat{u} \to v =\mathcal{F}^{-1}( (1 + |\xi|^2)^{s/2} \hat{u}).$$
+If we define $v = (1 + |D|^2)^{s/2} u$, $(1 + |D|^2)^{s/2}$ is called a multiplier.  More generally, $\xi \to a(\xi)$, the symbol, then $u \to A(D) u$, and $A(D)$ is a multiplier.
+
+\begin{proposition}
+A function $u \in W^{k, p}$ if and only if $(1 + |D|^2)^{k/2} u \in L^p$.
+
+A function $u \in W^{s,p}$ if and only if $(1 + |D|^2)^{s/2} u \in L^p$ only for $1 < p < \infty$
+\end{proposition}
+The duals for $L^1, L^{\infty}$ correspond to the duals $H_1$ and $BMO$, where $H_1$ is the Hardy space.
+Further generalizations of Sobolev spaces:
+\begin{itemize}
+\item Besov spaces
+\item Triebel-Lizorkian spaces
+\item Lorentz spaces
+\end{itemize}
+
+
+
 \end{document}

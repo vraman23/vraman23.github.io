@@ -89,3 +89,6 @@
 \contentsline {subsection}{\numberline {24.1}More Optimal Stopping Conditions}{76}{subsection.24.1}% 
 \contentsline {subsection}{\numberline {24.2}Reverse Martingales}{76}{subsection.24.2}% 
 \contentsline {subsection}{\numberline {24.3}Applications of Reverse Martingales}{77}{subsection.24.3}% 
+\contentsline {section}{\numberline {25}November 19th, 2020}{79}{section.25}% 
+\contentsline {subsection}{\numberline {25.1}de Finetti's Theorem}{79}{subsection.25.1}% 
+\contentsline {subsection}{\numberline {25.2}Symmetric and Asymmetric Random Walks}{79}{subsection.25.2}% 

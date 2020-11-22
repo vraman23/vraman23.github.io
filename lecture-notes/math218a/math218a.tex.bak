@@ -18,6 +18,7 @@
 \renewcommand{\P}{\mathbb{P}}
 
 \let \mc \mathcal
+\let \ov \overline
 
 \usepackage{answers}
 \Newassociation{hint}{hintitem}{all-hints}
@@ -2073,7 +2074,45 @@ so Jensen's inequality is sharp for the convex function $x \mapsto x^2$.
 \end{proof}
 
 We know that $A_n\phi \to E(\phi(X_1, X_2, \dots, X_k)| \mc E).$  We prove that $A_n\phi$ is independent of $X_1$.  All the terms in $A_n\phi$ not containing $X_1$ is independent of $X_1$ and is measurable with respect to $\Sigma(X_2, \dots)$.  Then $A_n(\phi)= o(1/n) + A_n'(\phi)$ independent of $X_1$, and the error goes to $0$.  Repeating this for the other $k$ terms gives the result.  
-
 \end{proof}
+\pagebreak
+\section{November 19th, 2020}
+\subsection{de Finetti's Theorem}
+
+\begin{definition}A sequence $X_1, X_2, \dots$  is exchangeable if for each $n$ and $\pi \in S_n$ $$(X_1, X_2, \dots, X_n) = (X_{\pi(1)}, X_{\pi(2)}, \dots, X_{\pi(n)})$$
+in distribution.
+\end{definition}
+
+\begin{example} IID sequences are obviously exchangable.  Another example: fix a random $\theta \in [0, 1]$
+ uniform and consider $Ber(\theta)$, iid. Each $X_i \sim Ber(1/2)$.  But $E(X_1, X_2) = E_\theta(E(X_1, X_2 | \theta)) = E(\theta^2) = \frac{1}{3}.$   
+\end{example}
+
+\begin{theorem} This is the only example of exchangeable sequences. That is, given $X_1, X_2, \dots$ and the exchangeable sigma algebra $\mc E$,  the distribution of $(X_1, X_2, \dots) $ given $\mc E$ is iid.
+\end{theorem}
+\begin{proof}
+That the distribution of $X_i, X_j$ given $\mc E$ are the same follows that $E(\phi(X_i)| \mc E) = E(\phi(X_j)| \mc E)$ for all $i, j$(by the change of measure formula).  It suffices to show that for any $f, g$, 
+$$E(f(X_i)g(X_j)| \mc E) = E(f(X_i)|\mc E) E(g(X_j)| \mc E)$$
+
+If will be enough to show for any $f: \R^k \to \R$ and $g: \R \to \R$, 
+$$E(f(X_1, X_2, \dots, X_k)g(X_{k+1})| \mc E) = E(f(X_1, \dots, X_k)|\mc E) E(g(X_{k+1}| \mc E)$$
+\end{proof}
+
+\subsection{Symmetric and Asymmetric Random Walks}
+Let $\xi_1, \xi_2, \dots$ be iid and let $S_n = S_0 + \sum_{i=1}^n \xi_i$.  Taking $\mc F_n = \sigma(\xi_1, \dots, \xi_n)$, we have some martingales $X_n = S_n - n E\xi_i$ the linear martingale.  For $E\xi = 0$, we have $X_n = S_n^2 - nEX_i^2$, the quadratic martingale.
+
+Consider the Symmetric simple random walk with $P(\xi_i = 1) = P(\xi_i = -1) = 1/2$.  We compute the moment generating function $E(s^{\tau_1})$ for $s < 1$.  We have that $E(\tau_1) = \infty$.  We compute this using exponential martingales.
+
+For $\theta$, let $\phi(\theta) = E(E^{\theta X_1})$ where $X_i \sim Ber(\pm 1)$. This is $\phi(\theta) = \frac{e^{\theta} + e^{\theta}}{2} \ge 1$.  $M_n = \frac{e^{\theta S_n}}{\phi(\theta)^n}$ is a martingale since 
+$$E(M_n|\mc F_{n-1}) = \frac{e^{\theta S_{n-1}}}{\phi(\theta)^{n-1}} \frac{e^{\theta X_n} }{\phi(\theta)},$$
+so
+$$M_n = M_{n-1} \frac{e^{\theta X_n} }{\phi(\theta)}.$$
+Consider $\ov{M_n} = M_{n \wedge \tau}$ for $\tau = \tau_1$.  Note that $0 \le \ov M_n \le e^{\theta}$.  We know that $E1 = (\ov M_0) = E(\ov M_n)$ and by BCT, $E(\ov M_n) = E(M_\tau).$ Therefore, $$E(M_\tau) = 1 = E^{\theta}E(\phi(\theta)^{-\tau}).$$
+
+Now, we set $s = \phi(\theta)^{-1}$. Letting $x = e^{theta}$ and doing some algebra, we find that $x^2 + 1 - 2/s x = 0$, so it follows that 
+$$x = \frac{2 \pm \sqrt{4 - 4s^2}}{2s} = \frac{1 \pm \sqrt{1-s^2}}{s}.$$
+
+It follows that $$E(s^{\tau}) = \frac{1}{x} = \frac{1 - \sqrt{1 - s^2}}{s}.$$
+
+
 \end{document}
 
