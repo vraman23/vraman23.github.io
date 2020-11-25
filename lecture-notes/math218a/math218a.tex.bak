@@ -2102,7 +2102,7 @@ Let $\xi_1, \xi_2, \dots$ be iid and let $S_n = S_0 + \sum_{i=1}^n \xi_i$.  Taki
 
 Consider the Symmetric simple random walk with $P(\xi_i = 1) = P(\xi_i = -1) = 1/2$.  We compute the moment generating function $E(s^{\tau_1})$ for $s < 1$.  We have that $E(\tau_1) = \infty$.  We compute this using exponential martingales.
 
-For $\theta$, let $\phi(\theta) = E(E^{\theta X_1})$ where $X_i \sim Ber(\pm 1)$. This is $\phi(\theta) = \frac{e^{\theta} + e^{\theta}}{2} \ge 1$.  $M_n = \frac{e^{\theta S_n}}{\phi(\theta)^n}$ is a martingale since 
+For $\theta$, let $\phi(\theta) = E(e^{\theta X_1})$ where $X_i \sim Ber(\pm 1)$. This is $\phi(\theta) = \frac{e^{\theta} + e^{\theta}}{2} \ge 1$.  $M_n = \frac{e^{\theta S_n}}{\phi(\theta)^n}$ is a martingale since 
 $$E(M_n|\mc F_{n-1}) = \frac{e^{\theta S_{n-1}}}{\phi(\theta)^{n-1}} \frac{e^{\theta X_n} }{\phi(\theta)},$$
 so
 $$M_n = M_{n-1} \frac{e^{\theta X_n} }{\phi(\theta)}.$$
@@ -2112,7 +2112,80 @@ Now, we set $s = \phi(\theta)^{-1}$. Letting $x = e^{theta}$ and doing some alge
 $$x = \frac{2 \pm \sqrt{4 - 4s^2}}{2s} = \frac{1 \pm \sqrt{1-s^2}}{s}.$$
 
 It follows that $$E(s^{\tau}) = \frac{1}{x} = \frac{1 - \sqrt{1 - s^2}}{s}.$$
+\pagebreak
+\section{November 24th, 2020}
+\subsection{Random Walks, Continued}
+For the simple random walk, we found the associated hitting time between $a, b$ using the martingale $S_n = \sum_{i=1}^n x_i$.
+
+In the asymmetric case, the closest martingale is $S_n - (2p-1)n$.  The idea is to consider exponential martingales:  Let $M_n = \left (\frac{1-p}{p}\right )^{S_n}$.  It is easy to check that $M_n$ is a martingale.  Consider the stopping time for $\tau = \tau_{\{-a, b\}}.$  The optional stopping theorem(if applicable) is $E(M_\tau) = E(M_0)$.  Notably, we can find similar expressions such as 
+$$P(\tau_{-a} < \tau_b).$$
+If we let $\phi(y) = [(1-p)/p]^y$, then $\phi(0) = \phi(b)(1-q) + \phi(-a) q$, so it follows that 
+$$q = P(\tau_{-a} < \tau_b) = \frac{\phi(b) - \phi(0)}{\phi(b) - \phi(-a)}.$$
+
+Finally, note that the optimal stopping theorem is applicable since $\tau \wedge n$ is a bounded stopping time and $EM_\tau \le EM_{\tau\wedge n}$, we can apply BCT.
+
+\begin{proposition} $P(\tau_b < \infty) = 1$, $P(\tau_{-a} < \infty) < 1$.
+\end{proposition}
+\begin{proof}
+Note that 
+$$1-q = \frac{\phi(0) - \phi(-a)}{\phi(b) - \phi(-a)} = \frac{1 - ((1-p)/p)^{-a}}{((1-p)/p)^b - ((1-p)/p)^{-a}}.$$
+Then $$P(\tau_b < \infty) = \lim_{a \to \infty} P(\tau_b < \tau_{-a}) = 1.$$
+
+For the other conclusion, we send $b \to \infty$, and $\phi(b) \to 0$, so
+$$P(\tau_{-a} = \infty) = 1 - \left (\frac{1-p}{p}\right)^{-a}.$$
+
+To find $E(\tau_b)$, note that $S_n - (2p-1)n$ is a martingale.  By OST, $0 = E(S_{\tau \wedge n}) - (2p-1) E(\tau \wedge n)$, so it follows that 
+$$E(\tau \wedge n) = \frac{1}{2p-1}E(S_{\tau \wedge n}) \le \frac{b}{2p-1}.$$  
+
+By MCT, $\tau \wedge n \uparrow \tau$, so it follows that $E(\tau \wedge n) \uparrow E(\tau)\le \frac{b}{2p-1}$, if we apply OST.  
+
+We can apply DCT since 
+$$|S^{\tau \wedge n} | \le b + |\inf S_n|$$
+and $P(\inf S_n \le -a) = P(\tau_{-a} < \infty) = \frac{(1-p)^a}{p^a}.$
+Hence,
+$$E(|\inf S_n|) \le \sum_{a=1}^{\infty} P(\tau_{-a} < \infty) = \sum_{a=1}^{\infty} \left (\frac{1-p}{p}\right)^a  = \frac{1}{1 - \left (\frac{1-p}{p}\right )^a}.$$
+\end{proof}
+\subsection{Combinatorics of SRW}
+We consider simple random walks.  
+
+\begin{thm}[Reflection Principle] Let $x, y > 0$.  The number of paths from $(0, x)$ to $(n, y)$ that are $0$ at some time is equal to the number of paths from $(0, -x)$ to $(n, y)$.
+\end{thm}
+For any path as above, reflecting the path about the x-axis until the first hitting time of $0$ creates a bijection to the set of paths from $(0, -x) \to (n, y)$.  The inverse map is exactly reflecting back.
+
+\begin{thm}[Ballot Theorem] Suppose $A$ and $B$ get $\alpha, \beta$ votes each with $\alpha > \beta$.  The probability that throughout the vote counting process $A$ is ahead of $B$ is $\frac{\alpha - \beta}{\alpha + \beta}$.
+\end{thm}
+\begin{proof}
+Let $V_t(A)$ be the number of votes $A$ has got after the first $t$ votes.  Similarly for $B$.  Note that $V_t(A) + V_t(B) = t$.  We want to consider $V_t(A) - V_t(B)$, specifically the paths that never hit the $x$-axis.  
+
+Let $n = \alpha + \beta$, $x = \alpha - \beta$.  Let $N_{k, r}$ be the number of paths from $0$ to $r$ in $k$ steps.  
+
+We claim that the number of desired paths is 
+$$N_{n-1, x-1} - N_{n-1, x-1} = \frac{\alpha - \beta}{\alpha + \beta}$$
+\begin{exercise} Prove this result using the reflection principle.
+\end{exercise}
+\end{proof}
+\begin{lemma} $P(S_1 \ne 0, S_2 \ne 0, \dots, S_{2n} \ne 0) = P(S_{2n} = 0)$.  
+\end{lemma}
+\begin{proof}
+$$P(S_1 > 0, \dots, S_{2n} > 0) = \sum_{r=1}^{\infty} P(S_1 > 0, \dots, S_{2n-1} > 0, S_{2n} = 2r).$$
+
+The probability is exactly
+$$\frac{N_{2n-1, 2r-1} - N_{2n-1, 2r+1}}{2n-1}.$$
+If we let $p_{n, x} = P(S_n = x)$, then
+$$\sum_{r=1}^{\infty} P(S_1 > 0, \dots, S_{2n-1} > 0, S_{2n} = 2r) = \frac{1}{2}\sum_{r=1}^{\infty} (p_{2n-1, 2r-1} - p_{2n-1,2r+1 }) = \frac{1}{2}p_{2n-1, 1}= \frac{1}{2}P(S_{2n} = 0).$$
+By symmetry, the probability each are less than $0$ is $\frac{1}{2}P(S_{2n} = 0)$, so it follows that the probability is $P(S_{2n} = 0)$, as desired.
+
+Then, 
+$$P(S_{2n} = 0) = \binom{2n}{n} \frac{1}{2^{2n}}$$
+and using the Stirling Approximationm it follows that 
+$$P(S_{2n} = 0) \sim \frac{1}{\sqrt{n}}.$$
+
+
+\end{proof}
+\begin{lemma} $P(\tau = 2n) = P(\tau > 2n-2) - P(\tau > 2n) = P(S_{2n-2}) - P(S_{2n} = 0) \sim n^{-3/2}$, plugging in the result from above.
+\end{lemma}
 
 
 \end{document}
+
 

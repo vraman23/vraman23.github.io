@@ -96,3 +96,7 @@
 \contentsline {subsection}{\numberline {25.1}Compact Sobolev Embeddings, continued}{77}{subsection.25.1}% 
 \contentsline {subsection}{\numberline {25.2}Rellich-Kondrachov Theorem}{77}{subsection.25.2}% 
 \contentsline {subsection}{\numberline {25.3}Hardy Spaces}{78}{subsection.25.3}% 
+\contentsline {section}{\numberline {26}November 24th, 2020}{79}{section.26}% 
+\contentsline {subsection}{\numberline {26.1}Trace Theorems}{79}{subsection.26.1}% 
+\contentsline {subsection}{\numberline {26.2}Sharp Trace Theorems}{80}{subsection.26.2}% 
+\contentsline {subsection}{\numberline {26.3}The Laplace Equation}{80}{subsection.26.3}% 

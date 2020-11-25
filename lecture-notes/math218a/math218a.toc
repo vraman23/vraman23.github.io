@@ -92,3 +92,6 @@
 \contentsline {section}{\numberline {25}November 19th, 2020}{79}{section.25}% 
 \contentsline {subsection}{\numberline {25.1}de Finetti's Theorem}{79}{subsection.25.1}% 
 \contentsline {subsection}{\numberline {25.2}Symmetric and Asymmetric Random Walks}{79}{subsection.25.2}% 
+\contentsline {section}{\numberline {26}November 24th, 2020}{81}{section.26}% 
+\contentsline {subsection}{\numberline {26.1}Random Walks, Continued}{81}{subsection.26.1}% 
+\contentsline {subsection}{\numberline {26.2}Combinatorics of SRW}{82}{subsection.26.2}% 

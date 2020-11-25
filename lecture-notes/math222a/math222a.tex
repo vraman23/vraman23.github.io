@@ -2185,7 +2185,110 @@ Further generalizations of Sobolev spaces:
 \item Triebel-Lizorkian spaces
 \item Lorentz spaces
 \end{itemize}
+\pagebreak
+\section{November 24th, 2020}
+\subsection{Trace Theorems}
+Suppose $\Sigma \subset \R^n$ of codimension $1$.  Let $u \in W^{s, p}(\R^n)$.  What can we say about $u\vert_{\Sigma}$(the trace of $u$ on $\Sigma$)?
 
+Some easy examples:
+\begin{itemize}
+\item $u \in C(\R^n) \Rightarrow u \in C(\Sigma)$
+\item $C^k(\R^n) \Rightarrow u \in C^k(\Sigma), (\Sigma \in C^k)$.
+\item $C^{\gamma}(\R^n) \Rightarrow u \in C^\gamma(\Sigma)$.
+\item $u \in L^p(\R^n) \Rightarrow u\vert_{\Sigma}$ is undefined, since it is a null set.  
+\end{itemize}
 
+If $u \in W^{1, p}(\R^n)$, what can we say about $u \vert_{\Sigma}$?  First, take $\Sigma = \{x_n = 0\}$, a hyperplane, $x = (x', x_n)$.  We can write
+\begin{align*}
+u(x', 0) = \int_{-\infty}^0 \partial_n u(x', x_n)\, dx_n.
+\end{align*}
+If $p = 1$, then we have
+\begin{align*}
+|u(x', 0) | &\le \int_{-\infty}^0 |\partial_n u(x', x_n)| \,dx_n \\
+\int |u(x', 0)|\, dx' &\le \int_{\R^{n-1}}\int_{-\infty}^0 |\partial_n u(x', x_n)|\, dx_n\\
+\end{align*}
+so it follows that 
+$$\|u(x', 0)\|_{L^q(\R^{n-1})}\le \|u\|_{W^{1, 1}}.$$
+\begin{itemize}
+\item This holds for test functions.
+\item If $u \in W^{1, 1}$, we approximate $\mathcal D \ni u_n \to u \in W^{1, 1}$.  Then $u_n\vert_\Sigma \to f \in L^1(\Sigma)$, where $f$ is called the \textbf{Trace} of $u$ on $\Sigma$.
+\end{itemize}
 
+For general $L^p$ spaces, we work with the integral
+$$u(x', 0) = \int_{-\infty}^0 \partial(\chi(x_n) u(x', x_n))\, dx_n,$$
+where $\chi \in \mathcal D(\R), \chi(0) = 1$.
+
+It follows that 
+\begin{align*}
+u(x', 0) = \int_{-\infty}^0 \partial_n \chi \cdot u + \chi \cdot \partial_n u \, dx_n\\
+\Longrightarrow |u(x', 0)|^p \le \|u(x', \cdot)\|_{L^p}^p + \|\partial_n u(x', \cdot)\|_{L^p}^p\\
+\Longrightarrow \|u\vert_\Sigma\|_{L^p} \le \|u\|_{L^p} + \|\grad u \|_{L^p} \le \|u\|_{W^{1, p}}.
+\end{align*}
+\subsection{Sharp Trace Theorems}
+
+\begin{thm} Consider $u \to u\vert_\Sigma = \text{Tr}(u)$.  Then,
+$$W^{s, p} \to W^{s - 1/p, p}$$
+provided that $s - \frac{1}{p} > 0$.  Hence,
+$$\text{Tr}: W^{1, p} \to L^p[W^{1 - 1/p, p}].$$
+\end{thm}
+To deal with more general surfaces, we have some possible ideas:
+\begin{itemize}
+\item Partitions of Unity to localize:  Take $1 = \sum \chi_k(x)$, so $u = \sum \chi_k(x)u$.
+\item Flatten the boundary, use a change of coordinates to convert the boundary to a hyperplane.
+\end{itemize}
+The general proof reguires the notion of a fractional Sobolev space.  We can prove the $p=2$ using Fourier Transforms.
+\subsection{The Laplace Equation}
+The two forms of the problem are
+$$-\Delta u = 0, -\Delta u = f,$$
+which are the homogeneous and inhomogeneous equations, respectively.  The solutions are called \textbf{harmonic functions}.  More generally, we can look at:
+\begin{itemize}
+\item $g^{ij}\partial_i \partial_j u = 0$, where $g^{ij}$ is positive definite, symmetric.  
+\item This reduces to $-\Delta$ by a change of coordinates.
+\end{itemize}
+The variable coefficient problem is 
+$$g^{ij}(x) \partial_i \partial_j u + b^{i}(x)\partial_i u + c(x) u = 0.$$
+
+We know the fundamental solution
+$$K(|x|) = \begin{cases}
+c_n |x|^{2-n}, n \ge 3\\
+c_2 \log |x|, n = 2
+\end{cases}.$$
+\begin{theorem}[Mean value property] Let $u$ be a harmonic function in a domain $\Omega \subset \R^n$.  Then for $x_0, r$ such that $B(x_0, r) \subset \Omega$, we have:
+$$u(x_0) = \aint_{\partial B(x_0, r)} u(x) \,d\sigma(x) = \aint_{B(x_0, r)} u(x) \,dx$$
+\end{theorem}
+\begin{proof}
+We use the fundamental solution $K$, which satisfies $\Delta K = \delta_0$.  By translation, we can take $x_0 = 0$.  Test the function $u$ using a truncated form of $K$:
+$$\psi(x) =[K(|x|) - K(r)]1_{|x| \ge r_0},$$
+which is compactly supported.
+
+We know that $-\Delta u = 0$, which in terms of distributions gives $-\Delta \psi(u) = 0$.  First, note that $\psi = \psi(r)$, which is smooth except for $x=0, x= r_0$. We also have that $- \Delta \psi = 0$, outside of $|x| = 0, |x| = r_0$.  At $|x| = 0$, we have $\delta_0$.
+
+We consider the Laplacian in polar coordinates for radial functions, namely
+$$\Delta f(r) = (\partial_r^2 + \frac{n-1}{r} \partial_r)f(r).$$
+Our function is Lipschitz continuous at $|x| = r_0$, but the derivative a jump.  Then $\partial_r^2 f$ will have $\partial_{r_0}[\partial_r f]$, which the brackets denote the size of the jump.
+
+Hence,
+$$-\Delta \psi = \delta_0 + c(n, r_0) \delta_{r_0}.$$
+Thus,
+$$-\Delta \psi(u) = u(0) + c(n, r_0)\aint_{\partial B(0, r_0)} u(x)\, d\sigma(x)= 0.$$
+This relation holds for every Harmonic function $u$.  Taking $u = 0$, we find that $c = -1$, so 
+$$u(0) = \aint_{\partial B(0, r_0)} u\, d\sigma(x).$$
+\end{proof}
+\begin{theorem}[Elliptic Regularity] Local harmonic functions are smooth.
+\end{theorem}
+\begin{proof}
+Suppose we have some domain $\Omega$ where $-\Delta u  = 0$ in $\Omega$.  Take $x_0 \in \Omega$.  We would like to show that $u$ is smooth in a neighborhood of $x_0$.
+
+Truncate $u$ to a ball $B$.  Use a cutoff function $\chi \in \mc D$ with $\chi = 1$ in $B$ and $\chi = 0$ in $2B^c$.  The equation for $\chi u$ is 
+$$-\Delta(\chi u) = -\Delta \chi \cdot u - 2\grad \chi\cdot \grad u - \chi \cdot \Delta u,$$
+so $$-\Delta (\chi u) = f, \supp f \subset 2B\setminus B.$$
+
+This implies that $\chi u = f * K$, the fundamental solution.  We are interested in this convolution near $x_0$.
+
+Formally, we have 
+\begin{align*}
+\chi u ( x) &= \int f(y) K(x-y) dy.\\
+\end{align*}
+This would mean that for $x$ near $x_0$, $|x-y| > C$.  But $K$ is smooth there, so we find that $\chi u(x) = f(K(x - \cdot))$, where $f$ is compactly supported and $K(x - \cdot)$ is smooth in the support, as also as a function of $x$.  Hence $\chi u$ is a locally smooth function of $x$.
+\end{proof}
 \end{document}
