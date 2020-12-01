@@ -1,4 +1,4 @@
-\documentclass[11pt]{scrartcl}
+\documentclass[12pt]{scrartcl}
 \usepackage[sexy]{evan}
 \usepackage{graphicx}
 
@@ -2291,4 +2291,99 @@ Formally, we have
 \end{align*}
 This would mean that for $x$ near $x_0$, $|x-y| > C$.  But $K$ is smooth there, so we find that $\chi u(x) = f(K(x - \cdot))$, where $f$ is compactly supported and $K(x - \cdot)$ is smooth in the support, as also as a function of $x$.  Hence $\chi u$ is a locally smooth function of $x$.
 \end{proof}
+\pagebreak
+\section{December 1st, 2020}
+We consider the Laplace equation, a second order elliptic equation.  Recall that if $-\Delta u = 0$, $u$ is \textbf{harmonic}, if $-\Delta u \le 0$, then $u$ is \textbf{subharmonic} and if $-\Delta u \ge 0$, then $u$ is \textbf{superharmonic}.
+
+\subsection{Mean Value Property}
+If $u$ is harmonic, then 
+$$u(x_0) = \aint_{B(x_0, r)} u(x)\,dx.$$
+
+We have similar mean value properties for subharmonic and superharmonic functions, replacing the equality with the appropriate equality.
+
+\subsection{Maximum Principle}
+Suppose we have a harmonic function $u$ and $x_0$, a maximum point for $u$.  In order words, $\grad(x_0) = 0$.  Then,
+$$u(x) \approx u(x_0) + \dfrac{1}{2}D^2 u(x_0)(x-x_0)\cdot (x - x_0) + o((x - x_0)^3).$$
+We can think of $\Delta u = \text{Trace}(D^2 u)$, which is the sum of the eigenvalues of the Hessian.  So, if $u$ is harmonic, then the sum of the eigenvalues is $0$.  It follows that if $x_0$ is a maximal point, then $D^2u(x_0) \le 0$, i. e. $D^2u(x_0)$ is negative-definite.  However, the eigenvalues have to be nonpositive, so we conclude that all the eigenvalues are $0$ and $D^2 u = 0$ exactly.
+
+\begin{thm}[Strong Maximum Principle for Harmonic Functions]
+Let $u \in C(\overline{\Omega}) \cap C^2(\Omega)$.  Then $$\max_{\Omega } u = \max_{\partial \Omega} u.$$
+Furthermore, if $\max$ is attained inside, then $u$ is a constant($\Omega$ is simply connected).
+\end{thm}
+\begin{remark} If $u$ is harmonic, then $-u$ is harmonic so we have the same statement for minimums.
+\end{remark}
+\begin{remark} The maximum statement holds for subharmonic functions and the minimum statement holds for superharmonic functions.
+\end{remark}
+\begin{proof} We use the mean value property.  Let $x_0 \in \Omega$ be a maximum point for $u$.  Then for small $r$, $B(x_0, r) \subset \Omega$, so it follows that 
+$$u(x_0) = \aint_{B(x_0, r)} u(x)\,dx \le \aint_{B(x_0, r)} u(x_0)\,dx = u(x_0).$$
+Equality must hold, so $u(x) = u(x_0)$ for $x \in B(x_0, r)$.
+
+It follows that $D \subset \Omega$, $D  = \{x \in \Omega; u(x) = u(x_0)\}$, $D$ is closed and open, $\Omega $ is connected, so $D = \Omega$ or $\emptyset$. 
+\end{proof}
+\begin{proof}(Weak maximal principle) The maximum principle is trivial for strict subharmonic functions.  Suppose $x_0 \in \Omega$ is a maximal point.  Then $\grad u(x_0) = 0$ and $D^2u(x_0) \le 0$.  Since $u$ is subharmonic, $\Delta u = \text{Tr}(D^2 u) > 0$, a contradiction.
+
+This shows that $-\grad u < 0$ implies that $\max_{\Omega} u = \max_{\partial \Omega} u$.  To work with subharmonic functions, we penalize,
+$$u_\epsilon = u - \epsilon \phi, \Delta \phi >0.$$
+Applying the maximal principle for $u_\epsilon$, we have $\max_\Omega u_\epsilon = \max_{\partial \Omega} u_\epsilon$.  As $\epsilon \to 0$, $u_\epsilon \to u$, which gives the result.
+\end{proof}
+
+\subsection{Laplace in Bounded Domains}
+Take $\Omega \subset \R^n$, bounded and $-\Delta u = f$ in $\Omega$.  In this case, the solution is not unique.  One is given by $1_\Omega f * K = u$.  To also have uniqueness, we must know something about $u$ on the boundary.  For instance, If $u\vert_{\partial \Omega} = 0$ and the normal derivative $\frac{\partial u}{\partial \nu}\vert_{\partial \Omega} = 0$, and $-\Delta u = f$ in $\Omega$, then $-\Delta(1_{\Omega} u) = 1_{\Omega f}$, so we have extended the problem to all of $\R^n$.
+
+From the maximum principle, if $-\Delta u = 0$ in $\Omega$, and $u\vert_{\partial \Omega} = 0$, then it follows that $u$ is identically $0$, which gives the uniqueness.
+
+In general, Boundary value problems for $-\Delta$ are given by 
+$$\begin{cases}
+-\Delta u = f \in \Omega \\
+u = g \in \partial \Omega
+\end{cases},$$
+the Dirichlet Problem.
+
+Another problem is 
+$$\begin{cases}
+-\Delta u = f \in \Omega \\
+\frac{\partial u}{\partial \nu} = g \in \partial \Omega
+\end{cases},$$
+the Neumann Problem.
+
+We can expand this idea: this maximum principle works for subharmonic principles, and we can prove exitence based on the maximum principle: for a subsolution $v$, with $-\Delta u \le f$ in $\Omega$ and $v \le g$ in $\partial \Omega$.  The largest subsolution is a solution - this follows from an intermediate value type argument using subsolutions and super solutions.
+
+\subsection{Harnack Inequalities}
+We also have the Harnack inequality, for $-\Delta u = 0$ in $\Omega$ and $u \ge 0$ in $\Omega$, $K$ a compact subset of $\Omega$, we have that 
+$$\max_k u \le C_{k, \Omega} \min_K u.$$
+
+In a simpler setting, consider $u(x_0) = \aint_{B(x_0, r)} u(x)\,dx$.  Take $x_1$ to be the minimum point.  Then $B(x_0, r) \subset B(x_1, R) \subset \Omega$.  It follows that 
+$$u(x_0) = \frac{1}{|B(x_0, r)|}\int_{B(x_0, r)} u(x)\, dx \le \frac{1}{ |B(x_0, r)|}\int_{B(x_1, R)} u(x)\,dx = \frac{|B(x_1, R)|}{|B(x_0, r)|}u(x_1).$$
+
+\subsection{Dirichlet Problem}
+We have 
+$$\begin{cases}
+-\Delta u = f \in \Omega \\
+u = g \in \partial \Omega
+\end{cases},$$
+the Dirichlet Problem.
+
+Can we find a fundamental solution for this?  Given $\phi \in \Omega$, 
+$$\int_{\Omega}(-\Delta u) \cdot \phi \,dx = \int_{\Omega} u\cdot (-\Delta \phi)\,dx,$$
+assuming our functions are compactly supported.  Otherwise,
+\begin{align*}
+\int_{\Omega}(-\Delta u) \cdot \phi - u \cdot \Delta \phi&= \int_{\Omega} \phi \frac{\partial u}{\partial \nu}- u \frac{\partial \phi}{\partial \nu} \,d\sigma.
+\end{align*}
+What if we choose $\phi = K(x - x_0)$, centered at $x_0 \in \Omega$?  $-\Delta \phi = \delta_{x_0}$, so 
+\begin{align*}
+\int_{\Omega} \Delta u \cdot K(x - x_0) \,dx + u(x_0) = \int_{\partial \Omega} K \cdot \frac{\partial u}{\partial \nu} - u \frac{\partial K}{\partial \nu} \, d\sigma \\
+\end{align*}
+which equivalently gives
+$$u(x_0) = \int_\Omega (-\Delta u) \cdot K \,dx + \int_{\partial \Omega} K \cdot \frac{\partial u}{\partial \nu} - u \frac{\partial K}{\partial \nu} \, d\sigma.$$
+
+In order to find $u$, we need $-\Delta u$  on $\Omega$ and $u$ on $\partial \Omega$, but we also need $\frac{\partial u}{\partial \nu}$ on the boundary.  To fix this, we would like $K$ to satisfy $K = 0$ on the boundary.  
+
+Replace $K(x - x_0)$ by a function $G(x_0, x)$ such that $-\Delta_x G(x, x_0) = \delta_{x_0}$ on $\Omega$ and $G(x_0, x) = 0$ on the boundary.  
+\subsection{Green Functions}
+\begin{definition} $G$ is a Green function is the above holds.
+\end{definition}
+We can compare the Green function $G(x_0, x)$ with a fundamental solution $K(x_0, x)$.  Note that 
+$$-\Delta_x(G(x_0, x) - K(x_0, x)) = 0.$$
+
+Furthermore, we can take $\phi_{x_0}(x) = G(x_0, x) - K(x_0, x)$, which we can think of as a corrector.
 \end{document}

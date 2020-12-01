@@ -259,6 +259,25 @@ We can go back and show that each of the steps are reversible, but this is left 
 \includegraphics[scale=0.7]{graphics/p2-5.png}
 \end{center}
 \begin{proof}
-Let $S$ be the intersection of $QM$ and circle $C$.  We show that $PS$ bisects $P$.  Let $T$ be the intersection of $PM$ and the circumcircle of $PNL$.  
+Let $S$ be the intersection of $QM$ and circle $C$.  We show that $PS$ bisects $P$.  Let $T$ be the intersection of $PM$ and $(PNL)$.   
+\begin{center}
+\includegraphics[scale=0.7]{graphics/p2-6.png}
+\end{center}
+
+We would like to show that $\angle QPS = \angle MPS = \angle KML$.  First, note that $\angle KML = \angle KPL$ since they are inscribed in the same arc $LK$ of $(KLPM)$.   If we can show $\angle MPK = \angle SPL$, this shows that $\angle KPL = \angle MPS$ since they share a common angle $\angle SPK$, and hence $\angle KML = \angle MPS$.
+
+Firstly, $\angle MLK = \angle MPL$ from cyclic quadrilateral $MKLP$.  Then, $\angle MLK = \angle SLK = \angle SPL$ since they are inscribed in arc $LS$ of circle $C$.  Thus, $\angle KML = \angle MPS$.
+\begin{center}
+\includegraphics[scale=0.6]{graphics/p2-7.png}
+\end{center}
+It suffices to show that either $\angle KML = \angle QPS$ or $\angle MPS = \angle QPS$.  To show the first, we can show that $PQRM$ is cyclic.  A good candidate to show this is to show that $\angle RQM = \angle RPM$, since we already know that $\angle RPM = \angle RMS$.    To show $\angle RQM = \angle RMS$, it suffices to show that $RQM$ is isosceles, or $RQ = RM$.  
+
+Note that $\triangle PRM \sim \triangle MRS$ since they share $\angle SRM$ and $\angle SMR = \angle MPR$.  From this, we find that 
+$$\frac{PR}{MR} = \frac{RM}{RS} = \frac{MP}{SM} \Longrightarrow MR^2 = RP \cdot RS.$$
+Then,
+$$\text{Pow}_C(R) = RN^2 = RS \cdot RP = RM^2,$$
+so it follows that $RM = RN$ so $R$ is the center of $(MQN)$ and it follows that $RQ = RM$, as desired.  Therefore,
+$$\angle QPM = \angle QPR + \angle RPM = \angle KML + \angle KML = 2\angle KML,$$
+as desired.
 \end{proof}
 \end{document}

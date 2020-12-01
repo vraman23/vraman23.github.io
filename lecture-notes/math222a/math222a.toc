@@ -66,7 +66,7 @@
 \contentsline {subsection}{\numberline {18.1}Fundamental Solutions for Partial Differential Operators}{57}{subsection.18.1}% 
 \contentsline {subsection}{\numberline {18.2}The Laplacian, $ \mathbf {n \ge 3}$}{57}{subsection.18.2}% 
 \contentsline {subsection}{\numberline {18.3}The Laplacian, n = 2}{58}{subsection.18.3}% 
-\contentsline {subsection}{\numberline {18.4}The Heat Operator}{58}{subsection.18.4}% 
+\contentsline {subsection}{\numberline {18.4}The Heat Operator}{59}{subsection.18.4}% 
 \contentsline {section}{\numberline {19}October 29th, 2020}{60}{section.19}% 
 \contentsline {subsection}{\numberline {19.1}Heat Operator, Continued}{60}{subsection.19.1}% 
 \contentsline {subsection}{\numberline {19.2}Heat Equation, Cauchy Problem}{60}{subsection.19.2}% 
@@ -100,3 +100,10 @@
 \contentsline {subsection}{\numberline {26.1}Trace Theorems}{79}{subsection.26.1}% 
 \contentsline {subsection}{\numberline {26.2}Sharp Trace Theorems}{80}{subsection.26.2}% 
 \contentsline {subsection}{\numberline {26.3}The Laplace Equation}{80}{subsection.26.3}% 
+\contentsline {section}{\numberline {27}December 1st, 2020}{82}{section.27}% 
+\contentsline {subsection}{\numberline {27.1}Mean Value Property}{82}{subsection.27.1}% 
+\contentsline {subsection}{\numberline {27.2}Maximum Principle}{82}{subsection.27.2}% 
+\contentsline {subsection}{\numberline {27.3}Laplace in Bounded Domains}{83}{subsection.27.3}% 
+\contentsline {subsection}{\numberline {27.4}Harnack Inequalities}{83}{subsection.27.4}% 
+\contentsline {subsection}{\numberline {27.5}Dirichlet Problem}{83}{subsection.27.5}% 
+\contentsline {subsection}{\numberline {27.6}Green Functions}{84}{subsection.27.6}% 
