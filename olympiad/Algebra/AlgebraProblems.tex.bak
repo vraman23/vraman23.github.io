@@ -1,0 +1,77 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Problem}]{Prob}
+
+\begin{document}
+\title{Algebra Problems}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+    A collection of algebra problems and solutions sorted in roughly increasing difficulty.
+\end{abstract}
+\section{Easy Problems}
+\begin{problem}
+	[IMO 2000/2] Let $A, B, C \in \RR^+$ with $ABC = 1$.  Prove that 
+	$$\left (A -1 + \frac{1}{B}\right )\left (B -1 + \frac{1}{C}\right )\left (C -1 + \frac{1}{A}\right ) \le 1.$$
+\end{problem}
+\begin{proof}
+Apply the substitution $A = \frac{x}{y}, B = \frac{y}{z}, C = \frac{z}{x}$.  Then, we have 
+\begin{align*}
+\prod_{\text{cyc}}\left (A -1 + \frac{1}{B}\right )&= \prod_{\text{cyc}}\frac{x+z-y}{y} \\
+&= \frac{(x+z-y)(y+x-z)(z+y-x)}{xyz}.\\
+\end{align*}
+Thus, it suffices to show
+$$(x+z-y)(y+x-z)(z+y-x) \le xyz.$$
+Let $m = x+z-y, n = y + x - z, p = z + y - x$.  The above is equivalent to 
+$$mnp \le \frac{(m+n)(n+p)(p+m)}{8},$$
+which follows from AM-GM.
+\end{proof}
+\begin{problem}
+	[IMO 2001/4] Let $n$ be an odd integer greater than 1, and let $k_1, k_2, \dots, k_n$ be integers.  For each permutation $a \in S_n$, let $$S(a) = \sum_{i=1}^n k_ia(i).$$  Show that there exists two permutations $b, c \in S_n$ such that $n!$ divides $S(b) - S(c)$.
+\end{problem}
+\begin{proof}
+It suffices to show that there exist two permutations with the same remainder modulo $n!$ upon applying $S$.  For sake of contradiction, suppose $S(a)$ is distinct modulo $n!$ for all permutations.  Then,
+\begin{align*}
+\sum_{i=1}^{n!} i &\equiv \sum_{\sigma \in S_n} S(\sigma) \pmod{n!} \\
+&= \sum_{\sigma \in S_n} \sum_{i=1}^n k_i \sigma(i) \\
+&= \sum_{i=1}^n k_i \sum_{\sigma \in S_n} \sigma(i) \\
+&= \sum_{i=1}^n k_i (n-1)! \sum_{i=1}^n i \\
+&= (n-1)! \frac{n(n+1)}{2} \sum_{i=1}^n k_i \\
+&= n! \left (\frac{n+1}{2}\right ) \sum_{i=1}^n k_i  \equiv 0 \pmod{n!}. \\
+\end{align*}
+However,
+$\sum_{i=1}^{n!}i = \frac{n!(n!+1)}{2}$ is not divisible by $n!$, as $\frac{n!+1}{2}$ is not an integer for $n \ge 2$.
+\end{proof}
+\begin{problem}
+	[IMO 2007/1] Real numbers $a_1, \dots, a_n$ are given.  For each $i \in [1, n] \cap \ZZ$ define $$d_i = \max\{a_j: 1 \le j \le i\} - \min\{a_j : i \le j \le n\}.$$  and let $$d = \max\{d_i : 1 \le i \le n\}.$$
+	\begin{enumerate}
+	\item Prove that, for real numbers $x_1 \le x_2 \le \dots \le x_n,$ $$\max\{|x_i - a_i| : 1 \le i \le n\} \ge \frac{d}{2}.$$
+	\item Show that there are real numbers $x_1 \le x_2 \le \dots \le x_n$ such that the equality holds in (1).
+	\end{enumerate}
+\end{problem}
+\begin{proof}
+First, note that $$d = \max_{1 \le i \le j \le n}(a_i - a_j).$$  Suppose $a_i, a_j$ are the maximal indexes such that $d = a_i - a_j$.  Note that $d \ge 0$, since $d_i \ge a_i - a_i = 0$. 
+\begin{align*}
+|a_i - x_i| + |x_j - a_j| &> |a_i - a_j + x_j - x_i| \\
+&= |d + (x_j - x_i)|\\
+&= d + (x_j - x_i) \ge d,
+\end{align*}
+where we used the fact that $x_j \ge x_i$ so $d + (x_j - x_i) \ge 0$.  Hence, one of $|a_i - x_i|, |a_j - x_j|$ must be at least $d/2$, so it follows that $$\max\{|x_i - a_i| : 1 \le i \le n\} \ge \frac{d}{2}.$$
+
+For the equality case, let 
+$$x_k = \begin{cases}
+\min(x_{k+1}, a_k) & \text{ if } k < i \\ 
+\frac{a_i+a_j}{2} & \text{ if } i \le k \le j\\ 
+\max(x_{k-1}, a_k) & \text{ if } k > j 
+\end{cases}.$$
+
+Then $$|x_k - a_k| \le \left |\frac{a_i + a_j}{2} - a_k\right | \le \left |\frac{a_i - a_j}{2}\right | = \frac{d}{2},$$
+as desired.
+\end{proof}
+\end{document}

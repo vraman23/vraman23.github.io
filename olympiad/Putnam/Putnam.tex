@@ -1,0 +1,78 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+
+\let \phi \varphi
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Problem}]{Prob}
+
+\begin{document}
+\title{Putnam Solutions}
+\author{Vishal Raman}
+\pagebreak
+\tableofcontents
+\pagebreak
+\section{Putnam 1985}
+\subsection{A1 - Combinatorics} 
+\begin{Prob} Determine with proof, the number of ordered triples $(A, B, C)$ with $A\cup B\cup C = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ and $A \cap B \cap C = \emptyset$.   
+\end{Prob}
+\begin{proof}
+The Venn Diagram for $A, B, C$ has $7$ regions and we can place integers $1$ through $10$ in any of the regions except for the one corresponding to $A \cap B \cap C$.  This leads to $6^{10} = \boxed{2^{10} 3^{10} 5^0 7^0}$ possible ordered triples, since each configuration corresponds to a unique triple.  
+\end{proof}
+\subsection{A2 - Geometry}
+\begin{Prob} Let $T$ be an acute triangle. Inscribe a rectangle $R$ in $T$ with one side along a side of $T$. Then inscribe a rectangle $S$ in the triangle formed by the side of $R$ opposite the side on the boundary of $T$, and the other two sides of $T$, with one side along the side of $R$. For any polygon $X$, let $A(X)$ denote the area of $X$. Find the maximum value, or show that no maximum exists, of $\frac{A(R) + A(S)}{A(T)}$, where $T$ ranges over all triangles and $R, S$ over all rectangles as above.
+\end{Prob}
+\begin{proof}
+Drop a perpendicular from a vertex.  It suffices to maximize the ratio of areas for the left half since the ratio stays the same reflecting the triangle about the axis.  Let the height of the resulting triangle be $H$, the length $L$.  Split the height into 3 smaller heights $h_1, h_2, h_3$ so that $h_1 + h_2 + h_3 = H$.  Drawing a line parallel to the length through the heights gives the rectangles.  The lengths of the rectangles are
+$$\ell_1 = \frac{L}{H}h_1, \ell_2 = \frac{L}{H}(h_1 + h_2).$$
+
+The ratio is then given by 
+$$\gamma = \frac{A(R) + A(S)}{A(T)} = \frac{h_2\ell_1 + h_3\ell_2}{LH/2} = \frac{h_1h_2L/H + h_3(h_1+h_2)L/H}{LH/2} = \frac{2h_1h_2 + 2h_2h_3 + 2h_3h_1}{H^2}.$$
+Note that 
+$$H^2 = (h_1+h_2+h_3)^2 = h_1^2 + h_2^2 + h_3^2 + 2h_1h_2 + 2h_2h_3 + 2h_3h_1,$$
+so it follows that 
+$$\gamma = 1 - \frac{h_1^2+h_2^2+h_3^2}{(h_1+h_2+h_3)^2}.$$
+By the Cauchy-Schwarz Inequality,
+$$(h_1^2+h_2^2+h_3^2)(1+1+1) \ge (h_1+h_2+h_3)^2$$
+with equality when $h_1=h_2=h_3$.  Hence, $\gamma \le \boxed{2/3}$.  It is easy to show the equality case for an equilateral triangle of height $1$ with $h_1=h_2=h_3 = 1/3$.
+\end{proof}
+\subsection{A3 - Analysis}
+\begin{proof}  We claim that 
+$$\lim_{n \to \infty} a_n(n) = \begin{cases} 0, d = 0 \\
+e^{d}-1, d \ne 0
+\end{cases}.$$
+The $d=0$ case is clear, so we show the case where $d \ne 0$.  First, we prove that $a_m(n)+1 = (a_n(0)+1)^{2^{m}}.$  Note that $a_1(1) + 1 = a_1(0)^2 + 2a_1(0) + 1 = (a_1(0) + 1)^2$.  Suppose $a_n(k) + 1 = (a_n(0)+1)^{2^{k}}$ for some $k \in \N$.  Then
+$$a_{n}(k+1)+1 = a_{n}(k)^2 + 2a_n(k)+1 = (a_n(k) + 1)^2 = ((a_n(0)+1)^{2^k})^2 = (a_n(0) + 1)^{2^{k+1}},$$
+as desired.
+
+Plugging in the value of $a_n(0)$, we find that 
+$$a_n(n) = \left (\frac{d}{2^n} + 1\right )^{2^n} - 1 = \left (\frac{d}{2^n} + 1\right )^{\frac{2^n}{d} \cdot d} - 1.$$
+Taking the limit as $n \to \infty$, we find that 
+$$\lim_{n \to \infty} a_n(n) = \lim_{n \to \infty} \left (\frac{d}{2^n} + 1\right )^{\frac{2^n}{d} \cdot d} - 1 \xrightarrow{m = 2^n/d} \lim_{m \to \infty} \left (1+\frac{1}{m}\right )^{md} - 1 = e^{d} - 1.$$
+\end{proof}
+
+\end{document}
