@@ -39,45 +39,45 @@ I present some solutions from various Putnam Exams.  Problems are not necessaril
 \end{abstract}
 \tableofcontents
 \pagebreak
-\section{Putnam 1985}
-\subsection{A1 - Combinatorics} 
-\begin{Prob} Determine with proof, the number of ordered triples $(A, B, C)$ with $A\cup B\cup C = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ and $A \cap B \cap C = \emptyset$.   
-\end{Prob}
-\begin{proof}
-The Venn Diagram for $A, B, C$ has $7$ regions and we can place integers $1$ through $10$ in any of the regions except for the one corresponding to $A \cap B \cap C$.  This leads to $6^{10} = \boxed{2^{10} 3^{10} 5^0 7^0}$ possible ordered triples, since each configuration corresponds to a unique triple.  
-\end{proof}
-\subsection{A2 - Geometry}
-\begin{Prob} Let $T$ be an acute triangle. Inscribe a rectangle $R$ in $T$ with one side along a side of $T$. Then inscribe a rectangle $S$ in the triangle formed by the side of $R$ opposite the side on the boundary of $T$, and the other two sides of $T$, with one side along the side of $R$. For any polygon $X$, let $A(X)$ denote the area of $X$. Find the maximum value, or show that no maximum exists, of $\frac{A(R) + A(S)}{A(T)}$, where $T$ ranges over all triangles and $R, S$ over all rectangles as above.
-\end{Prob}
-\begin{proof}
-Drop a perpendicular from a vertex.  It suffices to maximize the ratio of areas for the left half since the ratio stays the same reflecting the triangle about the axis.  Let the height of the resulting triangle be $H$, the length $L$.  Split the height into 3 smaller heights $h_1, h_2, h_3$ so that $h_1 + h_2 + h_3 = H$.  Drawing a line parallel to the length through the heights gives the rectangles.  The lengths of the rectangles are
-$$\ell_1 = \frac{L}{H}h_1, \ell_2 = \frac{L}{H}(h_1 + h_2).$$
-
-The ratio is then given by 
-$$\gamma = \frac{A(R) + A(S)}{A(T)} = \frac{h_2\ell_1 + h_3\ell_2}{LH/2} = \frac{h_1h_2L/H + h_3(h_1+h_2)L/H}{LH/2} = \frac{2h_1h_2 + 2h_2h_3 + 2h_3h_1}{H^2}.$$
-Note that 
-$$H^2 = (h_1+h_2+h_3)^2 = h_1^2 + h_2^2 + h_3^2 + 2h_1h_2 + 2h_2h_3 + 2h_3h_1,$$
-so it follows that 
-$$\gamma = 1 - \frac{h_1^2+h_2^2+h_3^2}{(h_1+h_2+h_3)^2}.$$
-By the Cauchy-Schwarz Inequality,
-$$(h_1^2+h_2^2+h_3^2)(1+1+1) \ge (h_1+h_2+h_3)^2$$
-with equality when $h_1=h_2=h_3$.  Hence, $\gamma \le \boxed{2/3}$.  It is easy to show the equality case for an equilateral triangle of height $1$ with $h_1=h_2=h_3 = 1/3$.
-\end{proof}
-\subsection{A3 - Analysis}
-\begin{proof}  We claim that 
-$$\lim_{n \to \infty} a_n(n) = \begin{cases} 0, d = 0 \\
-e^{d}-1, d \ne 0
-\end{cases}.$$
-The $d=0$ case is clear, so we show the case where $d \ne 0$.  First, we prove that $a_m(n)+1 = (a_n(0)+1)^{2^{m}}.$  Note that $a_1(1) + 1 = a_1(0)^2 + 2a_1(0) + 1 = (a_1(0) + 1)^2$.  Suppose $a_n(k) + 1 = (a_n(0)+1)^{2^{k}}$ for some $k \in \N$.  Then
-$$a_{n}(k+1)+1 = a_{n}(k)^2 + 2a_n(k)+1 = (a_n(k) + 1)^2 = ((a_n(0)+1)^{2^k})^2 = (a_n(0) + 1)^{2^{k+1}},$$
-as desired.
-
-Plugging in the value of $a_n(0)$, we find that 
-$$a_n(n) = \left (\frac{d}{2^n} + 1\right )^{2^n} - 1 = \left (\frac{d}{2^n} + 1\right )^{\frac{2^n}{d} \cdot d} - 1.$$
-Taking the limit as $n \to \infty$, we find that 
-$$\lim_{n \to \infty} a_n(n) = \lim_{n \to \infty} \left (\frac{d}{2^n} + 1\right )^{\frac{2^n}{d} \cdot d} - 1 \xrightarrow{m = 2^n/d} \lim_{m \to \infty} \left (1+\frac{1}{m}\right )^{md} - 1 = e^{d} - 1.$$
-\end{proof}
-\pagebreak
+%\section{Putnam 1985}
+%\subsection{A1 - Combinatorics} 
+%\begin{Prob} Determine with proof, the number of ordered triples $(A, B, C)$ with $A\cup B\cup C = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ and $A \cap B \cap C = \emptyset$.   
+%\end{Prob}
+%\begin{proof}
+%The Venn Diagram for $A, B, C$ has $7$ regions and we can place integers $1$ through $10$ in any of the regions except for the one corresponding to $A \cap B \cap C$.  This leads to $6^{10} = \boxed{2^{10} 3^{10} 5^0 7^0}$ possible ordered triples, since each configuration corresponds to a unique triple.  
+%\end{proof}
+%\subsection{A2 - Geometry}
+%\begin{Prob} Let $T$ be an acute triangle. Inscribe a rectangle $R$ in $T$ with one side along a side of $T$. Then inscribe a rectangle $S$ in the triangle formed by the side of $R$ opposite the side on the boundary of $T$, and the other two sides of $T$, with one side along the side of $R$. For any polygon $X$, let $A(X)$ denote the area of $X$. Find the maximum value, or show that no maximum exists, of $\frac{A(R) + A(S)}{A(T)}$, where $T$ ranges over all triangles and $R, S$ over all rectangles as above.
+%\end{Prob}
+%\begin{proof}
+%Drop a perpendicular from a vertex.  It suffices to maximize the ratio of areas for the left half since the ratio stays the same reflecting the triangle about the axis.  Let the height of the resulting triangle be $H$, the length $L$.  Split the height into 3 smaller heights $h_1, h_2, h_3$ so that $h_1 + h_2 + h_3 = H$.  Drawing a line parallel to the length through the heights gives the rectangles.  The lengths of the rectangles are
+%$$\ell_1 = \frac{L}{H}h_1, \ell_2 = \frac{L}{H}(h_1 + h_2).$$
+%
+%The ratio is then given by 
+%$$\gamma = \frac{A(R) + A(S)}{A(T)} = \frac{h_2\ell_1 + h_3\ell_2}{LH/2} = \frac{h_1h_2L/H + h_3(h_1+h_2)L/H}{LH/2} = \frac{2h_1h_2 + 2h_2h_3 + 2h_3h_1}{H^2}.$$
+%Note that 
+%$$H^2 = (h_1+h_2+h_3)^2 = h_1^2 + h_2^2 + h_3^2 + 2h_1h_2 + 2h_2h_3 + 2h_3h_1,$$
+%so it follows that 
+%$$\gamma = 1 - \frac{h_1^2+h_2^2+h_3^2}{(h_1+h_2+h_3)^2}.$$
+%By the Cauchy-Schwarz Inequality,
+%$$(h_1^2+h_2^2+h_3^2)(1+1+1) \ge (h_1+h_2+h_3)^2$$
+%with equality when $h_1=h_2=h_3$.  Hence, $\gamma \le \boxed{2/3}$.  It is easy to show the equality case for an equilateral triangle of height $1$ with $h_1=h_2=h_3 = 1/3$.
+%\end{proof}
+%\subsection{A3 - Analysis}
+%\begin{proof}  We claim that 
+%$$\lim_{n \to \infty} a_n(n) = \begin{cases} 0, d = 0 \\
+%e^{d}-1, d \ne 0
+%\end{cases}.$$
+%The $d=0$ case is clear, so we show the case where $d \ne 0$.  First, we prove that $a_m(n)+1 = (a_n(0)+1)^{2^{m}}.$  Note that $a_1(1) + 1 = a_1(0)^2 + 2a_1(0) + 1 = (a_1(0) + 1)^2$.  Suppose $a_n(k) + 1 = (a_n(0)+1)^{2^{k}}$ for some $k \in \N$.  Then
+%$$a_{n}(k+1)+1 = a_{n}(k)^2 + 2a_n(k)+1 = (a_n(k) + 1)^2 = ((a_n(0)+1)^{2^k})^2 = (a_n(0) + 1)^{2^{k+1}},$$
+%as desired.
+%
+%Plugging in the value of $a_n(0)$, we find that 
+%$$a_n(n) = \left (\frac{d}{2^n} + 1\right )^{2^n} - 1 = \left (\frac{d}{2^n} + 1\right )^{\frac{2^n}{d} \cdot d} - 1.$$
+%Taking the limit as $n \to \infty$, we find that 
+%$$\lim_{n \to \infty} a_n(n) = \lim_{n \to \infty} \left (\frac{d}{2^n} + 1\right )^{\frac{2^n}{d} \cdot d} - 1 \xrightarrow{m = 2^n/d} \lim_{m \to \infty} \left (1+\frac{1}{m}\right )^{md} - 1 = e^{d} - 1.$$
+%\end{proof}
+%\pagebreak
 \section{Putnam - 2001}
 \subsection{A1 - Algebra}
 \begin{Prob}[2001-A1] Consider a set $S$ and a binary operation $*$.  Assume $(a*b)*a = b$ for all $a, b \in S$.  Prove that $a*(b*a) = b$ for all $a, b \in S$. 
@@ -141,7 +141,7 @@ It is easy to verify that if $m$ is a square or twice a square, then $P_m(x)$ re
 \end{proof}
 
 \subsection{A4 - Geometry}
-\begin{Prob} Triangle $ABC$ has area $1$.  Points $E, F, G$ lie on sides $BC$, $CA$, $AB$ such that $AE$ bisects $BF$ at point $R$, $BF$ bisects $CG$ at point $S$, and $CG$ bisects $AE$ at point $T$.  Find the area of the triangle $RST$.
+\begin{Prob}[2001 - A4] Triangle $ABC$ has area $1$.  Points $E, F, G$ lie on sides $BC$, $CA$, $AB$ such that $AE$ bisects $BF$ at point $R$, $BF$ bisects $CG$ at point $S$, and $CG$ bisects $AE$ at point $T$.  Find the area of the triangle $RST$.
 \end{Prob}
 \begin{proof}
 We claim that $[RST] = \frac{7- \sqrt{5}}{4}.$
@@ -171,5 +171,68 @@ Now, note that $[ATC] = [AEC] / 2 = r/2$, $[ATG] = [ACG] - [ATC] = 1 - t - r/2$.
 &= \frac{7 - \sqrt{5}}{4}.
 \end{align*}
 \end{proof}
-\subsection{A5 - }
+\subsection{A5 - Number Theory}
+\begin{Prob}[2001 - A5]
+\end{Prob}
+
+\subsection{A6 - Calculus}
+\begin{Prob}[2001 - A6]
+\end{Prob}
+\pagebreak
+\section{Putnam - 2019}
+\subsection{A1 - Number Theory}
+\begin{Prob}[2019 - A1] Determine all possible values of the expression $$A^3 + B^3 + C^3 - 3ABC,$$
+where $A, B, C$ are nonnegative integers.
+\end{Prob}
+\begin{proof}
+Let $S = A^3 + B^3 + C^3 - 3ABC$.  We claim that $S$ attains all values such that $S \ne 3, 6 \pmod{9}$.
+
+Note that the expression can be factored as 
+$$A^3 + B^3 + C^3 - 3ABC = \left (\frac{A + B + C}{2}\right)\left((A-B)^2 + (B-C)^2 + (C-A)^2\right).$$
+
+If $(A, B, C) = (A, A+1, A+2)$, then 
+$$S = \frac{3A+3}{2}(1^2 + 1^2 + 2^2) = (3A + 3)(3) = 9A + 9,$$
+so we can achieve all $S \equiv 0 \pmod 9.$
+
+If $(A, B, C) = (A, A, A+1)$, then
+$$S = \frac{3A+1}{2}(0^2+1^2+1^2) = 3A+1,$$
+and if $(A, B, C) = (C+1, C+1, C)$, then 
+$$S = \frac{3C+2}{2}(0^2+1^2+1^2) = 3C+2,$$
+so we can achieve all $S \equiv 1, 2 \pmod{3}$.  
+
+It suffices to show that if $S \equiv 0 \pmod{3}$, then $S \equiv 0 \pmod{9}$.  This implies that we cannot have $S \ne 3, 6 \pmod{9}$ as desired.  If $S \equiv 0 \pmod{3}$, then we must have $A+B+C \equiv 0 \pmod 3$ or $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  In the first case, then without loss of generality, we must have either $(A, B, C) \in \{(0, 0, 0), (1, 1, 1),( 2, 2, 2), (0, 1, 2)\}$.  In each of these cases, we can show that $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  Similarly, in the second case, we must have that $(A-B)^2 = (B-C)^2 = (C-A)^2 = 0, 1$.  In the first case $A = B = C$, which gives that $A+B+C \equiv 0 \pmod{3}$.  In the second case, the remainders of $A, B, C$ must be distinct mod $3$, which, without loss of generality, gives $(A, B, C) = (0, 1, 2)$ which implies that $A+B+C \equiv 0 \pmod{3}$, as desired.  In all cases, we show that both terms in the product are $0 \pmod {3}$, which implies that the product is $0 \pmod {9}$.
+\end{proof}
+\subsection{A2 - Geometry}
+\begin{Prob}[2019 - A2] In the triangle $ABC$, let $G$ be the centroid, and let $I$
+be the center of the inscribed circle. Let $\alpha$ and $\beta$ be
+the angles at the vertices $A$ and $B$, respectively. Suppose that the segment $IG$ is parallel to $AB$ and that
+$\beta = 2\arctan(1/3)$. Find $\alpha$.
+\end{Prob}
+\begin{proof}
+We use complex numbers.  Let $B = 0$.  Then $\text{arg}(I) = \beta/2 = \arctan(1/3)$, so $I = k(3+i)$ for some $k \in \R^+$.  Without loss of generality, let $k = 1$.  Let $A = a$.  Then, $IG$ is parallel to $AB$ which implies that $\operatorname{Im}(B-A) = \Im(I-G)$.  Then $\Im(B-A) = 0$, so $\Im(I) = \Im(G) = 1$.  
+
+Then, note that $\arg(I^2) = \arg(C)$, so $C = \ell(3+i)^2 = \ell(8+6i)$ for some $\ell \in \R^+$.  Then $G = \frac{A+B+C}{3} = \frac{A+C}{3}$, so $$1 = \Im(G) = \Im((A+C)/3) = \Im(C/3),$$ which implies that $\ell = \frac{1}{2}$.  Thus, $C = 4+3i$.  
+
+Finally, $$I = \frac{|CB|A + |AC|B + |AB|C}{|AB|+|BC|+|CA|} = \frac{5a + a(4+3i)}{5+a+\sqrt{(4-a)^2+9}} = 3+i.$$
+
+Hence,
+$$5+a+\sqrt{(4-a)^2+9} = 3a,$$
+which has solutions $a = 0, a = 4$.  Taking the positive solution, we have $A = 4$.  Then, note that $ABC$ is a right triangle with right angle at $A$, so $\alpha = \frac{\pi}{2}$.
+\end{proof}
+
+\begin{Prob}[2019 - A3] Given real numbers $b_0, b_1, \dots, b_{2019}$ with $b_{2019} \ne 0$, let $z_1, z_2, \dots, z_{2019}$ be the roots in the complex plane of the polynomial $$P(z) = \sum_{k=0}^\infty b_kz^k.$$
+Let $\mu = \frac{1}{2019}\sum_{k=1}^{2019}|z_k|$.  Determine the largest constant $M$ such that $\mu \ge M$ for all choices of $b_0, b_1, \dots, b_{2019}$ satisfying 
+$$1 \le b_0 < b_1 < b_2 < \dots < b_{2019} \le 2019.$$
+\end{Prob}
+\begin{proof}
+By the AM-GM inequality,
+$$\mu = \frac{\sum_{k=1}^{2019}|z_k|}{2019} = \left (\prod_{k=1}^{2019} |z_k|\right )^{1/2019} = \left |\frac{b_0}{b_{2019}} \right|^{1/2019} \le (2019)^{-1/2019}.$$
+
+We show that $M = (2019)^{-1/2019}$.  Let $\zeta = e^{\frac{2\pi i}{2020}}$ and let $z_i = M\zeta^i$. Notice that $|z_i| = M$ for each $i$ and the roots $z_1, z_2, \dots, z_{2019}$ satisfy the polynomial
+$$0 = \frac{(z_i/M)^{2020} - 1}{(z_i/M) - 1} = M^{-2019}\left (\frac{z_i^{2020} - M^{2020}}{z_i - M}\right ) =\sum_{k=0}^{2019}z_i^{k}M^{-k}.$$
+
+Hence, the polynomial $$P(z) = \sum_{k=1}^{2019}z_i^k2019^{k/2019}$$
+satisfies the equality case $\mu = M$.  Furthermore, note that 
+$b_0 = 1$, $b_{2019} = 2019$ and and $2019^{i/2019} < 2019^{j/2019}$ for all $i < j$.  Hence, $P$ satisfies the conditions.
+\end{proof}
 \end{document}
