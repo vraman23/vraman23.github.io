@@ -95,3 +95,5 @@
 \contentsline {section}{\numberline {26}November 24th, 2020}{81}{section.26}% 
 \contentsline {subsection}{\numberline {26.1}Random Walks, Continued}{81}{subsection.26.1}% 
 \contentsline {subsection}{\numberline {26.2}Combinatorics of SRW}{82}{subsection.26.2}% 
+\contentsline {section}{\numberline {27}December 1st, 2020}{84}{section.27}% 
+\contentsline {subsection}{\numberline {27.1}Combinatorics of Simple Random Walks}{84}{subsection.27.1}% 

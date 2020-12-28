@@ -2177,7 +2177,7 @@ By symmetry, the probability each are less than $0$ is $\frac{1}{2}P(S_{2n} = 0)
 
 Then, 
 $$P(S_{2n} = 0) = \binom{2n}{n} \frac{1}{2^{2n}}$$
-and using the Stirling Approximationm it follows that 
+and using the Stirling Approximation it follows that 
 $$P(S_{2n} = 0) \sim \frac{1}{\sqrt{n}}.$$
 
 
@@ -2185,6 +2185,13 @@ $$P(S_{2n} = 0) \sim \frac{1}{\sqrt{n}}.$$
 \begin{lemma} $P(\tau = 2n) = P(\tau > 2n-2) - P(\tau > 2n) = P(S_{2n-2}) - P(S_{2n} = 0) \sim n^{-3/2}$, plugging in the result from above.
 \end{lemma}
 
+\begin{theorem}[Arcsin law]
+Let $\pi_{2n}$ be the number of edges that are above the $x$-axis.  Let $u_m = P(S_{m} = 0)$.  Then $P(\pi_{2n} = 2k) = u_{2k} u_{2n-2k}.$
+\end{theorem}
+
+\pagebreak
+\section{December 1st, 2020}
+\subsection{Combinatorics of Simple Random Walks}
 
 \end{document}
 

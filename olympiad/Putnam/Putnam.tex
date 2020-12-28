@@ -33,7 +33,10 @@
 \begin{document}
 \title{Putnam Solutions}
 \author{Vishal Raman}
-\pagebreak
+\maketitle
+\begin{abstract}
+I present some solutions from various Putnam Exams.  Problems are not necessarily posted in chronological order.  Any typos or mistakes found are mine - kindly direct them to my inbox.
+\end{abstract}
 \tableofcontents
 \pagebreak
 \section{Putnam 1985}
@@ -74,5 +77,98 @@ $$a_n(n) = \left (\frac{d}{2^n} + 1\right )^{2^n} - 1 = \left (\frac{d}{2^n} + 1
 Taking the limit as $n \to \infty$, we find that 
 $$\lim_{n \to \infty} a_n(n) = \lim_{n \to \infty} \left (\frac{d}{2^n} + 1\right )^{\frac{2^n}{d} \cdot d} - 1 \xrightarrow{m = 2^n/d} \lim_{m \to \infty} \left (1+\frac{1}{m}\right )^{md} - 1 = e^{d} - 1.$$
 \end{proof}
+\pagebreak
+\section{Putnam - 2001}
+\subsection{A1 - Algebra}
+\begin{Prob}[2001-A1] Consider a set $S$ and a binary operation $*$.  Assume $(a*b)*a = b$ for all $a, b \in S$.  Prove that $a*(b*a) = b$ for all $a, b \in S$. 
+\end{Prob}
+\begin{proof}
+Note that 
+$$b = ((b*a)*b) * (b*a) = a * (b * a).$$
+\end{proof}
 
+\subsection{A2 - Combinatorics}
+\begin{Prob}[2001-A2] You have coins $C_1, C_2, \dots, C_n$.  For each $k$, $C_k$ is biased so that when tossed, is has probability $1/(2k+1)$ of falling heads.  If the $n$ coins are tossed, what is the probability that the number of heads is odd?
+\end{Prob}
+\begin{proof}
+We claim the probability is $P(n) = \boxed{\frac{n}{2n+1}}$.  We prove it by induction.  We are given that $P(1) = \frac{1}{3}$, which satisfies the claim.  Suppose $P(k) = \frac{k}{2k+1}$ for $k \ge 1$.  In order to find $P(k+1)$, we condition on the result of the first $k$ coin tosses.  Namely, suppose the number of heads is even after $k$ tosses.  Then, the total number of heads is odd if we flip a head on the $k+1$-th toss.  Similarly, if the number of heads is odd after $k$ tosses, then the total number of heads is odd if we flip a tail on the $k+1$-th toss.  
+
+Putting this together gives 
+\begin{align*}
+P(k+1) &= (1 - P(k))p_{k+1} + P(k)(1 - p_{k+1}) \\
+&= P(k)\left (1 - 2p_{k+1}\right ) + p_{k+1} \\
+&= P(k) \left (1 - \frac{2}{2k+3}\right ) + \frac{1}{2k+3} \\
+&= P(k) \frac{2k+1}{2k+3} + \frac{1}{2k+3} \\
+&= \frac{k}{2k+1} \frac{2k+1}{2k+3} + \frac{1}{2k+3} \\
+&=\frac{k+1}{2k+3}
+\end{align*}
+which proves the result.
+\end{proof}
+
+\subsection{A3 - Algebra}
+\begin{Prob}[2001 - A3] For each integer $m$, consider the polynomial $$P_m(x) = x^4 - (2m+4)x^2 + (m-2)^2.$$
+
+For what values of $m$ is $P_m(x)$ the product of two non-constant polynomials with integer coefficients?
+\end{Prob}
+\begin{proof}
+We claim that $m$ is the square of an integer or twice the square of an integer.  Set $y = x^2$.  We look for square-integer solutions for $y$.  From the quadratic formula,
+\begin{align*}
+y &= \frac{2m+4 \pm \sqrt{(2m+4) - 4(m-2)^2}}{2} \\
+&= m+2 \pm \sqrt{(m+2)^2 - (m-2)^2 }\\
+&= m+2 \pm \sqrt{4(2m)} \\
+&= m + 2 \pm 2\sqrt{2m}\\
+&= (\sqrt{m} \pm \sqrt{2})^2.
+\end{align*}
+
+Hence, $x = \pm \sqrt{m} \pm \sqrt{2}$.  Note that if $m$ is neither the square of an integer nor twice the square of an integer then the field $\Q(\sqrt{m}, \sqrt{2})$ is of degree $4$ and the Galois group acts transitively on the roots $\{\pm \sqrt{m} \pm \sqrt{2}\}$.  It follows that the polynomial is irreducible.
+
+It is easy to verify that if $m$ is a square or twice a square, then $P_m(x)$ reduces into the product of non-constant integer polynomials.
+
+%We must have $m = 2k^2$ for $k \in \Z$ in order for $y$ to be an integer.  It follows that 
+%\begin{align*}
+%y &= 2k+2 \pm 4k.
+%\end{align*} 
+%If $y = 2 - 2k$, then we must have $k = 0$ since $y \ge 0$ and $y$ must be a perfect square.  This gives a solution $m = 0$.
+%
+%If $y = 2 + 6k = 2(1+3k)$ we must have that $k$ is odd since $y$ is even and hence, must be divisible for $4$.  Thus, $k = 1 + 2\ell$ for $\ell \in \Z$.  This gives
+%$$y = 2 (1 + 6\ell + 3) =4(2 + 3\ell).$$
+%Taking the equation modulo $3$, we have
+%$$y \equiv 1 \cdot 2 \equiv 2 \pmod{3},$$
+%so it follows that $y$ cannot be a square since the quadratic residues of $3$ are $0$ and $1$.  
+%
+%Hence, we have the only possible solution $m = 0$.  It is easy to verify that 
+%$$P_0(x) = x^4 - 4x^2 + 4 = (x^2 - 2)^2.$$
+\end{proof}
+
+\subsection{A4 - Geometry}
+\begin{Prob} Triangle $ABC$ has area $1$.  Points $E, F, G$ lie on sides $BC$, $CA$, $AB$ such that $AE$ bisects $BF$ at point $R$, $BF$ bisects $CG$ at point $S$, and $CG$ bisects $AE$ at point $T$.  Find the area of the triangle $RST$.
+\end{Prob}
+\begin{proof}
+We claim that $[RST] = \frac{7- \sqrt{5}}{4}.$
+Let $EC/BC = r$, $FA/CA = s$, $GB/AB = t$.
+
+Note that $[ABE] = [AFE]$ since they share a base $AE$ and $BR = FR$ implies that the share the same altitude length as well(drop altitudes from $F$ and $B$ and use the congruent triangles).  
+
+Then, $[ABE] = [ABE]/[ABC]= BE/BC = 1 - EC/BC = 1-r$.  We also have $[ACE] = r$.  It follows that $[FCE] = [ACE] (FC/AC) = r(1-s)$.
+
+Now,
+$$1 = [ABC] = [ABE] + [AFE] + [EFC] = (1-r) + (1-r) + r(1-s) \Longrightarrow r(1+s) = 1.$$
+Arguing similarly for the other sides, we have $s(1+t) = 1$, and $t(1+r) = 1$.  
+
+It follows that 
+$$r = \frac{1}{1+s} = \frac{1}{1 + \frac{1}{1+t}} = \frac{1}{1 + \frac{1}{1 + \frac{1}{r}}}.$$
+
+Simplifying this, we find that $r = \frac{2+r}{3 + 2r}$, which gives $3r + 2r^2 = 2+ r$, or equivalently, $r^2 + r - 1 = 0$.  Plugging into the quadratic formula and taking the positive root gives
+$$r =\frac{1 + \sqrt{5}}{2},$$
+and by repeating the argument, we have $r = s = t = \frac{-1 + \sqrt{5}}{2}$.  
+
+Now, note that $[ATC] = [AEC] / 2 = r/2$, $[ATG] = [ACG] - [ATC] = 1 - t - r/2$.  Similarly, $[BSC] = t/2$ and $[BRE] = 1 - r - s/2$, so it follows that $[BRTG] = [ABE] - [ATG] - [BRE] = r/2 + s/2 + t - 1$.
+\begin{align*}
+[RST] &= [ABC] - [ACG] - [BSC] - [BRTG] \\
+&= 1 - (1 - t) - (t/2) - (r/2 + s/2 + t - 1)\\
+&= 1 - \frac{r + s + t}{2} \\
+&= 1 - \frac{3\frac{\sqrt{5} - 1}{2}}{2} \\
+&= \frac{7 - \sqrt{5}}{4}.
+\end{align*}
+\end{proof}
 \end{document}

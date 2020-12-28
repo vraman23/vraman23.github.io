@@ -1,0 +1,279 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+
+\let \phi \varphi
+\let \hat \widehat
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+\renewcommand{\arc}{\text{arc}}
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+\declaretheorem[style=thmbluebox,name={Problem}]{Prob}
+
+
+\begin{document}
+\title{Chapter 1: Preliminaries}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+My solutions to the problems and exercises from the first chapter of Stein/Shakarchi, \textit{Complex Analysis}, "Preliminaries to Complex Analysis".  Any typos or errors found are my own - kindly direct any concerns to my inbox.
+\end{abstract}
+\tableofcontents
+\pagebreak
+\section{Chapter 1: }
+\subsection{Exercise 1}
+Describe geometrically the sets of points $z$ in the complex plane defined by the following relations:
+\begin{itemize}
+ \item $|z - z_1| = |z - z_2|$, where $z_1, z_2 \in \C$.
+ \item $1/z = \overline{z}$.
+ \item $\text{Re}(z) = 3$.
+ \item $\text{Re}(z) > c$ where $c \in \R$.
+ \item $\text{Re}(az + b) > 0$ where $a , b \in \C$.
+ \item $|z| = \text{Re}(z) + 1$.
+ \item $\text{Im}(z) = c$.
+ \end{itemize} 
+ \begin{proof}
+ \begin{itemize}
+ \item This describes the perpendicular bisector between $z_1, z_2$, the set of points that are equidistant from both points.
+ \item Equivalently, $|z| = 1$, the circle of radius $1$.
+ \item A vertical line through $3$.
+ \item The half plane to the right of $c$(excluding the boundary).
+ \item This the half plane below a given line from the components of $a, b$.
+ \item A horizontal parabola with vertex at $-i$.
+ \item A horizontal line through $c$.
+ \end{itemize}
+ \end{proof}
+ 
+\subsection{Exercise 2}
+Let $\langle\cdot, \cdot \rangle$ denote the usual inner product in $\R^2$.  We have a Hermitian inner product in $\C$ by $(z, w) = z \overline{w}$.  Show that 
+ $$\langle z, w \rangle = \frac{1}{2} \left ((z,w) + (w, z)\right ) = \text{Re}(z, w).$$
+ \begin{proof}
+ Let $z = a + bi, w = c+di$.
+ \begin{align*}
+ (z, w) + (w, z) &= z\overline{w} + w \overline{z} \\
+ &= (a + bi)(c - di) + (a - bi)(c + di) \\
+&= (ac + bd) + (bc - ad)i + (ac +bd) +(bc - ad)i
+&= 2(ac + bd)\\
+ &= 2\left <z, w\right > = 2\text{Re}(z, w).
+ \end{align*}
+ \end{proof}
+ 
+\subsection{Exercise 3}
+With $\omega = se^{i\phi}$, where $s \ge 0$ and $\phi \in \R$, solve the equation $z^n = \omega$ in $\C$ where $n \in \N$.  How many solutions are there?
+\begin{proof}
+We have $$z^n = \omega \Longrightarrow z = (\omega)^{1/n} e^{\frac{2\pi i m}{n}},$$
+where $m \in \Z/n\Z$.  
+$$(\omega^{1/n})^n = se^{i\phi} \Longrightarrow  \omega^{1/n} = s^{1/n} e^{i\phi/n + \frac{2\pi i k}{n}},$$
+where $k \in \Z/n\Z$.  It follows that 
+$$z = s^{1/n} e^{i\phi/n} e^{\frac{2\pi i(k+m)}{n}} $$
+and $k+m$ is uniformly distributed in $\Z/n\Z$, so we have $n$ possible solutions if $s \ne 0$.  Otherwise, we have one solution, namely $0$.
+\end{proof}
+
+\subsection{Exercise 4}
+ Show that it is impossible to define a total ordering on $\C$.  
+ \begin{proof}
+ Suppose $i \succ 0$.  Then, we have $i^2 = -1 \succ 0$, which is impossible.  Similarly, if $0 \succ i$, then $$0 + (-i) = -i \succ i + (-i) = 0.$$
+ But then,
+ $$0 \cdot (-i) = 0 \succ i\cdot (-i) = 1,$$
+ a contradiction.
+
+ \end{proof}
+ 
+\subsection{Exercise 5} A set $\Omega$ is said to be \textbf{pathwise connected} if any two points in $\Omega$ can be joined by a curve entirely contained in $\Omega$.  The purpose of this exercise is to prove that an \textit{open} set $\Omega$ is pathwise connected if and only if $\Omega$ is connected.
+ \begin{description}
+\item{(a)} Suppose first that $\Omega$ is open and pathwise connected, and that it can be written as $\Omega = \Omega_1 \cup \Omega_2$ where $\Omega_1$ and $\Omega_2$ are disjoint non-empty open sets.  Choose two points $w_1 \in \Omega_1, w_2 \in \Omega_2$ and let $\gamma$ denote a curve in $\Omega$ joining $w_1$ to $w_2$.  Consider a parameterization $z:[0, 1] \to \Omega$ of this curve with $z(0) = w_1$ and $z(1) = w_2$.  
+
+Let
+ $$t^* = \sup_{0 \le t \le 1} \{t: z(s) \in \Omega_1 \forall 0 \le s < t\}.$$
+ Arrive at a contradiction by considering the point $z(t^*).$
+ \item{(b)} Conversely, suppose that $\Omega$ is open and connected. Fix a point $w \in \Omega$ and let $\Omega_1 \subset \Omega$ denote the set of all points that can be joined to $w$ by a curve contained in $\Omega$. Also, let $\Omega_2 \subset \Omega$ denote the set of all points that cannot be joined to $w$ by a curve in $\omega$. Prove that both $\Omega_1$ and $\Omega_2$ are open, disjoint and their union is $\Omega$. Finally, since $\Omega_1$ is non-empty (why?) conclude that $\Omega = \Omega_1$ as desired.
+ \end{description}
+ \begin{proof}(Part A)
+ Consider the point $z(t^*)$.  Suppose $t^* < 1$.  We cannot have $z(t^*) \in \Omega_1$, since this implies there is an open ball $B$ containing $z(t^*)$ in $\Omega_1$.  It follows that $z^{-1}(B)$ is an open subset of $[0, 1]$ since $z$ is continuous, so contains points to the right of $t^*$, a contradiction.  If $t^* = 1$, then, there is a sequence of points in $\Omega_1$ converging to $z(1) \in \Omega_2$, contradicting the assumption that $\Omega \setminus \Omega_2$ is closed.  
+ 
+ If $z(t^*) \in \Omega_2$, then $z(t) \in \Omega_2$ if and only if $t > t^*$.  Hence, $t^*$ is the infumum of values of $t$ with $z(t) \in \Omega_2$ and we repeat the argument from above.
+ \end{proof}
+ \begin{proof}(Part B)
+It is clear that $\Omega_1 \cup \Omega_2 = \Omega$ and that they are disjoint.  
+ 
+ Since $\Omega$ is open, we can find an open ball $B$ around $v \in \Omega_1 \subset \Omega$ which is contained in $\Omega$.  If $x \in B$ then there is a path from $v$ to $x$.  There is also a path from $w$ to $v$ so by the gluing lemma, we can find a path from $w$ to $x$.  This implies that $B \subset \Omega_1$, which shows that $\Omega_1$ is open.
+ 
+Take $y \in \Omega_2$.  There exists an open ball $C$ around $y$ contained in $\Omega$.  For any $t \in C$, if a path exists from $w$ to $C$, then we can find a path from $w$ to $y$ by the gluing lemma.  It follows that $C \subset \Omega_2$ which shows that $\Omega_2$ is open.
+ 
+ Since $\Omega$ is connected, we must have either $\Omega = \Omega_1$ or $\Omega = \Omega_2$.  However, $w \in \Omega_1$ implies that $\Omega = \Omega_1$.
+ \end{proof}
+ \subsection{Exercise 6}
+ Let $\Omega$ be an open set in $\C$ and $z \in \Omega$.  The connected component of $\Omega$ containing $z$ is the set of points $\mathcal C_z$ of all points $w$ in $\Omega$ that can be joined to a curve entirely contained in $\Omega$.
+  \begin{description}
+\item{(a)} Check that $\mathcal C_z$ is open and connected.  Then, show that $w \in C_z$ defines an equivalence relation.
+ \item{(b)} Show that $\Omega$ can have only countably many distinct connected components.
+ \item{(c)} Prove that if $\Omega$
+ is the complement of a compact set, then $\Omega$ has only one unbounded component.
+  \end{description}
+ \begin{proof}(Part A)
+Note that $C_z$ is a pathwise connected set which is open if and only if it is connected.  For any $x \in C_z$, there exists a ball $B \subset \Omega$ containing $x$.  Then, gluing the path from $z$ to $x$ and $x$ to $y \in B$ shows that $B \subset C_z$, which implies that $C_z$ is open.  By Exercise $5$, $C_z$ is connected.
+
+We now show that $w \in C_z$ is an equivalence relation.  It is clear that $z \in C_z$.  If $w \in C_z$, then there is a path from $z$ to $w$, the reverse of which is a path from $w$ to $z$, so $z \in C_w$.  Finally, If $a \in B_b$ and $b \in B_c$, then gluing the paths from $a$ to $b$ and $b$ to $c$ gives a path from $a$ to $c$, so $a \in B_c$.
+ \end{proof}
+ \begin{proof}(Part B)
+ Suppose not.  Then there is an uncountable collection of disjoint open balls of $\Omega$.  From the density of $\Q$ in $\R$, each of these balls contains a unique rational, which is a contradiction since there are only countably many rationals.
+ \end{proof}
+ \begin{proof}(Part C) 
+Let $C \subset \Omega$ be the unbounded component.  Since $\overline{\Omega}$ is compact, there exists an open ball $B \supset \overline{\Omega}$.  Then $B^c \subset \Omega$, and note that $B^c$ is unbounded and connected.    Since $C \cap B = \emptyset$, we must have $C \cap B^c \ne \emptyset$ so it follows that $B^c = C$.  Hence, we have exactly one unbounded component.
+ \end{proof}
+ 
+ \subsection{Exercise 7}
+ We introduce mappings called \textbf{Blaschke factors}.
+   \begin{description}
+\item{(a)} Let $z, w$ be two complex numbers such that $\overline{z}w \ne 1$.  Prove that 
+$$\left |\frac{w - z}{1 - \overline{w}z}\right| < 1$$
+if $|z| < 1$ and $|w| < 1$ and also that 
+$$\left |\frac{w - z}{1 - \overline{w}z}\right| = 1$$
+if $|z| = 1$ or $|w| = 1$. 
+\item{(b)} Prove that for a fixed $w$ in the unit disc $\mathcal D$, the mapping $F: z \mapsto \frac{w-z}{1 - \overline{w}z}$ satisfies the following conditions
+\begin{itemize}
+\item $F$ maps the unit disk to itself and is holomorphic.
+\item $F$ interchanges $0$ and $w$.
+\item $|F(z)| = 1$ if $|z| = 1$.
+\item $F: \mathcal D\to \mathcal D$ is bijective.
+\end{itemize}
+  \end{description}
+  \begin{proof}(Part A)
+We have 
+\begin{align*}
+\left |\frac{w - z}{1 - \overline{w}z}\right| < 1 &\Leftrightarrow (w - z)  \overline{(w - z)} \le (1 - \overline{w} z)\overline{(1 - \overline{w}z)}\\
+&\Leftrightarrow (w - z)(\overline{w} - \overline{z}) \le (1 - z\overline{w} ) (1 - w\overline{z}) \\
+&\Leftrightarrow |w|^2 + |z|^2 - z\overline{w} - w\overline{z} \le 1 - z\overline{w} - w\overline{z} + |z|^2|w|^2 \\
+&\Leftrightarrow (1  - |w|^2)(1 - |z|^2) \ge 0,
+\end{align*}
+which gives both results.
+
+
+  \end{proof}
+\begin{proof}(Part B)
+From the result above if $|z| \le 1$ then since $|w| \le 1$, we have $|F(z)| \le 1$, which implies that $F(\mathcal D) \subset \mathcal D$.  Then, for any $y \in \mathcal D$, note that $F(F(y)) = y$(this can be easily verified), so it follows that $\mathcal D \subset F(\mathcal D)$, which shows that $F$ maps $\mathcal D$ to $\mathcal D$, as desired.  The function is holomorphic by the quotient rule.  It is easy to see that $F(0) = w$ and $F(w) = 0$.  Then, $|F(z)| = 1$ if $|z| = 1$ by Part A.  From $F(F(y)) = y$ it is clear that $F$ is surjective.  Then, if $F(x) = y$ then $x = F(F(x)) = F(y)$, so $x = y$ implies that $F(x) = F(y)$.  Therefore, $F$ is bijective, as desired.
+\end{proof}
+
+\subsection{Exercise 8}
+Suppose $U$ and $V$ are open sets in the complex plane.  Prove that if $f: U \to V$ and $g : V \to \C$ are two functions that are differentiable(in the real sense), and $h = g \circ f$, then 
+$$\frac{\partial h}{\partial z} = \frac{\partial g}{\partial z} \frac{\partial f}{\partial z} + \frac{\partial g}{ \partial \overline{z}} \frac{\partial \overline{f}}{\partial z}$$
+and 
+$$\frac{\partial h}{\partial \overline {z}} = \frac{\partial g}{\partial z} \frac{\partial f}{\partial \overline{z}} + \frac{\partial g}{ \partial \overline{z}} \frac{\partial \overline{f}}{\partial \overline{z}}.$$
+
+\begin{proof}
+Recall that 
+$$\frac{\partial}{\partial z} = \frac{1}{2} \left (\frac{\partial}{\partial x} -i \frac{\partial}{\partial y}\right )$$
+$$\frac{\partial}{\partial \overline{z}} = \frac{1}{2} \left (\frac{\partial}{\partial x} +i \frac{\partial}{\partial y}\right ).$$
+
+Then
+$$\frac{\partial h}{\partial x} = \frac{\partial f}{\partial g} \frac{\partial g}{\partial x} $$
+and 
+$$\frac{\partial h}{\partial y} = \frac{\partial f}{\partial g} \frac{\partial g}{\partial y} $$
+
+so it follows that 
+$$\frac{\partial h}{\partial z} = \frac{\partial f}{\partial g} \frac{\partial g}{\partial z}$$
+\end{proof}
+
+\subsection{Exercise 9}
+Show that in polar coordinates, the Cauchy-Riemann Equations take the form
+$$\frac{\partial u}{\partial r} = \frac{1}{r} \frac{\partial v}{\partial \theta}$$
+and 
+$$\frac{1}{r}\frac{\partial u}{\partial \theta} = -\frac{\partial v}{\partial r}.$$
+Use these equations to show that the logarithm function defined by
+$$\log z = \log r + i \theta$$
+where $z = re^{i\theta}$ with $-\pi < \theta < \pi$ is holomorphic in the region $r > 0$ and $-\pi < \theta < \pi$.
+\begin{proof}
+If we let $z = x + iy = r(\cos \theta + i\sin \theta)$, it follows that 
+\begin{align*}
+u_r &= u_x \cos \theta + u_y \sin \theta \\
+&= \frac{1}{r} \left (rv_y \cos \theta - rv_x \sin \theta\right ) \\
+&= \frac{1}{r}v_\theta.
+\end{align*}
+
+Similarly,
+\begin{align*}
+v_r &= v_x \cos \theta + v_y \sin \theta \\
+&= -\frac{1}{r} \left (ru_y \cos \theta - ru_x \sin \theta\right ) \\
+&= -\frac{1}{r} u_\theta.
+\end{align*}
+
+For $\log z = \log r + i\theta$, we have $u(r, \theta) = \log r$ and $v(r, \theta) = \theta$, so 
+$$u_r = \frac{1}{r}= \frac{1}{r} v_\theta$$
+and 
+$$v_r = 0 = -\frac{1}{r} u_\theta$$
+so it follows that the function is holomorphic as desired.
+ \end{proof}
+ 
+ \subsection{Exercise 10}Show that 
+ $$4 \frac{\partial}{\partial z} \frac{\partial }{\partial \overline{z}} = 4\frac{\partial}{\partial \overline{z}} \frac{\partial }{\partial z} = \Delta, $$
+ where 
+ $$\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}.$$
+ 
+ \begin{proof}
+ Trivially follows from the definitions of the operators.
+ \end{proof}
+ \subsection{Exercise 11} Show that if $f$ is holomorhpic in the open set $\Omega$, then the real and imaginary parts of $f$ are harmonic.
+ \begin{proof}
+ If $f$ is holomorphic on $\Omega$ then $\frac{\partial}{\partial \overline{z}}f = 0$, and the result follows from applying the previous exercise.
+ \end{proof}
+ 
+ \subsection{Exercise 12} Consider the function defined by $f(x + iy) = \sqrt{|x||y|}$ whenever $x, y \in \R$.  Show that $f$ satisfies the Cauchy-Riemann equations at the origin, yet $f$ is not holomorphic at $0$.
+ \begin{proof}
+Note that $v_x, v_y = 0$, since $f$ is a real-valued function. 
+ 
+ $$u_x(0, 0) = \lim_{h \to 0} \frac{u(h, 0) - h(0, 0)}{h} = 0,$$
+ and 
+ $$u_y(0, 0) = \lim_{h \to 0} \frac{u(0, h) - h(0, 0)}{h} = 0$$
+ but
+ $$\frac{f(t(1 + i)) - f(0)}{t(1 + i)} = \frac{|t|}{t(1 + i)},$$
+ which has no limit.
+ \end{proof}
+ 
+ \subsection{Exercise 13} Suppose that $f$ is holomorphic in an open set $\Omega$.  Prove that in any one of the following cases
+ \begin{itemize}
+ \item Re$(f)$ is constant;
+ \item Im$(f)$ is constant;
+ \item $|f|$ is constant;
+ \end{itemize}
+ one can conclude that $f$ is constant.
+ \begin{proof}
+The first and second cases are equivalent, following from the C-R equations.  It follows that $Re(f) + iIm(f) = f$ is constant in these cases.
+
+Let $f = u + iv$.  If $|f|$ is constant, then $|f|^2 = u^2 + v^2$ is constant, so it follows that 
+$$\frac{\partial }{\partial x}(u^2 + v^2) = \frac{\partial }{\partial y}(u^2 + v^2) = 0.$$
+
+Therefore,
+$$uu_x + vv_x = uu_y + vv_y = 0.$$
+
+By C-R, we have 
+$$uv_y  + vv_x = -uv_x - vv_y = 0.$$
+
+It follows that 
+$$u^2 v_y + uvv_x = -u v v_x - v^2 v_y = 0 \Longrightarrow (u&2 + v^2) v_y = 0.$$
+
+If $u^2 + v^2 = 0$, then $f = u = v = 0$.  If $v_y = 0$, then it follows that $Im(f) = 0$, and it reduces to (b)
+. \end{proof}
+\end{document}

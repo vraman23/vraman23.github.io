@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{skak}
+
+\begin{document}
+\title{The Vienna Game}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+\newgame
+
+The Vienna Game starts after 
+\mainline{1. e4 e5 2. Nc3 Nf6 3. f4}.
+\begin{center}
+\showboard
+\end{center}
+Black can accept or decline the Gambit, but accepting is immediately losing for Black.  Declining leads to playable lines with many traps.  Any mistakes or typos found are my own - kindly forward any concerns to my inbox.
+
+\end{abstract}
+\tableofcontents
+\pagebreak
+\section{The Vienna Gambit}
+\subsection{Vienna Gambit Accepted}
+If Black accepts the Gambit, after \mainline{3... e5xf4 4. e5} the position is immediately losing for Black($+.60$  Stockfish 11).
+\begin{center}
+\showboard
+\end{center}
+The knight has no choice but to retreat.   Moving the queen to pin the pawn is a crushing mistake ($+1.77$ Stockfish 11) after \variation {4. e5 Qe7 5. Qe2}, since the knight still has to retreat back to it's original square.
+
+After the knight retreats, we can play moves like   \mainline{4... Ng8 5. Nf3 d6 6. d4 dxe5 7. Qe2 Bb4 8. Qxe5 Qe7 9. Bf4}, and we have regained the lost pawn and have a massive lead in development.  We also have plans to long castle and a threat on the $g7$ pawn, which would cripple the Black kingside.
+\begin{center}
+\showboard
+\end{center}
+\subsection{Vienna Gambit Declined - 1}
+Black must decline the gambit, but it must be done correctly.
+\newgame
+\fenboard{rnbqkb1r/pppp1ppp/5n2/4p3/4PP2/2N5/PPPP2PP/R1BQKBNR b KQkq f3 0 3}
+
+The move \mainline{3... Nc6} is tempting as it defends the pawn and develops the knight, but after \mainline{4. fxe5 Ne5 5. d4 Nc6 6. e5 Ng8}, the knight is again forced to retreat and we reach the Vienna Gambit accepted position but with an additional passed pawn. 
+\begin{center}
+\showboard
+\end{center}
+ There are many fun lines from here, one such being \mainline{7. Nf3 d6 8. Bc4 dxe5 9. O-O}, with the plan to sacrifice the bishop on $f7$.  
+ \begin{center}
+\showboard
+\end{center}
+
+ From here, if Black takes on $d4$, we can play an Englund Gambit style move with \mainline{9... exd4 10. Ng5 dxc3 11. Bxf7}, which has massive threats on the open king.
+
+\subsection{Vienna Gambit Declined - 2}
+\newgame
+\fenboard{rnbqkb1r/pppp1ppp/5n2/4p3/4PP2/2N5/PPPP2PP/R1BQKBNR b KQkq f3 0 3}
+Black can also decline the gambit with \mainline{3... d6}, but this also leads to a better position for White.  After \mainline{4. Nf3 Nc6 5. Bb5 Bd7 6. d3}, we have plans to capture on e5, trade the bishop on c6, and short castle which leads to an open f file for the rook.
+\begin{center}
+\showboard
+\end{center}
+\subsection{Vienna Gambit Declined - Main Line}
+
+\end{document}
