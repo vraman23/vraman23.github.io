@@ -72,4 +72,54 @@ Wiles used this to prove Fermat's Last theorem, namely he related the solution o
 \end{itemize}
 
 Inverse Galois Problem: Given a finite group $G$, is there an extension $K$ of $\Q$ so that the Galois group of $K$ is $G$?  This is true for many groups, but the problem is completely open in general.
+\pagebreak
+\section{Field Extensions}
+\subsection{Algebraic Numbers}
+\begin{definition} A field extension is a pair of fields $K \subseteq L$, denoted $L/K$.
+\end{definition}
+In Galois Theory, it is sometimes helpful to start with smaller fields and build up to the full field.
+The most basic example is given by $\Q \subseteq \R \subseteq \C$.
+
+The degree of a field extension $L/K$, denoted by $[L:K]$  is the dimension of $L$ as a vector space over $K$.  The field extension is called finite if it has finite degree.
+
+\begin{definition}
+Suppose we have $K \subseteq L$ and $\alpha \in L$.   $\alpha$ is called \textbf{algebraic} over $K$ if it is a root of a polynomial $p(x) \in K[x]$.  Otherwise, it is called  \textbf{transcendental}.  The degree of $\alpha$is the degree of an irreducible polynomial $p$ where $\alpha$ is a root.
+\end{definition}
+\begin{itemize}
+\item It is clear that $2^{1/5}$ is algebraic since it is the root of $x^5 - 2 = 0$.  
+\item The reals $\pi, e$ are transcendental.  
+\item The real $\alpha = \cos{2\pi/7}$ is algebraic.   Note that $\alpha = \frac{\zeta + \zeta^{-1}}{2}$ where $\zeta = e^{2\pi i/7}$.  We can apply a clever transformation to $1 + \zeta + \zeta^2 + \dots + \zeta^6 = 0$ to find a polynomial relation in terms of $\alpha$.
+\item Is $e + \pi$ transcendental?  Is $e \pi$ transcendental?  We can show that $e + \pi$ or $e\pi$ is transcendental.
+
+Consider $x^2 - (e + \pi)x + e\pi$.  If $e + \pi$ and $e \pi$ are both algebraic then $e, \pi$ are algebraic, a contradiction.
+\end{itemize}
+
+\subsection{Algebraic Extensions}
+\begin{thm} If we have $K \subseteq M$, $\alpha \in M$ is algebraic over $K$ if and only if it is contained in a finite extension of $K$.
+\end{thm}
+\begin{proof}
+If $\alpha$ is contained in a finite extension $L$, with $[L : K] = n < \infty$, then consider $1, \alpha, \alpha^2 , \dots, \alpha^n$, which are $n+1$ elements of an $n$-dimensional vector space.  So we have a non-trivial linear relation in terms of these elements which is zero, which gives a polynomial relation of $\alpha$.
+
+Suppose $p(x)$ is an irreducible polynomial in $K[x]$.  Then, if we consider $K[x]\setminus (p)$, this is a field.  It is obviously a ring, but the existence of inverses needs to be verified.  Suppose we have an element $q(x) \in K[x]\setminus (p)$, with $q \ne 0$.  Then $q, p$ are coprime in $K[x]$ since $p$ is irreducible.  Then, we can find $a(x)q(x) + b(x)p(x) = 1$ using the Euclidean algorithm.  Hence, $a(x)$ is the inverse of $q(x)$.
+
+If $\alpha$ is algebraic, then $\alpha$ is a root of $p(x) \in K[x]$ with $p$ irreducible.  Consider the field $\frac{K[x]}{(p)}$.  This contains $K$ and we can map this field in $L$ with the map $x \mapsto \alpha$, which also contains $K$.  The image is a field in $L$ containing $\alpha$, and the field has dimension of the degree of $p$ so it is finite.
+\end{proof}
+
+Consider a tower of extensions $K \subseteq L \subseteq M$.  Then, $[M:K] = [M:L][L:K]$.  Pick a basis $x_1, \dots, x_m$ of $L/K$ and pick a basis $y_1, \dots, y_n$ for $M/L$ and check that $x_iy_j$ for $1 \le i \le m$ and $1 \le j \le n$ form a basis for the vector space $M$ over $K$.
+
+\begin{thm} If $\alpha, \beta \in L$ are algebraic over $K$, then so are $\alpha + \beta, \alpha \beta, \alpha/\beta, \alpha-  \beta$.
+\end{thm}
+\begin{example} Consider $2^{1/2} + 2^{1/3} + 2^{1/5}$.  It is hard to come up with a polynomial relation with this element, but is algebraic as the sum of algebraic elements.
+\end{example}
+\begin{proof}
+Consider $K \subseteq K(\alpha) \subseteq K(\alpha, \beta)$, which are finite extensions, which gives the desired result, since the elements are algebraic relations of $\alpha$ and $\beta$.
+\end{proof}
+
+\begin{thm} ($K \subseteq L$) If $\alpha$ is the root of a polynomial with algebraic coefficients, then $\alpha$ is algebraic.
+\end{thm}
+\begin{proof}
+For a polynomial $\alpha^n + a_{n-1}\alpha^{n-1} + \dots + a_0 = 0$, take
+$$K \subseteq K(a_0) \subseteq K(a_0, a_1) \subseteq \dots \subseteq K(a_0, \dots, a_{n-1}) \subseteq K(a_0, \dots, a_{n-1}, \alpha),$$
+which are all finite extensions.  It follows that $\alpha$ is algebraic.
+\end{proof}
 \end{document}
