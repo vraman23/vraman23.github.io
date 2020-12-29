@@ -71,5 +71,5 @@ Wiles used this to prove Fermat's Last theorem, namely he related the solution o
 \item The Galois group is related to the Fundamental group.  If we have an extension $K \subseteq L$, this corresponds to a covering space.  The Galois group corresponds to the fundamental group of the base space.  The algebraic closure of a field corresponds to a universal covering space.
 \end{itemize}
 
-Inverse Galois Problem: Given a finite group $G$, is there an extension $K$ of $\Q$ so that the Galois group of $K$ is $G$?  This is true for many groups, 
+Inverse Galois Problem: Given a finite group $G$, is there an extension $K$ of $\Q$ so that the Galois group of $K$ is $G$?  This is true for many groups, but the problem is completely open in general.
 \end{document}
