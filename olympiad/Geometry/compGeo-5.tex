@@ -1,0 +1,114 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+
+\let \phi \varphi
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+\begin{document}
+\title{Analytic Methods in Geometry}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+We present several computation results and theorems that prove to be useful in geometry problems at the Olympiad level.  This includes Cartesian coordinates, complex numbers, barycentric coordinates, etc.  
+\end{abstract}
+\tableofcontents
+\pagebreak
+\section{Computational Geometry}
+\subsection{Cartesian Coordinates}
+\begin{itemize}
+\item (Shoelace Formula) Given three points $A = (x_1, y_1), B = (x_2, y_2), C = (x_3, y_3)$, the signed area of triangle $ABC$ is given by
+$$\begin{vmatrix}
+x_1 &y_1  &1 \\ 
+ x_2&y_2  &1 \\ 
+ x_3&y_3  &1 
+\end{vmatrix}.$$
+The area of a triangle $ABC$ is positive if $A, B, C$ appear in counterclockwise order.
+\item Three points are collinear if and only if the area of the triangle they determine is zero.  This gives a symmetric formula for determining collinearity.
+\item (Point-to-Line Distance) If $\ell$ is the line determined by $Ax + By + C = 0$, the shortest distance from $P=(x_1, y_1)$ to $\ell$ is given by 
+$$d(P, \ell) = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}.$$
+\item (Point-to-Plane Distance) If $H$ is the plane determined by  $Ax + By + Cz + D = 0$  the shortest distance between the point $P = (x_0, y_0, z_0)$ and the plane is given by
+$$d(P, H) = \frac{|Ax_0 + By_0 + Cz_0 +D |}{\sqrt{A^2 + B^2 + C^2}}$$
+\end{itemize}
+Problems that are most effectively solved using Cartesian coordinates usually have defining characteristics, such as
+\begin{itemize}
+\item a prominent right angle at the origin.
+\item many intersections or perpendicular lines.
+\end{itemize}
+\subsection{Areas}
+The area of a triangle $ABC$ is given by
+\begin{itemize}
+\item $\frac{1}{2}ab \sin C =\frac{1}{2}bc \sin A = \frac{1}{2}ca \sin B$
+\item $\frac{a^2 \sin B \sin C}{2 \sin A}$
+\item $\frac{abc}{4R}$, $R$ is the circumradius.
+\item $sr$, $s$ is the semi-perimeter, $r$ is the inradius.
+\item $\sqrt{s(s-a)(s-b)(s-c)}$.
+\end{itemize}
+A useful result from trignometry:
+\begin{lemma} If $x, y, z$ satisfy $x + y + z = 180^\circ$ and $0^\circ < x , y, z < 90^\circ$, then $\tan x + \tan y + \tan z = \tan x \tan y \tan z$.
+\end{lemma}
+\begin{example} In $ABC$, $AB = 13$, $BC = 14$, $CA = 15$.  Find the length of the altitude from $A$ onto $\overline{BC}$.
+\end{example}
+\begin{proof}
+Note that $s = (13 + 14 + 15)/2 = 21$.  It follows that 
+$$[ABC] = \sqrt{(21)(21-13)(21-14)(21-15)} = \sqrt{(21)(8)(7)(6)} = 84.$$
+
+Then, $$[ABC] = \frac{1}{2}h_A \cdot BC  = 84$$
+so it follows that $h_A = \frac{2 \cdot 84}{BC} = 12$.
+\end{proof}
+\subsection{Trignometry}
+\begin{itemize}
+\item (Law of Sines) 
+$$\frac{a}{ \sin A} = \frac{b}{\sin B} = \frac{c}{ \sin C} = 2R.$$
+\item (Law of Cosines) Given a triangle $ABC$, we have 
+$$a^2 = b^2 + c^2 - 2bc \cos A.$$
+\item (Product-Sum)
+\begin{align*}
+2 \cos \alpha \cos \beta &= \cos(\alpha - \beta) + \cos (\alpha + \beta) \\
+2 \sin\alpha \sin \beta &= \cos(\alpha - \beta) - \cos(\alpha + \beta) \\
+2 \sin \alpha \cos \beta &= \sin(\alpha - \beta) + \sin(\alpha + \beta)
+\end{align*}
+\end{itemize}
+\subsection{Ptolemy's Theorem}
+\begin{thm}[Ptolemy's Theorem] Let $ABCD$ be a cyclic quadrilateral.  Then $$AB \cdot CD + BC \cdot DA = AC \cdot BD.$$
+\end{thm}
+\begin{proof}
+We prove the result using trignometry.  Let $\alpha_1, \alpha_2, \alpha_3, \alpha_4$ be the angles $\angle ADB$, $\angle BAC$, $\angle CBD$, $\angle DCA$ respectively.  WLOG let $(ABCD)$ have unit diameter.  It follows from the law f sines that 
+$$AB = \sin \alpha_1, BC = \sin \alpha_2, CD = \sin \alpha_3, DA = \sin \alpha_4.$$
+
+Furthermore,
+$$AC = \sin \angle ABC = \sin(\alpha_3 + \alpha_4),$$
+$$CD = \sin \angle DAB = \sin(\alpha_2 + \alpha_3).$$
+
+It suffices to show that for $\alpha_1 + \alpha_2 + \alpha_3 + \alpha_4 = 180^\circ$, 
+$$\sin \alpha_1 \sin \alpha_3 + \sin \alpha_2 \sin \alpha_4 = \sin(\alpha_3 + \alpha_4) \sin (\alpha_2 + \alpha_3).$$
+
+This result can be easily verified through the product to sum identities.
+\end{proof}
+\subsection{Problems}
+\end{document}
