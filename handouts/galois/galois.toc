@@ -9,3 +9,7 @@
 \contentsline {section}{\numberline {3}Splitting Fields}{6}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Definition and Examples}{6}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Existence and Uniqueness}{6}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}Algebraic Closure}{7}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Definitions}{7}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Fundamental Theorem of Algebra}{7}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Uniqueness of $\overline {K}$}{7}{subsection.4.3}% 

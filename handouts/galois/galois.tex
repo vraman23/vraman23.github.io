@@ -150,5 +150,36 @@ Suppose we have a field $K$ and an isomorphism to a field $K'$ sending $p$ to $p
 Factor $p = p_1 p_2 \dots$ with $p_i$ irreducible.  Let $\alpha$ be a root of $p_1$.  Consider the field $K_1(\alpha)$.  Over $K'$, $p' = p_1'p_2', \dots$, $\alpha$ is mapped to a root of $p_1'$.  We continue like this with the other factors of $p$ and we construct a map of fields from $L$ to $L'$.  In particular, $[L:K] \le [L': K']$. Reversing the argument, we find that $[L':K'] \le [L:K]$ so it follows that they are equal, and the map is an isomorphism.  
 
 While we do have an isomorphism, one can ask whether there is a canonical splitting field for a given field.  This is not entirely true, and one needs to keep this in mind for certain problems.
+\pagebreak
+\section{Algebraic Closure}
+\subsection{Definitions}
 
+Suppose $K$ is countable.  List the polynomials in $K[x]$, $p_1, p_2, p_3, \dots$ and take the field $K = K_0 \subseteq K_1 \subset K_2 \subset \dots$ where $K_i$ is the splitting field of $p_1$.  Then, we set $\overline{K} = \bigcup_{i=1}^\infty K_i$.  If $K$ is uncountable, we well-order the polynomials $p_i$ and repeat the construction.
+
+A field is called \textbf{algebraicly closed} if all polynomials in $L[x]$ have roots in $L$.  
+
+Any polynomial in $K[x]$ has a root in $\overline{K}$, but we want to show that any polynomial in $\overline{K}[x]$ has a root in $\overline{K}$.  For $p(x) \in \overline{K}[x]$ with coefficients $a_0, a_1, a_2, \dots$ and $\alpha$ is a root, then
+$$K \subseteq K[a_0, a_1, \dots, a_{n-1}] \subseteq K[a_0, \dots, a_{n-1}, \alpha].$$
+
+Since all the extensions are finite, $\alpha$ is algebraic over $K$, so $\alpha$ is the root of a polynomial which factors linearly in $\overline{K}$, so it follows that $\overline{K}$ is algebraicly closed.
+
+\begin{example} Find the smallest possible field $L$ with $K \subseteq L$ so that all elements of $L$ have a square root in $L$. 
+
+Take $K = K_0 \subseteq K_1$, where we adjoin all square roots of elements of $K_0$.  Then, we extend $K_1 \subseteq K_2$ where adjoin all the square roots of $K_1$, and repeat the construction.  Then set $L$ to be the union of all the fields and the result follows.  
+ \end{example}
+
+\subsection{Fundamental Theorem of Algebra}
+If we take $K = \R$, then $\overline{K} = \C$.  
+ \begin{proof}
+ Suppose $p(x) = x^n + a_{n-1}x^{n-1} + \dots + a_0 \in \C[x]$.  If $|x| = R$ large, then $|x^n| > |a_{n-1}x^{n-1 } + \dots + a_0|$.  As we contract $R$ to $0$, the number of times the polynomial goes to $0$ starts at $n$ and goes to $0$.  It follows that there is some point so that it passes through the origin.  The number of times it goes around is sometimes called the Winding number.  So it follows that $x^n + f(x)$ has a zero if $|f(x)| < |x^n|$ for $|x| = R$.  
+ \end{proof}
+ 
+ \subsection{Uniqueness of $\overline{K}$}
+ Any 2 algebraic closures of $K$ are isomorhpic.  However, the isomorphic is not unique, and there is no canonical choice for the isomorphic.  
+ 
+ One may ask if $K \to \overline{K}$ is a functor.  This is not easy, because we cannot choose the natural map in an easy way, without maybe invoking the Axiom of Choice many times.
+ 
+ The uniqueness of the algebraic closure is analogous to finding the Fundamental group of $X$.  It is not a functor unless we choose a base point.  Using some argument with the Etale topology, we can argue that $\text{Aut}(\overline{K})$, the absolute Galois Group is not a functor, but if we choose some algebraic closure, then we do obtain a functor.
+ 
+ A Groupoid is a category such that all morhpisms are isomorhpisms.  We can construct a fundamental groupoid that doesn't depend on a base point and an Absolute Galois Groupoid that does not depend on an Algebraic closure.  We choose points as the objects and homotopy classes of paths from $x_0 \to x_1$ as the morphisms.  Similarly, the points are algebraic closures of $K$ and the morhpisms are the isomorphisms between closures.
 \end{document}
