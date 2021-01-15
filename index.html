@@ -7,126 +7,214 @@
   <meta name="author" content="Vishal Raman">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   <link rel="icon" type="image/png" href="images/seal_icon.png">
+
+  <script type="text/javascript"><!--
+  function ReplaceContentInContainer(id,content) {
+  var container = document.getElementById(id);
+  container.innerHTML = content;
+  }
+  //--></script>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Vishal Raman</name>
-              </p>
-              <p>I am an undergraduate student at the University of California - Berkeley, where I study mathematics and computer science.  For the Fall 2020 semester, I will be a member of the <a href= "https://www.budapestsemesters.com/">Budapest Semesters in Mathematics</a> program.
-              </p>
-              <p> My interests include statistical learning, probability theory, partial differential equations, and artificial intelligence.
-                I am currently conducting research in Discrete Geometry and Convex Analysis at the <a href = "https://www.renyi.hu/hu">Alfréd Rényi Institute of Mathematics</a> under <a href = "https://www.renyi.hu/~ambrus/">Gergely Ambrus</a>.
-              </p>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <header>
+                  <p style="text-align:center">
+                    <name>Vishal Raman</name>
+                  </p>
+                  <p>I am an undergraduate student at the University of California - Berkeley, where I study mathematics and computer science.  For the Fall 2020 semester, I will be a member of the <a href= "https://www.budapestsemesters.com/">Budapest Semesters in Mathematics</a> program.
+                  </p>
+                  <p> My interests include statistical learning, probability theory, partial differential equations, and artificial intelligence.
+                    I am currently conducting research in Discrete Geometry and Convex Analysis at the <a href = "https://www.renyi.hu/hu">Alfréd Rényi Institute of Mathematics</a> under <a href = "https://www.renyi.hu/~ambrus/">Gergely Ambrus</a>.
+                  </p>
 
-              <p> My handouts and lecture notes are available <a href = "handouts.html">here</a>.
-              </p>
-              <p style="text-align:center">
-                <a href="mailto:vraman@berkeley.edu">Email</a> &nbsp/&nbsp
-                <a href="data/VishalRaman-CV.pdf">CV</a> &nbsp/&nbsp
-                <a href="data/Coursework.pdf">Coursework</a> &nbsp/&nbsp
-                <a href="https://github.com/vraman23">Github</a> &nbsp/&nbsp
-                <a href="https://www.linkedin.com/in/vishal-raman-995b70196/">LinkedIn</a> &nbsp/&nbsp
-                <a href="https://www.youtube.com/channel/UCT2H9gqJwkY4pXT3LW688zQ?view_as=subscriber">Piano</a>
-              </p>
+                  <p> My handouts and lecture notes are available <a href = "handouts.html">here</a>.
+                  </p>
+                  <p style="text-align:center">
+                    <a href="mailto:vraman@berkeley.edu">Email</a> &nbsp/&nbsp
+                    <a href="data/VishalRaman-CV.pdf">CV</a> &nbsp/&nbsp
+                    <a href="data/Coursework.pdf">Coursework</a> &nbsp/&nbsp
+                    <a href="https://github.com/vraman23">Github</a> &nbsp/&nbsp
+                    <a href="https://www.linkedin.com/in/vishal-raman-995b70196/">LinkedIn</a> &nbsp/&nbsp
+                    <a href="https://www.youtube.com/channel/UCT2H9gqJwkY4pXT3LW688zQ?view_as=subscriber">Piano</a>
+                  </p>
+                </header>
+              </td>
+              <!-- <td style="padding:2.5%;width:40%;max-width:40%">
+                <a href="images/JonBarron.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/JonBarron_circle.jpg" class="hoverZoomLink"></a>
+              </td> -->
+            </tr>
+          </tbody></table>
+          <div id = "projects">
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+                <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                  <h1>Projects</h1>
+                </td>
+              </tr>
+            </tbody></table>
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/search-bfs.gif" width="200" height="200">
+                </td>
+                <td width="75%" valign="middle">
+                  <!-- <a href="https://github.com/vraman23/CS188-Search"> -->
+                    <papertitle>Search Algorithms in the Pacman Landscape</papertitle>
+                  </a>
+                  <em>CS 188</em>, Summer 2020
+                  <p>We implement various search algorithms(DFS, BFS, Dijkstra, A*, Greedy) to help Pacman traverse mazes and complete various challenges.</p>
+                </td>
+              </tr>
+            </tbody></table>
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/multiagent-alpha-beta.gif" width="250" height="110">
+                </td>
+                <td width="75%" valign="middle">
+                  <!-- <a href="https://github.com/vraman23/CS188-MultiAgent"> -->
+                    <papertitle>Adversarial Games and Multi-Agent Search</papertitle>
+                  </a>
+                  <em>CS 188</em>, Summer 2020
+                  <p>We design agents for classic Pacman(including the ghosts), and implement minimax(w/ alpha-beta pruning) and expectimax search with custom evaluation functions. </p>
+                </td>
+              </tr>
+            </tbody></table>
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/reinforcement.gif" width="250" height="133.0357">
+                </td>
+                <td width="75%" valign="middle">
+                  <!-- <a href="https://github.com/vraman23/CS188-ReinforcementLearning"> -->
+                    <papertitle>Markov Desicion Processes and Reinforcement Learning</papertitle>
+                  </a>
+                  <em>CS 188</em>, Summer 2020
+                  <p>We implement Value Iteration and Q-Learning(including featured-based learning) to find optimal policies for Markov Decision Processes(MDPs).  Modeling the classic Pacman game as a MDP allows us to apply learning-based strategies. </p>
+                </td>
+              </tr>
+            </tbody></table>
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/ghostbusters2.gif" width="250" height="119.79166">
+                </td>
+                <td width="75%" valign="middle">
+                  <!-- <a href="https://github.com/vraman23/CS188-Ghostbusters"> -->
+                    <papertitle>Ghostbusters</papertitle>
+                  </a>
+                  <em>CS 188</em>, Summer 2020
+                  <p>We design Pacman agents that use sensors to locate and eat invisible ghosts, with Exact Inference, Approximate Inference w/ Sampling, and Particle Filter methods. </p>
+                </td>
+              </tr>
+            </tbody></table>
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/machine-learning.png" width="250" height="200">
+                </td>
+                <td width="75%" valign="middle">
+                  <!-- <a href="https://github.com/vraman23/CS188-MachineLearning"> -->
+                    <papertitle>Machine Learning: Digit Classification, Language ID</papertitle>
+                  </a>
+                  <em>CS 188</em>, Summer 2020
+                  <p>We build neural networks to classify digits, identify languages, and approximate non-linear functions.</p>
+                </td>
+              </tr>
+            </tbody></table>
+          </div>
+          <!-- <div id = "handouts">
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+                <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                  <h1>Handouts</h1>
+                  <p> These are some of my lecture notes and handouts.  All typos and mistakes found are my own - kindly direct them to my inbox.
+                  </p>
+                </td>
+              </tr>
+            </tbody></table>
+                <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+                    <tr>
+                    <td style="padding:0px;width:100%;vertical-align:middle">
+                      <h2>Lecture Notes</h2>
+                    </td>
+                  </tr>
+                </tbody></table>
+                <div class="row">
+                  <div class="column">
+                    <h3>[Math 222A] Partial Differential Equations</h3>
+                    <p><a href = "handouts/lecture-notes/math222a/math222a.pdf">Lecture Notes</a></p>
+                  </div>
+                  <div class="column">
+                    <h3>[Math 258] Harmonic Analysis</h3>
+                    <p><a href = "handouts/lecture-notes/math258/math258.pdf">Lecture Notes</a></p>
+                  </div>
+                  <div class="column">
+                    <h3>[Math 218A] Probability Theory</h3>
+                    <p><a href = "handouts/lecture-notes/math218a/math218a.pdf">Lecture Notes</a></p>
+                  </div>
+                </div>
 
-            </td>
-            <!-- <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/JonBarron.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/JonBarron_circle.jpg" class="hoverZoomLink"></a>
-            </td> -->
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>Projects</h2>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/search-bfs.gif" width="200" height="200">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/vraman23/CS188-Search"> -->
-                <papertitle>Search Algorithms in the Pacman Landscape</papertitle>
-              </a>
-              <em>CS 188</em>, Summer 2020
-              <p>We implement various search algorithms(DFS, BFS, Dijkstra, A*, Greedy) to help Pacman traverse mazes and complete various challenges.</p>
-            </td>
-          </tr>
-        </tbody></table>
+              <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+                  <tr>
+                  <td style="padding:0px;width:100%;vertical-align:middle">
+                    <h2>Olympiad Notes</h2>
+                  </td>
+                </tr>
+              </tbody></table>
+              <div class="row">
+                <div class="column">
+                  <h3>Functional Equations</h3>
+                  <p><a href = "handouts/olympiad/Algebra/FE/CauchyEquations.pdf">1. Cauchy Equations</a></p>
+                </div>
+                <div class="column">
+                  <h3>Geometry</h3>
+                  <p><a href = "handouts/olympiad/Geometry/AoPS-OlyGeo.pdf">Fundamentals</a></p>
+                  <p><a href = "handouts/olympiad/Geometry/compGeo-5.pdf">Analytic Techniques</a></p>
+                </div>
+                <div class="column">
+                  <h3>USA(J)MO</h3>
+                  <p><a href = "handouts/olympiad/USAJMO/USAJMO_2010.pdf">2010 USAJMO</a></p>
+                  <p><a href = "handouts/olympiad/USAJMO/USAJMO_2011.pdf">2011 USAJMO</a></p>
+                </div>
+              </div>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/multiagent-alpha-beta.gif" width="250" height="110">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/vraman23/CS188-MultiAgent"> -->
-                <papertitle>Adversarial Games and Multi-Agent Search</papertitle>
-              </a>
-              <em>CS 188</em>, Summer 2020
-              <p>We design agents for classic Pacman(including the ghosts), and implement minimax(w/ alpha-beta pruning) and expectimax search with custom evaluation functions. </p>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/reinforcement.gif" width="250" height="133.0357">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/vraman23/CS188-ReinforcementLearning"> -->
-                <papertitle>Markov Desicion Processes and Reinforcement Learning</papertitle>
-              </a>
-              <em>CS 188</em>, Summer 2020
-              <p>We implement Value Iteration and Q-Learning(including featured-based learning) to find optimal policies for Markov Decision Processes(MDPs).  Modeling the classic Pacman game as a MDP allows us to apply learning-based strategies. </p>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/ghostbusters2.gif" width="250" height="119.79166">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/vraman23/CS188-Ghostbusters"> -->
-                <papertitle>Ghostbusters</papertitle>
-              </a>
-              <em>CS 188</em>, Summer 2020
-              <p>We design Pacman agents that use sensors to locate and eat invisible ghosts, with Exact Inference, Approximate Inference w/ Sampling, and Particle Filter methods. </p>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/machine-learning.png" width="250" height="200">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://github.com/vraman23/CS188-MachineLearning"> -->
-                <papertitle>Machine Learning: Digit Classification, Language ID</papertitle>
-              </a>
-              <em>CS 188</em>, Summer 2020
-              <p>We build neural networks to classify digits, identify languages, and approximate non-linear functions.</p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+              <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+                  <tr>
+                  <td style="padding:0px;width:100%;vertical-align:middle">
+                    <h2>Independent Study</h2>
+                  </td>
+                </tr>
+              </tbody></table>
+              <div class="row">
+                <div class="column">
+                  <h3>Complex Analysis</h3>
+                  <p><a href = "handouts/steinCA/Chapter 1.pdf">1. Preliminaries</a></p>
+                  <p><a href = "handouts/steinCA/Stein - Ch 2.pdf">2. Cauchy's Theorem</a></p>
+                </div>
+                <div class="column">
+                  <h3>Galois Theory</h3>
+                  <p><a href = "handouts/galois/galois.pdf">Lecture Notes</a></p>
+                </div>
+                <div class="column">
+                  <h3>Chess</h3>
+                  <p><a href = "handouts/chess/Vienna.pdf">The Vienna Game</a></p>
+                </div>
+              </div>
+              </div>
+          </td>
+        </tr>
+    </table> -->
 
-      </body>
+</body>
 
 
 

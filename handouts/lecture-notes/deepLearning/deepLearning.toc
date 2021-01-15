@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Neural Networks and Deep Learning}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Improving Deep Neural Networks}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Structuring Machine Learning Projects}{3}{section.3}% 
+\contentsline {section}{\numberline {4}Convolutional Neural Networks}{3}{section.4}% 
+\contentsline {section}{\numberline {5}Sequence Models}{3}{section.5}% 
