@@ -1,0 +1,137 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Math 214}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{Math 214: Differentiable Manifolds} } 
+\centerline{Professor: Richard Bamler, Spring 2021}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+\section{January 19th, 2021}
+\subsection{Topology Review}
+\begin{definition}[Topological Space] $(X, O_X \subset \mc P(X))$, where $A \in O_x$ are the open sets which satisfy the following:
+\begin{enumerate}
+\item $\emptyset, X \in O_X$.
+\item $A, B \in O_X$ implies $A \cap B \in O_X$
+\item $A_i \in O_X$, $i \in I$, then $\bigcup_{i \in I} A_i \in O_X$.
+\end{enumerate}
+We say that $A \subset X$ is closed if $X \setminus A$ is open.  $U \subset X$ is a neighborhood of $p \in X$ if $\exists A$ such that $p \in A \subset U$.
+\end{definition}
+
+\begin{example} Take a metric space $(X, d)$.  The topology is generated as follows: $A \subset X$ is open if $\forall p \in A$, $\exists r > 0$ such that $B_r(p) \subset A$.
+\end{example}
+
+\begin{definition}  $\mc B \subset \mc P(X)$ is called a \textbf{basis} for the topology on $X$ if for every subset $A \subset X$, $A$ is open if and only if $A$ is a union of elements of $\mc B$.
+\end{definition}
+\begin{example} For a Euclidean space, $\mc B = \{B_r(x) \subset \R^n: r \in \Q, r > 0, x \in \Q^n\}$ is a basis for the topology.  Note that this basis is countable, so $\R^n$ is 2nd countable.  
+\end{example}
+
+Let $(X, O_X)$, $(Y, O_Y)$ be topological spaces.  
+
+\begin{definition} A function $\phi : X \to Y$ is continuous if for any open subset $B \subset Y$, $\phi^{-1}(B) \subset X$ is open.  
+\end{definition}
+
+\begin{definition} $\phi: X \to Y$ is a homeomorphism if it is a continuous bijection whose inverse is continuous.  
+\end{definition}
+
+\begin{definition} Let $Y \subset X$ a topological space.  We set $O_Y = \{A \cap Y : A \in O_X\}$.
+\end{definition}
+
+\begin{example}
+The subspace topology is the coarsest topology so that the inclusion map $Y \to X$ is continuous(also called the initial topology).  
+\end{example}
+\begin{example} $\R \times \{0\} \subset \R^2$ has the same topology as $\R$.  In other words, it is clear that $\R \approx \R \times \{0\}$, where the approximate sign indicates a homeomorphism.
+\end{example}
+
+\begin{thm} (Topological Invariance of Dimension) If we take $\R^m, \R^n$ with open subsets $U \subset \R^m$ and $V \subset R^n$.  If we have $\phi: U \to V$ a homeomorphism, then we must have $m = n$.
+\end{thm}
+The proof is beyond the scope of the class, but uses homology groups.  
+
+\begin{definition} Given a topological space $X$, $X$ is called locally Euclidean (of dimension $n$) at $p \in X$ if there is an open neighborhood about $p \in U \subset X$ that is homeomorphic to an open subset of $\R^n$.
+\end{definition}
+
+\begin{lemma} The $n$ is uniquely determined by $p$.  
+\end{lemma}
+\begin{proof} Assume that $X$ was locally Euclidean at $p$ of dimensions $n_1, n_2$.  There are neighborhoods $p \in U_i \subset X$ and homeomorphisms $\phi_i : U_i \to \hat{U_i} \subset \R^{n_i}$.  Consider the image of $U_1 \cap U_2$ under both homeomorphisms.  If we take $\phi_2 \circ \phi_1^{-1}: \phi(U_1 \cap U_2) \to \phi_2(U_1 \cap U_2)$, a homeomorphism, so it follows that $n_1 = n_2$ by Topological Invariance of Dimension.
+\end{proof}
+
+\begin{definition} A space $X$ is \textbf{Hausdorff} if for any $p, q \in X$, $p \ne q$ there exists open subsets $U, V$ with $p \in U$, $q \in V$ so that $U \cap V = \emptyset$.
+\end{definition}
+
+\begin{exercise} For any $p, q \in X$, if there is a separating continuous function $f: X \to \R$ such that $f(p) \ne f(q)$, then $X$ is Hausdorff.
+\end{exercise}
+
+\begin{definition} $K \subset X$ is compact if every open cover of $K$ has a finite subcover.  
+\end{definition}
+
+Some useful facts, a subspace of a Hausdorff space is Hausdorff, Hausdorff + Compact implies Closed, $\phi: X \to Y$ continuous, $K$ is compact, then $\phi(K)$ is compact.  We can use these to show that for $\phi: X \to Y$ with $X$ compact, $Y$ Hausdorff with $\phi$ continuous, bijective, then $\phi$ is a homeomorphism.  
+\subsection{Smooth Manifolds}
+\begin{definition} A topological space $M$ is called an $n$-dimensional \textbf{topological manifold} if $M$ satisfies the following:
+\begin{itemize}
+\item $M$ is locally Euclidean at any point,
+\item $M$ is Hausdorff,
+\item $M$ is second countable.
+\end{itemize}
+\end{definition}
+
+\begin{example}[Manifold - Hausdorff] Suppose we drop the Hausdorff condition.  Take $X = (\R \times \{0, 1\}) \setminus \sim$, where  $(x, 0) \sim (x, 1)$ if $x < 0$.  Consider the quotient map $\pi: \R\times\{0, 1\} \to X$.  Call $A \subset X$ open iff $\pi^{-1}(A)$ is open.  Each branch of the line are open subsets, each homeomorphic to $\R$.  
+\end{example}
+
+\begin{example}[Manifold - Second Countable] Take an uncountable subset $S$ equipped with the discrete topology.  Set $X = S \times \R$.  
+
+A more interesting example called the "long line" is as follows: 
+\begin{lemma} There is an uncountable, well-ordered set $S$ such that $S$ has a maximal element $\Omega \in S$ and for all $\alpha \in S$, $\alpha \ne \Omega$, the set $\{x \in S| x < \alpha\}$ is countable.  
+\end{lemma}
+Now, set $X = (-\infty, 0) \cup S \times [0, 1)$ under the lexicographic ordering.  This turns out to be Hausdorff and locally Euclidean but not second countable.  
+\end{example}
+
+\begin{exercise} If $M$ is $0$-dimensional topological manifold , then $M$ is a finite or countable set equipped with the discrete topology.  
+\end{exercise}
+\begin{exercise} If $M^n$ is a top. manifold and $M' \subset M^n$ is open, then $M'$ is an $n$-dimensional top. manifold.  
+\end{exercise}
+
+
+\end{document}

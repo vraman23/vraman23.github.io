@@ -1,0 +1,126 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Math 222b}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{Math 222b Lecture Notes}}
+\centerline{\Large \textbf{Partial Differential Equations II} } 
+\centerline{Professor: Maciej Zworski, Spring 2021}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+\section{January 19th, 2021}
+\subsection{Review of Sobolev Spaces}
+\begin{definition} Given $u \in \mc D'(U)$ for $U \subseteq \R^n$ open: that means that $u : C_c^\infty(U) \to C$ and for every compact set $K \subset \subset U$, $\exists C, N$ for all $\phi \in C_0^\infty(K)$ such that
+$$|u(\phi)| \le C \sup_{|\alpha| \le N} |\partial^\alpha \phi|.$$ 
+\end{definition}
+
+Examples:
+\begin{itemize}
+\item Take $U =(0, 1)$ and take $u = \sum_{\N} \delta_{1/n}$, where $\delta_{1/n}(\phi) = \phi(1/n)$.  
+\item Take $u \in L_{\text{loc}}^1(U)$, where $u(\phi) = \int u\phi$.  Differentiation is defined formally though integration by parts as $\partial^\alpha u(\phi) = (-1)^{|\alpha|} u(\partial^\alpha \phi).$
+\end{itemize}
+
+\begin{definition} The Sobolev spaces $W^{k, p}(U) = \{u \in L_{loc}^1(U) : \partial^\alpha u \in L^p(U), \forall |\alpha | \le k\}$, for $k \in \N_0$, $1 \le p \le \infty$.  Note that differentiation is in the sense of distributions.  We write $H^k(U) = W^{k, 2}(U)$, which are Hilbert spaces with the inner product$$\langle u, v\rangle = \sum_{|\alpha| \le k} \int_U \partial^\alpha u \overline{\partial^{\alpha} v}.$$
+\end{definition}
+
+\begin{definition} $W_0^{k, p}(U) = \overline{C_c^\infty(U)}$, where the closure is with respect to the $W^{k, p}$ norm.
+\end{definition}
+
+\begin{thm}[Approximation] For $U \subset \subset \R^n$, 
+$$\overline{C^\infty(U) \cap W^{k, p}(U)} = W^{k, p}(U)$$
+where the closure is with respect to the $W^{k, p}$.
+
+If $\partial U \in C^1$, then we can improve up to 
+$$\overline{C^\infty(\overline{U}) \cap W^{k, p}(U)} = W^{k, p}(U)$$
+\end{thm}
+
+\begin{thm}[Extension] If $U \subset \subset \R^n$
+ and $\partial U \in C^1$, for $U \subset \subset V \subset \subset \R^n$, there exists $E: W^{1, p}(U) \to W^{1, p}(\R^n)$ such that $Eu\vert_{U} = u$ and the $\supp u \subset \subset V$.
+ 
+We can extend this to $W^{k, p}$ if the boundary is $C^k$.
+\end{thm}
+
+\begin{thm}[Traces] For $U \subset \subset \R^n$ with $\partial U \in C^1$, there exists $T: W^{1, p}(U) \to L^p(\partial U)$ which is linear and boundary such that for $u \in C(\overline{U}) \cap W^{1, p}$ $Tu = u\vert_{\partial U}$.
+\end{thm}
+
+\begin{example} For $U \subset \subset \R^n$, $\partial U$ bounded, $$H_0^1(U) = \{u \in H^1 : Tu = 0 \in L^2(\partial U)\}.$$
+
+The converse of showing $Tu = 0$ implies $H_0^1$ is the more difficult one.  
+\end{example}
+
+\subsection{Characterization of $H^k(\R^n)$ through the Fourier Transform}
+We first review the Fourier Transform.  We define the Schwartz space: $$\mc S = \{\phi \in C^\infty(\R^n) : x^\alpha \partial^\beta \phi \in L^\infty \forall \alpha, \beta \in \N^n\}.$$
+
+For $\phi \in \mc S$, we define 
+$$\hat{\phi} (\xi) = \int \phi(x) e^{-ix \cdot \xi}\, dx.$$
+
+Note that $\mc F$, the Fourier transform is invertible on $\S$.  The key properties of the fourier transform are
+$$\mc F (1/i \partial x \phi) = \xi \mc F \phi, F(x \phi) = -1/i \partial_{\xi} \mc F \phi.$$
+We also have 
+$$\mc F^{-1} = \frac{R\mc F}{(2\pi)^n}, R\phi(x) = \phi(-x).$$
+
+We define $\mc S'$ onto $\C$ so that for $u \in \mc S'$, there exists $C, N$ such that 
+$$|u(\phi)| \le C \sup_{|\alpha|, |\beta| \le N} |x^\alpha \partial^\beta \phi|.$$
+
+Note that $\mc S' \subset \mc D'$.  
+
+\begin{definition} $\mc F: \mc S' \to \mc S'$ by $\hat{u}(\phi) = u(\hat{\phi})$.
+\end{definition}
+Examples:
+\begin{itemize}
+\item $\hat{\delta_0}(\phi) = \delta_0(\hat{\phi}) = \hat{\phi}(0) = \int \phi = 1(\phi).$
+\item Take $\R^2$ and consider $u(x) = \frac{1}{|x|}$.  This function is in $L_{loc}^1$.  If we multiply by $(1 + |x|)^{-2} u \in L^1(\R^n)$, it follows that $u \in \mc S'$, since 
+$$|u(\phi)| = \left |\int (1 + |x|)^{-2} u (1 + |u|)^2 \phi\right | \le C \sup (1 + |x|)^2 \phi.$$
+
+Now, we compute $\hat{u} \in \mc S'$.  Since $\mc F$ is continuous on $\mc S'$, we approximate $u$ and hope the result converges to the desired result.  Define $u_\epsilon \to u$ in $\mc S'$ for $u_\epsilon \in L^1$.  
+
+Try $u_\epsilon(x) = \frac{e^{-\epsilon |x|^2/2}}{|x|} \in L^1$ for $\epsilon > 0$.  We want to calculate $\hat{u}_\epsilon$ and take the limit as $\epsilon \to 0^+$.   We can evaluate the integral by converting to polar coordinates and completing the square.  Unfortunately, it reduces to an integral that is too hard, but we will learn asymptotics of the integral as $\epsilon \to 0$.  We find that $\hat{u}(\xi) = 2\pi/|\xi|$.
+
+We can approach this differently.  Note that $u = 1/|x|$ is homogeneous: $u(tx) = t^a u(x)$ for $t > 0$, for functions.  For distributions, we have that for $\phi \in S$, $u(\phi(\cdot / t) t^{-n}) = t^a u(\phi)$ for $t > 0$.
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}January 19th, 2021}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Review of Sobolev Spaces}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Characterization of $H^k(\mathbb {R}^n)$ through the Fourier Transform}{4}{subsection.1.2}% 
