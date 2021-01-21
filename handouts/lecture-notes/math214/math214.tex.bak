@@ -139,5 +139,80 @@ Now, set $X = (-\infty, 0) \cup S \times [0, 1)$ under the lexicographic orderin
 \end{itemize}
 \end{example}
 
+\pagebreak
+\section{January 21st, 2021}
+\subsection{Coordinate Charts}
+\begin{definition} A \textbf{coordinate chart} on $M$ is a pair $(U, \phi)$ where $U\subset M$ is open and $\phi: U \to \hat{U} $ is a homeomorphism to an open subset $\hat{U} \subset \R^n$.
+\end{definition}
+
+\includegraphics[scale=0.5]{chart.png}
+\begin{remark} We can actually drop the condition that $\hat{U}$ is open, but the proof of this requires the notion of homology.
+
+We will often write $\phi(p) = (\phi^1(p), \phi^2(p), \dots, \phi^n(p))$, which are local coordinates.  A way to think about a coordinate chart is just a set of scalar functions, which are the coordinate functions.  
+\end{remark}
+
+\begin{thm} Take $V \subset \R^n$ open, $F: V \to \R^k$ continuous.  We claim the graph $$\Gamma(F) = \{(x, F(x)): x \in \R^n\} \subset \R^{n+k}$$ is a manifold. 
+\end{thm}
+\begin{proof}
+Take $(\Gamma(F), \phi)$, where $\phi$ is the projection of the graph onto $\R^n$.   It is clear that $\Gamma(F) \cong V$.
+\end{proof}
+
+\begin{example} Take $S^n = \{x \in \R^{n+1 : |x| = 1} \subset \R^{n+1}\}$.  We claim this is a manifold.  
+
+Define $U_i^+ = \{(x^1, \dots, x^{n+1}) : x_i > 0\}$. Similarly define $U_i^-$.  It is clear that $M$ is the union of all the $U_i^+$'s and $U_i^-$'s.  Note that $U_i^{\pm}$ is the graph of the map from $B^n(0, 1) \to \R$ given by $y \mapsto \pm \sqrt{1 - |y|^2}.$  It follows that $S^n$ is a topological manifold.
+\end{example}
+
+\begin{example}[Projective Space]  We define $\R P^n = (\R^{n+1} \setminus \{0\})/ \sim$, where the equivalence relation is defined by $x \sim y$ if $x = \lambda y$ for some $\lambda \ne 0$.  We can also view this as a set of lines through the origin.  The quotient space is equipped with a projection map $\pi: \R^{n+1}\setminus \{0\} \to \R P^n$.  We can then use the Quotient topology: $A \subset \R P^n$ is open if $\pi^{-1}(A)$ is open.  
+
+We write $[(x_1, \dots, x^{n+1})] = [x^1 : \dots : x^{n+1}]$.  One should check that $\R P^n$ is Hausdorff and second countable. We show that $\R P^n$ is locally Euclidean.  
+
+Define $U_i^* = \{x \in \R^{n+1} \setminus \{0\} : x_i \ne 0\}$ and let $U_i = \pi(U_i^*)$.  Note that 
+$$U_i = \{[x^1 : \dots : x^{n+1}] : x^i \ne 0\} = \{[\frac{x^1}{x^i} : \dots : 1 : \frac{x^{n+1}}{x^i}]: x^i \ne 0\}$$
+and furthermore
+$$U_i = \{[x^1 : \dots : 1 : \dots : x^{n+1}]\}.$$
+
+If we define $\phi_i^* : U_i^* \to \R^n$ given by $(x^1, \dots, x^{n+1}) \mapsto \left (\frac{x^1}{x^i}, \dots, \frac{x^{n+1}}{x^i}\right )$.
+
+We claim that there exists a continuous map $\phi_i: U_i \to \R^n$ so that the corresponding commutative diagram commutes: this is just the natural map associated to the quotient.  
+
+Furthermore, $\phi_i$ is a homeomorphism with inverse $(x^1, \dots, \hat{x^i}, \dots, x^{n+1}) \mapsto [x^1 : \dots : 1 : \dots : x^{n+1}].$
+\end{example}
+\subsection{Connectivity}
+Given a topological space $X$, we have the following definitions:
+\begin{definition} $X$ is connected if the only subsets that are open and closed are $\emptyset, X$.
+\end{definition}
+\begin{definition} A space is path-connected if for any $p, q \in X$ there is a continuous path between them.  
+\end{definition}
+\begin{thm} If $M^n$ is a topological manifold, $M$ is connected if and only if $M$ is path connected.  
+ \end{thm}
+ \begin{proof}
+ It suffices to show the forward direction.  The proof is the same in the case of open subsets of $\R^n$.  
+ \end{proof}
+ 
+\subsection{Local Compactness and Paracompactness}
+
+\begin{proposition} Given $M^n$, for all $p \in M$, there exists a compact neighborhood i.e. $M$ is locally compact.
+\end{proposition}
+Let $X$ be a topological space.
+\begin{definition} An exhaustion by compact subsets is an increasing sequence of subsets $K_1 \subset K_2 \subset \dots \subset X$ such that $K_i$ is compact and $K_i \subset \text{Int}(K_{i+1})$ and $\bigcup_i K_i = X$.
+\end{definition}
+
+\begin{remark} This also implies that $X = \bigcup_i \text{Int}(K_i)$.  If $K^i \subset X$ is some other compact subset,  there is some $j$ such that $K^i \subset \text{Int}(K_j)$.
+\end{remark}
+\begin{proposition} If $X$ is second countable, and locally compact, Hausdorff, then $X$ has an exhaustion by compact subsets.  
+\end{proposition}
+\begin{proof} First, take $\mc B$ a countable basis for the topology of $X$.  Take $\mc B' = \{B \in \mc B : \ol{B} \text{ compact}\}$, which is still a basis for the topology.  Call these sets $\{U_1, U_2, \dots \}$.  Choose $K_1 = \ol{U_1}$.  For $K_2$, cover $K_1$ with possibly several $U_i$ such that $K_1 \subset U_1 \cup \dots \cup U_{m_2}$ so that $K_2 = \overline{U_1} \cup \dots \cup \ol{U_{m_2}}$, which is compact.  We continue this process to form an exhaustion. 
+\end{proof}
+
+\begin{definition} Take $\mc U \subset \mc P(X)$.  This is a cover of $X$ if $X = \bigcup_{U \in \mc U} U$.  A collection is called locally finite if every $p \in X$ has a neighborhood $p \in W \subset X$ such that $W$ only intersects finitely many $U \in \mc U$.    
+\end{definition}
+
+\begin{definition} A collection of subsets $\mc V$ is called a refinement of some other collection $\mc U$ if for every $V \in \mc V$ there is $U \in \mc U$ such that $V \subset U$.  
+\end{definition}
+
+\begin{definition} $X$ is called paracompact if every open cover has a locally finite refinement. 
+\end{definition}
+\begin{thm} Every topological manifold is paracompact.  
+\end{thm}
 
 \end{document}

@@ -17,9 +17,13 @@
 \newcommand{\C}{\mathbb C}
 \newcommand{\T}{\mathbb T}
 \renewcommand{\hat}{\widehat}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+
 \let \phi \varphi
 \let \mc \mathcal
-\let \ol \overline
+\let \ov \overline
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cB}{\mathcal{B}}
@@ -30,6 +34,7 @@
 
 \newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
 \let \grad \nabla
+
 
 \begin{document}
 \title{Math 222b}
@@ -122,9 +127,93 @@ Try $u_\epsilon(x) = \frac{e^{-\epsilon |x|^2/2}}{|x|} \in L^1$ for $\epsilon > 
 We can approach this differently.  Note that $u = 1/|x|$ is homogeneous: $u(tx) = t^a u(x)$ for $t > 0$, for functions.  For distributions, we have that for $\phi \in S$, $u(\phi(\cdot / t) t^{-n}) = t^a u(\phi)$ for $t > 0$.  For the Fourier Transform, if $u \in \mc S'(\R^n)$ is homogeneous of degree $a$, then $\hat{u}$ is homogeneous of degree $-n-a$.  It follows that our Fourier transform is of degree $-1$.  
 
 Furthermore, note that $1/|x|$ is spherically symmetric, and the Fourier transform preserves spherical symmetry(note that the Jacobian factor for rotations is $1$).  It follows that the fourier transform is also spherically symmetric.  It follows that 
-$$\mc F(1/|x|) = C/|\xi| + \sum_{|\alpha \le N| c_\alpha \delta_0^(\alpha)},$$
+$$\mc F(1/|x|) = C/|\xi| + \sum_{|\alpha \le N| }c_\alpha \delta_0^{(\alpha)},$$
 but delta terms have too much homogeneity.  
 \end{itemize}
 
+\pagebreak
+\section{December 21st, 2021}
+\subsection{Plancherel's Theorem}
+Recall that the Fourier transform is an isomorphism on $\mc S$ - it is a bounded linear operator whose inverse is also bounded.  
 
+Note that 
+$$\int \hat{u}(\xi) \ov{\hat{\phi}(\xi)}d\xi = \iiint u(x)\ov{\phi(y)} e^{-i(x-y)\xi}\,dxdyd\xi$$
+
+In the sense of distributions, $\int e^{-i(x-y)\xi}\,d\xi = (2\pi)^n \delta(x-y).$
+Hence,
+$$\iiint u(x)\ov{\phi(y)} e^{-i(x-y)\xi}\,dxdyd\xi = (2\pi)^n \int u(x)\ov{\phi(x)}\,dx.$$
+
+For $u, \phi \in \mc S$, we have the following: $$\< \hat{u}, \hat{\phi}\> = (2\pi)^n \< u, \phi \>.$$
+
+This implies that 
+$$\|\hat{u}\|_2 = (2\pi)^{n/2} \|u\|_{2}, u \in \S.$$
+If $u_n \to u$ in $L^2$ then $u_n \to u$ in $\mc S'$ by the Cauchy-Schwartz inequality.  It follows that $\hat{u_n} \to \hat{u}$ in $\mc S'$ but our formula shows that $\hat{u}$ is in $L^2$.  Hence, $\mc F: L^2 \to L^2$ and for $u, v \in L^2$, $\<\hat{u}, \hat{v} \> = (2\pi)^n \<u, v\>$.
+
+Recall last time, we were finding the Fourier transform of $u(x) = 1/|x|$ in $\R^2$.    For $u \in S'(\R^n)$ homogeneous of degree $a$, $\hat{u} \in \mc S'(\R^n)$ is homogeneous of degree $-n-a$.  In our example, It follows that $\hat{u}(\xi)$ is homogeneous of degree $-1$.  We also observed that $u$ is invariant under rotations so it follows that $\hat{u}$ is invariant under rotations.  
+
+A function is homogeneous of degree $-1$ if $v(k\theta) = \frac{a(\theta)}{r}.$  Since our function is invariant under rotations, $\hat{u}(\xi) = \frac{c}{|\xi|}$ away from zero.  It follows from our previous argument that $\hat{u}(\xi) = \frac{c}{|\xi|}$ since $\delta$ terms have homogeneity of at least $-2$.  
+
+Note that $\<u, \phi\> = (2\pi)^2 \<\hat{u}, \hat{\phi}\>$ and we find $\hat{u}$ by choosing an appropriate $\phi$.
+
+\begin{align*}
+\int_{\R^2} \frac{\phi(x)}{|x|}\,dx &= \int_0^{2\pi} \int_{0}^\infty \phi(r) \, drd\theta \\
+&= 2\pi \int_{0}^\infty \phi(r)\,dr.
+\end{align*}
+Choosing $\phi(r) = e^{-r^2/2}$, we find that the integral is $(2\pi)^{3/2}$.  
+
+Evaluating the other side,  
+$$\hat{\phi}(\xi) = \int_{\R^2} e^{-|x|^2/2 - ix\cdot \xi}\,dx = \int e^{-\frac{1}{2}(x + i\xi)^2 - \frac{1}{2} |\xi|^2} = 2\pi \int e^{-|\xi|^2/2} = (2\pi)^{5/2}.$$
+
+It follows that $c = 2\pi$.
+\subsection{Fourier Characterization of $H^k$ spaces}
+\begin{thm} $H^k(\R^n) = \{u \in S'(\R^n) : (1 + |\xi|^2)^{k/2} \hat{u} \in L^2\}.$
+\end{thm}
+\begin{proof}
+Suppose that $\partial^\alpha u \in L^2$ for $|\alpha| \le k$.  We know that $\|u\|_{2} = (2\pi)^{-n/2}\|\hat{u}\|.$  It follows that $\hat{\partial^\alpha u} \in L^2$.  Note that $\hat{\partial^\alpha u} = i^{|\alpha|} \\xi^{\alpha} \hat{u} \in L^2$ for all $|\alpha| \le k$.
+
+Hence,
+$$(1 + |\xi|^2)^{k/2} \le C_{n, k} \sup_{|\alpha| \le k} |\xi^\alpha|.$$
+
+So it follows that $(1 + |\xi|^2)^{k/2} \hat{u} \in L^2$.
+
+Now, suppose $(1 + |\xi|^2)^{k/2} \hat{u} \in L^2$.  It follows that $|\xi^\alpha| \le C_{k, \alpha}(1 + |\xi|^2)^{k/2}$ for $|\alpha| \le k$.  Hence $\xi^\alpha\hat{u} \in L^2$ so it follows that $\partial^{\alpha} u \in L^2$ by Plancherel's Theorem.  
+
+\end{proof}
+
+\begin{remark}We use the notation $\<\xi\> = (1 + |\xi|^2)^{1/2}$.
+\end{remark}
+
+Note that the definition does not require $k \in \N$.  
+\begin{definition} $H^s(\R^n) = \{u \in \mc S' : \<\xi \>^s \hat{u} \in L^2\}, s \in \R$.
+\end{definition}
+
+\begin{thm} Suppose $u \in H^s(\R^n)$ and $s > \frac{1}{2}$.  Then $v(y) = u(0, y), y \in \R^{n-1}$ satisfies $v \in H^{s - 1/2} (\R^{n-1})$.
+\end{thm}
+\begin{remark} We should define $Tu(y) = u(0, y)$ for $u \in \mc S$.  Then $T: H^s(\R^n) \to H^{s - 1/2}(\R^{n-1})$ if $s > 1/2$.  
+\end{remark}
+\begin{proof}
+We do it for $u \in \mc S$ and we need to show $\|v\|_{H^{s - 1/2}(\R^{n-1})} \le C \|u\|_{H^s(\R^n)}$.  
+
+Note that $$\hat{v}(\eta) = \int_{\R^{n-1} u(0, y) e^{-y \cdot \eta}\, dy}.$$
+
+Then, using the Fourier Inversion formula
+$$u(0) = \int_\R \hat{u}(\xi)\, d\xi.$$
+ 
+ Hence,
+ $$\hat{v}(\eta) = \int u(\xi_1, y) e^{-i y \cdot \eta} d\xi_1 dy = \int \hat{u}(\xi_1, \eta) d\xi_1.$$
+ 
+ Note that 
+ $$\|v\|_{H^{s-1/2}}^2 = \int_{\R^{n-1}} \<\eta\>^{2s-1} |\hat{v}(\xi)|^2\, d\eta = \int_{\R^{n-1}} \<\eta\>^{2s-1} \left |\int \hat{u}(\xi_1, y)\, d\xi_1\right |^2d\eta.$$
+ 
+ Then,
+ \begin{align*}
+ \int_{\R^{n-1}} \<\eta\>^{2s-1} \left |\int \hat{u}(\xi_1, y)\, d\xi_1\right |^2d\eta = \int \<\eta\>^{2s-1} \left |\hat{u}(\xi, \eta)(1 + |\xi_1| + |\eta|)^{s/2} (1 + |\xi_1| + |\eta|)^{-s/2}d\xi_1  \right |d\eta \\
+ \le \int \<\eta^{2s-1}\> \int |\hat{u}(\xi_1, \eta)|^2 (1 + |\xi_1|^2 + |\eta|^2)^s d\xi_1 \int (1 + |\xi_1|^2 + |\xi|^2)^{-s} d\xi_1\, d\eta \\
+\le \int \<\eta\>^{2s-1} \<\eta\>^{-2s+1}  \int |\hat{u}(\xi_1, \eta)|^2 (1 + |\xi_1|^2 + |\eta|^2)^s d\xi_1\int (1 + u^2)^{-s} du \\
+ = \int |\hat{u}(\xi)|^2 \<\xi\>^{2s} d\xi = \|u\|_{H^s}^2.
+ \end{align*}
+ \begin{remark} The above computation is probably full of typos.  
+ \end{remark}
+\end{proof}
+\subsection{Sobolev Inequalities}
 \end{document}

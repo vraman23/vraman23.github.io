@@ -1,3 +1,7 @@
 \contentsline {section}{\numberline {1}January 19th, 2021}{3}{section.1}% 
 \contentsline {subsection}{\numberline {1.1}Topology Review}{3}{subsection.1.1}% 
 \contentsline {subsection}{\numberline {1.2}Smooth Manifolds}{4}{subsection.1.2}% 
+\contentsline {section}{\numberline {2}January 21st, 2021}{6}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Coordinate Charts}{6}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Connectivity}{7}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Local Compactness and Paracompactness}{7}{subsection.2.3}% 
