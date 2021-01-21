@@ -1,0 +1,121 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Math 205}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{Math 205: Complex Variables} } 
+\centerline{Professor: Dan-Virgil Voiculescu, Spring 2021}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+\section{January 20th, 2021}
+\subsection{Intro to Riemann Mapping Theorem}
+Our first goal is to proof a fundamental theorem of Riemann on conformal mappings.  We start with several preparations, including some detours.  The theorem essentially says that lots of open sets in $\C$ are holomorphically isomorhpic, given that they satisfy some simple topological conditions.  
+
+\subsection{Cauchy's Integral Formula}
+Recall Cauchy's formula:
+$$f(z_0) = \frac{1}{2\pi i} \int_{\Gamma} \frac{f(z)}{z - z_0} \,dz$$
+where $\Gamma$ is a simple closed curve, piecewise differentiable, $z_0 \in \text{Int}(\Gamma)$, and $f : \Omega \to \C$ is a holomorphic function, with $\Omega$ is open, $\Omega \supset \Gamma \cup \text{Int}(\Gamma)$.
+
+If $\Gamma$ is the circle $|z - z_0| = R$, we parameterize with $z = Re^{i\theta} + z_0$ with $\theta \in [0, 2\pi)$.  This gives
+$$f(z_0) = \frac{1}{2\pi} \int_{0}^{2\pi} f(z_0 + Re^{i\theta})\,d\theta,$$
+which represents the average of $f$ on the circle.  
+
+It follows that 
+$$|f(z_0)| \le \max_{\partial B_R(z_0)} |f(z)|,$$
+with equality if and only if $f$ is constant.  
+
+If $f: \Omega \to \C$ is holomorphic for $\Omega$ connected, open and $z_0 \in \Omega$, then
+$$|f(z_0)|\le \sup_{z \in \Omega} |f(z)|$$
+with equality if and only if $f$ is constant.  
+
+\subsection{Schwarz Lemma}
+ \begin{thm}[Schwarz Lemma] For $f: B_1(0) \to \C$ holomorphic with $|f(z)|\le 1$ for all $z$ and $f(0) = 0$.  Then
+ $$|f(z)| \le |z|, |f'(0)| \le 1.$$
+ If for some $z_0 \ne 0$, $|f(z_0)| = |z_0|$ or if $|f'(0)| = 1$ then $f(z) = cz$ for some $|c| = 1$.
+ \end{thm}
+ \begin{proof}
+ Define a function
+ $$g(z) = \begin{cases} f(z)/z, \text{if } 0 \le |z| \le 1 \\
+ f'(0), \text{if } z = 0
+ \end{cases}.$$
+ 
+ Note that $g(z)$ is continuous since at zero,
+ $$\lim_{z \to 0} \frac{f(z)}{z} = \lim_{z \to 0} \frac{f(z) - f(0)}{z - 0} = f'(0).$$
+ 
+ Hence, $|g(z)| \le C < \infty$ using the Weierstrass Extreme Value theorem.    If $0 < \epsilon < |w| < r < 1$, note that taking a Keyhole Contour, we have
+ $$g(w) = \frac{1}{2\pi i} \left (\int_{|z| = r} - \int_{|z| = \epsilon}\right ) \frac{g(z)}{z - w}\,dz.$$
+ 
+Note that
+ $$\left |\int_{|z| = \epsilon} \frac{g(z)}{z-w}\,dz\right | \le (2 \pi \epsilon) \cdot C \frac{1}{|w| - \epsilon} \xrightarrow{\epsilon \to 0} 0.$$
+ 
+ It follows that $$g(w) = \frac{1}{2\pi i} \int_{|z| = r} \frac{g(z)}{z - w}\, dz$$
+ for $0 < |w| < r$.  The right side is holomorphic in $w$ if $|w| < r$, so it follows that 
+ $$g(w) = \frac{1}{2\pi i} \int_{|z| = r} \frac{g(z)}{z - w}\, dz$$
+ is holomorphic in $|z| < 1$.  
+ 
+ This can also be proved by taking a Taylor series about the origin.  Since there is no constant term, we can divide by $z$ to still have a convergent Taylor series.  
+ 
+ If $r < 1$,
+ $$\sup_{|z| \le r} |g(z)| = \sup_{|z| = r} |g(z)| \le \sup_{|z| = r} \frac{|f(z)|}{|z|} \le \frac{1}{r}.$$
+ 
+ If we let $r \uparrow 1$, then we get $\sup_{|z| < 1} |g(z) |\le 1$.  It follows that $|f(z)| \le |z|,$ $|f'(0)| \le 1$.
+ 
+ If $|f(z_0)| = z_0$ for some $0 < |z_0| < 1$ then $|g(z_0)| = 1$ and $g$ is constant by the maximum principle so $g(z) = c$, $f(z) = cz$.  If $|f'(0)| = 1$, then $|g(0)| = 1$ so $g$ is constant and $f = cz$.
+ \end{proof}
+\subsection{Maximum Principles} 
+In the above proof, we used the maximum principle.  Some other versions we will use are the following:
+ 
+ If $K \subset \C$ compact and $f:K \to \C$ continuous, and the restriction of $f$ to the interior of $K$ is holomorphic, then 
+ $$\sup_{z \in K} |f(z)| = \sup_{z \in \partial K} |f(z)|.$$
+ 
+If $\Omega$ is open and connected, $f: \Omega \to \C$, $z_0 \in \Omega$, and $|f(z_0)| = \sup_{z \in \Omega} |f(z)|$, then $f$ is constant.  Applying this to $e^f$ and using that $|e^f| = e^{\text{Re }f}$, we find that 
+$$\text{Re }f(z_0) = \sup_{z \in \Omega} \text{Re }f(z),$$
+implies that $f$
+ is constant.   We have the same result for $\text{Im }f$ by replacing $f$ with $-if$.  
+ 
+ \subsection{Homework}
+Show the Automorphisms of the unit disk are fractional linear transformations.  Hint: Compose $f$ with special Automorphisms of the unit disk and move special points to zero.  
+ \end{document}

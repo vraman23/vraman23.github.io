@@ -91,7 +91,7 @@ We can extend this to $W^{k, p}$ if the boundary is $C^k$.
 The converse of showing $Tu = 0$ implies $H_0^1$ is the more difficult one.  
 \end{example}
 
-\subsection{Characterization of $H^k(\R^n)$ through the Fourier Transform}
+\subsection{Fourier Transform}
 We first review the Fourier Transform.  We define the Schwartz space: $$\mc S = \{\phi \in C^\infty(\R^n) : x^\alpha \partial^\beta \phi \in L^\infty \forall \alpha, \beta \in \N^n\}.$$
 
 For $\phi \in \mc S$, we define 
@@ -119,7 +119,11 @@ Now, we compute $\hat{u} \in \mc S'$.  Since $\mc F$ is continuous on $\mc S'$, 
 
 Try $u_\epsilon(x) = \frac{e^{-\epsilon |x|^2/2}}{|x|} \in L^1$ for $\epsilon > 0$.  We want to calculate $\hat{u}_\epsilon$ and take the limit as $\epsilon \to 0^+$.   We can evaluate the integral by converting to polar coordinates and completing the square.  Unfortunately, it reduces to an integral that is too hard, but we will learn asymptotics of the integral as $\epsilon \to 0$.  We find that $\hat{u}(\xi) = 2\pi/|\xi|$.
 
-We can approach this differently.  Note that $u = 1/|x|$ is homogeneous: $u(tx) = t^a u(x)$ for $t > 0$, for functions.  For distributions, we have that for $\phi \in S$, $u(\phi(\cdot / t) t^{-n}) = t^a u(\phi)$ for $t > 0$.
+We can approach this differently.  Note that $u = 1/|x|$ is homogeneous: $u(tx) = t^a u(x)$ for $t > 0$, for functions.  For distributions, we have that for $\phi \in S$, $u(\phi(\cdot / t) t^{-n}) = t^a u(\phi)$ for $t > 0$.  For the Fourier Transform, if $u \in \mc S'(\R^n)$ is homogeneous of degree $a$, then $\hat{u}$ is homogeneous of degree $-n-a$.  It follows that our Fourier transform is of degree $-1$.  
+
+Furthermore, note that $1/|x|$ is spherically symmetric, and the Fourier transform preserves spherical symmetry(note that the Jacobian factor for rotations is $1$).  It follows that the fourier transform is also spherically symmetric.  It follows that 
+$$\mc F(1/|x|) = C/|\xi| + \sum_{|\alpha \le N| c_\alpha \delta_0^(\alpha)},$$
+but delta terms have too much homogeneity.  
 \end{itemize}
 
 

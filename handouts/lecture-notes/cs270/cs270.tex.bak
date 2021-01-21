@@ -1,0 +1,114 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{CS 270}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{CS 270: Combinatorial Algorithms} } 
+\centerline{Professor: Prasad Raghavendra, Spring 2021}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+\section{January 20th, 2021}
+\subsection{Intro to Gradient Descent}
+Problem:  Given a function $f$, we wish to minimize $f$.  Gradient Descent takes the natural approach of going in the direction of locally steepest decrease.
+\subsection{Convexity and Convex Functions}
+\begin{definition}{Convexity} A set $K \subset \R^n$ is  convex if and only if for all $x, y \in K$, the line segment joining $x, y$ is also in $K$.  In other words, for $\lambda \in [0, 1]$, $$\lambda x + (1 - \lambda )y \in K.$$
+\end{definition}
+
+\begin{definition}[Convex Function] A function $f: \R^n \to \R$ is convex if for all $x, y$, $lambda \in [0, 1]$
+$$f(\lambda x + (1 -\lambda )y) \le \lambda f(x) + (1 - \lambda) f(y).$$
+\end{definition}
+\begin{remark} Visually, if we draw the line segment between two points on the graph of the function, it should lie above the function.
+\end{remark}
+\begin{definition} A differentiable function $f: \R^n \to \R$ is convex if 
+$$f(y) \ge f(x) + \langle \nabla f(x), y-x \rangle.$$
+\end{definition}
+Recall for $u, v \in \R^n$.
+$$\left <u, v\right > = \sum_{i=1}^n u_i v_i,$$
+and 
+$$\|u\|_2 = \sqrt{\sum u_i ^2}.$$
+
+\begin{definition} A twice differentiable function $f: \R^n \to \R$ is convex if $$H_f(x) \succcurlyeq 0,$$
+in other words, the Hessian is positive-semidefinite.  
+\end{definition}
+
+\subsection{Unconstrainted Optimization}
+We have the following problem: for $f: \R^n \to \R$ convex, we wish to find
+$\min_{x \in \R^n} f(x)$.
+
+Algorithm: for $x_0$, the initial point, $x_{t+1} \leftarrow x_t - \eta \nabla f(x_t)$, for a parameter $\eta$.  We output the average of the points $\frac{1}{T} \sum_{i} x_i.$
+
+If we let $x^* = \text{argmin}_x f$, then $$f(x^*) \ge  f(x) + \langle \nabla f(x), x^* - x \rangle.$$
+It follows that 
+$$\langle -\nabla f(x) , x^* - x \rangle \ge f(x) - f(x^*) \ge 0.$$
+
+\begin{thm} After $t$ steps(for appropriate $\eta$), 
+$$\frac{1}{t} \sum_{i=1}^t f(x_i) \le f(x^*) + O(\frac{RL}{\sqrt{t}})$$
+where $R = \|x_0 - x^* \|$ and $f$ is $L$-Lipschitz: for all $x, y$ $|f(x) - f(y)| \le L \|x - y\|$.
+\end{thm}
+
+\subsection{Constraint Optimization}
+Given a convex set $K \subset \R^n$, we minimize a convex function $f$.  
+
+Algorithm: We have an initial point $x_0$, $y_{t+1} = x_t - \eta \nabla f(x_t)$. Then $x_{t+1} = \pi_K(y_{t+1})$, where $\pi_K$ is a projection onto $K$, defined by 
+$$\pi_K(y) = \argmin_{z \in K} \|z - y\|.$$
+
+For convex sets, the same theorem holds, since 
+$$\|y_{t+1} - x_*\| \ge \|\pi_K(y_{t+1}) - x^*\|.$$
+
+\begin{definition} A function is $\alpha$-strongly convex if 
+$$f(\lambda x + (1 - \lambda)y) \le \lambda f(x) + (1 - \lambda )f(y) - \alpha(\lambda(1 - \lambda))\|x - y\|^2.$$
+\end{definition}
+
+\begin{definition} A function is $\beta$ smooth if 
+$$f(\lambda x + (1 - \lambda )y) \ge \lambda f(x) + (1 - \lambda )f(y) - \frac{\beta}{2} (\lambda(1 - \lambda))\|x - y\|^2.$$
+\end{definition}
+
+\begin{thm} After $t$ steps, we can get convergence(for appropriate $\eta$)
+$$\frac{1}{t}\sum_i f(x_i) - f(x^*) \le e^{-\alpha t/\beta}.$$
+
+We call $\beta/\alpha$ the condition number.  
+\end{thm}
+\end{document}
