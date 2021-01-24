@@ -192,28 +192,30 @@ Note that the definition does not require $k \in \N$.
 \begin{remark} We should define $Tu(y) = u(0, y)$ for $u \in \mc S$.  Then $T: H^s(\R^n) \to H^{s - 1/2}(\R^{n-1})$ if $s > 1/2$.  
 \end{remark}
 \begin{proof}
-We do it for $u \in \mc S$ and we need to show $\|v\|_{H^{s - 1/2}(\R^{n-1})} \le C \|u\|_{H^s(\R^n)}$.  
+Take $u \in \mc S$.  We wish to show that $\|v\|_{H^{s - 1/2}(\R^{n-1})} \le C\|u\|_{H^s(\R^n)}$.
 
-Note that $$\hat{v}(\eta) = \int_{\R^{n-1} u(0, y) e^{-y \cdot \eta}\, dy}.$$
-
-Then, using the Fourier Inversion formula
-$$u(0) = \int_\R \hat{u}(\xi)\, d\xi.$$
+Note that $$\hat{v}(\eta) = \int_{\R^{n-1}} u(0, y) e^{-y \cdot \eta} \,dy$$
+and by the Fourier Inversion Formula
+$$u(0, y) = (2\pi)^{-n}\int_{\R^n} \hat{u}(\xi_1, \xi') e^{iy \cdot \xi'}\,d\xi_1 d\xi',$$
+so it follows that 
+\begin{align*}
+\hat{v}(\eta) &= (2\pi)^{-n}\int_{\R^{n-1}}\int_{\R^n} \hat{u}(\xi_1, \xi') e^{-iy \cdot (\eta - \xi')}\,d\xi dy \\
+&= (2\pi)^{-n}\int_{\R^{n}}\int_{\R^{n-1}}\hat{u}(\xi_1, \xi') e^{iy \cdot (\xi' - \eta)}\, dy d\xi\\
+&= (2\pi)^{-1} \int_{\R^n} \hat{u}(\xi_1, \xi') \delta_{\xi' = \eta}d\xi \\
+&= (2\pi)^{-1} \int_{\R} \hat{u}(\xi_1, \eta) d\xi_1.
+\end{align*}
  
- Hence,
- $$\hat{v}(\eta) = \int u(\xi_1, y) e^{-i y \cdot \eta} d\xi_1 dy = \int \hat{u}(\xi_1, \eta) d\xi_1.$$
- 
- Note that 
- $$\|v\|_{H^{s-1/2}}^2 = \int_{\R^{n-1}} \<\eta\>^{2s-1} |\hat{v}(\xi)|^2\, d\eta = \int_{\R^{n-1}} \<\eta\>^{2s-1} \left |\int \hat{u}(\xi_1, y)\, d\xi_1\right |^2d\eta.$$
- 
+Note that up to constants
+ $$\|v\|_{H^{s-1/2}}^2 = \int_{\R^{n-1}} \<\eta\>^{2s-1} |\hat{v}(\xi)|^2\, d\eta = \int_{\R^{n-1}} \<\eta\>^{2s-1} \left |\int \hat{u}(\xi_1, \eta)\, d\xi_1\right |^2d\eta.$$
+  
  Then,
  \begin{align*}
- \int_{\R^{n-1}} \<\eta\>^{2s-1} \left |\int \hat{u}(\xi_1, y)\, d\xi_1\right |^2d\eta = \int \<\eta\>^{2s-1} \left |\hat{u}(\xi, \eta)(1 + |\xi_1| + |\eta|)^{s/2} (1 + |\xi_1| + |\eta|)^{-s/2}d\xi_1  \right |d\eta \\
+ \int_{\R^{n-1}} \<\eta\>^{2s-1} \left |\int \hat{u}(\xi_1, \eta)\, d\xi_1\right |^2d\eta = \int \<\eta\>^{2s-1} \left |\hat{u}(\xi, \eta)(1 + |\xi_1| + |\eta|)^{s/2} (1 + |\xi_1| + |\eta|)^{-s/2}d\xi_1  \right |d\eta \\
  \le \int \<\eta^{2s-1}\> \int |\hat{u}(\xi_1, \eta)|^2 (1 + |\xi_1|^2 + |\eta|^2)^s d\xi_1 \int (1 + |\xi_1|^2 + |\xi|^2)^{-s} d\xi_1\, d\eta \\
 \le \int \<\eta\>^{2s-1} \<\eta\>^{-2s+1}  \int |\hat{u}(\xi_1, \eta)|^2 (1 + |\xi_1|^2 + |\eta|^2)^s d\xi_1\int (1 + u^2)^{-s} du \\
  = \int |\hat{u}(\xi)|^2 \<\xi\>^{2s} d\xi = \|u\|_{H^s}^2.
  \end{align*}
- \begin{remark} The above computation is probably full of typos.  
- \end{remark}
+
 \end{proof}
-\subsection{Sobolev Inequalities}
+
 \end{document}

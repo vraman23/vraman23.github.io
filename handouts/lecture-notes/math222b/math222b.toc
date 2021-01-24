@@ -4,4 +4,3 @@
 \contentsline {section}{\numberline {2}December 21st, 2021}{5}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Plancherel's Theorem}{5}{subsection.2.1}% 
 \contentsline {subsection}{\numberline {2.2}Fourier Characterization of $H^k$ spaces}{5}{subsection.2.2}% 
-\contentsline {subsection}{\numberline {2.3}Sobolev Inequalities}{7}{subsection.2.3}% 
