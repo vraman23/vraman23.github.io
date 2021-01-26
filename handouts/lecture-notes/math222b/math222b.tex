@@ -221,5 +221,62 @@ since
 $$\int |\hat{u}(\xi_1, \eta)|^2 (1 + |\xi_1|^2 + |\eta|^2)^s d\xi_1d\eta = \int |\hat{u}(\xi)|^2 \<\xi\>^{2s}d\xi.$$
 
 \end{proof}
+\pagebreak
+\section{January 26th, 2021}
+\subsection{Sobolev Spaces, continued}
+Recall, we have $U \subset \R^n$ open.  We typically assume $U$ is bounded and $\partial U \in C^1$.  For these spaces, we define $$W^{k, p}(U) = \{u \in \mc D' : \partial^{\alpha} u \in L^p(U), |\alpha| \le k\}.$$
 
+Recall the extension property: there exists a map $E: W^{1, p}(U) \to W^{1, p}(\R^n)$ such that $Eu\vert_U = u$ and $u = 0$ for $|x| > R$ for some $R$ with $U \subset \subset B(0, R)$.
+
+We also consider the $H^s(\R^n)$, the fractional Sobolev spaces: $\{u \in \mc S'(\R^n) : \<\xi \>^s \hat{u} \in L^2\}.$  This is a Hilbert space with the norm 
+$$\|u\|_{H^s}^2 = \int \<\xi\>^{2s} |\hat{u}(\xi)|^2\,d\xi.$$
+
+Last time, we showed that If we have $u \in H^s(\R^n)$ and $s > 1/2$, then $v(y) : u(0, y)$, $y \in \R^{n-1}$ satisfies $v \in H^{s - 1/2}(\R^{n-1})$.  Today, we will show that $H^s(\R^n) \subset C_0(\R^n)$ if $s > n/2$, where $C_0$ denotes continuous functions vanishing at infinity.  This means that there exists $T: H^s(\R^n) \to H^{s - 1/2}(\R^{n-1})$ such that for $u \in \mc S$, $Tu(y) = u(0, y)$.  
+
+\begin{thm} $H^s(\R^n) \subset C_0(\R^n)$ if $s > n/2$.
+\end{thm}
+\begin{proof}
+We first prove that if $\<\xi\>^s \hat{u} \in L^2, s > n/2$ then $\hat{u} \in L^1(\R^n)$.  
+
+$$\int_{\R^n} |\hat{u}|d\xi = \int_{\R^n} \<\xi\>^{-s}\<\xi\>^2 |\hat{u}| d\xi \le \|\<\xi\>^{-s} \|_2 \|u\|_{H^s}.$$
+The first term is finish precisely when $s > n/2$ [exercise: convert to polar coordinates]. This implies that $u \in L^\infty(\R^n)$, following from the Fourier Inversion formula.  
+
+We know that $x \mapsto \hat{u}(\xi)e^{ix \xi}$ is continuous so it follows that $x \mapsto u(x)$ is continuous by the dominated convergence theorem.  Finally $u(x) \to 0$ as $|x| \to \infty$ by the Riemann-Lebesgue lemma: if $\hat{u} \in L^1(\R^n)$, then $u(x) \to 0$ as $|x| \to \infty$.
+\begin{proof}
+Recall $\mc S(\R^n) \subset L^1(\R^n)$ is dense.  Taking $v \in L^1$, taking $v_R = v(x) 1_{B(0, R)}(x)$.  Then $v_{R} \to v$ y the dominated convergence theorem.  Now take $\phi \in C_c^\infty$ with $\phi \ge 0$, $\int \phi = 1$ wth $\phi_\epsilon(x) = \frac{1}{\epsilon^n} \phi(x/\epsilon)$.  Taking $v_{R, \epsilon} = v_R * \phi_\epsilon \in C_c^\infty(\R^n)$ and $v_R*\phi_\epsilon \to v_R$ in $L^1$ as $\epsilon \to 0$.
+
+Hence, we can take $v \in \mc S$ so that $\|\hat{v} - \hat{u} \|_{L^1} < \epsilon/2$.  Now, $|v(x)| < \epsilon/2$ if $|x| > R$, hence $$|u(x)| \le |u(x) - v(x)| + |v(x)| < C\epsilon + \epsilon/2$$
+which goes to $0$ as we send $\epsilon \to 0$.
+\end{proof}
+\end{proof}
+
+\subsection{Gagliardo-Nirenberg-Sobolev(GNS) Inequalities}
+\begin{theorem}
+If $1 \le p < n$ and we define $p^* = \frac{np}{n-p}$, then there exists $C = C(p, n)$ so that for all $u \in C_c^\infty(\R^n)$, $$\|u\|_{L^{p^*}} \le C \|\grad u\|_p.$$
+\end{theorem}
+\begin{remark} We can find the value of $p^*$ without doing the computation through scaling.Take $u_\lambda(x) = u(\lambda x)$.  We have that $\|u_\lambda \|_{p^*} \le C \| \grad (u_\lambda)\|_p$.  Then, evaluate both sides and compare the exponent on $\lambda$.
+
+Note that the result is not true for $p = n > 1$.  It is true for $p = n = 1$.  
+\end{remark}
+\begin{theorem}[Morrey's Inequality] For $n < p \le \infty$, there exists $C = C(p, n)$ such that for $u \in C^1(\R^n)$, we have $$\|u\|_{C^\gamma(\R^n)} \le C(\|u\|_p + \|\grad u \|_p),$$
+where $\gamma = 1 - \frac{n}{p}$, where
+$$\|u\|_{C^\gamma(\R^n)} = \sup |u| + \sup_{x \ne y} \frac{|u(x) - u(y)|}{|x - y|^\gamma}.$$
+\end{theorem}
+
+\begin{thm}[General Formulation]
+Take $U \subset \subset \R^n$ with $\partial U \in C^1$.  Take $n \in W^{k, p}(U)$.  
+\begin{itemize}
+\item if $k < n/p$, then $u \in L^q(U)$ where $1/q \ge 1/p - k/n$ and $\|u\|_{L^q(U)} \le C \|u\|_{W^{k, p}}$.
+\item $k > n/p$, then $u \in C^{k - [n/p] - 1, \gamma}(\overline{U})$ where $\gamma = [n/p] + 1 - n/p$ if $n/p \not \in \N$ and $1 - \delta$ for all $\delta > 0$ if $n/p \in \N$.
+\end{itemize}
+\end{thm}
+\subsection{Compactness}
+\begin{definition} Let $B$ be a Banach space.  A subset $K \subset B$ is compact if for every sequence $\{u_n\} \subset K$ such that $\|u_n\|_B \le C$, there exists a convergence subsequence $u_{n_k} \to u \in B$.
+\end{definition}
+\begin{remark} If $\{u : \|u\|_B \le 1\} \subset B$ is compact, then $B$ is finite dimensional.   We can have a space $B' \subset B$ and $\{u \in B' : \|u\|_{B'} \le 1\}$ compact in $B$.  If we have a sequence $\{u_n\} \subset B'$ and $\|u_n\|_{B'} \le C$ then there exists $n_k$, $u \in B$ such that $\|u_{n_k} -u\|_B \to 0$.
+\end{remark}
+
+We will take $B = L^q(U)$ where $1 \le q < p^*$ and $B' = W^{1, p}(U)$.
+\begin{thm}[Rellich-Kondrachov] The unit ball in $W^{1, p}(U)$ is compact in $L^q(U)$ for \textbf{bounded} $U$.
+\end{thm}
 \end{document}

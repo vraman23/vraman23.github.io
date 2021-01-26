@@ -4,3 +4,7 @@
 \contentsline {section}{\numberline {2}December 21st, 2021}{5}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Plancherel's Theorem}{5}{subsection.2.1}% 
 \contentsline {subsection}{\numberline {2.2}Fourier Characterization of $H^k$ spaces}{5}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}January 26th, 2021}{8}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Sobolev Spaces, continued}{8}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Gagliardo-Nirenberg-Sobolev(GNS) Inequalities}{8}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Compactness}{9}{subsection.3.3}% 
