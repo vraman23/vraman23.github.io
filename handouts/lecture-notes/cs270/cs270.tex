@@ -17,6 +17,9 @@
 \newcommand{\C}{\mathbb C}
 \newcommand{\T}{\mathbb T}
 \renewcommand{\hat}{\widehat}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
 \let \phi \varphi
 \let \mc \mathcal
 \let \ol \overline
@@ -89,7 +92,7 @@ $$\frac{1}{t} \sum_{i=1}^t f(x_i) \le f(x^*) + O(\frac{RL}{\sqrt{t}})$$
 where $R = \|x_0 - x^* \|$ and $f$ is $L$-Lipschitz: for all $x, y$ $|f(x) - f(y)| \le L \|x - y\|$.
 \end{thm}
 
-\subsection{Constraint Optimization}
+\subsection{Constrained Optimization}
 Given a convex set $K \subset \R^n$, we minimize a convex function $f$.  
 
 Algorithm: We have an initial point $x_0$, $y_{t+1} = x_t - \eta \nabla f(x_t)$. Then $x_{t+1} = \pi_K(y_{t+1})$, where $\pi_K$ is a projection onto $K$, defined by 
@@ -111,4 +114,31 @@ $$\frac{1}{t}\sum_i f(x_i) - f(x^*) \le e^{-\alpha t/\beta}.$$
 
 We call $\beta/\alpha$ the condition number.  
 \end{thm}
+\pagebreak
+\section{January 25th, 2021}
+\subsection{Gradient Descent, Continued}
+\begin{thm} After $t$ steps(for appropriate $\eta$), 
+$$\frac{1}{t} \sum_{i=1}^t f(x_i) \le f(x^*) + O(\frac{RL}{\sqrt{t}})$$
+where $R = \|x_0 - x^* \|$ and $f$ is $L$-Lipschitz: for all $x, y$ $|f(x) - f(y)| \le L \|x - y\|$.
+\end{thm}
+\begin{proof}
+We will use the fact
+$$2\left <a-c, b-c\right > = \|a-c\|^2 + \|b - c\|^2 - \|a - b\|^2.$$
+
+Note that 
+\begin{align*}
+f(x_t) - f(x^*) &\le \left<\grad f(x_t), x_t - x^*\right> \\
+&\le \left< \frac{x_t - x_{t+1}}{\eta}, x_t - x^*\right> \\
+&\le \frac{1}{2\eta} \left (\|x_t - x_{t+1}\|^2 + \|x_t - x^*\|_2 - \|x_{t+1} - x^*\|^2\right ) \\
+\end{align*}
+
+It follows that $$\sum_{i=1}^t (f(x_i) - f(x^*)) \le \frac{1}{2\eta} \sum_{i=1}^t \|x_{i+1} - x_i\|^2 + \frac{1}{2\eta} \|x_1 - x^*\|^2.$$
+
+Then, $\|x_{i+1} - x_i\|^2 = \|\eta \grad f(x_i)\|^2 = \eta^2 L^2$ so our expression
+$$\sum_{i=1}^t (f(x_i) - f(x^*)) \le \frac{\eta R^2t}{2} + \frac{R^2}{2\eta}.$$
+Choosing $\eta = \frac{R}{L\sqrt{t}}$ gives the desired bound.  
+\end{proof}
+
+\subsection{Projected Gradient Descent}
+
 \end{document}
