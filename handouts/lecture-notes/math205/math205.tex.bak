@@ -116,6 +116,72 @@ $$\text{Re }f(z_0) = \sup_{z \in \Omega} \text{Re }f(z),$$
 implies that $f$
  is constant.   We have the same result for $\text{Im }f$ by replacing $f$ with $-if$.  
  
- \subsection{Homework}
-Show the Automorphisms of the unit disk are fractional linear transformations.  Hint: Compose $f$ with special Automorphisms of the unit disk and move special points to zero.  
+ \subsection{Homework I }
+Show the Automorphisms of the unit disk are fractional linear transformations.
+\begin{proof}
+Following the hint, define $h = g \circ f$.  Note that $h: \{|z| < 1\} \to \{|z| < 1\}$ is a holomorphic bijection as a composition of holomorphic bijections.  Furthermore, note that $$h(0) = \frac{f(0) - z_0}{1 - \ol{z_0} f(0)} = \frac{z_0 - z_0}{1 - \ol{z_0} f(0)} = 0.$$
+
+Note that we can apply the Schwarz lemma to $h$ and $h^{-1}$ since the ranges of both functions are $\{|z| < 1\}$.  It follows that $|h'(0)| \le 1$ and 
+$$1 \ge |(h^{-1})'(0)| = \left |\frac{1}{h'(h^{-1}(0))}\right | = \left |\frac{1}{h'(0)}\right |.$$
+It follows that $|h'(0)| = 1$, so by the equality case of the Schwarz lemma, $h(z) = cz$ for some $c \in \C$.
+
+It follows that $$h(z) = \frac{f(z) -z_0}{1 - \ol{z_0} f(z)} = cz \Rightarrow f(z) = \frac{z_0 + cz}{1 + c\ol{z_0}z} = \frac{a + bz}{c + dz}$$
+for $a, b, c, d \in \C$.
+\end{proof}
+\pagebreak
+\section{January 25th, 2021}
+\subsection{Uniform Convergence}
+\begin{remark} They sometimes call open connected sets "regions".
+\end{remark}
+
+\begin{definition}[Uniform Convergence] Let $\Omega \subset \C$ be open.  Let $f_n: \Omega \to \C$ be holomorphic and $f: \Omega \to \C$ a function so that $\lim_{n \to \infty} \sup_{z \in K} |f(z) - f_n(z)| = 0$ for all $K \subset \Omega$ compact(also denoted $K \subset \subset \Omega$).  
+\end{definition}
+\begin{remark} Recall from real analysis that $f$ is a continuous function.  
+\end{remark}
+
+Some further remarks:
+\begin{itemize}
+\item It suffices to check the result for a sequence of compact subsets $K_m$ so that $\bigcup_m K_m^\circ = \Omega$, the it suffices to check those.  If $K \subset \subset \Omega$, then $K$ is compact and covered by the union of the subsets so there exists a finite subcovering, and uniform convergence on the subcovering implies uniform convergence on $K$.
+\item It is often convenient to introduce $\|g\|_K = \sup_{z \in K} |g(z)|$.  Uniform convergence can be restated as $\|f_n - f\|_K \to 0$ for all $K \subset \subset \Omega$.
+\item If $\|f_n - f\|_K \to 0$ for all $K \subset \subset \Omega$, then $f$ is also holomorphic.  It follows by passing to the limit in the Cauchy Integral formula.  Namely, take $\{z : |z - z_0| \le R\} \subset \Omega$ and consider the points in $|z_0 - \zeta| < R$.  
+
+\begin{align*}
+\left |f_n(\zeta) - \frac{1}{2\pi i} \int_{|z - z_0| = R} \frac{f(z)}{z - \zeta}\,dz\right | &= \left |  \frac{1}{2\pi i} \int_{|z - z_0| = R} \frac{f_n(z)}{z - \zeta}\,dz  - \frac{1}{2\pi i} \int_{|z - z_0| = R} \frac{f(z)}{z - \zeta}\,dz\right | \\
+&\le \frac{1}{2\pi} \frac{1}{R - |z_0 - \zeta|} \cdot (2\pi R) \|f_n - f\|_{|z - z_0| = R} \to 0.
+\end{align*}
+So it follows that 
+$$f(\zeta) = \lim_{n \to \infty} f_n(\zeta) = \frac{1}{2\pi i} \int_{|z - z_0|} \frac{f(z)}{z - \zeta} \,dz.$$
+
+It follows that $f$ continuous on $|z - z_0| = R$ is holomorphic in $\zeta\in \{|z - z_0| < R\}$, so it follows that $f$ is holomorphic.  
+\item We can similarly show that 
+$$f_n^(j)(\zeta) = \frac{n!}{2\pi i} \int_{|z - z_0| = R} \frac{f_n(z)}{(z - \zeta)^{n+1}}\,dz$$
+and $\|f_n^{(j)} - f^(j)\|_K \to 0$.  
+\end{itemize}
+From the last item, we have the following theorem.
+\begin{thm} If $f_n \to f$ on compact subsets of $\Omega$, the if $f_n$ is holomorphic we find that $f$ is holomorphic and $f_n^(j) \to f^{(j)}$ uniformly on compact subsets of $\Omega$.
+\end{thm}
+
+\begin{thm}[Hurwitz] Let $\Omega$ be a region, $f : \Omega \to \C$ and $f_n: \Omega \to \C$ holomorphic with $f_n(\Omega) \subset \C \setminus \{0\}$, $n \in \N$ and $\|f_n - f\|_K \to 0$
+ for all compact subsets.  Then either $f \equiv 0$ or $f(\Omega) \subset \C \setminus \{0\}$.
+ \end{thm}
+\begin{proof}
+If $f$ is not identically zero on $\omega$, then since $f$ is holomorphic, its zeros are isolated.  If $z_0 \in \Omega$, $f(z_0) = 0$, then there is $\epsilon > 0$ so that when $0 < |z - z_0| <\epsilon$, $f(z) \ne 0$. 
+
+Since $f(z) \ne 0$ for $|z - z_0| = \epsilon/2$, by the Weierstrass theorem applied to $|f|$ on $|z - z_0| = \epsilon$, we have $|f(z)| \ge m > 0$ on $\{|z - z_0| = \epsilon/2\} = \Gamma$.  If $\|f_n - f\|_\Gamma \le m/2$ for $n \ge N$, then $$|f_n(z)| \ge |f(z)| - m/2 \ge m - m/2 = m/2$$ for $z \in \Gamma$.  Hence, it follows that $\|1 /f_n - 1/f\|_\Gamma \to 0$(we leave this as an exercise).
+
+Since $\|f_n' - f'\|_\Gamma \to 0$, we find that $\|f_n'/f_n - f'/f\| \to 0$(another exercise) and hence
+$$\frac{1}{2\pi i} \int_\Gamma \frac{f_n'}{f_n}\,dz \to \frac{1}{2\pi i}\int_\Gamma \frac{f'}{f}\,dz.$$
+The integrand of the left hand side is $(\log f_n)'$, whose integral is $0$, and the right side is the order of the zero of $f$ at $z_0$ by the argument principle.    It follows that the order of $z_0$ as a possible zero is $0$, so $f(z_0) \ne 0$.
+\end{proof}
+
+\begin{thm} For $\Omega \subset \C$ open, $\mc F$
+ a set of holomorphic functions, the following are equivalent:
+ \begin{itemize}
+ \item for every $K \subset \subset \Omega$ $\sup_{f \in \mc F} \|f\|_K < \infty$
+ \item for every sequence $(f_n)_{n \in \N} \subset \mc F$, there is a subsequence $(f_{n_j})_{j \in \N}$ with $n_1 < n_2 < \dots$ so that $(f_{n_j})_{j \in \N}$ is uniformly convergent on compact subsets of $\Omega$.
+ \end{itemize}
+ \end{thm}
+ \begin{proof}
+ We first show $2$ implies $1$.  If $\sup_{f \in \mc F} \|f\|_K = \infty$, then we can find for each $n \in \N$ $f_n \in \mc F$ so that $\|f_n\|_K \ge n.$  If we abstract a convergence subsequence, then $\|f_{n_j} - f\|_K \le C < \infty$ and $\|f_{n_j}\|_K \le \|f\|_K + C$, while $\|f_{n_j}\|_K \to \infty$, a contradiction.
+ \end{proof}
  \end{document}

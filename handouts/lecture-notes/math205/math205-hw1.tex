@@ -1,0 +1,68 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Math 205}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{Math 205: Complex Variables} } 
+\centerline{Professor: Dan-Virgil Voiculescu, Spring 2021}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+\section{January 20th, 2021}
+
+ \subsection{Homework}
+Show the Automorphisms of the unit disk are fractional linear transformations.
+
+\begin{proof}
+Following the hint, define $h = g \circ f$.  Note that $h: \{|z| < 1\} \to \{|z| < 1\}$ is a holomorphic bijection as a composition of holomorphic bijections.  Furthermore, note that $$h(0) = \frac{f(0) - z_0}{1 - \ol{z_0} f(0)} = \frac{z_0 - z_0}{1 - \ol{z_0} f(0)} = 0.$$
+
+Note that we can apply the Schwarz lemma to $h$ and $h^{-1}$ since the ranges of both functions are $\{|z| < 1\}$.  It follows that $|h'(0)| \le 1$ and 
+$$1 \ge |(h^{-1})'(0)| = \left |\frac{1}{h'(h^{-1}(0))}\right | = \left |\frac{1}{h'(0)}\right |.$$
+It follows that $|h'(0)| = 1$, so by the equality case of the Schwarz lemma, $h(z) = cz$ for some $c \in \C$.
+
+It follows that $$h(z) = \frac{f(z) -z_0}{1 - \ol{z_0} f(z)} = cz \Rightarrow f(z) = \frac{z_0 + cz}{1 + c\ol{z_0}z} = \frac{a + bz}{c + dz}$$
+for $a, b, c, d \in \C$.
+\end{proof}
+ \end{document}
