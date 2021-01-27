@@ -214,5 +214,46 @@ Let $X$ be a topological space.
 \end{definition}
 \begin{thm} Every topological manifold is paracompact.  
 \end{thm}
+\pagebreak
+\section{January 26th, 2021}
+\subsection{Smooth Structures}
+\begin{definition} Let $M^n$ be a topological manifold.  Two charts $(U, \phi), (V, \psi)$ of $M$ have a transition map: $\psi \circ \phi^{-1}$.  This map is a homeomorphism.
+\end{definition}
+\includegraphics[scale=0.5]{transition}
+\begin{definition} Two charts are smoothly compatible if the transition maps in both directions are smooth.
+\end{definition}
+\begin{definition} An atlas $\mc A$ of $M$ is a collection of charts such that the domains of the charts cover $M$.  An atlas $\mc A$ is smooth if any two charts in $\mc A$ are smoothly compatible.  An atlas $\mc A$ is called a maximal smooth atlas on $M$ if there is no smooth atlas containing $\mc A'$ that contains $\mc A$.  
+\end{definition}
+\begin{theorem}
+Every smooth atlas $\mc A$ of $M$ is contained in a unique maximal smooth atlas.  
+\end{theorem}
+\begin{proof}
+We first address the existence of a a maximal atlas $\ol{\mc A}$.  We define 
+$$\ol{\mc A} = \{(U, \phi) : (U, \phi) \text{ is compatible with all } (V, \psi) \in \mc A \}.$$
+$\mc A \subset \ol{\mc A}$ is clearly an atlas so it suffices to show that it is smooth.  
 
+Take $(U_1, \phi_1)$, $(U_2, \phi_2) \in \ol{\mc A}$.  We check that $\phi_2 \circ \phi_1^{-1}(U_1 \cap U_2)$ are smooth.   Take some $q \in \phi_1(U_1 \cap U_2)$ so that $q = \phi_1(p)$ for $p \in U_1 \cap U_2$.  Choose $(V, \psi)$ so that $p \in V$.  Then,
+ $$\phi_2 \circ \phi_1^{-1} \vert_{\phi_1(U_1 \cap U_2 \cap V)} = (\phi_2 \circ \psi^{-1}\vert_{\psi(U_1 \cap U_2 \cap V)}) \circ (\psi \circ \phi_1^{-1}\vert_{\psi(U_1 \cap U_2 \cap V)}).$$
+\end{proof}
+\begin{remark} If $(U_1, \phi_1) \in \mc A_1$ is smoothly compatible with any chart $(U_2, \phi_2) \in \mc A_2$, then $\ol{\mc A_1} = \ol{\mc A_2}$.
+\end{remark}
+\begin{definition} A maximal smooth atlas $\mc A$ on a topological manifold $M$ is called a smooth structure on $M$.
+\end{definition}
+\begin{definition} A smooth manifold is a pair $(M^n, \mc A)$, where $M^n$ is a topological manifold and $\mc A$ is a smooth structure.  
+\end{definition}
+Some exercises:
+\begin{itemize}
+\item If $(U, \phi) \in \mc A$ and $U' \subset U$ open, then $(U', \phi\vert_{U'}) \in \mc A$.
+\item If $(U, \phi) \in \mc A$ and a diffeomorphism $\psi: \phi(Y) \to \psi(\phi(U)) \subset \R^n $, then $U(\psi \circ \phi) \in \mc A$.
+\item If $\phi: U \to \R^n$ is injective has the property that for any $p \in U$, there is an open neighborhood $p \in U_p \subset U$ such that $(U_p, \phi \vert_{U_p})\in \mc A$, then $(U, \phi) \in \mc A$.
+\end{itemize}
+\subsection{Examples of Smooth Structures}
+\begin{itemize}
+\item Take $\R^n$.  Choose a maximal atlas containing $\{(\R^n, \text{id}_{\R^n})\}$.  
+\item  Given $(M^n, \mc A)$ a smooth manifold, $M' \subset M$ open, take $\mc A' = \{(U, \phi) \in \mc A | U \in M'\}$.  
+\item Take a vector space $V$ with dimension $n$.  Take $$\mc A' = \{(V, \phi) : \phi: V \to \R^n \text{ linear isomorphisms}\}.$$
+We take the maximal atlas containing $\mc A'$.
+\item Take $M = \R$.  Define $\mc A$ to be the maximal atlas containing $(\R, \text{id}_\R)$.  We could also choose $\mc A^*$ to be the maximal atlas containing $(\R, \phi)$ where $\phi: \R \to \R$ is given by $x \mapsto x^3$.  These two structures are not the same, but the two charts are diffeomorphic.  
+\end{itemize}
+Does every topological manifold have a smooth structure?  For $n \le 3$, YES and unique up to diffeomorphism.  For $n > 4$, NO and if they do exist, they may not be unique.  Are there exotic spheres?
 \end{document}

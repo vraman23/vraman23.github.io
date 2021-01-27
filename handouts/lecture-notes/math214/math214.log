@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  21 JAN 2021 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  26 JAN 2021 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1601,6 +1601,21 @@ text indent by \l@... (toc, 2):  27.02475pt
 number indent by parent (toc, 2):  13.20007pt
 text indent calculated (toc, 2): 20.88867pt
 number indent calculated (toc, 2): 13.20007pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  17.62482pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 13.20007pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  17.62482pt
+text indent by \l@... (toc, 2):  27.02475pt
+number indent by parent (toc, 2):  13.20007pt
+text indent calculated (toc, 2): 20.88867pt
+number indent calculated (toc, 2): 13.20007pt
+number indent by \l@... (toc, 2):  17.62482pt
+text indent by \l@... (toc, 2):  27.02475pt
+number indent by parent (toc, 2):  13.20007pt
+text indent calculated (toc, 2): 20.88867pt
+number indent calculated (toc, 2): 13.20007pt
 )
 \tf@toc=\write7
 \openout7 = `math214.toc'.
@@ -1659,7 +1674,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 135.
  [5]
-<chart.png, id=131, 838.13126pt x 235.88126pt>
+<chart.png, id=137, 838.13126pt x 235.88126pt>
 File: chart.png Graphic file (type png)
 <use chart.png>
 Package pdftex.def Info: chart.png  used on input line 148.
@@ -1706,25 +1721,40 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 215.
  [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
+<transition.png, id=188, 868.24374pt x 399.4925pt>
+File: transition.png Graphic file (type png)
+<use transition.png>
+Package pdftex.def Info: transition.png  used on input line 222.
+(pdftex.def)             Requested size: 434.1208pt x 199.74576pt.
+
+Overfull \hbox (0.35081pt too wide) in paragraph at lines 222--223
+[][] [] 
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 228.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
+t line 228.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 238.
+[9 <./transition.png>] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 259.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 259.
  (./math214.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 218.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 218.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 259.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 259.
 Package rerunfilecheck Info: File `math214.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 259.
  ) 
 Here is how much of TeX's memory you used:
- 39178 strings out of 492616
- 770758 string characters out of 6129482
- 992510 words of memory out of 5000000
- 42419 multiletter control sequences out of 15000+600000
- 544915 words of font info for 90 fonts, out of 8000000 for 9000
+ 39214 strings out of 492616
+ 771290 string characters out of 6129482
+ 992649 words of memory out of 5000000
+ 42431 multiletter control sequences out of 15000+600000
+ 545013 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,20n,91p,9109b,1427s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -1741,16 +1771,17 @@ texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb>
-Output written on math214.pdf (8 pages, 328401 bytes).
+e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb>
+Output written on math214.pdf (10 pages, 583729 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 237 compressed objects within 3 object streams
- 96 named destinations out of 1000 (max. 500000)
- 17066 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 335 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
+ 115 named destinations out of 1000 (max. 500000)
+ 17095 words of extra memory for PDF output out of 17280 (max. 10000000)
 
