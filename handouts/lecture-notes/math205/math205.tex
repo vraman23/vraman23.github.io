@@ -184,4 +184,34 @@ The integrand of the left hand side is $(\log f_n)'$, whose integral is $0$, and
  \begin{proof}
  We first show $2$ implies $1$.  If $\sup_{f \in \mc F} \|f\|_K = \infty$, then we can find for each $n \in \N$ $f_n \in \mc F$ so that $\|f_n\|_K \ge n.$  If we abstract a convergence subsequence, then $\|f_{n_j} - f\|_K \le C < \infty$ and $\|f_{n_j}\|_K \le \|f\|_K + C$, while $\|f_{n_j}\|_K \to \infty$, a contradiction.
  \end{proof}
+ \pagebreak
+ \section{January 27th, 2021}
+ 
+ \begin{thm} For $\Omega \subset \C$ open, $\mc F$
+ a set of holomorphic functions, the following are equivalent:
+ \begin{itemize}
+ \item for every $K \subset \subset \Omega$ $\sup_{f \in \mc F} \|f\|_K < \infty$
+ \item for every sequence $(f_n)_{n \in \N} \subset \mc F$, there is a subsequence $(f_{n_j})_{j \in \N}$ with $n_1 < n_2 < \dots$ so that $(f_{n_j})_{j \in \N}$ is uniformly convergent on compact subsets of $\Omega$.
+ \end{itemize}
+ \end{thm}
+ I missed the beginning of the class, but I will add the proof of the theorem once notes are posted.
+ 
+ One can put a metric on holomorphic functions so that convergence in the metric is uniform convergence on compact sets.  For $f: \Omega \to \C$, but $K_n \Subset \Omega$ so that $\bigcup_{n} K_n^\circ = \Omega$ and take 
+ $$d(f, g) = \sum_{n=1}^\infty \frac{\|f - g\|_{K_n}}{1 + \|f - g\|_{K_n}} 2^{-n}.$$
+ 
+ \subsection{Riemann Sphere}
+ On the set $\C \cup \{\infty\}$, we consider the topology which makes it the Alexandroff(one-point) compactification of $\C$.  If $z \in \C$, a neighborhood is one that contains a neighborhood in $\C$ and a neighborhood of $\infty$
+ is of the form $\{\infty\} \cup (\C \setminus K)$ for $K \Subset \C$.
+ 
+Let $U_+ = \C \subset \C \cup \{\infty\}$ and $U_- = (C \setminus \{0\}) \cup \{\infty\}$.  Note that the union of the two sets covers the Riemann Sphere.  Define $\psi_+:U_+ \to \C$ by $\psi_+(z) = z$ and $\psi_i: U_- \to \C$ is given by $\psi_-(w) = 1/w$ if $w \in \C \setminus \{\infty\}$ and $0$ if $w = \infty$.  Notice that these two functions are bijections.
+
+If $V \subset \C \cup \{\infty\}$ is open, a function $f: V \to \C$ is holomorphic if 
+$$f \vert_{V \cup U_\pm}\circ (\psi_{\pm}\vert_{V \cup U_\pm})^{-1}: \psi_\pm(V \cup U_\pm) \to \C$$
+is holomorphic.  In this way, we know what holomorphic functions are on open sets of $\C \cup \{\infty\}$.
+
+More generally, we can describe a Riemann surface in the following way - Let $X$ be a topological space.  Take $\{(U_\alpha, z_\alpha)\}_{\alpha \in I}$ where $U_\alpha \subset X$ is open, and $\bigcup_{\alpha \in I} U_\alpha = X$ and $z_\alpha: U_\alpha \to \C$ is continuous, $z_\alpha(U_\alpha)$ is open and $z_\alpha$ is a homeomorphism.  The key requirement is that the maps $z_\alpha \circ z_\beta^{-1}: z_\beta(U_\alpha \cup U_\beta) \to z_\alpha(U_\alpha \cup U_\beta)$ are holomorphic.
+
+Then, if $U \subset X$ is open, $f: U \to \C$ is holomorphic if for all $\alpha \in I$,
+$$f\vert_{U \cup U_\alpha} \circ (z_\alpha \vert_{u \cup U_\alpha})^{-1}$$
+is holomorphic.  Two such atlases give the same Riemann surface if put together, we get an atlas.
  \end{document}

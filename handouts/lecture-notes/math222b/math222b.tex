@@ -279,4 +279,58 @@ Take $U \subset \subset \R^n$ with $\partial U \in C^1$.  Take $n \in W^{k, p}(U
 We will take $B = L^q(U)$ where $1 \le q < p^*$ and $B' = W^{1, p}(U)$.
 \begin{thm}[Rellich-Kondrachov] The unit ball in $W^{1, p}(U)$ is compact in $L^q(U)$ for \textbf{bounded} $U$.
 \end{thm}
-\end{document}
+\pagebreak
+\section{January 28th, 2021}
+Recall the GNS inequality: if $1 \le p < n$, $p^* = \frac{np}{n-p}$, there exists $C = C(n, p)$ for all $u \in C_c^{\infty}(\R^n)$ so that $\|u|_{L^{p^*}} \le C \|\grad u\|_{L^p}$.
+
+If $U \Subset \R^n$, $\partial U \in C^1$, then there exists $C= C(n, p, U)$ such that $L^{q}(U) \supset W^{1, p}(U)$ for $1 \le q \le p^*$.
+\subsection{Compactness}
+Suppose $B$ is a Banach space and $B' \subset B$ another Banach space.  We say that the inclusion $B' \subset B$ is compact if bounded sets in $B'$ are precompact in $B$.  In other words, for a sequence $\{u_n\} \subset B'$ with $\|u_n\|_{B'} \le M$, there exists a subsequence $u_{n_k}$ and $u \in B$ such that $u_{n_k} \to u$ in $B$.
+
+\begin{example} Take $B = C([-1, 1])$, $B' = C^1([-1, 1])$ with the supremum norm on $B$ and $\|u\|_{B'} = \sup_{|x| \le 1} (|u(x)| + |u'(x)|)$.
+
+The inclusion is compact: if we have $\|u_n\|_{B'} \le C$, by the mean value theorem, $|u_n(x)| \le C$ and $|u_n(x) - u_{n}(y)| \le C|x - y|$.  By Arzela-Ascoli, there exists a subsequence $u_{n_k}$ and $u \in C$ so that $\|u_{n_k} - u\|_{C([-1, 1])} \to 0$.
+\end{example}
+\begin{example} In the previous example, take $u_n(x) = |x|1_{|x| > 1/n} + (\frac{nx^2}{2} + \frac{1}{n})1_{|x| \le 1/n}$.
+
+Then $u_n \in C^{1}[-1, 1]$ and $\|u_n\|_{C^1[-1, 1]} \le 2$.   We can take a subsequence $n_k = k$ and $u(x)= |x| \in C[-1, 1] \setminus C^1[-1, 1]$ where $u_{n_k} \to u \in C$.
+\end{example}
+
+Given a Banach space $B$, we have the dual space $B^* = \{\text{linear } u:  B \to \C | \forall x \in B, |u(x)| \le C \|x\|_B\}$.  The is also a Banach space.  
+
+\begin{thm}[Banach-Alaoglu] Suppose $\|u_n\|_{B^*} \le M$.  Then, there exists a subsequence $u_{n_k}$ and $u \in B^*$ such that for all $x \in B$, $u_{n_k}(x) \to u(x)$.  
+\end{thm}
+
+\begin{thm}[Rellich-Kondrachov] If $U \Subset \R^n$, $\partial U \in C^1$, then for $1 \le q < p^*$, $L^q(U) \supset W^{1, p}(U)$ is a compact inclusion.
+\end{thm}
+\begin{proof}
+Take $p = 2$.  Then $p^* = \frac{2n}{n-2} > 2$.  First, suppose $\ol{U} \Subset B(0, R)$.  We can assume $R = 1$.  Suppose we have a sequence $\|v_n\|_{H^1(U)} \le 1$.  There exists a sequence $u_n \in H^1(\R^n)$ such that $u_n\vert_U = v_n$, $\|u_n\|_{H^1(\R^n)} \le 1$ and $\supp u_n \subset B(0, 1)$(this is the extension operator).
+
+We have $u_n \in H^1(\R^n)$, $\|u_n\|_{H^1} \le 1$, $\supp u_n \subset B(0, R)$.  We want $n_k$, $u \in L^2(\R^n)$ such that $u_{n_k} \to u$ in $L^2$.  We claim that $u(x) = (2\pi)^{-n} \sum_{m \in \Z^n} \hat{u}(m) e^{im\cdot x}$ for $x\in B(0, 1) \subset [-\pi, \pi]^n$ with convergence in $\mc D'$.
+
+Alternatively,
+\begin{align*}
+\int u(x) \ol{\phi(x)}\,dx &= (2\pi)^{-n}\sum_{m \in \Z^n} \hat{u}(m) \int \ol{\phi(x)} e^{im\cdot x}\,dx\\
+&= (2\pi)^{-n} \sum_{m \in \Z^n} \hat{u}(m) \ol{\hat{\phi}(m)}.
+\end{align*}
+For $u, v\in L^2$, $\int u(x)\ol{v}(x)\,dx = (2\pi)^{-n} \sum_{m \in \Z^n} \hat{u}(m) \ol{\hat{v}(m)}$.
+
+Recall the Poisson summation formula: for $n = 1, a \ne 0$, $$\sum_{k \in \Z} e^{ikax} = \frac{2\pi}{a}\sum_{k \in \Z} \delta(x - 2\pi k/a)$$
+in the distributional sense.
+
+Note that $(1 - e^{iax}) \sum_k e^{ikax} = \sum_{k} e^{ikax} - \sum_{k} e^{i(k+1) ax} = 0$.  We can rewrite this as $-2ie^{-iax/2} \sin{(ax/2)} \sum_k e^{ikax} = 0$.  Let $w(x) = \sum_{k} e^{ikax}$, so it follows that $\supp w \subset \{\frac{2\pi}{a}k\}_{k \in Z}$.  It follows that $w(x)$ is the sum of delta functions supported at $2\pi k/a$ for $k \in \Z$ up to constants.  
+
+Furthermore, note that $w(x + 2\pi a) = w(x)$.  So it follows that the constants are independent of the index.  To find the constant, for some function, replace $\phi(\cdot)$ with $\phi(\cdot + x)$.  Then the right side is $c \sum_{k \in \Z} \phi(2\pi k/a + x)$.  Note that $\hat{\phi}(\cdot + x)(\xi) = e^{ix \xi} \hat{\phi}(\xi)$ .  It follows that the left hand side is $\sum_{k \in \Z} \hat{\phi}(ka) e^{ikax}$.  Now suppose $\supp \phi \in C_c^\infty((0, 2\pi/a))$.    Integrating both sides, the left side is $2\pi/a \hat{\phi}(0)$.  The right side is $c \int \phi(x)\,dx = c(a) \hat{\phi}(0)$.  Thus, $c = \frac{2\pi}{a}$.
+
+The Poisson summation formula is more generally $\sum_{k \in \Z^k} e^{iak \cdot x} = (2\pi/a)^n \sum_{k \in \Z^d} \delta(x - 2\pi a/k)$.
+
+Applying this to a $\phi$ gives our desired claim from earlier.  it follows that $\frac{1}{(2\pi)^n} \sum_{k \in \Z^n} \hat{u}(k)\ol{\hat{v}(k)} = \int u(x) \ol{v(x)}\,dx$ with $u, v \in L^2$, $\supp u, v \in [-\pi, \pi]^n$.
+
+Note that for $u \in L^2$, we have the Plancherel formula,
+$$\|u\|_2^2 = \int |u(x)|^2\,dx = \frac{1}{2\pi}^n \sum_{n \in \Z^n} |\hat{u}(m)|^2.$$
+
+For $u \in H^1(\R^n)$ and $\supp u \subset B(0, 1)$, then $u \in L^2$ and $\partial^\alpha u \in L^2$, for all $|\alpha| = 1$, 
+$$\|\partial^\alpha u\|_{L^2}^2 = (2\pi)^n \sum_{ m \in \Z^n} |\hat{\partial^\alpha u}(m)|^2 = (2\pi)^{-n} \sum_{m \in \Z^n} |m^\alpha\hat{u}(m)|^2.$$
+Claim: Under these assumptions, $\|u\|_{H^1}^2 = \Theta( \sum_{m \in \Z^n} \<m\>^2 |\hat{u}(m)|^2)$
+\end{proof}
+ \end{document}

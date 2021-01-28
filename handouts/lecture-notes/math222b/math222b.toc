@@ -8,3 +8,5 @@
 \contentsline {subsection}{\numberline {3.1}Sobolev Spaces, continued}{8}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Gagliardo-Nirenberg-Sobolev(GNS) Inequalities}{8}{subsection.3.2}% 
 \contentsline {subsection}{\numberline {3.3}Compactness}{9}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}January 28th, 2021}{10}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Compactness}{10}{subsection.4.1}% 

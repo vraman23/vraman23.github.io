@@ -6,3 +6,5 @@
 \contentsline {subsection}{\numberline {1.5}Homework I}{4}{subsection.1.5}% 
 \contentsline {section}{\numberline {2}January 25th, 2021}{6}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Uniform Convergence}{6}{subsection.2.1}% 
+\contentsline {section}{\numberline {3}January 27th, 2021}{8}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Riemann Sphere}{8}{subsection.3.1}% 
