@@ -8,3 +8,8 @@
 \contentsline {section}{\numberline {3}January 26th, 2021}{9}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Smooth Structures}{9}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Examples of Smooth Structures}{10}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}January 28th, 2021}{11}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Construction of Smooth Manifolds}{11}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Grassmannian Manifolds}{11}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Manifolds with Boundary}{11}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Smooth Maps}{12}{subsection.4.4}% 

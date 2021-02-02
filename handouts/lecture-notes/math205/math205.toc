@@ -7,4 +7,10 @@
 \contentsline {section}{\numberline {2}January 25th, 2021}{6}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Uniform Convergence}{6}{subsection.2.1}% 
 \contentsline {section}{\numberline {3}January 27th, 2021}{8}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Riemann Sphere}{8}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.1}Uniform Convergence, continued}{8}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Metric Convergence}{8}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Riemann Sphere}{8}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}February 1st, 2021}{9}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Connectivity}{9}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Fractional Linear Transformations}{9}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}FLT, Unit Disk}{10}{subsection.4.3}% 

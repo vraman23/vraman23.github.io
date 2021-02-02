@@ -256,4 +256,58 @@ We take the maximal atlas containing $\mc A'$.
 \item Take $M = \R$.  Define $\mc A$ to be the maximal atlas containing $(\R, \text{id}_\R)$.  We could also choose $\mc A^*$ to be the maximal atlas containing $(\R, \phi)$ where $\phi: \R \to \R$ is given by $x \mapsto x^3$.  These two structures are not the same, but the two charts are diffeomorphic.  
 \end{itemize}
 Does every topological manifold have a smooth structure?  For $n \le 3$, YES and unique up to diffeomorphism.  For $n > 4$, NO and if they do exist, they may not be unique.  Are there exotic spheres?
+\pagebreak
+\section{January 28th, 2021}
+\subsection{Construction of Smooth Manifolds}
+\begin{lemma} Let $M$ be an uncountable set of points and $\{(U_\alpha, \phi_\alpha)\}_{\alpha \in I}$, where $\phi_\alpha: U_\alpha \to \R^n$ are injective.  Assume that (1) $\phi_\alpha(U_\alpha \cap U_\beta) \subset \R^n$ open for all $\alpha, \beta\in I$ and (2) $\phi_\alpha \circ \phi_\beta^{-1}$ is smooth for all $\alpha, \beta \in I$, (3) $M$ is covered by countably many $U_\alpha$, (4) for all $p, q \in M$, $p \ne q$, there is a $\alpha \in I$ such that $p, q \in U_\alpha$ or $\alpha, \beta \in I$ such that $p \in U_\alpha, q \in U_\beta$.
+
+Then, $M$ has a unique topology and smooth structure such that $(U_\alpha, \phi_\alpha)$ are smooth charts.
+\end{lemma}
+\begin{proof}
+We define the topology by $A \subset M$ is open whenever $\phi_\alpha(A \cup U_\alpha) \subset \R^n$ is open for all $\alpha \in I$.  We take the smooth structure to be the maximum atlas containing the charts.
+\end{proof}
+\subsection{Grassmannian Manifolds}
+\begin{definition} For $1 \le k \le n$, define $\text{Gr}_k(\R^n) = \{V \subset \R^n | \dim V = k\}$.  
+\end{definition}
+Note that $\text{Gr}_1(\R^n) =  RP^{n-1}$.
+
+We construct topological and smooth manifolds on $\text{Gr}_k(\R^n)$.  Define $I = \{(P, Q), P, Q \subset \R^n, V = P \oplus Q, \dim P = k, \dim Q = n+k\}.$
+
+For a given $(P, Q) = \alpha$ define $U_\alpha = \{V \in \text{Gr}_k(\R^n) | V \cap Q = \{0\}\}.$
+\begin{lemma} For $V \in U_\alpha$, there is a unique linear map $A_{P, Q, V}: P \to Q$ such that $V = \{x + A_{P, Q, V}x \in P \oplus Q | x \in P\}$.  
+
+This defines a map $\phi_\alpha: U_\alpha \to \text{Hom}(P, Q) \cong \R^{kx(n-k)}$.
+\end{lemma}
+\subsection{Manifolds with Boundary}
+We have a manifold $M$ with a boundary $\partial M$.  
+
+We denote $H^n = \{x^n \ge 0\} \subset \R^n$, the upper half space, the most basic example.  Note that $\partial H^n = \{x^n = 0\} \cong \R^{n-1}$.  The interior $\text{Int }H^n = \{x^n > 0\}$.  
+\begin{definition} A topological manifold with boundary $M^n$ is a topological space such that is Hausdorff,
+ second countable, and every point $p \in H^n$ has an open neighborhood $p \in U \subset M$ that is
+  homeomorphic to some (relatively) open subset $\hat{U} \subset H$.
+\end{definition}
+
+\begin{remark} For $M$ a topological manifold, we have a topological manifold with boundary, $p \in M$ is interior if it has an open neighborhood homeomorphic to $\hat{U} \subset \R^n$ and a boundary point, if there is a chart $(U, \phi)$ such that $\phi(p) \in \partial H^n$.
+\end{remark}
+\begin{theorem}[Boundary Invariance] $M^n = \int M \cup \partial M$, and $\partial M$ is a topological $(n-1)$ manifold.
+\end{theorem}
+Note that the interior and boundary do not correspond to the topological notions of boundary and interior.  For example, take $M = \{x^n > 0\} \subset \R^n$, this has a topological boundary in $\R^n$ but no manifold boundary.  For any manifold with boundary $M$, the topological boundary of $M$ is empty and the topological interior within $M$ is $M$.
+
+If we take $M = S^n \subset \R^{n+1}$, then $\partial M = \emptyset$ but the topological boundary is simply $S^n$.
+
+\begin{remark} $\partial M$ is a manifold(without boundary).
+\end{remark}
+
+See the text for further examples and Smooth Boundary Invariance.
+
+\subsection{Smooth Maps}
+\begin{definition} $f: M \to \R^m$ is smooth if for every $p \in M$, there is a smooth chart $(U, \phi)$, $\hat{U} = \phi(U)$ such that $p \in U$ and $\hat{f} = f \circ \phi^{-1}: \hat{U} \to \R^n$. 
+\end{definition}
+We denote $C^\infty(M) : \{f: M \to \R^m \text{ smooth}\}$.
+\begin{lemma} If $f$ is smooth, then for any smooth chart $(V, \psi)$, the coordinate representation $f \circ \psi^{-1}: \psi(V) \to \R^n$ is smooth.
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
 \end{document}

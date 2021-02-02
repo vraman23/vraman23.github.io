@@ -186,7 +186,7 @@ The integrand of the left hand side is $(\log f_n)'$, whose integral is $0$, and
  \end{proof}
  \pagebreak
  \section{January 27th, 2021}
- 
+ \subsection{Uniform Convergence, continued}
  \begin{thm} For $\Omega \subset \C$ open, $\mc F$
  a set of holomorphic functions, the following are equivalent:
  \begin{itemize}
@@ -195,7 +195,7 @@ The integrand of the left hand side is $(\log f_n)'$, whose integral is $0$, and
  \end{itemize}
  \end{thm}
  I missed the beginning of the class, but I will add the proof of the theorem once notes are posted.
- 
+ \subsection{Metric Convergence}
  One can put a metric on holomorphic functions so that convergence in the metric is uniform convergence on compact sets.  For $f: \Omega \to \C$, but $K_n \Subset \Omega$ so that $\bigcup_{n} K_n^\circ = \Omega$ and take 
  $$d(f, g) = \sum_{n=1}^\infty \frac{\|f - g\|_{K_n}}{1 + \|f - g\|_{K_n}} 2^{-n}.$$
  
@@ -214,4 +214,74 @@ More generally, we can describe a Riemann surface in the following way - Let $X$
 Then, if $U \subset X$ is open, $f: U \to \C$ is holomorphic if for all $\alpha \in I$,
 $$f\vert_{U \cup U_\alpha} \circ (z_\alpha \vert_{u \cup U_\alpha})^{-1}$$
 is holomorphic.  Two such atlases give the same Riemann surface if put together, we get an atlas.
+\pagebreak
+\section{February 1st, 2021}
+\subsection{Connectivity}
+\begin{definition} $\Omega\subset \C$ open is connected if $\Omega = \Omega_1 \cup \Omega_2$ open with $\Omega_1 \cap \Omega_2 = \emptyset$ implies that one of the two is empty.  For open sets, this is equivalent to arcwise connected.
+\end{definition}
+
+
+\begin{definition} An set is arcwise connected if for every $z_1, z_2 \in \Omega$, there is a path $\phi: [0, 1] \to \Omega$ which is continuous and $\phi(0) = z_1$, $\phi(1) = z_2$.
+\end{definition}
+
+\begin{definition} $\Omega$ is simply connected if for $z_0 \in \Omega$, $\Gamma:[0, 1] \to \Omega$
+ continuous and $\Gamma(0) = \Gamma(1) = z_0$, then there is $G:[0, 1] \times [0, 1] \to \Omega$ continuous with $G(t, 0) = \Gamma(t)$ for $t \in [0, 1]$ and $G(t, 1) = z_0$, for $t \in [0, 1]$.  
+ \end{definition}
+ 
+ Simply connected corresponds to the idea of being able to continuously deform the set to a point for each point.
+ 
+In $\R^2 \cong \C$, $\Omega$-open simply connected is equivalent to $(C \cup \{\infty\}) \setminus \Omega$ is connected in $\C \cup \{\infty\}$.  That is, if $F = \C\cup\{\infty\} \setminus \Omega$, which is closed in $\C \cup \{\infty\}$, with $F \cap V_1 \cap V_2 = \emptyset$, then at least one of the $F \cap V_k = \emptyset$.  If $0 \in \Omega$, then $\Omega$ is simply connected if and only if $\{0\} \cup \{1/z : z \in \C \setminus \Omega\}$ is connected(this is a local representation).
+
+\begin{itemize}
+\item Take $\Omega = \C \setminus \bigcup_{j=1}^m \{tz_j : t \in [1, \infty)\}$ for $z_1, \dots, z_n \in \C \setminus \{0\}$.  
+\item $\C \setminus\text{spirals}$.
+\end{itemize}
+
+\begin{thm}[Riemann Mapping Theorem] If $\Omega \subset \C$ open, connected, simply connected, $\emptyset \ne \Omega \ne \C$, then $\Omega$ and $\mathbb{D} = \{|z| < 1\}$ are holomorphic isomorphisms.  
+\end{thm}
+
+\subsection{Fractional Linear Transformations}
+Recall that if $f \in \text{Aut}(\mathbb D)$ then $f(z) = \frac{az+b}{xz + d}$, which was proved using the Schwarz lemma.  We view the fractional linear maps from a different context.  
+
+We define a map $p: \C^2 \setminus\{\binom{0}{0}\} \to \C \cup \{\infty\}$ given by 
+$$p\left (\binom{z_1}{z_2}\right ) = \begin{cases}
+z_1/z_2 \text{ if }z_2 \ne 0\\
+\infty \text{ if } z_2 = 0
+\end{cases}.$$
+
+Then $p(\xi) = p(\eta)$ if and only if $\xi = \lambda \eta$ for $\lambda \in C^\times = C \setminus \{0\}$.  
+
+There is a larger group acting on $C^2 \setminus \{\binom{0}{0}\}$ given by $GL(2, \C)$ the invertible $2 \times 2$ matrices in the natural way so that $$A\binom{z_1}{z_2} \mapsto \frac{A_{11} p(\xi) + A_{12}}{A_{21}p(\xi) + A_{22}}.$$
+
+Define $T_g: \C \cup \{\infty\} \to \C \cup \{\infty\}$ given by 
+$$T_g z = \frac{az+b}{cz+d},$$
+with $T_g (\infty )= \frac{a}{c}$.  We have the action $T_gp(\xi) = p(g\xi)$ for $g \in GL(2, \C)$.  
+
+This gives 
+$$T_{g_1} \circ T_{g_2} = T_{g_1g_2},$$
+$$(T_g)^{-1} = T_{g^{-1}}.$$
+ 
+We can also ask about the fixed point: $$T_gp(\xi) = p(\xi) \leftrightarrow p(\xi) = p(g\xi) \Leftrightarrow
+ g\xi = \lambda \xi\,\, ,\lambda \in C^\times$$
+ It follows that the fixed points of $T_g$ correspond to the eigenvectors of $GL(2, \C)$.
+ 
+\subsection{FLT, Unit Disk}
+If we have $\xi = \binom{z_1}{z_2}$, then $p(\xi) \in \mathbb D$ if and only if $|z_1| < |z_2|$ if and only if $z_1 \ol{z_1} - z_2 \ol{z_2} < 0$.  If we let $$J = \begin{pmatrix}
+1, 0\\
+0, -1
+\end{pmatrix},$$
+we consider the sesquilinear form $\langle J\binom{\xi_1}{\xi_2}, \binom{\eta_1}{\eta_2}\rangle$, where it is linear in the first coordinate and conjugate linear in the second coordinate.  Note that 
+
+$$\langle J\binom{\xi_1}{\xi_2}, \binom{\eta_1}{\eta_2}\rangle = \xi_1 \ol{\eta_1} - \xi_2 \ol{\eta_2}.$$
+
+When does $g \in GL(2, \C)$ preserve $\langle J\xi, \xi\rangle$?
+
+This means that 
+$$\langle Jg\xi, g\xi \rangle = \langle J\xi, \xi \rangle$$
+for all $\xi \in C^2 \setminus \{0\}$.  Then,
+$$\langle g^* Jg \xi, \xi\rangle = \langle J\xi, \xi\rangle$$
+so it follows that $g^*Jg = J$.  (We prove this by transforming $\xi$ in polar coordinates, $\xi = x + i^k y$, and considering $k = 0, 1, 2, 3$.  These four equations allow us to determine the equality).  Note that $U(1, 1) = \{g : g^* J g = J\}$ forms a group structure where $J$ has eigenvalues $\pm 1$  for this reason, we denote $U(1, 1) \subset GL_2(\C)$.
+
+We claim the following: $T_g \in \text{Aut}(\mathbb D) \Leftrightarrow g \in C^\times \cdot U(1, 1)$.
+
  \end{document}
