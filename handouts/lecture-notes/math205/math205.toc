@@ -3,14 +3,18 @@
 \contentsline {subsection}{\numberline {1.2}Cauchy's Integral Formula}{3}{subsection.1.2}% 
 \contentsline {subsection}{\numberline {1.3}Schwarz Lemma}{3}{subsection.1.3}% 
 \contentsline {subsection}{\numberline {1.4}Maximum Principles}{4}{subsection.1.4}% 
-\contentsline {subsection}{\numberline {1.5}Homework I}{4}{subsection.1.5}% 
-\contentsline {section}{\numberline {2}January 25th, 2021}{6}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Uniform Convergence}{6}{subsection.2.1}% 
-\contentsline {section}{\numberline {3}January 27th, 2021}{8}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Uniform Convergence, continued}{8}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Metric Convergence}{8}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Riemann Sphere}{8}{subsection.3.3}% 
-\contentsline {section}{\numberline {4}February 1st, 2021}{9}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Connectivity}{9}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Fractional Linear Transformations}{9}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}FLT, Unit Disk}{10}{subsection.4.3}% 
+\contentsline {section}{\numberline {2}January 25th, 2021}{5}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Uniform Convergence}{5}{subsection.2.1}% 
+\contentsline {section}{\numberline {3}January 27th, 2021}{7}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Uniform Convergence, continued}{7}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Metric Convergence}{7}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Riemann Sphere}{7}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}February 1st, 2021}{8}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Connectivity}{8}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Fractional Linear Transformations}{8}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Fractional Linear Transformations, Unit Disk}{9}{subsection.4.3}% 
+\contentsline {section}{\numberline {5}February 3rd, 2021}{10}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Remark on the Zeta Function}{10}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Fractional Linear Transformations, continued}{10}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Automorphisms of the Half Plane}{10}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}The Cross Ratio}{11}{subsection.5.4}% 

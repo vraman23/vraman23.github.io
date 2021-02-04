@@ -17,6 +17,8 @@
 \newcommand{\C}{\mathbb C}
 \newcommand{\T}{\mathbb T}
 \renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+
 \let \phi \varphi
 \let \mc \mathcal
 \let \ol \overline
@@ -27,6 +29,7 @@
 \newcommand{\cH}{\mathcal{H}}
 
 \newcommand{\supp}{\text{supp }}
+
 
 \newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
 \let \grad \nabla
@@ -300,14 +303,40 @@ If we take $M = S^n \subset \R^{n+1}$, then $\partial M = \emptyset$ but the top
 
 See the text for further examples and Smooth Boundary Invariance.
 
-\subsection{Smooth Maps}
+\subsection{2. Smooth Maps}
 \begin{definition} $f: M \to \R^m$ is smooth if for every $p \in M$, there is a smooth chart $(U, \phi)$, $\hat{U} = \phi(U)$ such that $p \in U$ and $\hat{f} = f \circ \phi^{-1}: \hat{U} \to \R^n$. 
 \end{definition}
 We denote $C^\infty(M) : \{f: M \to \R^m \text{ smooth}\}$.
 \begin{lemma} If $f$ is smooth, then for any smooth chart $(V, \psi)$, the coordinate representation $f \circ \psi^{-1}: \psi(V) \to \R^n$ is smooth.
 \end{lemma}
-\begin{proof}
+\subsection{Smooth Maps between Manifolds}
+Suppose we have $M^m, N^n$ smooth manifolds (with boundary) and take $F: M \to N$.
+\begin{definition} $F$ is called smooth if for any $p \in M$ there are smooth charts $(U, \phi)$ of $M$ and $(V, \psi)$ of $N$ such that $p\in U$, $F(U) \subset V$ and $\psi \circ F \circ \phi^{-1}$ is smooth.
+\end{definition}
+\pagebreak
+\section{February 2nd, 2021}
+\subsection{Partitions of Unity}
+We begin with a motivating example.  Let $f_+(x) = x, f_-(x) = -x$.  We wish to find $f \in C^\infty(\R)$ such that $f = f_-$ on $(-\infty, -1)$ and $f = f_+$ on $(1, \infty)$.  To solve this, we use a cutoff function $\psi_- \in C^\infty(\R)$ where $\psi_-(x) = 1$ when $x < -1$, $\psi_-(x) = 0$ on $x \ge 1$ and $0 \le \psi_- \le 1$.  We then set $f = \psi_- f_- + \psi_+f_+$ where $\psi_+ = 1 - \psi_-$.
 
+In summary, $\psi_- + \psi_1 \equiv 1$ and $\supp \psi_- \subset (-\infty, 1), \supp \psi_+ \subset (-1, \infty)$.  We say that $\psi_-, \psi_+$ form a partition of unity subordinate to the cover $\{(-\infty, 1), (-1, \infty)\}$.
+
+\begin{definition} Let $\mc X = (X_\alpha)_{\alpha \in A}$ be an open cover of some topological space $X$.  A partition of unity subordinate to $\mc X$ is a family $(\psi_\alpha)_{\alpha \in A}$ of continuous maps on $\psi_\alpha: X \to \R$ such that $0 \le \psi_\alpha \le 1$, $\supp \psi_\alpha \subset X_\alpha$, $(\supp \psi_\alpha)_{\alpha \in A}$ is locally finite, and $\sum_{\alpha \in A} \psi_\alpha(x) = 1$ for all $x \in X$.
+\end{definition}
+
+Note that $X = \bigcup_{\alpha \in A} \supp \psi_\alpha$. 
+\begin{thm} For every open cover $\mc X$ of a smooth manifold $M$, there is a smooth partition of unity subordinate to $\mc X$.
+\end{thm}
+\begin{proof}
+An open subset $B \subset M$ is called a regular coordinate ball if there is a smooth chart $(U, \phi)$ such that $\phi(U) = B_{r'}(0)$, $\phi(B) = B_r(0)$ where $0 < r < r'$.  
+\begin{lemma} For every regular coordinate ball, $B \subset M$ there is $f \in C^\infty(M)$ such that $f \ge 0$ and $\{f > 0\} = B$.
+\end{lemma}
+\begin{proof}
+There exists $H(r) \in C^{\infty}(\R^n)$ such that $H \ge 0$ and $\{H > 0\} = B_r(0)$.  We set $f = 1_U \cdot H \circ \phi$. 
 \end{proof}
+
+It is enough to construct smooth functions $(\widetilde{\psi}_\alpha)_{\alpha \in A}$ on $M$ such that $\tilde{\psi}_\alpha \ge 0$, $\supp \tilde{\psi}_\alpha \subset X_\alpha$, $(\{\tilde{\psi}_\alpha > 0\})$ is locally finite, and $\bigcup_{\alpha \in A} \{\tilde{\psi_\alpha} > 0\} = M$. If so, we simply define $$\psi_\alpha = \frac{\tilde{\psi_\alpha}}{\sum_{\alpha \in A} \tilde{\psi_\alpha}}.$$
+\end{proof}
+
+For anyone that may be reading this, I found this part of lecture extraordinarily boring and left.  Read the Lee Ch. 2 section on Partitions of Unity.
 
 \end{document}

@@ -12,4 +12,7 @@
 \contentsline {subsection}{\numberline {4.1}Construction of Smooth Manifolds}{11}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Grassmannian Manifolds}{11}{subsection.4.2}% 
 \contentsline {subsection}{\numberline {4.3}Manifolds with Boundary}{11}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Smooth Maps}{12}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.4}2. Smooth Maps}{12}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.5}Smooth Maps between Manifolds}{12}{subsection.4.5}% 
+\contentsline {section}{\numberline {5}February 2nd, 2021}{13}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Partitions of Unity}{13}{subsection.5.1}% 

@@ -116,18 +116,18 @@ $$\text{Re }f(z_0) = \sup_{z \in \Omega} \text{Re }f(z),$$
 implies that $f$
  is constant.   We have the same result for $\text{Im }f$ by replacing $f$ with $-if$.  
  
- \subsection{Homework I }
-Show the Automorphisms of the unit disk are fractional linear transformations.
-\begin{proof}
-Following the hint, define $h = g \circ f$.  Note that $h: \{|z| < 1\} \to \{|z| < 1\}$ is a holomorphic bijection as a composition of holomorphic bijections.  Furthermore, note that $$h(0) = \frac{f(0) - z_0}{1 - \ol{z_0} f(0)} = \frac{z_0 - z_0}{1 - \ol{z_0} f(0)} = 0.$$
-
-Note that we can apply the Schwarz lemma to $h$ and $h^{-1}$ since the ranges of both functions are $\{|z| < 1\}$.  It follows that $|h'(0)| \le 1$ and 
-$$1 \ge |(h^{-1})'(0)| = \left |\frac{1}{h'(h^{-1}(0))}\right | = \left |\frac{1}{h'(0)}\right |.$$
-It follows that $|h'(0)| = 1$, so by the equality case of the Schwarz lemma, $h(z) = cz$ for some $c \in \C$.
-
-It follows that $$h(z) = \frac{f(z) -z_0}{1 - \ol{z_0} f(z)} = cz \Rightarrow f(z) = \frac{z_0 + cz}{1 + c\ol{z_0}z} = \frac{a + bz}{c + dz}$$
-for $a, b, c, d \in \C$.
-\end{proof}
+% \subsection{Homework I }
+%Show the Automorphisms of the unit disk are fractional linear transformations.
+%\begin{proof}
+%Following the hint, define $h = g \circ f$.  Note that $h: \{|z| < 1\} \to \{|z| < 1\}$ is a holomorphic bijection as a composition of holomorphic bijections.  Furthermore, note that $$h(0) = \frac{f(0) - z_0}{1 - \ol{z_0} f(0)} = \frac{z_0 - z_0}{1 - \ol{z_0} f(0)} = 0.$$
+%
+%Note that we can apply the Schwarz lemma to $h$ and $h^{-1}$ since the ranges of both functions are $\{|z| < 1\}$.  It follows that $|h'(0)| \le 1$ and 
+%$$1 \ge |(h^{-1})'(0)| = \left |\frac{1}{h'(h^{-1}(0))}\right | = \left |\frac{1}{h'(0)}\right |.$$
+%It follows that $|h'(0)| = 1$, so by the equality case of the Schwarz lemma, $h(z) = cz$ for some $c \in \C$.
+%
+%It follows that $$h(z) = \frac{f(z) -z_0}{1 - \ol{z_0} f(z)} = cz \Rightarrow f(z) = \frac{z_0 + cz}{1 + c\ol{z_0}z} = \frac{a + bz}{c + dz}$$
+%for $a, b, c, d \in \C$.
+%\end{proof}
 \pagebreak
 \section{January 25th, 2021}
 \subsection{Uniform Convergence}
@@ -265,7 +265,7 @@ We can also ask about the fixed point: $$T_gp(\xi) = p(\xi) \leftrightarrow p(\x
  g\xi = \lambda \xi\,\, ,\lambda \in C^\times$$
  It follows that the fixed points of $T_g$ correspond to the eigenvectors of $GL(2, \C)$.
  
-\subsection{FLT, Unit Disk}
+\subsection{Fractional Linear Transformations, Unit Disk}
 If we have $\xi = \binom{z_1}{z_2}$, then $p(\xi) \in \mathbb D$ if and only if $|z_1| < |z_2|$ if and only if $z_1 \ol{z_1} - z_2 \ol{z_2} < 0$.  If we let $$J = \begin{pmatrix}
 1, 0\\
 0, -1
@@ -283,5 +283,89 @@ $$\langle g^* Jg \xi, \xi\rangle = \langle J\xi, \xi\rangle$$
 so it follows that $g^*Jg = J$.  (We prove this by transforming $\xi$ in polar coordinates, $\xi = x + i^k y$, and considering $k = 0, 1, 2, 3$.  These four equations allow us to determine the equality).  Note that $U(1, 1) = \{g : g^* J g = J\}$ forms a group structure where $J$ has eigenvalues $\pm 1$  for this reason, we denote $U(1, 1) \subset GL_2(\C)$.
 
 We claim the following: $T_g \in \text{Aut}(\mathbb D) \Leftrightarrow g \in C^\times \cdot U(1, 1)$.
+%\subsection{Homework II}
+%Show that the series $\zeta(z) = \sum_{n=1}^\infty n^{-z}$ converges uniformly on compact subsets of $\{z \in \C : \text{Re}(z) > 1\}$.
+%\begin{proof}
+%Let $D \subset \subset \{z \in \C : \text{Re}(z) > 1\}$.  Note that $D \subset H = \{z \in \C : \text{Re}(z) \ge c\}$ for some $c > 1$, so it suffices to show that the series is uniformly convergent on $H$.  
+%
+%Note that $$|n^{-z}| = |e^{-z \log n}| |e^{-\text{Re}(z)\log n - i\text{Im}(z) \log n}| = e^{-\text{Re}(z)\log n}| \le |e^{-c\log n}| = n^{-c}.$$
+%
+%Note that $\sum_{n=1}^{\infty} n^{-c} < \infty$ since $c > 1$, so it follows that $\zeta(z)$ converges uniformly on $H$ (and hence $D$) by the Weierstrass M-test.
+%\end{proof}
 
- \end{document}
+\pagebreak
+\section{February 3rd, 2021}
+\subsection{Remark on the Zeta Function}
+\begin{theorem}[S.M. Voronin 1975] For $D = \{\frac{1}{2} < \text{Re}(z) < 1\}$, $f : D \to \C \setminus \{0\}$.  If $K \subset \subset D$ and $\epsilon > 0$, then there exists $t \in \R$ such that 
+$$\|f(\cdot) - \zeta(\cdot + it) \|_K < \epsilon.$$
+\end{theorem}
+
+This theorem essentially says that if I slide around the zeta function in the strip $D$, I can uniformly approximate pretty much any function I want.  
+
+\subsection{Fractional Linear Transformations, continued}
+Note that $\text{Ker}(g \mapsto T_g) = C^\times I_2$.  We define $SL(2; C) = \{g \in GL(2; \C) : \det g = 1\}$, the special linear group.  
+
+\begin{theorem} For $g \in SL(2; C)$, $T_g \in \text{Aut}(\mathbb D)$ if and only if $g \in U(1, 1)$.
+\end{theorem}
+\begin{proof}
+We start with the forward direction.  From the first homework, we showed that $f \in \text{Aut}(\mathbb D)$ implies that $f(z) = T_g z$ where $g$ is the composition of a rotation $g_1$ and $g_2 = \begin{pmatrix}
+1 & z_0 \\
+\ol{z_0} & 1
+\end{pmatrix}$ for $z_0 \in \mathbb D$.  It suffices to check that $g_1, g_2 \in U(1, 1) \times \C^\times I_2$.  This is easy to check.  
+
+Now, we show the converse.  If $g \in U(1, 1)$, then $g^{-1} \in U(1, 1)$.  If $z \in \mathbb D$, then $z = p(\xi), \langle J\xi, \xi\rangle < 0$.  We have $T_gz = p(g\ xi)$ and $\langle J\xi, \xi \rangle < 0$ implies that $\langle g^* j g\xi, \xi \rangle < 0$, which implies that $\langle Jg \xi, g\xi \rangle < 0$, which shows that $T_g z = p(g\xi) \in \mathbb D$.  Hence $T_g \mathbb D \subset \mathbb D$.  The same argument holds for $T_g^{-1} \mathbb D \subset \mathbb D$  so we have $T_g \mathbb D = \mathbb D$ exactly, so $T_g = \text{Aut}(\mathbb D)$.
+\end{proof}
+
+\subsection{Automorphisms of the Half Plane}
+There is a conformal map from $\mathbb H_+ \to \mathbb D$ given by $f: z \mapsto \frac{z-i}{z+i}$.  This corresponds to $$f = \begin{pmatrix}
+1 & -i \\
+1 & i
+\end{pmatrix}.$$  Note that $$f^{-1} = \frac{1}{2}\begin{pmatrix}
+1 & 1 \\
+i & -i
+\end{pmatrix}.$$
+
+Now, $\text{Aut}(\mathbb H_+) = \{(T_f)^{-1} T_g T_f | T_g \in \text{Aut}(\mathbb D)\} = \{T_{f^{-1}g f} | g \in SU(1, 1)\}$.  it follows that $\text{Aut}(\mathbb H_+) = \{T_h | f h f^{-1} \in SU(1, 1)\}$(assuming $h \in SL(2, \C)$, $fhf^{-1} \in SL(2, \C)$).  It follows that $(fhf^{-1})^* J (fhf^{-1}) = J$, so $h^* (f^* J f) h = f^* J f$.  We can compute $$f^* J f =  \begin{pmatrix}
+0 & -2i \\
+2i & 0  
+\end{pmatrix}.$$ 
+
+It follows that 
+$$h^* \begin{pmatrix}
+0 & -1 \\
+1 & 0  
+\end{pmatrix}h = \begin{pmatrix}
+0 & -1 \\
+1 & 0  
+\end{pmatrix}.$$
+
+If we let $h = \begin{pmatrix}
+a & b \\
+c & d 
+\end{pmatrix}$,
+then 
+$$\begin{pmatrix}
+0 & -1 \\
+1 & 0  
+\end{pmatrix} h^* \begin{pmatrix}
+0 & -1 \\
+1 & 0  
+\end{pmatrix} h = I_2.$$
+
+If we check the computation, we find that $a, b, c, d \in \R$, so it follows that $h \in SL(2, \R)$. 
+
+\subsection{The Cross Ratio}
+Note that $T_g$ is completely determined by $T_g 0, T_g 1, T_g \infty$.   Suppose $T_g 0 = T_h 0$, $T_g 1 =T_h 1$, $T_g\infty = T_h \infty$.  If we let $r = g^{-1} h$, we have $T_r 0 = 0, T_r 1 = 1, T_r \infty = \infty$, so it follows that $r \in C^\times I_2$ (carry out the matrix multiplication for an arbitrary matrix).
+
+if we look at $g^{-1}$ instead of $g$, we find that $T_g$ is completely determined by $a, b, c \in C \cup \infty$ so that $Ta = 1, T b = 0, T c = \infty$.    Given, $a, b, c$, such a $T_g$ is the map
+$$z \mapsto \frac{z - b}{z - c}: \frac{a - b}{a - c}.$$
+
+We denote the RHS by $(z, a, b, c)$, which is a fractional linear map taking $a, b, c$ to $1, 0, \infty$.  This is called the cross ratio of $z, a, b, c$.  
+
+\begin{theorem}
+If $T_g$ is a fractional linear transformation and $z_1, z_2, z_3, z_4$ are distinct points in $\C \cup \infty$, then
+$$(z_1, z_2, z_3, z_4) = (T_g z_1, T_g z_2, T_g z_3, T_g z_4).$$
+\end{theorem}
+\begin{remark} The above theorem shows that cross ratios are invariant under fractional linear transformations.  
+\end{remark}
+\end{document}

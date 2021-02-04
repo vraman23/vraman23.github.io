@@ -300,7 +300,7 @@ Given a Banach space $B$, we have the dual space $B^* = \{\text{linear } u:  B \
 
 \begin{thm}[Banach-Alaoglu] Suppose $\|u_n\|_{B^*} \le M$.  Then, there exists a subsequence $u_{n_k}$ and $u \in B^*$ such that for all $x \in B$, $u_{n_k}(x) \to u(x)$.  
 \end{thm}
-
+\subsection{Rellich-Kondrachov}
 \begin{thm}[Rellich-Kondrachov] If $U \Subset \R^n$, $\partial U \in C^1$, then for $1 \le q < p^*$, $L^q(U) \supset W^{1, p}(U)$ is a compact inclusion.
 \end{thm}
 \begin{proof}
@@ -332,5 +332,75 @@ $$\|u\|_2^2 = \int |u(x)|^2\,dx = \frac{1}{2\pi}^n \sum_{n \in \Z^n} |\hat{u}(m)
 For $u \in H^1(\R^n)$ and $\supp u \subset B(0, 1)$, then $u \in L^2$ and $\partial^\alpha u \in L^2$, for all $|\alpha| = 1$, 
 $$\|\partial^\alpha u\|_{L^2}^2 = (2\pi)^n \sum_{ m \in \Z^n} |\hat{\partial^\alpha u}(m)|^2 = (2\pi)^{-n} \sum_{m \in \Z^n} |m^\alpha\hat{u}(m)|^2.$$
 Claim: Under these assumptions, $\|u\|_{H^1}^2 = \Theta( \sum_{m \in \Z^n} \<m\>^2 |\hat{u}(m)|^2)$
+\end{proof}
+
+\pagebreak
+\section{February 2nd, 2021}
+Recall the following:
+\begin{itemize}
+\item GNS inequality: For $U \Subset \R^n$, $\partial U \in C^1$, $1 \le p < n$, $p^* = \frac{np}{n-p} >p$,
+$$\|u\_{p^*} \le C(\|u\|_p + \|\grad u\|_p).$$
+\item R-K Theorem: For $1 \le p < n$, $1 \le q < p^*$, $$W^{1, p}(U) \subset L^q(U)$$
+is compact: If we have $\{u_n\}\subset W^{1, p}(U)$ and $\|u_n\|_{W^{1, p}} \le C$, there exists a subsequence $u_{n_k}$, $u \in L^q$ such that $\|u_{n_k} - u\|_{q} \to 0$.
+\end{itemize} 
+
+\subsection{Rellich-Kondrachov, continued}
+Last time, we considered the special case of $\{u_n\} \subset H^1(\R^n)$ such that $\supp u_n \subset B(0, R)$ and $\|u_n\|_{H^1} \le C$, which implies that there exists a subsequence $u_{n_k}$ and $u \in L^2(\R^n)$ such that $\|u_n-u\|_{L^2} \to 0$.  We continue the proof of the special case. 
+
+\begin{proof}
+Recall that we showed that if $u \in C_0^\infty((-\pi, \pi)^n)$, we can write $u(x) = (2\pi)^{-n} \sum \hat{u}(n) e^{in \cdot x}$.  Then
+$$\int u(x)\ol{v(x)}\,dx = \frac{1}{(2\pi)^n}\sum \hat{u}(n) \ol{\hat{v}(n)}$$
+and 
+$$\int |\grad u(x)|^2\,dx = \frac{1}{(2\pi)^n} \sum |n|^2 |\hat{u}(n)|^2.$$
+
+For $u \in H^1$ with $\supp u \in B(0, 1)$, $$\|u\|_{H^1}^2 = \frac{1}{(2\pi)^n} \sum \<n\>^2 |\hat{u}(n)|^2.$$
+
+
+$$\|u_n\|_{H^1}^2 = \sum_{\ell \in \Z^n} \<\ell\>^2 |\hat{u_n}(\ell)|^2 \le C.$$
+$$\|v\|_{L^2}^2 = \sum_{\ell \in \Z^n} |\hat{v}(\ell)|^2.$$
+We want to show that there exists $n_k$ such that $\|u_{n_k} - u_{n_p}\|_{L^2} \to 0$ as $k, p \to \infty$.
+
+We introduce an operator $\Pi_p u(x) = (2\pi)^{-n}\sum_{|\ell| \le p} \hat{u}(\ell) e^{i\ell \cdot x}$.  We can think of $\Pi_p: L^2([-\pi, \pi]^n) \to \C^{N_p}.$
+$N^p$ can be found through combinatorial methods(left as an exercise)[should be $\binom{n+p}{p}$ or something like that].
+
+We have the following estimate:
+$$\|(I - \Pi_p)u\|_2 \le \<p\>^{-2} \|u\|_{H^1}^2.$$
+This is because
+ $$(2\pi)^{-n}\sum_{|\ell| > p} |\hat{u}(\ell)|^2 = (2\pi)^{-n}\sum_{|\ell| > p} \<\ell\>^{-2}\<\ell\>^{2}|\hat{u}(\ell)|^2\le \<p\>^{-2} \|u\|_{H^1}^2.$$
+ 
+Now, we find the Cauchy subsequence.  
+\begin{enumerate}
+\item For all $p$, we have $\|\Pi_p u_n\|_{\C^{N_p}} \le \|u_n\|_2 \le \|u_n\|_{H^1} \le C$.  Then $\{|z| \le C\} \subset \C^{N_p}$ is compact.  It follows that we can choose subsequences $\{n_k^{p+1}\}\subset \{u_{k}^p\}$ such that $\Pi_p u_k^p$ converges and $\limsup_{k, \ell} \|u_{k}^p - u_\ell^p\| \le C\<p\>^{-2}$, which follows from the triangle inequality.   [let $u_a^b = u_{n_a^b}$]
+\item We choose $n_k = n_k^k$.  It follows that $\limsup_{k, \ell \to \infty} \|u_{n_k} -u_{n_\ell}\|_2 = 0$, since 
+\end{enumerate}
+\end{proof}
+\subsection{Morrey's Inequality}
+\begin{thm}[Morrey's Inequality]  Suppose $u \in L^p(\R^n), \grad u \in L^p(\R^n)$ and $n < p \le \infty$.  Then there exists $u^* \in C^{0, \gamma}(\R^n)$, with $\gamma = 1 - \frac{n}{p}$ such that $u = u^*$ almost everywhere and $\|u^*\|_{C^0, \gamma} \le \|u\|_p + \|\grad u\|_{p}$.
+\end{thm}
+\begin{remark}
+Recall $$\|u\|_{C^{0, \gamma}} = \sup |u(x)| + \sup_{x \ne y} \frac{|u(x)- u(y)|}{|x - y|^\gamma}.$$
+\end{remark}
+
+\begin{proof}
+We use the Littlewood-Paley Decomposition.  
+\begin{lemma}[Dyadic Partitions of Identity]  There exists a function $\psi_0 \in C_c^\infty(\R), \psi \in C_c^\infty(\R \setminus \{0\})$ such that $$\psi_0(\xi) + \sum_{j=0}^\infty \psi(2^{-j}|\xi|) = 1.$$
+\end{lemma}
+\begin{proof}
+Choose $\phi_0 \in C_c^\infty((-1, 1))$ with $0 \le \psi_0 \le 1$ and $\phi_0(p) = 1$, $|p| \le 1/2$.  
+
+Choose a new function $$\phi_1(p) = \sum_{j \in \Z} \phi_0(p - j) \ge 1.$$
+Note that $\phi_1(p - k) = \phi_1(p)$ for $k \in \Z$.  Choose $\phi(p) = \frac{\phi_0(p)}{\phi_1(p)}.$
+
+Then
+$$\sum_{j \in \R} \phi(p - j) = \sum \frac{\phi_0(p - j)}{\phi_1(p - j)} = \frac{1}{\phi_1(p)} \sum \phi_0(p -j) = 1.$$
+
+Define $\psi(r) = \phi(\frac{\log r}{\log 2})$ for positive $r$.  Notice that $\psi \in C_c^\infty((0, \infty)).$  This gives that 
+$$\sum_{j \in \Z} \psi(2^{-j} r) = 1.$$
+
+Define $\psi_0(r) = 1 - \sum_{j = 0}^\infty \psi(2^{-j} r)$.  Note that $\psi_0(r) = 1$ for $r < 1/2$ and $\psi_0(r) = 0$ for $r > 1$.  It follows that $\psi_0$ and $\psi$ satisfy the conditions. 
+\end{proof}
+We can extend the Dyadic Partitions of Identity in $\R^n$ in the natural way.  We then define the Littlewood-Paley Decomposition as 
+$$u = \psi_0(D) u + \sum_{j=1}^\infty \psi(2^{-j} D)u$$
+where for $a \in L^\infty(\R^n)$, $a(D)u = \mc F^{-1}(a(\xi)\hat{u}(\xi))$ where $D_x = 1/i \partial_x$ and $\hat{Du} = \xi \hat{u}$.
 \end{proof}
  \end{document}

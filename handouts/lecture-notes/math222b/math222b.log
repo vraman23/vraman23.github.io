@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  28 JAN 2021 15:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  2 FEB 2021 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1625,6 +1625,26 @@ text indent by \l@... (toc, 2):  27.02475pt
 number indent by parent (toc, 2):  13.20007pt
 text indent calculated (toc, 2): 20.88867pt
 number indent calculated (toc, 2): 13.20007pt
+number indent by \l@... (toc, 2):  17.62482pt
+text indent by \l@... (toc, 2):  27.02475pt
+number indent by parent (toc, 2):  13.20007pt
+text indent calculated (toc, 2): 20.88867pt
+number indent calculated (toc, 2): 13.20007pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  17.62482pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 13.20007pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  17.62482pt
+text indent by \l@... (toc, 2):  27.02475pt
+number indent by parent (toc, 2):  13.20007pt
+text indent calculated (toc, 2): 20.88867pt
+number indent calculated (toc, 2): 13.20007pt
+number indent by \l@... (toc, 2):  17.62482pt
+text indent by \l@... (toc, 2):  27.02475pt
+number indent by parent (toc, 2):  13.20007pt
+text indent calculated (toc, 2): 20.88867pt
+number indent calculated (toc, 2): 13.20007pt
 )
 \tf@toc=\write7
 \openout7 = `math222b.toc'.
@@ -1737,23 +1757,49 @@ L/cmm/m/it/12 k\OT1/cmr/m/n/12 (-20) )[] =
  []
 
 [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 336.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 336.
+Overfull \hbox (28.36737pt too wide) in paragraph at lines 351--352
+[]\OT1/cmr/m/n/12 (-20) Recall that we showed that if $\OML/cmm/m/it/12 u \OMS/
+cmsy/m/n/12 2 \OML/cmm/m/it/12 C[]\OT1/cmr/m/n/12 (-20) ((\OMS/cmsy/m/n/12 ^^@\
+OML/cmm/m/it/12 ^^Y; ^^Y\OT1/cmr/m/n/12 (-20) )[])$, we can write $\OML/cmm/m/i
+t/12 u\OT1/cmr/m/n/12 (-20) (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (-20) ) = (2\OML
+/cmm/m/it/12 ^^Y\OT1/cmr/m/n/12 (-20) )[] [] [](\OML/cmm/m/it/12 n\OT1/cmr/m/n/
+12 (-20) )\OML/cmm/m/it/12 e[]$\OT1/cmr/m/n/12 (-20) .
+ []
+
+[12]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 378.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 381.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 386.
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
+line 386.
+ [13] [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 406.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 406.
  (./math222b.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 336.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 336.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 406.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 406.
 Package rerunfilecheck Info: File `math222b.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 336.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 406.
  ) 
 Here is how much of TeX's memory you used:
- 39201 strings out of 492616
- 771056 string characters out of 6129482
- 991578 words of memory out of 5000000
- 42456 multiletter control sequences out of 15000+600000
- 548516 words of font info for 109 fonts, out of 8000000 for 9000
+ 39234 strings out of 492616
+ 771527 string characters out of 6129482
+ 992719 words of memory out of 5000000
+ 42472 multiletter control sequences out of 15000+600000
+ 548565 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,21n,91p,9110b,1120s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,21n,91p,9110b,1180s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1777,10 +1823,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 ive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb>
-Output written on math222b.pdf (11 pages, 273278 bytes).
+Output written on math222b.pdf (14 pages, 289059 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 247 compressed objects within 3 object streams
- 75 named destinations out of 1000 (max. 500000)
- 20685 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 20717 words of extra memory for PDF output out of 20736 (max. 10000000)
 
