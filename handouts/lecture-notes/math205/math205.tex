@@ -368,4 +368,49 @@ $$(z_1, z_2, z_3, z_4) = (T_g z_1, T_g z_2, T_g z_3, T_g z_4).$$
 \end{theorem}
 \begin{remark} The above theorem shows that cross ratios are invariant under fractional linear transformations.  
 \end{remark}
+
+\pagebreak
+\section{February 8th, 2021}
+\subsection{Mappings of Circles and Lines}
+\begin{lemma} For $g \in GL_2(\C)$, $\{w \in \C\cup \{\infty\} : T_g w \in \R \cup \{\infty\}\}$ is a circle or a straight line with a point at infinity.
+\end{lemma}
+\begin{proof}
+$$\frac{aw + b}{cw + d} = \frac{\ol{aw + b}}{\ol{cw + d}},$$
+Then $(a\ol c - c\ol a) |w|^2 + (a\ol d - c \ol b) w + (b\ol c - d\ol a) \ol w + b\ol d - d\ol b = 0.$  If $a\ol c - c \ol a = 0$, then we have a straight line.  If $a\ol c - c \ol a \ne 0$, we have 
+$$\left |w + \frac{\ol a d - \ol c b}{\ol a c - \ol c a} \right | = \left |\frac{ad - bc}{\ol a c - \ol c a}\right |,$$
+ a circle.
+\end{proof}
+
+\subsection{Revisiting the Schwarz Lemma}
+Recall we have $f \in \text{Aut}(\mathbb D)$, with $f(0) = 0$.  We will use the fractional linear transformations so that $0 \in \mathbb D$ no longer has a special role.  
+
+Given $f: \mathbb D \to \mathbb D$ holomorphic with $z_0 \in \mathbb D$.  Take an automorphism mapping $0 \to z_0$ given by $\frac{\cdot + z_0}{1 + \ol z_0 (\cdot)}$.  Then, applying $f$ and applying $(\frac{\cdot + f(z_0)}{1 + \ol f(z_0) (\cdot)})^{-1}$, which sends $f(z_0) \to 0$.  These are all holomorphic, so it follows that the composition is a holomoprhism from $\mathbb D \to \mathbb D$ mapping $0 \to 0$.  Now, we can apply the Schwarz Lemma as usual:  For the derivatives, we use the chain rule:
+$$\left (\frac{\cdot + z_0}{1 + \ol z_0 (\cdot)}\right )'\vert_{z = 0} = 1 - |a|^2.$$
+Composing the derivatives along the composition, we find the derivative evaluated at $0$ which we require to be $\le 1$.
+
+It follows that 
+$$\frac{|f'(z_0)|}{1 - |f(z_0)|^2} \le \frac{1}{1 - |z_0|^2}.$$
+
+Moreover, by the Schwarz Lemma, we have equality if and only if $f \in \text{Aut}(\mathbb D)$.  if we put $w = f(z)$, then $dw = f' dz$ and the inequality is 
+$$\frac{|dw|}{1 - |w|^2} \le \frac{dz}{1 - |z|^2}.$$
+This can be interpreted as having on $\mathbb D$ the Riemannian metric 
+$$\frac{dx^2 + dy^2}{(1 - (x^2 + y^2))^2}$$
+and $f: \mathbb D \to \mathbb D$, contracting the metric.
+
+\subsection{Functions on Simply Connected Regions}
+Recall the following properties of holomorphic functions in simply connected regions:  
+\begin{itemize}
+\item For $f : \Omega \to \C$ holomoprhic, then there is $F: \Omega \to \C$ holomorphic so that $F' = f$.  
+\item $f : \Omega \to \C \setminus \{0\}$, then there exists $g: \Omega \to \C$ holomorphic so that $e^g = f$.  
+\item $f: \Omega \to \C \setminus \{0\}$ holomorphic, then there exists $g : \Omega \to \C$ so that $h^n = f$.
+\item $f: \Omega \to \C$ holomorphic and non-constant, $\Omega$ a region, then $f(V)$ is open if $V \subset \Omega$, $V$ is open.  
+\end{itemize}
+
+\subsection{Injective Functions}
+Let $f: \Omega \to G$ be a holomorphic function with $\Omega$ open and connected. If $f$ is injective, then $f'(z) \ne 0$.  If so, then $f(z) - f(z_0) = u (z)^n$ if $0 = f'(z_0) = \dots, f^{n-1}(z_0)$ and $f^{(n)}(z_0) \ne 0$, with $u(z_0) = 0$.  Then $u(\{|z - z_0| < \epsilon\})$ is open for some $\epsilon > 0$ so it contains $\{|\zeta| < \delta\}$ for some $\delta > 0$.  It follows that $U(z_k) = \frac{\delta}{z} e^{2\pi i k /n}$ for $1 \le k \le n$ and $f(z_1) = \dots = f(z_n)$.  We could also use the argument principle to show that $f'(z) \ne 0$.
+
+Then, $f(\Omega)$ is open and $f$ has local inverses: for each $z \in \Omega$, there is a neighborhood $V_z
+$, where $f$ is a holomorphic isomorphism in the region.  It follows that $f: \Omega \to G$ is holomoprhic, injective, then $ f\vert f(\Omega): \Omega \to f(\Omega)$ is a holomorphic isomorphism.  
+
+If $\Omega$ is an open region so that $f: \Omega \to \mathbb D$ is a holomorphic isomorphism, then if fix $z_0 \in \Omega$, we have $g \in \text{Iso}(\Omega, \mathbb D) \to (g(z_0), \frac{g'(z_0)}{|g'(z_0)|}) \in \mathbb D \times \{|z| = 1\}$ is a bijection.
 \end{document}

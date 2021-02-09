@@ -403,4 +403,63 @@ We can extend the Dyadic Partitions of Identity in $\R^n$ in the natural way.  W
 $$u = \psi_0(D) u + \sum_{j=1}^\infty \psi(2^{-j} D)u$$
 where for $a \in L^\infty(\R^n)$, $a(D)u = \mc F^{-1}(a(\xi)\hat{u}(\xi))$ where $D_x = 1/i \partial_x$ and $\hat{Du} = \xi \hat{u}$.
 \end{proof}
+\pagebreak
+\section{February 4th, 2021}
+\subsection{Morrey's Inequality, continued}
+Recall the statement of the theorem.
+\begin{thm}[Morrey's Inequality]  Suppose $u \in L^p(\R^n), \grad u \in L^p(\R^n)$ and $n < p \le \infty$.  Then there exists $u^* \in C^{0, \gamma}(\R^n)$, with $\gamma = 1 - \frac{n}{p}$ such that $u = u^*$ almost everywhere and $\|u^*\|_{C^0, \gamma} \le \|u\|_p + \|\grad u\|_{p}$.
+\end{thm}
+\begin{proof}
+Recall for $u \in \mc S(\R)$, $\hat{D_{x_j} u}(\xi) = \xi_j \hat{u}(\xi)$ where $D_{x_j} = \frac{1}{i} \partial_{x_j}$.  
+
+We define a \textbf{Fourier multipler} $a \in L^\infty(\R^n)$ so that $a(D)u = \mc{F}^{-1}(a(\xi) \hat{u}(\xi))$ for $u \in \mc S$.   Note that for $a \in L^\infty$, $\|a(D)u\|_{L^2} \le \sup |a| \|u\|_{L^2}$.  For $\psi \in \mc S(\R^n)$, if we take $u \in \mc S'$, then $\psi(D) u \in \mc S'$ , and $\psi(\xi) \hat{u}(\xi) \in \mc S'$.
+
+Recall the Littlewood - Paley Decomposition. We had a lemma: there exists $\psi_0 \in C_c^\infty(\R)$ and $\psi \in C_c^\infty(\R \setminus \{0\})$ such that for all $\xi \in \R^n$, 
+$$\psi_0(|\xi|) + \sum_{j=0}^\infty \psi(2^{-j} |\xi|) = 1.$$ 
+Slightly abusing notation, we will write $\psi_0(\xi) = \psi_0(|\xi|)$ and $\psi(\xi) = \psi(|\xi|)$.  
+
+The full L-P Decomposition is given as follows: given $u \in \mc S'$, $a = \psi_0(D) u + \sum_{j=1}^\infty \psi(2^{-j }D) u$.  We will write $h = 2^{-j}$ as a shorthand.
+\begin{lemma} Suppose $\chi \in C_c^\infty(\R^n)$.  Then for $u \in \mc S(\R^n)$, $\|\chi(hD)u\|_{L^\infty} \le C h^{-n/p} \|u\|_{L^p}$ 
+and $\|\chi(hD) u\|_{L^p} \le (2\pi)^{-n} \|\hat{\chi}\|_1 \|u\|_p$.
+\end{lemma}
+\begin{proof}
+
+
+Recall the following inequalities
+\begin{itemize}
+\item Holder's Inequality: $\|fg\|_1 \le \|f\|_p\|g\|_q$ for $1/p + 1/q = 1$ for $1 \le p \le \infty$.  
+\item Minkowski's Inequality: $\|f+g\|_p \le \|f\|_p + \|g\|_p$ and 
+$$\left \|\int F(x, t)\,dt \right \|_p \le \int \|F(\cdot, t)\|_p \,dt.$$
+\item Young's inequality: $\|f * g\|_p \le \|f\|_1 \|g\|_p$.
+\end{itemize}
+We have 
+
+\begin{align*}
+\chi(hD)u(x) &= \mc F^{-1}(\chi(h\xi) \hat{u}(\xi)) = (2\pi)^{-n} \iint e^{i(x-y)\xi}\chi(h\xi) u(y)dyd\xi \\
+&= (2\pi h)^{-n} \int \hat{\chi}\left (\frac{x-y}{h}\right ) u(y)\,dy \\
+&\le (2\pi h)^{-n} \frac{C}{h^n} \|\hat{\chi}(\cdot /h)\|_q \|u\|_p
+\end{align*}
+Then,
+$$\|\hat{\chi}(\cdot /h)\|_q = \left (\int |\hat{\chi} (y/h)|^q \,dy\right )^{1/q} = h^{n/q} \|\hat{\chi}\|_q.$$
+It follows that 
+$$|\chi(hD)u(x) | \le C h^{-n + n/q} \|u\|_p = C h^{-n/p} \|u\|_p.$$
+
+For the second inequality, note that $\chi(hD)u(x) = (2\pi h)^{n} \hat{\chi}(\cdot/h) * u$.  Applying Young's Inequality,
+$$\| \chi(hD) u\|_p \le \frac{1}{(2\pi h)^n}\|\hat{\chi}(\cdot/h)\|_1\|u\|_p \le \frac{1}{(2\pi)^n} \|\hat{\chi}\|_1 \|u\|_p.$$
+\end{proof}
+\begin{theorem} For $u \in L^p$, $1\le p \le \infty$, $u \in C^{0, \gamma}(\R^n)$ if and only if for every $\chi \in C_c^\infty(\R^n \setminus 0)$, $\|\chi(hD) u\|_\infty \le C h^{\gamma}$.
+\end{theorem}
+\begin{proof} We start with the forward direction.  Note that 
+\begin{align*}
+\chi(hD) u(x) &= \frac{1}{(2\pi h)^n} \int \hat{\chi}((x - y)/h) u(y) \,dy \\
+&= (2\pi )^{-n} \int \hat{\chi}(y)u(x - yh) \,dy \\
+&= (2\pi)^{-n}\int \hat{\chi}(y) (u(x - yh) - u(x))\,dy \\
+\end{align*}
+So it follows that 
+$$|\chi (hD) u(x)| \le C \|u\|_{C^{0, \gamma}} \int |\hat{\chi}(y)| (hy)^\gamma dy \le C \|u\|_{C^{0, \gamma}} h^{\gamma} \int |\hat{\chi}(y)| |y|^\gamma \,dy$$
+\end{proof}
+and the last integral is bounded since $\hat{\chi}$ is a Schwartz function, so it follows that $|\chi(hD)u(x)| \le C \|u\|_{C^{0, \gamma}} h^{\gamma}$.
+\end{proof}
+
+
  \end{document}
