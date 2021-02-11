@@ -16,3 +16,5 @@
 \contentsline {subsection}{\numberline {5.2}Morrey's Inequality}{13}{subsection.5.2}% 
 \contentsline {section}{\numberline {6}February 4th, 2021}{15}{section.6}% 
 \contentsline {subsection}{\numberline {6.1}Morrey's Inequality, continued}{15}{subsection.6.1}% 
+\contentsline {section}{\numberline {7}February 9th, 2021}{17}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Fourier Transform proof of Morrey's Inequality}{17}{subsection.7.1}% 

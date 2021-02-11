@@ -413,4 +413,59 @@ Then, $f(\Omega)$ is open and $f$ has local inverses: for each $z \in \Omega$, t
 $, where $f$ is a holomorphic isomorphism in the region.  It follows that $f: \Omega \to G$ is holomoprhic, injective, then $ f\vert f(\Omega): \Omega \to f(\Omega)$ is a holomorphic isomorphism.  
 
 If $\Omega$ is an open region so that $f: \Omega \to \mathbb D$ is a holomorphic isomorphism, then if fix $z_0 \in \Omega$, we have $g \in \text{Iso}(\Omega, \mathbb D) \to (g(z_0), \frac{g'(z_0)}{|g'(z_0)|}) \in \mathbb D \times \{|z| = 1\}$ is a bijection.
+\pagebreak
+\section{February 10th, 2021}
+\begin{lemma}If $\Omega$ is an open region so that $f: \Omega \to \mathbb D$ is a holomorphic isomorphism, then if fix $z_0 \in \Omega$, we have $g \in \text{Iso}(\Omega, \mathbb D) \to (g(z_0), \frac{g'(z_0)}{|g'(z_0)|}) \in \mathbb D \times \{|z| = 1\}$ is a bijection.
+\end{lemma}
+\begin{proof} We provide a sketch of the proof.  Replace $f$ with $$\left (\frac{\cdot - f(z_0}{1 - \ol{f(z_0) \cdot}}\right ) \circ f$$
+so that $f(z_0) = 0$.Then, $Iso(\Omega, \mathbb D) \ni g \to g \circ f^{-1} \in Aut(\mathbb D)$ is a bijection and 
+$$\left (g(z_0), \frac{g'(z_0)}{|g'(z_0)|}\right ) = \left ((g \circ f^{-1})(0), \frac{(g \circ f^{-1})'(0)}{|(g \circ f^{-1})'(0)|} \frac{f'(z_0)}{|f'(z_0)|}\right )$$  
+so the proof reduces to the case where $\Omega = \mathbb D$ and $z_0 = 0$.  It is easy to show that the map is onto and 1-1.
+\end{proof}
+
+\subsection{Riemann Mapping Theorem}
+\begin{thm}[Riemann Mapping Theorem] Suppose $\Omega$ is simply connected and $\Omega \ne \C$.  Then, there exists $f:\Omega \to \mathbb D$ a holomorphic isomorphism.  
+\end{thm}
+\begin{remark} There is no holomorphic isomorphism from $\mathbb D \to \C$ because of Liouville's Theorem.  
+\end{remark}
+\begin{proof}(Kobe) Let $z_0 \in \Omega$ and $\mc F = \{f : \Omega \to \mathbb D : f \text{ injective}, f(z_0) = 0, f'(z_0) > 0\}$.
+The steps are as follows:
+\begin{itemize}
+\item $\mc F \ne \emptyset$.
+\begin{proof}
+If $\Omega \ne \C$, there is a point $a \in \C \setminus \Omega$. If $\Omega$ is simply connected, there exists $h: \Omega \to \C$ holomorphic with $h^2(z) = z - a$.  Then $h(\Omega)$ is open and there exists $r$ such that $B_r(h(z_0)) \subset h(\Omega)$.    Then $h^2(\cdot) = \cdot - a$ is injective, so $h$ is injective.  Then $-B(h(z_0), r) \cap h(\omega)  = \emptyset$.  Otherwise, there are $z_1, z_2$ with $h(z_1) = -h(z_2) \ne 0$. Then, we have $z_1 \ne z_2$ and $h(z_1) = -h(z_2)$ which implies that $h^2(z_1) = h^2(z_2)$.
+
+Hence, $|h(z) - h(z_0)| \ge r$ for all $z \in \Omega$.  It we take $p = r/2 > 0$, then we have $|h(z) + h(z_0)| \ge p$.  Then, we find $c \in \C^\times$ so that 
+$$c \frac{h(z) - h(z_0)}{h(z) + h(z_0)} \in \mathbb D.$$
+Rotating by a sufficient $\theta \in \R$, we have $$z \mapsto c e^{i\theta} \frac{h(z) - h(z_0)}{h(z) + h(z_0)} \in \mc F$$
+\end{proof}
+\item Show there is $f$ which maximizes $f'(z_0)$ in $\mc F$.
+\begin{proof}
+Let $g_n \in \mc F$ so that $\lim_{n \to \infty} g_n'(z_0) = \sup_{f \in \mc F} f'(z_0)$.  Since $\|g_n\|_\Omega \le 1$, $n \in \N$, we can pass to a subsequence so that $g_n \to g$ uniformly on compact subsets of $\Omega$ for some holomorphic $g: \Omega \to \C$ and $g_n' \to g'$ uniformly on compact sets in $\Omega$.  Hence $\lim_{n \to \infty} g_n'(z_0) = g'(z_0)$ and $\sup_{f \in \mc F} f'(z_0) = g'(z_0) < \infty$ and $g'(z_0) > 0$.  
+
+We still need to show $g$ is injective.  Let $z_1 \ne z_2$, $z_1, z_2 \in \Omega$, $g(z_1)= g(z_2)$.  Then in $\Omega\setminus \{z_1\}$, $g_n(\cdot) - g_n(z_1) \ne 0$ for all points in $\Omega \setminus \{z_1\}$.  By the Hurwitz theorem, $g(\cdot) - g(z_1)$ is either $0$ or never vanishes.   But $g(\cdot)$ is not a constant function since $g'(z_0) > 0$, so we have $g(\cdot) - g(z_1)$ never vanishes on $\Omega \setminus \{z_1\}$, so $g(z_2) \ne g(z_1)$, a contradiction.  
+
+Moreoever, $\|g\|_\Omega \le 1$ gives that $g(\Omega) \subset \ol{\mathbb D}$, but by the maximum principle, we have $g(\Omega) \subset \mathbb D$.
+
+\end{proof}
+\item If $f'(z_0)$ maximal, then $f$ is an isomorphism.
+\begin{proof}
+It suffices to show that $g(\Omega) = \mathbb D$.  Suppose there is $w_0 \in \mathbb D \setminus g(\Omega)$.  We perform several modifications of $g$.  
+
+First, let $F(z) = \sqrt{\frac{g(z) - w_0}{1 - \ol{w_0} g(z)}}.$  This is well-defined since $\Omega$ is simply connected.   Note that $F(\Omega) \subset \mathbb D$ and $F$ is injective with $0 \not \in F(\Omega)$.  
+
+Second, we make $z_0$ go to $0$.  Define $G(z) = \frac{F(z) - F(z_0)}{1 - \ol{F}(z_0)F(z)}$.  Then, $G$ is injective from $\Omega \to \mathbb D$ and $G(z_0) = 0$.
+
+We now show that $G'(z_0) > g'(z_0)$, a contradiction.  We will show that $g = k \circ G$, where $k: \mathbb D \to \mathbb D$, holomorphic.  The inverse of $G$ is a fractional linear transformation given by $ \begin{pmatrix}
+1 & F(z_0) \\ \ol{F}(z_0) & 1 
+\end{pmatrix}.$
+
+From $F$ to $g$, we take the $T_w \circ(z \mapsto z^2)$, where $w$ is the corresponding matrix from the initial FLT.    So we have $k = T_w \circ (z \mapsto z^2) \circ T_h$.  Note that $k(\mathbb D) \subset \mathbb D$ and $k(0) = \frac{F(z_0)^2 + w_0}{1 + \ol{w_0}F(z_0)^2}$, so since we have $F(z_0)^2 = -w_0$, we get $k(0) = 0$.  
+
+Since $k \not \in \Aut(\mathbb D)$, so we must have $|k'(0)| < 1$ by the Schwarz Lemma.  It follows that 
+$$|G'(z_0)|  > |k'(0)||G'(z_0)| = |(k \circ G)'(z_0)| = |g'(z_0)|,$$
+a contradiction.
+\end{proof}
+\end{itemize}
+\end{proof}
 \end{document}

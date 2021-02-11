@@ -461,5 +461,66 @@ $$|\chi (hD) u(x)| \le C \|u\|_{C^{0, \gamma}} \int |\hat{\chi}(y)| (hy)^\gamma 
 and the last integral is bounded since $\hat{\chi}$ is a Schwartz function, so it follows that $|\chi(hD)u(x)| \le C \|u\|_{C^{0, \gamma}} h^{\gamma}$.
 \end{proof}
 
+\pagebreak
+\section{February 9th, 2021}
+\subsection{Fourier Transform proof of Morrey's Inequality}
+Recall the Littlewood-Paley decomposition: There exists $\psi_0 \in C_c^\infty(\R^n)$, $\psi \in C_c^\infty(\R^n \setminus \{0\})$ such that $$1 = \psi_0(\xi) + \sum_{j=0}^\infty \psi(2^{-j}\xi).$$  From this, we have for $u \in \mc S'$, 
+$$u = \psi_0(D)u + \sum_{j=0}^\infty \psi(2^{-j}D)u.$$
+More generally, for $a\in \mc S(\R^n)$, $a(D)u = \mc F^{-1}(a(\xi) \hat{u}(\xi))$.
+We were proving the following theorem:
+\begin{theorem} For $u \in L^p$, $1\le p \le \infty$, $u \in C^{0, \gamma}(\R^n)$ if and only if for every $\chi \in C_c^\infty(\R^n \setminus 0)$, $\|\chi(hD) u\|_\infty \le C h^{\gamma}$.
+\end{theorem}
+\begin{proof}
+We proved the forward direction last time.  We now show the converse.  
 
+Denote
+$$\Lambda_\gamma(u) = \sup_{0 < h < 1} h^{-\gamma}(\| \psi(hD)u\|_\infty + \max \| \psi_k(hD)u\|_\infty)$$
+where $\psi_k(\xi) = \xi_k \psi(\xi)$.  
+
+We have the hypothesis: $\|u\|_p + \Lambda_\gamma(u) < \infty$.  We want to show that $\|u\|_{C^\gamma, 0} \le C(\|u\|_p + \Lambda_\gamma(u))$.  We first bound $\|u\|_\infty$.  Note that 
+\begin{align*}
+\|u\|_\infty &\le \|\psi_0(D)u\|_\infty + \sum_j \|\psi(2^{-j} D)u \|_\infty \\
+&\le \|\psi_0(D)u\|_\infty + \sum_j 2^{-j\gamma} \Lambda_\gamma(u) \\
+&\le C \|u\|_p + (2^\gamma - 1)^{-1} \Lambda_\gamma(u).
+\end{align*}
+
+Now, we bound the quotient term, $|u(x) - u(y)|/|x - y|^\gamma$.  In order words, we want
+$$|u(x) - u(y)| \le C(\|u\|_p + \Lambda_\gamma(u))r^{\gamma},$$
+if $|x - y| \le r$.
+
+Note that \begin{align*}
+u(x) - u(y) &= \psi_0(D) u(x) - \psi_0(D) u(y) + \sum_{j} \left (\psi(2^{-j}D) u(x) - \psi(2^{-j}D) u(y)\right ) \\
+\end{align*}
+It is enough to prove that $|\psi_0(D)u(x) - \psi_0(D) u(y)| \le Cr^{\gamma} \|u\|_p$ and 
+$$\sum_{j=0}^\infty |\psi(2^{-j}D)u(x) - \psi(2^{-j}D)u(y)| \le Cr^{\gamma} \Lambda_\gamma(u).$$
+
+Note that 
+\begin{align*}
+|\psi_0(D) u(x) - \psi_0(D)u(y) | &\le \sup(\grad(\psi_0(D)u))|x-y|  \\
+&\le |x - y| \frac{1}{(2\pi)^{n}} \sup \int \grad |\hat{\psi}_0(x-y) ||u(y)|\,dy \\
+&\le |x - y| \frac{1}{(2\pi)^n} \| \grad \hat{\psi}_0\|_q \|u\|_p.
+\end{align*}
+
+For the second inequality, we prove for both high frequency and low frequency estimates.  For the high ones,
+$$|\psi(hD)u(x) -\psi(hD)u(y)| \le 2 \|\psi(hD)u\|_\infty \le 2 h^\gamma \Lambda_\gamma (u).$$
+
+For low frequencies, 
+\begin{align*}
+|\psi(hD)u(x) - \psi(hD) u(y)|&\le Cr \max_k \|D_{x_k} \psi(hD) u\|_\infty \\
+&= Cr h^{-1} \max_k \| hD_{x_k} \psi(hD)u\|_\infty \\
+&= Crh^{-1}\max_k \|\psi_k(h D) u\|_\infty \\
+&\le  Crh^{-1} \max_k \| \psi_k(hD)u\|_\infty \\
+&\le Crh^{\gamma - 1} \Lambda_\gamma(u).
+\end{align*}
+
+Then, note that 
+$$ \sum_{2^j \le s} Cr2^{-j(\gamma - 1)} \le C' r  s^{1-\gamma}$$
+
+and 
+$$\sum_{2^j > s} C2{-j\gamma} \le C'' s^{-\gamma}.$$
+It follows that 
+\begin{align*}
+\sum_{j=0}^\infty |\psi(2^{-j}D)u(x) - \psi(2^{-j}D)u(y)| &\le C\Lambda_\gamma(u)(rs^{1 - \gamma} + s^{-\gamma}) \le Cr^\gamma\Lambda_\gamma(u) 
+\end{align*}
+\end{proof}
  \end{document}
