@@ -523,4 +523,74 @@ It follows that
 \sum_{j=0}^\infty |\psi(2^{-j}D)u(x) - \psi(2^{-j}D)u(y)| &\le C\Lambda_\gamma(u)(rs^{1 - \gamma} + s^{-\gamma}) \le Cr^\gamma\Lambda_\gamma(u) 
 \end{align*}
 \end{proof}
- \end{document}
+\pagebreak
+\section{February 11th, 2021}
+\subsection{Finishing Morrey's Inequality}
+The original statement of the theorem.
+\begin{thm}[Morrey's Inequality]  Suppose $u \in L^p(\R^n), \grad u \in L^p(\R^n)$ and $n < p \le \infty$.  Then there exists $u^* \in C^{0, \gamma}(\R^n)$, with $\gamma = 1 - \frac{n}{p}$ such that $u = u^*$ almost everywhere and $\|u^*\|_{C^0, \gamma} \le C(\|u\|_p + \|\grad u\|_{p})$.
+\end{thm}
+Last time, we showed the following theorem:
+\begin{thm} For $u \in L^p$, $1\le p \le \infty$, $u \in C^{0, \gamma}(\R^n)$ if and only if for every $\chi \in C_c^\infty(\R^n \setminus 0)$, $\|\chi(hD) u\|_\infty \le C h^{\gamma}$.
+\end{thm}
+Recall that
+$$\Lambda_\gamma(u) = \sup_{0 < h < 1} h^{-\gamma}(\| \psi(hD)u\|_\infty + \max \| \psi_k(hD)u\|_\infty)$$
+where $\psi_k(\xi) = \xi_k \psi(\xi)$.  
+We proved this by showing that $\|u\|_{C^{0, \gamma}} \le C(\|u\|_p + \Lambda_\gamma(u))$.  We now show the complete proof of Morrey's Inequality.
+\begin{proof}
+It suffices to show that $\Lambda_\gamma(u) \le C\|\grad u\|_p$.  Recall that for all $\chi \in C_c^\infty(\R^n)$, we showed that $\|\chi(hD)u\|\le  Ch^{-n/p}\|u\|_p$.  Note that 
+\begin{align*}
+\|\phi(hD)hD_{x_j}u\|_\infty &\le ch^{1-n/p} \|\grad u\|_p \\
+\Rightarrow \| \phi_j(hD)u\|_\infty &\le Ch^\gamma \|\grad u\|_p.
+\end{align*}
+
+We would like to write $\psi \in C_c^\infty(\R^n\setminus \{0\})$, $\psi(\xi) = \sum \xi_j \chi_j(\xi)$ with $\chi_j \in C_c^\infty$.  We can do this with $\sum \xi_j \frac{\xi_j}{|\xi|^2}\psi(\xi)$.
+
+It follows that 
+$$\|\psi(hD)u\|_\infty \le \sum_{j=1}^\infty \|\xi_j \chi(hD) u\|_\infty \le Ch^\gamma \|\grad u\|_p.$$
+\end{proof}
+
+We can use this result to show regularity properties for solutions to PDEs.  For example, one statement is as follows: suppose $u \in L^1$, $\Delta u = f \in C^{k, \gamma}$ for $0 < \gamma < 1$.  We could show that $u \in C^{k+2, \gamma}$.
+\subsection{Final Comments about Sobolev Spaces}
+\begin{definition}
+Suppose $U \subset \subset \R^n$ with $\partial U \in C^1$.  Then 
+$W_0^{1,p}(U) = \ol{C_c^\infty(U)}$ where the closure is respect to the $W^{1, p}$ norm.  
+\end{definition}
+
+\begin{fact} $W_0^{1, p} = \{u \in W^{1, p}(U) : Tu = 0  \}$, where $T:W^{1, p}(U) \to L^{p}(\partial U)$ linear and bounded and for $u \in W^{1, p}(U) \cap C(\ol{U})$, $Tu = u\vert_{\partial U}$.
+\end{fact}
+
+\begin{fact}[Poincare Inequality] Suppose $1 \le p < n$ and $1 \le q \le p^* = \frac{np}{n-p}$.   Then $\|u\|_q \le C\|\grad u\|_p$.
+\end{fact}
+\begin{thm}[Poincare Inequality(v2)] For all $1 \le p \le \infty$, $\|u\|_p \le C\|u\|_p$.
+\end{thm}
+\begin{proof}
+Suppose $p < n$.  This follows from the version $1$.  Suppose $\infty > p \ge n$.  In this case, take $q = n - \epsilon$.  Then $q^* = \frac{(n - \epsilon) n}{\epsilon}$.  Choose small enough $\epsilon$ so that $q^* \ge p$.  Then, we apply Poincare $1$:
+$\|u\|_p \le \|u\|_{q^*} \le C\|\grad u\|_q \le C\| \grad u\|_p$.  For $p =\infty$, the result follows from Morrey's inequality.
+\end{proof}
+
+\subsection{Duality}
+Recall the Riesz Representation Theorem for Hilbert Spaces:
+\begin{thm}[Riesz Representation] For $\Phi: H \to \C$ with a Hilbert space $H$, if $|\Phi(u)| \le C\|u\|$, there exists $v \in H$ such that $\Phi(u) = \<u, v\>$.
+\end{thm}
+
+\begin{fact} $H^{-s}(\R^n) = (H^s(\R^n))^*$: if $u \in H^{-s}(\R^n)$ and $v \in H^s(\R^n)$, $u \in H^s(\R^n)$, then $\<u, v\>_{L^2} = \int u\ol{v}$ is well defined, and for any $\Phi: H^s(\R^n) \to \C$ such that $|\Phi(u)| \le C \|u\|_{H^s}$, there exists $v \in H^{-s}$ such that $\Phi(u) = \<u, v\>_{L^2}$.
+\end{fact}
+\begin{proof}
+First assume $u, v \in \mc S$.  Then $$\int u\ol v = (2\pi)^n \int \hat{u}(\xi) \ol{\hat{v}(\xi)} = (2\pi)^n\int \<\xi\>^s \<\xi\>^{-s} \ol{\hat{v}(\xi)}$$
+so it follows that $$|\<u, v\>|_2 \le (2\pi)^n \| u\|_{H^s} \|v\|_{H^{-s}}.$$
+
+Conversely, suppose we have $\Phi$ as above.  Riesz implies that $$\Phi(u) = \<u, w\>_{H^s} = (2\pi)^{-n} \int\<\xi\>^{2s} \hat{u} \ol{\hat w} = (2\pi)^{-n} \int \hat{u} \ol{\<\xi\>^{2s} \hat{w}}$$
+and we finish by setting $\hat{v} = \<\cdot\>^{2s} \hat{w}$.
+\end{proof}
+
+\subsection{Duality on Bounded Domains}
+We define $H^{-1}(U) = \{u \in \mc D'(U) : \forall \phi \in C_c^\infty(U), |u(\phi)| \le C \|\phi_{H^1}\}$.  The norm on $H^{-1}$ is given by 
+$$\|u\|_{H^{-1}(U)} = \sup\{|u(\phi)| : \phi \in H_0^1, \|\phi\|_{H^1} \le 1\},$$
+which is the usual operator norm, treating $u$ as a linear functional on $H^1(U)$.
+
+\begin{example} We claim $$H_0^1((0, \pi)) = \{u(x) = \sum_{n=1}^\infty a_n \sin{nx}: \sum |a_n|^2n^2 < \infty \sim \|u\|_{H^1}\}.$$  Then, $$H^{-1}((0, \pi)) = \{v(x) = \sum_{n=1}^\infty a_n \sin{nx}: \sum_{n=1}^\infty |a_n|^2 n^{-2} < \infty\},$$ where we take convergence in the sense of distributions.
+
+Then, $$\<u, v\> = \sum a_n \ol{b_n} = \sum_{n=1}^\infty na_n n^{-1} \ol b_n \le \|u\|_{H^1} \|v\|_{H^{-1}}.$$
+\end{example}
+
+\end{document}
