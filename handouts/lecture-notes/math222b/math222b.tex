@@ -592,5 +592,92 @@ which is the usual operator norm, treating $u$ as a linear functional on $H^1(U)
 
 Then, $$\<u, v\> = \sum a_n \ol{b_n} = \sum_{n=1}^\infty na_n n^{-1} \ol b_n \le \|u\|_{H^1} \|v\|_{H^{-1}}.$$
 \end{example}
+\pagebreak
+\section{February 16th, 2021}
+\subsection{Calculus of Variations: Minimizing Distance in the Plane}
+
+We start with a motivating example. Take points $a, b$ in the $x$-axis, $c, d$ in the y-axis.  We wish to find a function $y = f(x)$ such that $f(a) = c$, $f(b) = d$ and the graph of $f$ has the shortest length.  Recall that 
+$$L(f) = \int_{a}^b (1 + f'(x)^2)^{1/2}\,dx.$$
+We wish to minimize $L$ over all paths from $a$ to $b$.  If $f$ is a minimizer, then for all $\phi \in C_c^\infty((a, b))$, $L(f + t\phi)$ has a minimum at $t = 0$.  This implies that $\frac{d}{dt} L(f + t\phi)\vert_{t = 0} = 0$ for all $\phi$ as above.  Then,
+\begin{align*}
+\frac{d}{dt} L(f + t\phi) &= \frac{d}{dt} \int_{a}^b (1 + (f + t\phi)'^2)^{1/2}\,dx \\
+&\int_{a}^b \frac{\partial}{\partial t} [(1 + (f + t\phi)'^2)^{1/2}]\,dx \\
+&= \int_a^b \frac{\phi'(x) (f'(x) + t\phi'(x))}{(1 +(f'(x) + t\phi'(x)^2 )^{1/2}}
+\end{align*}
+Applying $t = 0$, we have
+\begin{align*}
+ 0 = \int_a^b \phi'(x) \frac{f'(x)}{(1 + f'(x)^2)^{1/2}}\,dx
+\end{align*}
+for all $\phi \in C_c^\infty((a, b))$.
+
+Integrating by parts, we get that 
+\begin{align*}
+\int_a^b \phi(x)\left (\frac{f'(x)}{(1 + (f'(x))^2)^{1/2}}\right )' \,dx = 0.
+\end{align*}
+
+The implies that 
+$$\frac{d}{dx} \left (\frac{f'(x)}{(1 + f'(x)^2)^{1/2}}\right ) = 0,$$
+with $f(a) = c$, $f(b) = d$.
+
+We find that $f'(x) = \alpha$ so $f(x) = \alpha x + \beta$. 
+\subsection{Calculus of Variations: Minimizing Area in $\R^3$}
+Take $U \subset \subset \R^2$, $\partial U \in C^1$.  We wish to minimize the area of the graph with the condition that $f = g$ on $\partial U$.
+
+We have 
+$$A(f) = \iint_U (1 + |\grad f(x)|^2)^{1/2}\,dx.$$
+We wish to minimize $A(f)$ over $f$ satisfying $f = g$ on $\partial U$.
+
+If $f$ is a minimizer, $t \mapsto A(f + t\phi)$, $\phi \in C_c^\infty(U)$ has a minimum at $t = 0$.  So, $$\frac{d}{dt}A(f + t\phi) \vert_{t = 0} = 0.$$
+
+Doing the same calculation as before, we have 
+\begin{align*}
+\frac{d}{dt} A(f + t\phi)\vert_{t = 0} &= \int_U \frac{\partial }{\partial t} (1 + |\grad f + t\grad \phi|^2)^{1/2}\,dx \\
+&= \int_U \frac{\grad \phi \cdot \grad f}{(1 + |\grad f|^2)^{1/2}}\,dx \\
+&= \int_U \phi \left [\left (\frac{f_{x_1}}{(1 + |\grad f|^2)^{1/2}}\right )_{x_1} + \left (\frac{f_{x_2}}{(1 + |\grad f|^2)^{1/2}}\right )_{x_2} \right ]\,dx.
+\end{align*}
+As before, this implies that 
+$$\left (\frac{f_{x_1}}{(1 + |\grad f|^2)^{1/2}}\right )_{x_1} + \left (\frac{f_{x_2}}{(1 + |\grad f|^2)^{1/2}}\right )_{x_2} = 0.$$
+This is called the \textbf{Minimal Surface Equation}.  
+
+We will not solve this, but how could we do it?  Consider $f \in H^1(U)$, and note that $Tf = g \in L^2(\partial U)$ is well-defined.  If we take $m = \inf \{A(f) = f \in H^1(U), f \vert_{\partial U} = g\}$.  Then, there exists $f_j \in H^1(U), f_j \vert_{\partial U} = g$ with $A(f_j) \to m$.  Could we find $f_{j_k} \to f$?
+
+\subsection{Calculus of Variations: General Setup}
+Take $U \subset \subset \R^n$.  Take $L: \R^n \times \R \times \ol{U} \to \R$ in $C^\infty$, written as $L(p, z, x)$.  We introduce the functional $I[w] = \int_U L(D_w(x), w(x), x)\,dx$, with $w \vert_{\partial U} = g$.  
+
+\begin{example} In the minimal surface problem, $L(p, z, x) = (1 + |p|^2)^{1/2}$.
+\end{example}
+
+We first derive an equation satisfied by the minimizer.  As before, we have $I[w] = \int_U L(Dw, w, x)\, dx$, a minimizer.  This implies that $\frac{d}{dt} I[w + t\phi] \vert_{t = 0}= 0$ for all $\phi \in C_c^\infty(U)$.
+
+Then,
+\begin{align*}
+\int_U \frac{d}{dt} \left [L(Dw + tD\phi, w+t\phi, x) \right ]\,dx\vert_{t = 0} &= \int_U \left (D\phi \cdot D_pL(Dw, w, x) + \phi D_z L \right ) \,dx \\
+&= \int_U \left (- \sum (L_{p_j}(Dw, w, x))_{x_j} + D_zL(Dw, w, x)\right ) \phi\,dx \\
+\Longrightarrow &\boxed{-\sum_{j=1}^n (L_{p_j}(Dw, w, x))_{x_j} + D_zL(Dw, w, x) = 0},
+\end{align*}
+the \textbf{Euler-Lagrange Equation}. 
+\begin{example} Take $L(p, z, x) = |p|^2/2 - f(x)z$.  
+\begin{align*}
+I[w] = \int_U \left (|\grad w(x)|^2/2 - f(x)w(x) \right )\,dx.\\
+\end{align*}
+Since $L_{p_j} = p_j$, the Euler-Lagrange equation is given by
+$$-\sum(w_{x_j})_{x_j} -f(x) = 0 \Longrightarrow -\Delta w = f, w\vert_{\partial U} = g.$$
+\end{example}
+
+We can generalize this as follows:  If we take $L = |p|^2/2 + F(z)$ and $f(z) = F'(z)$.  The Euler-Lagrange equation is then $-\grad w = f(w)$.  For example, if we take $f(z) = z^p$, $F(z) = \frac{z^{p+1}}{p+1}$.
+
+We could also take non-constant coefficients: $L(p, z, x) = \frac{1}{2}\sum a_{ij}(x) p_i p_j - f(x)z$, where $a_{ij} = a_{ji}$.
+
+Then, $L_{p_j} = \frac{1}{2}\sum_{i=1}^n a_{ij}(x) p_i $.  Then, the Euler-Lagrange equation is given by
+$$-\sum_{i, j = 1}^n \partial_{x_j}(a_{ij }\partial_{x_i}w(x)) = f(x).$$
+When $\sum a_{ij}(x) \xi_i \xi_j \ge c|\xi|^2$ for all $\xi \in \R^n$, $x \in \ol{U}$, this is solvable.  
+
+\subsection{Existence of Minimizers}
+\begin{itemize}
+\item Coercivity: There exists $\alpha . 0, \beta \ge 0$ with $L(p, z, u) \ge \alpha |p|^q - \beta$, for $1 < q < \infty$, for all $z \in \R$, $x \in \ol U$.  
+
+The condition gives the following bound: $I[w] \ge \alpha \|Dw\|_q^q - \beta \mu(U)$.  We can always set $\beta = 0$ by translating $L$ by a constant.  Taking $\mc A = \{w \in W^{1, q}(U) : u\vert_{\partial U} = g\}$, we minimize $I[w]$ over $\mc A$.
+\item Lower semicontinuity: Suppose we have $u_k \rightharpoonup u$ weakly in $W^{1, q}$.  Then, $$I[u] \le \liminf I[u_k].$$
+\end{itemize}
 
 \end{document}

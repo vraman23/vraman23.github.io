@@ -25,3 +25,6 @@
 \contentsline {subsection}{\numberline {6.4}Injective Functions}{13}{subsection.6.4}% 
 \contentsline {section}{\numberline {7}February 10th, 2021}{14}{section.7}% 
 \contentsline {subsection}{\numberline {7.1}Riemann Mapping Theorem}{14}{subsection.7.1}% 
+\contentsline {section}{\numberline {8}February 17th, 2021}{16}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Caratheodory Extension Theorem}{16}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Rectifiable Arcs}{16}{subsection.8.2}% 

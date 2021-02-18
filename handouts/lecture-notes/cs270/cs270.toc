@@ -6,3 +6,4 @@
 \contentsline {section}{\numberline {2}January 25th, 2021}{5}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Gradient Descent, Continued}{5}{subsection.2.1}% 
 \contentsline {subsection}{\numberline {2.2}Projected Gradient Descent}{5}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}Lecture 7: Robust Mean Estimation}{6}{section.3}% 

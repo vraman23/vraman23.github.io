@@ -1,12 +1,11 @@
-\documentclass[12pt]{scrartcl}
-\usepackage[sexy]{evan}
+\documentclass[12pt]{article}
+\usepackage{scribe}
 \usepackage{graphicx}
 
 \usepackage{answers}
 \Newassociation{hint}{hintitem}{all-hints}
 \renewcommand{\solutionextension}{out}
 \renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
-\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
 
  %Sets
 \newcommand{\N}{\mathbb{N}}
@@ -35,110 +34,106 @@
 \let \grad \nabla
 
 \begin{document}
-\title{CS 270}
-\author{Vishal Raman}
-\thispagestyle{empty}
-$ $
-\vfill
-\begin{center}
+\lecture{7}{Robust Mean Estimation}{Raghavendra}{Vishal Raman}
 
-\centerline{\huge \textbf{CS 270: Combinatorial Algorithms} } 
-\centerline{Professor: Prasad Raghavendra, Spring 2021}
-\centerline{Scribe: Vishal Raman}
-\end{center}
-\vfill
-$ $
-\newpage
-\thispagestyle{empty}
-\tableofcontents
-\newpage
-%\maketitle
-\section{January 20th, 2021}
-\subsection{Intro to Gradient Descent}
-Problem:  Given a function $f$, we wish to minimize $f$.  Gradient Descent takes the natural approach of going in the direction of locally steepest decrease.
-\subsection{Convexity and Convex Functions}
-\begin{definition}{Convexity} A set $K \subset \R^n$ is  convex if and only if for all $x, y \in K$, the line segment joining $x, y$ is also in $K$.  In other words, for $\lambda \in [0, 1]$, $$\lambda x + (1 - \lambda )y \in K.$$
+\section{Robust Mean Estimation}
+
+We have a Dataset $\mc D = \mc D_{in} \cup \mc D_{out}$, where $\mc D_{in}$ are the inliners and $\mc D_{out}$ are the outliers.   $\mc D = \{x_1, \dots, x_N\}$ and $\mc D_{in}$ contains $(1 -\epsilon)N$ elements and an adversery has inserted $\epsilon n$ outliers to $\mc D_{out}$.  The goal is to estimate the mean.
+\begin{definition} A dataset $\mc D = \{x_1, \dots, x_n\}$ is $(\epsilon, \Delta)$-stable if for any subset $\mc S \subset \mc D$ with $|\mc S| \ge (1 - \epsilon)N$, 
+$$\left \|\frac{1}{|\mc S|} \sum_{i \in \mc S} x_i - \frac{1}{|\mc D|} \sum_{i \in \mc D} x_i \right \| \le \Delta$$
 \end{definition}
 
-\begin{definition}[Convex Function] A function $f: \R^n \to \R$ is convex if for all $x, y$, $lambda \in [0, 1]$
-$$f(\lambda x + (1 -\lambda )y) \le \lambda f(x) + (1 - \lambda) f(y).$$
-\end{definition}
-\begin{remark} Visually, if we draw the line segment between two points on the graph of the function, it should lie above the function.
-\end{remark}
-\begin{definition} A differentiable function $f: \R^n \to \R$ is convex if 
-$$f(y) \ge f(x) + \langle \nabla f(x), y-x \rangle.$$
-\end{definition}
-Recall for $u, v \in \R^n$.
-$$\left <u, v\right > = \sum_{i=1}^n u_i v_i,$$
-and 
-$$\|u\|_2 = \sqrt{\sum u_i ^2}.$$
+%\includegraphics[scale=0.5]{dataset.png}
 
-\begin{definition} A twice differentiable function $f: \R^n \to \R$ is convex if $$H_f(x) \succcurlyeq 0,$$
-in other words, the Hessian is positive-semidefinite.  
-\end{definition}
-
-\subsection{Unconstrainted Optimization}
-We have the following problem: for $f: \R^n \to \R$ convex, we wish to find
-$\min_{x \in \R^n} f(x)$.
-
-Algorithm: for $x_0$, the initial point, $x_{t+1} \leftarrow x_t - \eta \nabla f(x_t)$, for a parameter $\eta$.  We output the average of the points $\frac{1}{T} \sum_{i} x_i.$
-
-If we let $x^* = \text{argmin}_x f$, then $$f(x^*) \ge  f(x) + \langle \nabla f(x), x^* - x \rangle.$$
-It follows that 
-$$\langle -\nabla f(x) , x^* - x \rangle \ge f(x) - f(x^*) \ge 0.$$
-
-\begin{thm} After $t$ steps(for appropriate $\eta$), 
-$$\frac{1}{t} \sum_{i=1}^t f(x_i) \le f(x^*) + O(\frac{RL}{\sqrt{t}})$$
-where $R = \|x_0 - x^* \|$ and $f$ is $L$-Lipschitz: for all $x, y$ $|f(x) - f(y)| \le L \|x - y\|$.
-\end{thm}
-
-\subsection{Constrained Optimization}
-Given a convex set $K \subset \R^n$, we minimize a convex function $f$.  
-
-Algorithm: We have an initial point $x_0$, $y_{t+1} = x_t - \eta \nabla f(x_t)$. Then $x_{t+1} = \pi_K(y_{t+1})$, where $\pi_K$ is a projection onto $K$, defined by 
-$$\pi_K(y) = \argmin_{z \in K} \|z - y\|.$$
-
-For convex sets, the same theorem holds, since 
-$$\|y_{t+1} - x_*\| \ge \|\pi_K(y_{t+1}) - x^*\|.$$
-
-\begin{definition} A function is $\alpha$-strongly convex if 
-$$f(\lambda x + (1 - \lambda)y) \le \lambda f(x) + (1 - \lambda )f(y) - \alpha(\lambda(1 - \lambda))\|x - y\|^2.$$
-\end{definition}
-
-\begin{definition} A function is $\beta$ smooth if 
-$$f(\lambda x + (1 - \lambda )y) \ge \lambda f(x) + (1 - \lambda )f(y) - \frac{\beta}{2} (\lambda(1 - \lambda))\|x - y\|^2.$$
-\end{definition}
-
-\begin{thm} After $t$ steps, we can get convergence(for appropriate $\eta$)
-$$\frac{1}{t}\sum_i f(x_i) - f(x^*) \le e^{-\alpha t/\beta}.$$
-
-We call $\beta/\alpha$ the condition number.  
-\end{thm}
-\pagebreak
-\section{January 25th, 2021}
-\subsection{Gradient Descent, Continued}
-\begin{thm} After $t$ steps(for appropriate $\eta$), 
-$$\frac{1}{t} \sum_{i=1}^t f(x_i) \le f(x^*) + O(\frac{RL}{\sqrt{t}})$$
-where $R = \|x_0 - x^* \|$ and $f$ is $L$-Lipschitz: for all $x, y$ $|f(x) - f(y)| \le L \|x - y\|$.
-\end{thm}
+We assume that $\mc D_{in}$ are $(\epsilon, \Delta)$-stable.  We find a subset $\mc S$ which is also $(\epsilon, \Delta)$-stable, with $|S| = (1 - \epsilon)N$.  
+\newline
+Claim: This implies that $\|\mu(S) - \mu(\mc D_{in})\| \le 2\Delta$.
 \begin{proof}
-We will use the fact
-$$2\left <a-c, b-c\right > = \|a-c\|^2 + \|b - c\|^2 - \|a - b\|^2.$$
-
-Note that 
-\begin{align*}
-f(x_t) - f(x^*) &\le \left<\grad f(x_t), x_t - x^*\right> \\
-&\le \left< \frac{x_t - x_{t+1}}{\eta}, x_t - x^*\right> \\
-&\le \frac{1}{2\eta} \left (\|x_t - x_{t+1}\|^2 + \|x_t - x^*\|_2 - \|x_{t+1} - x^*\|^2\right ) \\
-\end{align*}
-
-It follows that $$\sum_{i=1}^t (f(x_i) - f(x^*)) \le \frac{1}{2\eta} \sum_{i=1}^t \|x_{i+1} - x_i\|^2 + \frac{1}{2\eta} \|x_1 - x^*\|^2.$$
-
-Then, $\|x_{i+1} - x_i\|^2 = \|\eta \grad f(x_i)\|^2 = \eta^2 L^2$ so our expression
-$$\sum_{i=1}^t (f(x_i) - f(x^*)) \le \frac{\eta R^2t}{2} + \frac{R^2}{2\eta}.$$
-Choosing $\eta = \frac{R}{L\sqrt{t}}$ gives the desired bound.  
+Let $T = \mc S \cap \mc D_{in}$.  By $(\epsilon, \Delta)$-stability of $\mc D_{in}$, $\|\mu(\mc D_{in}) - \mu(T)\| \le \Delta$.  Similarly, by $(\epsilon, \Delta)$-stability of $\mc S$, $\|\mu(S) - \mu(T) \| \le \Delta$.  It follows that 
+$$\|\mu(S) - \mu(\mc D_{in})\| \le  \|\mu(\mc D_{in}) - \mu(T)\| + \|\mu(\mc T) - \mu(S) \| < 2\Delta.$$
 \end{proof}
 
-\subsection{Projected Gradient Descent}
+
+We begin by defining a more general notion of stability.
+\begin{definition} An $\epsilon$-filtering of a set $S$ is any set $T$, $|T| \ge (1 -\epsilon) |S|$.
+\end{definition}
+\begin{definition} a distribution $\theta_{in}$ is an $\epsilon$-filtering of a distribution $\theta$ over $\R^n$ if for all $x \in \R^n$,  $$ \theta_{in}(x) \le \theta(x) (1 + \epsilon).$$
+\end{definition}
+\begin{definition} A distribution $\theta$ is $(\epsilon, \Delta)$-stable if for all $\epsilon$-filterings of $\theta_{in}$, 
+$$\|\mu(\theta) - \mu(\theta_{in}) \| \le \Delta.$$
+\end{definition}
+\begin{lemma} A distribution $\theta$ over $\R^n$ is $(\epsilon, \Delta)$ stable for $$\Delta = \sqrt{\epsilon \| \text{cov}[\theta] \|_{op}},$$
+where we take the operator norm is the largest eigenvalue of the Covariance matrix.  
+\end{lemma}
+\begin{proof}
+Suppose $\theta_{in}$ is an $\epsilon$-filtering of $\theta$.  It suffices to show that $\|\mu(\theta_{in}) - \mu(\theta)\| \le \Delta$.
+
+We first write $\theta = (1 - \gamma)  \theta_{in} + \gamma \theta$, where $$\gamma = \frac{\epsilon}{1 + \epsilon}, \quad \theta_{out}(x) = \frac{(1 + \epsilon)\theta(x) - \theta_{in}(x) }{\epsilon}.$$
+
+Then,
+$$\mu(\theta) = (1 - \gamma)\mu(\theta_{in}) + \gamma \mu(\theta_{out}),$$
+and
+$$\text{cov}[\theta] = (1 - \gamma)^2 \text{cov}[\theta_{in}] + \gamma^2 \text{cov}[\theta_{out}] + 2\gamma(1 - \gamma)(\mu[\theta_{in}] - \mu[\theta_{out}])(\mu[\theta_{in}] - \mu[\theta_{out}])^\intercal.$$
+
+In the second equation, applying $v^\intercal v$ for $v = \frac{\mu[\theta_{in}] - \mu[\theta_{out}]}{\|\mu[\theta_{in}] - \mu[\theta_{out}]\| }$, we find that the left hand side is
+$$v^T \text{cov}[\theta] v \le \|\text{cov}[\theta]\|_{op},$$
+and the right hand side is 
+$$v^\intercal (1 - \gamma^2) \text{cov}[\theta_{in}] v + v^\intercal \gamma^2 \text{cov}[\theta_{out}] v + 2\gamma(1- \gamma)\| \mu[\theta_{in}] - \mu[\theta_{out}]\|_2 \ge 2 \gamma(1 - \gamma)\|\mu[\theta_{in}] - \mu[\theta_{out}]^2,$$
+where the inequality follows from the fact that the Covariances are positive-semidefinite.
+
+It follows that 
+$$\| \mu[\theta_{in}] - \mu[\theta_{out}]\| \le \sqrt{\frac{\|\text{cov}[\theta]\|_{op}}{2\gamma(1 - \gamma)}}.$$
+
+Furthermore, we have 
+$$\|\mu[\theta] - \mu[\theta_{in}]\| = \| \gamma (\mu[\theta_{in}] - \mu[\theta_{out}])\| \le \sqrt{\frac{\gamma \|\text{cov}[\theta]\|_{op}}{2(1 - \gamma)}} = \sqrt{\epsilon\|\text{cov}[\theta]\|_{op}},$$
+substituting $\epsilon = \frac{\gamma}{2(1 - \gamma)}$.
+\end{proof}
+
+Now, given the dataset $\mc D = \{x_1, \dots, x_N\}$, we wish to find weights $w_1, \dots, w_N$ so that the following hold:
+
+\begin{itemize}
+\item $0 \le w_i \le \frac{1 + \epsilon}{N}$,
+\item $\sum w_i = 1$,
+\item $\text{cov}[w]  = \sum w_i (x_i - \mu(w))(x_i - \mu(w))^\intercal < \lambda \cdot \text{Id}$.
+\end{itemize}
+Then, the inliers are given by 
+$$w_i^* = \begin{cases}
+1/|\mc D_{in}|\quad \text{if } x_i \in \mc D_{in}\\
+0 \quad \text{else}
+\end{cases}.$$
+
+We find $\{w_i\}$ via the ellipsoid algorithm.  Notice that the $w_i$ lie within the $n$-simplex.  Given a point $w$, note that it satisfies 
+$$\|\sum w_i (x_i - \mu(w))(x_i - \mu(w))^\intercal\|_{op} < \lambda.$$
+
+Suppose $\|\text{cov}[w]\|_{op} = \lambda$ for some $\lambda$ and let $v$ be the top eigenvector: $v^T \text{cov}[w] v = \lambda$.  Define a linear function
+$$L[y] = v^\intercal\left (\sum y_i[x_i - \mu(w)][x_i - \mu(w)]^\intercal\right ) v.$$
+
+Then, $L[w] = \lambda$ so if we show $L[w^*] < O(\epsilon \lambda)$, it follows that $L[y] \le \lambda$.
+\begin{lemma} $L[w^*] =  v^T\left (\sum w^*[x_i - \mu(w)][x_i - \mu(w)]^\intercal\right ) v \le O(\epsilon \lambda).$
+\end{lemma}
+\begin{proof}
+We have the following identity:
+\begin{align*}
+L[w^*] &= v^\intercal\left ( \sum w_i (x_i - \mu[w^*])(x_i - \mu[w^*])^\intercal\right )v + v^T ((\mu(w^*)- \mu(w))(\mu(w^*) - \mu(w))^\intercal) v \\
+&\le v^\intercal \text{cov}[w^*] v + \| \mu(w^*) - \mu(w)\|^2 \\
+\end{align*}
+The first term is $O(1)$.  Then,
+\begin{align*}
+\|\mu(w^*) - \mu(w)\|^2 &\le 2\| \mu(w^*) - \mu(w \cap \mc D_{in}) \|^2 + 2 \| \mu(w \cap \mc D_{in}) - \mu(w)\|^2 \\
+&\le O(\epsilon \lambda) + O(\epsilon \lambda) = O(\epsilon \lambda).
+\end{align*}
+noting that $w \cap \mc D_{in}$ is an $O(\epsilon)$-filtering of $w^*$ and $w$.
+\end{proof}
+\section{Tensors}
+We set $T$ to be a higher dimensional array of nonzero $3$-dimensional tensors: $T \in \R^{m \times n \times p}$.  For a matrix $M$, we can define the bilinear form
+$$M(x, y) = \sum_{i,j} M_{ij} x_i y_j.$$
+
+We can similarly define a trilinear form
+$$T(x, y, z) = \sum_{i, j, k} T_{ijk} x_i y_j z_k.$$
+
+These show up in the moments of distributions:  Recall that $\mu(d) = E_{x \sim D}[x]$, and $\text{cov}(D)[(x - \mu)(x - \mu)^\intercal]$.  We could define higher moments,
+$$T_{ijk} = E[(x_i - \mu_i)(x_j - \mu_j)(x_k - \mu_k)] \approx E[x_ix_jx_k].$$
+
+In other words, we use tensors to encode higher order correlations of random variables.  
 
 \end{document}

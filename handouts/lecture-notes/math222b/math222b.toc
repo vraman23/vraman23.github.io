@@ -23,3 +23,8 @@
 \contentsline {subsection}{\numberline {8.2}Final Comments about Sobolev Spaces}{19}{subsection.8.2}% 
 \contentsline {subsection}{\numberline {8.3}Duality}{20}{subsection.8.3}% 
 \contentsline {subsection}{\numberline {8.4}Duality on Bounded Domains}{20}{subsection.8.4}% 
+\contentsline {section}{\numberline {9}February 16th, 2021}{22}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Calculus of Variations: Minimizing Distance in the Plane}{22}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Calculus of Variations: Minimizing Area in $\mathbb {R}^3$}{22}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Calculus of Variations: General Setup}{23}{subsection.9.3}% 
+\contentsline {subsection}{\numberline {9.4}Existence of Minimizers}{24}{subsection.9.4}% 

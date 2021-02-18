@@ -3,3 +3,4 @@
 \contentsline {section}{\numberline {3}Smooth Structures}{3}{section.3}% 
 \contentsline {section}{\numberline {4}Manifolds with Boundary}{4}{section.4}% 
 \contentsline {section}{\numberline {5}Smooth Maps}{4}{section.5}% 
+\contentsline {section}{\numberline {6}Tangent Vectors}{5}{section.6}% 

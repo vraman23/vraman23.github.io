@@ -19,6 +19,9 @@
 \renewcommand{\hat}{\widehat}
 \renewcommand{\tilde}{\widetilde}
 
+\newcommand\at[2]{\left.#1\right|_{#2}}
+
+
 \let \phi \varphi
 \let \mc \mathcal
 \let \ol \overline
@@ -151,6 +154,31 @@ Other equivalent definitions:
 \begin{definition} If $M$ is a topological space, $A \subset M$ is a closed subset, and $U \subset M$ is an open subset containing $A$, a continuous function $\psi: M \to \R$ is called a bump function for $A$ supported in $U$ if $0 \le \psi \le 1$ on $M$ and $\psi \equiv 1$ on $A$, $\supp \psi \subset U$.
 \end{definition}
 
+\section{Tangent Vectors}
+\begin{definition} For $v_a \in \R_a^n$, the map $D_v\vert_a: C_\infty(\R^n) \to \R$ is defined by
+$$D_v\vert_a f = D_vf(a) = \at{\frac{d}{dt}}{t=0}f(a + tv).$$
+\end{definition}
+\begin{definition} If $a \in \R^n$, $w: C^\infty(\R^n) \to \R$ is called a derivation if it is linear over $\R$ and 
+$$w(fg) = f(a)wg + g(a)wf.$$
+$T_a\R^n$ denotes the set of derivations you gotat $a$.
+\end{definition}
+\begin{definition} If $p \in M$, $v: C^\infty(M) \to \R$ is called a derivation at $p$ if it is linear and
+$$v(fg) = f(p)vg + g(p)vf.$$
+$T_pM$ denotes the set of derivations at $p$, called the Tangent Space to $M$ at $p$.
+\end{definition}
+\begin{definition} If $F:M \to N$ is a smooth map, for each $p \in M$, we define 
+$dF_p: T_pM \to T_{F(p)}N$, the differential of $F$ at $p$ as follows:  Given $v \in T_pM$, $$dF_p(v)(f) = v(f \circ F).$$
+Some properties:
+\begin{itemize}
+\item $dF_p$ is a derivation at $F(p)$.
+\item $dF_p: T_pM \to T_{F(p)}M$ is linear.
+\item If $F:M\to N$, $G: N \to P$ smooth, $d(G \circ F)_p = dG_{F(p)}\circ dF_p:T_pM \to T_{G \circ F(p)}P$.
+\item $d(id_M)_p = id_{T_pM}$.
+\item If $F$ is a diffeomorphism, $dF_p$ is an isomorphism and $(dF_p)^{-1} = d(F^{-1})_{F(p)}$.
+\end{itemize}
 
+\end{definition}
+\begin{definition} The tangent bundle $TM = \bigsqcup_{p\in M} T_pM$.  We have a map $\pi: TM \to M$ given by $v \in T_pM \mapsto p$.
+\end{definition}
 \end{document}
 \makeindex

@@ -468,4 +468,45 @@ a contradiction.
 \end{proof}
 \end{itemize}
 \end{proof}
+
+\pagebreak
+\section{February 17th, 2021}
+\subsection{Caratheodory Extension Theorem}
+\begin{definition} A Jordan curve is given by a map $[0, 1]\ni t \to C(t) \in \C$ which is continuous, 1-1 on $[0, 1]$ and $C(0) = C(1)$.  
+\end{definition}
+\begin{thm}[Jordan Curve Theorem] If $C:[0, 1] \to \C$ is a Jordan curve, then $\C \setminus C([0, 1])$ has 2 connected components, one if which is bounded and the other is unbounded.  
+\end{thm}
+We refer to the bounded component as the interior region, or the Jordan region.
+
+We denote $C([0, 1])$ as $|C|$ when $C:[0, 1] \to \C$.
+
+\begin{thm}[Caratheodory] Let $\Gamma$ be a Jordan curve and $\Omega$ the bounded region determined by $\Gamma$(then $\partial \Omega = |\Gamma|$).  if $f: \mathbb D \to \Omega$ is a holomorphic isomorphism, then $f$ extends to a homeomorphism $\ol{\mathbb D} \to \ol{\Omega}$ where $\partial \mathbb D$ is mapped to $\partial \Omega = |\Gamma|$.  
+\end{thm}
+
+
+Some remarks:  
+\begin{itemize}
+\item Note that the winding of the boundary around interior points is preserved so correspondence $\partial \mathbb D \to \partial \Omega$ preserves clockwise orientation(see Ahlfors for more detail).
+\item It is easy to derive a more general statement for $\Omega_1, \Omega_2$ of Jordan curves $\Gamma_1, \Gamma_2$.  So we have homeomorphisms giving $\Omega_1 \cup |\Gamma_1| = \ol{\Omega_1}$ and $\Omega_2 \cup |\Gamma_2| = \ol{\Omega_2}$.  
+\item It also tells us things about regions with slits.  For instance, take $\mathbb D \to \mathbb D \setminus [0, 1)$.  By the Riemann Mapping Theorem, we have a holomorphic isomorphism between this set and the unit disk.  The boundary behaves as if $[0, 1)$ would infinitesimally be a double line, but we can still factor a map $g: \mapsto \mathbb D \cap \{Im(z) > 0\}$.  Then the map $z \mapsto z^2$ sends this set to $\mathbb D \setminus [0, 1)$.  Then, the homeomorphism $\partial \mathbb D \to \partial(\mathbb D \cap \{Im(z) > 0\})$ is given by Caratheodory.
+\end{itemize}
+
+\subsection{Rectifiable Arcs}
+\begin{definition}An arc $\phi:[a, b] \to \C$ is a 1-1, continuous map is rectifiable if it has "length"(bounded variation) that is finite:
+$$\sup_{a = t_0 < t_1 < \dots < t_k = b} \sum_{j=0}^{k-1} |\phi(t_{j-1}) - \phi(t_j)| < \infty.$$
+\end{definition}
+
+If this definition is bothersome, we can make stronger assumptions about the arc being piecewise differentiable.
+
+First, we present an analytic continuation theorem.  Here the rectificable arc will be without endpoints $\phi:(a, b) \to \C$.  
+
+\begin{thm} If $\Omega, \omega$ are disjoint regions and $\Gamma$ a rectifiable arc, so that $|\Gamma| = \partial \Omega \cap \partial \omega$ and $|\Gamma| \cap \Omega \cap \omega$ is open.  Assume $f: |\Gamma| \cup \Omega \to \C$, $g; |\Omega| \cup \omega \to \C$ is continuous and $f\vert_{\Omega}$, $g \vert_\omega$ holomorphic and $f \vert_{|\Gamma|} = g \vert_{|\Gamma|}$.    Then $F: \Omega \cup |\Gamma| \cup \omega \to \C$ defined by $F\vert_{\Omega\ cup |\Gamma|} = f$, $F \vert_{|\Gamma|\cup \omega} = g$ is holomorphic.  
+\end{thm}
+\begin{proof}
+We sketch the proof.  Analyticity is a local property, so we only need to show that for a point on $|\Gamma|$, there is a neighborhood where $F$ is holomorphic.  While $F$ had no endpoints,  we take $\gamma$, a small portion of the arc.  Then, for an open ball containing the arc, we split into regions $C_1$,$C_2$.  On this, we define 
+$$f^*(z) = \frac{1}{2\pi i}\oint_{C_1} \frac{f(\zeta)}{\zeta - z}\,d\zeta, \quad z \in \Omega_1 \cup \omega_1,$$
+ going counterclockwise.  Similarly, we define $g^*(z)$ over the lower part.  Intersection over $\gamma$ is a Stieltjes integral.
+ 
+When we add the two, we get $F(z) = \frac{1}{2\pi i} \oint \frac{F(\zeta)}{\zeta - z}\,d\zeta$.  This shows that $F$ is holomorphic.  
+\end{proof}
 \end{document}
