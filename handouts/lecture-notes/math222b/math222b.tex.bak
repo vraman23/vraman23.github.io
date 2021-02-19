@@ -679,5 +679,78 @@ When $\sum a_{ij}(x) \xi_i \xi_j \ge c|\xi|^2$ for all $\xi \in \R^n$, $x \in \o
 The condition gives the following bound: $I[w] \ge \alpha \|Dw\|_q^q - \beta \mu(U)$.  We can always set $\beta = 0$ by translating $L$ by a constant.  Taking $\mc A = \{w \in W^{1, q}(U) : u\vert_{\partial U} = g\}$, we minimize $I[w]$ over $\mc A$.
 \item Lower semicontinuity: Suppose we have $u_k \rightharpoonup u$ weakly in $W^{1, q}$.  Then, $$I[u] \le \liminf I[u_k].$$
 \end{itemize}
+\pagebreak
+\section{February 18th, 2021}
+Recall, we have $L: \R^n \times \R \times \ol{U} \to \R$ for $U \Subset \R^n$, $\partial U \in C^1$.  We denote $L = L(p, z, x)$, $D_pL = (\partial_{p_1}L, \dots, \partial_{p_n}L)$, etc.  We also defined 
+$$I[w] = \int_U L(Dw(x), w(x), x)\,dx, \quad w\vert_{\partial U} = g.$$
 
+As an example, $L(p, x) = \frac{1}{2}\sum a_{ij}(x) p_ip_j - f(x)z$.  Last time, we used the principle that if $w$ is a minimizer, for every $\phi \in C_c^\infty(U)$, $t \mapsto I[w + t\phi]$ has a local minimum at $t = 0$.  This implies that if $w$ is a minimizer, $L$ satisfies the Euler-Lagrange equation:
+$$-\sum_{j=1}^n (L_{p_j}(Dw, w, x))_{x_j} + D_zL(Dw, w, x) = 0.$$
+
+\subsection{Second-Derivative Test}
+If $i'(0) = 0, i''(0) > 0$, then we have a local minimum at $0$.
+
+By definition $i(t) = I[w + t\phi]$, where $\phi \in C_c^\infty$.   Recall that
+$$i'(t) = \int\left ( \sum \phi_{x_j} \partial_{p_j}L(Dw + t\phi, w + t\phi, x) + \phi \partial_zL(Dw + t\phi, w + t\phi, x)\right )\,dx.$$
+
+Then,
+\begin{align*}
+i''(0) = \int \left (\sum_{i, j} \phi_{x_j} \phi_{x_i} \partial_{p_j p_i}L + \sum_j \phi \phi_{x_j} \partial_z \partial_{p_j} L + \phi^2 L_{zz} \right )\,dx
+\end{align*}
+If this is at least $0$ for all $\phi$, what do we get about $L$?   This makes sense for $\phi$ that is Lipschitz and $0$ at the boundary.  If we choose $\phi(x) = \epsilon \rho(\frac{x \xi}{\epsilon}) \zeta(x)$, where $\zeta \in C_c^\infty(U)$ and  $\rho$ consists of triangles with slope $\pm 1$ starting at $0$.  Then $|\rho'(x)| = 1$ almost everywhere.  
+
+Using this $\phi$, we get $\phi_{x_j} = \epsilon \rho(x \xi / \epsilon) \zeta'(x) + \xi_j \rho'(x \xi/\epsilon) \zeta(x) = \xi_j \rho'(x \xi/\epsilon) \zeta(x) + O(\epsilon)$ and 
+\begin{align*}
+0 &\le \int_U \sum_{i, j} (\xi_i \xi_j \partial_{p_ip_j}^2 L)((\rho')^2 \zeta^2) + O(\epsilon) \\
+&\xrightarrow{\epsilon \to 0} \int_U \sum_{i, j} (\xi_i \xi_j \partial_{p_ip_j}^2 L)( \zeta^2) 
+\end{align*}
+for any $\zeta \in C_c^\infty(U)$, so it follows that for all $\xi \in \R^n$, $\sum \xi_i \xi_j L_{p_ip_j}(Dw(x), w(x), x) \ge 0$.  Hence, it is useful to assume convexity:
+$$\sum_{i, j}^n \xi_i, \xi_j L_{p_i p_j} L(p, z, x) \ge 0$$
+for all $\xi \in \R^n$, $(p, z, x) \in \R^n \times \R \times U$.  (
+
+\begin{align*}
+L(p + t\xi) &= L(p) + t \sum \xi_j L_{p_j} L(p) + t^2 \int_{0}^1 (1 - s) \sum \xi_i \xi_j L_{p_ip_j}(p + st\xi)\,ds \\
+\end{align*}
+\subsection{Convexity}
+For smooth $L$, convexity is the statement 
+$$\sum L_{p_i p_j}(p, z, x) \xi_i \xi_j \ge c|\xi|^2 \ge 0.$$
+for all $\xi \in \R^n$.  
+\begin{example} for $L = 1/2 \sum a_{ij}(x) p_i p_j$, $a_{ij} = a_{ji}$, convexity is that 
+$$\sum a_{ij}(x) \xi_i \xi_j \ge c |\xi|^2$$
+
+We call this an Elliptic operator.
+\end{example}
+\begin{example} For the minimal surface equation, $L = (1 + |p|^2)^{1/2}$.  Note that $L_{p_i} = \frac{p_i}{(1 + |p|^2)^{1/2}}.$  
+
+$$L_{p_ip_j} = \frac{\delta_{ij}}{(1 + |p|^2)^{1/2}} - \frac{p_ip_j}{(1 + |p|^2)^{3/2}} = \frac{\delta_{ij}(1 + |p|^2) - p_ip_j}{(1 + |p|^2)^{3/2}}.$$
+
+Then,
+\begin{align*}
+\sum L_{p_ip_j} \xi_i \xi_j &= \frac{1}{(1 + |p|^2)^{3/2}}\left ( \sum |\xi|^2 (1 + |p|^2) - \sum \xi_i p_i \xi_j p_j\right )\\
+&= (1 + |p|^2)^{3/2} (|\xi|^2 + |\xi|^2 |p|^2 - \<\xi, p\>^2) \ge 0
+\end{align*}
+
+This is not strictly convex, since as $p \to \infty$ our term goes to $0$.
+\end{example}
+\subsection{Existence of Minimizers}
+Recall our conditions:
+\begin{itemize}
+\item Coercivity: There exists $\alpha > 0, \beta \ge 0$ with $L(p, z, u) \ge \alpha |p|^q - \beta$, for some $1 < q < \infty$, for all $z \in \R$, $x \in \ol U$.  
+
+The condition gives the following bound: $I[w] \ge \alpha \|Dw\|_q^q - \beta \mu(U)$.  We can always set $\beta = 0$ by translating $L$ by a constant.  Taking $\mc A = \{w \in W^{1, q}(U) : u\vert_{\partial U} = g\}$, we minimize $I[w]$ over $\mc A$.
+\item Lower semicontinuity: Suppose we have $u_k \rightharpoonup u$ weakly in $W^{1, q}$.  Then, $$I[u] \le \liminf I[u_k].$$
+\end{itemize}
+
+As we will see, the coercivity leads to nice compactness results via Rellich-Kondrachov.  How can we use lower semicontinuity?  Assume $\mc A$ is nonempty.  Take $m = \inf_{w \in mc A} I[w]$.  Then, we have $I[w_j] \to m$.  Assuming coercivity, we have $\|Dw_j \|_q$ is bounded.  If $w_0 \in \mc A$, then $\|w - w_0\|_q \le \|Dw - Dw_0\|_q$ by the Poincare inequality.  So it follows that $\|w_j\|_q \le C$.  From the Banach-Alaoglu Theorem, we have $w_j$ is weakly compact in $W^{1, q}$.  Passing to a subsequence, $w_j \rightharpoonup w$ in $W^{1, q}$.  From lower semicontinuity, we have $I[w] \le \liminf I[w_j] = m$.  This implies that $I[w] = m$.
+
+\subsection{Getting around Lower Semicontinuity}
+\begin{thm} Suppose $L \ge -C$ and $p \mapsto L(p, z, x)$ is convex for all $(z, x) \in \R \times \ol{U}$.  Then, for any $1 < q < \infty$, $w \mapsto I[w]$ is weakly lower semicontinuous in $W^{1, q}$: if $w_j \rightharpoonup w$ in $L^q$, $Dw_j \rightharpoonup Dw$ in $L^q$, then $I[w] \le \liminf I[w_j]$.
+\end{thm}
+\begin{remark} 
+\begin{itemize}
+\item Convexity implies $L(p) \ge L(q) + DL(q) \cdot (p-q)$.
+\item If $w_j \rightharpoonup w$ in $L^q$, then $\|w_j\|_q \le C$.  This follows from the Banach-Steinhaus Theorem.  
+\item $\|w\|_q \le \limsup \|w_j\|_q \le C$.  $\|w\|_q = \sup_{\| \phi\| \le q} \int w \phi = \sup \lim \int w_j \phi \le \limsup \sup \int w_j \phi \le \limsup \|w_j\|_p$. 
+\end{itemize}
+\end{remark}
 \end{document}

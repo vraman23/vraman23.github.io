@@ -28,3 +28,8 @@
 \contentsline {subsection}{\numberline {9.2}Calculus of Variations: Minimizing Area in $\mathbb {R}^3$}{22}{subsection.9.2}% 
 \contentsline {subsection}{\numberline {9.3}Calculus of Variations: General Setup}{23}{subsection.9.3}% 
 \contentsline {subsection}{\numberline {9.4}Existence of Minimizers}{24}{subsection.9.4}% 
+\contentsline {section}{\numberline {10}February 18th, 2021}{25}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Second-Derivative Test}{25}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Convexity}{26}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Existence of Minimizers}{26}{subsection.10.3}% 
+\contentsline {subsection}{\numberline {10.4}Getting around Lower Semicontinuity}{27}{subsection.10.4}% 
