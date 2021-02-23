@@ -15,8 +15,12 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb C}
+\newcommand{\D}{\mathbb D}
+
 \newcommand{\T}{\mathbb T}
 \renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+
 \let \phi \varphi
 \let \mc \mathcal
 \let \ol \overline
@@ -509,4 +513,63 @@ $$f^*(z) = \frac{1}{2\pi i}\oint_{C_1} \frac{f(\zeta)}{\zeta - z}\,d\zeta, \quad
  
 When we add the two, we get $F(z) = \frac{1}{2\pi i} \oint \frac{F(\zeta)}{\zeta - z}\,d\zeta$.  This shows that $F$ is holomorphic.  
 \end{proof}
+\pagebreak
+\section{February 22nd, 2021}
+\subsection{Schwarz Reflection and Variants}
+Let $\Omega = \Omega^* = \{\ol{z}| z \in \Omega\}$ an open region.  Suppose that $\Omega \cap \R \subset (a, b)$.  
+Then, $\Omega_\pm = \omega \cap \{\pm Im(z) > 0\}$.  If $f: \Omega_+ \cup (a, b) \to \C$ continuous and $f \vert_{(a, b)} \subset \R$, $f \vert_{\Omega_+}$ holomorphic, then $$F(z) = \begin{cases} f(z), \quad z \in \Omega_+ \cup (a, b) \\
+\ol{f(\ol{z})}, \quad z \in \Omega_-
+\end{cases}$$
+is holomorphic in $\Omega_+ \cup (a, b) \cup \Omega_-$.
+\begin{proof}
+Use the previous result with $\Omega = \Omega_+$, $\omega = \Omega_-$, $|\Gamma| = (a, b)$ with $f = f$, $\ol{f(\ol{\cdot})} = g(\cdot)$.
+\end{proof}
+Variants:
+\begin{itemize}
+\item Suppose we set $\Omega_+ \subset \mathbb D$, $\gamma$, an arc in $\{|z| = 1\} \cap \partial \Omega_+$.  We have $|\gamma| \cup \Omega_+$ open, and $f: |\gamma| \cup \Omega_+ \to \C$ continuous, $f\vert_{\Omega_+}$ holomorphic and $f \vert_{|\gamma|} \subset \R$.  
+
+We set 
+$$F(z) = \begin{cases}
+f(z), \quad z \in \Omega_+ \cup |\gamma|  \\
+\ol{f(1/\ol{z})}, \quad z \in \{  1/\ol{w}: w \in \Omega_+ \setminus \{0\}  \}
+\end{cases}$$
+
+If we work on the Riemann sphere, we don't need to remove $0$, as it gets mapped to $\infty$.  For circles, we have $OA \cdot OB = R^2$.
+
+
+\item  Let $\phi: (a, b) \to \C$ be an Analytic arc - that there is $f: \omega \to \C$ univalent so that $\omega \supset (a, b)$, $f \vert_{(a, b)} = \phi$, a holomorphic extension.  (this definition avoids the discussion of real analytic functions).
+
+Let $\Omega$ be a region, $\gamma$ an analytic arc, $|\gamma| \supset \partial \Omega$ from univalent $f: \omega \to\C$ and we assume $\omega$ is chosen so that 
+$$f(\omega \cap \{Im(z) > 0\}) \subset \Omega, \quad f(\omega \cap \{Im(z) < 0\}) \cap \Omega = \emptyset.$$
+
+Let $F; \Omega \cup |\gamma| \to \C$ continuous. $F \vert_\Omega$ holomorphic, where $F(|\gamma|) \subset |\Gamma|$, where $\Gamma$ is another analytic arc.  Then, there is $\Omega_1$ open with $\Omega_1 \supset \Omega \cup |\gamma|$ so that it has F has a holomorphic extension to $\Omega_1$ with $|\gamma|$ mapping to another analytic arc.
+
+First, after a suitable restriction, we take $g^{-1} \circ F \circ f$, reducing the result where we have a segment on the real axis mapped to $\R$.  We then apply Schwarz reflection to the segment.  
+
+\item Let $\Omega$ be an inner region of a polygon(not necessarily convex).  Suppose $z_1, \dots, z_n$ appear counterclockwise and $\alpha_k \pi$, $1 \le k \le n$ inner angles $0 < \alpha_k < z$ and $\beta_k \pi$ the outer angles, $\pi - \alpha_k \pi = \beta_k \pi$ or $1 - \alpha_k = \beta_k$.  Then $\sum_k \beta_2 = 2$(the sum of exterior angles is $2\pi$).  A function $f: \Omega \to \D$ a holomorphic isomorphism has continuous extension to $\tilde{f}: \ol{\Omega} \to \ol{\mathbb D}$ by Caratheodory with $\tilde{f}(\partial \Omega) = \partial \mathbb D$.  We let $F: \mathbb D \to \Omega$ be the inverse map.  We choose $f$ so that $f(z_j) = w_j$, preserving the counterclockwise orientation.  
+
+By the Schwarz Reflection, since $f((z_k, z_{k+1})) = (w_k, w_{k+1})$,  $f$ has an analytic extension across $(z_k, z_{k+1})$ and some neighborhood of $(z_k, z_{k+1})$ is mapped injectively into a neighborhood of $(w_k, w_{k+1})$.  Note that $F$ has holomorphic extension into a neighborhood of $(w_k, w_{k+1})$ and etc.
+\end{itemize}
+
+\subsection{Schwarz-Christoffel Formula}
+$F: \ol{\mathbb D }\to \ol{\Omega}$ is a homeomorphism which extends the inverse map ad $F(w_k) = z_k$.  $\ol{\Omega}$ iis a polygon with angles $\alpha_k \pi, \beta_k = 1 - \alpha_k$.  Then
+$$F(w) =C \int_{0}^w \prod_{i=1}^k (w - w_k)^{-\beta_k}\,dw + C'.$$
+\begin{remark}  This is not an explicit formula.  The constants $C, C'$ need to be found and $w_1, \dots, w_n$ are not known.  We can fix $w_1, w_2, w_3$, but not more.  
+\end{remark}
+\begin{proof}
+Consider a map $\phi(\zeta) = \zeta^{\alpha_k} e^{i \omega_k} + z_k$, which maps a semicircle to the angle $\alpha_k \pi$.  Note that $\phi$ extends to $\{|\zeta| < \epsilon: Im(\zeta) \ge 0\}$ and maps $(-\epsilon, \epsilon) $ to the corner at $z_k$.  Then $\tilde{f} \circ \phi$ maps $(-\epsilon, \epsilon)$ to an arc of the circle containing $w_k$.
+
+Applying the reflection principle to the segment, $\tilde{f} \circ \phi$ has an analytic extension to the open disc of radius $\epsilon$.  Moreover, this extension has nonzero derivative at $0$, so it has a local inverse at $w_k$.
+
+So, take $(\tilde{f} \circ \phi)^{-1}(w) = (w - w_k) K(w)$ with $K(w_k) \ne 0$ in a neighborhood of $w_k$.  But then, in a neighborhood of $w_k$, if $w \in \ol{\mathbb D}$, we have $$F(w) = \phi \circ (\tilde{f} \circ \phi)^{-1}(w) = (w - w_k)^{\alpha_k} \cdot e^{i\omega_k}K(w)^{\alpha_k} + z_k.$$
+
+But $K(w)^{\alpha_k}$ is holomorphic near $w_k$ since $K(w_k) \ne 0$ so we can define (the branch of) this power in a small disc around $w_k$.  Thus, locally near $w_k \in \ol{\mathbb D}$, we have 
+$$F(w) - z_k = (w - w_k)^{alpha_k} \cdot G_k(w)$$
+where $G_k(w_k) \ne 0$ and holomorphic in a neighborhood of $w_k$.
+
+Computing the derivative, we have 
+$$F'(w) = (w - w_k)^{-\beta_k}(\alpha_k G_k(w) + (w - w_k)G_k'(w))$$
+or $(w - w_k)^{\beta_k}F'(w)$ is holomorphic and nonzero near $w_k$ so 
+$F'(w) \prod_{k=1}^n (w - w_k)^{\beta_k}$ is are holomorphic near $\ol{\mathbb D}$.  
+\end{proof}  
 \end{document}

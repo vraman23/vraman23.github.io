@@ -1,0 +1,68 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+
+\let \phi \varphi
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+\begin{document}
+\title{Jordan Curve Theorem}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+We used the Jordan Curve Theorem in order to present the Caratheodory Extension theorem for conformal maps.  The following is a proof of the theorem as a corollary of a more general theorem using Homology and the Meyer-Vietoris Long Exact sequence.  Any mistakes and typos are my own - kindly direct them to my inbox.
+\end{abstract}
+\section{Statement of Theorem}
+\begin{theorem}
+Let $n, k, i \in \N$ be arbitrary proved that $k \le n-1$.  
+\begin{itemize}
+\item Suppose $h: \mathbb D^k \to \mathbb S^n$ is a topological embedding.  Then $$\tilde{H}_i(\mathbb S^n \setminus h(\mathbb D^k); \Z) = 0.$$
+\item If $h: \mathbb S^k \to \mathbb S^n$ is a topological embedding, then $$\tilde{H}_i(\mathbb S^n\setminus h(\mathbb S^k); \Z) = \tilde{H}_i(\mathbb S^{n-k-1}; \Z).$$
+\end{itemize}
+\end{theorem}
+\begin{corollary}[Jordan Curve Theorem] Taking $n = 2$, $k = 1$ in the above theorem, $\tilde{H}_0(\mathbb S^2 \setminus h(\mathbb S^1)) = \tilde{H}_0(\mathbb S^0; \Z) \cong \Z$, so $H_0(\mathbb S^{2} \setminus h(\mathbb S^1)) = \Z^2$, which implies that $\mathbb S^2 \setminus h(\mathbb S^1)$ has two path-connected components.  
+\end{corollary}
+
+\section{Proof of the Theorem}
+\begin{proof}
+We proceed by induction on $k$:  the $k = 0$ case is clear.  Now, consider $\mathbb D^k \cong [0, 1]^k$ and setting $I = [0, 1]$, define $A_+ = \mathbb S^n \setminus(I^{k-1} \times [0, 1/2])$ and $A_- = \mathbb S^n \setminus(I^{k-1} \times [1/2, 1])$.  It is easy to see that $A_+ \cup A_- = \mathbb S^n\setminus h(I^k)$ and $A_+ \cup A_- = \mathbb S^n \setminus (I^{k-1})$.  By induction, we know that the homologies of $A_+ \cup A_-$ are zero.  
+
+By Meyer-Vietoris, we have the sequence
+We have the sequence
+$$\dots \to \tilde H_{i+1}(A_+ \cup A_-) \to \tilde H_{i}(A_+ \cap A_-) \to H_i(A_+) \oplus H_i(A_-) \to \tilde H_i(A_+ \cup A_-)\to \dots$$
+Since $ \tilde H_{i+1}(A_+ \cup A_-) = \tilde H_i(A_+ \cup A_-) = 0$, it follows that $\tilde H_i(\mathbb S^n\setminus h(I^k)) \cong \tilde H_i(A_+) \oplus \tilde H_i(A_-)$.  It suffices to check that one of these is zero.  Suppose that $\tilde {H_i}(A_+ \cap A_i) \ne 0$.  Then, one of $\tilde H_i(A_+)$ or $\tilde H_i(A_-)$ is nonzero.  Now, suppose $\alpha \in \tilde H_i(\mathbb S^n \setminus h(I^k))$ is not a boundary.  Then it is not a boundary in $A_+$ or $A_-$. We use the same principle for further subdivisions of the interval $[0, 1]$, as in the proof of the Mayer-Vietoris Theorem.  By iteration, we obtain a nested sequence of intervals
+$$I_1 \supset I_2 \supset \dots \supset I_j \supset \dots$$
+and it follows that there exists $p \in \bigcup I_j$ with $\alpha$ not a boundary in $\mathbb S^n \setminus h(I^{k-1} \times I_j)$.  However, we must have $\alpha$ as a boundary in $\mathbb S^n \setminus h(I^{k-1} \times \{p\})$, a contradiction.  So we must have $\alpha$ as a boundary in some finite step.  This concludes the proof of the first statement.
+
+Now, we prove the second statement.  We again proceed by induction on $k$.  If $k = 0$
+ then $\tilde H_i(\mathbb S^n \setminus \mathbb S^0) \cong \tilde H_i(\R^n \setminus \{p\}) \cong \tilde H_i(\mathbb S^{n-1})$.  Decompose $\mathbb S^k = \mathbb D_+^k \cup D_-^k$ as the $\epsilon$-neighborhood of the upper and lower hemisphere.  We denote the decomposition of the subsets as $B_+ = \mathbb S^n \setminus h(\mathbb D_+^k)$ and $B_- = \mathbb S^n \setminus h(\mathbb D_-^k)$.
+
+\end{proof}
+\end{document}

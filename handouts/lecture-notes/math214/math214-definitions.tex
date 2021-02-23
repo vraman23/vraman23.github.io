@@ -6,7 +6,6 @@
 \Newassociation{hint}{hintitem}{all-hints}
 \renewcommand{\solutionextension}{out}
 \renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
-\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
 
  %Sets
 \newcommand{\N}{\mathbb{N}}
@@ -167,7 +166,7 @@ $$v(fg) = f(p)vg + g(p)vf.$$
 $T_pM$ denotes the set of derivations at $p$, called the Tangent Space to $M$ at $p$.
 \end{definition}
 \begin{definition} If $F:M \to N$ is a smooth map, for each $p \in M$, we define 
-$dF_p: T_pM \to T_{F(p)}N$, the differential of $F$ at $p$ as follows:  Given $v \in T_pM$, $$dF_p(v)(f) = v(f \circ F).$$
+$dF_p: T_pM \to T_{F(p)}N$, the differential of $F$ at $p$ as follows:  Given $v \in T_pM$, $dF_p(v)$ is the derivation at $F(p) $ acting on $f \in C^\infty(N)$ by $$dF_p(v)(f) = v(f \circ F).$$
 Some properties:
 \begin{itemize}
 \item $dF_p$ is a derivation at $F(p)$.
@@ -180,5 +179,26 @@ Some properties:
 \end{definition}
 \begin{definition} The tangent bundle $TM = \bigsqcup_{p\in M} T_pM$.  We have a map $\pi: TM \to M$ given by $v \in T_pM \mapsto p$.
 \end{definition}
+
+\section{Rank}
+\begin{definition}[Rank] Suppose $M$ and $N$ are smooth manifolds with or without boundary.  Given a smooth map $F: M \to N$ and a point $p \in M$, we define the rank of $F$ at $p$ to be the rank of the linear map $dF_p: T_pM \to T_{F(p)}N$; i. e. the rank of the Jacobian matrix of $F$ in any smooth chart, or the dimension of $\text{Im }dF_p \subset T_{F(p)}N$.  If $F$ has the same rank at every point , we say that it has constant rank.
+\end{definition}
+
+\begin{definition}[Local Diffeomorphism] If $M$ and $N$ are smooth manifolds with or without boundary, a map $F: M \to N$ is called a local diffeomorphism if every point $P \in M$ has a neighborhood $U$ such that $F(U)$ is open in $N$ and $\at{F}{U}: U \to F(U)$ is a diffeomorphism.    
+\end{definition}
+
+\begin{definition}[Submersion] A smooth map $F:M \to N$ is called a smooth submersion if $\rank F = \dim N$; $dF_p$ is surjective for all $p \in M$.
+\end{definition}
+\begin{definition}[Immersion] A smooth map $F:M \to N$ is called a smooth immersion if $\rank F = \dim M$; $dF_p$ is injective for all $p \in M$.
+\end{definition}
+
+\begin{theorem} If $dF_p$ has full rank, then there exists a neighborhood $p \in U$ such that $\at{F}{U}$ has full rank.
+\end{theorem}
+
+\begin{theorem}[Rank Theorem] Let $M^m, N^n$ smooth manifolds, $p \in M$.  Assume $F: M \to N$ smooth, constant rank $r$.  Then, there are smooth charts $(U, \phi)$ of $M$ and $(V, psi)$ of $N$ such that $p \in U$ 
+, $F(p) \subset V$ and such that $F$ has a coordinate representation of the form
+$$\hat{F}(x^1, \dots, x^r, x^{r+1},\dots, x^m) = (x^1, \dots, x^r, 0, \dots, 0).$$
+\end{theorem}
+
 \end{document}
-\makeindex
+

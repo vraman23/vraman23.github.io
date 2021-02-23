@@ -28,3 +28,6 @@
 \contentsline {section}{\numberline {8}February 17th, 2021}{16}{section.8}% 
 \contentsline {subsection}{\numberline {8.1}Caratheodory Extension Theorem}{16}{subsection.8.1}% 
 \contentsline {subsection}{\numberline {8.2}Rectifiable Arcs}{16}{subsection.8.2}% 
+\contentsline {section}{\numberline {9}February 22nd, 2021}{18}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Schwarz Reflection and Variants}{18}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Schwarz-Christoffel Formula}{19}{subsection.9.2}% 
