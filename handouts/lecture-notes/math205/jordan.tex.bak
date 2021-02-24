@@ -37,8 +37,9 @@
 \author{Vishal Raman}
 \maketitle
 \begin{abstract}
-We used the Jordan Curve Theorem in order to present the Caratheodory Extension theorem for conformal maps.  The following is a proof of the theorem as a corollary of a more general theorem using Homology and the Meyer-Vietoris Long Exact sequence.  Any mistakes and typos are my own - kindly direct them to my inbox.
+We used the Jordan Curve Theorem in order to present the Caratheodory Extension theorem for conformal maps.  The following is a proof of the theorem as a corollary of a more general theorem using Homology and the Mayer-Vietoris Theorem.  Any mistakes and typos are my own - kindly direct them to my inbox.
 \end{abstract}
+\tableofcontents
 \section{Statement of Theorem}
 \begin{theorem}
 Let $n, k, i \in \N$ be arbitrary proved that $k \le n-1$.  
@@ -49,12 +50,12 @@ Let $n, k, i \in \N$ be arbitrary proved that $k \le n-1$.
 \end{theorem}
 \begin{corollary}[Jordan Curve Theorem] Taking $n = 2$, $k = 1$ in the above theorem, $\tilde{H}_0(\mathbb S^2 \setminus h(\mathbb S^1)) = \tilde{H}_0(\mathbb S^0; \Z) \cong \Z$, so $H_0(\mathbb S^{2} \setminus h(\mathbb S^1)) = \Z^2$, which implies that $\mathbb S^2 \setminus h(\mathbb S^1)$ has two path-connected components.  
 \end{corollary}
-
+\pagebreak
 \section{Proof of the Theorem}
 \begin{proof}
 We proceed by induction on $k$:  the $k = 0$ case is clear.  Now, consider $\mathbb D^k \cong [0, 1]^k$ and setting $I = [0, 1]$, define $A_+ = \mathbb S^n \setminus(I^{k-1} \times [0, 1/2])$ and $A_- = \mathbb S^n \setminus(I^{k-1} \times [1/2, 1])$.  It is easy to see that $A_+ \cup A_- = \mathbb S^n\setminus h(I^k)$ and $A_+ \cup A_- = \mathbb S^n \setminus (I^{k-1})$.  By induction, we know that the homologies of $A_+ \cup A_-$ are zero.  
 
-By Meyer-Vietoris, we have the sequence
+By Mayer-Vietoris, we have the sequence
 We have the sequence
 $$\dots \to \tilde H_{i+1}(A_+ \cup A_-) \to \tilde H_{i}(A_+ \cap A_-) \to H_i(A_+) \oplus H_i(A_-) \to \tilde H_i(A_+ \cup A_-)\to \dots$$
 Since $ \tilde H_{i+1}(A_+ \cup A_-) = \tilde H_i(A_+ \cup A_-) = 0$, it follows that $\tilde H_i(\mathbb S^n\setminus h(I^k)) \cong \tilde H_i(A_+) \oplus \tilde H_i(A_-)$.  It suffices to check that one of these is zero.  Suppose that $\tilde {H_i}(A_+ \cap A_i) \ne 0$.  Then, one of $\tilde H_i(A_+)$ or $\tilde H_i(A_-)$ is nonzero.  Now, suppose $\alpha \in \tilde H_i(\mathbb S^n \setminus h(I^k))$ is not a boundary.  Then it is not a boundary in $A_+$ or $A_-$. We use the same principle for further subdivisions of the interval $[0, 1]$, as in the proof of the Mayer-Vietoris Theorem.  By iteration, we obtain a nested sequence of intervals
@@ -64,5 +65,7 @@ and it follows that there exists $p \in \bigcup I_j$ with $\alpha$ not a boundar
 Now, we prove the second statement.  We again proceed by induction on $k$.  If $k = 0$
  then $\tilde H_i(\mathbb S^n \setminus \mathbb S^0) \cong \tilde H_i(\R^n \setminus \{p\}) \cong \tilde H_i(\mathbb S^{n-1})$.  Decompose $\mathbb S^k = \mathbb D_+^k \cup D_-^k$ as the $\epsilon$-neighborhood of the upper and lower hemisphere.  We denote the decomposition of the subsets as $B_+ = \mathbb S^n \setminus h(\mathbb D_+^k)$ and $B_- = \mathbb S^n \setminus h(\mathbb D_-^k)$.
 
+By the first part, we know that $\tilde H_i(B_\pm) = 0$.  By Mayer-Vietoris, we know that $B_+ \cap B_- \sim \mathbb S^n \setminus h(\mathbb S^{n-1})$($\sim$ denotes homotopy equivalence), so we obtain
+$$\tilde H_i(\mathbb S^n \setminus h(\mathbb S^k)) \cong \tilde H_{i+1}(\mathbb S^n \setminus h(\mathbb S^{k-1})) = H_{i+1}(\mathbb S^{n - k + 1 - 1}) \cong \tilde H_{i+1}(\mathbb S^{n-k}) \cong \tilde H_i(\mathbb S^{n - k - 1}).$$
 \end{proof}
 \end{document}

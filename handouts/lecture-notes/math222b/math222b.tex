@@ -24,6 +24,7 @@
 \let \phi \varphi
 \let \mc \mathcal
 \let \ov \overline
+\let \weakto \rightharpoonup 
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cB}{\mathcal{B}}
@@ -743,14 +744,82 @@ The condition gives the following bound: $I[w] \ge \alpha \|Dw\|_q^q - \beta \mu
 
 As we will see, the coercivity leads to nice compactness results via Rellich-Kondrachov.  How can we use lower semicontinuity?  Assume $\mc A$ is nonempty.  Take $m = \inf_{w \in mc A} I[w]$.  Then, we have $I[w_j] \to m$.  Assuming coercivity, we have $\|Dw_j \|_q$ is bounded.  If $w_0 \in \mc A$, then $\|w - w_0\|_q \le \|Dw - Dw_0\|_q$ by the Poincare inequality.  So it follows that $\|w_j\|_q \le C$.  From the Banach-Alaoglu Theorem, we have $w_j$ is weakly compact in $W^{1, q}$.  Passing to a subsequence, $w_j \rightharpoonup w$ in $W^{1, q}$.  From lower semicontinuity, we have $I[w] \le \liminf I[w_j] = m$.  This implies that $I[w] = m$.
 
+\pagebreak
+\section{February 23rd, 2021}
+\subsection{Weak Convergence}
+We have a Banach space $B$ with dual $B^*$ with $u : B \to \C$ linear in the dual if for all $x \in B$, $|u(x)| \le C\|x\|_B$.
+
+\begin{thm}[Banach - Alaoglou] The unit ball $\{u \in B^*: \|u\|_{B^*} \le 1\}$ is weak-* compact: if we have $\|u_j\|_{B^*} \le 1$, then there exists a subsequence and $u \in B^*$ such that for every $x \in B$, $u_{j_k}(x) \to u(x)$.
+\end{thm}
+\begin{corollary} If $B$ is reflexive, $(B^*)^* = B$, then $\{x: \|x\|_B \le 1\}$ is weakly compact.  Given $\|x_j\| \le 1$, there exists $x \in B$ and a subsequence so that $u(x_{j_k}) \to u(x)$ for $u \in B^*$.
+\end{corollary}
+\begin{example} Take $B = L^q(U)$ for $1 < q < \infty$.  This is reflexive since $B^* = L^{q'}(U)$ with $q^{-1} + (q')^{-1} = 1$ for $1 < q' < \infty$.
+\end{example}
+\begin{remark} For $u_j \in B$, we say $x_j \rightharpoonup x \in B$ iff for all $u \in B^*$, $u(x_j) \to u(x)$.
+\end{remark}
+\begin{itemize}
+\item If $B$ reflexive and $x_j \weakto x$, then $\|x\| \le \liminf \|x_j\|$.  This is because $|x(u)| = \lim |x_j(u)| \le \liminf \|u\|_{B^*} \|x_j\|_B$ and $\|x\|_B = \sup_{\|u\|_{B^*} = 1} |x(u)|$.
+\item If $B$ reflexive and $x_j\weakto x$, there exists $C$ such that $\|x_j\|_B \le C$.  For every $u \in B^*$, $|x_j(u)| \le C(u)$, which implies by the Uniform Boundedness Principle that $\|x_j\|_B \le C$.
+\item (We don't assume $B$ is reflexive) Suppose $V \subset B$ is a closed subspace.  Then $V$ is weakly closed.  This is a special case of Mazur's Theorem.  
+\begin{proof}
+We need to show that if $x_j \in V$, $x_j \weakto x \in B$, then $x \in V$.  For $u \in B^*$, $u(x_j) \to u(x)$.  So if $x \not \in V$, we want to construct $u \in B^*$ so that $u(x_j) = 0$ and $u(x) = 1$.  
+
+Recall Hahn-Banach:  If we have a subspace $\tilde V \subset B$ and $\tilde{\phi} : \tilde V \to \C$ with $|\tilde{\phi}(x)| \le C \|x\|_B$, with $x \in \tilde V$, then there exists $\phi \in B^*$ so that $\phi\vert_{\tilde{V}} = \tilde{\phi}$.
+
+Take $\tilde{V} = V + \C x$.  Define $\tilde{\phi}: \tilde{V} \to \C$ and define $\tilde{\phi}(y + \alpha x) = \alpha$, $y \in V$, $\alpha \in \C$.  It suffices to check that it is bounded.  We need $\tilde{\phi}(y + \alpha x) \le C\|y + \alpha x\|$.  Suppose not - for every $n$, there exists $y_n, \alpha_n$ such that $ |\alpha _n|= |\tilde{\phi}(y_n + \alpha_n x)| > n \|y_n + \alpha_n x\|$.  
+
+Dividing by $\alpha_n$, we get 
+$$1/n > \| y_n/\alpha_n + x\|_B.$$
+But this would imply that $-y_n/\alpha_n \to x \not \in V$, but $V$ is closed.  
+
+\end{proof}
+\end{itemize}
+\subsection{Calculus of Variations}
+We now move back to calculus of variations.  We have $I[w] = \int_U L(Dw(x), w(x), x)\,dx$ with $U \Subset \R^n$, $\partial U C^1$.  We have $L = L(p, z, x) \in C^\infty(\R^n \times \R \times \ol{U})$.  We wish to minimize $L$ under the constraint that $w \vert_{\partial U} = g$.
+
+Recall that we introduced $i(t) = I[w + t\phi]$, $\phi \in \C_c^\infty(U)$.  If $w$ is a minimizer of $I[w]$, then
+\begin{itemize}
+\item $i'(0) = 0$ for all $\phi$ implies that $-\sum_{j=1}^n \partial_{x_j} (\partial_{p_j}L(Dw, w, x)) + \partial_zL(Dw, w, x) = 0$(Euler-Lagrange equation).
+\item If $i''(0) \ge 0$ for all $\phi$, then we have the convexity condition: for all $\xi \in \R^n$, $\sum_{i, j} \partial_{p_i} \partial_{p_j} L(Dw, w, x)\xi_i \xi_j \ge 0$.
+\end{itemize}
+We introduced the conditions:
+\begin{itemize}
+\item Coercivity: there exists $1 < q < \infty$, $\alpha > 0$, $\beta \ge 0$ such that $L(p, z, x) \ge \alpha |p|^q - \beta$.  This implies that $I[w] \ge \alpha\|Dw\|_q^q - \beta$.
+\item (Weak) Lower semicontinuity: If $u_j \weakto u$ and $Du_j \weakto u$ weakly in $L^q(U)$, then $I[u] \le \liminf I[u_j]$.
+\end{itemize}
+
+\begin{remark} Take $\mc A = \{u \in W^{1, q}: u\vert_{\partial U} = g\} \ne \emptyset$.  If we put $m = \inf_{\mc A} I[w]$, there is a sequence $w_k \in \mc A$ such that $I[w_k] \to m$.  Using weak compactness, we have a subsequence $w_{k_j} \weakto w$ in $W^{1, q}$ with $w \in \mc A$.  Then $m \le I[w] \le \liminf I[w_{j_k}]= m$, so $I[w] = m$.
+\end{remark}
+
 \subsection{Getting around Lower Semicontinuity}
-\begin{thm} Suppose $L \ge -C$ and $p \mapsto L(p, z, x)$ is convex for all $(z, x) \in \R \times \ol{U}$.  Then, for any $1 < q < \infty$, $w \mapsto I[w]$ is weakly lower semicontinuous in $W^{1, q}$: if $w_j \rightharpoonup w$ in $L^q$, $Dw_j \rightharpoonup Dw$ in $L^q$, then $I[w] \le \liminf I[w_j]$.
+\begin{thm} Suppose $L \ge -C$ and $p \mapsto L(p, z, x)$ is convex for all $(z, x) \in \R \times \ol{U}$.  Then, for any $1 < q < \infty$, $w \mapsto I[w]$ is weakly lower semicontinuous in $W^{1, q}$: if $w_j \weakto w$ in $L^q$, $Dw_j \rightharpoonup Dw$ in $L^q$, then $I[w] \le \liminf I[w_j]$.
 \end{thm}
 \begin{remark} 
-\begin{itemize}
-\item Convexity implies $L(p) \ge L(q) + DL(q) \cdot (p-q)$.
-\item If $w_j \rightharpoonup w$ in $L^q$, then $\|w_j\|_q \le C$.  This follows from the Banach-Steinhaus Theorem.  
-\item $\|w\|_q \le \limsup \|w_j\|_q \le C$.  $\|w\|_q = \sup_{\| \phi\| \le q} \int w \phi = \sup \lim \int w_j \phi \le \limsup \sup \int w_j \phi \le \limsup \|w_j\|_p$. 
-\end{itemize}
+Convexity implies that for all $p_1, p_2$, $L(p_1) \ge L(p_2) + D_pL(p_2) \cdot (p_1-p_2)$.
 \end{remark}
+\begin{proof}
+We assume that $u_k \weakto u$ in $L^q$ and $Du_k \weakto Du$ in $L^q$.  We have $\ell = \liminf I[u_k]$ and we want $I[u] \le \ell$.
+
+By taking a subsequence, we can say that $\ell = \lim I[u_k]$.  By taking another subsequence, we can say $u_k \to u \in L^q$, since weak convergence implies that $\|u_k\|_{q} \le C$ and $\|Du_k\|_q \le C$ and using compactness of $W^{1, q}$ in $L^q$. By taking a subsequence we can use $u_k \to u$ almost everywhere[this is the Riesz-Fisher theorem].  By Egorov's Theorem, for every $\epsilon$, there exists a set $E_\epsilon$ such that $m(U \setminus E_\epsilon) \le \epsilon$  so that $u_k \to u$ uniformly on $E_\epsilon$.  Note that $m(U) < \infty$.
+
+We define a set $F_\epsilon = \{x \in U : |u(x)| + |Du(x)| \le \frac{1}{\epsilon}\}$.  Then $m(U \setminus F_\epsilon) \to 0$ as $\epsilon \to 0$.  We define $G_\epsilon = E_\epsilon \cap F_\epsilon$, with $m(U \setminus G_\epsilon) \le m(U \setminus E_\epsilon) + m(U \setminus F_\epsilon) \to 0$ as $\epsilon \to 0$.  
+
+Without loss of generality, we can assume $L \ge 0$.  Note that 
+\begin{align*}
+I[u_k] &= \int_U L(Du_{k}, u_k, x) \\
+&\ge \int_{G_\epsilon} L(Du_k, u_k, x) \\
+&\ge \int_{G_\epsilon} L(Du, u_k, x) + D_pL(Du, u_k, x)(Du_k - Du)\,dx
+\end{align*}
+Then, $\lim \int_{G_\epsilon} L(Du, u_k, x) = \int_{G_\epsilon} L(Du, u, x)$ since $u_k \to u$ uniformly on $G_\epsilon$ and $Du$ is uniformly bounded on $G_\epsilon$.  For the second term, $D_pL(Du, u_k, x) \to D_pL(Du, u, x)$ uniformly on $G_\epsilon$.  Then $Du_k \weakto Du$ in $L^q$.  Then writing $\int (D_pL(Du, u_k, x) - D_pL(Du, u, x))(Du_k - Du) + D_pL(Du, u, x) \cdot (Du_k - Du)$, $Du_k - Du$ is bounded in $L^q$ and $(D_pL(Du, u_k, x) - D_pL(Du, u, x))$ converges uniformly to $0$, so the first term goes to $0$.  For the second term, $D_pL(Du, u, x)$ is bounded and $Du_k - Du$ converges weakly to $0$.  
+
+It follows that $$\ell = \liminf I[u_k] \ge \int_{G_\epsilon}(Du, u, x)\,dx  \xrightarrow{\epsilon \to 0} \int_U L(Du, u, x)\,dx = I[u].$$
+
+Hence, $I[u] \le \liminf I[u_k]$, as desired.
+
+\end{proof}
+
+
 \end{document}
+
+
+

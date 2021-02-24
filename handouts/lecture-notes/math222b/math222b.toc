@@ -32,4 +32,7 @@
 \contentsline {subsection}{\numberline {10.1}Second-Derivative Test}{25}{subsection.10.1}% 
 \contentsline {subsection}{\numberline {10.2}Convexity}{26}{subsection.10.2}% 
 \contentsline {subsection}{\numberline {10.3}Existence of Minimizers}{26}{subsection.10.3}% 
-\contentsline {subsection}{\numberline {10.4}Getting around Lower Semicontinuity}{27}{subsection.10.4}% 
+\contentsline {section}{\numberline {11}February 23rd, 2021}{27}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Weak Convergence}{27}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Calculus of Variations}{28}{subsection.11.2}% 
+\contentsline {subsection}{\numberline {11.3}Getting around Lower Semicontinuity}{28}{subsection.11.3}% 
