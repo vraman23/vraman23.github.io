@@ -572,4 +572,44 @@ $$F'(w) = (w - w_k)^{-\beta_k}(\alpha_k G_k(w) + (w - w_k)G_k'(w))$$
 or $(w - w_k)^{\beta_k}F'(w)$ is holomorphic and nonzero near $w_k$ so 
 $F'(w) \prod_{k=1}^n (w - w_k)^{\beta_k}$ is are holomorphic near $\ol{\mathbb D}$.  
 \end{proof}  
+\pagebreak
+\section{February 24th, 2021}
+\subsection{Schwarz-Christoffel Formula, continued}
+We show that $F'(w) \prod_{k=1}^n (w - w_k)^{\beta_k}$ is a constant, via the maximum principle. 
+\begin{proof}
+Let $H(w) = F'(w) \prod_{k=1}^n (w - w_k)^{\beta_k}$ be extended to a neighborhood of $\ol{\mathbb D}$.  It suffices to show that $Im(\log H(w))$ is constant.  Note that $Im(\log H(w)) = \log e^{Im(\log H(w))} = \log |e^{-i\log H(w)}|.$
+
+It suffices to show that $|e^{-i\log H(w)}|$ is constant on the arcs $(w_k, w_{k+1})$.  So, we show that $\arg H(w)$ is constant  on the open arcs $(w_k, w_{k+1})$.
+
+On $(w_k, w_{k+1})$, $F(e^{i\theta})$ takes values in $(z_k, z_{k+1})$, so $\arg iF'(e^{i\theta})e^{i\theta}$ is constant.    So $\arg F'(e^{i\theta}) = c-\theta$, for $\theta \in (\theta_k, \theta_{k+1})$, where $w_k = e^{i\theta_k}$.
+
+On the other hand, $\arg (w - w_p) = \arg((e^{i(\theta - \theta_p)} - 1)e^{i\theta_p})$.  It follows that $\arg(w - w_p) = C + \theta/2$.
+
+This gives
+$$\arg H(e^{i\theta}) = C - \theta + \sum \beta_p(c_p + \theta/2) = C + (1/2 \sum \beta_p - 1)\theta,$$
+which is a constant.
+
+\end{proof} 
+\subsection{Schwarz-Christoffel Formula on the Upper Half-Plane}
+If $G: \{Im(u) > 0\} \to \Omega$ a conformal map mapping $\infty$ to one of the vertices, where $\Omega$ is the interior of a polygon with outer angles $\beta_1\pi, \dots, \beta_n \pi$, then
+$$G(u) = C \int-{0}^u \prod_{k=1}^{n-1} (u - \xi_k)^{-\beta_k}\,du$$
+where $\xi_k \in \R$(it is not really the first $n-1$ angles, but the ones that aren't coming from infinity).  If the sum $\beta_1 + \dots + \beta_{n-1} = 2$, then $\beta_n = 0$, and we have an $(n-1)$-gon.
+
+It follows from inverting the line $Im(z) = 0$ to a disk given by $\phi(u) = \frac{u-i}{u+i}$(the Cayley Map).  Then $G = F \circ \phi$ and $\phi(\xi_k) = w_k$.  If $\xi_n = \infty$, then $w_n = 1$.  Assume $w_k \ne 1$, from $\xi_k \ in \R$.  Then if we let $w = \phi(u)$,
+$$G'(u) = F'(\phi(u)) \phi'(u) = 2i F'(\phi(u)) \cdot (u + i)^{-2}. $$
+
+Then $w - w_k = \phi(u) - \phi(\xi_k) = C_k \frac{u - \xi_k}{u + i}$, so it follows that 
+$$G'(u) = C \prod_{k=1}^n \left (\frac{u - \xi_k}{u+i}\right )^{-\beta_k} (u + i)^{-2} = C \prod_{k=1}^n (u - \xi_k)^{-\beta_k}$$
+if all the $w_k \ne 1$.  If $w_n = 1$, then $w - w_n = \phi(u) - \phi(\infty) = C(u + i)^{-1}$.  We find that 
+$G'(u) = C \prod_{k=1}^{n-1} (u - \xi_k)^{-\beta_k}$, from a similar computation.   So if $\sum \beta_k < 2$, then $\infty \to w_n$ and $\beta_n > 0$.  one of the vertices of the polygon corresponds to $\infty$ in the boundary of the upper half-plane(in the Riemann sphere).
+
+\subsection{Triangle Functions}
+Take $\xi_1, \xi_2, \infty$ mapped to the vertices of a triangle with angles $\alpha_1 \pi, \alpha_2 \pi, \alpha_3 \pi$ with $\alpha_1 + \alpha_2 + \alpha_3 = 1$.  Then
+$$G(u) = \int_{0}^u (u - \xi_1)^{\alpha_1 - 1}(u - \xi_2)^{\alpha_2 - 1}.$$
+
+We get rid of the constants by applying linear transformations to the triangles.  What can we say about the inverse function of $G$, $g = G^{-1}$?  We know that $g$ is real on each open side of the triangle, so $g$ extends by reflection in a side to an additional triangle.  
+\begin{center}
+\includegraphics[scale=0.5]{triangle.png}
+\end{center}
+If we let $B$ reflect to $D$ in $AC$, then the extension of $g$ to $ADC$ will also take real values on $AD$ and $DC$.  Also, the exnteded $g$ will extend by reflection to $ADE$.  The result of the reflection in $AC$ and $AD$ is a rotation by $2 \phi + \psi$, where $\phi + \psi = \alpha_k \pi$, so a rotation by $2 \alpha_k \pi$ and when we preform $2$ reflections, there is no more conjugation of the function.  
 \end{document}

@@ -32,3 +32,6 @@
 \contentsline {subsection}{\numberline {9.1}Schwarz Reflection and Variants}{18}{subsection.9.1}% 
 \contentsline {subsection}{\numberline {9.2}Schwarz-Christoffel Formula}{19}{subsection.9.2}% 
 \contentsline {section}{\numberline {10}February 24th, 2021}{20}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Schwarz-Christoffel Formula, continued}{20}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Schwarz-Christoffel Formula on the Upper Half-Plane}{20}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Triangle Functions}{21}{subsection.10.3}% 
