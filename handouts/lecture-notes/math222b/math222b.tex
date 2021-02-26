@@ -35,6 +35,7 @@
 
 \newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
 \let \grad \nabla
+\let \p \partial
 
 
 \begin{document}
@@ -818,7 +819,75 @@ Hence, $I[u] \le \liminf I[u_k]$, as desired.
 
 \end{proof}
 
+\pagebreak
+\section{February 25th, 2021}
+\subsection{Existence of Minimizers}
+We proved last time that a convexity condition was sufficient for showing the weak lower semicontinuity condition.   
+\begin{example} A simple example is $L(p, z, x) = \sum a_{ij}(x) p_ip_j$ where $a_ij = a_{ji}$ and $\sum a_{ij}(x) \xi_i \xi_j \ge \theta|\xi|^2.$ for all $\xi \in \R^n$, $x \in \ol{U}$.  In this case, $\mc A = \{u \in H^1(U): u\vert_{\partial U} = g\}$, if $g \in H^{1/2}(\partial U)$.  Then, we minimize $\int_U \sum a_{ij}(x)\partial_{x_j}u \partial_{x_i} u \,dx = 0$ with $u\vert_{\partial U} = g$.
+\end{example}
 
+\begin{thm}[Existence of Minimizers] Suppose $p \mapsto L(p, z, x)$ is convex and $L(p, z, x) \ge \alpha|p|^q - \beta$, $\alpha > 0$, $\beta \ge 0$, $1 < q < \infty$.  Suppose that $\mc A = \{w \in W^{1, q}(U): w \vert_{\partial U}= g\} \ne \emptyset$ with $g \in L^q(\partial U)$, then there exists $u \in \mc A$ such that $I[u] = \min_{w \in \mc A} I[w]$.
+\end{thm}
+\begin{proof}
+We can assume without loss of generality that $\beta = 0$.  Put $m = \inf_A I[w] \ne \infty$.  Choose a sequence $u_k \in \mc A$ such that $I[u_k] \to m$.  Then $I[u_k] \ge \alpha \int |Du_k|^q$.  This implies that $\|Du_k\|_{L^q} \le C$.
+
+Fix $w \in \mc A $ and note that $u_k - w \in W_0^{1, q}$.  Recall the Poincare Inequality: if $v \in W_0^{1, q}$, then $\|v\|_q \le C\|Dv\|_q$.  Hence $$\|u_k\|_q \le \|u_k - w\|_q + \|w\|_q \le \|Du_k - Dw\|_q + \|w\|_q \le \|Du_k\|_q + \|w\|_{W^{1, q}}\le C'.$$
+
+This implies that $\|u_k\|_{W^{1, q}} \le C$.  Hence, there exists a subsequence $u_k \weakto u$ in $W^{1, q}$.  This means that $u_k - w \weakto u - w$ in $W^{1, q}$ but $u_k - w \in W_0^{1, q}$, a closed subspace in $W^{1, q}$ which implies that $u - w \in W_0^{1, q}$.  Hence, $u \in \mc A$. So, it suffices to show that $u$ is a minimizer.  
+
+From the convexity of $p \mapsto L(p, z, x)$, we have $I$ is weakly lower-semicontinuous.  In other words, $I[u] \le \liminf_{k \to 0} I[u_k] = \inf_{w \in \mc A} I[w]$. Hence, $I[u] = \inf_{w \in \mc A} I[w]$.
+
+\end{proof}
+
+\subsection{Uniqueness of Minimizers} 
+\begin{thm}[Uniqueness of Minimizers] Suppose $L = L(p, x)$ and there exists $\theta > 0$ such that for all $\xi \in \R^n$, $p \in \R^n$, $x \in \ol U$, we have $\sum L_{p_i p_j}(p, x) \xi_i \xi_j \ge \theta|\xi|^2$(uniform convexity).  Then, any minimizer of $I[u]$ is unique.   
+\end{thm}
+\begin{proof}
+We have that $L(p, x) \ge L(q, x) \ge D_pL(q, x)(p-q) + \frac{\theta}{2}|p-q|^2$ from strict convexity(this follows from the Taylor remainder).  Let $u, \tilde{u}$ be minimizers of $I[w]$.  Take $v = \frac{u + \tilde{u}}{2}$. From strict convexity, we have
+$$I[u] \ge I[v] + \int D_pL(Du/2 + D\tilde{u} / 2, x) (Du/2 - D\tilde{u}/2) + \theta/8|Du - D\tilde{u}|^2\,dx.$$
+
+
+Similarly, 
+$$I[\tilde u] \ge I[v] + \int D_pL(Du/2 + D\tilde{u} / 2, x) (D\tilde{u}/2 - Du/2) + \theta/8|Du - D\tilde{u}|^2\,dx.$$
+
+Then, $$m = I[u]/2 + I[\tilde{u}]/2 \ge I[v] + \theta/8\int  |Du - D\tilde{u}|^2\,dx \ge m + \theta/8 \int |Du - D\tilde{u}|^2\,dx.$$
+
+This would imply that $\theta/8 \int |Du - D\tilde{u}|^2\,dx \le 0$, which implies that $Du = D\tilde{u}$ almost everywhere but $u \vert_{\partial U} = \tilde{u} \vert_{\partial U}$ so $u = \tilde{u}$ almost everywhere.  
+\end{proof}
+
+\subsection{The Euler-Lagrange Equation}
+Recall the example $L(p, x) = \sum a_{ij}(x) p_i p_j \ge \theta|p|^2$ with $a_{ij} = a_{ji}$.  This has the Euler-Lagrange Equation:
+$$\sum_{i, j = 1}^n\p_{x_i} (a_{ij} \p_{x_j} u) = 0, \quad u\vert_{\partial U} = g.$$
+For all $g \in H^{1/2}(\partial U)$ we can find $u \in H^1(U)$ such that the Euler-Lagrange equation weakly(in the sense of distributions).  Furthermore, $u$ is unique.  We will show this next time.
+
+Today, we show that we can solve the equation:
+$$\sum_{i, j = 1}^n\p_{x_i} (a_{ij} \p_{x_j} u) = f, \quad u\vert_{\partial U} = g, f \in H^{-1}(U)$$
+with $u \in H^1(U)$.  We can write 
+$$I[w] = \int \sum \left (a_{ij}(x) \p_{x_i} w\p_{x_j} w - f(x) w \right ) \,dx$$
+
+In this case $L(p, z, x) = \sum a_{ij}(x) p_i p_j - f(x)z$ for $z \in\R$, so this is not bounded below.   However, $p \mapsto L(p, z, x)$ is convex.  So it suffices to deal with the coercivity issue.  
+
+What we really need is that $I[w] \ge \int _U |Dw|^2 - \beta$.  
+
+Recall the Peter Paul inequality: 
+$$2ab \le a^2/\epsilon + \epsilon b^2, \quad \forall \epsilon > 0.$$
+Hence,
+$$I[w] \ge \theta \int |Dw|^2 - \int |f| |w| \ge \theta \int |Dw|^2 - \frac{1}{2\epsilon }\int |f|^2 - \frac{\epsilon}{2} \int |w|^2.$$
+If we fix $w_0 \in H^1$ with $w_0 \vert_{\partial U} = g \in H^{1/2}$, we have
+$$I[w] \ge \theta \int |Dw|^2 - \frac{1}{2\epsilon}\int |f|^2 - \frac{\epsilon}{2}\left ( \int |w - w_0|^2 + \int |w_0|^2\right ) \ge \theta \int |Dw|^2 - \frac{C}{2\epsilon} - \frac{\epsilon}{2} |Dw|^2.$$
+
+
+It follows that 
+$$I[w] \ge \theta \int |Dw|^2 - C_\epsilon - \epsilon \int |Dw|^2 = (\theta - \epsilon) \int |Dw|^2 - C_\epsilon.$$
+
+Choosing $\epsilon < \theta/2$, we have
+$$I[w] \ge \frac{\theta}{2} \int |Dw|^2 - C_\epsilon \ge \alpha \int |Dw|^2 - C.$$
+
+One problem: we assumed $f \in L^2$.  How do we fix this? We solve 2 problems:
+$$\sum (a_{ij}u_{x_j})_{x_i} = f \in H^{-1}, u \vert_{\partial U} = 0,$$
+and $u \in H_0^1(U)$.  Then, $\int fu \le \|f\|_{H^{-1}} \|u\|_{H_0^1} \le \frac{1}{\epsilon} \|f\|_{H^{-1}}^2 + \epsilon \|u\|_{H_0^1}$.  For $u \in H_0^1$, $\|u\|_{H_0^1} \le C \|Du\|_{2}$.  Then, we apply the same argument.
+
+If not, we take $v = u - \tilde{u}$ and we have $$-\sum (a_{ij} v_{x_j})_{x_i} = 0, v\in H_0^1(U).$$  Otherwise, we multiply by $v$ and we use the definition of weak solution.  This implies that $\int \sum a_{ij} v_{x_i}v_{x_j}$, but it is also at least $\theta \int |Dv|^2$, which shows that it is exactly zero.
 \end{document}
 
 
