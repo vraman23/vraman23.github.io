@@ -592,7 +592,7 @@ which is a constant.
 \end{proof} 
 \subsection{Schwarz-Christoffel Formula on the Upper Half-Plane}
 If $G: \{Im(u) > 0\} \to \Omega$ a conformal map mapping $\infty$ to one of the vertices, where $\Omega$ is the interior of a polygon with outer angles $\beta_1\pi, \dots, \beta_n \pi$, then
-$$G(u) = C \int-{0}^u \prod_{k=1}^{n-1} (u - \xi_k)^{-\beta_k}\,du$$
+$$G(u) = C \int_{0}^u \prod_{k=1}^{n-1} (u - \xi_k)^{-\beta_k}\,du$$
 where $\xi_k \in \R$(it is not really the first $n-1$ angles, but the ones that aren't coming from infinity).  If the sum $\beta_1 + \dots + \beta_{n-1} = 2$, then $\beta_n = 0$, and we have an $(n-1)$-gon.
 
 It follows from inverting the line $Im(z) = 0$ to a disk given by $\phi(u) = \frac{u-i}{u+i}$(the Cayley Map).  Then $G = F \circ \phi$ and $\phi(\xi_k) = w_k$.  If $\xi_n = \infty$, then $w_n = 1$.  Assume $w_k \ne 1$, from $\xi_k \ in \R$.  Then if we let $w = \phi(u)$,
