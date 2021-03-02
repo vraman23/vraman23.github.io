@@ -612,4 +612,20 @@ We get rid of the constants by applying linear transformations to the triangles.
 \includegraphics[scale=0.5]{triangle.png}
 \end{center}
 If we let $B$ reflect to $D$ in $AC$, then the extension of $g$ to $ADC$ will also take real values on $AD$ and $DC$.  Also, the exnteded $g$ will extend by reflection to $ADE$.  The result of the reflection in $AC$ and $AD$ is a rotation by $2 \phi + \psi$, where $\phi + \psi = \alpha_k \pi$, so a rotation by $2 \alpha_k \pi$ and when we preform $2$ reflections, there is no more conjugation of the function.  
-\end{document}
+\pagebreak
+\section{March 1st, 2021}
+\subsection{Schwarz Triangle Functions}
+We took $G(u) = \int_0^u (u - \xi_1)^{\alpha_1 - 1}(u - \xi_2)^{\alpha_2 - 1}\,du$.  We can take $\xi_1 = 0, \xi_2 = 1$ after scaling.  By reflections, recall that $g$ extends by rotations around a vertex by double the angle.  We get that $\tilde g((z - z_k)e^{2 i \alpha_k \pi} + z_k)$ where $\tilde{g}$ is the extension after one reflection in an adjacent side to $z_k$.  After repeated reflections to an integer number of rotations by $n_k 2 \alpha_k \pi$ and this gets us back to the initial triangle.    In other words, there exists $n_k$ such that $n_l 2\alpha_k \pi = 2\pi$.  Then, $g$ is holomorphic extended to some $\{0 \le |z - z_k| < \epsilon\}$ and if the corresponding point is $\infty$ for $z_k$, then $g$ is meromorphic near $z_k$ with a pole at $z_k$; otherwise it is holomorphic near $z_k$. This happens when $\alpha_k = 1/n_k$, for $n_k \in \N$.  We have $1/n_1 + 1/n_2 + 1/n_3 = 1$ with $n_1 \le n_2 \le n_3$.  This has $3$ solutions $(3 ,3, 3)$, $(2, 4, 4)$ and $(2, 3, 6)$.  We can combine these rotations around vertices to get invariance under shifts.  In the end, $g$ is meromorphic with two periods $g(z + L_k) = g_k$ for $k = 1, 2$.  These are called the Schwarz Triangle Functions.  
+
+\subsection{Conformal Mappings of Rectangles}
+We can arrange so that the points are mapped from $-1/k , -1, 1, 1/k$ with $0 < k < 1$ and 
+$$G(u) = \int_0^u \frac{du}{\sqrt{(1 - u^2)(1 - k^2 u^2)}}.$$
+
+We consider how $G$ maps the boundary of $\mathbb H$ onto $\R \cup \{\infty\}$.    We have that $G(0) = 0$ and if $K = \int_{-1}^{-1} \frac{du}{\sqrt{(1 - u^2)(1 - k^2 u ^2)}}$, then $G$ maps $[-1, 1]$ to $[-K/2, K/2]$.
+When $u \in (1, 1/k)$, then if $K' = \int_1^{1/k}\frac{du}{\sqrt{(u^2 - 1)(1 - k^2 u^2)}}$, then the boundary moves along $[K/2, K/2 + iK']$.  Similarly, $(-1/k, -1)$ goes to $(-K/2 +  iK', -K/2)$.  
+
+Finally, the cases where $(-\infty, -1/k)$ and $(1/k, \infty)$ are symmetric, and the integrand is real, so $\infty$ goes to the middle of $(-K/2 + iK', K/2 + iK')$ and $(-\infty, -1/k)$ goes to $(iK', -K/2 + iK')$.
+
+Then. the inverse function $g$ is real on the boundary of the rectangle and can be extended by reflection.  We find that $g(z + 2K) = g(z)$ and $g(z + 2iK') = g(z)$ and $g$ has a pole at $iK'$ and $K + iK'$ and zertos at $0$ and $K$ so we have poles at $nK + 2(m+1)$
+\end{document}K' i
+ and zeros at $nK+2mK'i$/

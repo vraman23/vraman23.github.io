@@ -35,3 +35,6 @@
 \contentsline {subsection}{\numberline {10.1}Schwarz-Christoffel Formula, continued}{20}{subsection.10.1}% 
 \contentsline {subsection}{\numberline {10.2}Schwarz-Christoffel Formula on the Upper Half-Plane}{20}{subsection.10.2}% 
 \contentsline {subsection}{\numberline {10.3}Triangle Functions}{21}{subsection.10.3}% 
+\contentsline {section}{\numberline {11}March 1st, 2021}{22}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Schwarz Triangle Functions}{22}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Conformal Mappings of Rectangles}{22}{subsection.11.2}% 
