@@ -40,3 +40,8 @@
 \contentsline {subsection}{\numberline {12.1}Existence of Minimizers}{31}{subsection.12.1}% 
 \contentsline {subsection}{\numberline {12.2}Uniqueness of Minimizers}{31}{subsection.12.2}% 
 \contentsline {subsection}{\numberline {12.3}The Euler-Lagrange Equation}{32}{subsection.12.3}% 
+\contentsline {section}{\numberline {13}March 2nd, 2021}{34}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Euler-Lagrange Equation, continued}{34}{subsection.13.1}% 
+\contentsline {section}{\numberline {14}March 4th, 2021}{36}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}Regularity}{36}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Interior Regularity}{36}{subsection.14.2}% 

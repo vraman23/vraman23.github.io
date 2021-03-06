@@ -888,7 +888,124 @@ $$\sum (a_{ij}u_{x_j})_{x_i} = f \in H^{-1}, u \vert_{\partial U} = 0,$$
 and $u \in H_0^1(U)$.  Then, $\int fu \le \|f\|_{H^{-1}} \|u\|_{H_0^1} \le \frac{1}{\epsilon} \|f\|_{H^{-1}}^2 + \epsilon \|u\|_{H_0^1}$.  For $u \in H_0^1$, $\|u\|_{H_0^1} \le C \|Du\|_{2}$.  Then, we apply the same argument.
 
 If not, we take $v = u - \tilde{u}$ and we have $$-\sum (a_{ij} v_{x_j})_{x_i} = 0, v\in H_0^1(U).$$  Otherwise, we multiply by $v$ and we use the definition of weak solution.  This implies that $\int \sum a_{ij} v_{x_i}v_{x_j}$, but it is also at least $\theta \int |Dv|^2$, which shows that it is exactly zero.
+\pagebreak
+\section{March 2nd, 2021}
+Today, we find conditions on the Lagrangian so that the the E-L condition holds:
+$$-\sum (\partial_{p_j}L(Du(x), u(x), x))_{x_j} + \partial_z L(Du, u, x) = 0.$$
+\subsection{Euler-Lagrange Equation, continued}
+We will make the following assumptions:  for all $p \in \R^n$, $z \in \R$, $x \in \ol U$,
+\begin{itemize}
+\item $|L(p, z, x)| \le C(|p|^q + |z|^q + 1)$,
+\item $|D_pL|, |D_zL| \le C(|p|^{q-1} + |z|^{q-1} + 1)$.
+\end{itemize}
+It is natural to consider the E-L equation in a weak sense, that is for all $v \in C_c^\infty(U)$, 
+$$\int \sum \partial_{p_j} L v_{x_j} + \partial_z L v = 0.$$
+
+The conditions imply that $|\partial_{p_j} L| \le C(|Du|^{q-1} + |u|^{q-1}) \in L^{q'}(U)$, and the same with $\partial_z L$.  This implies that our integral condition would make sense for $v \in W_0^{1, q}(U)$.  
+
+\begin{definition} Suppose our assumptions from above hold(bounds on $|L|$ and $|DL|$) and $u \in \mc A = \{w \in W^{1, q}(U) : w\vert_{\partial U} = g\}$.  We then say that the E-L equation holds weakly if for all $v \in W_0^{1, q}(U)$, we have 
+$$\int \sum \partial_{p_j} L v_{x_j} + \partial_z L v = 0.$$
+\end{definition} 
+
+\begin{thm} Suppose $u \in \mc A$ is a minimizer for $L$ satisfying the bounds.  Then $u$ is a weak solution to the Euler Lagrange equation.  
+\end{thm}
+\begin{proof}
+Define $i(t) = I[u + t v]$ where $v \in W_0^{1, q}$.  
+Let
+$$\frac{i(t) - i(0)}{t} = \int_U \frac{L(Du + tDv, u + tv, x) - L(Du, u, x)}{t}\,dx$$
+and call the integrand $L^t(x)$.
+
+We have that $L^t(x) \xrightarrow{t \to 0} \sum L_{p_i}(Du, u, x) v_{x_i} + L_z v$ almost everywhere in $x$.  We want to bound $|L^t(x)|$ by a function in $L^1$ so that we can apply the dominated convergence theorem.   
+
+Note that $f(\xi + t \eta) - f(\xi) = \eta \int_0^t f'(\xi + t\eta)\,dt$.This means that $$L(Du + tDv, u + tv, x) - L(Du, u, x) = \int_0^t \sum L_{p_j}(Du + sDv, u + sv, x) v_{x_j} + L_z v \,ds.$$
+
+Now, we bound this using our assumptions.  Namely, recall that $|DL| \le C(|p|^{q-1} + |z|^{q-1} + 1)$.  It follows that 
+\begin{align*}
+|L(Du + tDv, u + tv, x) &- L(Du, u, x)| \le \int_0^t \sum |L_{p_j}(Du + sDv, u + sv, x) v_{x_j}| +| L_z v| \,ds \\
+&\le C \int_0^t (|Du + sDv|^{q-1} + |u + sv|^{q-1} + 1) (|Dv| + |v|)\,ds \\
+&\le C \int_0^t (1 + |Du|^{q-1} + |Dv|^{q-1} + |u|^{q-1} + |v|^{q-1})(|Dv + |v||)\,ds \\
+&\le Ct \left ( |Du|^{q-1} (|Dv| + |v|) + |u|^{q-1} (|Dv| + |v|) + |Dv|^q + |v|^q + 1\right )\\
+\end{align*}
+
+
+We would like to say 
+$$\left ( |Du|^{q-1} (|Dv| + |v|) + |u|^{q-1} (|Dv| + |v|) + |Dv|^q + |v|^q + 1\right ) \le C \left ( |Du|^{q} + |u|^{q} + |Dv|^q + |v|^q + 1\right ).$$
+
+We do this via Young's inequality: $ab \le \frac{a^{q'}}{q'} + \frac{b^{q}}{q}$.  This implies that 
+$$|Du|^{q-1}|Dv| \le C (|Du|^{(q-1)q'} + |Dv|^{q}),$$
+and doing this for the other product terms gives the desired inequality.
+
+It follows that $|L^t(x)|$ is bounded by an $L^1$ function, so we can apply the dominated convergence theorem, which gives the result.
+\end{proof}
+
+\begin{remark} The converse is not necessarily true.  However, we have the following theorem:
+\end{remark}
+
+\begin{thm} Suppose $u \in \mc A$ is a weak solution to the Euler-Lagrange equation.  If $(p, z) \mapsto L(p, z, x)$ is convex for all $x \in U$, then $u$ is a minimizer.  
+\end{thm}
+\begin{proof}
+From convexity, we have that $L(p, z, x) + D_pL(p, z, x) \cdot (q - p) + D_zL(p, z, x)(w-z) \le L(q, w, z)$.  Upon integrating, if we set $p = Du$, $q = Dw$, $z = u$, $w = w(x)$ for $w \in \mc A$:
+$$I[u] + \int_U D_p(Du, u, x)\cdot (Dw - Du) + D_zL(Du, u, x)\cdot (w - u)\, dx \le I[w].$$
+
+But $w - u \in W_0^{1, q}$ and $u$ weakly satisfies the equation so it follows that the integral is $0$ and for every $w \in \mc A$, $I[u] \le I[w]$.
+\end{proof}
+
+%\subsection{Regularity}
+%Can weak solutions be upgraded to strong solutions?  If we had $L(p, z, x) = |p|^2/2 - zf(x)$, $U$ with $C^\infty$ boundary and $g \in C^\infty(\partial U)$ and $f \in C^\infty(\ol{\partial U})$.  When we take $f \in H^{-1}(U)$, $g \in H^{1/2} (U)$, we obtain a solution to $-\Delta u = f$ with $u \in H^1(U)$ with $u\vert_{\partial U} = g$.  However, in our case, we can obtain a solution with $u \in C^\infty(\ol{U})$.
+
+
+\pagebreak
+\section{March 4th, 2021}
+\subsection{Regularity}
+We will make the assumption that $L(p, z, x) = L(p) - zf(x)$.  We also assume that $|L(p)| \le C(|p|^2 + 1)$ and $|D_pL(p)| \le C(|p| + 1)$, $|D_p^2 L(p)| \le C$.  Finally, we assume strong convexity: $\sum L_{p_i p_j} (p) \xi_i \xi_j \ge \theta |\xi|^2$ for all $p, \xi \in \R^n$.  
+
+\begin{example} $L(p) = \frac{1}{2}|p|^2$ is an example of a function which satisfies the above conditions. 
+\end{example}
+
+Last time, we showed (with weaker assumptions) that if $I[u]$ is a minimum, then $u$ satisfies the E-L equation weakly.  With a convexity condition, we have the converse as well.   We assume that $u\vert_{\partial U} = 0$ for simplicity.
+\begin{proposition}  There exists a constant $C = C(L, n, U)$ so that $\|u\|_{H^1} \le C\|f\|_2$.  
+\end{proposition}
+\begin{proof}
+We use the weak E-L with $v = u$.  Namely,
+$$ \int_U \sum L_{p_j}(Du) u_{x_j} = \int_U fu.$$
+Then, strict convexity implies that $(DL(p) - DL(0)) \cdot p \ge \theta |p|^2$, with $p = Du$.    Hence,
+$$\theta \int_U |Du|^2 \le \int_U D_pL(Du) \cdot Du - \int_U DL(0) \cdot Du = \int_U fu,$$
+where the second term is $0$ by the divergence theorem.   
+Then $$\theta \int_U |Du|^2 \le \int_U fu \le \int_U \frac{f^2}{\epsilon} + \epsilon u^2 = \|f\|^2/\epsilon + \epsilon\|u\|^2.$$
+
+Hence, $\|Du\|_2^2 \le \frac{1}{\epsilon \theta} \|f\|^2 + \frac{\epsilon}{\theta}\|u\|^2$.  By the Poincare inequality, $\|u\|_2 \le C\|Du\|_2^2$, so it follows that by taking epsilon small enough.
+\end{proof}
+\subsection{Interior Regularity}
+\begin{thm} Suppose that $- \sum (L_{p_j}(Du))_{x_j} = f$ weakly, $f \in L^2$, $u \in H_0^1$ with the same bounds as before.  Then $u \in H_{loc}^2(U)$.  
+\end{thm} 
+\begin{proof}
+Take $V \Subset  W  \Subset U$ open sets.  Choose a function $\zeta \in C_c^\infty(W)$ and $\zeta = 1$ near $V$.
+
+Choose $D_k^h u(x) = \frac{u(x + he_k) - u(x)}{h}.$  If $h$ is small enough then it is well defined on $U$.  Note that for $v \in C_c^\infty(W)$, $\int u D_k^{-h} v = -\int vD_k^h u$.  Then, we define $v = -D_k^{-h}(\zeta^2 D_k^h u) \in H_0^1(W) \subset H_0^1(U)$.
+
+Then noting that $(D_k^{-h}v)_{x_i} = D_k^{-h}(v_{x_i})$, 
+$$\int_U \sum D_k^h(L_{p_i}(Du))(\zeta^2 D_k^h u)_{x_i} = -\int_U fD_k^{-h}(\zeta^2 D_k^h u).$$
+\begin{align*}
+D_k^h(L_{p_i}(Du))&= \frac{1}{h}\int_0^1 \sum_{j} L_{p_ip_j}(sDu(x + he_k) + (1 - s)Du(x))\,ds \cdot (D_{x_j}u(x + he_k) - D_{x_j }u(x))\\
+&= \sum_{j=1}^n a_{ij}^h(x)  D_k^h u_{x_j}(x)\\
+\end{align*}
+where $$a_{ij}^h(x) = \int_0^1 L_{p_i p_j} (sDu(x + he_k) + (1-s)Du(x)).$$
+
+So, we have
+$$\int_U \sum_{j=1}^n a_{ij}^h(x) D_k^h u_{x_j}(\zeta^2 D_k^h u)_{x_i} = -\int_U f D_k^{-h}(\zeta^2 D_k^h u).$$
+
+The left hand side is 
+$$\int \sum a_{ij}^h D_k^h u_{x_j} D_k^h u_{x_i} \zeta^2 + \sum a_{ij}^h D_k^h u_{x_j} 2\zeta \zeta_{x_i} D_k^h u.$$
+
+The first term is bounded from below by $\theta |D_k^h Du|^2 \zeta^2$ by strict convexity.  The second term is bounded by $- \int \zeta |D_k^h Du||D_k^h u| \ge -\epsilon \int \zeta^2 |D_k^h Du|^2 - \frac{1}{\epsilon} |D_k^h u|^2.$ 
+
+We end up with 
+$$\int \zeta^2 |D_k^h Du|^2 \,dx \le C \int_W (f^2 + |D_k^h u|^2).$$
+\end{proof}
+
 \end{document}
+
+
 
 
 
