@@ -45,3 +45,6 @@
 \contentsline {section}{\numberline {14}March 4th, 2021}{36}{section.14}% 
 \contentsline {subsection}{\numberline {14.1}Regularity}{36}{subsection.14.1}% 
 \contentsline {subsection}{\numberline {14.2}Interior Regularity}{36}{subsection.14.2}% 
+\contentsline {section}{\numberline {15}March 9th, 2021}{38}{section.15}% 
+\contentsline {subsection}{\numberline {15.1}Inner Regularity}{38}{subsection.15.1}% 
+\contentsline {subsection}{\numberline {15.2}Higher Regularity}{39}{subsection.15.2}% 

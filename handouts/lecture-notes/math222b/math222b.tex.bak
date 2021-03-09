@@ -1002,9 +1002,61 @@ The first term is bounded from below by $\theta |D_k^h Du|^2 \zeta^2$ by strict 
 We end up with 
 $$\int \zeta^2 |D_k^h Du|^2 \,dx \le C \int_W (f^2 + |D_k^h u|^2).$$
 \end{proof}
+\pagebreak
+\section{March 9th, 2021}
+\subsection{Inner Regularity}
+Last time, we discussed regularity in the special case where $L = L(p) - f(x)z$.  We also assumed that $|D_p^k L(p)| \le C(1 + |p|^{2-k})$ and strict convexity: for all $p, \xi \in \R^n$, $\sum L_{p_i p_j}(p)\xi_i \xi_j \ge \theta|\xi|^2$.  
 
+We know that for $U \Subset \R^n$, $\partial U$ $C^1$ and $f \in L^2$, for all $g \in H^{1/2}(\partial U)$, there exists $u$ such that for all $v \in H_0^1(U)$, 
+$$\int_U (\sum L_{p_j}(Du)v_{x_j} - f(x)v)\,dx = 0, \quad u\vert_{\partial U} = g.$$
+
+\begin{theorem} Suppose that $- \sum (L_{p_j}(Du))_{x_j} = f$ weakly, $f \in L^2$, $u \in H_0^1$ with the same bounds as before.  Then $u \in H_{loc}^2(U)$.  
+\end{theorem} 
+\begin{remark} The main idea in the proof is that you can estimate derivatives with cutoff functions if you only need local results.  This requires carefully choosing the width of the quotients to stay away from the boundary.  
+\end{remark}
+\begin{proof}
+We had a function $D_k^h u(x) = \frac{u(x + he_k) - u(x)}{h}$, and we chose a $\zeta$ so that $\zeta \equiv 1$ in $V$ and $\zeta \in C_c^\infty(W)$ where $V \subset W \subset U$.  
+
+Then, we defined $v = -D_k^{-h}(\zeta^2 D_k^h u)$.  Last time, we showed that 
+$$\int_U \sum a_{ij}^h(x) D_k^h u_{x_j} (\zeta^2 D_x^h u)_{x_i} = \int_U f D_k^{-h}(\zeta^2 D_k^h u),$$
+where we have the bounds
+$$\theta |\xi|^2 \le \sum a_{ij}^h(x) \xi_i \xi_j \le C|\xi|^2.$$
+
+Differentiating the expression, the LHS gives
+$$ \int \sum a_{ij}^h(x)(D_k^h u_{x_{j}} D_k^h u_{x_i})\zeta^2 + \int \sum a_{ij}^h(x) D_k^h u_{x_j} 2\zeta \zeta_{x_i} D_k^h u.$$
+The first term is bounded below by $\theta \int_U |D_k^h Du|^2 \zeta^2$.  The second term is bounded below by $-C\int \zeta| D_k^h Du| |D_k^h u|$.
+
+Now, the RHS is bounded above by
+$$\int_W |f| |D_k^{-h}Du|\zeta^2 + \int_W |f| \zeta |D_k^h u|.$$
+
+Note that 
+$$D_k^h u = \int_0^1 u_{x_k}(x + t h e_k)\,dt.$$
+
+So it follows that $\int_W |D_k^h D_k^{-h} u|\zeta^2 \le \int |D_k^h Du|\zeta^2$.  It follows that 
+\begin{align*}
+\int_W |f| |D_k^h Du|\zeta^2 + \int_W |f| \zeta |D_k^h u| &\le \frac{2}{\epsilon} \int |f|^2 + \epsilon \int |D_k^h Du|^2 \zeta^2 + \epsilon \int \zeta^2 |D_k^h u|^2\\
+&\le \frac{2}{\epsilon} \int |f|^2 + \epsilon \int \zeta^2 |D_k^h u|^2 + \epsilon \int |D_k^h Du|^2 \zeta^2.
+\end{align*}
+
+By using Peter Paul on the LHS bound and making $\epsilon << 1$, we obtain the inequality
+$$\theta/2 \int |D_k^h Du|^2 \zeta^2 \le 2/\epsilon \int |f|^2 + \epsilon \int \zeta^2 |D_k^h u|^2 \le 2/\epsilon \int |f|^2 + \epsilon \int |Du|^2.$$
+
+Finally, we claim that $\int |D_k^h w|^2 \le C \Rightarrow w_{x_k} \in L^2_{loc}$.  We know that $D_k^h w$ is bounded in $L^2$ for all $h$, so it is weakly compact.  Hence, $D_k^{h_j} w \weakto v \in L^2$.  It follows that $$\int (D_k^h w)\phi = -\int w D_k^{-h} \phi \to - \int w \phi_{x_k} = \int w_{x_k} \phi,$$
+which is the weak derivative.  
+\end{proof}
+
+\subsection{Higher Regularity}
+Take $f \equiv 0$ and $\int L_{p_i}(Du) v_{x_i} = 0$ for all $v \in H_0^1$.  Take $w \in C_0^\infty(U)$ and set $v = -w_{x_k}$.  We have
+$$-\int \sum L_{p_i}(Du)\partial_{x_k}(w_{x_i})\,dx.$$
+
+But $u \in H_{loc}^2$, so it follows that 
+$$\int \sum_{i, j} L_{p_i p_j}(Du) u_{x_j x_k} w_{x_i}\,dx.$$
+
+Setting $\tilde{u} = u_{x_k} \in H^1$.  We get that $\sum \partial_{x_j}(a_{ij}(x)\partial_{x_i} \tilde{u}) = 0$ where $a_{ij} = L_{p_i p_j}(Du)$.  But the bounded coefficients don't give a strong enough condition to prove the result.  
+
+\begin{theorem} Suppose that $w \in H_{loc}^1(U)$, $\sum \partial_{x_j}(a_{ij}(x)\partial_{x_i}w) = 0$ weakly, and $\theta|\xi|^2 \le \sum a_{ij}(x) \xi_i \xi_j \le C |\xi|^2$.   Then, there exists $\gamma > 0$ such that $w \in C_{loc}^{0, \gamma}$(DeGiorgi-Nash, Moser).  Applying with $w = \tilde{u} = u_{x_k} $ gives that $u \in C_{loc}^{1, \gamma}$, which implies that $a_{ij} = L_{p_i p_j}(Du) \in C^{0, \gamma}$.  Finally, using Schauder estimates, we have that $u \in C^{2, \gamma}$.  
+\end{theorem}
 \end{document}
-
 
 
 
