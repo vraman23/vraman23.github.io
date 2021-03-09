@@ -665,8 +665,52 @@ There are some interesting properties of $S(f)$:
 \item Combining the results, $S(g)$ is invariant under fractional linear transformations.  
 \end{itemize}
 
+\pagebreak
+\section{March 8th, 2021}
+\subsection{Schwarzian Derivative}
+Recall that for a fractional linear transformation $f$, $S(f) = 0$, where $S$ is the Schwarzian derivative.  
+\begin{proposition} If $S(f) = S(g)$ and $g^{-1}$ exists, then $f = \frac{ag + b}{cg + b}$, with $ad - bc \ne 0$.
+\end{proposition}
+\begin{proof}
+Write $f = h \circ g$.  Then $S(f) = (S(h) \circ g )(g')^2 + S(g)$ and $h = f \circ g^{-1}$, so it follows that $S(h) = 0$.
+
+Then, we claim $S(h) = 0$ implies that $h = \frac{az + b}{cz + d}$.  Let $y = \frac{h''}{2h'} = \frac{1}{2} (\log h' )'$.  Since $S(h) = 0$, we have $y' = y^2$, so $(-1/y)' = 1$, so $y = -\frac{1}{z + c}$.   This implies that $-1/2(\log h')' = (\log(z + c))'$, so $(z + c)^2h' = a$ and $h' = \frac{a}{(z + c)^2}$.  Therefore, $h = b - \frac{a}{z + c}$, which implies the result.
+\end{proof}
+
+Given $S(f) =2p$, we wish to recover the function.  
+
+\begin{fact} Given two linearly independent solutions $y_1, y_2$ of $y'' + py = 0$, then $u=  \frac{y_1}{y_2}$ is so that $S(u) = 2p$.
+\end{fact} 
+\begin{proof}
+Given $y_1 = uy_2$, we have $y_2'' + py_2 = 0$ so it follows that 
+$$u'' y_2+ 2u'y_2' + uy_2'' + puy_2 = u''(y_2) + 2u'y_2' + u(y'' + py_2) = 0,$$
+so it follows that $u''/u' = -2y_2'/y_2$.  
+
+It follows that 
+\begin{align*}
+S(u) &= (u''/u')' -1/2 (u''/u')^2 \\
+&= -2 (y_2'/y_2)' - 1/2 (2y_2'/y_2) \\
+&= -2 \frac{y_2''y_2}{y_2^2} \\
+&= 2p.
+\end{align*}
+\end{proof}
+\begin{remark} This is well defined because any pair of solutions is connected by a fractional linear transformation, which has a null Schwarzian derivative.  
+\end{remark}
+\subsection{Curvilinear Polygons}
+This case is more complicated than Schwarz Christoffel because the radius of curvature for the arcs between vertices are not uniform.  
+
+We can show that 
+$$S(f) = \frac{1}{2} \sum_k \frac{1 - \alpha_k^2}{(z - \alpha_k)^2} + \sum_k\frac{\beta_k}{z - \alpha_k} + \gamma.  $$
+
+Take $n = 3$.  The constants are determined by $\alpha_1, \alpha_2, \alpha_3$(we change this to $\alpha, \beta, \gamma$).  The equation $$u'' + \frac{p}{2}u = 0$$
+can be replaced by $$u'' + Pu' + Qu = 0,$$
+where we have solutions $y_i \mapsto \sigma(z) y_i$.  The new equation is given by
+$$z(1-z) y'' + (c - (a + b + 1)z)y' - aby = 0,$$
+which has solutions 
+$$c\int_0^1 t^{b-1}(1- t)^{c - b- 1} (1 - zt)^{-a}\,dt,$$
+the \textit{hypergeometric functions }.
 
 
-
-
+\begin{proposition} If $\alpha = \beta = \gamma = 0$, then $f(z) = \frac{T(z)}{T(1-z)}$, where $$T(z) = \int_0^1 \frac{dt}{\sqrt{t(1-t)(1-zt)}}.$$
+\end{proposition}
 \end{document}

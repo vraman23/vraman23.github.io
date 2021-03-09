@@ -42,3 +42,6 @@
 \contentsline {subsection}{\numberline {12.1}Elliptic Integrals and Functions}{24}{subsection.12.1}% 
 \contentsline {subsection}{\numberline {12.2}Tiling the Unit Disk}{24}{subsection.12.2}% 
 \contentsline {subsection}{\numberline {12.3}Schwarz-Christoffel Revisted}{24}{subsection.12.3}% 
+\contentsline {section}{\numberline {13}March 8th, 2021}{26}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Schwarzian Derivative}{26}{subsection.13.1}% 
+\contentsline {subsection}{\numberline {13.2}Curvilinear Polygons}{26}{subsection.13.2}% 
