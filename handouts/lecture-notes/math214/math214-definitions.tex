@@ -199,6 +199,29 @@ Some properties:
 , $F(p) \subset V$ and such that $F$ has a coordinate representation of the form
 $$\hat{F}(x^1, \dots, x^r, x^{r+1},\dots, x^m) = (x^1, \dots, x^r, 0, \dots, 0).$$
 \end{theorem}
-
+\section{Embeddings}
+\section{Submanifolds}
+\subsection{Level Sets}
+\subsection{Immersed Submanifolds}
+\subsection{Tangent Space of Submanifolds}
+\section{Sard's Theorem}
+\section{Whitney Embedding Theorem}
+\section{Whitney Approximation Theorems}
+\section{Transversality}
+\begin{definition} Suppose $M$ is a smooth manifold.  Two embedded submanifolds $S, S' \subset M$ are said to intersect transversely if for each $p \in S \cap S'$, the tangent spaces $T_pS$ and $T_pS'$ together span $T_pM$.  
+\end{definition}
+\begin{definition}
+ If $F: N \to M$ is a smooth map and $S \subset M$ is an embedded submanifold, we say that $F$ is transverse to $S$ if for every $x \in F^{-1}(S)$, the spaces $T_{F(x)}S$ and $dF_x(T_xN)$ together span $T_{F(x)}M$.
+\end{definition}
+\begin{remark} If $F$ is a smooth submersion, then it is automatically tranverse to every embedded submanifold of $M$.  
+\end{remark}
+\begin{theorem} Suppose $N$ and $M$ are smooth manifolds and $S \subset M$ is an embedded submanifold. 
+\begin{itemize}
+\item  If $F: N \to M$ is a smooth map that is tranverse to $S$, then $F^{-1}(S)$ is an embedded submanifold of $N$ whose codimension is equal to the codimension of $S$ in $M$.
+\item If $S' \subset M$ is an embedded submanifold that intersects $S$ transversely, then $S \cap S'$ is an embedded submanifold of $M$ whose codimension is equal to the sum of the codimensions of $S$ and $S'$.
+\end{itemize}
+\end{theorem}
+\begin{theorem}[Parameteric Transversality Theorem] Suppose $N$ and $M$ are smooth manifolds, $X \subset M$ is an embedded submanifold, and $\{F_s: s \in S\}$ is a smooth family of maps from $N$ to $M$.  If the map $F: N \times S \to M$ is transverse to $X$, then for almost every $s \in S$, the map $F_s: N \to M$ is transverse to $X$.
+\end{theorem}
 \end{document}
 

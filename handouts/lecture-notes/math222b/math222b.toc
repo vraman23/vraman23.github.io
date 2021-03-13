@@ -48,3 +48,6 @@
 \contentsline {section}{\numberline {15}March 9th, 2021}{38}{section.15}% 
 \contentsline {subsection}{\numberline {15.1}Inner Regularity}{38}{subsection.15.1}% 
 \contentsline {subsection}{\numberline {15.2}Higher Regularity}{39}{subsection.15.2}% 
+\contentsline {section}{\numberline {16}March 11th, 2021}{40}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Oscillatory Integrals}{40}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}General Theory: Amplitudes}{41}{subsection.16.2}% 

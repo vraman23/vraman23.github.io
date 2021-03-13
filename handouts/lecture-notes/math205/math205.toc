@@ -45,3 +45,7 @@
 \contentsline {section}{\numberline {13}March 8th, 2021}{26}{section.13}% 
 \contentsline {subsection}{\numberline {13.1}Schwarzian Derivative}{26}{subsection.13.1}% 
 \contentsline {subsection}{\numberline {13.2}Curvilinear Polygons}{26}{subsection.13.2}% 
+\contentsline {section}{\numberline {14}March 10th, 2021}{28}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}The Modular Function}{28}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Analytic Functions}{28}{subsection.14.2}% 
+\contentsline {subsection}{\numberline {14.3}Cool Series Expansions}{29}{subsection.14.3}% 

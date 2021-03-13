@@ -713,4 +713,40 @@ the \textit{hypergeometric functions }.
 
 \begin{proposition} If $\alpha = \beta = \gamma = 0$, then $f(z) = \frac{T(z)}{T(1-z)}$, where $$T(z) = \int_0^1 \frac{dt}{\sqrt{t(1-t)(1-zt)}}.$$
 \end{proposition}
+\pagebreak
+\section{March 10th, 2021}
+Recall last time, upon composing reflections where $0, 1, \infty \to 1, \infty, 0$ and extending the half plane, we obtain the modular function $\lambda$ which sends $\frac{az + b}{cz + d} \to \lambda(z)$.  
+\subsection{The Modular Function}
+\begin{theorem}[Picard] If $g: \C \to \C$ holomorphic such that $|\C \setminus g(\C)| > 1$, then $g$ is constant.  
+\end{theorem}
+\begin{proof}
+We may assume that $\C \setminus g(\C) \supset \{0, 1\}$.  Because of the way that $\lambda$ was extended to $\{\text{im }z > 0\}$ via reflections and fractional linear transformations, one can find $h:\C \to \{\text{im }z > 0\}$ so that $\lambda \circ h = g$.  Note that $\C \setminus \{0, 1\}$ is a covering of $\{Im (z) > 0\}$, and $\lambda$ acts as a simply connected covering map.  Then, there exists a lifting map from $\C \to \{im(z) > 0\}$, which we define as $h$.
+\end{proof}
+
+Now, we can apply Liouville's theorem to $h$ since $im(h)>0$.  
+\subsection{Analytic Functions}
+If $f$ is a meromorphic function with a pole at $b$, it has a Laurent expansion
+$$\sum_{k = -N}^\infty c_k(z - b)^k.$$
+
+The term $\sum_{k=-N}^{-1} c_k(z - b)^k$ is called the principle part.  We can develop the theory for meromorphic functions in $\Omega = \C$. 
+\begin{theorem}[Mittag-Leffler] Given $b_n \in \C$, $n \in \N$, $\lim_{n \to \infty} |b_n| = \infty$ and principle parts $\sum_{k = -N_n}^{-1} c_k^{(n)}(z - b_n)^k = P_n$, there is a meromorphic function on $\C$ with poles $(b_n)_{n \in \N}$ and principal parts $p_n$ of the Laurent expansions at the poles.
+\end{theorem}
+\begin{proof}
+Roughly, we would want $\sum P_n$, but this might not converge.  If it doesn't converge, we make it convergent by adjusting the function in a way that doesn't change the principal parts.  Define $R_n = \inf_{k \ge n} |b_k|$.  Note that $R_n \uparrow \infty$.  Then, if $R_n > 0$, $\frac{R_n}{2} < |b_m|$ for $m \ge n$.  Since $P_n$ is holomorphic in $R_n\D$, there exist polynomials $p_n$ so that $\|P_n - p_n \|_{R_n/2 \ol{\D}} < 2^{-n}$(assuming $R_n > 0$).
+
+Then $\sum_{m \ge n} (P_m - p_m)$ converges uniformly on compact subsets $R_n/2 \D$ to a holomorphic function on $R_n/2 \D$.  On the other hand, $\sum_{m < n} (P_m - p_m)$ is meromorphic and has the same poles and principles parts as $\sum_{m < n} P_m $.  It follows that $\sum_n (P_n - p_n)$ converges on compact subsets of $\C \setminus \{b_n : n \in \N\}$ with the desired properties.
+\end{proof}
+\begin{remark} Note that if $f, g$ are mermorphic on $\C$ with poles $b_n$ and principal parts $P_n$, $n \in \N$, then $f - g$ is holomorphic on $\C$.  Also, having $f$, we can get any other merormophic function with these properties by adding an entire function.
+\end{remark}
+\subsection{Cool Series Expansions}
+We will give a series expansion for $\frac{\pi^2}{(\sin{\pi z})^2}$.  Namely, we construct a merormorphic function with the same poles and principle parts and determine the difference.  
+
+Note that the poles are given by the points $z \in \Z$.  The order of the zeros are given by $(\sin{\pi z})' = \pi \cos{\pi z}$.  For $k \in \Z$, $\cos{\pi k} = 1$, so the zeros are simple.  The poles of $\pi^2/(\sin{\pi z}^2)$ are order $2$ at $n \in \Z$.  Note that it is periodic of period $1$.  To compute the principle part, we compute the principal part at $z = 0$.  Note that $\pi^2/(\sin{\pi z}^2)$ is an even function with a pole of order $2$ so the principle part is even, so it is $a/z^2$, where
+$$a = \lim_{z \to 0} \frac{\pi^2}{(\sin{\pi z})^2} z^2 = (\lim_{z \to 0} \frac{\sin{\pi z}}{\pi z})^{-2} = 1.$$
+
+The principle part at $z = n$ is thus given by $1/(z - n)^{-2}$.  Note that $\sum_{n \in \Z} \frac{1}{(z - n)^2}$ converges uniformly on compact subsets of $\C \setminus \Z$.   
+
+It follows that 
+$$\sum_{n \in \Z} \frac{1}{(z - n)^2} - \frac{\pi^2}{(\sin{\pi z})^2}$$
+is holomorphic on $\C$.  Next time, we prove that it is exactly $0$.
 \end{document}

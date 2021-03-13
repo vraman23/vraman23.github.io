@@ -1,0 +1,150 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+%\newcommand{\SS}{\mathbb S}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\newcommand\at[2]{\left.#1\right|_{#2}}
+\newcommand\p[1]{\frac{\partial}{\partial#1}}
+\newcommand\pd[2]{\frac{\partial#1}{\partial#2}}
+
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{BSM: Algebraic Topology}
+\author{Vishal Raman}
+%\thispagestyle{empty}
+%$ $
+%\vfill
+%\begin{center}
+
+%\centerline{\huge \textbf{Homework - Math 222b } } 
+%\centerline{Vishal Raman}
+%\end{center}
+%\vfill
+%$ $
+%\newpage
+%\thispagestyle{empty}
+%\tableofcontents
+%\newpage
+%\maketitle
+\section*{Midterm Exam}
+I hereby swear that the work done on this assignment is my own and I have not given nor received aid that is inappropriate for this assignment.
+
+\subsection*{Problem I}
+Suppose that $X$ and $Y$ are finite CW-complexes with Euler characteristics $\chi(X)$ and $\chi(Y)$.  Show that $\chi(X \times Y) = \chi(X) \cdot \chi(Y)$.
+\begin{proof}
+Note that $\chi(X) = \sum_{i=0}^n (-1)^i c_i^X$ and $\chi(Y) = \sum_{j=0}^m (-1)^j c_j^Y$, where $c_k^X$ and $c_k^Y$ denote the number of $k$-cells for $X$ and $Y$ respectively.  
+
+Furthermore, each $k$-cell of $X \times Y$ is given from the product of a $\ell$-cell from $X$ and an $k-\ell$-cell from $Y$(where we can set $c_\ell^X, c_\ell^Y = 0$ if it has no $\ell$-cells). Hence, it follows that
+$$c_k^{X \times Y} = \sum_{\ell = 0}^k c_\ell^X c_{k - \ell}^Y.$$
+
+Thus,
+\begin{align*}
+\chi(X) \cdot \chi(Y) &= \left (\sum_{i=0}^n (-1)^i c_i^X\right ) \left( \sum_{j=0}^m (-1)^j c_j^Y\right)\\
+&= \sum_{i=0}^n \sum_{j=0}^m (-1)^{i + j} c_i^X c_j^Y \\
+&= \sum_{i+j = 0}^{n+m} (-1)^{i + j} \sum_{\ell = 0}^{i + j} c_\ell^X c_{i+j-\ell}^Y \\
+&= \sum_{k=0}^{n + m} (-1)^k \sum_{\ell = 0}^{k} c_\ell^X c_{k - \ell}^Y \\
+&= \sum_{k=0}^{n + m}(-1)^k c_k^{X \times Y} \\
+&= \chi(X \times Y).
+\end{align*}
+\end{proof}
+\pagebreak
+\subsection*{Problem II}
+Suppose that $X$ is a finite CW-complex and $n > 1$.  Show that $H_i(X \times \mathbb S^n; \F) = H_i(X; \F) \oplus H_{i-n}(X; \F)$.
+\begin{proof}
+First, we claim that $H_i(X \times \mathbb S^n) \cong H_i(X) \oplus H_i(X \times \mathbb S^n, X \times \{pt\})$.  Define $r: X \times \mathbb S^n \to X \times \{pt\}$ by $(x, a) \mapsto (x, pt)$.  Note that this is a retraction since $r \circ i(x, pt) = r(x, pt) = (x, pt)$, where $i: X \times \{pt\} \hookrightarrow X \times \mathbb S^n$ is the inclusion map.  Furthermore, note that $$H(r) \circ H(i) = H(r \circ i) = H(\id_{X \times \mathbb S^n}) = id_{H(X \times \mathbb S^n)},$$
+which implies that $H(i)$ is injective.  It follows that the exact sequence 
+$$0 \to X \times \{pt\} \hookrightarrow X \times \mathbb S^n \to X \times \mathbb S^n / X \times \{pt\} \to 0$$
+induces the short exact sequence 
+$$0 \to H_i(X \times \{pt\}) \to H_i(X \times \mathbb S^n) \to H_i(X\times \mathbb S^n, X \times \{pt\}) \to 0,$$
+which implies that $H_i(X \times \mathbb S^n)\cong H_i(X \times \{pt\}) \oplus  H_i(X \times \mathbb S^n, X \times \{pt\})$.
+
+Next, we show that $H_i(X \times \mathbb S^n, X \times \{pt\}) \cong H_{i-1}(X \times \mathbb S^{n-1}, X \times \{pt\})$.  Decompose $\mathbb S^n = \tilde{A} \cup \tilde{B}$, where $\tilde{A}$ and $\tilde{B}$ are the upper and lower hemispheres respectively.  We replace $\tilde{A}$ and $\tilde{B}$ with $A$ and $B$ where the hemisphere is slightly thickened at the equator by a factor $\epsilon > 0$.  Note that $\mathbb S^n = A \cup B = \operatorname{int}{A} \cup \operatorname{int}{B}$.  Note that $A, B$ are homeomorphic to $\mathbb D^n$ and $A \cap B$ is homeomorphic to $\mathbb S^{n-1}\times (-\epsilon, \epsilon)$, which is homotopy equivalent to $\mathbb S^{n-1}$.  From Mayer-Vietoris, we have the sequence
+$$\dots \to H_i(X \times \mathbb D^n, X \times \{pt\}) \oplus H_i(X \times \mathbb D^n, X \times {pt}) \to H_i(X \times \mathbb S^n, X \times \{pt\})$$
+$$ \xrightarrow{\delta_{i-1}} H_{i-1}(X \times \mathbb S^{n-1}, X \times \{pt\}) \to  H_{i-1}(X \times \mathbb D^n, X \times \{pt\}) \oplus H_{i-1}(X \times \mathbb D^n, X \times {pt})\to \dots$$
+Since $\mathbb D^n$ is homotopy equivalent to a point, it follows from exactness that $ H_i(X \times \mathbb S^{n-1}, X \times \{pt\}) \cong H_{i-1}(X \times \mathbb S^{n-1}, X \times \{pt\})$.  By iterating this $n$ times, we obtain $H_i(X \times \mathbb S^n, X \times \{pt\}) \cong H_{i-n}(X \times \mathbb S^0, X \times \{pt\})\cong H_{i-n}(X)$, since $S^0$ consists of two points and $H_{i-n}(X \times \{pt\}) \cong H_{i-n}(X)$.  
+\end{proof}
+\pagebreak
+\subsection*{Problem III}
+Let $X$ be the topological space we get by identifying opposite points on the equator of $\mathbb S^2$.  What is $H_*(X; \F)$?
+\begin{proof}
+We give a CW-decomposition of $X$ consisting of a point attached to $S^1$, and attaching the northern and southern hemispheres to $S^1$.  Then $C_0(X) = \F$ since it is generated by a point, $C_1(X) = \F$ since it is generated by the equator, and $C_2(X) = \F^2$ since it is generated by the two hemispheres.   Note that the gluing maps for the hemispheres are of degree $2$ and $-2$ respectively since under the quotient, when going around the boundary of each hemisphere we wind twice around $S^1$, and the two maps go in opposite directions.  
+
+This gives the sequence:
+$$0 \to \F^2 \xrightarrow{d_2} \F \xrightarrow{d_1} \F \to 0.$$
+
+Note that $d_1 = 0$ since when we go around $S^{1}$, we meet the point from both sides.  If we denote $e_1^2$, $e_2^2$ to be the gluing maps for the hemispheres and $e$ as the gluing map for $S^1$, from the Cellular Boundary Formula, we have
+$$d_2(e_1^2) = 2e^1, d_2(e_2^2) = -2e^1.$$
+It follows that $\operatorname{im}{d_2}$ is generated by $2e^1$, which is isomorphic to $2\F$.
+$$0 = d_2(ae_1^2 + be_2^2) = 2a e^1 - 2be^1,$$
+which happens when $a  = b$.  Thus, $\ker d_2$ is generated by $e_1^2 + e_2^2$, which is isomorphic to $\F$.   Thus, $H_2(X) = \F$, $H_1(X) = \F/2\F$, and $H_0(X) = \F$, $H_i(X) = 0$ for $i > 2$.  Therefore, $H_*(X) = \F_{(2)} \oplus \F /2\F \oplus F_{(0)}$.
+
+\end{proof}
+\pagebreak
+\subsection*{Problem IV}
+Let $X$ be the topological space we get from the full triangle $\Delta^2$ by identifying its three vertices.  Compute $H_*(X; \F)$.
+\begin{proof}
+We give two arguments.  First note that $\Delta^2$ is homeomorphic to the closed disc $\mathbb D^2$, which is homotopic to a point.  Since homology is preserved under homotopy equivalence, it follows that $H_*(X; \F) = \F_{(0)}$.
+
+We can also compute this explicitly.  We take a triangle with vertices $x, y, z$, edges $u = [xy]$, $v = [yz]$, $w = [zx]$, and face $T = [xyz]$.  Note that $C_0(X) = \F^3$ since it is generated by $x, y, z$, $C_1(X) = \F^3$ since it is generated by $u, v, w$ and $C_2(X) = \F$ since it is generated by $T$.  This gives the chain complex:
+$$0 \to \F \xrightarrow{\partial_2} \F^3 \xrightarrow{\partial_1} \F^3 \to 0.$$
+
+Note that $\partial_1 u = y - x$, $\partial_1 v = z - y$, $\partial_1 w = x - z$.  Furthermore, $\partial_2 T = v + w + u$.  Note that 
+$$0 = \partial_1(au + bv + cw) = a(y-x) + b(z-y) + c(x-z) = x(-a+c) + y(a - b) + z(b - c),$$
+which happens whenever $a = b = c$.  This implies that $\ker \partial_1$ is generated by $u + v + w$, which is isomorphic to $\F$.  Furthermore, note that the image of $\partial_2$ is generated by $u + v + w$, so $H_1(X) = 0$.    
+
+Then, the image of $\partial_1$ is generated by $x-y, y-z, z-x$ and the kernel of $\partial_0$ is generated by $x, y, z$ so it follows that $H_0(X) = \F$.  For $i > 1$, it is clear that $H_i(X; \F) = 0$, so it follows that $H_*(X; \F) = \F_{(0)}$, as desired.  
+\end{proof}
+\pagebreak
+\subsection*{Problem V}
+Show that chain homotopy of chain maps is an equivalence relation.
+\begin{proof}
+Suppose $f, g, h: C \to D$ are chain maps.
+\begin{itemize}
+\item Reflexive: Note that $f - f = 0$, so if we take the zero map $0: C \to D$, then $0 = \partial_D \circ 0 - 0 \circ \partial_C = f - f$.
+\item Symmetric: Suppose $f$ is chain homotopic to $g$.  There exists a homomorphism $\phi: C \to D$ so that $f - g = \partial_D \circ \phi - \phi \circ \partial_C$.  Then, note that $g - f = \partial_D \circ (-\phi) - (-\phi) \circ \partial_C$, so it follows that $g$ is chain homotopic to $f$.
+\item Transitive: Suppose that $f$ is chain homotopic to $g$ and $g$ is chain homotopic to $h$.  There exist homomorphisms $\phi, \psi: C \to D$ such that $f - g = \partial_D \circ \phi - \phi \circ \partial_C$ and $g - h = \partial_D \circ \psi - \psi \circ \partial_C$.  Then, note that
+\begin{align*}
+f-h &= (f - g) + (g - h) \\
+&= \partial_D \circ \phi - \phi \circ \partial_C + \partial_D \circ \psi - \psi \circ \partial_C \\
+&= \partial_D \circ (\phi + \psi) - (\phi + \psi) \circ \partial_C.
+\end{align*}
+\end{itemize}
+\end{proof}
+\pagebreak
+\subsection*{Problem VI}
+Suppose that $X$ is a finite CW-complex and $A, B \subset X$ are subcomplexes with the property that $X = A \cup B$.  Show that $$\chi (X) = \chi(A) + \chi(B) - \chi(A \cap B).$$
+\begin{proof}
+It suffices to show that $c_n^{A \cup B} = c_n^A + c_n^B - c_n^{A \cap B}$.  This is precisely the principle of inclusion-exclusion: for finite sets $C$, $D$, $|C \cup D| = |C| + |D| - |C \cap D|$.  A short proof of this is as follows.  In order to count the elements of $C \cup D$, we count the number of elements in $C$ once and the number of elements in $D$ once.  However, the elements in $C \cap D$ are counted twice, so we subtract this from our count so that every element is counted exactly once.  The result follows from setting $C = X_n^A$ and $D = X_n^B$, the respective $n$-skeletons. 
+\end{proof}
+\pagebreak
+\end{document}

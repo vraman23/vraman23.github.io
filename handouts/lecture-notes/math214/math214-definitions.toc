@@ -5,3 +5,12 @@
 \contentsline {section}{\numberline {5}Smooth Maps}{4}{section.5}% 
 \contentsline {section}{\numberline {6}Tangent Vectors}{5}{section.6}% 
 \contentsline {section}{\numberline {7}Rank}{5}{section.7}% 
+\contentsline {section}{\numberline {8}Embeddings}{6}{section.8}% 
+\contentsline {section}{\numberline {9}Submanifolds}{6}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Level Sets}{6}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Immersed Submanifolds}{6}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Tangent Space of Submanifolds}{6}{subsection.9.3}% 
+\contentsline {section}{\numberline {10}Sard's Theorem}{6}{section.10}% 
+\contentsline {section}{\numberline {11}Whitney Embedding Theorem}{6}{section.11}% 
+\contentsline {section}{\numberline {12}Whitney Approximation Theorems}{6}{section.12}% 
+\contentsline {section}{\numberline {13}Transversality}{6}{section.13}% 
