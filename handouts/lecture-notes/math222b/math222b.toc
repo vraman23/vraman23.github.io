@@ -51,3 +51,7 @@
 \contentsline {section}{\numberline {16}March 11th, 2021}{40}{section.16}% 
 \contentsline {subsection}{\numberline {16.1}Oscillatory Integrals}{40}{subsection.16.1}% 
 \contentsline {subsection}{\numberline {16.2}General Theory: Amplitudes}{41}{subsection.16.2}% 
+\contentsline {section}{\numberline {17}March 16th, 2021}{42}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}Amplitudes of Oscillatory Integrals}{42}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}A Cool Example}{42}{subsection.17.2}% 
+\contentsline {subsection}{\numberline {17.3}Some Lemmas}{43}{subsection.17.3}% 

@@ -1100,8 +1100,65 @@ Some properties:
 
 \begin{example} Take $a \in C^\infty(X \times \R^N)$ and for $|\theta| \ge 1$, $\lambda > 0$, $a(x, \lambda \theta) = \lambda^m a(x, \theta)$.  We claim that $a \in S_{1, 0}^m$.  If we differentiate, we have $\partial_\theta^\alpha a(x, \lambda \theta) = \lambda^{m - |\alpha|} \partial_\theta^\alpha a(x, \theta)$.
 \end{example}
+\pagebreak
+\section{March 16th, 2021}
+\subsection{Amplitudes of Oscillatory Integrals}
+We are making sense of $I(a, \phi) = \int_{\R^N} a(x, \theta) e^{i\phi(x, \theta)}\,d\theta$ on a distribution.  We defined a class of functions for $m \in \R$, $\rho, \delta \in [0, 1]$.  $S_{\rho, \delta}^m(X \times \R^{N}) = \{a \in C^\infty(X \times \R^N) : \forall K \Subset X, \alpha \in \N^n, \beta \in \N^N, \exists C = C(K, \alpha, \beta) : |\partial_X^\alpha \partial_{\xi}^\beta a| \le C\<\xi\>^{m - \rho|\beta| + \delta|\alpha|}\}.$ These are called the \textbf{symbols} of order $m$ and type $(\rho, \delta)$.  We write $S^m = S_{1, 0}^m$, which is the case where $|\<\theta\>^{-m+|\beta|}\partial_x^\alpha \partial_\xi^\beta a | \le C_{\alpha \beta}$.
 
+Why are these called symbols?  Suppose we have $P(x, 0)u = \sum_{|\alpha| \le  m} a_\alpha(x) D_k^\alpha u$.  We can also write this as $(2\pi)^{-n} \int \sum_{|\alpha| \le m} a_\alpha(x) \xi^\alpha e^{i(x - y)\xi} u(y)\,dy d\xi$, $u \in \S$.  The current order of integration makes sense but we can also just consider the integral in $d\xi$, which is an oscillatory integral, whose integrand is $p(x, \xi)$ is the symbol of $P(x, D)$.  Then $p \in S^m(X \times \R^n)$, which is of type $(1, 0)$.  
+
+\subsection{A Cool Example}
+
+
+Suppose $f \in C^\infty(X \times \R^n; [0, \infty))$ homogeneous - $f(x, \lambda \theta) = \lambda  f(x, \theta)$, $\lambda > 0$, $|\theta| \ge 1$.  Define $a(x, \theta) = e^{-f(x, \theta)}$.  Note that $0 \le a \le 1$.  This is also a smooth function.  
+
+We claim that $$\partial_x^\alpha \partial_\theta^\beta (e^{-f}) = \sum_{|\tilde{\alpha}| \le |\alpha|, |\tilde{\beta}| \le |\beta|} a_{\alpha \beta}(x, \theta) (\partial_x f^){\tilde{\alpha}} (\partial_\theta f)^{\tilde{\beta}}  e^{-f}.$$
+
+We can estimate the bad term $(\partial_x f^){\tilde{\alpha}} (\partial_\theta f)^{\tilde{\beta}}  e^{-f}$.  For this, we use Landau's inequality: If $g \in C^2(U)$, $g \ge 0$, for all $K \Subset U$, there exists $C$ such that $|\grad g(x)| \le C \sqrt{g(x)}$, $x \in K$.
+\begin{proof}
+Note that $0 \le g(x + y) = g(x) + \grad g(x) + y + O(|y|^2)$. This implies that $-\grad g(x) \cdot y \le g(x) + O(|y|^2)$.  Taking $y = -\epsilon \grad g(x)$, it follows that 
+$$\epsilon |\grad g(x)| \le g(x) + O(\epsilon^2 |\grad g(x)|^2),$$
+which implies the result.  
+\end{proof}
+
+
+We have that $f \ge 0$ so we have that $|\partial_x f| + |\partial_\theta f| \le C f^{1/2}$, with $1 \le \theta \le 2$, $x \in K$.  For $\lambda > 0$, note that $$\lambda^{-1} \partial_x f(x, \lambda \theta) + \partial_\theta f(x, \theta) \le C \lambda^{-1/2} f(x, \lambda \theta)^{1/2}.$$
+
+It follows by taking $\tilde \theta = \lambda \theta$,
+$$|\theta|^{-1/2} \partial_x f(x, \theta) + |\theta|^{1/2} \partial_\theta f(x, \theta) \le C(f, \theta)^{1/2}, \qquad |\theta| \le 1, x \in K.$$
+
+Now, we estimate 
+$$|(\partial_x f)^{\tilde{\alpha}} (\partial_\theta f)^{\tilde{\beta}}  e^{-f} | \le |\theta|^{|\tilde{\alpha}|/2}|\theta|^{-|\tilde{\beta}|/2} f^{1/2(|\tilde{\alpha} + \tilde{\beta}|)} e^{-f}.$$
+
+Finally $f^k e^{-f} \le k!$, which is some constant, so it follows that our term is bounded by $C_{\tilde{\alpha}\tilde{\beta}} |\theta|^{|\tilde{\alpha}|/2} |\theta|^{-\tilde{\beta}/2} \in S_{1/2, 1/2}^0 (X \times \R^N)$.
+\subsection{Some Lemmas}
+\begin{proposition} Suppose $\{a_j\}$ is bounded in $S_{\rho, \delta}^m$ and $a_j(x, \theta) \to a(x, \theta)$ for all $x, \theta \in X \times \R^N$. Then, $a \in S_{\rho, \delta}^m$ and $a_j \to a$ in $S_{\rho, \delta}^{m'}$ for all $m' > m$.
+\end{proposition}
+\begin{proof}
+We first prove a lemma.  
+\begin{lemma} Suppose $f \in C^2([-\epsilon, \epsilon])$.  Then $|f'(0)| \le 2 \|f\|_{L^\infty}^{1/2} \|f''\|_{L^\infty}^{1/2} + (2/\epsilon + 1/2) \|f\|_{L^\infty}$, where $\|g\|_{L^\infty} = \sup_{|x|\le \epsilon} |g|$.
+\end{lemma}
+\begin{proof}
+$f(x) = f(0) + xf'(0) + x^2 + \int_0^1 (1 - t)f''(tx)\,dt$. We have the estimate 
+$$|x f'(0)| \le 2\|f\|_\infty + \frac{x^2}{2}\|f''\|_\infty.$$
+
+Dividing by $x$, we we have $|f'(0)| \le 2/x\|f\|_\infty +x/2 \|f''\|_\infty$.  Then, we take $x = \min(2 \|f\|_\infty^{1/2}/\|f''\|_\infty^{1/2}, \epsilon) \le 2\|f\|_\infty^{1/2}\|f''\|_\infty^{1/2} + (\frac{2}{\epsilon} + \frac{1}{2})\|f\|_\infty,$
+\end{proof}
+From the lemma,
+$$\|a_j' - a_k'\| \le C\|a_j - a_k\|_{\infty}^{1/2} \|a_j'' - a_k''\|_{\infty}^{1/2} + C \|a_j - a_k\|_\infty.$$
+Hence, a Cauchy sequence in $L^\infty$ implies Cauchy for higher symbols.      
+
+\begin{example} Take $a = 1$, $a_j(\theta) = \chi(\theta/j)$.  $a_j(\theta) \to a(\theta)$ for all $\theta$.  Do we have convergence of $a_j \to a$ in $S^0$?  No! because $\|a_j - a\|_\infty = 1$.  This is similar to the statement $C_0^\infty$ is dense in $L^p$ for $1 \le p < \infty$.
+
+Now, $\|\<\theta\>^{-\delta}(a_j - a)\|_\infty \to 0$ as $j \to \infty$.  
+\end{example}
+Define $$b_j = \frac{\partial_x^\alpha \partial_\theta^\beta (a_j - a)}{\<\theta\>^{m' - \rho|\beta| + \delta|\alpha|}} = \frac{1}{\<\theta\>^{m' - m}} \frac{\partial_x^\alpha \partial_\theta^\beta(a_j - a)}{\<\theta\>^{m - \rho|\beta| + \delta|\alpha|}}.$$
+We know that $\partial_x^\alpha \partial_\theta^\beta(a_j - a)$ goes to $0$ on compact sets, and $\<\theta\>^{m - m'} \to 0$ as $|\theta| \to \infty$.  Then, for all $\epsilon > 0$, there exists $R_\epsilon$ so that $|k_j| < \epsilon$ if $|\theta| > R_\epsilon$.  On the other hand, for $|\theta| \le R_\epsilon$, $x \in K$, $|k_j| < \epsilon$ if $j>J_\epsilon$.    These two things imply that $|k_j| < \epsilon$ for $j > J_\epsilon$.   
+
+
+\end{proof}
 \end{document}
+
 
 
 

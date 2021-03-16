@@ -49,3 +49,6 @@
 \contentsline {subsection}{\numberline {14.1}The Modular Function}{28}{subsection.14.1}% 
 \contentsline {subsection}{\numberline {14.2}Analytic Functions}{28}{subsection.14.2}% 
 \contentsline {subsection}{\numberline {14.3}Cool Series Expansions}{29}{subsection.14.3}% 
+\contentsline {section}{\numberline {15}March 15th, 2021}{30}{section.15}% 
+\contentsline {subsection}{\numberline {15.1}Cool Series Expansion, continued}{30}{subsection.15.1}% 
+\contentsline {subsection}{\numberline {15.2}Infinite Products}{31}{subsection.15.2}% 

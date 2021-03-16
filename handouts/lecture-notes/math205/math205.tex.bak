@@ -749,4 +749,70 @@ The principle part at $z = n$ is thus given by $1/(z - n)^{-2}$.  Note that $\su
 It follows that 
 $$\sum_{n \in \Z} \frac{1}{(z - n)^2} - \frac{\pi^2}{(\sin{\pi z})^2}$$
 is holomorphic on $\C$.  Next time, we prove that it is exactly $0$.
+\pagebreak
+\section{March 15th, 2021}
+\subsection{Cool Series Expansion, continued}
+\begin{theorem}[Mittag-Leffler] Given $b_n \in \C$, $n \in \N$, $\lim_{n \to \infty} |b_n| = \infty$ and principle parts $\sum_{k = -N_n}^{-1} c_k^{(n)}(z - b_n)^k = P_n$, there is a meromorphic function on $\C$ with poles $(b_n)_{n \in \N}$ and principal parts $p_n$ of the Laurent expansions at the poles.
+\end{theorem}
+We applied this to find a series expansion of $\frac{\pi^2}{\sin{\pi z}^2}$.  We reduced it to an entire function $h = f_1 - f_2$ holomorphic with $f_1(z + 1) = f_1(z)$, $f_2(z + 1) = f_2(z)$, which implies that $h(z+1) = h(z)$.  We show that $h = 0$ exactly.  We do this by showing it is a bounded function which implies that it is zero by the Louiville theorem.  
+\begin{proof}
+Let $A(R) = \{|Im(z)| \ge R\} $We claim that $\|h\|_{A(R)} \to 0$ as $R \to \infty$.  We do this by showing it for both $f_1$ and $f_2$.  Note that 
+$$|\sin \pi(x + iy)| \ge \frac{1}{2} |e^{\pi y} - e^{-\pi y}|,$$
+so it follows that 
+$$\left\| \frac{\pi^2}{\sin{\pi z}^2}\right\|_{A(R)} \le \frac{4\pi^2}{|e^{\pi R} - e^{-\pi R}|} \xrightarrow{R \to \infty} 0.$$
+
+For $f_2$, $|Im(z)| \ge R$ so $$|\sum (z-n)^{-2}| \le \sum |z - n|^{-2} \le \sum ((x-n)^2 + R^2)^{-1} \le R^{-2} + \sum (n^2 + R^2)^{-1} \xrightarrow{R \to \infty} 0.$$
+
+It follows that $$\|h\|_\C \le \|h\|_{|Re(z)|\le 1/2} \le \|h\|_{|z| \le R} + \|h\|_{|Im(z) \ge R/2|} < \infty.$$
+
+Then $h = C$.  Since $|C| = \|h\|_{Im(z) \ge R} \to 0$, it follows that $C = 0$.  Therefore, $$\frac{\pi^2}{\sin{\pi z}^2} = \sum_{n \in \Z} \frac{1}{(z - n)^2}.$$
+\end{proof}
+
+Can we make sense of $\sum_{n \in \Z} \frac{1}{z-n}$?
+We can write
+$$\frac{1}{z} + \sum_{n \in \Z \setminus \{0\}} \frac{1}{z-n} + \frac{1}{n}.$$
+The counterterms are suitable because
+$\frac{1}{z-n} + \frac{1}{n} = \frac{z}{n(z-n)}$, so for $R > 0$, $|n| \ge R+1$implies that
+$$\|z/(n(z-n))\|_{R\ol\D} \le \frac{R}{|n|(|n| - R)},$$
+so it follows that 
+$$\sum_{|n| \ge R + 1} \frac{R}{|n|(|n| - R)} < \infty.$$
+
+Alternatively, note that $\sum_{0 < |n| < N} 1/n  = 0$ so 
+$$\lim_{N \to \infty} \sum_{|n| \le N} \frac{1}{z-n} = \frac{1}{z} + \sum_{n \in \Z \setminus \{0\}} \frac{1}{z-n} + \frac{1}{n}.$$
+If we denote $g_n(z) = \sum_{|n| \le N} \frac{1}{z-n}$, this is called the Eisenstein summation by Andre Weil, the author of the Weil Conjectures.  
+
+Then $g_N(z)$ is uniformly convergent on compact subsets of $\C \setminus \Z$.  From this, we can compute $g_N'(z)$ which is uniformly convergent on compact subsets of $\C \setminus \Z$.  Furthermore,
+$$g_N'(z) = -\sum_{|n| \le N} \frac{1}{(z-n)^2} \to -\frac{\pi^2}{\sin{\pi z}^2}.$$
+Note that this is also the derivative of $\pi\cot{\pi z}$, so it follows that $g = \pi \cot{\pi z} + C$.
+
+We can show the $C = 0$ using the fact that $\cot$ is odd, namely, $g(z) = -g(-z)$(the symmetric sums are all odd functions). 
+\subsection{Infinite Products}
+A polynomial with zeros $z_1, \dots, z_n$ is $P(z) = \prod_{1 \le k \le n}(z - z_k)$.  Given a sequence $z_1, z_2, \dots$ with $|z_k| \to \infty$, can we find a holomorphic function $f:\C \to \C$ with these zeros?  This is a theorem of Weierstrass.  
+
+\begin{remark} One reason why this can be strange is because we can approach numbers from different directions and obtain different convergence behavior.  
+\end{remark}
+Let $z_k \in \C \setminus \{0\}$.  
+\begin{definition} $\prod_{k \ge 1} z_k$ is convergent if $\lim_{n \to \infty} \prod_{k=1}^n z_k$ exists and is nonzero.  We denote $\log z$ if $z \ne 0$ the set $\{a \in \C: e^a = z\}$ and by $Log(z)$, the number $a \in \R + i(-\pi, \pi]$ so that $e^a = z$.  Similarly, $\arg z = Im(\log z)$ and $Arg(z) = Im(Log(z))$.
+\end{definition}
+\begin{fact} $\prod_{k \ge 1} z_k$ convergent if and only if $\sum_{k \ge 1} Log(z_k)$ is convergent.  
+\end{fact}
+
+\begin{fact} $\prod_{k \ge 1} z_k$ convergent, then $z_k \to 1$.  
+\end{fact}
+
+\begin{proof}
+If we put $P_n = \prod_{1 \le k \le n} z_k$ and $S_n = \sum_{1 \le k \le n} Log(z_k)$, then $\lim_{n \to \infty} S$, then $e^S = \lim_{n \to\ infty} e^{S_n} = \lim_{n \to \infty} P_n$, so $\lim_{n \to \infty} P_n = e^s \ne 0$.
+
+Conversely, suppose $\lim_{n \to \infty} P_n = P \ne 0$.  Then $P_n/P \to 1$, so $\log(P_n/P) \to 0$.  Then $Log(P_n/P) = S_n - Log(P) + 2\pi i h_n$ for some $h_n \in \Z$.  Note that 
+$$2\pi i(h_{n+1} - h_n) = Log(P_{n+1}/P) - Log(P_n/P) - Log(z_{n+1}),$$
+and the right hand side is $0$ for large $n$.  Indeed, there is an $\epsilon > 0$ so that $|a - 1| < \epsilon$, $|b - 1| < \epsilon$ so we have $Log(ab) = Log(a) + Log(b)$, and we can show that $h = \lim h_n$ exists which implies the convergence.  
+\end{proof}
+\begin{definition} $\prod_{k \ge 1} z_k$ is absolutely convergent if $\sum_{k \ge 1} |Log(z_k)| < \infty$.
+\end{definition}
+\begin{fact} $\prod_{k \ge 1} z_k$ is absolutely convergent if and only if $\sum_{k \ge 1} |z_k - 1| < \infty$.  
+\end{fact}
+\begin{proof}
+It follows from noting that the derivative of $Log(z)$ at $1$ is $1$.  
+\end{proof}
+This allows us to permute terms in products when we have absolute convergence.  
 \end{document}
