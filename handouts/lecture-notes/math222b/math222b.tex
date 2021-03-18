@@ -1131,7 +1131,7 @@ Now, we estimate
 $$|(\partial_x f)^{\tilde{\alpha}} (\partial_\theta f)^{\tilde{\beta}}  e^{-f} | \le |\theta|^{|\tilde{\alpha}|/2}|\theta|^{-|\tilde{\beta}|/2} f^{1/2(|\tilde{\alpha} + \tilde{\beta}|)} e^{-f}.$$
 
 Finally $f^k e^{-f} \le k!$, which is some constant, so it follows that our term is bounded by $C_{\tilde{\alpha}\tilde{\beta}} |\theta|^{|\tilde{\alpha}|/2} |\theta|^{-\tilde{\beta}/2} \in S_{1/2, 1/2}^0 (X \times \R^N)$.
-\subsection{Some Lemmas}
+\subsection{Topology of the Symbol Space}
 \begin{proposition} Suppose $\{a_j\}$ is bounded in $S_{\rho, \delta}^m$ and $a_j(x, \theta) \to a(x, \theta)$ for all $x, \theta \in X \times \R^N$. Then, $a \in S_{\rho, \delta}^m$ and $a_j \to a$ in $S_{\rho, \delta}^{m'}$ for all $m' > m$.
 \end{proposition}
 \begin{proof}
@@ -1153,9 +1153,67 @@ Hence, a Cauchy sequence in $L^\infty$ implies Cauchy for higher symbols.
 Now, $\|\<\theta\>^{-\delta}(a_j - a)\|_\infty \to 0$ as $j \to \infty$.  
 \end{example}
 Define $$b_j = \frac{\partial_x^\alpha \partial_\theta^\beta (a_j - a)}{\<\theta\>^{m' - \rho|\beta| + \delta|\alpha|}} = \frac{1}{\<\theta\>^{m' - m}} \frac{\partial_x^\alpha \partial_\theta^\beta(a_j - a)}{\<\theta\>^{m - \rho|\beta| + \delta|\alpha|}}.$$
-We know that $\partial_x^\alpha \partial_\theta^\beta(a_j - a)$ goes to $0$ on compact sets, and $\<\theta\>^{m - m'} \to 0$ as $|\theta| \to \infty$.  Then, for all $\epsilon > 0$, there exists $R_\epsilon$ so that $|k_j| < \epsilon/2$ if $|\theta| > R_\epsilon$. 
+We know that $\partial_x^\alpha \partial_\theta^\beta(a_j - a)$ goes to $0$ on compact sets, and $\<\theta\>^{m - m'} \to 0$ as $|\theta| \to \infty$.  Then, for all $\epsilon > 0$, there exists $R_\epsilon$ so that $|k_j| < \epsilon$ if $|\theta| > R_\epsilon$.  On the other hand, for $|\theta| \le R_\epsilon$, $x \in K$, $|k_j| < \epsilon$ if $j>J_\epsilon$.    These two things imply that $|k_j| < \epsilon$ for $j > J_\epsilon$.   
+\end{proof}
+\pagebreak
+\section{March 18th, 2021}
+\subsection{Topology of the Symbol Space, continued}
+Recall that we wish to define a distribution in terms of the oscillatory integral $I(a, \phi) = \int_{\R^N} u(x, \theta)\, e^{i\phi(x, \theta)} d\theta$.  We defined a class $a \in S_{\rho, \delta}^m (X \times \R^N)$ if for all $K \Subset X$, $\alpha, \beta$, there exists $C$ so that $|\partial_x^\alpha \partial_\theta^\beta a(x, \theta)| \le C\<\theta\>^{m-\rho|\alpha| + \delta|\beta|}$.  This class is equipped with seminorms $\|a\|_{K, \alpha, \beta}$ in the obvious way and they generate the topology.
+
+Last time, we proved the following:  if $\{a_j\} \subset S_{\rho, \delta}^m$ is bounded($\|a_j\|_{K, \alpha, \beta} \le C_{K, \alpha, \beta}$), for all $(x, \theta) \in X \times \R^n$, $a_j(x, \theta) \to a(x, \theta)$.  Then, $a \in S_{\rho, \delta}^m$ and $a_j \to a$ in $S_{\rho, \delta}^{m'}$ for $m' > m$.
+
+\begin{proposition} For every $m' > m$, $S^{-\infty}(X \times \R^N)$ is dense in $S_{\rho, \delta}^m$ in the $S^{m'}_{\rho, \delta}$ topology.
+\end{proposition}
+\begin{proof} Write $\chi_j(\theta) = \chi(\theta/j)$ where $\chi$ is a bump function which is $1$ on open set.  Note that $\partial_{\theta}^\alpha \chi_j(\theta) = j^{-|\alpha|} \chi^{(\alpha)}(\theta/j)$, which is supported in $|\theta| \in [j, 2j]$, so we have$O(\<\theta\>^{-|\alpha|})$.  Hence, $\chi_j \in S_{1,0}^0$ and moreover, $a_j := \chi_j a \in S^{m}_{\rho, \delta}$ uniformly: $\{a_j\}$ is a bounded sequence in $S_{\rho, \delta}^m$.  On the other hand, $a_j \in S^{-\infty}$, so applying the result from last time implies the desired since $a_j \to a$ pointwise.  
 
 \end{proof}
+\begin{remark} From Poincare, we say that $a \sim \sum_{j=0}^\infty a_j h^j$(where the RHS doesn't converge) if for all $N$, there exists $C$ so that $|a - \sum_{j=0}^{N-1} a_jh^j| \le Ch^N$.  This is like a Taylor's Theorem.  
+\end{remark}
+\begin{theorem}
+Suppose $a_j \in S_{\rho, \delta}^{m_j}$, $m_j \to -\infty$, $m_0 \ge m_1 \ge \dots$.  Then, there exists $a \in S^m_{\rho,\delta}$ such that for every $k$
+$$a - \sum_{j=0}^{k-1} a_j \in S_{\rho, \delta}^{m_k}(X \times \R^N).$$
+
+$a$ is unique in the sense that if the equality holds for another $\tilde{a}$, then $a - \tilde{a} \in S^{-\infty}$.
+\end{theorem} 
+We will write $a \sim \sum_{j=0}^\infty a_j$.
+\begin{proof}
+Suppose we have a sequence $\|\cdot\|_{k, \ell}$ is a sequence of seminorms defining the topology on $S_{\rho, \delta}^{m_k}$(for $k$ constant, $\|\cdot\|_{k, \ell}$ is a sequence of seminorms).  
+
+For every $j$, there exists $b_j \in S^{-\infty}$ so that $\|a_j - b_j\|_{\nu, \mu}\le 2^{-j}$ for $0, \nu, \mu \le j-1$.  This is okay because $S^{-\infty}$ is dense in $S^{m_j}_{\rho, \delta}$ in the topology of $S^{m_{nu}}$ for $\nu \le j-1$.  
+
+This implies that if we have $\sum_{j \ge k} a_j - b_j$, this converges in $S^{m_k}_{\rho, \delta}$ for all $k$.  Now, we put $a = \sum_{j=0}^\infty a_j - b_j \in S_{\rho, \delta}^{m_0}$.  Note that $a - \sum_{j < k} a_j = \sum_{j\ge k} a_k - \sum_{j=0}^\infty b_k = -\sum_{j < k} b_k + \sum_{k}^\infty a_j - b_j$.  The first term is in $S^{-\infty}$ because it is a finite sum of things in $S^{-\infty}$.  The second term is in $S_{\rho, \delta}^{m_0}$.
+\end{proof} 
+\subsection{Phase Functions}
+We denote $\dot{\R}^N$ to be $\R^N \setminus \{0\}$.  
+\begin{definition}[Non-degenerate Phase Function] A function $\phi \in C^\infty(X \times \dot{\R}^{N})$ satisfying
+\begin{itemize}
+\item $\phi(x, \lambda \theta) = \lambda \phi(x, \theta)$, $\lambda > 0$.
+\item $Im(\phi) \ge 0$.
+\item $d\phi \ne 0$: $d \phi = \sum \partial_{\theta_j}\phi d\theta_j + \sum \partial_{x_j} \phi dx_j$ or the gradient vector is different from zero for all $x, \theta$.
+\end{itemize}
+\end{definition}
+\begin{lemma} Suppose $m + k < -N$.  Then, $a \mapsto I(a, \phi)$ defines a continuous map between $S_{\rho, \delta}^m(X \times \R^N) \to C^k(X)$.
+\end{lemma}
+\begin{proof}
+$I(a, \phi) \in C(X)$ if $|a| \le \<\theta\>^{-N - \epsilon}$ i. e. $a \in S^m_{\rho, \delta}$ and $m < -N$.  When we differentiate this $k$ times, we get a function in $S^{m+k}_{\rho, \delta}$ which would map to $C(X)$ if $m + k < -N$.
+\end{proof}
+\begin{corollary} If $a \in S^{-\infty}$, this implies that $I(a, \phi) \in C^\infty(X)$.  
+\end{corollary}
+\begin{theorem} Suppose $0 < \rho \le 1$ and $0 \le \delta < 1$.  There exists a unique continuous map from $\bigcup_m S^{m}_{\rho, \delta} \ni a \mapsto I(a, \phi) \in \mc D'(X)$, such that for $a \in S^{m}_{\rho, \delta}$, $m < -N$, $I(a, \phi) = \int a(x, \theta) e^{i \phi(x, \theta)}\, d\theta$.  If $k \in \N$ and $m - k \min(\rho, 1-\delta) < -N$, then the map $a \mapsto I(a, \phi)$ is continuous as a map from $S^m_{\rho, \delta} \to \mc D'^{(k)}(X)$.  
+\end{theorem}
+\begin{remark} Recall that $u \in \mc D'^{(k)}(X)$ if for all $K \Subset X$, there exists $c$ so that for all $\phi \in C_c^\infty(K)$, $|u(\phi)| \le C \sup_{|\alpha| \le k} |\partial^\alpha \phi|$.
+\end{remark}
+\begin{proof}
+Uniqueness: this follows from the fact that $S^{-\infty}$ is dense in $S^m_{\rho, \delta}$ in $S^{m'}_{\rho, \delta}$ topology for all $m' > m$.  
+
+Existence: We sketch the proof and prove it next time.
+\begin{itemize}
+\item Use $d\phi \ne 0$ to find a differential operator $L$ so that $L^T e^{i\phi} = e^{i\phi}$.  
+\item For $a \in S^{-\infty}$, from integration by parts, $I(a, \phi)v = \int L^k(a, v) e^{i\phi} d\theta dx$, which has stronger regularity.
+\end{itemize}
+\end{proof}
+\begin{example} Take $u(x) = \int_{\R^n} \<\xi\>e^{ix \cdot \xi}\,d\xi$.  Then $u(v) = \int_{\R^n \times \R^n} \<\xi\>v(x) e^{ix\ cdot \xi} \,dx d\xi$ where $v \in C_c^\infty$.  Now, we construct $L$ so that $L^T(e^{ix\xi}) = e^{ix\xi}$.  This corresponds to $(\<A, \partial_x\> + \<B, \partial_\xi\>)e^{ix\xi} = e^{ix\xi}$.  Then, we want $i\<A, \xi\> + i\<B, x\> = 1$, which is exactly $A = 1/\xi$, $B = 1/x$.  
+\end{example}
 \end{document}
 
 
