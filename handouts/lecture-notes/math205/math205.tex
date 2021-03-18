@@ -814,4 +814,39 @@ and the right hand side is $0$ for large $n$.  Indeed, there is an $\epsilon > 0
 \begin{proof}
 It follows from noting that the derivative of $Log(z)$ at $1$ is $1$.  
 \end{proof}
+This allows us to permute terms in products when we have absolute convergence.  
+\pagebreak
+\section{March 17th, 2021}
+\subsection{Weierstrass Theorem}
+Our goal is to construct holomorphic functions with prescribed zeros on $\C$.  We have $a_n \in \C$ and $|a_n| \to \infty$(so that we don't have accumulation points).  A zero of order $m$ at zero would be handled by $z^m$ and $a_n \ne 0$.  This gives $z^m \prod_{n=1}^\infty \left (1 - \frac{z}{a_n}\right )$, so that when $a_n$ becomes large, the term becomes small.  This issue is that this may not converge. 
+
+\begin{remark} Take $|\zeta| < 1$.  Then $1 - \zeta \ne 0$ and $Re(1 - \zeta) > 0$, $Arg(1 -\zeta) \in (-\pi/2, \pi/2)$.  The series expansion of $\log(1 - \zeta)$ is $-\sum_{k \ge 1} \zeta^k/k$ and we replace with $Log$ so that it uniformly converges.  
+\end{remark}
+To make $\sum_{n \ge 1} Log(1 - z/a_n)$ uniformly convergent on compact subsets, we take $R_n = \inf_{k \ge n} |a_k|$ and choose a polynomial $p_n$ so that $$\|Log(1 - z/a_n) - p_n(z)\|_{R_n/2 \ol \D} M 2^{-n}.$$
+
+We can choose $p_n(z) = -\sum_{k=1}^{k_n} (z/a_n)^k/k$ where $k_n$ so that $$\sum_{k > k_n} |(R_n/2 )/ a_n|^k 1/k < 2^{-n}.$$
+Then, $|z| \le R_n/2$ implies that the choice of $k_n$ is correct.    Now, we define $g_n(z) =Log(1 - z/a_n) - p_n(z) = Log(1 - z/a_n) + \sum_{k=1}^{k_n} (z/a_n)^k /k$.  It follows that $\|g_k\|_{R_n/2\ol\D} < 2^{-k}$ for $k \ge n$ so it follows that $\prod_{k \ge n} e^{g_k}$ is convergent so that $\|e^{g_k} - 1\|_{R_n/2 \ol \D} < e^{2^{-k}} -1$ and $\prod_{k \ge n} e^{g_k}$ converging uniformly on $R_n/2 \ol \D$.  Thus, 
+$$P = z^m \prod_{n=1}^\infty (1 - z/a_n) e^{z/a_n + \dots + z^{k_n}/a_n^{k_n} \cdot 1/k_n}$$
+is uniformly convergent(after omitting the zero terms) on a given compact set of $\C$.   Then $P$ is a holomorphic function on $\C$ with zeros $a_n$(with multiplicities respected).  If $f$ is a holomorphic function on $\C$ with the same zeros then $f/P$ and $P/f$ are holomorphic entire functions so $f/p = e^g$ for some holomorphic $g$ on $\C$.    Hence, we have proved the following theorem:
+\begin{theorem}[Weierstrass] Given $a_n \in \C$, $|a_n| \to \infty$, there exists a holomorphic function on $\C$ with precisely these zeros.  Every holomorphic function on $\C$ with these zeros, $a_n \ne 0$ and zero of multiplicity $m$ at $0$ is $$f(z) = z^m e^{g(z)} \prod_{n \ge 1} (1 - z/a_n) \exp(z(/a_n + \dots + (z/a_n)^{k_n}) \cdot 1/k_n)$$
+for some $k_n \ge 0$ and $g$ holomorphic on $\C$.
+\end{theorem} 
+\begin{corollary} If $f$ is meromorphic on $\C$, then there are $f_1, f_2$ holomorphic so that $f = f_1/f_2$.
+\end{corollary} 
+\begin{proof}
+The Weierstrass theorem gives $f_1$ with some zeros as $f$ and $f_2$ with zeros same as the poles of $f$, so $f_1/f_2 = e^g f$, with $g$ holomorphic on $\C$.  Replace $f_1$ with $f_1e^{-g}$ so that $f_1/f_2 = f$.
+\end{proof}
+
+\subsection{Cohomology Aspects}
+We remarked before that Mittag-Leffler and Weierstrass relate to sheaf cohomology.  Roughly, a sheaf of sets is defined as follows.  We have a topological space, as for each open set, we have a functor mapping this to a set of real valued continuous functions on the set.  If we take a two open sets with $A \subset B$ then every continuous function on $B$ restricts to a continuous function on $A$, so we have a contravariant functor.   We also want the property that if we have sets $U_i, U_j$ open and if the functions on $U_i \cap U_j$ give the same thing, then we have some global function with the same properties.  We can also take a different Abelian category instead of a set.  We can define a cohomology on this via Cech Cohomology: given open sets, we take the Cech cocycle so that with the intersection of two sets, we have two functions with are compatible with each other on the intersection.  
+
+The problems that are solved by Mittag-Leffler and Weierstrass solve cohomological problems with the sheaf of holomorphic functions with additive structure and the sheaf of nonvanishing holomorphic functions that don't vanish, which is a sheaf of Abelian groups with respect to multiplication.  
+
+Consider Mittag-Leffler.  We have $P_k$ principle parts with poles of $a_k$.  Take covers $(U_i)_{i \in I}$ covers of $\C$ with bounded open sets.   Define $\phi_i = \sum_{\{k: a_k \in U_i\}} P_k$, a finite sum, and $\phi_i$ meromorphic in $U_i$.  Then, $\phi_i - \phi_j = h_{ij}$ is holomorphic on $U_i \cap U_j$.   One can verify that this $h_{ij}$ satisfies the cocycle properties. If we can find $h_i$ holomorphic on $U_i$ so that $h_i - h_j = h_{ij}$ on $U_i \cap U_j$, the $(\phi_i - h_i)\vert_{U_i \cap U_j} = (\phi_j - h_j)_{U_i \cap U_j}$(this is a coboundary condition).  But this is exactly solving the Mittag-Leffler problem.  
+
+This is the Cousin problem(additive): given $h_{ij}$ holomorphic on $U_i \cap U_j$, $h_{ij} + h_{jk} + h_{ki} = 0$ on $U_i \cap U_j \cap U_k$ and $h_{ij} = -h_{ji}$ on $U_i \cap U_j$.  We want to find $h_i$ holomorphic on $U_i$ so that $h_i - h_j = h_{ij}$ on $U_i \cap U_j$.  Note that Cousin problem has a solution implies Mittag-Leffler.  
+
+For the Weierstass Theorem, we have $\phi_i = \prod_{k | a_k \in U_i}(z- a_k)$, and $\phi_i/\phi_j = g_{ij}$ holomorphic, invertible on $U_i \cap U_j$.  We need $g_i$ holomorphic invertible on $U_i$ so that $g_i/g_j = g_{ij}$ on $U_i \cap U_j$. Then, $\phi_i/g_i = \phi_j/g_j$ on $U_i \cap U_j$ and there is $f$ holomorphic on $\C$ so that $f\vert_{U_i} = \phi_i/g_i$.  
+
+This is the Cousin problem(multiplcative): given $g_{ij} \ne 0$ holomorphic on $U_i \cap U_j$ with $g_{ij} = g_{ji}^{-1}$, $g_{ij}g_{jk}g_{ki} = 1$ on $U_i \cap U_j \cap U_k$.  We wish to find $g_i$ holomorphic and nonzero on $U_i$ so that $g_i/g_j = g_{ij}$ on $U_i \cap U_j$.
 \end{document}

@@ -52,3 +52,6 @@
 \contentsline {section}{\numberline {15}March 15th, 2021}{30}{section.15}% 
 \contentsline {subsection}{\numberline {15.1}Cool Series Expansion, continued}{30}{subsection.15.1}% 
 \contentsline {subsection}{\numberline {15.2}Infinite Products}{31}{subsection.15.2}% 
+\contentsline {section}{\numberline {16}March 17th, 2021}{32}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Weierstrass Theorem}{32}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}Cohomology Aspects}{33}{subsection.16.2}% 
