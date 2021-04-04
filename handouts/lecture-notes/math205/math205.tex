@@ -849,4 +849,87 @@ This is the Cousin problem(additive): given $h_{ij}$ holomorphic on $U_i \cap U_
 For the Weierstass Theorem, we have $\phi_i = \prod_{k | a_k \in U_i}(z- a_k)$, and $\phi_i/\phi_j = g_{ij}$ holomorphic, invertible on $U_i \cap U_j$.  We need $g_i$ holomorphic invertible on $U_i$ so that $g_i/g_j = g_{ij}$ on $U_i \cap U_j$. Then, $\phi_i/g_i = \phi_j/g_j$ on $U_i \cap U_j$ and there is $f$ holomorphic on $\C$ so that $f\vert_{U_i} = \phi_i/g_i$.  
 
 This is the Cousin problem(multiplcative): given $g_{ij} \ne 0$ holomorphic on $U_i \cap U_j$ with $g_{ij} = g_{ji}^{-1}$, $g_{ij}g_{jk}g_{ki} = 1$ on $U_i \cap U_j \cap U_k$.  We wish to find $g_i$ holomorphic and nonzero on $U_i$ so that $g_i/g_j = g_{ij}$ on $U_i \cap U_j$.
-\end{document}
+\pagebreak
+\section{March 29th, 2021}
+\subsection{Infinite Products}
+Recall that given $a_n \ne 0$, $|a_n| \to \infty$, $m$ order of zero at $0$, there are $k_n \ge 0$ integers so that $$P(z) = z^m \prod_{n \ge 1} (1 - z/a_n) e^{(z/a_n + \dots + (z/a_n)^{k_n} )( 1/k_n)}$$
+is a uniformly absolutely convergent product that gives a holomorphic function with prescribed zeros.  Any other holomorphic function with these zeros is $e^{g(z)}P(z)$ for some holomoprhic function $g$ on $\C$.
+
+How do we choose $k_n$?   If we take a subsequence of the $k_n$ so that $\sum_j 1/|a_{n_j}| < \infty$, then we can choose $k_{n_j} = 0$.  We can also set any finite number of them to $0$ without issues.  If we assert that all the $k_n$'s must be equal, what is the proper choice of $k_n = k$?  These are called the \textbf{canonical products}.  Furthermore, if $f: \C \to \C$ is holomophic and $f = e^{g(z)} P(z)$, $f$ has \textbf{finite genus} if $P$ is a canonical product and $g$ is a polynomial.  
+
+In the proof of the Weierstrass theorem, we had 
+$$\|Log(1 - z/a_n) + \sum_{m=1}^{k_n} (z/a_n)^m /m \|_{\rho \ol \D} \le \sum_{m > k_n} (\rho/|a_n|)^m /m,$$
+which is convergent for $|a_n| > \rho$.
+
+So $\sum_n \sum_{m>} (\rho/|a_n|)^m 1/m < \infty$, which implies convergence of the canonical product.  Howevr, note that only the first term matters since
+$$(\rho/|a_n|)^{h+1}/(h+1) \le \sum_{m > h} (\rho/|a_n|)^m/m \le (\rho/|a_n|)^{m+1}/(m+1) \frac{1}{1-\rho/a_n}.$$
+Since $\rho < |a_n|$, our series converges properly.  It follows that $\sum_n 1/|a_n|^{h+1} < \infty$ implies the convergence of the canonical product.  
+We define $genus(P) = \inf \{h\in \Z, h \ge 0| \sum_n 1/|a_n|^{h+1} < \infty\}$.  
+\begin{definition} If $f: \C \to \C$ has finite genus, we define $genus(f) = \max(\deg g, genus(P))$.
+\end{definition}
+\begin{itemize}
+\item If $f$ is genus zero, then $f(z) = Cz^m \prod_{n \ge 1} (1 - z/a_n)$ with the assumption that $\sum 1/|a_n| < \infty$.  
+\item  If $f$ is genus $1$, then we have $f(z) = Cz^m e^{\alpha z} \prod_{n \ge 1} (1 - z/a_n)e^{z/a_n}$ and $\sum 1/|a_n| = \infty$ but $\sum 1/|a_n|^2 < \infty$ OR we have that $f(z) = Cz^m e^{\alpha z} \prod_{n \ge 1} (1-z/a_n)$ for $\alpha \ne 0$ and $\sum 1/|a_n| < \infty$.  
+\item Take $f(z) = \sin{\pi z}$, with zeros at the integers.  Then, $\sum_{n \in \Z \setminus \{0\}} 1/|n| = \infty$, $\sum_{n \in \Z \setminus \{0\}} 1/n^2 < \infty$.  We can consider the canonical product $P = z \prod_{n \in \Z \setminus \{0\}}(1-z/n)e^{z/n}$, which is of genus 1.  Then, $\sin \pi z = e^g z \prod_{n \in \Z \setminus \{0\}}$.  Recall that the logarithmic derivative gives
+$$\pi \cot{\pi z} = g' + 1/z + \sum_{n \in \Z^\times} (1/n + 1/(z-n)).$$
+We recall that the right term is $g' + \pi \cot{\pi z}$, so it follows that $g' = 0$ and $g = C$.  We can solve for $C$ by noting that $e^C z \prod_{n \in \Z^\times }(1 - z/n)e^{z/n} = \sin{\pi z}$.  We can divide by $z$ and taking limits, we obtain that $e^C = \pi$, so it follows that $C = \log \pi$.  It follows that $\sin \pi z = \pi z \prod_{n \in \Z^\times} (1-z/n) e^{z/n}$.  We could also write this as $\pi z \prod_{n \ge 1} (1 - z^2/n^2) = \sin{\pi z}$.  
+\end{itemize}
+
+\subsection{Hadamard's Theorem}
+We can relate to the growth of a holomorphic function $f: \C \to \C$ and the order of the growth 
+$$\rho - \limsup_{R \to \infty} \frac{\log \log \|f\|_{R\ol{\D}}}{\log R}.$$
+We could also write
+$$\rho = \inf \{m \ge 0: |f(z)| \le Ce^{C|z|^m}\}.$$
+\begin{theorem}[Hadamard] If $\rho$ order of growth of $f$, $h$ genus of $f$, then $\rho \in [h, h+1)$.
+\end{theorem}
+Next time, we use the construction of the Gamma function and we follow the proof of Ahlfors which considers the zeros.  We somehow end up with the Gamma function $G(z-1) = ze^{\gamma(z)}G(z)$ for an entire function $\gamma$.  
+
+\pagebreak
+\section{March 31st, 2021}
+\subsection{The Gamma Function}
+Consider the canonical product for the zeros $\{-1, -2, \dots\}$, which leads to
+$$G(z) = \prod_{n \ge 1} (1 + z/n) e^{-z/n}.$$
+$G(z-1)$ has zeros $\{0, -1, -2, \dots\}$, hence $G(z-1)=ze^{\gamma(z)}G(z)$ for an entire function $\gamma$.
+
+If we take the logarithmic derivative, we obtain
+\begin{align*}
+\sum_{n \ge 1} \frac{1/n}{1 + (z-1)/n} - 1/n &= \gamma'(z) + 1/z + \sum_{n \ge 1} (1/n / (1 + z/n) - 1/n),
+\end{align*}
+and from here, we can obtain $\gamma'(z) = 0$ via a telescoping series.  Hence, $\gamma(z) = \gamma$, for a constant $\gamma$, which happens to be the famous Euler-Mascheroni Constant.  IT follows that $G(z-1) = e^{\gamma}z G(z)$.  If we define $H(z) = e^{\gamma z} G(z)$, then it follows that $H(z-1) = zH(z)$.
+
+Take $z=1$.  We have $G(0) = e^\gamma G(1)$ and $G(0) = 1$ so $1 = e^\gamma \prod_{n \ge 1} (1 + 1/n) e^{-1/n}$.  Taking the logarithm, we obtain $$-\gamma = \lim_{N \to \infty} \sum_{n=1}^N (\log (n+1) - \log n) - 1/n,$$ but this gives a telescoping sum with exactly the limit $\lim \log(N) - (1 + \dots + 1/N)$.  This is exactly the Euler-Mascheroni constant.  
+
+Define $\Gamma(z) = \frac{1}{zH(z)}$.  Then, $$\Gamma(z+1) = \frac{1}{(z+1)H(z+1)} = \frac{1}{H(z)} = \frac{z}{zH(z)} = z\Gamma(z).$$
+From the definition of $\Gamma$, it follows that $\Gamma(z)$ is a meromorphic function with poles at $-\N$, no zeros, and $\Gamma(z+1) = z\Gamma(z)$.
+
+Writing this explicitly, we have
+$$\boxed{\Gamma(z) = z^{-1} e^{-\gamma z}\prod_{n \ge 1}(1 + z/n)^{-1} e^{z/n}}.$$
+
+If we take $G(-z) z gG(z) = z \prod_{n \in \Z^\times} (1-z/n)e^{z/n} = \frac{\sin{\pi z}}{\pi}.$  Then, noting that $G(z) = e^{-\gamma z}H(z) = \frac{e^{-\gamma z}}{z\Gamma(z)}$, we find that 
+$$\frac{\pi}{\sin{\pi z}} = \Gamma(z) \Gamma(1-z).$$
+
+\subsection{Particular Values of $\Gamma$}
+It is clear that $\Gamma(1) = \lim_{z \to 0} \Gamma(1 + z) = \lim_{z \to 0}z\Gamma(z) = 1$.  So we obtain the value of $\Gamma(n)$ for each $n \in \N$, namely, $\Gamma(n+1) = n!$, which is clear by induction.
+
+Note that 
+$$\Gamma(1/2)^2 = \Gamma(1/2)\Gamma(1 - 1/2) = \frac{\pi}{\sin{\pi/2}} = \pi.$$
+
+It follows that 
+$$\Gamma(n + 1/2) = \sqrt{\pi} \frac{1}{2} \frac{3}{2} \dots (n - 1/2),$$
+for $n \ge 0$.
+
+\subsection{Alternate Definition of $\Gamma$}
+Take $I(z) = \int_{0}^\infty t^{z-1} e^{-t}\,dt$.      We will show that $I(z)$ extends to a meromorphic function on $\C$ which is exactly $\Gamma(z)$.
+
+We can write $I(z) = I_1(z) + I_2(z)$ where we take the same integrals but from $0$ to $1$ and $1$ to $\infty$ respectively.  Note that $|t^{z-1}e^{-t}| = t^{x-1} e^{-t}$ if $z = x+iy$.It follows that $$\int_{0}^1 |t^{z-1}e^{-t}|\,dt = \int_{0}^1 t^{x-1} e^{-t}\,dt \le \int_{0}^1 t^{x-1}\,dt.$$
+This is finite whenever $x > 0$, so $I_1(z)$ is defined if $Re(z) > 0$. $I_2$ is "very" convergent, the exponential decay handles the polynomial term.
+
+ We can show that $I_1$ holomorphic function on $\{Re(z) > 0\}$.  This requires the machinery of the Dominated Convergence Theorem, but roughly we differentiate under the integral sign and pass the derivatives onto the exponential terms.  We can also show the second integral is defined for $z \in \C$ and holomorphic via differentiation under the integral.
+ 
+ We can show the recurrence relation $I(z+1) = zI(z)$ for $Re(z) > 0$ via integration by parts with an approximating integral $\int_a^b t^z e^{-t}\,dt$ and taking the limit as $a \downarrow 0$ and $b \uparrow \infty$, where the boundary terms vanish.  We can also show directly that $I(1) = 1$, so $I(z)$ and $\Gamma(z)$ satisfy the same recurrence relation if $Re(z) > 0$.
+ 
+ Now, define $\psi(z) = \frac{I(z)}{\Gamma(z)}$, which is well defined $Re(z) > 0$, is holomorphic, and $\psi(z+1) = \psi(z)$. 
+
+
+
+\end{document} 

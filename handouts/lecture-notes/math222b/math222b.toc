@@ -58,3 +58,9 @@
 \contentsline {section}{\numberline {18}March 18th, 2021}{44}{section.18}% 
 \contentsline {subsection}{\numberline {18.1}Topology of the Symbol Space, continued}{44}{subsection.18.1}% 
 \contentsline {subsection}{\numberline {18.2}Phase Functions}{44}{subsection.18.2}% 
+\contentsline {section}{\numberline {19}March 30th, 2021}{46}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Oscillatory Integrals as Distributions}{46}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Some Remarks}{47}{subsection.19.2}% 
+\contentsline {section}{\numberline {20}April 1st, 2021}{48}{section.20}% 
+\contentsline {subsection}{\numberline {20.1}Oscillatory Integrals, continued}{48}{subsection.20.1}% 
+\contentsline {subsection}{\numberline {20.2}Fourier Integral Operator}{49}{subsection.20.2}% 

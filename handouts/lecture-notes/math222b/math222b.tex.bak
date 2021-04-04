@@ -1214,6 +1214,108 @@ Existence: We sketch the proof and prove it next time.
 \end{proof}
 \begin{example} Take $u(x) = \int_{\R^n} \<\xi\>e^{ix \cdot \xi}\,d\xi$.  Then $u(v) = \int_{\R^n \times \R^n} \<\xi\>v(x) e^{ix\ cdot \xi} \,dx d\xi$ where $v \in C_c^\infty$.  Now, we construct $L$ so that $L^T(e^{ix\xi}) = e^{ix\xi}$.  This corresponds to $(\<A, \partial_x\> + \<B, \partial_\xi\>)e^{ix\xi} = e^{ix\xi}$.  Then, we want $i\<A, \xi\> + i\<B, x\> = 1$.  
 \end{example}
+\pagebreak
+\section{March 30th, 2021}
+\subsection{Oscillatory Integrals as Distributions}
+We had formal expressions $\int_{\R^N} a(x, \theta) e^{i\phi(x, \theta)}\, d\theta$.  
+\begin{itemize}
+\item $a \in S_{\rho, \delta}^M(X \times \R^N)$ if and only if $\partial_x^\alpha \partial_\xi^\beta a = O(\<\xi\>^{m - |\beta|\rho + \delta|\alpha|})$.
+\item For a nondegenerate phase function, we have the conditions, $\phi$ is homogeneous of degree $1$ in $\theta$, $Im(\phi) \ge 0$, and $d\phi \ne 0$.
+\end{itemize}
+
+\begin{lemma} If $a \in S_{\rho, \delta}^m$, $m+k < -N$, then $a \mapsto I(a, \phi) = \int ae^{i\phi}$ is continuous as a map from $S_{\rho, \delta}^m \mapsto C^k(X)$.  
+\end{lemma}
+\begin{theorem} Suppose $0 < \rho \le 1$ and $0 \le \delta < 1$.  There exists a unique continuous map from $\bigcup_m S^{m}_{\rho, \delta} \ni a \mapsto I(a, \phi) \in \mc D'(X)$, such that for $a \in S^{m}_{\rho, \delta}$, $m < -N$, it coincides with $I(a, \phi) = \int a(x, \theta) e^{i \phi(x, \theta)}\, d\theta$.  If $k \in \N$ and $m - k \min(\rho, 1-\delta) < -N$, then the map $a \mapsto I(a, \phi)$ is continuous as a map from $S^m_{\rho, \delta} \to \mc D'^{(k)}(X)$.  
+\end{theorem}
+\begin{proof}
+We showed uniqueness last time.  Namely, for all $a \in S_{\rho, \delta}^m$ there exists $a_j \in S_{\rho, \delta}^{-\infty}$ such that $a_j \to a$ in $S_{\rho ,\delta}^{m'}$ for $m' > m$ so $I(a_j, \phi)$ are uniquely determined by $\int a_j e^{i\phi} \in C^\infty(X)$, so continuity implies the uniqueness.
+
+For existence, we use the following lemma.
+\begin{lemma} Suppose that $\phi$ is a non-degenerate phase function.  Then, there exists $a_j \in S_{1, 0}^0$, $b_\ell \in S_{1, 0}^{-1}$, $c \in S_{1, 0}^{-1}$ such that if we define $L = \sum_j a_j(x, \theta) \partial_{\theta_j} + \sum_\ell b_\ell(x, \theta)\partial_{x_\ell} + c(x, \theta)$ so that ${}^tL(e^{i\phi}) = e^{i\phi}$.
+\end{lemma}
+\begin{example} ${}^tL$ denotes the transpose of the operator when considered as a distribution.  Namely, $Lv(u) = v({}^t L u)$.  For example, ${}^t \partial_{x_j} = -\partial_{x_j}$.  It is also easier to understand when taking it for test functions through integration.
+\end{example}
+\begin{proof}
+Take $\chi \in C_c^\infty(\R^N)$ so that $\chi \equiv 1$ near $0$.  Define $\Phi = \sum |\frac{\partial \phi}{\partial x_j}|^2 + |\theta|^2 \sum |\frac{\partial \phi}{\partial \theta_j}|^2$.  We have that $\Phi$ is a smooth function away from $0$.  It is homogeneous of degree $2$ in $\theta$, which can be understood by considering each component.  This expression is nonzero away from $0$.  We can define the transpose 
+$${}^t L = \frac{1 - \chi(\theta)}{i\Phi} \sum |\theta|^2 \ol{\frac{\partial \phi}{\partial \theta_j}} \partial_{\theta_j} + \sum \ol{\frac{\partial \phi}{\partial x_j}} \partial_{x_j}  + \chi(\theta).$$
+
+We claim that ${}^tL(e^{i\phi})= e^{i\phi}$. Note that $\phi \mapsto i\Phi$.  The first term is in $S^{0}$, the second is in $S^{-1}$ and $\chi \in S^{-\infty} \subset S^{-1}$.
+\end{proof}
+We start with $u \in C_c^\infty(X)$.  First, take $a \in S^{-\infty}$.  Then, $I(a, \phi) \in C^\infty(X)$, so we have
+\begin{align*}
+\<I(a, \phi), u\> &= \int_X \int_{\R^N} a(x, \theta) u(x)e^{i\phi(x, \theta)}\,d\theta dx \\
+&= \int_X \int_{\R^N} au({}^t L)^k (e^{i\phi}) \,d\theta dx \\
+&= \int_X \int_{\R^N} L^k(au) e^{i\phi}\, d\theta \,dx
+\end{align*}
+Now, suppose that $a \in S_{\rho, \delta}^m$ for $\rho > 0$ and $\delta < 1$.  Then, $L^k(au) \in S_{\rho, \delta}^{m-k \min(\rho, 1-\delta)}$, which means that for $\rho < 1$, $\delta > 1$, we gain decay.  This gives a continuous map $(a, u) \mapsto S_{\rho, \delta}^m \times C_c^\infty(X)$.
+
+Then, $\sup_{K \times \R^N} |L^k(au) \<\theta\>^{-m + k \min(\rho, 1-\delta)}| \le C\|a\|_{\ell, K} \sum_{|\alpha| \le k} \sup |\partial^\alpha u|$.  This implies that if $a \in S_{\rho, \delta}^m$ and $k$ is such that $m-k \min(\rho, 1-\delta) < -N$, we can define
+$$\<I_k(a, \phi), u\> = \int e^{i\phi} L^k(au)\,d\theta dx \le C_{a, k, K} \sum_{|\alpha| \le k} \sup |\partial^\alpha u|.$$
+
+To define $I(a, \phi)$ for $a \in S^m$ we need to show that if $m - k' \min(\rho, 1- \delta) < -N$, then $I_k(a, \phi) = I_{k'}(a, \phi)$.  We can prove this similarly to the uniqueness argument, since we have a sequence $a_j \to a$ in $S^{m'}$ for $m' > m$ and $I_k(a_j, \phi) = I_{k'}(a_j, \phi) = I(a, \phi)$.
+\end{proof}
+\subsection{Some Remarks}
+\begin{itemize}
+\item $I(a, \phi) = \lim_{\epsilon \to 0} \int e^{i\phi(x, \theta)} a(x, \theta) \chi(\epsilon \theta)\,d\theta$.  This follows from the density of $a_\epsilon \to a$ in $S^{-\infty}$.
+\item  Suppose $V = \sum a_j \partial_{\theta_j} + \sum b_\ell \partial_{x_\ell} + c$, $a_j \in S^0$, $b_{\ell}, c \in S^{-1}$.  Then, $\iint {}^t V(e^{i\phi}) au = \iint e^{i\phi} V(au)$, with the understanding that these are oscillatory integrals.  
+\item We can use the above remark to prove things like smoothness of oscillatory integrals away from points.  For example, take $(2\pi)^{-n}\int e^{ix\theta}\,d\theta = \delta_0(x)$.  We can take $V = \frac{(1-\chi(x)) x\partial_\theta}{|x|^2} \in S^0$ and it follows that $\int e^{ix\theta}\,d\theta \equiv 0$ away from $0$.  
+\end{itemize}
+\pagebreak
+\section{April 1st, 2021}
+\subsection{Oscillatory Integrals, continued}
+Recall that $\bigcup_m S_{\rho, \delta}^m \ni a \mapsto I(a, \phi) \in \mc D'(X)$.  We showed that for $a \in S^{-\infty}$, we had $I(a, \phi) = \int a(x, \theta) e^{i\phi(x, \theta)}\, d\theta \in C^\infty(X)$, with the assumption that $\phi$ is a non-degenerate phase function.
+
+We mentioned last time that if we have $\iint {}^tL(e^{i\phi}) au \,d\theta dx = \iint e^{i\phi} L(au)\,d\theta dx$ for any $u \in C_c^\infty(X)$ where $L = \sum a_j\partial_{\theta_j} + \sum b_k \partial_{x_k} + c$, $a_j \in S^0, b_k \in S^{-1}, c \in S^{-1}$.
+\begin{definition}Given a phase function $\phi$, define $C_\phi = \{(x, \theta): d_\theta \phi = 0\}$.
+\end{definition}
+If we take $\delta_0(x)$, $\phi = x\ cdot \theta$, then $C_\phi = \{(0, \theta): \theta\in \R^n\}$.
+\begin{lemma} Suppose $a \in S^{m}_{\rho, \delta}$, $0 < \rho $, $\delta < 1$, $a \equiv 0$ in a conic neighborhood $C_\phi$. Then $I(a, \phi) \in C^\infty(X)$.
+\end{lemma}
+\begin{definition} A conic neighborhood of $\theta_0 \in \dot{\R}^N$ is a set $\theta$ satisfying $|\frac{\theta}{|\theta|} - \frac{\theta_0}{|\theta_0|}| < \epsilon$ for some $\epsilon$.
+\end{definition}
+\begin{proof}
+Claim: there exists $L = \sum a_j \partial_{\theta_j} + c$, $a_j \in S^0$, $c \in S^{-1}$ such that ${}^t L(e^{i\phi}) = (1 - b)e^{i\phi}$, $b \in S^0$ with $\supp{b} \cap \supp{a} =  \emptyset$.
+
+Namely, choose $b$, which is homogeneous of degree $0$, $|\theta| > 1$ in a conic neighborhood of $C_\phi$ and $b = 0$ on the support of $a$.  We can simply take $b(x, \theta)$, $\theta \in S^{N-1}$ so that $b = 1$ near $C_\phi \cap S^{N-1}$.  If $\supp{b}$ is close enough to $C_\phi$, this implies the disjoint supports by the assumption that $a \equiv 0$ on the conic neighborhood of $C_\phi$.
+
+Then, we construct ${}^tL = (1 - b) \frac{1}{|\phi \theta|^2} \<\phi_\theta, \partial_\theta\>$.  This is fine because $b \equiv 1$ on the set where $\phi_\theta$ vanishes.  We also know that $(1-b)\partial^\alpha a = \partial^\alpha a$ and $\partial^\alpha b \partial^\beta a = 0$.  This implies that $I(a, \phi) = I(L^k a, \phi)$ for all $k$ where we have $L(au) = (La) u$.  Furthermore, note that $L^k a \in S^{m - k\min(\rho, 1-\delta)}$, so we can make this arbitrarily small for large $k$, which implies that $I(a, \phi) \in C^m(X)$ for all $m$.
+
+
+\end{proof}
+\begin{theorem} $sing \supp I(a, \phi) \subset \pi(C_\phi)$ where $\pi: X \times \dot \R^N \to X$, $\pi(x, \theta) = x$.
+\end{theorem}
+\begin{remark} Recall that for $u \in \mc D'(X)$, $sing \supp u = \{x: \exists U = nbhd(x), a\vert_{U} \in C^\infty(U)\}^c$.
+\end{remark}
+\begin{proof}
+Suppose $x_0 \not \in \pi(C_\phi)$.  Then, there exists $\psi(x)$ such that $\psi(x_0) = 1$, $\supp \psi \cap \pi(C_\phi) = \emptyset$(this exists because $C_\phi$ is closed, so its projection is closed).  Then $\psi I(a, \phi) = I(\psi a, \phi)$.  Now, $\supp \psi a \cap C_\phi = \emptyset$.  Now, we apply the lemma.  
+\end{proof}
+Some examples
+\begin{itemize}
+\item For $f \in C^\infty(X)$, $Im(f) \ge 0$ and $f(x) = 0$ implies that $df(x) \ne 0$(this implies that $\{x; f(x) = 0\}$ is a $C^\infty$ hypersurface). Define $u(x) = \int_0^\infty e^{if(x) \tau} \,d\tau$.  Strictly speaking, this should be $\int_0^\infty \chi(\tau) e^{if(x)\tau} \,d\tau + \int_{\R} (1 - \chi(\tau)) e^{if(x) \tau} \,d\tau$, which is now $I(1 - \chi, f(x)\tau) \in S^0$.  
+
+Note that $\int_0^\infty e^{i(f(x) + i\epsilon) \tau} \,d\tau = \frac{i}{f(x) + i\epsilon}$ converges to $u(x) \in \mc D'(X)$. It follows that $u(x) = i(f(x) )^{-1}$ and $C_\phi = \{(x, \tau): f(x) = 0\}$.  
+\item We wish to solve $(\partial_t^2 - \Delta) u = 0$, $u\vert_{t = 0} = f$, $\partial_t u \vert_{t = 0} = 0$, $f \in S'(\R^n)$.   Then, $u(t, x) = (2\pi)^{-n} 1/2\iint  \sum_{\pm} e^{i(x - y) \xi  \pm |\xi|t} f(y) \,dy d\xi$.  We can check this is a solution to the wave equation.
+
+Define $U(t, x, y) = (2\pi)^{-n} \int \frac{1}{2} \sum_{\pm} e^{i(x-y) \xi \pm i |\xi| t}\,d\xi \in \mc D(\R \times \R^n )$, since we can check directly that $\phi_{\pm}(t, x, y, \xi)$ is a phase function.  Note that $C_{\phi_{\pm}} = \{|x - y| = t\}$, which gives the light cone.  
+\end{itemize}
+\subsection{Fourier Integral Operators and Pseudodifferential Operators}
+Suppose that $\phi \in C^\infty(X \times Y \times \R^N)$, $X \subset \R^n$ $Y \subset \R^m$ is a phase function in all variables.  Namely, $X \times Y$ is the "old $X$" and $a \in S_{\rho, \delta}^m(X \times Y \times \R^N)$, $\rho > 0$, $\delta < 1$.  We obtain $K(x, y) = \int a(x, y, \theta) e^{i \phi(x, y, \theta)}\, d\theta \in \mc D'(X \times Y)$.  $K$ defines $A: C_c^\infty(Y) \to \mc D'(X)$ via $u \in C_c^\infty(Y)$, $c \in C_c^\infty(X)$, and $\<Au, v\> := \<K, v \otimes u\>$, where $v \otimes u(x, y) = v(x) u(y) \in C_c^\infty(X \times Y)$.  
+
+Formally, we write $Au(x) = \iint a(x, y, \theta) e^{i\phi(x, y, \theta)} u(y)\,dy d\theta$ which is understood as an oscillatory integral when paired with $v$.  This is called the \textbf{Fourier Integral Operator}.
+
+For $\theta \in \R^n$, $X = Y \subset \R^n$, $\phi(x, y, \theta) = (x - y) \cdot \theta$, we have a \textbf{Pseudodifferential Operator}.
+
+Suppose we have a differential operator $P(x, D) = \sum_{|\alpha| \le m} a_\alpha(x) D_x^\alpha$, $a-\alpha \in C^\infty(X)$.  We can write
+$$Pu(x) = (2\pi)^{-n} \iint \sum a_\alpha(x) \xi^\alpha u(y) \,dy d\xi.$$
+Then, $a(x, \xi) = \sum a_\alpha \xi^\alpha \in S_{1, 0}^m(X \times \R^n)$. 
+ 
+\begin{theorem}
+Suppose $A$ is an FIO, we have the following:
+\begin{itemize}
+\item If for every $x \in X$, $(y, \theta) \mapsto \phi(x, y, \theta)$ is a phase function, then $A: C_c^\infty(Y) \to C^\infty(X)$.
+\item If for every $y \in Y$, $(x, \theta) \mapsto \phi(x, y, \theta)$ is a phase function, then $a: \mc E'(Y) \to \mc D'(X)$.
+\end{itemize}
+\end{theorem}
 \end{document}
 
 

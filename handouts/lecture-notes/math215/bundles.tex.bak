@@ -1,0 +1,47 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\SRS}{\mathscr {S}}
+
+\let \phi \varphi
+\let \hat \widehat
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+
+
+\begin{document}
+\title{Bundles}
+\author{Vishal Raman}
+
+\section{April 1st, 2021}
+\subsection{Principal Bundle}
+\begin{definition} A principal bundle $P \to B$ is a fiber bundle with fiber $G$, a lie group, and cocycles $g_{\alpha beta}: U_\alpha \cap U_\beta \to G$ where $G$ acts on itself by multiplication: $\phi: G \to \Aut(G)$ is given by $g \mapsto (h \mapsto hg)$.
+\end{definition}
+ $P$ admits an action $G$ such that the action respects the fibration; i. e given $p \in \pi^{-1}(b)$, $pg \in \pi^{-1}(b)$.  This action on one fiber is transitive and free.  
+ 
+
+\end{document}
