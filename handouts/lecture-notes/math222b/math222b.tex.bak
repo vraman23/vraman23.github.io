@@ -36,6 +36,7 @@
 \newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
 \let \grad \nabla
 \let \p \partial
+\let \tensor \otimes
 
 
 \begin{document}
@@ -1282,9 +1283,9 @@ Then, we construct ${}^tL = (1 - b) \frac{1}{|\phi \theta|^2} \<\phi_\theta, \pa
 
 
 \end{proof}
-\begin{theorem} $sing \supp I(a, \phi) \subset \pi(C_\phi)$ where $\pi: X \times \dot \R^N \to X$, $\pi(x, \theta) = x$.
+\begin{theorem} $\operatorname{sing} \supp I(a, \phi) \subset \pi(C_\phi)$ where $\pi: X \times \dot \R^N \to X$, $\pi(x, \theta) = x$.
 \end{theorem}
-\begin{remark} Recall that for $u \in \mc D'(X)$, $sing \supp u = \{x: \exists U = nbhd(x), a\vert_{U} \in C^\infty(U)\}^c$.
+\begin{remark} Recall that for $u \in \mc D'(X)$, $\operatorname{sing} \supp u = \{x: \exists U = nbhd(x), a\vert_{U} \in C^\infty(U)\}^c$.
 \end{remark}
 \begin{proof}
 Suppose $x_0 \not \in \pi(C_\phi)$.  Then, there exists $\psi(x)$ such that $\psi(x_0) = 1$, $\supp \psi \cap \pi(C_\phi) = \emptyset$(this exists because $C_\phi$ is closed, so its projection is closed).  Then $\psi I(a, \phi) = I(\psi a, \phi)$.  Now, $\supp \psi a \cap C_\phi = \emptyset$.  Now, we apply the lemma.  
@@ -1316,7 +1317,141 @@ Suppose $A$ is an FIO, we have the following:
 \item If for every $y \in Y$, $(x, \theta) \mapsto \phi(x, y, \theta)$ is a phase function, then $a: \mc E'(Y) \to \mc D'(X)$.
 \end{itemize}
 \end{theorem}
+\pagebreak
+\section{April 6th, 2021}
+\subsection{Operators on Oscillatory Integrals}
+Take $X \subset \R^n$, $Y \subset \R^m$, $a \in S_{\rho, \delta}^m(X \times Y \times \R^N)$, $\phi = \phi(x, y, \theta)$ a non-degenerate phase function.  Assuming $\rho > 0$, $\delta < 1$, this gives a distribution $K = I(a, \phi) \in \mc D'(X \times Y)$.  Furthermore, this defines an continuous operator $A: C_c^\infty(Y) \to \mc D'(X)$ given for $u \in C_c^\infty(Y)$, $v \in C_c^\infty(X)$ by
+$$\<Au, v\> = \<K, u \otimes v\>$$
+where $u \tensor v = u(x)v(y) \in C_c^\infty(X \times Y).$  These are called \textbf{Fourier Integral Operators}. 
+\begin{itemize}
+\item $K_\pm(t, x, y) = (2\pi)^{-n} \int e^{i \<\xi, x-y\>} e^{\pm i|\xi| t}$ for $t \in \R$, $x, y\in \R^n$.
+\item For $X = Y$, $\phi(x, y, \xi) = \<x-y, \xi\>$, this gives the \textbf{Pseudo-differential Operators}.  
+\end{itemize}
+\begin{remark} The map $a \mapsto I(a, \phi) \in \mc D'(X \times Y)$ is continuous, so that for $u, v \in C_c^\infty(W), W \Subset X \times Y$,
+$$|\<K, u \tensor v\>| \le C \sum_{|\alpha| \le N, |\beta|\le N} \sup |\partial_x^\alpha \partial_y^\beta (uv)|.$$
+\end{remark}
+
+\begin{theorem}
+Suppose $A$ is an FIO, we have the following:
+\begin{itemize}
+\item If for every $x \in X$, $(y, \theta) \mapsto \phi(x, y, \theta)$ is a non-degenerate phase function($d_{y, \theta}\phi \ne 0$), then $A: C_c^\infty(Y) \to C^\infty(X)$.
+\item If for every $y \in Y$, $(x, \theta) \mapsto \phi(x, y, \theta)$ is a non-degenerate phase function($d_{x, \theta} \ne 0$), then $a: \mc E'(Y) \to \mc D'(X)$.
+\end{itemize}
+\end{theorem}
+\begin{example} For a pseudo-differential operator, we have $\phi = \<x - y, \xi\>$ and $(y, \xi) \mapsto \<x-y, \xi\>$ and $(x, \xi) \mapsto \<x-y, \xi\>$ are non-degenerate.  
+\end{example}
+\begin{proof}
+Take $\Phi = |d_y\phi|^2 + |\theta|^2 |d_\theta \phi|^2$, which is nonzero for $X \times Y \times \dot{\R}^N$.  This is homogeneous of degree $2$.  Let $\chi$ be the usual bump function and set $${}^t L = \frac{1 - \chi}{i\Phi}(\<\partial_y \phi, \partial_y\> +|\theta|^2 \<\partial_\theta \phi, \partial_\theta\>) + \chi.$$
+
+Then, $L = \<A, \p_y\> + \<B, \p_\theta\> + c$ for $A \in S^{-1}$, $B \in S^{0}$, $c \in S^{-\infty} \subset S^{-1}$.  We showed that for operators of this form, we can integrate by parts.  Namely,
+$$\<Au, v\> = \int e^{i\phi} v(x) L^k(au) \,dxdyd\theta.$$
+Then, $L^k \in S^{m - k\min(\rho, 1-\delta)}$.  It follows that $Au = \int e^{i\phi} L^k(au) \,dy d\theta \in C^\infty(X)$.
+
+For the second part, note that for any $A: C_c^\infty(Y) \to \mc D'(X)$, we define ${}^tA: C_c^\infty(X) \to \mc D'(Y)$ by $\<{}^t A v, u\> = \<Au, v\>.$  If $A$ is defined using $K_A \in \mc D'(X \times Y)$, this implies that ${}^tA$ is defined by $K_{{}^tA}(y, x) = K_A(x, y)$.  This means that if $K_A = I(a, \phi)$, then $K_{{}^t a} = I(\tilde{a}, \tilde{\phi})$ where $\tilde{a}(y, x, \theta) = a(x, y, \theta)$ and $\tilde{\phi}(y, x, \theta) = \phi(x, y, \theta)$.  But now, the condition that $(x, \theta) \mapsto \phi(x, y, \theta)$ is non-degenerate implies that $K_{{}^t A} : C_c^\infty(X) \to \mc C^\infty(Y)$.   It follows that $A: \mc E'(Y) \to \mc D'(X)$.  For $u \in \mc E'(Y)$, $v \in C_c^\infty(X)$, we define $\<Au, v\> = \<{}^t A v, u\>$.
+
+\end{proof}
+
+
+\subsection{Method of Stationary Phase}
+We defined $C_\phi = \{(x, \theta) : \phi_\theta =0 \}$.  We proved that $\operatorname{sing}\supp I(a, \phi) \subset \pi(C_\phi)$ where $\pi(x, \theta) = x$.  One could ask, when do we have equality?  To do this, we need to "evaluate" our oscillatory integrals.  This is the \textbf{Method of Stationary Phase}.
+
+
+
+Define $$I(\lambda) = \int e^{i \lambda \phi(x)}a(x)\,dx,$$ for $a \in C_c^\infty(\R)$, $\phi \in C^\infty(\R, \R)$.  We could also take
+$$J(\lambda) = \int e^{-\lambda \psi(x)} a(x)\,dx.$$
+The study of the first is the stationary phase method and the study of the second is the steepest descent method.
+
+\subsection{Steepest Descent}
+Recall from lecture 1, we were stuck on the integral $\int_0^{2\pi} e^{-\frac{1}{2\epsilon} |\xi|^2 \cos^2 \theta} \,d\theta$ as $\epsilon \to 0$.  The Method of Steepest Descent will give us the asymptotic expansion of this.   
+
+For $a \in C_c^\infty$, $\psi$ has a unique non-degenerate minimum. 
+
+$\int e^{-\lambda \psi(x)}a(x) \,dx = e^{-\lambda \psi(x_0)}((2 \pi \lambda \psi ''(x_0) )^{-1/2} a(x_0) + b_1 \lambda^{-1/2 - 1} + b_2 \lambda^{-1/2 - 2} + \dots)$.  This means that for all $N$, there exists $C$ such that 
+$$| \int e^{-\lambda \psi(x)} a(x)\,dx - e^{-\lambda \psi_0(x_0)}(2 \pi \lambda \psi ''(x_0) )^{-1/2} a(x_0) + b_1 \lambda^{-1/2 - 1} + b_2 \lambda^{-1/2 - 2} + \dots )| \le Ce^{-\lambda \psi(x_0)} \lambda^{-N - 5/2}.$$  
+
+If we take $\chi \in C_c^\infty(\R)$, $\chi$ with support close to $x_0$, 
+$$|\int e^{-\lambda \psi(x)}(1 - \chi(x)) a(x)\,dx| \le  e^{-\lambda(\psi(x_0) + \epsilon)}.$$
+
+By Taylor's Formula, $\psi(x) = 1/2(x - x_0)^2 \psi_1(x)$, where $\psi(x_0) = \psi''(x_0)$.  Then, take $y = y(x) = (x - x_0) (\psi_1(x))^{1/2}$ for $x$ near $x_0$.  Since $y'(x_0) \ne 0$, we can write $x = x(y)$, for $y$ near 0.  Finally, $\phi(x(y)) = y^2/2$, so we have
+$$\int e^{-\lambda \psi(x)} \chi(x) a(x)\,dx = \int e^{-1/2 \lambda y^2}b(y)\,dy$$
+where $b(y) = \chi(x(y)) a(x(y)) |dx/dy|$.  We know that $b(0) = a(x_0)/(\psi''(x_0))^{1/2}$.  We are reduced to studying 
+$$\int e^{-1/2 \lambda y^2} b(y)\,dy.$$
+
+Then, $\int u\ol v = (2\pi)^{-1} \int \hat{u} \ol{\hat{v}}$, Plancherel's formula.  Then ,$u = b(y)$, $v = e^{-1/2 \lambda y^2}$.  The Fourier transform of $e^{-1/2 \lambda \cdot ^2} = \frac{\sqrt{2\pi}}{ \lambda^{1/2}} e^{-\xi^2/2\lambda}$, so it follows that 
+$$\int e^{-1/2 \lambda y^2} b(y)\,dy = (2\pi \lambda)^{-1/2} \int e^{-\xi^2/2\lambda} \hat{b}(\xi)\,d\xi.$$
+
+We wish to consider this as $\lambda \to \infty$.  By expanding the Taylor series of the exponential term, we have
+$$(2\pi\lambda)^{-1/2} \sum \int \frac{1}{k!} (-1/2\lambda \xi^2)^k \hat{\beta}(\xi)d\xi = (2\pi\lambda)^{-1} \sum \frac{(-1/2\lambda)^k}{k!} \int \xi^{2k} \hat{b}(\xi) d\xi.$$
+Recall that $\int \xi^{2k} \hat{b}(\xi) = (2\pi) D_x^{2k} b(0)$.
+\pagebreak
+\section{April 8th, 2021}
+\subsection{Steepest Descent}
+Recall for Steepest Descent, we had 
+$$J(\lambda) = \int \chi(x) e^{-\lambda \psi(x)}a(x)\,dx + O(e^{-\lambda(\psi(x_0) + a)})$$
+for $\chi \in C_c^\infty$ a smooth bump function near $x_0$.  We then wrote $\psi(x) = \psi(x_0) + 1/2 y(x)^2$, which gives a nice function $x \mapsto y(x)$ with $y(x_0) = 0$ and $y'(x_0) \ne 0$.
+
+Applying this, we had $J(\lambda) = e^{-\lambda \psi(x_0)}\int b(y) e^{-\lambda y^2/2}\,dy$, $b \in C_c^\infty$ near $0$ and $b(x_0) = \frac{a(x_0)}{(\psi(x_0))^{1/2}}$.
+
+Then, via Plancherel, we obtained
+$$J(\lambda) = (2\pi)^{-1/2} \int \hat{b}(\xi) e^{-\xi^2/2\lambda} dy/\sqrt{\lambda}.$$
+which has a finite expansion
+$$(2\pi)^{-1/2} \int \hat{b}(\xi) \sum_{k=0}^{N-1} 1/k! (-1/2\lambda)^k \xi^{2k}\,d\xi/\sqrt{\lambda} + C \int \hat{b}(\xi) \xi^{2N} e^{-1/2(\theta \xi)^2} d\xi/\sqrt{\lambda}.$$
+
+Then, note that 
+$\int \xi^{2k} \hat{b}(\xi) = 2\pi D_y^{2k}b(0)$, so we obtain
+$$(2\pi)^{1/2}/\sqrt{\lambda} \sum_0^{N-1} 1/k! (2\pi)^{-k} \partial_y^{2k}b(0) + C_N \lambda^{-N - 1/2}\| \hat{(D^{2n}b)} \|_1.$$
+
+Then, we estimate
+$$\|\hat{\partial^{2N} b}\|_1 \le c (\| \partial^{2n + 2}b \|_{L^1}  + \| \partial^{2N} b\|_{L^1}) \le C \sup_{|\alpha| \le 2N + 2} |\partial^\alpha b|.$$
+
+
+$$J(\lambda) = e^{-\lambda \psi(x_0)} (2\pi)^{1/2} \sum_{k=0}^{N-1} 1/k! (2\pi)^{-k} \partial_y^{2k} b(0) + O(\lambda^{-N - 1/2}).$$
+
+Putting this together, If $\psi$ has a unique non-degenerate minimum at $x_0$, $\psi'(x_0) = 0$, $\psi''(x_0) > 0$, $a \in C_0^\infty(\R)$, we gave
+$$\int a(x) e^{-\lambda\psi(x)}\, dx = e^{-\lambda \psi(x_0)} (2\pi/\psi''(x_0))^{1/2} 1/\sqrt{\lambda} (a(x_0) + \lambda^{-1} a_1 + \dots + \lambda^{-N-1} a_{N-1} + O(\lambda^{-N - 1/2})).$$
+
+\subsection{Stirling's Formula}
+Recall the Gamma function
+$$\Gamma(s) = \int_0^\infty e^{-t} t^s dt/t.$$
+We wish to examine this as $s \to \infty$.
+
+We rewrite this as 
+$$e^{-t} t^s dt/t = e^{-t + s\log t} dt/t = e^{s \log x}e^{-s(x \log x)}dx/x.$$
+
+Then, $\Gamma(s) = s^s \int_0^\infty e^{-s(x - \log x)}\frac{dx}{x}.$  The phase $\psi(x) = x - \log x$.  Note that it achieves a minimum at $x = 1$ and $\psi''(x) > 0$.
+
+Take $\chi$ to be a bump function at $1$.  Then,
+$$\int_0^1 (1 - \chi(x)) e^{-s(x - \log x)} dx/x - O(e^{-(s(1 + a))}),$$
+where the $a$ is the point on the phase where $\chi$ removes the support.  Similarly,
+$$\int_1^\infty (1 - \chi(x)) e^{-s(x - \log x)}dx/x = O(e^{-s(1 + b)}).$$
+
+We see that 
+$$\Gamma(s) = s^s[\int \chi(x)e^{-s(x - \log x)} \,dx/x + O(e^{-s \min(1 + a, 1 + b)})].$$
+The first term is exactly suitable for the steepest descent method.  
+
+Namely, $\psi = x - \log x$, $a(x) = 1/x$.  $\psi'(1) = 0$, $\psi''(1) = 1$, $a(1) = 1$, so we obtain the estimate
+$$\Gamma(s) = s^s e^{-s}[ \sqrt{2\pi}s^{-1/2} + a_1 s^{-3/2} + \dots + O(s^{-N - 1/2})].$$
+The leading term is exactly Stirling:
+$$\Gamma(s) = \sqrt{2\pi} s^{s - 1/2} e^{-s}(1 + O(1/s)).$$
+
+
+\subsection{Stationary Phase}
+Take $I(\lambda) = \int e^{i\lambda \phi(x)} a(x)\,dx$, $\phi \in C^\infty(\R; \R)$, $a \in C_c^\infty(\R)$.  
+\begin{lemma} Suppose $|\psi'(x)| > 0$ on $\supp(a)$.  Then,
+$$|I(\lambda)| \le C \sup_{|\alpha| \le N} |\partial^\alpha a| \lambda^{-N}.$$
+\end{lemma}
+\begin{proof}
+Define ${}^t L = \frac{1}{i|\phi'|^2} \psi' \cdot \partial_x$.  Note that $1/\lambda {}^t L (e^{- \lambda \phi}) = e^{- \lambda \phi}$.  It follows that $$I(\lambda) = \lambda^{-N} \int e^{i \lambda \phi} (L^N a)(x)\,dx \le |\supp a| \lambda^{-N} \sup|L^N a| \le C_N \lambda^{-N} \sup_{|\alpha| \le N} |\partial^\alpha a|.$$
+\end{proof}
+\begin{remark} The converse is not known for higher dimensions.  
+\end{remark}
+This means that the contributions to the integral come from stationary points.
+\begin{theorem}[Stationary Phase(dim $1$)] Suppose $\supp a \subset (\alpha, \beta)$, $a \in C_0^\infty$ and $\phi$ has a unique critical point in $(\alpha, \beta)$, $\phi'(x_0) = 0$, $\phi''(x_0) \ne 0$.  Then $$I(\lambda) = \frac{\sqrt{2\pi}}{|\phi''(x_0)|^{1/2}} e^{i\pi/4 sgn \phi''(x_0)} \lambda^{-1/2}(a_0 + \lambda^{-1} a_1 + \lambda^{-2}a_2 + \dots + \lambda^{-N-1} a_{N - 1}) + \lambda^{N - 1/2}S_N,$$
+where $a_0 = a(x_0)$ and $|S_n| \le C_N \sup_{|\alpha| \le 2N + 2} |\partial^\alpha a|$.
+
+\end{theorem}
 \end{document}
+
 
 
 

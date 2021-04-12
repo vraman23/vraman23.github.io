@@ -62,3 +62,10 @@
 \contentsline {subsection}{\numberline {18.1}The Gamma Function}{36}{subsection.18.1}% 
 \contentsline {subsection}{\numberline {18.2}Particular Values of $\Gamma $}{36}{subsection.18.2}% 
 \contentsline {subsection}{\numberline {18.3}Alternate Definition of $\Gamma $}{37}{subsection.18.3}% 
+\contentsline {section}{\numberline {19}April 5th, 2021}{38}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Gamma Function, continued}{38}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Complex Stirling Formula}{39}{subsection.19.2}% 
+\contentsline {subsection}{\numberline {19.3}Gamma function Heuristics}{39}{subsection.19.3}% 
+\contentsline {section}{\numberline {20}April 7th, 2021}{40}{section.20}% 
+\contentsline {subsection}{\numberline {20.1}Mellin Transform}{40}{subsection.20.1}% 
+\contentsline {subsection}{\numberline {20.2}Riemann Zeta Function}{40}{subsection.20.2}% 

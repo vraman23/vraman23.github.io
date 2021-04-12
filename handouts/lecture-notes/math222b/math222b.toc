@@ -63,4 +63,12 @@
 \contentsline {subsection}{\numberline {19.2}Some Remarks}{47}{subsection.19.2}% 
 \contentsline {section}{\numberline {20}April 1st, 2021}{48}{section.20}% 
 \contentsline {subsection}{\numberline {20.1}Oscillatory Integrals, continued}{48}{subsection.20.1}% 
-\contentsline {subsection}{\numberline {20.2}Fourier Integral Operator}{49}{subsection.20.2}% 
+\contentsline {subsection}{\numberline {20.2}Fourier Integral Operators and Pseudodifferential Operators}{49}{subsection.20.2}% 
+\contentsline {section}{\numberline {21}April 6th, 2021}{50}{section.21}% 
+\contentsline {subsection}{\numberline {21.1}Operators on Oscillatory Integrals}{50}{subsection.21.1}% 
+\contentsline {subsection}{\numberline {21.2}Method of Stationary Phase}{51}{subsection.21.2}% 
+\contentsline {subsection}{\numberline {21.3}Steepest Descent}{51}{subsection.21.3}% 
+\contentsline {section}{\numberline {22}April 8th, 2021}{53}{section.22}% 
+\contentsline {subsection}{\numberline {22.1}Steepest Descent}{53}{subsection.22.1}% 
+\contentsline {subsection}{\numberline {22.2}Stirling's Formula}{53}{subsection.22.2}% 
+\contentsline {subsection}{\numberline {22.3}Stationary Phase}{54}{subsection.22.3}% 

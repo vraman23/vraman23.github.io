@@ -930,6 +930,117 @@ This is finite whenever $x > 0$, so $I_1(z)$ is defined if $Re(z) > 0$. $I_2$ is
  
  Now, define $\psi(z) = \frac{I(z)}{\Gamma(z)}$, which is well defined $Re(z) > 0$, is holomorphic, and $\psi(z+1) = \psi(z)$. 
 
+\pagebreak
+\section{April 5th, 2021}
+\subsection{Gamma Function, continued}
+Last time, we defined $\psi(z) = \frac{I(z)}{ \Gamma(z)}$ which is a holomorphic function on the real half place with the relation $\psi(z + 1) = \psi(z)$, where $I(z)$ is the integral formulation of the Gamma function.
+
+We begin by taking $A(y) = \sup_{1 \le x \le 2} |\psi(x + iy)|$.  Then,
+$$\sup_{1 \le x \le 2} |I(x + iy)| \le \sup_{1 \le x \le 2} \int_0^\infty t^{x-1} e^{-t}\,dt = C < \infty.  $$
+
+Then,
+\begin{align}
+\sup_{1 \le x \le 2} \frac{1}{|\Gamma(x + iy)|} &\le |2 + iy| e^{2\gamma} \sup_{1 \le x \le 2} |\prod_{n \ge 1} (1 + (i + iy)/n) e^{-x/n}| \\
+&\le C(1 + |y|) \sup_{1 \le x \le 2} \prod_{n \ge 1} |1 + x/n| |1 + iy/n| e^{-x/n} \\
+&\le C(1 + |y|) \cdot \prod_{n \ge 1} (1 + y^2/n^2)^{1/2} 
+\end{align}
+using the inequality $a > 0 \implies |1 + a + ib| \le |1 + a| |1 + ib|$ in (2) and $(1 + x/n)e^{-x/n} \le 1$ for $x > 0$ in (3).
+
+Then, recall that $\frac{\sin{\pi z}}{\pi z} = \prod_{n \ge 1} (1 - z^2/n^2)$, so it follows by taking $z = iy$ that if $|y| \ge 1$,
+\begin{align*}
+\sup_{1 \le x \le 2} \frac{1}{|\Gamma(x + iy)|} &\le C(1 + |y|) |\sin{\pi i y}/(\pi i y)|^{1/2} \\
+&\le C(1 + |y|) ((e^{\pi|y|} + e^{-\pi |y|})/(2 \pi |y|))^{1/2} \\
+&\le C(1 + |y|) e^{\pi/2 |y|} \\
+&\le C e^{\pi |y|}
+\end{align*}
 
 
+It follows that $A(y) \le C e^{\pi |y|}$.  Since $\psi(z+ 1) = \psi(z)$, we plug in $\psi(\log w / 2\pi i)$ for $w \in \C \setminus \{0\}$ which does not depend on the choice of branch of the logarithm.  Hence, $\psi(\log w/2\pi i) = h(w)$ is a holomorphic function since $\log$ is locally invertible.  
+
+Then, $h(e^{2\pi i z}) = \psi(z)$ and if $z = x + iy$, $e^{\pi|y|} = \max (e^{\pi y}, e^{-\pi y}) = \max (|e^{2\pi i z}|^{1/2}, |e^{2\pi i z}|^{-1/2})$.
+
+Hence, $|h(w)| \le C (|w|^{1/2}, |w|^{-1/2})$ for $w \in \C \setminus \{0\}$.
+
+Then, the Laurent expansion of $h$ is 
+$$h(w) = \sum_{n \in \Z} c_n w^n$$
+and $$c_n = (2\pi i)^{-1}\int_{|w| = R} w^{-n-1} h(w) \,dw.$$
+
+From the bounds on $h$, we obtain
+$$|c_n| \le 1/2\pi 2\pi R R^{-n-1} \max(R^{1/2}, R^{-1/2}) = C R^{-n} \max(R^{1/2}, R^{-1/2}).$$
+
+If $n > 0$, then $|c_n| \le C \lim_{R \to \infty} R^{-n+1/2} = 0$.  Otherwise,  we take $|c_n| \le C \lim_{R \to 0} R^{|n| - 1/2} = 0$.  So $h = c_0$ and $\psi$ is constant.  It follows that $I(z) = c\Gamma(z)$ for $Re(z) > 0$ and $\Gamma(1) = 1 = I(1)$ implies that $c = 1$.
+
+Hence, we obtain
+$$\Gamma(z) = \int_0^\infty t^{z-1} e^{-t}\,dt \quad Re(z) > 0.$$
+\subsection{Complex Stirling Formula}
+$\Gamma(z) = \sqrt{2\pi} z^{z- 1/2} e^{-z} e^{J(z)}, Re(z) > 0$ where
+$$J(z) = \frac{1}{\pi} \int_0^\infty \frac{z}{\eta^2 + z^2} \log \frac{1}{1 - e^{-2 \pi \eta}} \, d\eta.$$
+
+If $|z| \to \infty$, $z \in \{Re(z) \ge c\}$, $c > 0$, then $J(z) \to 0$.
+
+\subsection{Gamma function Heuristics}
+If $f: \R \to \C$ is a function so that $\int_\R |f(t)| \, dt < \infty$, then one can define $\int_\R f(t) e^{ixt}\,dt = \mathcal{F} f(x)$.  This is the Fourier transform, which is a special case of more general transforms.  More generally, we have an abelian group $G$ with the topology compatible with the group structure(this is generally locally compact Hausdorff).  An integral $\int_G f(g) \,dg$ for functions $f:G \to \C$ so that the integral is invariant under translations: namely
+$$\int_G f(g)\,dg = \int_G f(g_1 g) \,dg.$$
+
+The map $f \mapsto \int_G f(g)\,dg$ is a linear map.  We could hence define the general Fourier transform as $$\int_G f(g) \chi (g) \,dg = \mathcal Ff(\chi),$$
+where $\chi: G \mapsto \{|z| = 1\}$ is a continuous group homomorphism.  
+
+We can also define a complex Fourier transform 
+$$\int_\R f(t) e^{zt} = \mathcal F f(z), z \in \C$$
+We can also generalize the Haar Fourier transform by taking homomorphisms $\chi : G \to \C^\times$.  
+
+If we take $G = ((0, \infty), \cdot)$ positive numbers with multiplication, this is isomorphic to $(\R, +)$ with an isomorphism given by $t \mapsto e^t$ forward and $\lambda \mapsto \log \gamma$ backwards.  
+
+The continuous homomorphisms from $(0, \infty) \to \C^\times$ are $\chi(\lambda) = \lambda^z$, $z \in \C$.
+
+The invariant integral is 
+$$\int_0^\infty f(\lambda) \frac{d\lambda}{\lambda}.$$
+
+The Mellin transform is the complex Fourier transform on $((0, \infty), \cdot)$, namely
+$$\int_0^\infty \lambda^z f(\lambda )d\lambda/\lambda = \int_0^\infty \lambda^{z-1} f(\lambda) d\lambda.  $$
+
+To obtain $I(z)$, we take $f(\lambda) = e^{-\lambda}$.  Then $t \mapsto e^{-t}$ is a homomorphism from $(R, +) \to \C^\times$.  We can identify $(0, \infty)$ with the squares of $\R^\times$.
+
+This process can be generalized.  We will mention this next time.
+\pagebreak
+\section{April 7th, 2021}
+\subsection{Mellin Transform}
+Some examples of Haar Measures:
+\begin{itemize}
+\item For $G = \R$, the corresponding Haar Measure is $\int_\R f(t)\,dt$. 
+\item For $G = \Z$, $\sum_{n \in \Z} f(n)$.
+\item For $G = \{|z|  = 1\}$, $\int_0^1 f(e^{2\pi i t})\,dt$.
+\item $G = (\R^+, \cdot) \cong (\R, +)$, we have $\int_0^\infty f(\lambda) \frac{d\lambda}{\lambda}$.
+\end{itemize}
+
+Last time, we mentioned that if we take characters $\chi: (0, \infty) \to \C^\times$ of the form $\chi(t) = t^z$, then,
+$$\mc F f(\chi) = \int_0^\infty t^{z-1} f(t)\,dt = \int_0^\infty f(t) t^z dt/t.$$
+
+When $f(t) = e^{-t}$, we exactly recover the Gamma function:
+$$\Gamma(z) = \mc F f(\chi) = \int_0^\infty t^{z-1} e^{-t}\,dt.$$
+
+What if we take a more general character $f(t) = e^{-\lambda t}$.  If we assume $\lambda > 0$, then the integral
+$$\int_0^\infty t^z e^{-\lambda t} dt/t = \int_0^\infty (t/\lambda)^z e^{-\lambda(t/\lambda)}dt/t = \lambda^{-z} \int_0^\infty t^z e^{-t}dt/t = \lambda^{-z} \Gamma(z).$$ 
+
+Replace $e^{-\lambda t}$ by a sum $g(t) = \sum_n c_n e^{-\lambda_n t}$ with $\lambda_n \uparrow \infty$, $\lambda_n > 0$.
+
+Formally, the Mellin Transform of $g(t)$ is 
+$$\int_0^\infty t^z \sum c_n e^{-\lambda_n t} dt/t = \Gamma(z) \sum_n c_n \lambda_n^{-z}.$$
+
+\subsection{Riemann Zeta Function}
+Take $g(t) = \sum_{n \ge 1} e^{-nt}$.  Note that $g(t) = \frac{1}{e^t - 1}$.  The Mellin transform of this is 
+$$\int_0^\infty \frac{t^z}{e^t - 1} \frac{dt}{t} = \Gamma(z) \sum_{n \ge 1} n^{-z}= \Gamma(z) \zeta(z).$$
+
+Note that $(e^t - 1)^{-1} \sim t^{-1}$ as $t \downarrow 0$ so we need $Re(z) > 1$ for convergence.  More generally, we could use $g(t) = \sum_{n \ge 1} e^{-n^k t}$ for an integer $k > 1$, which has Mellin transform $\Gamma(z) \zeta(kz)$.
+
+We will explain the $k = 2$ relation, namely
+$$\int_0^\infty \sum_{n \ge 1} e^{-n^2 t} dt/t = \Gamma(z) \zeta(2z),$$
+which holds if $Re(z) > 1/2$.
+
+The convergence requires $\sum_{n \ge 1} e^{-n^2 t} \le C/\sqrt{t}$ for $t > 0$.  We can estimate this by comparing with the corresponding integral, which gives the desired result.  We replace with the theta function $\theta(t) = \sum_{n \in \Z} e^{-\pi n^2 t}$ so that $\theta(t) = 2\psi(t) + 1$, where $\psi(t) = \sum_{n \ge 1} e^{-\pi n^2 t}$.
+
+Note the following fact $\theta(t) = \theta(1/t)/\sqrt{t} $ if $t > 0$.  The key to proving this is the poisson summation formula, namely
+$$\sum_{n \in \Z} f(n) = \sum_{n \in \Z} \mc F f(n).$$
+
+We apply this to $e^{-ct^2}$ for some $c$.  
 \end{document} 
