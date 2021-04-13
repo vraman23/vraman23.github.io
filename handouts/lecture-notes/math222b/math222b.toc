@@ -71,4 +71,6 @@
 \contentsline {section}{\numberline {22}April 8th, 2021}{53}{section.22}% 
 \contentsline {subsection}{\numberline {22.1}Steepest Descent}{53}{subsection.22.1}% 
 \contentsline {subsection}{\numberline {22.2}Stirling's Formula}{53}{subsection.22.2}% 
-\contentsline {subsection}{\numberline {22.3}Stationary Phase}{54}{subsection.22.3}% 
+\contentsline {section}{\numberline {23}April 13th, 2021}{55}{section.23}% 
+\contentsline {subsection}{\numberline {23.1}Stationary Phase}{55}{subsection.23.1}% 
+\contentsline {subsection}{\numberline {23.2}Stationary Phase in Higher Dimensions}{56}{subsection.23.2}% 

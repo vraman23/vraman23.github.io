@@ -1039,8 +1039,55 @@ which holds if $Re(z) > 1/2$.
 
 The convergence requires $\sum_{n \ge 1} e^{-n^2 t} \le C/\sqrt{t}$ for $t > 0$.  We can estimate this by comparing with the corresponding integral, which gives the desired result.  We replace with the theta function $\theta(t) = \sum_{n \in \Z} e^{-\pi n^2 t}$ so that $\theta(t) = 2\psi(t) + 1$, where $\psi(t) = \sum_{n \ge 1} e^{-\pi n^2 t}$.
 
-Note the following fact $\theta(t) = \theta(1/t)/\sqrt{t} $ if $t > 0$.  The key to proving this is the poisson summation formula, namely
+Note the following fact $\theta(t) = \theta(1/t)/\sqrt{t} $ if $t > 0$.  The key to proving this is the Poisson summation formula, namely
 $$\sum_{n \in \Z} f(n) = \sum_{n \in \Z} \mc F f(n).$$
 
 We apply this to $e^{-ct^2}$ for some $c$.  
+
+\pagebreak
+\section{April 12th, 2021}
+\subsection{Poisson Summation Formula}
+We were proving $\Theta(t) = 1/\sqrt{t}\Theta(1/t)$, $t > 0$ where $\Theta(t) = \sum_{n \in \Z} e^{-\pi n^2 t}$.  This is done via the Poisson Summation formula.  
+
+We first present the proof of the Poisson Summation formula.   We have an exact sequence
+$$0 \to \Z \to \R \to \R/\Z \to 0.$$
+The map from functions on $\R$ to a function on $\R / \Z$ is given by $f \mapsto \sum_{n \in \Z} f(t + n)$.  If we take a Fourier Transform on $\R / \Z$, then $\R/\Z \cong \{|z| = 1\}$ whose characters are $t \mapsto e^{2\pi i t}$.  Then, $G:[0, 1) \to \C$ we have
+$$\mc F_{\R/\Z} G(k) = \int_0^1 G(t) e^{-2\pi i k t}\,dt.$$
+
+Note that $$c_k = \mc F_{\R / \Z} F(k) = \int_0^1 F(t) e^{-2 \pi i k t} \,dt = \mc F_{\R} f(k).$$
+
+Then,
+$$F(0) = \sum_{n \in \Z} c_k e^{2\pi i k \cdot 0} = \sum_{n \in \Z} c_k.$$
+So it follows that 
+$$\sum_{n \in \Z} f(n) = \sum_{k \in \Z} \mc F_{\R} f(k).$$
+
+First, we put conditions on $F$ so that the computation for $c_k$ is rigorous.  It is clear that we need at least $F \in L^1$, so it's enough that $f \in L^1$.  We could also impose continuity of $f$, but this is unnecessary for this part.  
+Secondly, in order for $F$ to be the the sum of its Fourier series, we need stronger assumptions.  In general, we only have this in the $L^2$ sense.  One such condition is that $\sum_{k \in \Z} |c_k| < \infty$.
+
+Note that $|c_k| \le \|F\|_{0, 1}$ so if $F$ is continuous, then $|c_k| \le C$.  If $F$ has a continuous derivative, then 
+$\int_0^1 F'(x) e^{-2\ pi i k x}\,dx = 2 \pi i k c_k$, so it would follows that $|c_k| \le C/|2 \pi k|$.  If we enforce that $F', F''$ continuous on $[0, 1]$, then $\sum_k |c_k| <\infty$.
+
+This means that we have $\sum_{n \in \Z} \|f ^{(k)}\|_{[n, n + 1]} < \infty$ for $k = 0, 1, 2$ for the sums to converge.  
+
+\subsection{The Jacobi Theta Identity}
+Now, we apply the Poisson Summation formula to $f(t) = e^{-\lambda t^2}$.  
+
+First, note that 
+$\int_{-\infty}^\infty e^{-\pi t^2}\,dt = 1$.  
+
+Then,
+\begin{align*}
+(\mc F_{\R} e^{-\pi \lambda \cdot ^2})(\xi) &= \int_\R e^{-\pi \lambda t^2} e^{-2\pi i t \xi} \,dt \\
+&= \int_\R e^{-\pi \lambda(t + i\xi/\lambda)^2 - \pi \xi^2/\lambda} \,dt \\
+&= e^{-\pi \xi^2/\lambda} \int_\R e^{-\pi \lambda (t + i \xi/\lambda)^2}\,dt \\
+&= e^{-\pi \xi^2/\lambda} \lim_{T \uparrow \infty} \int_{-T - i\xi/\lambda}^{T + i \xi/\lambda} e^{- \pi \lambda z^2}\,dx \\
+&= e^{- \pi \xi^2/\lambda} \lim_{T \to \infty} (\int_{[-T + i\xi/\lambda, -T]} + \int_{[-T, T]} + \int_{[T, T + i \xi/\lambda]}) e^{- \pi \lambda z^2}\,dz \\
+&= e^{- \pi \xi^2/2} \int_\R e^{-\pi \lambda t^2}\,dt.
+\end{align*}
+
+Since $\sup_{T, T + i \xi} |e^{- \pi \lambda z^2}| \le e^{- \pi \lambda\inf_{z \in [T, T + i \xi]} (Re z\xi^2)} \to 0.$
+
+It follows that the Fourier transform is exactly $e^{-\pi \xi^2/\lambda}/\sqrt{\lambda}$.  Since $f(t) = e^{-\pi \lambda t^2}$, it follows that 
+$$\Theta(\lambda) = \sum_{n \in \Z} e^{- \pi \lambda n^2} = \sum_{n \in \Z} e^{- \pi n^2/\lambda}/\sqrt{\lambda} = \Theta(1/\lambda)/\sqrt{\lambda}.$$
+
 \end{document} 

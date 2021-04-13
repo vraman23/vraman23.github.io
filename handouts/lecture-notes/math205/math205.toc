@@ -69,3 +69,6 @@
 \contentsline {section}{\numberline {20}April 7th, 2021}{40}{section.20}% 
 \contentsline {subsection}{\numberline {20.1}Mellin Transform}{40}{subsection.20.1}% 
 \contentsline {subsection}{\numberline {20.2}Riemann Zeta Function}{40}{subsection.20.2}% 
+\contentsline {section}{\numberline {21}April 12th, 2021}{42}{section.21}% 
+\contentsline {subsection}{\numberline {21.1}Poisson Summation Formula}{42}{subsection.21.1}% 
+\contentsline {subsection}{\numberline {21.2}The Jacobi Theta Identity}{42}{subsection.21.2}% 

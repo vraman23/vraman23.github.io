@@ -1435,21 +1435,73 @@ The leading term is exactly Stirling:
 $$\Gamma(s) = \sqrt{2\pi} s^{s - 1/2} e^{-s}(1 + O(1/s)).$$
 
 
+
+\pagebreak
+\section{April 13th, 2021}
 \subsection{Stationary Phase}
 Take $I(\lambda) = \int e^{i\lambda \phi(x)} a(x)\,dx$, $\phi \in C^\infty(\R; \R)$, $a \in C_c^\infty(\R)$.  
-\begin{lemma} Suppose $|\psi'(x)| > 0$ on $\supp(a)$.  Then,
+\begin{lemma} Suppose $|\psi'(x)| > 0$ on $\supp(a)$.  Then for all $K \Subset X, N$, for all $a \in C_c^\infty(K)$, there exists $C$ such that 
 $$|I(\lambda)| \le C \sup_{|\alpha| \le N} |\partial^\alpha a| \lambda^{-N}.$$
 \end{lemma}
 \begin{proof}
 Define ${}^t L = \frac{1}{i|\phi'|^2} \psi' \cdot \partial_x$.  Note that $1/\lambda {}^t L (e^{- \lambda \phi}) = e^{- \lambda \phi}$.  It follows that $$I(\lambda) = \lambda^{-N} \int e^{i \lambda \phi} (L^N a)(x)\,dx \le |\supp a| \lambda^{-N} \sup|L^N a| \le C_N \lambda^{-N} \sup_{|\alpha| \le N} |\partial^\alpha a|.$$
 \end{proof}
-\begin{remark} The converse is not known for higher dimensions.  
+\begin{remark} The converse is open for higher dimensions.  
 \end{remark}
 This means that the contributions to the integral come from stationary points.
-\begin{theorem}[Stationary Phase(dim $1$)] Suppose $\supp a \subset (\alpha, \beta)$, $a \in C_0^\infty$ and $\phi$ has a unique critical point in $(\alpha, \beta)$, $\phi'(x_0) = 0$, $\phi''(x_0) \ne 0$.  Then $$I(\lambda) = \frac{\sqrt{2\pi}}{|\phi''(x_0)|^{1/2}} e^{i\pi/4 sgn \phi''(x_0)} \lambda^{-1/2}(a_0 + \lambda^{-1} a_1 + \lambda^{-2}a_2 + \dots + \lambda^{-N-1} a_{N - 1}) + \lambda^{N - 1/2}S_N,$$
-where $a_0 = a(x_0)$ and $|S_n| \le C_N \sup_{|\alpha| \le 2N + 2} |\partial^\alpha a|$.
-
+\begin{theorem}[Stationary Phase(dim $1$)] Suppose $X = (\alpha, \beta)$, $a \in C_c^\infty(X)$ and $\phi$ has a unique critical point in $(\alpha, \beta)$, $\phi'(x_0) = 0$, $\phi''(x_0) \ne 0$.  Then $$I(\lambda) = \frac{\sqrt{2\pi}}{|\phi''(x_0)|^{1/2}} e^{i\frac{\pi}{4} sgn \phi''(x_0)} \lambda^{-1/2}(a_0 + \lambda^{-1} a_1 + \lambda^{-2}a_2 + \dots + \lambda^{-(N-1)} a_{N - 1}) + S_N(\lambda),$$
+where $a_0 = a(x_0)$ and $|S_N(\lambda)| \le \lambda^{-1/2 - N} \sup_{k \le 2N + 2}|\partial_x^k a|$.
 \end{theorem}
+\begin{proof}
+First, note that $I(\lambda) = \int \chi(x) a(x) e^{i \lambda \phi(x) }\,dx + O(\lambda^{-\infty})$, where $\chi$ is a smooth bump function near $x_0$.  We make a change of variables $\phi(x) = \phi(x_0) + \epsilon \frac{1}{2}(y(x))^2$, where $y(x_0) = 0$, $y'(x_0) = |\phi''(x_0)|^{1/2} \ne 0$, $\epsilon = sgn(\phi''(x_0))$.  Assume $\phi(x_0) = 0$.  
+
+
+Hence, $I(\lambda) = \int b(y) e^{i \lambda \epsilon y^2/2}\,dy + O(\lambda^{-\infty})$, where $b(y) = a(x(y))\chi(x(y)) |dx/dy|$.  Leaving out the $O(\lambda^{-\infty})$, we have $I(\lambda) = \<e^{i \lambda \epsilon y^2/2}, b\> = \frac{1}{2\pi} \<\hat{e^{i/2 \epsilon \lambda y^2}}, \hat{b}\>$.
+
+Now, we calculate the Fourier transform of $e^{i\epsilon \lambda y^2/2}$.  We can write this as 
+\begin{align*}
+\lim_{\delta \to 0^+} \int e^{i \epsilon/2 \lambda y^2} e^{-1/2 \delta y^2} e^{- i y \xi} \,dy &= \lim_{\delta \to 0^+} \int e^{-1/2(\delta - i \epsilon \lambda)(y + i\xi/(\delta - i \epsilon \lambda))^2 + \xi^2/(2(\delta + i \epsilon \lambda))}\,dy \\
+&= \frac{\sqrt{2\pi}}{\sqrt{\delta - i \epsilon \lambda}} e^{-\xi^2/(2 (\delta - \epsilon i \lambda))} \\
+&\to \frac{\sqrt{2\pi}}{\sqrt{\lambda}} e^{i \pi/4 \epsilon}.
+\end{align*}
+We obtain the Fourier Transform $\sqrt{2\pi / \lambda} e^{i \epsilon \pi/4} e^{-i/2 \epsilon \xi^2/\lambda}$.
+\begin{remark} There are probably sign errors above.  
+\end{remark}
+
+$I(\lambda) = \frac{1}{2\pi} \frac{\sqrt{2\pi}}{\sqrt{\lambda}} e^{i \epsilon \pi / 4} \int_{\R} e^{-i\epsilon \xi^2/2\lambda} \hat{b}(\xi)\,d\xi.$
+
+Expanding the Taylor series of the exponential term, we have
+$$\frac{1}{2\pi} \frac{\sqrt{2\pi}}{\sqrt{\lambda}} e^{i \epsilon \pi / 4} \int_{\R} \sum_{k < N} \frac{1}{k!} (-i\epsilon/2\lambda)^k \xi^{2k} \hat{b}(\xi) \,d \xi + \lambda^{N - 1/2} \int O(\epsilon^{2N}) |\hat{b(\xi)}|\,d\xi.$$
+
+Then, note that $1/2\pi \int \xi^{2k} \hat{b}(\xi)\,d\xi = (D_y^{2k} b)(0) $, so we obtain
+$$\sqrt{\frac{2\pi}{\lambda}} e^{i \epsilon \pi/4} \sum_{k < N} \lambda^{-k} (-i\epsilon/2)^k D_y^{2k}b(0) + \lambda^{-N - 1/2} \|\xi^{2N}\hat{b}\|_{L^1},$$
+and note that the last term is bounded by $C\sup_{k \le {2N + 2}} | \partial^k b|$(a Sobolev type estimate).  This exactly gives our desired expansion.
+\end{proof}
+
+
+\subsection{Stationary Phase in Higher Dimensions}
+To proceed, we need an analog of $\phi'(x_0) = 0, \phi''(x_0) \ne 0 \Rightarrow \phi(x) = \phi(x_0) + \epsilon/2(y(x))^2$.  For this, we use the Morse Lemma.
+\begin{theorem}[Morse Lemma] Suppose $\phi \in C^\infty(\R^n; \R)$ and $D\phi(x_0) = 0$ and $D^2\phi(x_0) $ is non-degenerate.  Then, there exists a transformation $\chi$ from a neighborhood of $x_0$ to a neighborhood of $x$ such that $\phi \circ \chi^{-1}(y) = \phi(x_0) + 1/2 (y_1^2 + \dots + y_r^2 - y_{r+1}^2 - \dots - y_n^2)$ where $(r, n-r)$ is the signature of $D^2\phi(x_0)$;i i. e. $r$ is the number of positive eigenvalues of $D^2 \phi(x_0)$. 
+\end{theorem}
+\begin{proof}
+Without loss of generality, assume that $x_0 = 0$, $\phi(x_0) = 0$.  Then, we can diagonalize $D^2 \phi(0) = {}^t U \Lambda U$ where we order the eigenvalues $\lambda_1, \dots, \lambda_r > 0$, $\lambda_{r+1}, \dots, \lambda_n < 0$.  Then, we can write $\phi(x) = 1/2\<\phi''(0)x, x\> + O(|x|^3) = 1/2 \<\Lambda U x, U x\> + O(|Ux|^3)$, where $\tilde{x} = |\Lambda|^{1/2} U x$.  But this is just $1/2(\tilde{x}_1^2 + \dots + \tilde{x}_r^2 - \tilde{x}_{r+1}^2 - \dots - \tilde{x}_{n}^2) + O(|\tilde{x}|^3)$.
+
+We write $\tilde{x}$ as $x$.  We can write $\phi(x) = \int_0^1 (1 - t)\partial_t^2(\phi(tx))\,dt$(this follows from integration by parts).  We can write this as $1/2 \sum q_{jk}(x) x_j x_k$ where $q_{jk}(x) = 2 \int_0^1 (1 - t) \frac{\partial^2 \phi}{\partial x_i \partial x_j}(tx)\,dt$, $q_{jk}  = q_{kj}$.
+
+Then, $q_{jk}(0) = \frac{\partial^2\phi}{\partial x_j x_k}(0)$ so defining a matrix $Q(x) = (q_{jk}(x))$, we have $\phi(x) = 1/2 \<Q(x) x, x\>$, $Q(0) = D^2(x_0)$.  
+
+We would like to find $k(x) = A(x) x$ where $A(0) = I$, $x \mapsto A(x) \in C^\infty$.  Then, $\<x, Q(x)x\> = \<A(x)x, Q(0) A(x)x\> = \<K(x), Q(0)K(x)\> = \<y, Q(0) y\>$ where $y = K(x)$.
+
+This is the same as $\<x, Q(x) x\> = \<x, {}^t A(x) Q(0) A(x)x\>$.  So, we need $Q(x) = A^T(x)Q(0)A(x)$ with $A(0) = I$.  To handle this, we use the implicit function theorem.  
+
+\begin{theorem}[Implicit Function Theorem] Given a function $F: \R^M \to \R^N$ and $F(X_0) = Y_0 \in \R^N$, $X_0 \in \R^M$.  We solve $F(X(Y)) = Y$, $X(Y_0) = Y_0$, we need $dF(X_0): \R^M \to \R^n$ to be surjective(or $F$ is a smooth submersion).
+\end{theorem}
+
+We will use $F: M(\R, n \times n) \to \text{Sym}(\R, n)$ where $F(A) = A^T Q(0) A$.  Then, $F(A + H) = F(A) + dF_A(H) + o(\|H\|)$.  We have $A^TQ(0)A + H^TQ(0)A + A^T Q(0)H + H^T Q(0)H$.  
+\end{proof}
+
+
+
 \end{document}
 
 
