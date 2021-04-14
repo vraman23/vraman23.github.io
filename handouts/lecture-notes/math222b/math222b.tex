@@ -1492,8 +1492,12 @@ Then, $q_{jk}(0) = \frac{\partial^2\phi}{\partial x_j x_k}(0)$ so defining a mat
 
 We would like to find $k(x) = A(x) x$ where $A(0) = I$, $x \mapsto A(x) \in C^\infty$.  Then, $\<x, Q(x)x\> = \<A(x)x, Q(0) A(x)x\> = \<K(x), Q(0)K(x)\> = \<y, Q(0) y\>$ where $y = K(x)$.
 
-This is the same as $\<x, Q(x) x\> = \<x, {}^t A(x) Q(0) A(x)x\>$.  So, we need $Q(x) = A^T(x)Q(0)A(x)$ with $A(0) = I$.
+This is the same as $\<x, Q(x) x\> = \<x, {}^t A(x) Q(0) A(x)x\>$.  So, we need $Q(x) = A^T(x)Q(0)A(x)$ with $A(0) = I$.  To handle this, we use the implicit function theorem.  
 
+\begin{theorem}[Implicit Function Theorem] Given a function $F: \R^M \to \R^N$ and $F(X_0) = Y_0 \in \R^N$, $X_0 \in \R^M$.  We solve $F(X(Y)) = Y$, $X(Y_0) = Y_0$, we need $dF(X_0): \R^M \to \R^n$ to be surjective(or $F$ is a smooth submersion).
+\end{theorem}
+
+We will use $F: M(\R, n \times n) \to \text{Sym}(\R, n)$ where $F(A) = A^T Q(0) A$.  Then, $F(A + H) = F(A) + dF_A(H) + o(\|H\|)$.  We have $A^TQ(0)A + H^TQ(0)A + A^T Q(0)H + H^T Q(0)H$.  
 \end{proof}
 
 
