@@ -72,3 +72,6 @@
 \contentsline {section}{\numberline {21}April 12th, 2021}{42}{section.21}% 
 \contentsline {subsection}{\numberline {21.1}Poisson Summation Formula}{42}{subsection.21.1}% 
 \contentsline {subsection}{\numberline {21.2}The Jacobi Theta Identity}{42}{subsection.21.2}% 
+\contentsline {section}{\numberline {22}April 14th, 2021}{44}{section.22}% 
+\contentsline {subsection}{\numberline {22.1}Riemann Zeta Functional Equation}{44}{subsection.22.1}% 
+\contentsline {subsection}{\numberline {22.2}Zeros of the Zeta Function}{44}{subsection.22.2}% 

@@ -1089,5 +1089,45 @@ Since $\sup_{T, T + i \xi} |e^{- \pi \lambda z^2}| \le e^{- \pi \lambda\inf_{z \
 
 It follows that the Fourier transform is exactly $e^{-\pi \xi^2/\lambda}/\sqrt{\lambda}$.  Since $f(t) = e^{-\pi \lambda t^2}$, it follows that 
 $$\Theta(\lambda) = \sum_{n \in \Z} e^{- \pi \lambda n^2} = \sum_{n \in \Z} e^{- \pi n^2/\lambda}/\sqrt{\lambda} = \Theta(1/\lambda)/\sqrt{\lambda}.$$
+\pagebreak
+\section{April 14th, 2021}
+\subsection{Riemann Zeta Functional Equation}
+Last time, we showed $\Theta(t) = \frac{\Theta(1/t)}{\sqrt{t}}$, where $\Theta(t) = \sum_{n \in \Z} e^{- \pi n^2 t}$.  We will use this to prove the functional equation for $\zeta(z)$.  Let $\psi(t) = \sum_{n \ge 1} e^{- \pi n^2 t}$.
 
+Note that $\psi(1/t) = \sqrt{t} \psi(t) + 1/2(\sqrt{t} - 1)$.  We saw that $|\psi(t)| \le C t^{-1/2}$ when $0 < t \le 1$, and $|\psi(t)| \le C e^{- \pi t}$ if $1 \le t < \infty$, so it follows that $\int_0^\infty t^z psi(t)\,dt/t = \pi^{-z} \zeta(2z)\Gamma(z)$ if $Re(z) > 1/2$.
+
+We can write this as 
+$$\zeta(2z) \Gamma(z) \pi^{-z} = \int_1^\infty (t^{z-1} + t^{-z - 1/2}) \psi(t)\,dt + 1/(2z(2z-1)).$$
+The proof of this is as follows.
+\begin{proof}
+If $Re(z) > 1/2$, we have
+\begin{align*}
+\zeta(2z) \pi^{-z}\Gamma(z) &= \int_0^\infty t^{z-1} \psi(t)\,dt\\
+&= \int_1^\infty + \int_{0}^1 t^{z-1} \psi(t)\,dt \\
+&= \int_1^\infty (t)^{-(z-1)} \psi(1/t) dt/t^2 \\
+\int_0^1 t^{z-1} \psi(t)\,dt &= \int_1^\infty (1/t)^z(\psi(t) \sqrt{t} + 1/2(\sqrt{t})) \,dt/t \\
+&= \int_1^\infty t^{-z-1/2} \psi(t)\,dt + 1/2\int_1^\infty (t^{-z-1/2} - t^{-z-1}) \,dt \\
+&= \int_1^\infty t^{-z-1/2} \psi(t)\,dt - 1/2(1/(-z + 1/2) + 1/z) \\
+&= \int_1^\infty (t^{-z-1/2})\psi(t) \,dt + \frac{1}{2z(2z-1)}
+\end{align*} 
+Combining the two integrals gives the result.  
+\end{proof}
+This gives us a meromorphic extension of $\zeta$ since the exponential decay makes the integral an entire function.  If we put $w = 2z$, then we have
+$$\zeta(w) \Gamma(w/2) \pi^{-w/2} = \int_1^\infty (t^{w/2 - 1} + t^{(1-w)/2 - 1}) \psi(t) \,dt + \frac{1}{w(w-1)}.$$
+Note that the integral is invariant under $w \mapsto 1 - w$.  This gives the functional equation
+$$\pi^{-w/2} \zeta(w)\Gamma(w/2) = \pi^{-(1-w)/2} \zeta(1-w) \Gamma((1-w)/2).$$
+
+\subsection{Zeros of the Zeta Function}
+Define $\xi(w) = 1/2 w(w-1) \pi^{-w/2} \Gamma(w/2) \zeta(w)$, which is an entire function and is so that $\zeta(w) = \zeta(1-w)$.  Note that $\Gamma(w/2)$, $\pi^{-w/2}$ have no zeros and are holomorphic when $Re(w)> 0$ so the zeros of $\xi(w)$ if $Re(w) > 0$ are the zeros of $\zeta(w)$, since we cannot have zeros at $0$ and $1$.
+
+Recall the Euler product $\zeta(z) = \prod_{n \ge 1} (1 - p_n^{-z})^{-1}$, which converges when $Re(z) > 1$ and implies that $\zeta(z) \ne 0$ for $Re(z) > 1$.  Note that $\zeta(\ol{z}) = \ol{\zeta(z)}$, then $\rho$ is a zero iff $\ol{\rho}$ is a zero.  It follows that $\xi(\rho) = 0$ gives that $\xi(\ol{\rho}) = \xi(1-\rho) = \xi(1 - \ol{\rho}) = 0$.
+
+Note that $\zeta(p) = 0 \Rightarrow 0 \le Re(\rho) \le 1$ and $\rho \ne 0, 1$.  The order of growth of $\xi$ is shown to be $|\zeta(z)| \le Ce^{|z|(1 + \epsilon)}$ for any $\epsilon > 0$ and this cannot be improved.  By the Hadamard theorem
+$$\xi(w) = Ae^{Bw} \prod_{n \ge 1} (1 - w/\rho_n) e^{-w/\rho_n},$$
+and 
+$\sum_{n} |\rho_n|^{-2} < \infty$, $\sum_{n} |\rho_n|^{-1} = \infty$.
+
+It is known that $A = -1/2$, $B = -\gamma/2 + 1/2 \log{4\pi}$.  Also, since $Re(\rho) \in [0, 1]$, $e^{w/p} e^{w/(1-\rho)} = e^{w/(\rho(1-\rho))}$.  So we can also obtain the form $-1/2 \prod_{\rho, Im \rho > 0} (1-w/p)(1=w/(1-p)).$
+
+The book of Patterson on the Riemann Zeta function discusses more of these details.  
 \end{document} 
