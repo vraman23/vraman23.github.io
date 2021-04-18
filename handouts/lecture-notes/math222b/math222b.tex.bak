@@ -1500,7 +1500,52 @@ This is the same as $\<x, Q(x) x\> = \<x, {}^t A(x) Q(0) A(x)x\>$.  So, we need 
 We will use $F: M(\R, n \times n) \to \text{Sym}(\R, n)$ where $F(A) = A^T Q(0) A$.  Then, $F(A + H) = F(A) + dF_A(H) + o(\|H\|)$.  We have $A^TQ(0)A + H^TQ(0)A + A^T Q(0)H + H^T Q(0)H$.  
 \end{proof}
 
+\pagebreak
+\section{April 18th, 2021}
+\subsection{Morse Lemma}
+Recall the Morse Lemma:
+\begin{theorem}[Morse Lemma] Suppose $\phi \in C^\infty(\R^n; \R)$ and $D\phi(x_0) = 0$ and $D^2\phi(x_0) $ is non-degenerate.  Then, there exists a transformation $\chi$ from a neighborhood of $x_0$ to a neighborhood of $x$ such that $\phi \circ \chi^{-1}(y) = \phi(x_0) + 1/2 (y_1^2 + \dots + y_r^2 - y_{r+1}^2 - \dots - y_n^2)$ where $(r, n-r)$ is the signature of $D^2\phi(x_0)$;i i. e. $r$ is the number of positive eigenvalues of $D^2 \phi(x_0)$. 
+\end{theorem}
+\begin{proof}
+Last time, we reduced the problem to finding $x \mapsto A(x)$, where $A(x) \in \R^{n \times n}$ and $A(0) = I_n$.  Then, if we take $Q(x)  = A^T(x) Q(0) A(x)$, it follows that $x \mapsto Q(x) \in \text{Symm}(n)$, the group of symmetric real-valued matrices, where $Q(0) = Q$ is non-degenerate.
 
+To do this, define $F: \R^{n \times n} \to \text{Symm}(n)$ with $F(A) = A^TQA $.  We wish to find a right inverse $H$ such that $G(Q) = I$ and $F \circ G = I_n$.  Then, $A(x) = G(Q(x))$ would satisfy our conditions.  
+
+Note that $F(A+H) = F(A) + dF_A(H) + o(\|H\|^2)$.  Namely,
+$$(A+H)^TQ(A+H) = A^TQA + A^TQH + H^TQA + H^TQH.$$
+The first term is $F(A)$, the next two give $dF_A(H)$ and the last is $o(\|H\|^2)$.  Now, $dF_A: \R^{n \times n} \to \text{Symm}(n)$ is given by $H \mapsto QH + H^TQ = S$, note that we can find a right inverse $Q^{-1}S/2$.  It follows that we can apply the implicit function theorem.
+\end{proof}
+\subsection{Higher Dimensional Method of Stationary Phase}
+As before, take $I(\lambda) = \int e^{i \lambda \phi(x)}a(x)\,dx$ for $a \in C_c^\infty(X)$, where we assume $\phi$ has a non-degenerate critical point.  We can write this as 
+\begin{align*}
+&= \int e^{i \lambda \phi(x)} \chi(x)a(x)\,dx + O(\lambda^{-\infty}) \quad \supp \chi \in B_\epsilon(x_0) \\
+&= \int e^{-i\lambda /2\<Qx, x\>}b(x)\,dx + O(\lambda^-\infty), \quad b(x) = a(K^{-1}(x))\left |\frac{dK^{-1}}{dx} \right| \\
+\end{align*}
+by applying the Morse Lemma.  If we take the Fourier Transform of the Gaussian and apply the Blancherel Formula, we obtain
+\begin{align*}
+&= \frac{\lambda^{-n/2}(2\pi)^{n/2}}{(2\pi)^n |\det Q|^{1/2}} e^{i\pi/4 \operatorname{sgn}{Q}} \int \sum_{k < N} 1/k! (\<Q^{-1}\xi, \xi\>/(2\lambda i))^k \hat{b}(\xi) + \lambda^{-n/2-N} \int O(\<\xi\>^{2N})|\hat{b}(\xi)|\,d\xi\\
+&=  \frac{\lambda^{-n/2}(2\pi)^{n/2}}{(2\pi)^n |\det Q|^{1/2}} e^{i\pi/4 \operatorname{sgn}{Q}} \sum_{k < N} \frac{1}{k!} \left[\left (\frac{\<Q^{-1}D_x, D_x\>}{2\lambda i}\right )^k b\right](0) + \lambda^{-N - n/2} S_n(\lambda),
+\end{align*}
+where
+$$|S_N(\lambda)| \le C \|\<\xi\>^{2n}\hat{b}\|_q \le C \sum_{|\alpha| \le 2N + n + 1} \| \partial^\alpha b\|_\infty.$$
+\begin{example} Take $(x, y) \in \R^n \times \R^n$, $Q = \begin{pmatrix}
+0 & -I \\
+-I & 0 
+\end{pmatrix}$.  Note that $Q^{-1} = Q$.  Then, $1/2 \<Q(x, y), (x, y)\> = -x \cdot y = w^2 - v^2$ where $w = \frac{x+y}{\sqrt{2}}$, $v = \frac{x-y}{\sqrt{2}}$.  The corresponds to a matrix $\begin{pmatrix}
+I & 0 \\ 0 & -I
+\end{pmatrix}$, which has a signature of $0$.  This is the nicest case for the stationary phase method.  
+
+Then, $\frac{1}{2i} \<Q^{-1} D_{x\cdot y}, D_{x \cdot y}\> = \frac{1}{i} \sum_{i=1}^n D_{x_j}D_{y_j}$ which gives $(\lambda /2\pi)^n \int e^{-\lambda x \cdot y} u(x, y)\,dxdy$ for $u \in C_c^\infty(\R^n \times \R^n)$.  From the method of stationary phase, we have
+$$\sum_{0}^{N-1} \frac{1}{k!} \frac{1}{\lambda^k} (\sum 1/i D_{x_j}D_{y_j})^k u(0, 0) + S_n \lambda^{-N},$$
+$$\|S_N\| \le C \sum_{|\alpha + \beta| \le 2n+1} \|\partial_x^\alpha \partial_y^\beta (\partial_x \cdot \partial_y)\|_\infty$$
+\end{example}
+\subsection{General Schrodinger Operators}
+We find a fundamental solution to 
+$$(i\partial_t + \frac{1}{2} \<Q^{-1}D_x, D_x\>)E = \delta_0(t) \delta_0(x).$$
+For $Q = -2I$, we have the free Schrodinger Equation.
+
+We require $Q$ to be a symmetric, non-degenerate matrix.  If we take a spacial fourier transform, we obtain
+$$\delta_0(t) = (i \partial_t + \<Q^{-1}\xi, \xi\>/2)\hat{E}_x = i\partial_t (e^{-it/2] )$$
 
 \end{document}
 
