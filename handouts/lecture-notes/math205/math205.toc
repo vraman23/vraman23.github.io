@@ -1,77 +1,86 @@
-\contentsline {section}{\numberline {1}January 20th, 2021}{4}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Intro to Riemann Mapping Theorem}{4}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Cauchy's Integral Formula}{4}{subsection.1.2}% 
-\contentsline {subsection}{\numberline {1.3}Schwarz Lemma}{4}{subsection.1.3}% 
-\contentsline {subsection}{\numberline {1.4}Maximum Principles}{5}{subsection.1.4}% 
-\contentsline {section}{\numberline {2}January 25th, 2021}{6}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Uniform Convergence}{6}{subsection.2.1}% 
-\contentsline {section}{\numberline {3}January 27th, 2021}{8}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Uniform Convergence, continued}{8}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Metric Convergence}{8}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Riemann Sphere}{8}{subsection.3.3}% 
-\contentsline {section}{\numberline {4}February 1st, 2021}{9}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Connectivity}{9}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Fractional Linear Transformations}{9}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Fractional Linear Transformations, Unit Disk}{10}{subsection.4.3}% 
-\contentsline {section}{\numberline {5}February 3rd, 2021}{11}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Remark on the Zeta Function}{11}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Fractional Linear Transformations, continued}{11}{subsection.5.2}% 
-\contentsline {subsection}{\numberline {5.3}Automorphisms of the Half Plane}{11}{subsection.5.3}% 
-\contentsline {subsection}{\numberline {5.4}The Cross Ratio}{12}{subsection.5.4}% 
-\contentsline {section}{\numberline {6}February 8th, 2021}{13}{section.6}% 
-\contentsline {subsection}{\numberline {6.1}Mappings of Circles and Lines}{13}{subsection.6.1}% 
-\contentsline {subsection}{\numberline {6.2}Revisiting the Schwarz Lemma}{13}{subsection.6.2}% 
-\contentsline {subsection}{\numberline {6.3}Functions on Simply Connected Regions}{14}{subsection.6.3}% 
-\contentsline {subsection}{\numberline {6.4}Injective Functions}{14}{subsection.6.4}% 
-\contentsline {section}{\numberline {7}February 10th, 2021}{15}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}Riemann Mapping Theorem}{15}{subsection.7.1}% 
-\contentsline {section}{\numberline {8}February 17th, 2021}{17}{section.8}% 
-\contentsline {subsection}{\numberline {8.1}Caratheodory Extension Theorem}{17}{subsection.8.1}% 
-\contentsline {subsection}{\numberline {8.2}Rectifiable Arcs}{17}{subsection.8.2}% 
-\contentsline {section}{\numberline {9}February 22nd, 2021}{19}{section.9}% 
-\contentsline {subsection}{\numberline {9.1}Schwarz Reflection and Variants}{19}{subsection.9.1}% 
-\contentsline {subsection}{\numberline {9.2}Schwarz-Christoffel Formula}{20}{subsection.9.2}% 
-\contentsline {section}{\numberline {10}February 24th, 2021}{21}{section.10}% 
-\contentsline {subsection}{\numberline {10.1}Schwarz-Christoffel Formula, continued}{21}{subsection.10.1}% 
-\contentsline {subsection}{\numberline {10.2}Schwarz-Christoffel Formula on the Upper Half-Plane}{21}{subsection.10.2}% 
-\contentsline {subsection}{\numberline {10.3}Triangle Functions}{22}{subsection.10.3}% 
-\contentsline {section}{\numberline {11}March 1st, 2021}{23}{section.11}% 
-\contentsline {subsection}{\numberline {11.1}Schwarz Triangle Functions}{23}{subsection.11.1}% 
-\contentsline {subsection}{\numberline {11.2}Conformal Mappings of Rectangles}{23}{subsection.11.2}% 
-\contentsline {section}{\numberline {12}March 3rd, 2021}{24}{section.12}% 
-\contentsline {subsection}{\numberline {12.1}Elliptic Integrals and Functions}{24}{subsection.12.1}% 
-\contentsline {subsection}{\numberline {12.2}Tiling the Unit Disk}{24}{subsection.12.2}% 
-\contentsline {subsection}{\numberline {12.3}Schwarz-Christoffel Revisted}{24}{subsection.12.3}% 
-\contentsline {section}{\numberline {13}March 8th, 2021}{26}{section.13}% 
-\contentsline {subsection}{\numberline {13.1}Schwarzian Derivative}{26}{subsection.13.1}% 
-\contentsline {subsection}{\numberline {13.2}Curvilinear Polygons}{26}{subsection.13.2}% 
-\contentsline {section}{\numberline {14}March 10th, 2021}{28}{section.14}% 
-\contentsline {subsection}{\numberline {14.1}The Modular Function}{28}{subsection.14.1}% 
-\contentsline {subsection}{\numberline {14.2}Analytic Functions}{28}{subsection.14.2}% 
-\contentsline {subsection}{\numberline {14.3}Cool Series Expansions}{29}{subsection.14.3}% 
-\contentsline {section}{\numberline {15}March 15th, 2021}{30}{section.15}% 
-\contentsline {subsection}{\numberline {15.1}Cool Series Expansion, continued}{30}{subsection.15.1}% 
-\contentsline {subsection}{\numberline {15.2}Infinite Products}{31}{subsection.15.2}% 
-\contentsline {section}{\numberline {16}March 17th, 2021}{32}{section.16}% 
-\contentsline {subsection}{\numberline {16.1}Weierstrass Theorem}{32}{subsection.16.1}% 
-\contentsline {subsection}{\numberline {16.2}Cohomology Aspects}{33}{subsection.16.2}% 
-\contentsline {section}{\numberline {17}March 29th, 2021}{34}{section.17}% 
-\contentsline {subsection}{\numberline {17.1}Infinite Products}{34}{subsection.17.1}% 
-\contentsline {subsection}{\numberline {17.2}Hadamard's Theorem}{35}{subsection.17.2}% 
-\contentsline {section}{\numberline {18}March 31st, 2021}{36}{section.18}% 
-\contentsline {subsection}{\numberline {18.1}The Gamma Function}{36}{subsection.18.1}% 
-\contentsline {subsection}{\numberline {18.2}Particular Values of $\Gamma $}{36}{subsection.18.2}% 
-\contentsline {subsection}{\numberline {18.3}Alternate Definition of $\Gamma $}{37}{subsection.18.3}% 
-\contentsline {section}{\numberline {19}April 5th, 2021}{38}{section.19}% 
-\contentsline {subsection}{\numberline {19.1}Gamma Function, continued}{38}{subsection.19.1}% 
-\contentsline {subsection}{\numberline {19.2}Complex Stirling Formula}{39}{subsection.19.2}% 
-\contentsline {subsection}{\numberline {19.3}Gamma function Heuristics}{39}{subsection.19.3}% 
-\contentsline {section}{\numberline {20}April 7th, 2021}{40}{section.20}% 
-\contentsline {subsection}{\numberline {20.1}Mellin Transform}{40}{subsection.20.1}% 
-\contentsline {subsection}{\numberline {20.2}Riemann Zeta Function}{40}{subsection.20.2}% 
-\contentsline {section}{\numberline {21}April 12th, 2021}{42}{section.21}% 
-\contentsline {subsection}{\numberline {21.1}Poisson Summation Formula}{42}{subsection.21.1}% 
-\contentsline {subsection}{\numberline {21.2}The Jacobi Theta Identity}{42}{subsection.21.2}% 
-\contentsline {section}{\numberline {22}April 14th, 2021}{44}{section.22}% 
-\contentsline {subsection}{\numberline {22.1}Riemann Zeta Functional Equation}{44}{subsection.22.1}% 
-\contentsline {subsection}{\numberline {22.2}Zeros of the Zeta Function}{44}{subsection.22.2}% 
+\contentsline {section}{\numberline {1}January 20th, 2021}{5}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Intro to Riemann Mapping Theorem}{5}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Cauchy's Integral Formula}{5}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Schwarz Lemma}{5}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Maximum Principles}{6}{subsection.1.4}% 
+\contentsline {section}{\numberline {2}January 25th, 2021}{7}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Uniform Convergence}{7}{subsection.2.1}% 
+\contentsline {section}{\numberline {3}January 27th, 2021}{9}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Uniform Convergence, continued}{9}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Metric Convergence}{9}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Riemann Sphere}{9}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}February 1st, 2021}{10}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Connectivity}{10}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Fractional Linear Transformations}{10}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Fractional Linear Transformations, Unit Disk}{11}{subsection.4.3}% 
+\contentsline {section}{\numberline {5}February 3rd, 2021}{12}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Remark on the Zeta Function}{12}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Fractional Linear Transformations, continued}{12}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Automorphisms of the Half Plane}{12}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}The Cross Ratio}{13}{subsection.5.4}% 
+\contentsline {section}{\numberline {6}February 8th, 2021}{14}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Mappings of Circles and Lines}{14}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Revisiting the Schwarz Lemma}{14}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Functions on Simply Connected Regions}{15}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}Injective Functions}{15}{subsection.6.4}% 
+\contentsline {section}{\numberline {7}February 10th, 2021}{16}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Riemann Mapping Theorem}{16}{subsection.7.1}% 
+\contentsline {section}{\numberline {8}February 17th, 2021}{18}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Caratheodory Extension Theorem}{18}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Rectifiable Arcs}{18}{subsection.8.2}% 
+\contentsline {section}{\numberline {9}February 22nd, 2021}{20}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Schwarz Reflection and Variants}{20}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Schwarz-Christoffel Formula}{21}{subsection.9.2}% 
+\contentsline {section}{\numberline {10}February 24th, 2021}{22}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Schwarz-Christoffel Formula, continued}{22}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Schwarz-Christoffel Formula on the Upper Half-Plane}{22}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Triangle Functions}{23}{subsection.10.3}% 
+\contentsline {section}{\numberline {11}March 1st, 2021}{24}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Schwarz Triangle Functions}{24}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Conformal Mappings of Rectangles}{24}{subsection.11.2}% 
+\contentsline {section}{\numberline {12}March 3rd, 2021}{25}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Elliptic Integrals and Functions}{25}{subsection.12.1}% 
+\contentsline {subsection}{\numberline {12.2}Tiling the Unit Disk}{25}{subsection.12.2}% 
+\contentsline {subsection}{\numberline {12.3}Schwarz-Christoffel Revisted}{25}{subsection.12.3}% 
+\contentsline {section}{\numberline {13}March 8th, 2021}{27}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Schwarzian Derivative}{27}{subsection.13.1}% 
+\contentsline {subsection}{\numberline {13.2}Curvilinear Polygons}{27}{subsection.13.2}% 
+\contentsline {section}{\numberline {14}March 10th, 2021}{29}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}The Modular Function}{29}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Analytic Functions}{29}{subsection.14.2}% 
+\contentsline {subsection}{\numberline {14.3}Cool Series Expansions}{30}{subsection.14.3}% 
+\contentsline {section}{\numberline {15}March 15th, 2021}{31}{section.15}% 
+\contentsline {subsection}{\numberline {15.1}Cool Series Expansion, continued}{31}{subsection.15.1}% 
+\contentsline {subsection}{\numberline {15.2}Infinite Products}{32}{subsection.15.2}% 
+\contentsline {section}{\numberline {16}March 17th, 2021}{33}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Weierstrass Theorem}{33}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}Cohomology Aspects}{34}{subsection.16.2}% 
+\contentsline {section}{\numberline {17}March 29th, 2021}{35}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}Infinite Products}{35}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}Hadamard's Theorem}{36}{subsection.17.2}% 
+\contentsline {section}{\numberline {18}March 31st, 2021}{37}{section.18}% 
+\contentsline {subsection}{\numberline {18.1}The Gamma Function}{37}{subsection.18.1}% 
+\contentsline {subsection}{\numberline {18.2}Particular Values of $\Gamma $}{37}{subsection.18.2}% 
+\contentsline {subsection}{\numberline {18.3}Alternate Definition of $\Gamma $}{38}{subsection.18.3}% 
+\contentsline {section}{\numberline {19}April 5th, 2021}{39}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Gamma Function, continued}{39}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Complex Stirling Formula}{40}{subsection.19.2}% 
+\contentsline {subsection}{\numberline {19.3}Gamma function Heuristics}{40}{subsection.19.3}% 
+\contentsline {section}{\numberline {20}April 7th, 2021}{41}{section.20}% 
+\contentsline {subsection}{\numberline {20.1}Mellin Transform}{41}{subsection.20.1}% 
+\contentsline {subsection}{\numberline {20.2}Riemann Zeta Function}{41}{subsection.20.2}% 
+\contentsline {section}{\numberline {21}April 12th, 2021}{43}{section.21}% 
+\contentsline {subsection}{\numberline {21.1}Poisson Summation Formula}{43}{subsection.21.1}% 
+\contentsline {subsection}{\numberline {21.2}The Jacobi Theta Identity}{43}{subsection.21.2}% 
+\contentsline {section}{\numberline {22}April 14th, 2021}{45}{section.22}% 
+\contentsline {subsection}{\numberline {22.1}Riemann Zeta Functional Equation}{45}{subsection.22.1}% 
+\contentsline {subsection}{\numberline {22.2}Zeros of the Zeta Function}{45}{subsection.22.2}% 
+\contentsline {section}{\numberline {23}April 19th, 2021}{47}{section.23}% 
+\contentsline {subsection}{\numberline {23.1}Theta Functions}{47}{subsection.23.1}% 
+\contentsline {subsection}{\numberline {23.2}Higher-Variable Thetas}{47}{subsection.23.2}% 
+\contentsline {subsection}{\numberline {23.3}Higher Dimensional Holomorphicity}{48}{subsection.23.3}% 
+\contentsline {section}{\numberline {24}April 21st, 2021}{49}{section.24}% 
+\contentsline {subsection}{\numberline {24.1}Higher Dimensional Theta Functions}{49}{subsection.24.1}% 
+\contentsline {subsection}{\numberline {24.2}Theta Functions with Characteristics}{49}{subsection.24.2}% 
+\contentsline {subsection}{\numberline {24.3}$\Theta _{ab}$ vis the Operators $S_b, T_a$}{49}{subsection.24.3}% 
+\contentsline {subsection}{\numberline {24.4}Zeros of $\Theta $}{50}{subsection.24.4}% 

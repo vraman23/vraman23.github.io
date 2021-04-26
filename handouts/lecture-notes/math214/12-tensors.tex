@@ -1,0 +1,99 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+
+\renewcommand{\hat}{\widehat}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\newcommand\at[2]{\left.#1\right|_{#2}}
+\newcommand\p[1]{\frac{\partial}{\partial#1}}
+\newcommand\pd[2]{\frac{\partial#1}{\partial#2}}
+ 
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+\let \eps \varepsilon
+\let \tensor \otimes
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Tensors}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+These notes correspond to Chapter 12 of Lee, \textit{Smooth Manifolds} on Tensors.  We define multilinear maps in order to construct tensors and tensors fields on manifolds.  We also introduce symmetric and alternating tensors, as well as tensor fields and bundles on smooth manifolds.  
+\end{abstract}
+\tableofcontents
+\pagebreak
+\section{Multilinear Algebra and the Tensor Product}
+\begin{definition} Suppose $V_1, \dots, V_k$ and $W$ are vector spaces.  A map $F: V_1 \times \dots \times V_k \to W$ is \textbf{multilinear} if it is linear as a function of each variable separately when the others are held fixed.
+\end{definition}
+Some common examples include:
+\begin{itemize}
+\item The dot product
+\item The cross product
+\item The determinant
+\item The bracket in a Lie algebra
+\end{itemize}
+\begin{example}[Tensor Products of Covectors] Suppose $V$ is a vector space, and $\omega, \eta \in V^*$.  Define $\omega \tensor \eta: V \times V \to R$ by 
+$$\omega \tensor \eta(v_1, v_2) = \omega(v_1) \eta(v_2).$$
+The linearity of $\omega$ and $\eta$ implies that $\omega \tensor \eta$ is a bilinear function of $v_1$ and $v_2$.  
+\end{example}
+\begin{definition} Given $V_1, \dots, V_k, W_1, \dots, W_\ell$ real vector spaces and functions $F \in L(V_1, \dots, V_k; \R)$, $G \in L(W_1, \dots, W_\ell; \R)$, define the \textbf{tensor product} $F \tensor G$ by
+$$F \tensor G(v_1, \dots, v_k, w_1, \dots, w_\ell) = F(v_1, \dots, v_k)G(w_1, \dots, w_\ell).$$
+\end{definition}
+\begin{proposition} Given $V_1, \dots, V_k$ real vector spaces of dimensions $n_1, \dots, n_k$, if $(E_1^{(j)}, \dots, E_{n_j}^{(j)})$ is a basis for $V_j$ with corresponding dual basis $(\epsilon_{(j)}^1, \dots, \epsilon_{(j)}^{n_j})$, the set 
+$$\mc B = \{e_{(1)}^{i_1} \tensor \dots \tensor \epsilon_{(k)}^{i_k}: 1 \le i_1 \le n_1, \dots, 1 \le i_k \le n_k\}$$
+is a basis for $L(V_1, \dots, V_k; \R)$, which has dimension equal to $n_1 \dots n_k$.
+\end{proposition}
+\section{Tensors on Vector Spaces}
+\begin{definition}Given a vector space $V$, $\dim V < \infty$, define 
+$T^k(V^*) = V^* \tensor \dots \tensor V^*$ to be the space of multilinear maps on $V \times \dots \times V \to \R$.
+\end{definition}
+\begin{definition} We can define a mixed tensor $T^{(k, \ell)}(V) = V \tensor \dots \tensor V \tensor V^* \tensor \dots \tensor V^*$.
+\end{definition}
+\section{Symmetric and Alternating Tensors}
+\begin{definition} Let $V$ be a finite dimensional space.  $\alpha \in T^k(V^*)$ is said to be symmetric is if it invariant under interchanging pairs of elements.  The set of symmetric covariant $k$-tensors is a linear subspace denoted by $\Sigma^k(V^*)$.
+\end{definition}
+We can construct $\Sigma^k(V^*)$ as the projection from $T^k(V^*)$ under the symmetric group given by 
+$$\operatorname{Sym}{\alpha} = \frac{1}{k!} \sum_{\sigma \in S_k} {}^\sigma \alpha.$$
+More explicitly,
+$$(\operatorname{Sym}{\alpha})(v_1, \dots, v_k) = \frac{1}{k!} \sum_{\sigma \in S_k} \alpha(v_{\sigma(1)}, \dots, v_{\sigma(k)}).$$
+
+Note that $\operatorname{Sym}{\alpha}$ is symmetric and it is the identity if and only if $\alpha$ is symmetric.  
+
+\begin{definition} If $\alpha$ and $\beta$ are symmetric tensors on $V$, we define $\alpha \beta = \operatorname{Sym}(\alpha \tensor \beta)$, the symmetric product.  
+\end{definition}
+ 
+ \begin{definition} $\alpha \in T^k(V^*)$ is said to be alternating if it is skew-symmetric.  These are also called exterior forms.
+ \end{definition}
+ \section{Tensors and Tensor Fields on Manifolds}
+ 
+ \end{document}

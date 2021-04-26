@@ -1545,8 +1545,48 @@ $$(i\partial_t + \frac{1}{2} \<Q^{-1}D_x, D_x\>)E = \delta_0(t) \delta_0(x).$$
 For $Q = -2I$, we have the free Schrodinger Equation.
 
 We require $Q$ to be a symmetric, non-degenerate matrix.  If we take a spacial fourier transform, we obtain
-$$\delta_0(t) = (i \partial_t + \<Q^{-1}\xi, \xi\>/2)\hat{E}_x = i\partial_t (e^{-it/2] )$$
+$$\delta_0(t) = (i \partial_t + \<Q^{-1}\xi, \xi\>/2)\hat{E}_x = i\partial_t (e^{-it/2\<Q^{-1}\xi, \xi\>} \hat{E}),$$
+a first-order ODE.  Solving this, we obtain
+$$\hat{E}_x(t, \xi) = e^{it/2 \<Q^{-1}\xi, \xi\>}H(t)/i,$$
+where $H$ is the heaviside function.  Finally, if we take an inverse spacial fourier transform we obtain
+$$E = \frac{|\det Q|^{1/2}}{i(2t \pi)^{n/2}}e^{i\pi/4 \operatorname{sgn}{Q}} e^{\<Qx, x\>/(2it)}.$$
+\pagebreak
+\section{April 20th, 2021}
+\subsection{Pseudodifferential Operators}
+\begin{definition} An operator $A$ is a pseudodifferential operator of order $\le m$, $A \in \Psi_{\rho, \delta}^m(X)$($\rho > 0$, $\delta < 1$), if there exists $a \in S_{\rho, \delta}^m(X \times X \times \R^n)$ such that for $u \in C_c^\infty(X)$,
+$$Au(x) = (2\pi)^{-n} \iint e^{i(x - y) \xi} a(x, y, \xi) u(y) \,dy d\xi$$
+as an oscillatory integral.
 
+\end{definition}
+
+\begin{itemize}
+\item If we take $A = \sum_{|\alpha| \le m} a_\alpha D_x^\alpha$, then $a(x, y, \xi) = \sum_{|\alpha| \le m} a_\alpha(x)\xi^\alpha$ is the corresponding symbol.  
+\item $(I - \Delta): \mc S(\R^n) \to \mc S(\R^n)$ has an inverse $(I - \Delta)^{-1}: \mc S (\R^n) \to \mc S(\R^n) \in \Psi_{1, 0}^{-2}$, by taking $a(x, y, \xi) = (1 + |\xi|^2)^{-1}$.
+\item $P(Eu) = u$, $u \in \mc E'(\R^{n+1})$, with $P = \partial_t - \Delta + 1$.  Then, $E \in \Psi_{1/2, 0}^{-1}(\R^{n+1})$ with the (dreaded) HW symbol $a = (i\tau + |\xi|^2 + 1)^{-1}$.
+\item $(i \partial_t + \Delta)(Eu) = u$, $u \in \mc E'(\R^{n+1})$.  We showed that $a = e^{it|\xi|^2}H(t)$, which is not in any symbol class.
+ \end{itemize}
+ 
+Recall from before,
+$$Au(y) = \int K_a(x, y)u(y)\,dy, \quad K_a \in \mc D'(X \times X), u \in C_c^\infty(X).$$
+Then, $Au \in \mc D'(X)$, $\<Au, v\> = \<K_a, u \tensor v\>$, $v \in C_c^\infty(X)$.  If $K_A = I(a, \phi)$, then $(x, \theta) \mapsto \phi(x, y, \theta)$ takes $C_c^\infty(X) \to C^\infty(X)$ and $(y, \theta)\mapsto \phi(x, y, \theta)$ takes $\mc E'(X) \to \mc D'(X)$.
+
+Recall the singular support of $K_A$ is contained in the set $\{(x, y) : \exists \delta, \phi_\delta(x, y, \delta) = 0\}$.  Note that if $A \in \Psi_{\rho, \delta}^m$, then $A: C_c^\infty(X) \to C^\infty(X)$ and $A:\mc E'(X) \to \mc D'(X)$.  In this case, the singular support is contained in $\Delta(X \times X) = \{(x, x): x \in X\}$.
+
+\begin{proposition}[Semilocality] If $A: \mc E'(X) \to \mc D'(X)$, then $\operatorname{sing}{\supp K_A} \subset \operatorname{sing}{\supp u}$.
+\end{proposition}
+\begin{proof}
+Take $x_0 \in X \setminus\operatorname{sing}{\supp u}$.  Choose $\phi \in C_c^\infty(X)$ with $\phi \equiv 1$ near $x_0$, $\psi \equiv 1$ near $\operatorname{sing}{\supp u}$ and $\supp \phi \cap \supp \psi = \emptyset$.  Then, $Au = A(1 - \psi)u + A\psi u = A \psi u + g$ with $g \in C^\infty(X)$.  It follows that 
+$\phi A u = \phi A \psi u + \phi g$, $\phi g \in C_c^\infty(X)$.  Since $\phi$ is $1$ near $x_0$, it suffices to show that $\phi A u \in C^\infty$, since it would follows $x_0$ cannot be in the singular support of $Au$.
+
+Define $K_{\phi A \psi}(x, y) = \phi(x) K_A(x, y) \psi(y)$.  Since $\supp K_{\phi A \psi} \cap \Delta(X \times X) = \emptyset$, we have $K_{\phi A \psi} \in C_c^\infty$, which implies that $\phi A \psi u \in C^\infty$, which implies that $\phi A u \in C^\infty$.
+\end{proof}
+\begin{definition} $A$ is a smoothing operator if $A$ takes $\mc E'(X) \to C^\infty(Y)$ and $C_c^\infty(Y) \to \mc D'(X)$, or equivalently $K_A \in C^\infty(X \times Y)$.  We define $\Psi^{-\infty}$ to be the class of smooth operators.  
+\end{definition}
+\begin{proposition} $A \in \Psi^{-\infty}(X)$ if and only if $a \in S^{-\infty}(X \times X \times \R^n)$ satisfying the pseudodifferential operator definition.
+\end{proposition}
+\begin{proof}
+For the forward direction, $K_A(x, y) =C \int e^{i(x - y)\xi} a(x, y, \xi)\,d\xi \in C^\infty(X \times X)$.
+\end{proof}
 \end{document}
 
 

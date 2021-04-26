@@ -78,3 +78,5 @@
 \contentsline {subsection}{\numberline {24.1}Morse Lemma}{58}{subsection.24.1}% 
 \contentsline {subsection}{\numberline {24.2}Higher Dimensional Method of Stationary Phase}{58}{subsection.24.2}% 
 \contentsline {subsection}{\numberline {24.3}General Schrodinger Operators}{59}{subsection.24.3}% 
+\contentsline {section}{\numberline {25}April 20th, 2021}{60}{section.25}% 
+\contentsline {subsection}{\numberline {25.1}Pseudodifferential Operators}{60}{subsection.25.1}% 
