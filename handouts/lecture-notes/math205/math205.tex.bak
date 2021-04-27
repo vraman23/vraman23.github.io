@@ -1252,4 +1252,31 @@ then the result follows.
 $$\frac{-2a + 1}{2} \tau + \frac{-2b+1}{2} + (\Z + \tau \Z).$$
 \end{corollary}
 A source with more details is found in Mumford's lecture at the Tata Institute on Theta Functions.  
+\pagebreak
+\section{April 26th, 2021}
+\subsection{Results about the Theta Functions}
+One can show that 
+$$-\frac{d^2}{dz^2} \log \Theta_{1, 1} (z ) + C = \frac{1}{z^2} = \sum_{(m, n) \in \Z^2 \setminus (0, 0)} \frac{1}{(z - (m + n\tau))^2} - \frac{1}{(m + n \tau)^2} = \mathscr P(z),$$
+where $\mathscr P$ is the Weierstrass $\mathscr P$-function, which shares the same poles at the lattice $\Z + \tau \Z$.
+
+We also have the Product formula
+$$\Theta(z, \tau) = \prod_{n \ge 1} (1 - q^{2n}) \prod_{m \ge 1} (1 + q^{2m-1}p^2)(1 + q^{2m-1}p^{-2}).$$
+
+There are many more uses of Theta Functions - there is a rich theory associated with the subject.  
+
+\subsection{Theta Functions and the Heisenberg Group}
+Recall $S_a$ and $T_b$ with $(S_b f)(z) = f(z + b)$ and $(T_a f)(z) = f(z + a\tau )e^{i \pi a^2 \tau + 2 \pi i a z}$ for $f: \C \to \C$.  It is easy to check that $T_{a_1 + a_2} = T_{a_1} T_{a_2}$ and $S_{b_1 + b_2} = S_{b_1}S_{b_2}$.  Then, the maps $\R \ni a \to T_a$, $\R: b \to S_b$ are \textbf{representations} of the group $(\R, +)$ on $\mc F(\C)$ - the vector space of complex-valued functions.  
+
+If we put together $S_b$ and $T_a$, we see that 
+$$S_b(T_a f)(z) = (T_a f) (z + b) = (f(z + b) + a\tau) e^{i \pi a^2 \tau + 2\pi i a (z + b)} $$
+$$T_a(S_b f)(z) = (S_b f) (z + a \tau) e^{\pi i a^2 \tau + 2\pi i a z} = f(z + a \tau + b) e^{i \pi a^2 \tau + 2 \pi i a z}.$$
+So it follows that 
+$$S_b T_a = e^{2 \pi i a b} T_a S_b.$$
+
+Now, consider the Heisenberg group $N < M_3(\R)$ of matrices with real entries above the diagonal, and 1 on the diagonal.  The Subgroup $\Gamma \subset N$ is the discrete subgroup with integer entries above the diagonal.  
+To make it easy to see, we write each matrix as $[x, y, z]$ and the multiplication is given by $[x, y, z] [x', y', z'] = [x + x', y+y', z + z' + xy']$.  In particular, $[x, y, z] = [0, y, 0][x, 0, 0][0, 0, z]$.  We can then define a linear map $\rho: \mc F(\C) \to \mc F(\C)$ given by $\rho([a, b, c]) f = e^{2 \pi i c} T_b S_a f$.
+
+We can check that $\rho$ is a homomorphism, namely $\rho([a, b, c] )\rho([a', b', c']) = \rho([a, b, c][a', b', c'])$.  This is left as an exercise.  
+
+
 \end{document} 

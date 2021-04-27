@@ -84,3 +84,6 @@
 \contentsline {subsection}{\numberline {24.2}Theta Functions with Characteristics}{49}{subsection.24.2}% 
 \contentsline {subsection}{\numberline {24.3}$\Theta _{ab}$ vis the Operators $S_b, T_a$}{49}{subsection.24.3}% 
 \contentsline {subsection}{\numberline {24.4}Zeros of $\Theta $}{50}{subsection.24.4}% 
+\contentsline {section}{\numberline {25}April 26th, 2021}{51}{section.25}% 
+\contentsline {subsection}{\numberline {25.1}Results about the Theta Functions}{51}{subsection.25.1}% 
+\contentsline {subsection}{\numberline {25.2}Theta Functions and the Heisenberg Group}{51}{subsection.25.2}% 
