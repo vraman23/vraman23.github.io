@@ -87,3 +87,7 @@
 \contentsline {section}{\numberline {25}April 26th, 2021}{51}{section.25}% 
 \contentsline {subsection}{\numberline {25.1}Results about the Theta Functions}{51}{subsection.25.1}% 
 \contentsline {subsection}{\numberline {25.2}Theta Functions and the Heisenberg Group}{51}{subsection.25.2}% 
+\contentsline {section}{\numberline {26}April 28th, 2021}{52}{section.26}% 
+\contentsline {subsection}{\numberline {26.1}Heisenberg Group, continued}{52}{subsection.26.1}% 
+\contentsline {subsection}{\numberline {26.2}Holomorphicity}{52}{subsection.26.2}% 
+\contentsline {subsection}{\numberline {26.3}Relation to Quantum Mechanics}{53}{subsection.26.3}% 
