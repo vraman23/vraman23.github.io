@@ -1,0 +1,409 @@
+\documentclass[11.5pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+
+\renewcommand{\hat}{\widehat}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\newcommand\at[2]{\left.#1\right|_{#2}}
+\newcommand\p[1]{\frac{\partial}{\partial#1}}
+\newcommand\pd[2]{\frac{\partial#1}{\partial#2}}
+ 
+\let \phi \varphi
+\let \mc \mathcal
+\let \ol \overline
+\let \eps \varepsilon
+\let \tensor \otimes
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Math 214 Study Guide}
+\author{Vishal Raman}
+\maketitle
+\tableofcontents
+
+\pagebreak
+\section{Smooth Manifolds}
+\subsection{Definitions}
+\begin{itemize}
+\item Topological Manifold
+\item Locally Euclidean
+\item Coordinate Charts
+\item Projective Spaces
+\item Smooth Atlas
+\item Smooth Structure
+\item Smooth Manifold
+\item Manifolds with Boundary
+\end{itemize}
+
+\section{Smooth Maps}
+\subsection{Definitions}
+\begin{itemize}
+\item Smooth function
+\item Coordinate representation
+\item Smooth Map
+\item Diffeomorphism
+\item Partitions of Unity
+
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[2-3:] If $f: M \to \R^k$ is smooth, $f \circ \phi^{-1}$ is smooth for every smooth chart $(U, \phi)$
+\item[2-5:] Equivalent Characterizations of Smoothness
+\item[2-8:] Gluing Lemma for Smooth Maps
+\item[2-25:] Existence of Smooth Bump Functions
+\item[2-26:] Extension Lemma for Smooth Functions
+\item[2-28:] Existence of Smooth Exhaustion Functions
+\item[2-29:] Level Sets of Smooth Functions
+\end{itemize}
+
+\section{Tangent Vectors}
+\subsection{Definitions}
+\begin{itemize}
+\item Geometric Tangent Space
+\item Derivations
+\item Tangent Vectors 
+\item Differentials
+\item Computations in Coordinates
+\item Differential in Coordinates
+\item Pushforward
+\item Change of Coordinates
+\item Tangent Bundle
+\item Velocity Vectors of Curves
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[3-4:] Properties of Tangent Vectors
+\item[3-6:] Properties of Differentials
+\item[3-23:] Correspondence of Velocity Vectors and Tangent Vectors
+\end{itemize}
+\section{Submersions, Immersions, and Embeddings}
+
+
+\subsection{Definitions}
+\begin{itemize}
+\item Rank of Smooth Map
+\item Smooth Submersion
+\item Smooth Immersion
+\item Smooth Embedding
+\item Local Section
+\item Smooth Covering Map
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[4-5:] Inverse Function Theorem
+\item[4-6:] Properties of Local Diffeomorphisms
+\item[4-12:] Rank Theorem
+\item[4-14:] Global Rank Theorem
+\item[4-26:] Local Section Theorem
+\item[4-28:] Smooth submersion is an open map/quotient map
+\end{itemize}
+
+\section{Submanifolds}
+
+
+\subsection{Definitions}
+\begin{itemize}
+\item Embedded Submanifold
+\item Properly Embedded
+\item k-dimensional Slice Chart
+\item Regular/Critical  Points
+\item Regular/Critical Value
+\item Regular Level Set
+\item Defining Map
+\item Local Defining Function
+\item Immersed Submanifold
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[5-8:] Local Slice Criterion
+\item[5-14:] Regular Level Set Theorem 
+\item[5-37:] Tangent Space to Submanifold
+\item[5-38:] Tangent Space of Embedded Submanifold is the Kernel of Local Defining Map
+\end{itemize}
+\section{Sard's Theorem}
+\subsection{Definitions}
+\begin{itemize}
+\item Measure Zero Sets
+\item Normal Bundle
+\item Tubular Neighborhood
+\item Smooth Homotopy
+\item Tranversality
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[6-10:] Sard's Theorem
+\item[6-15:] Whitney Embedding Theorem
+\item[6-18:] Whitney Immersion Theorem
+\item[6-19:] Strong Whitney Embedding Theorem
+\item[6-20:] Strong Whitney Immersion Theorem
+\item[6-21:] Whitney Approximation Theorem for Functions
+\item[6-24:] Tubular Neighborhood Theorem
+\item[6-26:] Whitney Approximation Theorem
+\item[6-35:] Parametric Transversailty Theorem
+\item[6-36:] Transverality Homotopy Theorem
+\end{itemize}
+
+\section{Lie Groups}
+\subsection{Definitions}
+\begin{itemize}
+\item Lie Group
+\item Left/Right Translation
+\item Lie Group Homomorphism
+\item Lie Subgroup
+\item Lie Group Actions
+\item Equivariant Maps
+\item Orbit Map
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[7-7:] Existence/Uniqueness of Universal Covering Group
+\item[7-21:] Lie subgroup closed if and only if embedded
+\item[7-25:] Equivariant Rank Theorem: Equivariant implies Constant Rank
+\item[7-26:] Properties of Orbit Map
+\end{itemize}
+
+\section{Vector Fields}
+\subsection{Definitions}
+\begin{itemize}
+\item Vector Fields
+\item Rough Vector Field
+\item Support of Vector Field
+\item Local and Global Frames
+\item Parallelizable
+\item $F$-related vector fields
+\item Pushforward of Vector Fields
+\item Lie Bracket
+\item Lie Algebra
+\item Left-invariant
+\item Lie Algebra homomorphism
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[8-1:] Smoothness Criterion for Vector Fields
+\item[8-7:] Given $p\in M, v \in T_pM$, exists $X \in \mathfrak{X}(M)$ with $X_p = v$.
+\item[8-13:] Gram-Schmidt for Frames
+\item[8-14:] Alternate Smoothness Criterion(Vector Field as Derivations of $C^\infty(M)$)
+\item[8-27:] Lie Bracket Computation
+\item[8-31:] Pushforward of Lie Bracket
+\end{itemize}
+\section{Integral Curves and Flows}
+\subsection{Definitions}
+\begin{itemize}
+\item Integral Curve
+\item Flows
+\item Singular/Regular Points
+\item Lie Derivative
+\item Commuting Vector Fields
+\item Commuting Flows
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[9-2:] Existence/Uniqueness
+\item[9-3:] Rescaling Lemma
+\item[9-4:] Translation Lemma 
+\item[9-12:] Fundamental Theorem on Flows
+\item[9-20:] Flowout Theorem
+\item[9-38/39:] Properties of Lie Derivative
+\item[9-42:] Equivalent Conditions for Commuting Vector Fields
+\item[9-44:] Vector fields commute if and only if flows commute
+\end{itemize}
+\section{Vector Bundles}
+\subsection{Definitions}
+\begin{itemize}
+\item Vector Bundles
+\item Local Trivialization
+\item Sections of Vector Bundles
+\item Zero Section
+\item Local and Global Frames
+\item Bundle Homomorphisms
+\item Subbundles
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[10-4:] Tangent Bundle as a Vector Bundle 
+\item[10-15:] Completion of Local Frames
+\end{itemize}
+\section{Cotangent Bundle}
+\subsection{Definitions}
+\begin{itemize}
+\item Dual Basis
+\item Cotangent Space
+\item Covariant/Contravariant Vectors
+\item Cotangent Bundle
+\item Covector Field
+\item Component Functions of Covector Field
+\item Local and Global Coframes
+\item Differential
+\item Pullback of Covector Field
+\item Line Integral
+\item Exact Covector Field
+\item Conservative Covector Field
+\item Closed Covector Field
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[11-11:] Smoothness Criteria for Covector Fields
+\item[11-18:] Differential is a smooth covector field
+\item[11-20:] Properties of Differential
+\item[11-23:] Derivative o a Function Along a Curve
+\item[11-42:] Smooth covector field is conservative if and only if it is exact
+\item[11-44:] Exact implies closed
+\item[11-46:] Pullback takes closed to closed, exact to exact
+\item[11-49:] Poincaré Lemma
+\end{itemize}
+\section{Tensors}
+\subsection{Definitions}
+\begin{itemize}
+\item Multilinear Map
+\item Tensor Products
+\item Covariant Tensors
+\item Contravariant Tensors
+\item Mixed Tensors
+\item Symmetric Tensor
+\item Symmetrization
+\item Symmetric Product
+\item Alternating Tensor
+\item Tensor Bundles
+\item Component Functions of Tensor Bundle
+\item Pullback of Tensor Fields
+\item Lie Derivative of Tensor Field
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[12-4:] Basis for Multilinear Functions
+\item[12-9:] Associativity of Tensor Product Spaces
+\item[12-25:] Properties of Tensor Pullbacks
+\item[12-26:] Coordinate Representation of Tensor Pullback 
+\item[12-32:] Properties of Lie Derivative on Tensor Fields
+\item[12-34:] Differential Commutes with Lie Derivative 
+\end{itemize}
+\section{Riemannian Metrics}
+\subsection{Definitions}
+\begin{itemize}
+\item Riemannian Metric
+\item Euclidean Metric
+\item Product Metric
+\item Pullback Metric
+\item Local Isometry
+\item Flat Metric
+\item Riemannian Submanifold
+\item Surface of Revolution
+\item Riemannian Length
+\item Riemannian Distance 
+\item Musical Isomorphisms
+\item Gradient of Vector Field
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[13-3:] Existence of Riemannian Metrics
+\item[13-9:] Pullback Metric Criterion
+\item[13-19:] Flatness Criterion for Surfaces of Revolution
+\item[13-29:] Riemannian Manifolds as Metric Spaces
+\end{itemize}
+\section{Differential Forms}
+\subsection{Definitions}
+\begin{itemize}
+\item Alternating Covariant Tensors
+\item Elementary Covectors
+\item Wedge Product
+\item Interior Multiplication
+\item Differential Forms
+\item Exterior Derivative
+\item Lie Derivatives of Differential Forms
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[14-8:] Basis for $\Lambda^k(V^*)$
+\item[14-11:] Properties of Wedge Product
+\item[14-20:] Pullback Formula for Top-Degree Forms
+\item[14-23:] Properties of Exterior Derivative
+\item[14-35:] Cartan's Magic Formula
+\item[14-36:] Lie Derivative Commutes with $d$.
+\end{itemize}
+\section{Orientations}
+\subsection{Definitions}
+\begin{itemize}
+\item  Oriented Vector Space
+\item Positively/Negatively Oriented
+\item Pointwise Orientation
+\item Positively/Negatively Oriented Frame
+\item Continuous pointwise orientation
+\item Orientable Manifold
+\item Orientation Form
+\item Oriented Coordinate Chart
+\item Orientation-preserving Action
+\item Generalized covering maps
+\item Orientation Covering/Double Cover
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[15-5:] Orientation Determined by an $n$-Form
+\item[15-11:] Orientations of Codimension-0 Submanifolds
+\item[15-15:] Pullback Orientation
+\item[15-24:] Induced Orientation on a Boundary
+\item[15-35:] If $\pi: E \to M$ is a smooth covering map, $M$ is orientable, then $E$ is orientable
+\item [15-40:] Properties of Orientation Covering
+\item[15-41:] Orientation Covering Theorem
+\end{itemize}
+\section{Integration on Manifolds}
+\subsection{Definitions}
+\begin{itemize}
+\item Integral of Differential Form
+\item Integration on Manifolds
+\end{itemize}
+\subsection{Theorems}
+\begin{itemize}
+\item[16-1:] Transformation Theorem
+\item[16-6:] Properties of Integrals of Forms
+\item[16-8:] Integration over Parameterizations
+\item[16-11:] Stokes' Theorem
+\end{itemize}
+\section{De Rham Cohomology}
+\subsection{Definitions}
+\begin{itemize}
+\item Cycles, Boundaries, de Rham Cohomology Group
+\item Homotopy Invariants
+\item Homotopy Operator/Cochain Homotopy
+\item Degree of Smooth Map
+\end{itemize}
+
+\subsection{Theorems}
+\begin{itemize}
+\item[17-2:] Induced Cohomology Maps
+\item[17-13:] Cohomology of Contractible Manifolds
+\item[17-14:] Poincaré Lemma
+\item[17-15:] Local Exactness of Closed Forms
+\item[17-20:] Mayer-Vietoris Sequence
+\item[17-35:] Degree of Smooth Map
+\end{itemize}
+
+\end{document}
+ 

@@ -1,0 +1,50 @@
+\contentsline {section}{\numberline {1}Smooth Manifolds}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Definitions}{3}{subsection.1.1}% 
+\contentsline {section}{\numberline {2}Smooth Maps}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Definitions}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Theorems}{3}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}Tangent Vectors}{4}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Definitions}{4}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Theorems}{4}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}Submersions, Immersions, and Embeddings}{4}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Definitions}{4}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Theorems}{4}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}Submanifolds}{5}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Definitions}{5}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Theorems}{5}{subsection.5.2}% 
+\contentsline {section}{\numberline {6}Sard's Theorem}{5}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Definitions}{5}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Theorems}{5}{subsection.6.2}% 
+\contentsline {section}{\numberline {7}Lie Groups}{6}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Definitions}{6}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Theorems}{6}{subsection.7.2}% 
+\contentsline {section}{\numberline {8}Vector Fields}{6}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Definitions}{6}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Theorems}{7}{subsection.8.2}% 
+\contentsline {section}{\numberline {9}Integral Curves and Flows}{7}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Definitions}{7}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Theorems}{7}{subsection.9.2}% 
+\contentsline {section}{\numberline {10}Vector Bundles}{7}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Definitions}{7}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Theorems}{8}{subsection.10.2}% 
+\contentsline {section}{\numberline {11}Cotangent Bundle}{8}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Definitions}{8}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Theorems}{8}{subsection.11.2}% 
+\contentsline {section}{\numberline {12}Tensors}{9}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Definitions}{9}{subsection.12.1}% 
+\contentsline {subsection}{\numberline {12.2}Theorems}{9}{subsection.12.2}% 
+\contentsline {section}{\numberline {13}Riemannian Metrics}{9}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Definitions}{9}{subsection.13.1}% 
+\contentsline {subsection}{\numberline {13.2}Theorems}{10}{subsection.13.2}% 
+\contentsline {section}{\numberline {14}Differential Forms}{10}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}Definitions}{10}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Theorems}{10}{subsection.14.2}% 
+\contentsline {section}{\numberline {15}Orientations}{11}{section.15}% 
+\contentsline {subsection}{\numberline {15.1}Definitions}{11}{subsection.15.1}% 
+\contentsline {subsection}{\numberline {15.2}Theorems}{11}{subsection.15.2}% 
+\contentsline {section}{\numberline {16}Integration on Manifolds}{11}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Definitions}{11}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}Theorems}{11}{subsection.16.2}% 
+\contentsline {section}{\numberline {17}De Rham Cohomology}{12}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}Definitions}{12}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}Theorems}{12}{subsection.17.2}% 
