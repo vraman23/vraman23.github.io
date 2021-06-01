@@ -11,7 +11,8 @@
 \newcommand{\T}{\mathbb T}
 \newcommand{\PP}{\mathbb P}
 \newcommand{\supp}{\text{supp }}
-
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 
@@ -35,7 +36,7 @@
 \author{Vishal Raman}
 \maketitle
 \begin{abstract}
-I present some solutions from various Putnam Exams.  Problems are not necessarily posted in chronological order.  Any typos or mistakes found are mine - kindly direct them to my inbox.
+My sketches to problems from the Putnam exams.   I tend to leave out a lot of the details for routine checks or brute force calculations.  Any typos or mistakes found are mine - kindly direct them to my inbox.
 \end{abstract}
 \tableofcontents
 \pagebreak
@@ -80,16 +81,15 @@ I present some solutions from various Putnam Exams.  Problems are not necessaril
 %\pagebreak
 \section{Putnam - 2001}
 \subsection{A1 - Algebra}
-\begin{Prob}[2001-A1] Consider a set $S$ and a binary operation $*$.  Assume $(a*b)*a = b$ for all $a, b \in S$.  Prove that $a*(b*a) = b$ for all $a, b \in S$. 
-\end{Prob}
+ Consider a set $S$ and a binary operation $*$.  Assume $(a*b)*a = b$ for all $a, b \in S$.  Prove that $a*(b*a) = b$ for all $a, b \in S$. 
 \begin{proof}
 Note that 
 $$b = ((b*a)*b) * (b*a) = a * (b * a).$$
 \end{proof}
-
+\pagebreak
 \subsection{A2 - Combinatorics}
-\begin{Prob}[2001-A2] You have coins $C_1, C_2, \dots, C_n$.  For each $k$, $C_k$ is biased so that when tossed, is has probability $1/(2k+1)$ of falling heads.  If the $n$ coins are tossed, what is the probability that the number of heads is odd?
-\end{Prob}
+You have coins $C_1, C_2, \dots, C_n$.  For each $k$, $C_k$ is biased so that when tossed, is has probability $1/(2k+1)$ of falling heads.  If the $n$ coins are tossed, what is the probability that the number of heads is odd?
+
 \begin{proof}
 We claim the probability is $P(n) = \boxed{\frac{n}{2n+1}}$.  We prove it by induction.  We are given that $P(1) = \frac{1}{3}$, which satisfies the claim.  Suppose $P(k) = \frac{k}{2k+1}$ for $k \ge 1$.  In order to find $P(k+1)$, we condition on the result of the first $k$ coin tosses.  Namely, suppose the number of heads is even after $k$ tosses.  Then, the total number of heads is odd if we flip a head on the $k+1$-th toss.  Similarly, if the number of heads is odd after $k$ tosses, then the total number of heads is odd if we flip a tail on the $k+1$-th toss.  
 
@@ -105,11 +105,19 @@ P(k+1) &= (1 - P(k))p_{k+1} + P(k)(1 - p_{k+1}) \\
 which proves the result.
 \end{proof}
 
+\subsubsection{Official Solution}
+There is another remarkable proof using generating functions.
+\begin{proof}
+Consider the polynomial $f(x) = \prod_{k=1}^n \left (\frac{x}{2k+1} + \frac{2k}{2k+1} \right)$.  The coefficient of $x^m$ gives the probability of exactly $m$ heads.  The sum of the odd coefficients is given by $\frac{f(1) - f(-1)}{2}$.  It is clear that $f(1) = 1$ and note that 
+$$f(-1) = \prod_{k=1}^n \frac{2k-1}{2k+1} = \frac{1}{2n+1}.$$
+The overall probability is $\frac{n}{2n+1}$ as desired.
+\end{proof}
+\pagebreak
 \subsection{A3 - Algebra}
-\begin{Prob}[2001 - A3] For each integer $m$, consider the polynomial $$P_m(x) = x^4 - (2m+4)x^2 + (m-2)^2.$$
+For each integer $m$, consider the polynomial $$P_m(x) = x^4 - (2m+4)x^2 + (m-2)^2.$$
 
 For what values of $m$ is $P_m(x)$ the product of two non-constant polynomials with integer coefficients?
-\end{Prob}
+
 \begin{proof}
 We claim that $m$ is the square of an integer or twice the square of an integer.  Set $y = x^2$.  We look for square-integer solutions for $y$.  From the quadratic formula,
 \begin{align*}
@@ -139,10 +147,10 @@ It is easy to verify that if $m$ is a square or twice a square, then $P_m(x)$ re
 %Hence, we have the only possible solution $m = 0$.  It is easy to verify that 
 %$$P_0(x) = x^4 - 4x^2 + 4 = (x^2 - 2)^2.$$
 \end{proof}
-
+\pagebreak
 \subsection{A4 - Geometry}
-\begin{Prob}[2001 - A4] Triangle $ABC$ has area $1$.  Points $E, F, G$ lie on sides $BC$, $CA$, $AB$ such that $AE$ bisects $BF$ at point $R$, $BF$ bisects $CG$ at point $S$, and $CG$ bisects $AE$ at point $T$.  Find the area of the triangle $RST$.
-\end{Prob}
+Triangle $ABC$ has area $1$.  Points $E, F, G$ lie on sides $BC$, $CA$, $AB$ such that $AE$ bisects $BF$ at point $R$, $BF$ bisects $CG$ at point $S$, and $CG$ bisects $AE$ at point $T$.  Find the area of the triangle $RST$.
+
 \begin{proof}
 We claim that $[RST] = \frac{7- \sqrt{5}}{4}.$
 Let $EC/BC = r$, $FA/CA = s$, $GB/AB = t$.
@@ -159,7 +167,7 @@ It follows that
 $$r = \frac{1}{1+s} = \frac{1}{1 + \frac{1}{1+t}} = \frac{1}{1 + \frac{1}{1 + \frac{1}{r}}}.$$
 
 Simplifying this, we find that $r = \frac{2+r}{3 + 2r}$, which gives $3r + 2r^2 = 2+ r$, or equivalently, $r^2 + r - 1 = 0$.  Plugging into the quadratic formula and taking the positive root gives
-$$r =\frac{1 + \sqrt{5}}{2},$$
+$$r =\frac{-1 + \sqrt{5}}{2},$$
 and by repeating the argument, we have $r = s = t = \frac{-1 + \sqrt{5}}{2}$.  
 
 Now, note that $[ATC] = [AEC] / 2 = r/2$, $[ATG] = [ACG] - [ATC] = 1 - t - r/2$.  Similarly, $[BSC] = t/2$ and $[BRE] = 1 - r - s/2$, so it follows that $[BRTG] = [ABE] - [ATG] - [BRE] = r/2 + s/2 + t - 1$.
@@ -171,68 +179,280 @@ Now, note that $[ATC] = [AEC] / 2 = r/2$, $[ATG] = [ACG] - [ATC] = 1 - t - r/2$.
 &= \frac{7 - \sqrt{5}}{4}.
 \end{align*}
 \end{proof}
-\subsection{A5 - Number Theory}
-\begin{Prob}[2001 - A5]
-\end{Prob}
+\begin{proof}
+A brute-force calculation through vectors.  Define $A$ to be the origin and take $B, C$ to be basis vectors from $A$.  We can set $G = \beta B$, $F = (1 - \gamma) C$, $E = \alpha C + (1 - \alpha) C$.  Furthermore, we set $R = (1 - \rho) E$, $S = \sigma B + (1 - \sigma )F$, $T = \tau C + (1 - \tau) G$.  To satisfy the conditions of the problem, we must have that 
+$$2R = B+F, 2S = C + G, 2T =  E.$$
 
-\subsection{A6 - Calculus}
-\begin{Prob}[2001 - A6]
-\end{Prob}
+After messy algebra, we obtain that 
+$$\alpha = \frac{1 - \beta}{2 - \beta}, \beta = \frac{1 - \gamma}{2 - \gamma}, \gamma = \frac{1 - \gamma}{2 - \gamma},$$
+which has an obvious solution $\alpha = \beta = \gamma = \frac{3 - \sqrt{5}}{2}$.  
+
+It follows that 
+$$(R-T, S- T) = \frac{1}{2}\begin{pmatrix} \alpha & 2\alpha - 1 \\ 1 - 2\alpha & 1 - \alpha \end{pmatrix},$$
+so we can evaluate 
+$$[RST] = \frac{[ABC]}{4} \begin{vmatrix}
+ \alpha & 2\alpha - 1 \\ 1 - 2\alpha & 1 - \alpha
+\end{vmatrix}  = \frac{\alpha^2}{2} = \frac{7 - 3\sqrt{5}}{4}.$$
+\end{proof}
 \pagebreak
-\section{Putnam - 2019}
-\subsection{A1 - Number Theory}
-\begin{Prob}[2019 - A1] Determine all possible values of the expression $$A^3 + B^3 + C^3 - 3ABC,$$
-where $A, B, C$ are nonnegative integers.
-\end{Prob}
+\subsection{A5 - Number Theory}
+ Show that there are unique positive integers $a, n$ such that $a^{n+1} - (a+1)^n = 2001$.
+
 \begin{proof}
-Let $S = A^3 + B^3 + C^3 - 3ABC$.  We claim that $S$ attains all values such that $S \ne 3, 6 \pmod{9}$.
+We claim the unique pair of positive integers satisfying the claim is $(a, n) = (13, 2)$.  It is easy to verify that this is indeed a solution.  
 
-Note that the expression can be factored as 
-$$A^3 + B^3 + C^3 - 3ABC = \left (\frac{A + B + C}{2}\right)\left((A-B)^2 + (B-C)^2 + (C-A)^2\right).$$
+Considering the equation in $\Z_3$, we see that $a \equiv 1 \pmod{3}$ - in the other cases, one of the terms vanishes and the other term is non-vanishing, so the difference cannot vanish.  
 
-If $(A, B, C) = (A, A+1, A+2)$, then 
-$$S = \frac{3A+3}{2}(1^2 + 1^2 + 2^2) = (3A + 3)(3) = 9A + 9,$$
-so we can achieve all $S \equiv 0 \pmod 9.$
+Considering the equation in $\Z_4$, we cannot have $a \equiv 0 \pmod{4}$, for the same reason as above.  If $a \equiv 1 \pmod{4}$, we must have that $n > 1$ in order for the equivalence to be satisfied.  If $a \equiv 2, 3 \pmod{4}$, we must have that $n$ is even.  
 
-If $(A, B, C) = (A, A, A+1)$, then
-$$S = \frac{3A+1}{2}(0^2+1^2+1^2) = 3A+1,$$
-and if $(A, B, C) = (C+1, C+1, C)$, then 
-$$S = \frac{3C+2}{2}(0^2+1^2+1^2) = 3C+2,$$
-so we can achieve all $S \equiv 1, 2 \pmod{3}$.  
-
-It suffices to show that if $S \equiv 0 \pmod{3}$, then $S \equiv 0 \pmod{9}$.  This implies that we cannot have $S \ne 3, 6 \pmod{9}$ as desired.  If $S \equiv 0 \pmod{3}$, then we must have $A+B+C \equiv 0 \pmod 3$ or $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  In the first case, then without loss of generality, we must have either $(A, B, C) \in \{(0, 0, 0), (1, 1, 1),( 2, 2, 2), (0, 1, 2)\}$.  In each of these cases, we can show that $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  Similarly, in the second case, we must have that $(A-B)^2 = (B-C)^2 = (C-A)^2 = 0, 1$.  In the first case $A = B = C$, which gives that $A+B+C \equiv 0 \pmod{3}$.  In the second case, the remainders of $A, B, C$ must be distinct mod $3$, which, without loss of generality, gives $(A, B, C) = (0, 1, 2)$ which implies that $A+B+C \equiv 0 \pmod{3}$, as desired.  In all cases, we show that both terms in the product are $0 \pmod {3}$, which implies that the product is $0 \pmod {9}$.
+In the case with $a \equiv 1 \pmod{3}$ and $a \equiv 1 \pmod{4}$, we obtain $a \equiv 1 \pmod{12}$ and $n > 1$.   We see easily that $a = 1$ does not satisfy the equation for any $n > 1$.  For $a = 13$, we have a solution as above for $n = 2$.  It is easy to see that no higher value of $n$ also satisfies the equation since the function $f(x) = 13^{x + 1} - 14^x$ is monotonically increasing.   We can repeatedly apply similar arguments for the other cases to show that this is the unique solution.  
 \end{proof}
-\subsection{A2 - Geometry}
-\begin{Prob}[2019 - A2] In the triangle $ABC$, let $G$ be the centroid, and let $I$
-be the center of the inscribed circle. Let $\alpha$ and $\beta$ be
-the angles at the vertices $A$ and $B$, respectively. Suppose that the segment $IG$ is parallel to $AB$ and that
-$\beta = 2\arctan(1/3)$. Find $\alpha$.
-\end{Prob}
+\pagebreak
+\subsection{A6 - Calculus}
+ Can an arc of a parabola inside a circle of radius $1$ have a length greater than $4$?
+
 \begin{proof}
-We use complex numbers.  Let $B = 0$.  Then $\text{arg}(I) = \beta/2 = \arctan(1/3)$, so $I = k(3+i)$ for some $k \in \R^+$.  Without loss of generality, let $k = 1$.  Let $A = a$.  Then, $IG$ is parallel to $AB$ which implies that $\operatorname{Im}(B-A) = \Im(I-G)$.  Then $\Im(B-A) = 0$, so $\Im(I) = \Im(G) = 1$.  
+We claim that it is possible.  Take a unit circle given by $x^2 + (y-1)^2 = 1$ and a parabola $y = kx^2$.  The length of the curve inside the arc is given by 
+$$L(k) = 2\int_0^{\sqrt{2k-1}/k} \sqrt{1 + 4k^2 x^2}\,dx = \frac{1}{4k} \int_0^{2\sqrt{2k-1}} \sqrt{1 + x^2} \,dx.$$
 
-Then, note that $\arg(I^2) = \arg(C)$, so $C = \ell(3+i)^2 = \ell(8+6i)$ for some $\ell \in \R^+$.  Then $G = \frac{A+B+C}{3} = \frac{A+C}{3}$, so $$1 = \Im(G) = \Im((A+C)/3) = \Im(C/3),$$ which implies that $\ell = \frac{1}{2}$.  Thus, $C = 4+3i$.  
+It is easy to show that $\sqrt{1 +  x^2} \ge \frac{1}{x+1}$ so it follows that $\lim_{k \to \infty} L(k) = +\infty$.  It follows that there exists some $k$ so that $L(k) > 4$ as desired.  
+\end{proof}
+\pagebreak
+\subsection{B1 - Combinatorics}
+ Let $n$ be an even positive integer.  Write the numbers $1, 2, \dots, n^2$ in the squares of an $n \times n$ grid from left to right.  Color the squares of the grid so that half of the squares in each row and in each column are red and the other half are black.  Prove that for each coloring, the sum of the numbers on the red squares is equal to the sum of the numbers on the black squares.  
 
-Finally, $$I = \frac{|CB|A + |AC|B + |AB|C}{|AB|+|BC|+|CA|} = \frac{5a + a(4+3i)}{5+a+\sqrt{(4-a)^2+9}} = 3+i.$$
+\begin{proof}
+I have two proofs.  An outline of the first follows the approach of invariants.  Namely, we can start from a checkerboard pattern and repeatedly swap squares so that the sum of the numbers on the red squares is equal to the sum of the numbers on the black squares.  It suffices to show that the group of colorings with the given conditions is transitive under the transposition.  This is easy to show with an algorithm approach: for each square on a given board, we assign $1$ if it differs from the checkerboard, otherwise we assign $0$.  Then, we take the sum of the values.  We can choose transpositions so that the sum decreases on each turn, which must eventually terminate.  
 
-Hence,
-$$5+a+\sqrt{(4-a)^2+9} = 3a,$$
-which has solutions $a = 0, a = 4$.  Taking the positive solution, we have $A = 4$.  Then, note that $ABC$ is a right triangle with right angle at $A$, so $\alpha = \frac{\pi}{2}$.
+The other approach is as follows.  For convenience, we subtract $1$ from each square so that it starts at $0$.  We can take the expansion in base $n$, so the value of each square $s$ is given by $nf(s) + g(s)$ where $0 \le f(s), g(s) < n$.  If we let $R$ denote the set of red numbers and $B$ the set of black numbers, note that $\sum_{s \in R} f(s) = \sum_{s \in B} f(s)$ since the number of red and black squares in each row is the same.  Similarly, $\sum_{s \in R} g(s) = \sum_{s \in B} g(s)$ since the number of red and black squares in each column is the same.  It follows that 
+$$\sum_{s \in R} nf(s) + g(s) = \sum_{s \in B} nf(s) + g(s).$$
 \end{proof}
 
-\begin{Prob}[2019 - A3] Given real numbers $b_0, b_1, \dots, b_{2019}$ with $b_{2019} \ne 0$, let $z_1, z_2, \dots, z_{2019}$ be the roots in the complex plane of the polynomial $$P(z) = \sum_{k=0}^\infty b_kz^k.$$
-Let $\mu = \frac{1}{2019}\sum_{k=1}^{2019}|z_k|$.  Determine the largest constant $M$ such that $\mu \ge M$ for all choices of $b_0, b_1, \dots, b_{2019}$ satisfying 
-$$1 \le b_0 < b_1 < b_2 < \dots < b_{2019} \le 2019.$$
-\end{Prob}
+\pagebreak
+\subsection{B2 - Algebra} 
+Find all pairs $(x, y) \in \R^2$ satisfying the system
+\begin{align*}
+\frac{1}{x} + \frac{1}{2y} &= (x^2 + 3y^2)(3x^2 + y^2) \\
+\frac{1}{x} - \frac{1}{2y} &= 2(y^4 - x^4).
+\end{align*}
+
 \begin{proof}
-By the AM-GM inequality,
-$$\mu = \frac{\sum_{k=1}^{2019}|z_k|}{2019} = \left (\prod_{k=1}^{2019} |z_k|\right )^{1/2019} = \left |\frac{b_0}{b_{2019}} \right|^{1/2019} \le (2019)^{-1/2019}.$$
-
-We show that $M = (2019)^{-1/2019}$.  Let $\zeta = e^{\frac{2\pi i}{2020}}$ and let $z_i = M\zeta^i$. Notice that $|z_i| = M$ for each $i$ and the roots $z_1, z_2, \dots, z_{2019}$ satisfy the polynomial
-$$0 = \frac{(z_i/M)^{2020} - 1}{(z_i/M) - 1} = M^{-2019}\left (\frac{z_i^{2020} - M^{2020}}{z_i - M}\right ) =\sum_{k=0}^{2019}z_i^{k}M^{-k}.$$
-
-Hence, the polynomial $$P(z) = \sum_{k=1}^{2019}z_i^k2019^{k/2019}$$
-satisfies the equality case $\mu = M$.  Furthermore, note that 
-$b_0 = 1$, $b_{2019} = 2019$ and and $2019^{i/2019} < 2019^{j/2019}$ for all $i < j$.  Hence, $P$ satisfies the conditions.
+An easy algebra exercise.  Expanding the right-hand sides, then adding/subtracting the equations, we obtain $(x+y)^5 = 3$ and $(x - y)^5 = 1$ respectively.  This has a unique solution in $\R^2$, $\left(\frac{3^{1/5} + 1}{2}, \frac{3^{1/5} - 1}{2} \right)$.
 \end{proof}
+\pagebreak
+\subsection{B3 - Analysis} 
+For any positive integer $n$, let $\<n\>$ denote the closest integer to $\sqrt{n}$.  Evaluate $\sum_{n=1}^\infty \frac{2^{\<n\>} + 2^{-\<n\>}}{2^n}$.
+
+\begin{proof}
+We reindex the sum by summing over the fixed values of $\<n\>$, which is non-decreasing.  Namely, we have 
+$$\sum_{n=1}^\infty \frac{2^{\<n\>} + 2^{-\<n\>}}{2^n} = \sum_{m=1}^\infty \sum_{\<n\> = m}  \frac{2^{\<n\>} + 2^{-\<n\>}}{2^n} = \sum_{m=1}^\infty \left((2^m + 2^{-m})\sum_{\<n\> = m} 2^{-n}\right).$$
+
+Note that $\<n\> = m$ whenever $n \in ((m-1/2)^2, (m+1/2)^2) = (m^2 - m+ 1/4, m^2 + m + 1/4)$.  This happens for $n \in [m^2 - m + 1, m^2 + m ]$.  Then, note that $$\sum_{n=m^2 - m + 1}^{m^2 + m} 2^{-n} = (1 - 2^{-m^2 - m}) - (1 - 2^{-m^2 + m}) = 2^{-m^2 + m} - 2^{-m^2 - m}.$$
+
+Combining the results, we have 
+\begin{align*}
+\sum_{m=1}^\infty (2^{m} + 2^{-m}) (2^{-m^2 + m} - 2^{-m^2 - m}) &= \sum_{m=1}^\infty 2^{-m^2 + 2m} - 2^{-m^2 - 2m} \\
+&= \sum_{m=1}^\infty 2^{-m(m-2)} - 2^{-m(m+2)} \\
+&= \sum_{m=1}^\infty 2^{-m(m-2)} -  \sum_{m=3}^\infty 2^{-(m-2)m}  \\
+&= 2^{1} + 2^{0} = 3.
+\end{align*}
+\end{proof}
+\pagebreak
+\subsection{B4 - Number Theory}
+ Let $S = \Q \setminus\{-1, 0, 1\}$.  Define $f: S \to S$ by $f(x) = x - 1/x$.  Prove or disprove that 
+$$\bigcap_{n=1}^\infty f^{(n)}(S) = \emptyset.$$
+\begin{proof}
+The claim is true.  Suppose we had $x = \frac{p}{q} \in \bigcap_{n=1}^\infty f^{(n)}(S)$, where $(p, q) = 1$.  Then, there is some $m \in \N$ so that $f^{(m)}(x) = x$.  However, note that 
+$$f\left(\frac{p}{q} \right) = \frac{p^2 - q^2}{pq},$$
+and $|pq| > |q|$ since $p \not \in \{-1, 0, 1\}$.  Furthermore, note that $(p^2 - q^2, pq) = 1$.  If there is some prime $r$ diving both $p^2 - q^2$ and $pq$, then we have that $r$ divides one of $p-q, p+q$ and one of $p, q$.  However, from these we could conclude that $r$ divides both $p, q$ which contradicts the fact that $(p, q) = 1$.  It follows that since the denominators strictly increase, we cannot have $f^{(m)}(x) = x$.
+\end{proof}
+\pagebreak
+\subsection{B5 - Algebra}
+let $a, b \in (0, 1/2)$ and let $g$ be a ontinuous real-valued function such that $g(g(x)) = ag(x) + bx$ for all real $x$.  Prove that $g(x) = cx$ for some constant $c$.
+\begin{proof}
+First, note that $g$ is injective.  This is because $g(x) = g(y)$ implies that $g(g(x)) = g(g(y))$, which implies that $ag(x) + bx = ag(y) + by$, which implies that $x = y$.   Since $g$ is continuous and injective, it follows that $g$ is monotone. 
+
+We claim that $g$ is unbounded, which implies that it is surjective.  Suppose $|g(x)| \le M$ for all $x \in \R$.  Then, 
+$$(a+1)M \ge |g(g(x)) - ag(x)| = |bx|,$$
+which is a contradiction since $bx$ is unbounded.  
+
+Now, let $x_0 \in \R$ be arbitrary and define $x_{n+1} = g(x_n)$, $x_{n-1} = g^{-1}(x_n)$.  The original functional equation gives a linear recurrence relation
+$$x_{n+2} = ax_{n+1} + bx_n.$$
+The corresponding characteristic polynomial is $\lambda^2 - a\lambda - b$, which has two distinct roots $\lambda_{\pm} = \frac{a \pm \sqrt{a^2 + 4b}}{2}$, since $a, b \in (0, 1/2)$.   It follows that 
+$$x_n = c_+ \lambda_+^n + c_- \lambda_-^n$$
+for constants $c_+, c_-$.
+
+Note that $\lambda_+ > 0, \lambda_- < 0$ and $1 > |\lambda_+| > |\lambda_-|$.  
+
+Suppose $f$ is monotone increasing(the case where $f$ is monotone decreasing is similar).  If $c_- \ne 0$ then as $n$ gets sufficiently small, $\lambda_-^n$ dominates $\lambda_+^n$, so there is some large enough $n$ so that $0 < x_n < x_{n+2}$ and $x_{n+3} < x_{n+1} < 0$, which would give that $g(x_n) > g(x_{n+2})$, a contradiction.  It follows that $c_- = 0$, so we have $x_0 = c_+$ and $g(x_0) = x_1 =  c_+ \lambda_+ = \lambda_+ x_0$, which gives the result.  
+
+
+\end{proof}
+\pagebreak
+\subsection{B6 - Algebra/Combinatorics}
+Assume $(a_n)_{n \ge 1}$ is an increasing sequence of positive real numbers such that $\lim a_n/n = 0$.  Must there exist infinitely many positive integers $n$ such that $a_{n-i} + a_{n+i} < 2a_n$ for $i = 1, 2, \dots, n-1$? 
+
+%%\begin{proof}
+%Let $A = \operatorname{Conv}\{(n, a_n): n \in \N\}$, and let $\partial A$ denote the set of points of $A$ that are on the boundary of the convex hull.  If $a_n \in \partial A$, there there exists some positive slope $m > 0$ so that the line through $a_n$ with slope $m$ is above all the other points of $A$.  In other words,
+%$$a_k \le a_n + m(k-n),$$
+%with equality at $k = n$.
+%Furthermore, since $\frac{a_k}{k} \to 0$, we have that 
+%$$\frac{a_k - a_n}{k-n} \to 0,$$
+%and $\frac{a_k - a_n}{k-n} \le m$ for all $k$ so it follows that it attains a maximum for some $k = r$.
+%\end{proof}
+\begin{proof}
+Let $A = \operatorname{Conv}\{(n, a_n) : n \in \N\}$ and let $\partial A$ denote the set of points on the boundary of the convex hull.  
+
+We claim that $\partial A$ contains infinitely many elements.  Suppose not.  Then, $\partial A$ has a last point $(N, a_N)$.  If we let $m = \sup_{n > N} \frac{a_n - a_N}{n - N}$, the slope of the line between $(N, a_N)$ and $(n, a_n)$, then the line through $(N, a_N)$ with slope $m$ lies above(or contains) each point $(n, a_n)$ for $n > N$.  However, since $a_n/n \to 0$ and $a_N, N$ are fixed, we have that $$\frac{a_n - a_N}{n - N} \to 0.$$
+This implies that the set of slopes attains a maximum, i. e. there is some point $(M, a_M)$ with $M > N$ so that $m = \frac{a_M - a_N}{M - N}$.  But then, we must also have that $(M, a_M) \in \partial A$, contradicting the fact that $(N, a_N)$ is the last point in $\partial A$.
+
+For each point on the boundary $(n, a_n) \in \partial A$, we must have that midpoint of the line through $(n-i, a_{n-i})$ and $(n+i, a_{n+i})$ for $i \in [n-1]$ must lie below $(n, a_n)$.  From this, it follows that $a_n > \frac{a_{n-i} + a_{n+i}}{2}$, which implies the result.  
+\end{proof}
+
+
+\pagebreak
+\section{Putnam - 2002}
+\subsection{A1 - Algebra}
+Let $k \in \N$.  The $n$-th derivative of $1/(x^{k}-1)$ has the form $P_n(x)/(x^{k}-1)^{n+1}$ where $P_n(x)$ is a polynomial.  Find $P_n(1)$.
+\begin{proof}
+We can write 
+\begin{align*}
+\frac{P_{n}(x)}{(x^k-1)^{n+1}} &= \frac{d}{dx} \left( \frac{P_{n-1}(x)}{(x^k - 1)^n}\right) \\
+&= \frac{(x^k - 1)^n P_{n-1}'(x) - nkx^{k-1}(x^k - 1)^{n-1} P_{n-1}(x)}{(x^k - 1)^{2n}} \\
+\Longrightarrow P_n(x) &= (x^k -1)P_{n-1}'(x) - nkx^{k-1}P_{n-1}(x).
+\end{align*}
+
+Plugging in $x = 1$ gives a recurrence relation $P_n(1) = -nk P_{n-1}(x)$.  It follows that $$P_n(1) = n!(-k)^n P_0(x) = n!(-k)^n.$$
+
+\end{proof}
+\subsubsection{Official Solution}
+An alternate solution comes from expanding $\frac{1}{x^k - 1}$ in a Laurent series around $1$.  
+\begin{proof}
+It suffices to keep track of the $O((x-1)^{-1})$ terms since the others vanish upon plugging in $1$.
+
+Note that 
+$$\frac{1}{x^k - 1} = \frac{1}{k(x-1) + \dots} = \frac{1}{k} (x-1)^{-1} + \dots.$$
+Taking the $n$-th, derivative, we have obtain 
+$$\frac{d^n}{dx^n} \frac{1}{x^k - 1} = \frac{(-1)^n n!}{k(x-1)^{-n-1}} + \dots.$$
+It follows that 
+\begin{align*}
+P_n(x) &= (x^k - 1)^{n + 1} \frac{d^n}{dx^n} \frac{1}{x^k - 1} \\
+&= (k(x-1) + \dots)^{n+1} \left(\frac{(-1)^n n!}{k(x-1)^{-n-1}} + \dots \right) \\
+&= k^n (-1)^n n! + \dots.
+\end{align*}
+\end{proof}
+\pagebreak
+\subsection{A2 - Combinatorics}
+Given any five points on a sphere, show that some four of them must lie on a closed hemisphere.  
+\begin{proof}
+Draw a great circle through any two points and consider the remaining three.  By the pigeonhole principle, there is closed hemisphere with at least two points, and choosing this hemisphere gives the result.  
+\end{proof}
+\pagebreak
+\subsection{A3 - Combinatorics}
+Let $n \ge 2$ be an integer and $T_n$ the number of nonempty subsets $S$ of $\{1, 2, \dots, n\}$ with the property that the average of the elements of $S$ is an integer.  Prove that $T_n - n$ is always even.  
+\begin{proof}
+Note that each one element subset $\{1\}, \{2\}, \dots, \{n\}$ has the property that the average of the element is an integer.  It suffices to consider the subsets at least $2$ elements.  For set of size at least $2$, we can pair them into $(S, S \cup\{a\})$, where $a \not \in S$ and the average of the elements in $S$ is $a$.  Each subset is contained in exactly one pair, so each of them don't contribute to the parity of $T_n - n$.  It follows that $T_n - n$ is even as desired.  
+\end{proof}
+
+\pagebreak
+\subsection{A4 - Combinatorics}
+in Determinant Tic-Tac-Toe, Player 1 enters a 1 in an empty $3 \times 3$ matrix.  Player $0$ counters with a $0$ in a vacant position, and play continues in turn until the matrix is completed with five $1$'s and four $0$'s.  Player $0$ wins if the determinant is $0$ and player $1$ wins otherwise.  Who wins and how?
+\begin{proof}
+Player $0$ wins.  After exchanging rows and columns(which doesn't change the norm of the determinant), we can assume without loss of generality that player $1$ enters a $1$ in the $a_{11}$ square.  
+
+In the optimal strategy, player $0$ enters a $0$ in the $a_{22}$ square.  There are 3 possible cases to check for player $1$'s next move:
+\begin{enumerate}
+\item $a_{12}$ or $a_{21}$,
+\item $a_{13}$ or $a_{31}$,
+\item $a_{23}$ or $a_{32}$,
+\item $a_{33}$.
+\end{enumerate}
+For each of these cases, it suffices to check the first since we can exchange $a_{ij}$ with $a_{ji}$ in order to obtain the strategy in the other corresponding case.  Note that if player $0$ creates a row/column of $0$'s or a $2 \times 2$ block of $0$'s, the determinant of the matrix will be $0$.
+
+(1) When player $1$ enters a $1$ in $a_{12}$, player $0$ enters a $0$ in square $a_{32}$. If player $1$ enters in $a_{21}$ or $a_{23}$, player $0$ enters in $a_{33}$ or $a_{31}$ respectively. In this position, player $1$ cannot stop player $0$ from creating a $2 \times 2$ block or a row of $0$'s.   Alternatively, if player $1$ enters in $a_{13}$, player $0$ enters in $a_{21}$.  In this position, player $1$ cannot stop player $0$ from creating a $2 \times 2$ block or a row of $0$'s.  In the other cases, we take a knight's move across whatever player $1$ plays and in this position, player $1$ cannot stop player $0$ from creating a $2 \times 2$ block or a row of $0$'s.
+
+The other cases follow a similar analysis, creating a triangle block of $0$'s in other to create two threats.  
+\end{proof} 
+\pagebreak
+\subsection{A5 - Number Theory}
+
+Define a sequence by $a_0 = 1$, together with the rules $a_{2n+1} = a_n$ and $a_{2n+2} = a_n + a_{n+1}$ for each integer $n \ge 0$.  Prove that every positive rational number appears in the set $\{a_n/a_{n+1}: n \ge 0\}$.
+
+\begin{proof}
+We proceed by induction on $k = \max\{p, q: \gcd(p, q) = 1\}$.  For $k = 1$, we know that $a_0 = a_1 = 1$ so we have $1/1$, which contains all the rational numbers $p/q$ with $\max\{p, q\} \le 1$.  Suppose the set contains all the rationals $p/q$ with $\max\{p, q: \gcd(p, q) = 1\} \le n$.  Then it contains $\frac{n+1-k}{k}$ for $1 \le k \le n$ whenever $\gcd(n+1-k, k) = 1$.  Note that $\gcd(n+1 - k, k) = 1 \Leftrightarrow \gcd(n+1, k) = 1$.
+
+It follows that we have $a_m = \ell(n + 1 - k), a_{m+1} = \ell(k)$ for some $\ell \in \N$.  Then, $a_{2m+1} = \ell(n+1-k)$, $a_{2n+2} = \ell(n+1)$ and $a_{2n+3} = \ell(k)$.  It follows that the set contains 
+$$\frac{n+1-k}{n+1}, \frac{n+1}{k}$$
+for each $1 \le k\le n$ so that $\gcd(n+1, k) = 1$, which proves the inductive step.  
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\pagebreak
+%\section{Putnam - 2019}
+%\subsection{A1 - Number Theory}
+%\begin{Prob}[2019 - A1] Determine all possible values of the expression $$A^3 + B^3 + C^3 - 3ABC,$$
+%where $A, B, C$ are nonnegative integers.
+%\end{Prob}
+%\begin{proof}
+%Let $S = A^3 + B^3 + C^3 - 3ABC$.  We claim that $S$ attains all values such that $S \ne 3, 6 \pmod{9}$.
+%
+%Note that the expression can be factored as 
+%$$A^3 + B^3 + C^3 - 3ABC = \left (\frac{A + B + C}{2}\right)\left((A-B)^2 + (B-C)^2 + (C-A)^2\right).$$
+%
+%If $(A, B, C) = (A, A+1, A+2)$, then 
+%$$S = \frac{3A+3}{2}(1^2 + 1^2 + 2^2) = (3A + 3)(3) = 9A + 9,$$
+%so we can achieve all $S \equiv 0 \pmod 9.$
+%
+%If $(A, B, C) = (A, A, A+1)$, then
+%$$S = \frac{3A+1}{2}(0^2+1^2+1^2) = 3A+1,$$
+%and if $(A, B, C) = (C+1, C+1, C)$, then 
+%$$S = \frac{3C+2}{2}(0^2+1^2+1^2) = 3C+2,$$
+%so we can achieve all $S \equiv 1, 2 \pmod{3}$.  
+%
+%It suffices to show that if $S \equiv 0 \pmod{3}$, then $S \equiv 0 \pmod{9}$.  This implies that we cannot have $S \ne 3, 6 \pmod{9}$ as desired.  If $S \equiv 0 \pmod{3}$, then we must have $A+B+C \equiv 0 \pmod 3$ or $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  In the first case, then without loss of generality, we must have either $(A, B, C) \in \{(0, 0, 0), (1, 1, 1),( 2, 2, 2), (0, 1, 2)\}$.  In each of these cases, we can show that $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  Similarly, in the second case, we must have that $(A-B)^2 = (B-C)^2 = (C-A)^2 = 0, 1$.  In the first case $A = B = C$, which gives that $A+B+C \equiv 0 \pmod{3}$.  In the second case, the remainders of $A, B, C$ must be distinct mod $3$, which, without loss of generality, gives $(A, B, C) = (0, 1, 2)$ which implies that $A+B+C \equiv 0 \pmod{3}$, as desired.  In all cases, we show that both terms in the product are $0 \pmod {3}$, which implies that the product is $0 \pmod {9}$.
+%\end{proof}
+%\subsection{A2 - Geometry}
+%\begin{Prob}[2019 - A2] In the triangle $ABC$, let $G$ be the centroid, and let $I$
+%be the center of the inscribed circle. Let $\alpha$ and $\beta$ be
+%the angles at the vertices $A$ and $B$, respectively. Suppose that the segment $IG$ is parallel to $AB$ and that
+%$\beta = 2\arctan(1/3)$. Find $\alpha$.
+%\end{Prob}
+%\begin{proof}
+%We use complex numbers.  Let $B = 0$.  Then $\text{arg}(I) = \beta/2 = \arctan(1/3)$, so $I = k(3+i)$ for some $k \in \R^+$.  Without loss of generality, let $k = 1$.  Let $A = a$.  Then, $IG$ is parallel to $AB$ which implies that $\operatorname{Im}(B-A) = \Im(I-G)$.  Then $\Im(B-A) = 0$, so $\Im(I) = \Im(G) = 1$.  
+%
+%Then, note that $\arg(I^2) = \arg(C)$, so $C = \ell(3+i)^2 = \ell(8+6i)$ for some $\ell \in \R^+$.  Then $G = \frac{A+B+C}{3} = \frac{A+C}{3}$, so $$1 = \Im(G) = \Im((A+C)/3) = \Im(C/3),$$ which implies that $\ell = \frac{1}{2}$.  Thus, $C = 4+3i$.  
+%
+%Finally, $$I = \frac{|CB|A + |AC|B + |AB|C}{|AB|+|BC|+|CA|} = \frac{5a + a(4+3i)}{5+a+\sqrt{(4-a)^2+9}} = 3+i.$$
+%
+%Hence,
+%$$5+a+\sqrt{(4-a)^2+9} = 3a,$$
+%which has solutions $a = 0, a = 4$.  Taking the positive solution, we have $A = 4$.  Then, note that $ABC$ is a right triangle with right angle at $A$, so $\alpha = \frac{\pi}{2}$.
+%\end{proof}
+%\subsection{A3 - Analysis}
+%\begin{Prob}[2019 - A3] Given real numbers $b_0, b_1, \dots, b_{2019}$ with $b_{2019} \ne 0$, let $z_1, z_2, \dots, z_{2019}$ be the roots in the complex plane of the polynomial $$P(z) = \sum_{k=0}^\infty b_kz^k.$$
+%Let $\mu = \frac{1}{2019}\sum_{k=1}^{2019}|z_k|$.  Determine the largest constant $M$ such that $\mu \ge M$ for all choices of $b_0, b_1, \dots, b_{2019}$ satisfying 
+%$$1 \le b_0 < b_1 < b_2 < \dots < b_{2019} \le 2019.$$
+%\end{Prob}
+%\begin{proof}
+%By the AM-GM inequality,
+%$$\mu = \frac{\sum_{k=1}^{2019}|z_k|}{2019} = \left (\prod_{k=1}^{2019} |z_k|\right )^{1/2019} = \left |\frac{b_0}{b_{2019}} \right|^{1/2019} \le (2019)^{-1/2019}.$$
+%
+%We show that $M = (2019)^{-1/2019}$.  Let $\zeta = e^{\frac{2\pi i}{2020}}$ and let $z_i = M\zeta^i$. Notice that $|z_i| = M$ for each $i$ and the roots $z_1, z_2, \dots, z_{2019}$ satisfy the polynomial
+%$$0 = \frac{(z_i/M)^{2020} - 1}{(z_i/M) - 1} = M^{-2019}\left (\frac{z_i^{2020} - M^{2020}}{z_i - M}\right ) =\sum_{k=0}^{2019}z_i^{k}M^{-k}.$$
+%
+%Hence, the polynomial $$P(z) = \sum_{k=1}^{2019}z_i^k2019^{k/2019}$$
+%satisfies the equality case $\mu = M$.  Furthermore, note that 
+%$b_0 = 1$, $b_{2019} = 2019$ and and $2019^{i/2019} < 2019^{j/2019}$ for all $i < j$.  Hence, $P$ satisfies the conditions.
+%\end{proof}
 \end{document}

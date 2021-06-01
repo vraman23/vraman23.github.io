@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+\usepackage[sexy]{evan}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\Im}{\text{Im }}
+\renewcommand{\>}{\rangle}
+\newcommand{\<}{\langle}
+
+
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Ext}{\operatorname{Ext}}
+
+\newcommand{\res}{\operatorname{res}}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ms \mathscr
+\let \mb \mathbb
+\let \ol \overline
+\let \subset \subseteq
+\let \subsetneq \subset
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Wilf, generatingfunctionology}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+Notes and selected solutions from \textit{Wilf, generatingfunctionology}(third edition).  I will generally leave out tedious computations but will refer to the text whenever possible.
+\end{abstract}
+\tableofcontents
+\pagebreak
+
+\section{Introductory Ideas and Examples}
+As a motivating example, take the Fibonacci numbers $F_0, F_1, \dots$ with the recurrence relation $F_{n+1} = F_n + F_{n-1}$ for $n \ge 0$, with $F_0 = 0, F_1 = 1$.  There are exact formulas for $F_n$, but another useful representation is as follows:  the $n$-th Fibonacci number $F_n$, is the coefficient of $x^n$ in the expansion of 
+$$F(x) = \frac{x}{1 - x - x^2}$$
+as a power series about the origin.  
+
+Generating functions are typically used for the following:
+\begin{itemize}
+\item Finding an exact formula for members of a sequence.  This is not always possible, depending on the sequence, but it is often a good starting point.
+\item Finding a recurrence formula.  Even though we mostly obtain generating functions from recurrences, we can sometimes use them to generate new recurrence formulas, which can potentially provide new insights.
+\item Find statistical properties of sequences.  These are typically called Moment Generating Functions in statistics and have many use cases.
+\item Finding asymptotic formulas for sequences.  An important example of this is the \textit{Prime Number Theorem}.
+\item Proving analytic properties of the sequence(convexity, unimodality).
+\item Proving combinatorial identities.  
+\end{itemize}
+ 
+\subsection{Example: Two-Term Recurrences}
+\begin{example}
+Take the recurrence defined by $a_{n+1} = 2a_n + 1$ for $n \ge 0$, $a_0 = 0$.  We show that $a_n = 2^n - 1$ using generating functions.
+\end{example}
+\begin{proof}
+Define $A(x) = \sum_{n \ge 0} a_n x^n$.  By multiplying the recurrence relation by $x^n$ and summing over $n$, we have 
+$$\sum_{n \ge 0} a_{n+1}x^n = 2\sum_{n \ge 0}a_n x^n + \sum_{n \ge 0} x^n = 2A(x) + \frac{1}{1-x}.$$
+
+Then, note that 
+$$\sum_{n \ge 0} a_{n+1} x^n = \frac{A(x) - a_0}{x} = \frac{A(x)}{x}.$$
+We obtain
+$$\frac{A(x)}{x} = 2A(x) + \frac{1}{1-x} \Longrightarrow A(x) = \frac{x}{(1-x)(1-2x)}.$$
+
+To find a formula for the coefficients, we can use a partial fractions decomposition and expand the corresponding Taylor series.  In this case, we have 
+\begin{align*}
+\frac{x}{(1-x)(1-2x)} &=  \left(\frac{2x}{1-2x} - \frac{x}{1-x} \right) \\
+&= \sum_{n \ge 1} (2x)^n - \sum_{n \ge 1} x^n \\
+&= \sum_{n \ge 1} (2^n - 1) x^n.
+\end{align*}
+\end{proof} 
+We now handle a more challenging two term recurrence.
+ \begin{example}
+Take the recurrence defined by $a_{n+1} = 2a_n + n$ for $n \ge 0$, $a_0 = 1$.  Find the generating function and determine a closed formula for the coefficients.
+\end{example}
+\begin{proof}
+As before, define $A(x) = \sum_{n \ge 0} a_n x^n$.  From the recurrence relation, we have 
+$$\frac{A(x) - 1}{x} = 2A(x) + \sum_{n \ge 0} n x^n.$$
+Note that 
+$$\sum_{n \ge 0} nx^n = \sum_{n \ge 0} x D(x^n) = xD\sum_{n \ge 0} x^n = xD \left(\frac{1}{1-x} \right) = \frac{x}{(1-x)^2}$$
+\end{proof}
+where $D$ denotes the differentiation operator.  We are assuming absolute convergence of the sums in these computations so the exchanging of the sum and the differentiation operator is justified.  
+
+Plugging this in and solving for $A(x)$, we obtain the generating function
+$$A(x) = \frac{1 - 2x + 2x^2}{(1-x)^2(1-2x)}= \frac{-1}{(1-x)^2} + \frac{2}{1-2x}.$$
+
+To compute the coefficient of $x^n$, note that the coefficient of $\frac{-1}{(1-x)^2}$ is $-n-1$ and the coefficient from $\frac{2}{1-2x}$ is $2^{n+1}$.  From this, we obtain that 
+$$a_n = 2^{n+1} - n - 1.$$
+
+\subsection{The Method of Generating Functions}
+\begin{definition} Given a power series $f(x)$, the symbol $[x^n]f(x)$ denotes the coefficient of $x^n$ in the series $f(x)$.
+\end{definition}
+\begin{fact} $[x^n]\{x^a f(x)\} = [x^{n-a}]f(x)$.
+\end{fact}
+\begin{fact} $[\beta x^n]f(x) = 1/\beta [x^n]f(x)$ for $\beta \in \R$.
+\end{fact}
+Given a recurrence formula, we have the following steps:
+\begin{enumerate}
+\item Note the set of values that are taken by the free variable(it is generally $n \ge 0$ or $n \ge 1$).
+\item Define a generating function, $A(x) = \sum_{n} a_n x^n$.
+\item Multiply both sides of the recurrence by $x^n$ and sum over $n$.
+\item Express both sides of the equation in terms of $A(x)$.
+\item Solve for $A(x)$.  If an exact formula is needed, expand $A(x)$ in a power series.  
+\end{enumerate}
+
+\subsection{Example: Fibonacci Numbers}
+We return to the example of Fibonacci numbers, calculating the generating function.  Define $F(x) = \sum_{n \ge 0} F_n x^n$.  
+
+We have 
+\begin{align*}
+\sum_{n \ge 1} F_{n+1} x^n &= \sum_{n \ge 1} F_n x^n + \sum_{n \ge 1} F_{n-1} x^n, \\
+\frac{F(x) - x}{x} &= F(x) + xF(x), \\
+F(x) &= \frac{x}{1 - x - x^2}.
+\end{align*}
+
+We can write $1 - x - x^2 = (1-xr_+)(1 - xr_-)$ with $r_{\pm} = \frac{1\pm \sqrt{5}}{2}$.  It follows that 
+\begin{align*}
+\frac{x}{1-x-x^2} &= \frac{1}{r_+ - r_-} \left( \frac{1}{1-xr_+} - \frac{1}{1 - xr_-}\right) \\
+&= \frac{1}{\sqrt{5}} \sum_{n \ge 0} (r_+^n - r_-^n)x^n.
+\end{align*}
+\subsection{Two Independent Variables}
+Let $n$ and $k$ be integers with $0 \le k \le n$.  How many ways can we choose a subset of $k$ objects from $\{1, 2, \dots, n\}$?  We know that this is $\binom{n}{k}$, but we derive this using generating functions.
+\begin{proof}
+Let $f(n, k)$ be the answer to the question. In the possible collection of subsets, we can divide them into two piles: subsets containing $n$ and subsets not containing $n$.  In the first case, there are $f(n-1, k-1)$ possible subjects and the latter case there are $f(n-1, k)$ subsets.  From this, we obtain the recurrence
+$$f(n, k) = f(n-1, k) + f(n-1, k-1).$$
+Note the obvious initial condition $f(n, 0) = 1$.  Define the generating function
+$$B_n(x) = \sum_{k \ge 0} f(n, k) x^k.$$
+
+Using the recurrence relation, we obtain
+$$B_n(x) - 1 = (B_{n-1}(x) - 1) + xB_{n-1}(x), \quad B_0(x) = 1$$
+which gives
+$$B_n(x) = (1 + x)B_{n-1}(x).$$
+This is an easy recurrence to solve: namely $B_n(x) = (1 + x)^n$.  We obtain the desired result that $[x^k]B_n(x) = \binom{n}{k}$ by the binomial theorem.  We could also use Taylor's formula: $f(n, k)$ will be the $k$-th derivative of $(1 + x)^n$ evaluated at $x = 0$ divided by $k!$.
+\end{proof}
+An important thing to note is that our computation holds for arbitrary $n \in \C$, provided $k \in \N$.  From this, we obtain a general formula for binomial coefficients, given by 
+$$\binom{n}{k} = \frac{n(n-1) \dots (n-k + 1)}{k!}.$$
+
+\subsection{Exponential Generating Functions}
+The choice of $x^n$ was somewhat arbitrary for our power series.  In some cases, other choices can be helpful.
+\begin{definition}[Exponential Generating Function] The EGF of a sequence $\{a_n\}_{n \ge 0}$ is given by 
+$$\sum_{n \ge 0} a_n \frac{x^n}{n!}.$$
+\end{definition}
+We call our vanilla generating function an "Ordinary Generating Function"(OGF).
+
+A useful operation in the case of EGFs is the $x(D)\log$.  This goes as follows:
+\begin{enumerate}
+\item Take the logarithm of both sides of the equation.
+\item Differentiate both sides and multiply through by $x$.
+\item Clear the fractions.
+\item For each $n$, find the coefficients of $x^n$ on both sides and equate them.  
+\end{enumerate}
+ \end{document}
