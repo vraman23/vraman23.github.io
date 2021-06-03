@@ -171,4 +171,68 @@ A useful operation in the case of EGFs is the $x(D)\log$.  This goes as follows:
 \item Clear the fractions.
 \item For each $n$, find the coefficients of $x^n$ on both sides and equate them.  
 \end{enumerate}
+\pagebreak
+\section{Series}
+\subsection{Formal Power Series}
+We now consider generating functions as an object in the algebraic ring of formal power series.  
+\begin{definition} A formal power series is an expression of the form $\sum_{n \ge 0} a_n x^n$.  We can identify a formal power series with a sequence of coefficients $\{a_n\}$.  The ring of formal power series over a ring $R$ is denoted $R[[x]]$.  Addition and subtraction are as usual and multiplication is given by the Cauchy product rule:
+$$\sum_n a_n x^n \sum_n b_n x^n = \sum_n \left(\sum_k a_kb_{n-k}\right) x^n.$$
+\end{definition}
+
+\begin{proposition} A formal power series $f = \sum_{n \ge 0} a_nx^n$ has a reciprocal if and only if $a_0 \ne 0$.  In this case, the reciprocal is unique.  
+\end{proposition}
+\begin{proof}
+Let $f$ have a reciprocal, $1/f = \sum_{n \ge 0} b_n x^n$.  By definition, $c_0 = 1 = a_0b_0$ which implies that $a_0 \ne 0$.  Furthermore, note that $c_n = 0 = \sum_{k} a_kb_{n-k}$ so it follows that 
+$$b_n = (-1/a_0) \sum_{k \ge 1} a_kb_{n-k},$$
+which implies that the coefficients are uniquely determined.  
+
+Conversely, if $a_0 \ne 0$, we can determine the coefficients of the reciprocal $1/f$ via the above formula.  
+\end{proof}
+
+\begin{remark}
+In order to handle convergence issues, we define the composition of two formal power series $f \circ g$ if and only if $g_0 = 0$ or $f$ is a polynomial.  
+\end{remark} 
+ \begin{proposition} Suppose we have two formal power series $f, g$ satisfying $f \circ g (x) = g \circ f (x) =x $ and $f(0) = 0$.  Then $f = f_1 x + f_2 x^2 + \dots$ and $g = g_1 x + g_2 x^2 + \dots$ with $f_1, g_1 \ne 0$.
+ \end{proposition}
+ 
+ We could also define derivatives of formal power series in the sense of usual calculus.  It is easy to show that these satisfies the usual rules calculus rules, as well as identities such as $f' = 0 \Rightarrow f = a_0$ or $f' = f \Rightarrow f = ce^x$.
+ \pagebreak
+ \subsection{Calculus of Formal Ordinary Power Series Generating Functions}
+ We will use the notation $f \leftrightarrow^o \{a_n\}$ to denote $f = \sum_n a_n x^n$. 
+We have the following rules:
+ \begin{fact} If $f \leftrightarrow^o \{a_n\}$, then for $h \in \N$. 
+ $$\{a_{n + h}\} \leftrightarrow^o \frac{f - a_0 - \dots - a_{h-1}x^{h-1}}{x^h}.$$
+ \end{fact}
+  \begin{fact} If $f \leftrightarrow^o \{a_n\}$, and $P$ is a polynomial
+ $$P(xD) f \leftrightarrow^o \{P(n) a_n\}.$$
+ \end{fact}
+ \begin{fact}  If $f \leftrightarrow^o \{a_n\}$, $g \leftrightarrow^o \{b_n\}$, 
+ $$fg \leftrightarrow^o \left \{\sum_{r=0}^n a_r b_{n-r}\right \}.$$
+ \end{fact}
+  \begin{fact} If $f \leftrightarrow^o \{a_n\}$, then for $k \in \N$. 
+  $$f^k \leftrightarrow^o \left \{\sum_{n_1 + \dots + n_k = n} a_{n_1} \dots a_{n_k}\right \}.$$
+ \end{fact}
+   \begin{fact} If $f \leftrightarrow^o \{a_n\}$, then
+  $$\frac{f}{1-x}\leftrightarrow^o \left \{\sum_{j=0}^n a_j   \right \}.$$
+ \end{fact}
+ 
+  \subsection{Calculus of Formal Exponential Power Series Generating Functions}
+ We will use the notation $f \leftrightarrow^e \{a_n\}$ to denote $f = \sum_n a_n x^n/n!$. 
+We have the following rules:
+ \begin{fact} If $f \leftrightarrow^e \{a_n\}$, then for $h \in \N$. 
+ $$\{a_{n + h}\} \leftrightarrow^e D^hf.$$
+ \end{fact}
+  \begin{fact} If $f \leftrightarrow^e \{a_n\}$, and $P$ is a polynomial
+ $$P(xD) f \leftrightarrow^e \{P(n) a_n\}.$$
+ \end{fact}
+ \begin{fact}  If $f \leftrightarrow^e \{a_n\}$, $g \leftrightarrow^e \{b_n\}$, 
+ $$fg \leftrightarrow^e \left \{\sum_{r=0}^n \binom{n}{r}a_r b_{n-r}\right \}.$$
+ \end{fact}
+  \begin{fact} If $f \leftrightarrow^e \{a_n\}$, then for $k \in \N$. 
+  $$f^k \leftrightarrow^e \left \{\sum_{n_1 + \dots + n_k = n}\frac{n!}{n_1! \dots n_k!} a_{n_1} \dots a_{n_k}\right \}.$$
+ \end{fact}
+ \pagebreak
+ \section{The Exponential Formula}
+ \section{Applications of Generating Functions}
+
  \end{document}

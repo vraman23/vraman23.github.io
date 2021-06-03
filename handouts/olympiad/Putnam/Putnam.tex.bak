@@ -386,8 +386,42 @@ $$\frac{n+1-k}{n+1}, \frac{n+1}{k}$$
 for each $1 \le k\le n$ so that $\gcd(n+1, k) = 1$, which proves the inductive step.  
 \end{proof}
 
+\pagebreak
+\subsection{A6 - Analysis}
+Fix an integer $b \ge 2$.  Let $f(1) = 1$, $f(2) = 2$, and for each $n \ge 3$, define $f(n) = nf(d)$, where $d$ is the number of base-$b$ digits of $n$.  For which values of $b$ does the sum $\sum_{n \ge 1} 1/f(n)$ converge?
+
+\begin{proof}
+The sum converges for $b = 2$ and diverges for $b \ge 3$.  
+
+We first consider $b \ge 3$.  Suppose the sum converges.  Note that we can write 
+$$\sum_{n = 1}^\infty \frac{1}{f(n)} = \sum_{d = 1}^\infty \frac{1}{f(d)}\sum_{n = b^{d-1}}^{b^{d} - 1} \frac{1}{n}.$$
+Note that $\sum_{n = b^{d-1}}^{b^d - 1} \frac{1}{n}$ is a left-endpoint Riemann approximation for the integral $\int_{b^{d-1}}^{b^d} \frac{1}{x}$ and the function $\frac{1}{x}$ is monotonically decreasing on this interval so it follows that 
+$$\sum_{n = b^{d-1}}^{b^d - 1} \frac{1}{n} > \int_{b^{d-1}}^{b^d} \frac{1}{x} = \log b.$$
+However, this implies that 
+$$\sum_{n = 1}^\infty \frac{1}{f(n)} > \log b \sum_{d = 1}^\infty \frac{1}{f(d)},$$
+which is a contradiction since $\log b > 1$.
 
 
+Now, we show that the sum converges in the case of $b = 2$.  Let $C = \log 2 + \frac{1}{8} < 1$.  We prove by induction that for each $m \in \N$, $$\sum_{n=1}^{2^{m} - 1} \frac{1}{f(m)} < 1 + \frac{1}{2} + \frac{1}{6(1-C)} = L.$$
+
+For $m = 1, 2$, the result is clear.  Suppose it is true for all $m \in \{1, 2, \dots, N-1\}$.  Note that 
+\begin{align*}
+\sum_{n=1}^{2^N - 1} \frac{1}{f(n)} &= 1 + \frac{1}{2} + \frac{1}{6} + \sum_{d=3}^N \frac{1}{f(d)} \sum_{n = 2^{d - 1}}^{2^d - 1} \frac{1}{n}.
+\end{align*}
+Then, using a right-endpoint Riemann approximation, we have 
+\begin{align*}
+\sum_{n = 2^{d-1}}^{2^d - 1} \frac{1}{n} &= \frac{1}{2^{d - 1}} - \frac{1}{2^{d}} + \sum_{n = 2^{d-1}+1}^{2^d} \frac{1}{n} \\
+&< 2^{-d} + \int_{2^{d-1}}^{2^d} \frac{dx}{x} \\
+&< \frac{1}{8} + \log 2 = C.
+\end{align*}
+It follows that 
+\begin{align}
+1 + \frac{1}{2} + \frac{1}{6} + \sum_{d=3}^N \frac{1}{f(d)} &< 1 + \frac{1}{2} + \frac{1}{6} + C \sum_{d = 3}^N \frac{1}{ f(d)} \\
+&< 1 + \frac{1}{2} + \frac{1}{6} + \frac{C}{6(1 - C)} \\
+&= 1 + \frac{1}{2} + \frac{1}{6(1-C)} = L,
+\end{align}
+where we used the strong induction hypothesis to obtain $(2)$.
+\end{proof}
 
 
 

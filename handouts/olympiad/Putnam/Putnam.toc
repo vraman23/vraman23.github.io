@@ -19,3 +19,4 @@
 \contentsline {subsection}{\numberline {2.3}A3 - Combinatorics}{17}{subsection.2.3}% 
 \contentsline {subsection}{\numberline {2.4}A4 - Combinatorics}{18}{subsection.2.4}% 
 \contentsline {subsection}{\numberline {2.5}A5 - Number Theory}{19}{subsection.2.5}% 
+\contentsline {subsection}{\numberline {2.6}A6 - Analysis}{20}{subsection.2.6}% 

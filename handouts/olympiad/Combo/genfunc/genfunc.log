@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 JUN 2021 17:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  3 JUN 2021 14:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1394,21 +1394,36 @@ nput line 113.
 Package hyperref Info: bookmark level for unknown fact defaults to 0 on input l
 ine 115.
  [3] [4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
+input line 182.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 193.
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
+ line 193.
+ [6] [7] [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 238.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 238.
  (./genfunc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 174.
-Package rerunfilecheck Info: File `genfunc.out' has not changed.
-(rerunfilecheck)             Checksum: 51E870700F19736B6E68C1B1AE1EDBBA;457.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 174.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 238.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 238.
+
+
+Package rerunfilecheck Warning: File `genfunc.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `genfunc.out':
+(rerunfilecheck)             Before: 90B13A563E151BD0460B6E1898CA1C1C;790
+(rerunfilecheck)             After:  26E32E69AB689D36A02F0E5AF058B9A2;921.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 238.
  ) 
 Here is how much of TeX's memory you used:
- 35060 strings out of 492616
- 662879 string characters out of 6129482
- 755402 words of memory out of 5000000
- 38412 multiletter control sequences out of 15000+600000
- 543192 words of font info for 79 fonts, out of 8000000 for 9000
+ 35152 strings out of 492616
+ 664265 string characters out of 6129482
+ 755452 words of memory out of 5000000
+ 38454 multiletter control sequences out of 15000+600000
+ 545806 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,12n,83p,927b,1009s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -1416,21 +1431,23 @@ Here is how much of TeX's memory you used:
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
 /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
 usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on genfunc.pdf (5 pages, 171073 bytes).
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
+ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
+exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texl
+ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on genfunc.pdf (8 pages, 203137 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 15005 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 16061 words of extra memory for PDF output out of 17280 (max. 10000000)
 
