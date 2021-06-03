@@ -9,4 +9,5 @@
 \contentsline {subsection}{\numberline {2.2}Calculus of Formal Ordinary Power Series Generating Functions}{7}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Calculus of Formal Exponential Power Series Generating Functions}{7}{subsection.2.3}% 
 \contentsline {section}{\numberline {3}The Exponential Formula}{8}{section.3}% 
-\contentsline {section}{\numberline {4}Applications of Generating Functions}{8}{section.4}% 
+\contentsline {subsection}{\numberline {3.1}Notation and Definitions}{8}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Examples of Exponential Families}{8}{subsection.3.2}% 

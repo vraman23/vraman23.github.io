@@ -108,7 +108,6 @@ $$A(x) = \frac{1 - 2x + 2x^2}{(1-x)^2(1-2x)}= \frac{-1}{(1-x)^2} + \frac{2}{1-2x
 
 To compute the coefficient of $x^n$, note that the coefficient of $\frac{-1}{(1-x)^2}$ is $-n-1$ and the coefficient from $\frac{2}{1-2x}$ is $2^{n+1}$.  From this, we obtain that 
 $$a_n = 2^{n+1} - n - 1.$$
-
 \subsection{The Method of Generating Functions}
 \begin{definition} Given a power series $f(x)$, the symbol $[x^n]f(x)$ denotes the coefficient of $x^n$ in the series $f(x)$.
 \end{definition}
@@ -233,6 +232,32 @@ We have the following rules:
  \end{fact}
  \pagebreak
  \section{The Exponential Formula}
- \section{Applications of Generating Functions}
+ \subsection{Notation and Definitions}
+ \begin{definition} A \textit{card} $\mc C(S, p)$ is a pair consisting of a finite set $S$ and a picture $p \in P$.  The \textit{weight} of $\mc C$ is $n = |S|$.  A card of weight $n$ is called standard if its label set is $[n]$.
+ \end{definition}
+ \begin{definition} A \textit{hand} is a set of cards whose label forms a partition of $[n]$, for some $n$.  The weight of a hand is the sum of the weights of the cards in the hand.  
+ \end{definition}
+ \begin{definition} A relabeling of a card $\mc C(S, p)$ with $S'$ is defined if $|S| = |S'|$ and it is the card $C(S', p)$.  If $S' = [|S|]$, we have the standard relabeling of the card.
+ \end{definition}
+ \begin{definition} A \textit{deck} $\mc D$ is a finite set of standard cards whose weights are all the same and whose pictures are different.  The weight of the deck is the common weight of all the cards in the deck.
+ \end{definition} 
+ 
+ \begin{definition} 
+ An \textit{exponential family} $\mc F$ is a collection of decks $\mc D_1$, $\mc D_2, \dots$, where for each $n = 1, 2, \dots$, the deck $\mc D_n$ is of weight $n$.
+\end{definition}
+\subsection{Examples of Exponential Families}
+\begin{example}[Undirected Graphs $\mc F_1$] Let $G$ be an undirected graph of $n$ vertices that are labeled with a set $S$ of labels.  The standard relabeling is as follows : we relabel the vertices with $[n]$, preserving the order of the vertices.  A card $\mc C(S, p)$ has a picture $p$ which corresponds to a standard relabeling of $G$.
+
+A hand is a collection of cards whole label sets partition $[n]$, the weight of the hand.  Each hand $H$ corresponds to a not-necessarily-connected graph with standard labels.  The individual components of the graph may have nonstandard labels, but the overall graph has a label set of $[n]$.
+
+Using the above definitions, the set of vertex labeld graphs forms an exponential family, where each card is a labeled connected graph, each deck $\mc D_n$ is the set of connected standard labeled graphs of $n$ vertices, and each hand is a standard labeled graph.  
+\end{example}
+
+\begin{example}[Permutations] The cards are of the form $\mc C(S, p)$ where $S$ is a set of integers and $p$ is a cyclic permutation of $[|S|]$.  A deck of these cards is one sample of every distinct standard card of a given weight.  For example, the $n$-th deck $\mc D_n$ contains exactly $(n-1)!$ cards, one for each cyclic permutation of $[n]$.  A hand is a collection of cards whose label sets partition $[n]$ for some $n$. This would consist of $k$ label sets $S_1, \dots, S_k$ whose union is $[n]$ and a cyclic permutation for each $S_i$.
+\end{example}
+
+\subsection{Main Counting Theorems}
+
+\section{Applications of Generating Functions}
 
  \end{document}
