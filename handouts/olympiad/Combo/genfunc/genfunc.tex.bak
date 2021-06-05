@@ -253,11 +253,104 @@ A hand is a collection of cards whole label sets partition $[n]$, the weight of 
 Using the above definitions, the set of vertex labeld graphs forms an exponential family, where each card is a labeled connected graph, each deck $\mc D_n$ is the set of connected standard labeled graphs of $n$ vertices, and each hand is a standard labeled graph.  
 \end{example}
 
-\begin{example}[Permutations] The cards are of the form $\mc C(S, p)$ where $S$ is a set of integers and $p$ is a cyclic permutation of $[|S|]$.  A deck of these cards is one sample of every distinct standard card of a given weight.  For example, the $n$-th deck $\mc D_n$ contains exactly $(n-1)!$ cards, one for each cyclic permutation of $[n]$.  A hand is a collection of cards whose label sets partition $[n]$ for some $n$. This would consist of $k$ label sets $S_1, \dots, S_k$ whose union is $[n]$ and a cyclic permutation for each $S_i$.
+\begin{example}[Permutations $\mc F_2$] The cards are of the form $\mc C(S, p)$ where $S$ is a set of integers and $p$ is a cyclic permutation of $[|S|]$.  A deck of these cards is one sample of every distinct standard card of a given weight.  For example, the $n$-th deck $\mc D_n$ contains exactly $(n-1)!$ cards, one for each cyclic permutation of $[n]$.  A hand is a collection of cards whose label sets partition $[n]$ for some $n$. This would consist of $k$ label sets $S_1, \dots, S_k$ whose union is $[n]$ and a cyclic permutation for each $S_i$.
 \end{example}
 
 \subsection{Main Counting Theorems}
+Suppose we have two exponential families $\mc F', \mc F''$ with disjoint picture sets $P', P''$ respectively.  We can form a third family $\mc F = \mc F' \oplus \mc F''$ as follows:  fix $n \ge 1$.  From $\mc F'$ we take all the cards from $\mc D_n'$ and put them in a new pile.  From $\mc F''$, we add the cards from $\mc D_n''$ to the new pile.  Then, we repeat this for each $n \ge 1$.
 
+\begin{lemma}[Fundamental Lemma of Labeled Counting]
+Let $\mc F', \mc F''$ be exponential families and $\mc F = \mc F' \oplus \mc F''$ the merged exponential family.  Let $\mc H'(x, y), \mc H''(x, y)$ and $\mc H(x, y)$ denote the corresponding two-variable generating functions of the families.  Then
+$$\mc H(x, y) = \mc H'(x, y)\mc H''(x, y).$$
+\end{lemma}
+\begin{proof}
+\begin{align*}
+h(n, k) &= \sum_{n', k'} \binom{n}{n'} h'(n', k') h''(n-n', k-k') \\
+&= \left[\frac{x^n}{n!} y^k \right]\mc H'(x, y) \mc H''(x, y).
+\end{align*}
+\end{proof}
+
+\begin{theorem}[The Exponential Formula]
+Let $\mc F$ be an exponential family whose deck and hand enumerators and $\mc D(x)$ and $\mc H(x, y)$, respectively.  Then, 
+$$\mc H(x, y) = e^{y\mc D(x)}.$$
+In particular, 
+$$h(n, k) = \left[\frac{x^n}{n!} \right] \left\{ \frac{\mc D(x)^k}{k!} \right\}.$$
+\end{theorem}
+
+\begin{corollary} Let $\mc F$ be an exponential family, let $\mc D(x)$ be the egf of the sequence $\{d_n\}$ of sizes of the decks, and let $\mc H(x) \leftrightarrow^e \{h_n\}$, where $h_n$ is the number of hands of weight $n$.  Then,
+$$\mc H(x) = e^{\mc D(x)}.$$
+\end{corollary}
+
+\begin{corollary} Let $T$ be a set of positive integers, let $e_T(x) = \sum_{n \in T} x^n/n!$, and let $h_n(t)$ be the number of hands whose weight is $n$ and whose number of cards belongs to the allowable set $T$. Then,
+$$\{h_n(T)\} \leftrightarrow^e e_T(\mc D(x)).$$
+\end{corollary}
+
+The remaining section on the exponential family are a bit technical and seem beyond my use cases.  I may return to this upon completing Chapter 4.
+%\subsection{Permutations and Cycles}
+\pagebreak
 \section{Applications of Generating Functions}
+\subsection{Statistical Moments}
+Suppose $f(n)$ is the number of objects, in a set $S$ of $N$ objects that have $n$ properties, with $\sum_n f(n) = N$.  Recall the mean $\mu$ is defined by 
+$$\mu = \frac{1}{N} \sum_n nf(n).$$
+\begin{fact}
+Suppose we had $F(x) \leftrightarrow^o  \{f(n)\}$.   Then, $\mu = \frac{F'(1)}{F(1)}$.
+\end{fact}
 
+We can do the same for the variance $\sigma^2$, which is  defined by 
+$$\sigma^2 = \frac{1}{N} \sum_{\omega \in s} (n(\omega) - \mu)^2.$$
+\begin{fact}
+Suppose we had $F(x) \leftrightarrow^o  \{f(n)\}$.    Then $\sigma^2 = \{ (\log F)' + (\log F)''\}_{x = 1}.$
+\end{fact}
+
+We can also use these to derive statistics for exponential families.  Namely, we have the following theorem:
+\begin{theorem} In an exponential family $\mc F$, the average number of cards in hands of weight $n$ is 
+$$\mu(n) = [h(n)x^n/n!] \mc D(x) \mc H(x) = \frac{1}{h(n)} \sum_{r} \binom{n}{r} d_rh(n-r).$$
+\end{theorem}
+
+\begin{example} Applying the formula to cycles of permutations, with $h(n) = n!$, we have 
+$$\mu (n) = \frac{1}{n!} \sum_{r} \binom{n}{r} (r-1)! (n-r)! = \sum_{r=1}^n \frac{1}{r} = H_n.$$
+\end{example}
+\pagebreak
+\subsection{The Sieve Method}
+If $S \subseteq P$ is a set of properties, let $N_S$ be the number of objects whose set of properties contains $S$.  For a fixed, $r \ge 0$, consider the sum
+$$N_r = \sum_{|S| = r} N_S$$
+Let the symbol $P(\omega)$ denote the set of properties that $\omega$ has.  Then, we have 
+\begin{align*}
+N_r &= \sum_{|S| = r} N_S \\
+&= \sum_{|S| = r} \sum_{\omega\in \Omega, S \subseteq P(\omega)} 1 \\
+&= \sum_{\omega \in \Omega}  \sum_{|S| = r, S \subseteq P(\omega)} 1 \\
+&=  \sum_{\omega \in \Omega} \binom{|P(\omega)|}{r}
+\end{align*}
+
+Suppose there are $e_t$ objects that have exactly $t$ properties.  The above formula simplifies to
+$$N_r = \sum_{t \ge 0} \binom{t}{r} e_t.$$
+
+We wish to be able to calculate $\{e_t\}$ from $\{N_t\}$, which are often much easier to compute.  To do this, let $N(x) \leftrightarrow \{N_r\},  E(x)\leftrightarrow \{e_t\}$.  We have 
+\begin{align*}
+N(x) &= \sum_r \sum_t \binom{t}{r} e_t x^r \\
+&= \sum_t  e_t \sum_r \binom{t}{r} x^r \\
+&= \sum_t e_t(x+1)^t \\
+&= E(x + 1).
+\end{align*}
+
+For an explicit formula, using $E(x) = N(x-1)$, we obtain
+$$e_j = \sum_t (-1)^{t-j} \binom{t}{j} N_t.  $$
+\begin{example}[Fixed points of permutations] Of the $n!$ permutations of $n$ letters, how many have exactly $r$ fixed points?  
+
+First, we can compute $N_S = (n-|S|)!$, since we keep the letters in $S$ fixed and permute the other letters.  
+
+Next,
+$$N_r = \sum_{|S|  = r} N_S = \sum_{|S| = r} (n - |S|)! =  \binom{n}{r} (n-r)! = \frac{n!}{r!}.$$
+
+The ordinary generating function $N(x)$ is given by 
+$$N(x) = \sum_{r=0}^n \frac{n!}{r!} x^r = n! \sum_{r=0}^n \frac{x^r}{r!}.$$
+
+Finally,
+$$E(x) = \sum_t e_tx^t = n! \sum_{r=0}^n \frac{(x-1)^r}{r!}.$$
+\end{example}
+
+\begin{example}[Rooks on chessboards] For $n$ fixed, a chessboard $C$ is a subset of $[n] \times [n]$.  We are given $C$, and we defined a sequence $\{r_k\}$ where $r_k$ is the number of ways we can place $k$ nonattacking rooks on $C$.
+
+Let $\sigma$ be a permutation of $n$ letters.  For each $j$, we let $e_j$ denote the number of permutations that meet the chessboard in exactly $j$ squares, i. e., if $(i, \sigma(i)) \in C$ occurs for exactly $j$ values of $i \in [n]$.
+\end{example}
  \end{document}

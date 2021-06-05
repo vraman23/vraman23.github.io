@@ -11,3 +11,7 @@
 \contentsline {section}{\numberline {3}The Exponential Formula}{8}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Notation and Definitions}{8}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Examples of Exponential Families}{8}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Main Counting Theorems}{8}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}Applications of Generating Functions}{10}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Statistical Moments}{10}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}The Sieve Method}{11}{subsection.4.2}% 
