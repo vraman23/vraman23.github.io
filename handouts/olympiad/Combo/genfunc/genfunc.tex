@@ -349,8 +349,67 @@ Finally,
 $$E(x) = \sum_t e_tx^t = n! \sum_{r=0}^n \frac{(x-1)^r}{r!}.$$
 \end{example}
 
-\begin{example}[Rooks on chessboards] For $n$ fixed, a chessboard $C$ is a subset of $[n] \times [n]$.  We are given $C$, and we defined a sequence $\{r_k\}$ where $r_k$ is the number of ways we can place $k$ nonattacking rooks on $C$.
+\begin{example}[Subset Combinatorial Identity] For fixed $n \in \N$, take $\Omega$ to be the $\binom{2n}{n}$ ways of choosing an $n$-subset of $[2n]$.  For the set $P$ of properties, we take the list of $n$ properties; an $n$-subset $Q$ has the property $i$ if $i \not \in Q$ for each $i \in [n]$.
 
-Let $\sigma$ be a permutation of $n$ letters.  For each $j$, we let $e_j$ denote the number of permutations that meet the chessboard in exactly $j$ squares, i. e., if $(i, \sigma(i)) \in C$ occurs for exactly $j$ values of $i \in [n]$.
+Note that 
+$$N_S = \binom{2n - |S|}{n},$$
+Then,
+$$N_r = \sum_{|S| = r} N_S = \binom{n}{r} \binom{2n-r}{n}.$$
+
+It follows that 
+$$\sum_j e_j t^j = \sum_{r} \binom{n}{r} \binom{2n-r}{n} (t-1)^r.$$
+
+Alternatively, note that $e_j = \binom{n}{j}^2$, since we can choose $j$ elements that are missing in $\binom{n}{j}$ ways and we can choose the other $j$ elements from $n+1, \dots, 2n$ in $\binom{n}{j}$ ways.  It follows that 
+$$\sum_j \binom{n}{j}^2 t^j = \sum_r \binom{n}{r} \binom{2n-r}{n} (t-1)^r.$$
 \end{example}
+
+\subsection{Snake Oil Method}
+The method handles a large number of combinatorial identities.  It goes as follows:
+\begin{enumerate}
+\item Identify the free variable, say $n$.  Give a name to the sum $f(n)$.
+\item Let $F(x)$ be the opsgf whose $[x^n]$ is $f(n)$.
+\item Multiply the sum by $x^n$, and sum on $n$.
+\item Interchange the order of summation and evaluate the inner one in a simple closed form.
+\item Identify the coefficients of the generating function of the answer.  
+\end{enumerate}
+
+Some useful closed form expressions we will use are 
+$$\sum_{r \ge 0} \binom{r}{k} x^r = \frac{x^k}{(1-x)^{k+1}},$$
+$$\sum_r \binom{n}{r} x^r = (1 + x)^n,$$
+$$\sum_n \frac{1}{n+1} \binom{2n}{n} x^n = \frac{1}{2x} (1 - \sqrt{1 - 4x}).$$
+
+\begin{example} Compute $$\sum_{k \ge 0} \binom{k}{n-k}.$$
+
+\end{example}
+\begin{proof}
+Define $f(n) = \sum_{k \ge 0} \binom{k}{n-k}$.  We have 
+\begin{align*}
+F(x) &= \sum_n x^n \sum_{k \ge 0} \binom{k}{n-k} \\
+&= \sum_{k \ge 0} \sum_{n} \binom{k}{n-k} x^n \\
+&= \sum_{k \ge 0} x^{k} \sum_{n} \binom{k}{n-k} x^{n-k} \\
+&= \sum_{k \ge 0} x^k \sum_{r} \binom{k}{r} x^r \\
+&= \sum_{k \ge 0} x^k (1 + x)^k \\
+&= \sum_{k \ge 0} (x + x^2)^k \\
+&= \frac{1}{1 - x -x^2}.
+\end{align*}
+This is exactly the generating function for the Fibonacci numbers, $f(n) = F_{n + 1}$.
+\end{proof}
+\begin{example} Compute 
+$$\sum_k \binom{n + k}{m + 2k} \binom{2k}{k} \frac{(-1)^k}{k + 1}.$$
+\end{example}
+\begin{proof}
+\begin{align*}
+F(x) &= \sum_{n \ge 0} x^n \sum_{k} \binom{n + k}{m + 2k} \binom{2k}{k} \frac{(-1)^k}{k + 1} \\
+&= \sum_k \binom{2k}{k} \frac{(-1)^k}{k + 1} x^{-k} \sum_{n \ge 0} \binom{n + k}{m + 2k} x^{n + k} \\
+&= \sum_k \binom{2k}{k} \frac{(-1)^k}{k+1} x^{-k} \sum_{r\ge k} \binom{r}{mm + 2k} x^r \\
+&= \sum_k \binom{2k}{k} \frac{(-1)^k}{k+1} x^{-k} \frac{x^{m + 2k}}{(1 - x)^{m + 2k + 1}} \\
+&= \frac{x^k}{(1 - x)^{m + 1} }\sum_k \binom{2k}{k} \frac{1}{k + 1} \left(\frac{-x}{(1-x)^2} \right)^k \\
+&= \frac{-x^{m-1}}{2(1-x)^{m-1}} \left (1 - \sqrt{1 + \frac{4x}{(1-x)^2}} \right) \\
+&= \frac{-x^{m-1}}{2(1-x)^{m-1}} \left (1 - \frac{1+x}{1-x} \right) \\
+&= \frac{x^m}{(1-x)^m}.
+\end{align*}
+It follows that $f(n, m) = \binom{n-1}{m-1}$
+\end{proof}
+
  \end{document}
+

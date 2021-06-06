@@ -15,3 +15,4 @@
 \contentsline {section}{\numberline {4}Applications of Generating Functions}{10}{section.4}% 
 \contentsline {subsection}{\numberline {4.1}Statistical Moments}{10}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}The Sieve Method}{11}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Snake Oil Method}{12}{subsection.4.3}% 

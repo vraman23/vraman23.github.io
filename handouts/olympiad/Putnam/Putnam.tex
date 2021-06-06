@@ -423,8 +423,17 @@ It follows that
 where we used the strong induction hypothesis to obtain $(2)$.
 \end{proof}
 
+\pagebreak
+\subsection{B1 - Probability}
+Shanille shoots free throws on a basketball court.  She hits the first and misses the second, and thereafter the probability that she hits the next shot is equal to the proportion of shots she has hit so far.  what is the probability she hits exactly $50$ of her first $100$ shots?
+\begin{proof}
+We claim the probability of hitting exactly $k$ shots after $n$ throws for $k \in \{1, \dots, n-1\}$is $\frac{1}{n-1}$.  For $n = 2$, this is clear.  If we suppose the result is true for $n = m$, the probability of making $k$ shots after $m + 1$ throws is 
+$$\frac{k-1}{m} \cdot \frac{1}{m-1} + \frac{m - k}{m} \cdot \frac{1}{m-1} = \frac{m-1}{m(m-1)} = \frac{1}{m},$$
+which proves the inductive hypothesis.  
 
-
+\end{proof}
+\pagebreak
+\subsection{B2 - }
 
 
 
