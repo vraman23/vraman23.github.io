@@ -408,7 +408,7 @@ F(x) &= \sum_{n \ge 0} x^n \sum_{k} \binom{n + k}{m + 2k} \binom{2k}{k} \frac{(-
 &= \frac{-x^{m-1}}{2(1-x)^{m-1}} \left (1 - \frac{1+x}{1-x} \right) \\
 &= \frac{x^m}{(1-x)^m}.
 \end{align*}
-It follows that $f(n, m) = \binom{n-1}{m-1}$
+It follows that $f(n, m) = \binom{n-1}{m-1}$.
 \end{proof}
 
  \end{document}

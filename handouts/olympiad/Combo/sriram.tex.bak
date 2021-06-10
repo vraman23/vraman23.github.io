@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage[sexy]{evan}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\Im}{\text{Im }}
+\renewcommand{\>}{\rangle}
+\newcommand{\<}{\langle}
+
+
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Ext}{\operatorname{Ext}}
+
+\newcommand{\res}{\operatorname{res}}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ms \mathscr
+\let \mb \mathbb
+\let \ol \overline
+\let \subset \subseteq
+\let \subsetneq \subset
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{Sriram, Olympiad Combinatorics}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+Notes and selected solutions from \textit{Sriram, Olypiad Combinatorics}.  I will generally leave out tedious computations but will refer to the text whenever possible.
+\end{abstract}
+\tableofcontents
+\pagebreak
+
+\section{Algorithms}
+\subsection{Greedy Algorithms}
+\begin{example} In a graph $G$ with $n$ vertices, no vertex has degree greater than $\Delta$.  Show that one can color the vertices using at most $\Delta + 1$ colors, such that no two neighboring vertices are the same color.
+\end{example}
+\begin{proof}
+Use a greedy coloring algorithm with the vertices in any order: color the first vertex with $1$.  For the second vertex, use the smallest available color so that no two neighboring vertices are the same color.  Since no vertex has degree greater than $\Delta$, we will be able to color each vertex with one of $\{1, 2, \dots, \Delta + 1\}$.
+\end{proof}
+
+\begin{example} In a graph $G$ with $V$ vertices and $E$ edges, show that there exists an induced subgraph $H$ with each vertex having degree at least $E/V$. 
+\end{example}
+\begin{proof}
+
+\end{proof}
+
+
+ \end{document}
+

@@ -21,3 +21,8 @@
 \contentsline {subsection}{\numberline {2.5}A5 - Number Theory}{19}{subsection.2.5}% 
 \contentsline {subsection}{\numberline {2.6}A6 - Analysis}{20}{subsection.2.6}% 
 \contentsline {subsection}{\numberline {2.7}B1 - Probability}{21}{subsection.2.7}% 
+\contentsline {subsection}{\numberline {2.8}B2 - Combinatorics}{22}{subsection.2.8}% 
+\contentsline {subsection}{\numberline {2.9}B3 - Analysis}{23}{subsection.2.9}% 
+\contentsline {subsection}{\numberline {2.10}B4 - Combinatorics}{24}{subsection.2.10}% 
+\contentsline {subsection}{\numberline {2.11}B5 - Number Theory}{25}{subsection.2.11}% 
+\contentsline {subsection}{\numberline {2.12}B6 - Number Theory}{26}{subsection.2.12}% 

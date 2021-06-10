@@ -433,14 +433,77 @@ which proves the inductive hypothesis.
 
 \end{proof}
 \pagebreak
-\subsection{B2 - }
+\subsection{B2 - Combinatorics}
+Consider a polyhedron with at least five faces such that exactly three edges emerge from each of its vertices. Two players play the following game: Each, in turn, signs his or her name on a previously unsigned face. The winner is the player who first succeeds in signing three faces that share a common vertex. Show that the player who signs first will always win by playing as well as possible.
+\begin{proof}
+First, we claim that any such polyhedron has a face with at least $4$ edges.  The proof is as follows.  Let $V, E, F$ denote the number of vertices, edges, and faces respectively.  For sake of contradiction, suppose that each face has exactly $3$ edges.  We can count the number of edges by counting $3$ edges for each face, but dividing by $2$ since each edge connects exactly $2$ faces.  It follows that $E = \frac{3F}{2}$.  Similarly, $V = \frac{2E}{3} = F$, since we can count two vertices for each edge, but dividing by $3$ since each vertex has exactly $3$ outgoing edges.  By Euler's formula, we have 
+$$2 = V - E + F = 2F - \frac{3F}{2} = \frac{F}{2} \Longrightarrow F = 4,$$
+which is a contradiction since $F \ge 5$.  
 
+Now, take the face with at least $4$ edges, call it $F_0$.  Player $1$ signs in $F_0$.  If player $2$ does not sign in a face adjacent to $F_0$, then player $1$ can sign in any face adjacent to $F_0$.  At this point, player $2$ cannot stop player $1$ from signing three faces that share a common vertex since there are two threats.  Hence, we can suppose player $2$ does sign in a face adjacent to $F_0$, call it $F_1$.  Since the face has at least $4$ edges, we can sign in a square adjacent to $F_0$ that is not adjacent to $F_1$.  at this point, player $2$ cannot stop player $1$ from signing three faces that share a common vertex since there are two threats.  
+\end{proof}
 
+\pagebreak
+\subsection{B3 - Analysis}
+Show that for $n > 1$,
+$$\frac{1}{2ne} < \frac{1}{e} - \left( 1 - \frac{1}{n} \right)^n < \frac{1}{ne}. $$
+\begin{proof}
+Multiplying by $e$ and subtracting from $1$, we have 
+$$1 - \frac{1}{n} < e \left(1 - \frac{1}{n}\right)^n < 1 - \frac{1}{2n}.$$
+Taking the logarithm(which is monotonically increasing), we equivalently have
+$$\log(1 - 1/n) < 1 + n\log(1 - 1/n) < \log(1- 1/(2n)).$$
+Finally, noting the Taylor series expansion of $\log(1 + x) = -\sum_{k \ge 1} \frac{(-x)^k}{k}$(which converges for $x \in (-1, 1)$), we have
+$$-\sum_{k \ge 1} \frac{1}{kn^k}< 1 - n\sum_{k \ge 1} \frac{1}{kn^k} < -\sum_{k \ge 1} \frac{1}{k(2n)^k}$$
+or equivalently
+$$\sum_{k\ge 1}\frac{1}{k(2n)^k} < \sum_{k \ge 1} \frac{1}{(k + 1)n^k} <\sum_{k \ge 1} \frac{1}{kn^k},$$
+which is evidently true since $k2^k > k + 1$ and $k+1 > k$ for $k \ge 1$.
+\end{proof}
+\pagebreak
+\subsection{B4 - Combinatorics}
+An integer $n$, unknown to you, has been randomly chosen in the interval $[1,2002]$ with uniform probability. Your objective is to select $n$ in an odd number of guess. After each incorrect guess, you are informed whether $n$ is higher or lower, and you $\textbf{must}$ guess an integer on your next turn among the numbers that are still feasibly correct. Show that you have a strategy so that the chance of winning is greater than $\tfrac{2}{3}$.
 
+\begin{proof}
+Guess the sequence of numbers $1, 3, 4, 6, 7, \dots$ alternating between $x \equiv 1 \pmod{3}$ and $x \equiv 1 \pmod{3}$.  If the chosen integer is  $1 \pmod{3}$, then it will be chosen in an odd turn.  If the chosen integer is $0 \pmod{3}$, then it will be chosen in an even turn.  Otherwise, it is $n \equiv 2 \pmod{3}$ so it will be chosen immediately after $n+1$ is chosen, which happens after an even turn, so it is an odd turn.  This gives a chance of winning of at least $2/3$ as desired.  
+\end{proof}
+\pagebreak
+\subsection{B5 - Number Theory}
+A palindrome in base $b$ is a positive integer whose base-$b$ digits read the same backwards and forwards; for example, $2002$ is a $4$-digit palindrome in base $10$. Note that $200$ is not a palindrome in base $10$, but it is a $3$-digit palindrome: $242$ in base $9$, and $404$ in base $7$. Prove that there is an integer which is a $3$-digit palindrome in base $b$ for at least $2002$ different values of $b$.
+\begin{proof}
+Let $N = 2002!$.  We claim that $N^2$ is a $3$-digit palindrome in base $b_d = \frac{N}{d} - 1$ for each $d \in \{1, 2, \dots, 2002\}$.  Note that $2d^2 < \frac{2002!}{d} - 1$ for each $d \in \{1, 2, \dots, 2002\}$.  It follows that we can write
+\begin{align*}
+([d^2][2d^2][d^2])_{b_d} &= d^2\left(\frac{N}{d} - 1 \right)^2 + 2d^2\left(\frac{N}{d} - 1 \right) + d^2 \\
+&= N^2 - 2Nd - d^2 + 2Nd - 2d^2 + d^2 \\
+&= N^2.
+\end{align*}
 
+\end{proof}
+\pagebreak
+\subsection{B6 - Number Theory}
+Let $p$ be a prime number. Prove that the determinant of the matrix\[ \begin{bmatrix}x & y & z\\ x^p & y^p & z^p \\ x^{p^2} & y^{p^2} & z^{p^2} \end{bmatrix} \]is congruent modulo $p$ to a product of polynomials of the form $ax+by+cz$, where $a$, $b$, and $c$ are integers. (We say two integer polynomials are congruent modulo $p$ if corresponding coefficients are congruent modulo $p$.)
+\begin{proof}
+Note that the determinant $$P(x, y, z) = \sum_{\text{cyc}}x(y^pz^{p^2} - z^py^{p^2}),$$
+which is a polynomial of degree $p^2 + p + 1$ in $x, y, z$.
 
-
-
+Suppose not all of $a, b, c$ are zero.  Without loss of generality, $a \ne 0$.  Note that 
+\begin{align*}
+aP(x, y, z) &= \begin{vmatrix}
+ax & y & z\\ ax^p & y^p & z^p \\ ax^{p^2} & y^{p^2} & z^{p^2}
+\end{vmatrix} \\
+&=  \begin{vmatrix}
+ax +by + cz & y & z\\ ax^p +by^p + cz^p & y^p & z^p \\ ax^{p^2} +by^{p^2} + cz^{p^2} & y^{p^2} & z^{p^2}
+\end{vmatrix} \\
+&=  \begin{vmatrix}
+ax +by + cz & y & z\\ a^px^p +b^py^p + c^pz^p & y^p & z^p \\ a^{p^2}x^{p^2} +b^{p^2}y^{p^2} + c^{p^2}z^{p^2} & y^{p^2} & z^{p^2}
+\end{vmatrix} \\
+&= \begin{vmatrix}
+ax +by + cz & y & z\\ (ax +by + cz )^p & y^p & z^p \\ (ax +by + cz )^{p^2} & y^{p^2} & z^{p^2}
+\end{vmatrix} \\
+&= (ax+by+cz) \begin{vmatrix}
+1 & y & z\\ (ax +by + cz )^{p-1} & y^p & z^p \\ (ax +by + cz )^{p^2-1} & y^{p^2} & z^{p^2}
+\end{vmatrix} \\
+\end{align*}
+It follows that $P(x, y, z)$ divides $(ax+by+cz)$ whenever $a, b, c$ are not all zero in $\Z/p\Z$.  This includes $\frac{p^3 - 1}{p-1} = p^2 + p + 1$ terms(where we divide $p-1$ to account for scaling), which is exactly the degree of the polynomial.  Since $\Z/p\Z$ is a field, it is a unique factorization domain, so it follows that $P(x,  y, z)$ is exactly the product of $ax+by+cz$ for each  $a, b, c$ not all zero in $\Z/p\Z$(up to some constant), which proves the result.  
+\end{proof}
 \pagebreak
 %\section{Putnam - 2019}
 %\subsection{A1 - Number Theory}
