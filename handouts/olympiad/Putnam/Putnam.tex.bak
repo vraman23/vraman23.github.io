@@ -505,6 +505,145 @@ ax +by + cz & y & z\\ (ax +by + cz )^p & y^p & z^p \\ (ax +by + cz )^{p^2} & y^{
 It follows that $P(x, y, z)$ divides $(ax+by+cz)$ whenever $a, b, c$ are not all zero in $\Z/p\Z$.  This includes $\frac{p^3 - 1}{p-1} = p^2 + p + 1$ terms(where we divide $p-1$ to account for scaling), which is exactly the degree of the polynomial.  Since $\Z/p\Z$ is a field, it is a unique factorization domain, so it follows that $P(x,  y, z)$ is exactly the product of $ax+by+cz$ for each  $a, b, c$ not all zero in $\Z/p\Z$(up to some constant), which proves the result.  
 \end{proof}
 \pagebreak
+
+\section{Putnam 2003}
+\subsection{A1 - Combinatorics}
+Let $n$ be a fixed positive integer. How many ways are there to write $n$ as a sum of positive integers,
+\[n = a_1 + a_2 + \cdots a_k\]with $k$ an arbitrary positive integer and $a_1 \le a_2 \le \cdots \le a_k \le a_1 + 1$? For example, with $n = 4$, there are four ways: $4$, $2 + 2$, $1 + 1 + 2$, $1 + 1 + 1 + 1$.
+\begin{proof}
+We claim that for each fixed positive integer $n$, there are exactly $n$ ways to write it as a sum of positive integers satisfying the above conditions.  We can prove this by induction on $n$  For $m = 1$, the result is clear.  Suppose it is true for $n = k$.  It suffices to prove the result for $n = k+1$.  By the inductive hypothesis, we can write $k = a_1 + a_2 + \dots + a_{\ell}$ in $k$ ways.  For each combination, note that if we take $b_\ell =  a_1 + 1$ and $b_j = a_{j+1}$ for $1 \le j \le \ell-1$, then 
+$$k+1 = 1 + a_1 + \dots + a_\ell = b_1 + b_2 + \dots + b_{\ell}$$
+is a valid combination for $k+1$.  There is exactly one indistinguishable way to group the extra $1$ since grouping with another $a_j = a_1$ is indistinguishable and if we group with $a_j = a_1 + 1$, then the overall sum does not satisfy the condition that the last term is bounded by one more than the first term.  Hence, we have exactly $k$ sums of the above form.  We have exactly one additional combination given by the sum of $k+1$ $1$'s, which is a total of $k+1$ ways, as desired.  
+
+\end{proof}
+\pagebreak
+\subsection{A2 - Algebra}
+Let $a_1, a_2, \cdots , a_n$ and $b_1, b_2,\cdots, b_n$ be nonnegative real numbers. Show that\[(a_1a_2 \cdots a_n)^{1/n}+ (b_1b_2 \cdots b_n)^{1/n} \le ((a_1 + b_1)(a_2 + b_2) \cdots (a_n + b_n))^{1/n}\]
+\begin{proof}
+This is a direct application of Holder's Inequality.  
+\end{proof}
+\subsubsection{Alternate Solution}
+\begin{proof}
+Note that 
+\begin{align*}
+\left (\frac{\prod_{k=1}^n a_k}{\prod_{k=1}^{n} (a_k + b_k)} \right)^{1/n} + \left (\frac{\prod_{k=1}^n b_k}{\prod_{k=1}^{n} (a_k + b_k)} \right)^{1/n} &= \left (\prod_{k=1}^n \frac{a_k}{a_k + b_k} \right)^{1/n} + \left (\prod_{k=1}^n \frac{b_k}{a_k + b_k} \right)^{1/n}  \\
+&\le \frac{1}{n} \sum_{k=1}^n \frac{a_k}{a_k+b_k} + \frac{1}{n} \sum_{k=1}^n \frac{b_k}{a_k + b_k} \\
+&= \frac{1}{n} \sum_{k=1}^n \frac{a_k + b_k}{a_k + b_k} \\
+&= \frac{1}{n} \sum_{k=1}^n 1 = 1.  
+\end{align*}
+Multiplying both sides of the inequality by $\prod_{k=1}^n (a_k+b_k)^{1/n}$ gives the desired result.  
+\end{proof}
+
+\pagebreak
+\subsection{A3 - Calculus}
+Find the minimum value of\[|\sin{x} + \cos{x} + \tan{x} + \cot{x} + \sec{x} + \csc{x}|\]for real numbers $x$.
+\begin{proof}
+We claim the minimum value is given by $2\sqrt{2} - 1$.  Let $y = \pi/4 - x$.  Note that $$\sin{x} + \cos{x} = \sqrt{2} \cos(\pi/4 - x) = \sqrt{2} \cos y,$$
+$$\sin{x} \cos{x} = \frac{1}{2} \sin(2x) = \frac{1}{2} \cos(\pi/4 - 2x) = \frac{1}{2} \cos{2y} = \cos^2 y - \frac{1}{2}.$$
+
+Let $u = \sqrt{2} \cos y$.  
+\begin{align*}
+\sin x + \cos x + \tan x + \cot x + \sec x + \csc x &= \sin x + \cos x + \frac{1}{\sin x \cos x} + \frac{\sin x + \cos x}{\sin x \cos x} \\
+&= u + \frac{2}{u^2 - 1} + \frac{2u}{u^2 - 1} \\
+&= u + \frac{2(u + 1)}{u^2 - 1}.
+\end{align*}
+We wish to find the minimum value of $|f(u)|$ where $f(u) =  u + \frac{2(u + 1)}{u^2 - 1} $ and $u \in [-\sqrt{2}, \sqrt{2}]$.  Note that at for $u = -1$, the possible values of $y$ are $5\pi/4$ and $7\pi/4$.  At these values, the desired expression takes the values $2$ and $2 + \sqrt{2}$ respectively.  Assuming $u \ne 1$, we can write $f(u) = u + \frac{2}{u-1}$.  
+
+Note that $$f(\sqrt{2}) = \sqrt{2} + \frac{2}{\sqrt{2} - 1} = \frac{4 - \sqrt{2}}{\sqrt{2} - 1} = 2 + 3\sqrt{2},$$
+$$f(-\sqrt{2}) = -\sqrt{2} - \frac{2}{\sqrt{2} + 1} = -\frac{4 + \sqrt{2}}{\sqrt{2} + 1} = 3\sqrt{2} - 2.$$
+
+Furthermore, $$f'(u) = 1 - \frac{2}{(u - 1)^2},$$
+which has critical points at $u = 1 \pm \sqrt{2}$, but $1 + \sqrt{2}$ is outside of $[-\sqrt{2}, \sqrt{2}]$, so it suffices to check $u_0 = 1 - \sqrt{2}$.
+
+At this point $$f(u_0) = 1 - \sqrt{2 } - \frac{2}{ \sqrt{2}} = 1 - 2\sqrt{2}.$$
+
+Comparing all the critical values using the approximation $\sqrt{2} = 1.41 + O(|.01|)$, we find that the minimum possible value of $|f(u)|$ is given by $2\sqrt{2} - 1$.
+
+\end{proof}
+\pagebreak
+\subsection{A4 - Algebra}
+Suppose that $a, b, c, A, B, C$ are real numbers, $a \not= 0$ and $A \not= 0$, such that\[|ax^2+ bx + c| \le |Ax^2+ Bx + C|\]for all real numbers $x$. Show that\[|b^2- 4ac| \le |B^2- 4AC|\]
+\begin{proof}
+First, note that we must have that $|a| \le |A|$ which we can show by taking the limit in the given expression.  Let $\delta = b^2 - 4ac$, $\Delta = B^2 - 4AC$.  We can also define $p(x) = ax^2 + bx + c$ and $P(x) = Ax^2 + Bx + C$.  
+%Note that $$ax^2 +bx + c = a\left(x - \frac{b}{2a}\right)^2 - \left (\frac{b^2 - 4ac}{4a} \right).$$
+We proceed by cases on the sign on $\Delta$.
+\begin{itemize}
+\item Case 1: $\Delta > 0$.
+
+In this case, we have that $P(x) = A(x-r_1)(x - r_2)$ for $r_1, r_2 \in \R$.  Then, we have that $|p(r_1)| \le |P(r_1)| = 0$ and $|p(r_2)| \le |P(r_2)| = 0$ so it follows that $p(x) = a(x-r_1)(x-r_2)$.  Since both polynomials have the same roots, it follows that $\frac{\sqrt{\delta}}{a} = \frac{\sqrt{\Delta}}{A}$, which is exactly the distance between $r_1$ and $r_2$.  It follows that 
+$$|\delta| \le \frac{|a|^2}{|A|^2} |\Delta| \le |\Delta|.$$
+\item Case 2: $\Delta = 0$.
+
+In this case, we have that $P(x) = A(x-r)^2$ for $r \in \R$.  As before, we have that $p(r) = 0$.  Suppose that $p(x) = a(x-r)(x-s)$ for some $s \in \R$.  Note that we also have $P'(r) = 0$ since this is the vertex of the parabola.  If $s \ne r$, then we must have that $|p'(r)| > 0$ since $r$ is not the vertex.  It follows that the graphs of $|p(x)|$ and $|P(x)|$ intersect in the interval $[s, r]$(or $[r, s]$ depending on $r$), which is a contradiction.  It follows that $p(x) = a(x-r)^2$. Hence, $\delta = \Delta = 0$.
+
+\item Case 3: $\Delta < 0$.  
+
+In this case, we have that $P(x) = A(x-Z_1)(x-Z_2)$ for $Z_1, Z_2 \in \C$.  Note that $|P(x)|$ is minimized at $Z_* = \frac{Z_1+Z_2}{2}$.  Suppose that $p(x) = a(x - z_1)(x - z_2)$ and let $z_* = \frac{z_1+z_2}{2}$.  We have that 
+$$\frac{|A(Z_1 - Z_2)^2|}{4} =  |P(Z_*)| \ge |P(z_*)| \ge |p(z_*)| = \frac{|a(z_1 - z_2)^2|}{4},$$
+so it follows that $|z_1 - z_2| \ge |Z_1 -  Z_2|$ which proves that $|\delta| \le |\Delta|$ using the same method as in Case $1$.  
+\end{itemize}
+
+
+\end{proof}
+\pagebreak
+\subsection{A5 - Combinatorics}
+A Dyck $n$-path is a lattice path of $n$ upsteps $(1, 1)$ and $n$ downsteps $(1, -1)$ that starts at the origin $O$ and never dips below the $x$-axis. A return is a maximal sequence of contiguous downsteps that terminates on the $x$-axis. For example, the Dyck $5$-path illustrated has two returns, of length $3$ and $1$ respectively. Show that there is a one-to-one correspondence between the Dyck $n$-paths with no return of even length and the Dyck $(n - 1)$ paths.
+
+\[\begin{picture}(165,70)
+\put(-5,0){O}
+\put(0,10){\line(1,0){150}}
+\put(0,10){\line(1,1){30}}
+\put(30,40){\line(1,-1){15}}
+\put(45,25){\line(1,1){30}}
+\put(75,55){\line(1,-1){45}}
+\put(120,10){\line(1,1){15}}
+\put(135,25){\line(1,-1){15}}
+\put(0,10){\circle{1}}\put(0,10){\circle{2}}\put(0,10){\circle{3}}\put(0,10){\circle{4}}
+\put(15,25){\circle{1}}\put(15,25){\circle{2}}\put(15,25){\circle{3}}\put(15,25){\circle{4}}
+\put(30,40){\circle{1}}\put(30,40){\circle{2}}\put(30,40){\circle{3}}\put(30,40){\circle{4}}
+\put(45,25){\circle{1}}\put(45,25){\circle{2}}\put(45,25){\circle{3}}\put(45,25){\circle{4}}
+\put(60,40){\circle{1}}\put(60,40){\circle{2}}\put(60,40){\circle{3}}\put(60,40){\circle{4}}
+\put(75,55){\circle{1}}\put(75,55){\circle{2}}\put(75,55){\circle{3}}\put(75,55){\circle{4}}
+\put(90,40){\circle{1}}\put(90,40){\circle{2}}\put(90,40){\circle{3}}\put(90,40){\circle{4}}
+\put(105,25){\circle{1}}\put(105,25){\circle{2}}\put(105,25){\circle{3}}\put(105,25){\circle{4}}
+\put(120,10){\circle{1}}\put(120,10){\circle{2}}\put(120,10){\circle{3}}\put(120,10){\circle{4}}
+\put(135,25){\circle{1}}\put(135,25){\circle{2}}\put(135,25){\circle{3}}\put(135,25){\circle{4}}
+\put(150,10){\circle{1}}\put(150,10){\circle{2}}\put(150,10){\circle{3}}\put(150,10){\circle{4}}
+\end{picture}\]
+\begin{proof}
+Let $D_{n-1}$ be the set of $(n-1)$-Dyck paths and let $O_{n}$ ne the set of $n$-Dyck paths with no return of even length.  We can define functions $f: D_{n-1} \to O_n$ and $g: O_n \to D_{n-1}$ with $f \circ g = \id_{O_n}$ and $g \circ f = \id_{D_{n-1}}$.
+
+We define $f$ as follows.  Let $p = a_1a_2\dots a_{2n-2} \in D_{n-1}$.  If $p$ has no return of even length, we can construct a path $f(p) = (1, 1)(1, -1)p \in O_n$.  Otherwise, suppose $p$ has at least one return of even length.  Suppose that $a_i \dots a_j$ is the last return of even length in $p$.  Then, we can define $f(p) = (1, 1) a_1 \dots a_i \dots a_j (1, -1) a_{j+1} \dots a_{2n-2}$.  This is in $O_n$ because the operation $f(p)$ removes all the returns before the last return of even length, which we extend to a return of odd length.  
+
+Next, we define $g$.  Let $p = a_1a_2\dots a_{2n} \in O_n$.  Suppose $a_i \dots a_j$ is the first return of $p$.  We can define $f(p) = a_2 \dots a_i \dots a_{j-1} a_{j+1} \dots a_{2n}$.  This is in $D_{n-1}$ because $a_1 = (1, 1)$ and $a_j = (1, -1)$, so the remaining path remains above $0$ at all times.  
+
+It is easy to verify that these functions satisfy the desired condition which gives the desired $1-1$ correspondence.  
+\end{proof}
+\pagebreak
+\subsection{A6 - Combinatorics}
+	For a set $S$ of nonnegative integers, let $r_S(n)$ denote the number of ordered pairs $(s_1, s_2)$ such that $s_1 \in S$, $s_2 \in S$, $s_1 \neq s_2$, and $s_1 + s_2 = n$. Is it possible to partition the nonnegative integers into two sets $A$ and $B$ in such a way that $r_A(n) = r_B(n)$ for all $n$?
+\begin{proof}
+WLOG suppose $1 \in A$, $0 \in B$.  Define $f(x) = \sum_{n \in A} x^n$,  $g(x) = \sum_{n \in B} x^n$ with $|x| < 1$.  Note that $f(x) + g(x) = \sum_{n=0}^\infty x^n = \frac{1}{1-x}$.  Furthermore, note that 
+$$r_A(n) = [x^n] (f(x^2) - f(x)^2), r_B(n) = [x^n] (g(x^2) - g(x)^2),$$
+where $[x^n](\cdot)$ denotes the $n$-th coefficient of the power series $\cdot$.  
+
+We wish to show that there exists a choice $A \sqcup B = \N$ so that $f(x^2) - f(x)^2 = g(x^2) - g(x)^2$.  Equivalently, we have 
+$$\frac{f(x) - g(x)}{f(x^2) - g(x)^2} = \frac{1}{f(x) + g(x)} = 1 - x,$$
+and replacing $x \to x^{2^k}$ we obtain
+$$\frac{f(x^{2^k}) - g(x^{2^k})}{f(x^{2^{k+1}} ) - g(x^{2^{k+1}})} = 1-x^{2^{k}}.$$
+
+Taking the product of successive terms gives a telescoping product
+$$f(x) - g(x) = \left(\prod_{k=0}^{n-1} (1 - x^{2^k}) \right) (f(x^{2^{n + 1}} ) - g(x^{2^{n+1}})).$$
+Taking the limit as $n \to \infty$ and noting that $f(0) = 1$, $g(0) = 0$ by assumption, we have 
+$$f(x) - g(x) = \prod_{k=0}^\infty (1 - x^{2^k}).$$
+
+Furthermore, if we let $s_j = 0$ if $j \in A$, $s_j =1$ if $j \in B$, then we have 
+$$f(x) - g(x) = \sum_{n=0}^\infty (-1)^{s_n} x^n = \prod_{k=0}^{\infty} (1-x^{2^k}).$$
+
+The positive terms in the product correspond to an even number of terms, or equivalently the integers $n$ where the sum of the digits in the binary expansion is even.  It follows that taking $A$ to be the integers where the sum of the digits in the binary expansion is even and $B$ the integers where the sum of the digits in the binary expansion is odd satisfies the problem statement.
+\end{proof}
+
+
 %\section{Putnam - 2019}
 %\subsection{A1 - Number Theory}
 %\begin{Prob}[2019 - A1] Determine all possible values of the expression $$A^3 + B^3 + C^3 - 3ABC,$$
@@ -561,4 +700,5 @@ It follows that $P(x, y, z)$ divides $(ax+by+cz)$ whenever $a, b, c$ are not all
 %satisfies the equality case $\mu = M$.  Furthermore, note that 
 %$b_0 = 1$, $b_{2019} = 2019$ and and $2019^{i/2019} < 2019^{j/2019}$ for all $i < j$.  Hence, $P$ satisfies the conditions.
 %\end{proof}
+
 \end{document}
