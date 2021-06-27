@@ -47,11 +47,11 @@
 \let \grad \nabla
 
 \begin{document}
-\title{Wilf, generatingfunctionology}
+\title{Generating Functions}
 \author{Vishal Raman}
 \maketitle
 \begin{abstract}
-Notes and selected solutions from \textit{Wilf, generatingfunctionology}(third edition).  I will generally leave out tedious computations but will refer to the text whenever possible.
+Notes and selected solutions from \textit{Wilf, generatingfunctionology}(third edition).  I will generally leave out tedious computations but will refer to the text whenever possible.  I have also included problems from various math olympiads.  
 \end{abstract}
 \tableofcontents
 \pagebreak
@@ -425,7 +425,18 @@ We claim the sum evaluates to $4^k$.  Note that $\binom{k+j}{j} = \binom{k+j}{k}
 It follows that the coefficient of $x^k$ is given by 
 $$2^{k +1} \sum_{j=0}^k \binom{k}{j} - \sum_{j=0}^k \binom{2k+1}{j} = 2^{2k+1} - 2^{2k} = 4^k.$$
 \end{proof}
+\end{problem} 
+\begin{problem}(CJMO 2020/1) Let $N$ be a positive integer, and let $S$ be the set of all tuples with positive integer elements and a sum of $N$.  For all tuples $t$, let $p(t)$ denote the product of all the elements of $t$.  Evaluate 
+$$\sum_{t \in S} p(t).$$
 \end{problem}
-
+\begin{proof}
+We claim the sum evaluates to $F_{2N}$, where $F_k$ denotes the $k$-th Fibonacci number.  Note that the sum can be represented as the coefficient of $x^N$ in $\sum_{k=1}^N \left (\sum_{n \ge 0} nx^n \right)^k$.  Evaluating this, we find 
+\begin{align*}
+\sum_{k=1}^N \left (\sum_{n \ge 0} nx^n \right)^k &=  \sum_{k=1}^N \left ( \frac{x}{(1 - x)^2} \right)^k \\
+&= \sum_{k=1}^N \frac{x^k}{(1 - x)^{2k}} \\
+&= \sum_{k=1}^N \sum_{j \ge 0} \binom{2k - 1 + j}{2k - 1} x^{j + k} .
+\end{align*}
+The coefficient of $x^N$ is given by  $$\sum_{k=1}^N \binom{N + k - 1}{2k - 1} = \sum_{k=1}^N \binom{N + k - 1}{N - k} = \sum_{j \ge 0} \binom{2N - 1 - j}{j} = F_{2N}.$$
+\end{proof}
  \end{document}
 
