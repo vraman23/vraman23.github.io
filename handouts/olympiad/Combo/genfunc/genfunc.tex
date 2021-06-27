@@ -412,6 +412,20 @@ It follows that $f(n, m) = \binom{n-1}{m-1}$.
 \end{proof}
 \pagebreak
 \section{Problem Solving}
-Refer to \href{https://ocw.mit.edu/courses/mathematics/18-a34-mathematical-problem-solving-putnam-seminar-fall-2018/assignments/MIT18_A34F18PS11.pdf}{MIT: Generating Functions}
+\begin{problem}[Putnam 2020 A2] Let $k$ be a non-negative integer.  Evaluate 
+$$\sum_{j=0}^k 2^{k-j} \binom{k+j}{j}.$$
+\begin{proof}
+We claim the sum evaluates to $4^k$.  Note that $\binom{k+j}{j} = \binom{k+j}{k}$.  It follows that the sum is the coefficient of $x^k$ in the power series $\sum_{j=0}^n 2^{k-j} (1 + x)^{k + j}$.  Evaluating this, we find
+\begin{align*}
+\sum_{j=0}^n 2^{k-j} (1 + x)^{k + j} &= 2^{k}(1 + x)^{k} \sum_{j=0}^k 2^{-j} (1 + x)^j \\
+&= 2^k (1 + x)^k \frac{1 - (1 + x)^{k+1}/2^{k+ 1}}{1 - (1 + x)/2} \\
+&= \frac{2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1}}{1 - x} \\
+&= 2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1} \sum_{n \ge 0} x^n.
+\end{align*}
+It follows that the coefficient of $x^k$ is given by 
+$$2^{k +1} \sum_{j=0}^k \binom{k}{j} - \sum_{j=0}^k \binom{2k+1}{j} = 2^{2k+1} - 2^{2k} = 4^k.$$
+\end{proof}
+\end{problem}
+
  \end{document}
 
