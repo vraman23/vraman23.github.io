@@ -18,6 +18,7 @@
 
 
 \let \phi \varphi
+\let \bar \overline
 
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
@@ -642,7 +643,102 @@ $$f(x) - g(x) = \sum_{n=0}^\infty (-1)^{s_n} x^n = \prod_{k=0}^{\infty} (1-x^{2^
 
 The positive terms in the product correspond to an even number of terms, or equivalently the integers $n$ where the sum of the digits in the binary expansion is even.  It follows that taking $A$ to be the integers where the sum of the digits in the binary expansion is even and $B$ the integers where the sum of the digits in the binary expansion is odd satisfies the problem statement.
 \end{proof}
+\pagebreak
+\subsection{B1 - Algebra}
+Do there exist polynomials $a(x)$, $b(x)$, $c(y)$, $d(y)$ such that\[1 + xy + x^2y^2= a(x)c(y) + b(x)d(y)\]holds identically?
+\begin{proof}
+We claim no such polynomials exist.  
+For a polynomial $P(x, y) = \sum_{i=0}^n \sum_{j=0}^n a_{ij} x^i y^j$ where $n$ is the degree of $P$, we can alternatively represent it with the matrix $A = (a_{ij})$.  Let $n = \max (\deg a, \deg b, \deg c, \deg y)$.  Note that $1 + xy + x^2y^2$ corresponds to the $n \times n$ matrix $P = (p_{ij})$ with $p_{11} = p_{22} =p_{33} = 1$ and $p_{ij} = 0$ for all other entries.  We can represent $a(x), b(x), c(y), d(y)$ with column and row vectors respectively given by $A, B, C, D$.  Note that $\rank(AC) \le \min(\rank A, \rank C)$ and the rank of the row and column vectors are at most $1$.  It follows that 
+$$\rank(AC + BD) \le \rank{AC} + \rank{BD} \le 2,$$
+but we know that $\rank P = 3$, so we cannot have $P = AC + BD$.
+\end{proof}
+\pagebreak
+\subsection{B2 - Combinatorics} 
+Let $n$ be a positive integer. Starting with the sequence $1,\frac{1}{2}, \frac{1}{3} , \cdots , \frac{1}{n}$, form a new sequence of $n -1$ entries $\frac{3}{4}, \frac{5}{12},\cdots ,\frac{2n -1}{2n(n -1)}$, by taking the averages of two consecutive entries in the first sequence. Repeat the averaging of neighbors on the second sequence to obtain a third sequence of $n -2$ entries and continue until the final sequence consists of a single number $x_n$. Show that $x_n < \frac{2}{n}$.
+\begin{proof}
+We claim that $x_n = \frac{2}{n} - \frac{1}{n2^{n-1}}$, which proves the result.   
 
+First, we show by induction that the $j$-th entry of the $k$-th sequence is given by 
+$$\frac{1}{2^{k-1}} \sum_{i=1}^{k} \frac{1}{i + j - 1} \binom{k-1}{i -1}.$$
+For $k = 1$, the formula gives the desired starting sequence.  If we suppose it holds for the $k$-th row, then note that 
+\begin{align*}
+\frac{1}{2} &\left (\frac{1}{2^{k-1}} \sum_{i=1}^{k} \frac{1}{i + j - 1} \binom{k - 1}{i - 1} +  \frac{1}{2^{k-1}} \sum_{i=1}^{k} \frac{1}{i + (j + 1) - 1} \binom{k - 1}{i - 1} \right) \\
+&= \frac{1}{2^k} \left (\frac{1}{j} + \frac{1}{k + j } + \sum_{i=2}^{k-1} \frac{1}{i + j } \left (\binom{k-1}{i-2} + \binom{k-1}{i-1} \right) \right) \\
+&= \frac{1}{2^k} \left (\frac{1}{j} + \frac{1}{k + j } + \sum_{i=2}^{k-1} \frac{1}{i + j } \binom{k}{i-1}\right) \\
+&= \frac{1}{2^k} \sum_{i=1}^{k} \frac{1}{i + j - 1 } \binom{k}{i-1}.
+\end{align*}
+Using this result, it follows that 
+\begin{align*}
+x_n &= \frac{1}{2^{n-1}} \sum_{i=1}^n \frac{1}{i} \binom{n-1}{i-1} \\
+&= \frac{1}{2^{n-1}} \sum_{i=1}^n \frac{1}{n} \binom{n}{i} \\
+&= \frac{1}{n2^{n-1}} (2^n - 1) \\
+&= \frac{2}{n} - \frac{1}{n2^{n-1}}.
+\end{align*}
+\end{proof}
+\pagebreak
+\subsection{B3 - Number Theory}
+Show that for each positive integer n,\[n!=\prod_{i=1}^n \; \text{lcm} \; \{1, 2, \ldots, \left\lfloor\frac{n}{i} \right\rfloor\}\](Here lcm denotes the least common multiple, and $\lfloor x\rfloor$ denotes the greatest integer $\le x$.)
+
+\begin{proof}
+Let $v(n)$ for $p$ prime, $n \in \N$ denote the exponent of $p$ in the prime factorization of $n$.  Note that 
+\begin{align*}
+v_p\left ( \prod_{k=1}^n \lcm \{1, 2, \dots, \floor{n/k}\}\right) &= \sum_{k=1}^n v_p \left (\lcm\{1, 2, \dots, \floor{n/k}\} \right) \\
+&= \sum_{k=1}^n \floor{\log_p \floor{n/k}} \\
+&= \sum_{k=1}^n \sum_{\ell : \floor{n/k} \ge p^\ell} 1 \\
+&= \sum_{\ell=1}^\infty \floor{n/p^\ell}.
+\end{align*}
+This is exactly $v_p(n!)$ by Legendre's Theorem.  
+\end{proof}
+\pagebreak
+\subsection{B4 - Algebra}
+Let $f(z) = az^4+ bz^3+ cz^2+ dz + e = a(z -r_1)(z -r_2)(z -r_3)(z -r_4)$ where $a, b, c, d, e$ are integers, $a \not= 0$. Show that if $r_1 + r_2$ is a rational number, and if $r_1 + r_2 \neq r_3 + r_4$, then $r_1r_2$ is a rational number.
+\begin{proof}
+Let $s_1 = r_1 + r_2$, $s_2 = r_3 + r_4$, $p_1 = r_1r_2$, $p_2 = r_3r_4$.  Without loss of generality, we may assume $f$ is a monic polynomial with rational coefficients.  Note that we can write 
+\begin{align*}
+f(z) &= (z^2 - s_1z + p_1)(z^2 - s_2 z + p_2) \\
+&= z^4 - (s_1 + s_2) z^3 + (p_1 + p_2 + s_1s_2)z^2 - (s_1p_2 + s_2p_1)z + p_1p_2.
+\end{align*}
+Now, note the following:
+\begin{enumerate}
+\item Since $-s_1 - s_2 = b \in \Q$ and $s_1 \in \Q$, we have that $s_2 = -s_1 - b \in \Q$.  
+\item Since $p_1 + p_2 + s_1s_2 = c \in \Q$ and $s_1s_2 \in \Q$, we have that $p_1 + p_2 = c - s_1s_2 \in \Q$.
+\item We can write 
+\begin{align*}
+d &= -s_1p_2 - s_2p_1 \\
+&= -s_1p_2 - s_2p_1 + s_1p_1 - s_1p_1 \\
+&= -s_1(p_1 + p_2) + (s_1 - s_2)p_1.
+\end{align*}
+Since $s_1 \ne s_2$, it follows that 
+$$p_1 = \frac{d + s_1(p_1 + p_2)}{s_1 - s_2} \in \Q.$$
+\end{enumerate}
+\end{proof}
+\pagebreak
+\subsection{B5 - Geometry}
+Let $A$, $B$ and $C$ be equidistant points on the circumference of a circle of unit radius centered at $O$, and let $P$ be any point in the circle's interior. Let $a$, $b$, $c$ be the distances from $P$ to $A$, $B$, $C$ respectively. Show that there is a triangle with side lengths $a$, $b$, $c$, and that the area of this triangle depends only on the distance from $P$ to $O$.
+
+\begin{proof}
+Let $\omega = e^{2\pi i / 3}$, $A = 1$, $B = \omega$, $C = \omega^2$, $P = z \in \C$ with $|z| < 1$.  We have 
+$$a = |z - 1|, b = |z - \omega|,  c = |z - \omega^2|.$$
+
+Note that 
+\begin{align*}
+(z - 1) + \omega(z - \omega) + \omega^2(z - \omega^2) &= z(1 + \omega + \omega^2) - (1 + \omega^2 + \omega^4) = 0.
+\end{align*}
+The corresponding triangle, where we visualize the complex numbers as vectors that are sides of the triangle, has side lengths of $a, b, c$ as desired.  
+
+The area of the triangle is given by 
+\begin{align*}
+|(z-1) \bar{\omega(z - \omega)} - \bar{z - 1} \omega(z - \omega)|/4 &= |(z - 1) (\omega^2\bar{z} - \omega) - (\bar{z} - 1) (\omega z - \omega^2)|/4 \\
+&= |z \bar{z} \omega^2 - \omega^2 \bar{z} - z\omega + \omega - z\bar{z} \omega + \omega z + \bar{z} \omega^2  - \omega^2|/4 \\
+&= |(z \bar{z} - 1) (\omega^2 - \omega)|/4\\
+&= \frac{(1 - |z|^2)\sqrt{3}}{4},
+\end{align*}
+which is a function of $z$, as desired. 
+\end{proof}
+\pagebreak
+\subsection{B6 - Analysis}
+Let $f(x)$ be a continuous real-valued function defined on $[0, 1]$.  Show that 
+%$$\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \ge \int_0^1 |f(x)|\,dx.$$
 
 %\section{Putnam - 2019}
 %\subsection{A1 - Number Theory}

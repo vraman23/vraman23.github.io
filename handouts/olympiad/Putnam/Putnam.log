@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  20 JUN 2021 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  28 JUN 2021 15:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1395,26 +1395,26 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 (./Putnam.aux)
 \openout1 = `Putnam.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    ... okay on input line 35.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1447,7 +1447,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box71
-Package hyperref Info: Link coloring ON on input line 34.
+Package hyperref Info: Link coloring ON on input line 35.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1457,9 +1457,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count332
 )
-LaTeX Info: Redefining \ref on input line 34.
-LaTeX Info: Redefining \pageref on input line 34.
-LaTeX Info: Redefining \nameref on input line 34.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
 
 (./Putnam.out) (./Putnam.out)
 \@outlinefile=\write6
@@ -1471,7 +1471,7 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           You can avoid loading `bookmark' with KOMA-Script option
 (scrartcl)           `bookmarkpackage=false' before \begin{document} and
 (scrartcl)           you can avoid this message with `\usepackage{bookmark}'
-(scrartcl)           before \begin{document} on input line 34.
+(scrartcl)           before \begin{document} on input line 35.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -1495,28 +1495,28 @@ Package tocstyle Warning: Usage of `tocstyle' with new `tocbasic' detected.
 (tocstyle)                You may also get additional warnings because of
 (tocstyle)                redefined `\numberline'. Ignore them.
 
-Package tocstyle Info: prepare \l@part for redefinition on input line 34.
-Package tocstyle Info: prepare \l@section for redefinition on input line 34.
-Package tocstyle Info: prepare \l@subsection for redefinition on input line 34.
+Package tocstyle Info: prepare \l@part for redefinition on input line 35.
+Package tocstyle Info: prepare \l@section for redefinition on input line 35.
+Package tocstyle Info: prepare \l@subsection for redefinition on input line 35.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 34.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 34.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 35.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 Package tocstyle Info: prepare \l@subsubsection for redefinition on input line 
-34.
-Package tocstyle Info: prepare \l@table for redefinition on input line 34.
-Package tocstyle Info: prepare \l@figure for redefinition on input line 34.
+35.
+Package tocstyle Info: prepare \l@table for redefinition on input line 35.
+Package tocstyle Info: prepare \l@figure for redefinition on input line 35.
 
 
 Package tocstyle Warning: unexpected \@dottedtocline definition!
@@ -1535,9 +1535,9 @@ p \parindent #2\relax \@afterindenttrue \interlinepenalty \@M \leavevmode \@tem
 pdima #3\relax \advance \leftskip \@tempdima \null \nobreak \hskip -\leftskip {
 #4}\nobreak \leaders \hbox {$\m@th \mkern \@dotsep mu\hbox {.}\mkern \@dotsep m
 u$}\hfill \nobreak \hb@xt@ \@pnumwidth {\hfil \normalfont \normalcolor #5\kern 
--\p@ \kern \p@ }\par }\fi  on input line 34.
+-\p@ \kern \p@ }\par }\fi  on input line 35.
 \c@lstlisting=\count334
-LaTeX Info: Redefining \microtypecontext on input line 34.
+LaTeX Info: Redefining \microtypecontext on input line 35.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1562,7 +1562,7 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Package tocbasic Info: character protrusion at toc deactivated on input line 41
+Package tocbasic Info: character protrusion at toc deactivated on input line 42
 .
 
 (./Putnam.toc
@@ -1750,12 +1750,42 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  12.04504pt
 text indent calculated (toc, 2): 24.9417pt
 number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 12.04504pt
 )
 \tf@toc=\write7
 \openout7 = `Putnam.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for TS1+cmss on input line 82.
+LaTeX Font Info:    Try loading font information for TS1+cmss on input line 83.
 
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1766,7 +1796,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
  [3]
 [4] [5] [6] [7] [8] [9] [10] [11]
-Overfull \hbox (9.0869pt too wide) in paragraph at lines 244--245
+Overfull \hbox (9.0869pt too wide) in paragraph at lines 245--246
 \OT1/cmr/m/n/10.95 (-20) For any pos-i-tive in-te-ger $\OML/cmm/m/it/10.95 n$\O
 T1/cmr/m/n/10.95 (-20) , let $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 n\OMS/cm
 sy/m/n/10.95 i$ \OT1/cmr/m/n/10.95 (-20) de-note the clos-est in-te-ger to $[]$
@@ -1775,21 +1805,28 @@ sy/m/n/10.95 i$ \OT1/cmr/m/n/10.95 (-20) de-note the clos-est in-te-ger to $[]$
 
 [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
 [27] [28] [29] [30] [31] [32] [33]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 704.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 704.
+Overfull \hbox (3.04826pt too wide) in paragraph at lines 650--652
+[]\OT1/cmr/m/n/10.95 (-20) We claim no such poly-no-mi-als ex-ist. For a poly-n
+o-mial $\OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (-20) (\OML/cmm/m/it/10.95 x; y
+\OT1/cmr/m/n/10.95 (-20) ) = [][] [][] \OML/cmm/m/it/10.95 a[]x[]y[]$
+ []
+
+[34] [35] [36] [37] [38] [39]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 800.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 800.
  (./Putnam.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 704.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 704.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 800.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 800.
 Package rerunfilecheck Info: File `Putnam.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 704.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 800.
  ) 
 Here is how much of TeX's memory you used:
- 39069 strings out of 492616
- 766681 string characters out of 6129482
- 987687 words of memory out of 5000000
- 42287 multiletter control sequences out of 15000+600000
- 548245 words of font info for 119 fonts, out of 8000000 for 9000
+ 39094 strings out of 492616
+ 766896 string characters out of 6129482
+ 987675 words of memory out of 5000000
+ 42293 multiletter control sequences out of 15000+600000
+ 548347 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,21n,91p,9108b,635s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -1816,10 +1853,10 @@ cal/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loca
 l/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/
 texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/te
 xlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on Putnam.pdf (33 pages, 293719 bytes).
+Output written on Putnam.pdf (39 pages, 309154 bytes).
 PDF statistics:
- 475 PDF objects out of 1000 (max. 8388607)
- 397 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
- 19341 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 539 PDF objects out of 1000 (max. 8388607)
+ 454 compressed objects within 5 object streams
+ 93 named destinations out of 1000 (max. 500000)
+ 19389 words of extra memory for PDF output out of 20736 (max. 10000000)
 

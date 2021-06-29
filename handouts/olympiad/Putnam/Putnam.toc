@@ -34,3 +34,9 @@
 \contentsline {subsection}{\numberline {3.4}A4 - Algebra}{31}{subsection.3.4}% 
 \contentsline {subsection}{\numberline {3.5}A5 - Combinatorics}{32}{subsection.3.5}% 
 \contentsline {subsection}{\numberline {3.6}A6 - Combinatorics}{33}{subsection.3.6}% 
+\contentsline {subsection}{\numberline {3.7}B1 - Algebra}{34}{subsection.3.7}% 
+\contentsline {subsection}{\numberline {3.8}B2 - Combinatorics}{35}{subsection.3.8}% 
+\contentsline {subsection}{\numberline {3.9}B3 - Number Theory}{36}{subsection.3.9}% 
+\contentsline {subsection}{\numberline {3.10}B4 - Algebra}{37}{subsection.3.10}% 
+\contentsline {subsection}{\numberline {3.11}B5 - Geometry}{38}{subsection.3.11}% 
+\contentsline {subsection}{\numberline {3.12}B6 - Analysis}{39}{subsection.3.12}% 
