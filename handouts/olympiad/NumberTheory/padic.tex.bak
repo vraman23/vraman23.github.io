@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage[sexy]{evan}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\Im}{\text{Im }}
+\renewcommand{\>}{\rangle}
+\newcommand{\<}{\langle}
+
+
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Ext}{\operatorname{Ext}}
+
+\newcommand{\res}{\operatorname{res}}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ms \mathscr
+\let \mb \mathbb
+\let \ol \overline
+\let \subset \subseteq
+\let \subsetneq \subset
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+
+\begin{document}
+\title{P-adic Valuation}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+Overview of P-adic valuation,
+\end{abstract}
+\tableofcontents
+\pagebreak
+
+
+ \end{document}
+

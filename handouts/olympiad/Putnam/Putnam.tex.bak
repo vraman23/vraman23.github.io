@@ -269,7 +269,7 @@ and $|pq| > |q|$ since $p \not \in \{-1, 0, 1\}$.  Furthermore, note that $(p^2 
 \end{proof}
 \pagebreak
 \subsection{B5 - Algebra}
-let $a, b \in (0, 1/2)$ and let $g$ be a ontinuous real-valued function such that $g(g(x)) = ag(x) + bx$ for all real $x$.  Prove that $g(x) = cx$ for some constant $c$.
+let $a, b \in (0, 1/2)$ and let $g$ be a continuous real-valued function such that $g(g(x)) = ag(x) + bx$ for all real $x$.  Prove that $g(x) = cx$ for some constant $c$.
 \begin{proof}
 First, note that $g$ is injective.  This is because $g(x) = g(y)$ implies that $g(g(x)) = g(g(y))$, which implies that $ag(x) + bx = ag(y) + by$, which implies that $x = y$.   Since $g$ is continuous and injective, it follows that $g$ is monotone. 
 
@@ -738,8 +738,43 @@ which is a function of $z$, as desired.
 \pagebreak
 \subsection{B6 - Analysis}
 Let $f(x)$ be a continuous real-valued function defined on $[0, 1]$.  Show that 
-%$$\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \ge \int_0^1 |f(x)|\,dx.$$
+$$\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \ge \int_0^1 |f(x)|\,dx.$$
 
+\begin{proof}
+Let $f^+ = \max(f(x), 0)$ and $f^- = f^+ - f$.  Let $A = \supp f^+$, $B = \supp f^-$.  We will denote $\|g\| = \int_{0}^1 |g(x)|\,dx$.
+
+Note that 
+$$\int_0^1 \int_0^1 |f(x) + f(y)|\,dxdy = \left (\iint_{A \times A} + \iint_{B \times B} + 2\iint_{A \times B} \right) |f(x) + f(y) | \,dxdy.$$
+
+Note that 
+\begin{align*}
+\iint_{A \times A} |f(x) + f(y)| \,dxdy &= \iint_{A \times A} (f(x) + f(y)) \,dx dy \\
+&= \iint_{A \times A} f(x) \,dxdy + \iint_{A \times A} f(y) \,dx dy \\
+&=2|A| \|f^+\|.
+\end{align*}
+Similarly,
+$\iint_{B \times B} |f(x) + f(y)| \,dxdy = 2|B| \|f^-\|$.
+
+Finally, note that 
+\begin{align*}
+\iint_{A \times B} |f(x) + f(y)| \,dxdy & = \iint_{A \times B} |f^+(x) - f^-(y)| \,dxdy \\
+&\ge \left | \iint_{A \times B} (f^+(x) - f^-(y))\,dxdy \right| \\
+&= ||B| \|f^+\| - |A| \|f^-\||.
+\end{align*}
+
+Combining the results, we have that 
+$$\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \ge 2|A| \|f^+\| + 2|B| \|f^-\| + 2 ||B| \|f^+\| - |A| \|f^-\||.$$
+
+Squaring both sides of the expression, we have that 
+\begin{align*}
+&\left (\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \right)^2 \ge \left (2|A| \|f^+\| + 2|B| \|f^-\| + 2 ||B| \|f^+\| - |A| \|f^-\|| \right)^2 \\
+&= 4 (|A| \|f^+\| + |B| \|f^- \| + ||B| \|f^+\| - |A| \|f^-\||)^2 \\
+&= 4 (|A| \|f^+\| + |B| \|f^- \| )^2 + 4 (|B| \|f^+\| - |A| \|f^-\|)^2 + 8 (|A| \|f^+\| + |B| \|f^- \| )||B| \|f^+\| - |A| \|f^-\|| \\
+&\ge 4(|A|^2 \|f^+\|^2 + |B|^2 \|f^-\|^2 + |A|^2 \|f^-\|^2 + |B|^2 \|f^+\|^2) \\
+&\ge 4(|A|^2 + |B|^2) (\|f^+\|^2 + \|f^-\|^2) \\
+&\ge (|A| + |B|)^2 (\|)
+\end{align*}
+\end{proof}
 %\section{Putnam - 2019}
 %\subsection{A1 - Number Theory}
 %\begin{Prob}[2019 - A1] Determine all possible values of the expression $$A^3 + B^3 + C^3 - 3ABC,$$
