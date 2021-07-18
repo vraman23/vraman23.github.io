@@ -772,8 +772,33 @@ Squaring both sides of the expression, we have that
 &= 4 (|A| \|f^+\| + |B| \|f^- \| )^2 + 4 (|B| \|f^+\| - |A| \|f^-\|)^2 + 8 (|A| \|f^+\| + |B| \|f^- \| )||B| \|f^+\| - |A| \|f^-\|| \\
 &\ge 4(|A|^2 \|f^+\|^2 + |B|^2 \|f^-\|^2 + |A|^2 \|f^-\|^2 + |B|^2 \|f^+\|^2) \\
 &\ge 4(|A|^2 + |B|^2) (\|f^+\|^2 + \|f^-\|^2) \\
-&\ge (|A| + |B|)^2 (\|)
+&\ge (|A| + |B|)^2 (\|f^+\| + \|f^-\|)^2 \\
+&= (1)^2 (\|f\|)^2 \\
+&= \left (\int_0^1 |f(x)|\,dx \right)^2.
 \end{align*}
+\end{proof}
+\pagebreak
+\section{Putnum - 2004} 
+\subsection{A1 - Number Theory}
+Basketball star Shanille O'Keal's team statistician keeps track of the number, $S(N),$ of successful free throws she has made in her first $N$ attempts of the season. Early in the season, $S(N)$ was less than $80\%$ of $N,$ but by the end of the season, $S(N)$ was more than $80\%$ of $N.$ Was there necessarily a moment in between when $S(N)$ was exactly $80\%$ of $N$?
+\begin{proof}
+We claim that such a moment must exist.  Suppose not.  Then, there exists some value of $N$ so that 
+$$\frac{S(N)}{N} < \frac{4}{5}, \frac{S(N) + 1}{N + 1} > \frac{4}{5}.$$
+
+Cross-multiplying, this gives that $$5S(N) < 4N, 5S(N) > 4N -1,$$
+but this system of inequalities has no solutions in integers.  
+\end{proof}
+\pagebreak
+\subsection{A2 - Geometry}
+For $i=1,2,$ let $T_i$ be a triangle with side length $a_i,b_i,c_i,$ and area $A_i.$ Suppose that $a_1\le a_2, b_1\le b_2, c_1\le c_2,$ and that $T_2$ is an acute triangle. Does it follow that $A_1\le A_2$?
+\begin{proof}
+We claim that it does follow.
+
+Let $R_i$ be the angle between $a_i$ and $b_i$, $S_i$ the angle between $b_i$ and $c_i$ and $T_i$ the angle between $c_i$ and $a_i$.  Note that 
+$$R_1 + S_1 + T_1 = R_2 + S_2 + T_2 = \pi,$$
+so we must have at least one of $R_1 \le R_2$, $S_1 \le S_2$ or $T_1 \le T_2$.  Without loss of generality, suppose that $R_1 \le R_2$.  We have that 
+$$A_1 = \frac{a_1b_1 \sin R_1}{2} \le \frac{a_2 b_2 \sin R_2}{2} = A_2,$$
+as desired.
 \end{proof}
 %\section{Putnam - 2019}
 %\subsection{A1 - Number Theory}

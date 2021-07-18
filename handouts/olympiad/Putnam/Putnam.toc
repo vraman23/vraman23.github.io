@@ -40,3 +40,6 @@
 \contentsline {subsection}{\numberline {3.10}B4 - Algebra}{37}{subsection.3.10}% 
 \contentsline {subsection}{\numberline {3.11}B5 - Geometry}{38}{subsection.3.11}% 
 \contentsline {subsection}{\numberline {3.12}B6 - Analysis}{39}{subsection.3.12}% 
+\contentsline {section}{\numberline {4}Putnum - 2004}{40}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}A1 - Number Theory}{40}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}A2 - Geometry}{41}{subsection.4.2}% 

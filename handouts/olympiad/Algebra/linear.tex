@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[sexy]{evan}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\Im}{\text{Im }}
+\renewcommand{\>}{\rangle}
+\newcommand{\<}{\langle}
+
+
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\res}{\operatorname{res}}
+\let \phi \varphi
+\let \mc \mathcal
+\let \ms \mathscr
+\let \mb \mathbb
+\let \ol \overline
+\let \subset \subseteq
+\let \subsetneq \subset
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+\declaretheorem[style=thmbluebox,name={Problem}]{prob}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+A collection of problems and solutions from topics in linear algebra in the olympiad setting.  I include some expositions when possible.  Any typos or mistakes are my own - kindly direct them to my inbox.
+
+\end{abstract}
+\tableofcontents
+\pagebreak
+\section{Problems}
+\begin{problem} Let $A \in M_n(\R)$ be skew-symmetric. Show that $\det(A) \ge 0$.
+\end{problem}
+\begin{proof}
+If $n$ is odd, note that
+ $$\det(A) = \det(A^\intercal) = \det(-A) = (-1)^n \det(A) = -\det(A).$$
+ It follows that $\det(A) = 0$.
+
+Otherwise, suppose $n$ is even and let $p(\lambda) = \det(A - I_n \lambda)$.  If $\lambda \ne 0$ is an eigenvalue, note that $p(\lambda) = 0$ by the Cayley-Hamilton Theorem.  Moreover,
+$$p(-\lambda) = \det(A + I_n \lambda) = \det(A^\intercal + I_n^\intercal \lambda) = \det(-A + I_n \lambda) = 0.$$
+
+Moreover, let $v$ be an eigenvector with corresponding eigenvalue $\lambda$.   Note that 
+$$\<Av, v\> = \lambda\<v, v\> = \lambda \|v\|^2,$$
+$$\<Av, v\> = \<v, A^\intercal v\> = \<v, -Av\> = -\bar{\lambda} \<v, v\> = -\bar{\lambda} \|v\|^2.$$
+It follows that $\lambda = -\bar{\lambda}$, which implies that $\lambda = r i$ for $r \in \R$.  Hence,
+$$\det(A) = \prod_{j=1}^{n/2} (i \lambda_j)(-i \lambda_j) = \prod_{j=1}^n \lambda_j^2 \ge 0.$$ 
+\end{proof}
+
+\begin{problem} Let $A \in M_n(\R)$ with $A^3 = A + I_n$.  Show that $\det(A) > 0$.
+\end{problem}
+\begin{proof}
+Let $p(x) = x^3 - x - 1$.  Note that $p(0) = -1$, $p(2) = 5$, so the polynomial has a root in the interval $(0, 2)$ by the intermediate value theorem.  Furthermore, $p'(x) = 3x^2 - 1$ so the polynomial has critical points at $\pm\frac{1}{\sqrt{3}}$.  It is easy to see that at both of these values, $p(x) < 0$ so it follows that the other roots of $p(x)$ are conjugate complex numbers.  Let the roots be $\lambda_1, \lambda_2, \lambda_3$ with $\lambda_1$ being the positive real root and $\lambda_2, \lambda_3$ the conjugate complex ones.  If $A$ satisfies $A^3 = A + I_n$, then we must have the eigenvalues of $A$ are $\lambda_1, \lambda_2$ and $\lambda_3$, with multiplicity $\alpha_1, \alpha_2, \alpha_3$ respectively.  Since $\lambda_2, \lambda_3$ are complex conjugates, we must have $\alpha_2 = \alpha_3$, so it follows that 
+$$\det(A) = \lambda_1^{\alpha_1} (\lambda_2 \lambda_3)^{\alpha_2} = \lambda_1^{\alpha_1} |\lambda_2|^{\alpha_2} > 0.$$
+\end{proof}
+
+\begin{problem} If $A, B \in M_n(\R)$ such that $AB = BA$, then $\det(A^2 + B^2) \ge 0$.
+\end{problem}
+\begin{proof}
+$$\det(A^2 + B^2) = \det(A+iB)\det(A - iB) = \det(A + iB) \ol{\det(A + iB)} = |\det(A + iB)|^2\ge 0.$$
+\end{proof}
+\begin{problem} Let $A, B \in M_2(\R)$ such that $AB = BA$ and $\det(A^2 + B^2) = 0$.  Show that $\det(A) = \det(B)$.
+\end{problem}
+\begin{proof}
+Let $p_{A, B}(\lambda) = \det(A + \lambda B) = \det(B) \lambda^2 + (\tr A + \tr B - \tr(AB)) \lambda + \det(A)$.  By Problem $1.3$, we have $\det(A + iB)$ and $\det(A-iB) = 0$, which implies that $p_{A, B}(\lambda) = c(\lambda - i)(\lambda + i) = c(\lambda^2 + 1)$.  It follows that $c = \det B = \det A$.
+\end{proof}
+
+\begin{problem} Let $A \in M_2(\R)$ with $\det A = -1$.  Show that $\det(A^2 + I_2) \ge 4$.  When does equality hold?
+\end{problem}
+\begin{proof}
+First, note the identity 
+$$\det(X+Y) + \det(X - Y) = 2(\det X+ \det Y).$$
+This follows from writing $p(z) = \det(X + zY) = \det(Y) z^2 + (\tr X + \tr Y - \tr(XY)) z + \det(X)$ and taking 
+$$p(1) + p(-1) = \det(X+Y) + \det(X - Y) = 2\det Y + 2 \det X.$$
+
+Then, taking $X = A^2 + I$ and $Y = 2A$, we have 
+$$0 \le  \det(A + I)^2 + \det(A - I)^2 = 2(\det(A^2 + I) + \det(2A)) = 2(\det(A^2 + I) - 4).$$
+It follows that $\det(A^2 + I) \ge 4$ as desired.  We have equality when the eigenvalues of $A$ are $1$ and $-1$.  
+\end{proof}
+
+\begin{problem} Let $A, B \in M_3(\C)$ with $\det(A) = \det(B) = 1$.  Show that $\det(A + \sqrt{2} B) \ne 0$.
+\end{problem}
+\begin{proof}
+
+\end{proof}
+ \end{document}
+

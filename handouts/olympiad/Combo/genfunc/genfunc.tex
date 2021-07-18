@@ -410,49 +410,7 @@ F(x) &= \sum_{n \ge 0} x^n \sum_{k} \binom{n + k}{m + 2k} \binom{2k}{k} \frac{(-
 \end{align*}
 It follows that $f(n, m) = \binom{n-1}{m-1}$.
 \end{proof}
-\pagebreak
-\section{Problem Solving}
-\begin{problem}[Putnam 2020 A2] Let $k$ be a non-negative integer.  Evaluate 
-$$\sum_{j=0}^k 2^{k-j} \binom{k+j}{j}.$$
-\begin{proof}
-We claim the sum evaluates to $4^k$.  Note that $\binom{k+j}{j} = \binom{k+j}{k}$.  It follows that the sum is the coefficient of $x^k$ in the power series $\sum_{j=0}^n 2^{k-j} (1 + x)^{k + j}$.  Evaluating this, we find
-\begin{align*}
-\sum_{j=0}^n 2^{k-j} (1 + x)^{k + j} &= 2^{k}(1 + x)^{k} \sum_{j=0}^k 2^{-j} (1 + x)^j \\
-&= 2^k (1 + x)^k \frac{1 - (1 + x)^{k+1}/2^{k+ 1}}{1 - (1 + x)/2} \\
-&= \frac{2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1}}{1 - x} \\
-&= 2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1} \sum_{n \ge 0} x^n.
-\end{align*}
-It follows that the coefficient of $x^k$ is given by 
-$$2^{k +1} \sum_{j=0}^k \binom{k}{j} - \sum_{j=0}^k \binom{2k+1}{j} = 2^{2k+1} - 2^{2k} = 4^k.$$
-\end{proof}
-\end{problem} 
-\begin{problem}(CJMO 2020/1) Let $N$ be a positive integer, and let $S$ be the set of all tuples with positive integer elements and a sum of $N$.  For all tuples $t$, let $p(t)$ denote the product of all the elements of $t$.  Evaluate 
-$$\sum_{t \in S} p(t).$$
-\end{problem}
-\begin{proof}
-We claim the sum evaluates to $F_{2N}$, where $F_k$ denotes the $k$-th Fibonacci number.  Note that the sum can be represented as the coefficient of $x^N$ in $\sum_{k=1}^N \left (\sum_{n \ge 0} nx^n \right)^k$.  Evaluating this, we find 
-\begin{align*}
-\sum_{k=1}^N \left (\sum_{n \ge 0} nx^n \right)^k &=  \sum_{k=1}^N \left ( \frac{x}{(1 - x)^2} \right)^k \\
-&= \sum_{k=1}^N \frac{x^k}{(1 - x)^{2k}} \\
-&= \sum_{k=1}^N \sum_{j \ge 0} \binom{2k - 1 + j}{2k - 1} x^{j + k} .
-\end{align*}
-The coefficient of $x^N$ is given by  $$\sum_{k=1}^N \binom{N + k - 1}{2k - 1} = \sum_{k=1}^N \binom{N + k - 1}{N - k} = \sum_{j \ge 0} \binom{2N - 1 - j}{j} = F_{2N}.$$
-\end{proof}
-\begin{problem}[IMO 1995/6] Let $p$ be an odd prime number. How many $p$-element subsets $ A$ of $ \{1,2,\dots,2p\}$ are there, the sum of whose elements is divisible by $p$?
-\end{problem}
-\begin{proof}
-Define $f(x, y) = \prod_{k=1}^{2p} (1 + x^k y)$.  We wish to find the sum of the coefficients of terms of the form $x^{p \ell} y^p$.  We do this by first considering $f$ as a generating function in $x$ using the root of unity filter associated to $\omega = e^{\frac{2\pi i }{p}}$.   Then, we read off the coefficient of $y^p$ to find the desired expression.
 
-Note that for $1 \le k \le p-1$, 
-$$f(\omega^k, y) = \prod_{k=1}^{2p} (1 + \omega^k y) = \prod_{k=1}^{p} (1 + \omega^k y)^2 = (1 + y^p)^2.$$
 
-It follows that 
-\begin{align*}
-\frac{1}{p} \sum_{i=0}^{p-1} f(\omega^k, y) &= \frac{1}{p} \left ((1 +y)^{2p} + \sum_{i=1}^{p-1} f(\omega^k, y) \right) \\
-&= \frac{(1 + y)^{2p} + (p-1)(1 + y^p)^2}{p}.
-\end{align*}
-Finally, the coefficient of $y^p$ is given by 
-$$\frac{\binom{2p}{p} + 2(p-1)}{2}.$$
-\end{proof}
  \end{document}
 
