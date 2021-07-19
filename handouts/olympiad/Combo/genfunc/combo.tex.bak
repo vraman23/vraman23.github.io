@@ -54,8 +54,7 @@
 \author{Vishal Raman}
 \maketitle
 \begin{abstract}
-
-
+An overview of topics from math olympiads with selected problems and solutions.  The sources for handouts and expositions are provided when available.  Any typos or mistakes are my own - kindly direct them to my inbox.  
 \end{abstract}
 \tableofcontents
 \pagebreak
@@ -270,8 +269,83 @@ It follows that $\det(A^2 + I) \ge 4$ as desired.  We have equality when the eig
 
 \begin{problem} Let $A, B \in M_3(\C)$ with $\det(A) = \det(B) = 1$.  Show that $\det(A + \sqrt{2} B) \ne 0$.
 \end{problem}
+\subsection{Group Theory}
+\begin{theorem}[Lagrange's Theorem] Let $G$ be a finite field.  If $H$ is a subgroup of $G$, then $|G| = [G:H]|H|$.
+\end{theorem}
+\pagebreak
+\section{Number Theory}
+\subsection{Finite Field Arithmetic}
+Refer to \href{https://web.evanchen.cc/handouts/Summation/Summation.pdf}{Evan Chen, Summations}.
+\begin{theorem}[Fermat's Little Theorem] Let $p$ be a prime.  Then $a^{p-1} \equiv 1 \pmod{p}$ whenever $\gcd(p, q) = 1$.
+\end{theorem}
+\begin{theorem}[Lagrange's Theorem] If $p$ is prime and $f(x) \in Z[x]$, then either
+\begin{itemize}
+\item every coefficient of $f(x)$ is divisible by $p$, or 
+\item $f(x) \equiv 0 \pmod{p}$ has at most $\deg(f)$ incongruent solutions.  
+\end{itemize}
+\end{theorem}
+\begin{theorem}[Wilson's Theorem] For any prime $p$,
+$$(p-1)! \equiv -1.$$
+\end{theorem}
 \begin{proof}
+Let $g(x) = (x-1)(x-2) \dots (x - (p-1))$ and $h(x) = x^{p-1} - 1$.  Both polynomials have degree $p-1$ and leading term $x^{p-1}$.  The constant term for $g(x)$ is $(p-1)!$.  By Fermat's little theorem, $h(x)$ has roots $1, 2, \dots, p-1$ in $\F_p$.
 
+Now, consider $f(x) = g(x) - h(x)$.  Note that $\deg(f) \le p-2$ since the leading terms cancel.  In $\F_p$, it also has the same roots $1, 2, \dots, p-1$.   By Lagrange's Theorem(3.2), we must have that $f(x) \equiv 0 \pmod{p}$.  It follows that $f(0) = (p-1)! + 1 \equiv 0 \pmod{p}$ which proves the result.  
 \end{proof}
+\begin{theorem}[Sums of Powers] Let $p$ be a prime and $n$ and integer.  Then,
+$$\sum_{k=1}^{p-1} k^m \equiv \begin{cases}
+0 \pmod{p} \quad \text{if } p-1 \nmid m \\
+-1 \pmod{p} \quad \text{if } p-1 \mid m
+\end{cases}$$
+\end{theorem}
+\begin{proof}
+If $p-1 \mid m$, then $(p-1)\ell =m$ for some $\ell$, so it follows that 
+$$\sum{k=1}^{p-1} k^m \equiv \sum_{k=1}^{p-1} (k^{p-1})^{\ell} \equiv \sum_{k=1}^{p-1} 1 \equiv p-1 \equiv -1 \pmod{p}.$$
+
+Otherwise, if we let $g$ be a generator for $(\Z/p\Z)^\times$, we have 
+$$\sum_{k=1}^{p-1} k^m \equiv \sum_{k=0}^{p-2} g^{km} \equiv \frac{g^{(p-1)m} - 1}{g^{m} - 1} \equiv 0 \pmod{p}$$
+since $g^{m} -1 \not \equiv 0 \pmod{p}$ .
+\end{proof}
+\begin{theorem}[Wolstenholme's Theorem] Let $p > 3$ be prime.  THen
+$$(p-1)! \left (\frac{1}{1} + \dots + \frac{1}{p-1} \right) \equiv 0 \pmod{p^2}.$$
+\end{theorem}
+\begin{theorem}[Harmonic modulo $p$]
+For any integer $k = 1, 2, \dots, p-1$, we have 
+$$\frac{1}{k} \equiv (-1)^{k-1} \frac{1}{p} \binom{p}{k} \pmod{p}.$$
+\end{theorem}
+\subsection{Arithmetic Functions}
+\pagebreak
+\section{Geometry}
+\subsection{Complex Numbers}
+\begin{problem}[Putnam 2003/B5]Let $A$, $B$ and $C$ be equidistant points on the circumference of a circle of unit radius centered at $O$, and let $P$ be any point in the circle's interior. Let $a$, $b$, $c$ be the distances from $P$ to $A$, $B$, $C$ respectively. Show that there is a triangle with side lengths $a$, $b$, $c$, and that the area of this triangle depends only on the distance from $P$ to $O$.
+
+\begin{proof}
+Let $\omega = e^{2\pi i / 3}$, $A = 1$, $B = \omega$, $C = \omega^2$, $P = z \in \C$ with $|z| < 1$.  We have 
+$$a = |z - 1|, b = |z - \omega|,  c = |z - \omega^2|.$$
+
+Note that 
+\begin{align*}
+(z - 1) + \omega(z - \omega) + \omega^2(z - \omega^2) &= z(1 + \omega + \omega^2) - (1 + \omega^2 + \omega^4) = 0.
+\end{align*}
+The corresponding triangle, where we visualize the complex numbers as vectors that are sides of the triangle, has side lengths of $a, b, c$ as desired.  
+
+The area of the triangle is given by 
+\begin{align*}
+|(z-1) \bar{\omega(z - \omega)} - \bar{z - 1} \omega(z - \omega)|/4 &= |(z - 1) (\omega^2\bar{z} - \omega) - (\bar{z} - 1) (\omega z - \omega^2)|/4 \\
+&= |z \bar{z} \omega^2 - \omega^2 \bar{z} - z\omega + \omega - z\bar{z} \omega + \omega z + \bar{z} \omega^2  - \omega^2|/4 \\
+&= |(z \bar{z} - 1) (\omega^2 - \omega)|/4\\
+&= \frac{(1 - |z|^2)\sqrt{3}}{4},
+\end{align*}
+which is a function of $z$, as desired. 
+\end{proof}
+\end{problem}
+\subsection{Barycentric Coordinates}
+\subsection{Projective Geometry}
+\subsection{Inversion}
+\pagebreak
+\section{Analysis}
+\subsection{Sequences and Series}
+\subsection{Measure Theory and Integration}
+\subsection{Complex Analysis}
  \end{document}
 

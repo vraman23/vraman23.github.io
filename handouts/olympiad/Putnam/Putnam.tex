@@ -778,7 +778,7 @@ Squaring both sides of the expression, we have that
 \end{align*}
 \end{proof}
 \pagebreak
-\section{Putnum - 2004} 
+\section{Putnam - 2004} 
 \subsection{A1 - Number Theory}
 Basketball star Shanille O'Keal's team statistician keeps track of the number, $S(N),$ of successful free throws she has made in her first $N$ attempts of the season. Early in the season, $S(N)$ was less than $80\%$ of $N,$ but by the end of the season, $S(N)$ was more than $80\%$ of $N.$ Was there necessarily a moment in between when $S(N)$ was exactly $80\%$ of $N$?
 \begin{proof}
@@ -799,6 +799,42 @@ $$R_1 + S_1 + T_1 = R_2 + S_2 + T_2 = \pi,$$
 so we must have at least one of $R_1 \le R_2$, $S_1 \le S_2$ or $T_1 \le T_2$.  Without loss of generality, suppose that $R_1 \le R_2$.  We have that 
 $$A_1 = \frac{a_1b_1 \sin R_1}{2} \le \frac{a_2 b_2 \sin R_2}{2} = A_2,$$
 as desired.
+\end{proof}
+\pagebreak
+\subsection{B1 - Algebra}
+Let $P(x)=c_nx^n+c_{n-1}x^{n-1}+\cdots+c_0$ be a polynomial with integer coefficients. Suppose that $r$ is a rational number such that $P(r)=0$. Show that the $n$ numbers
+$c_nr, c_nr^2+c_{n-1}r, c_nr^3+c_{n-1}r^2+c_{n-1}r, \dots, c_nr^n+c_{n-1}r^{n-1}+\cdots+c_1r$
+are all integers.
+\begin{proof}
+We can write Note that $P(r)/r^{k} = 0$, so we can write
+$$c_n r^{n-k} \dots c_{n-k+1}r = - (c_{n-k}  + c_{n-k-1}r^{-1} + \dots + r^{-k}).$$
+Rewriting $r = \frac{p}{q}$ with $\gcd(p, q) = 1$, we have
+$$\frac{c_n p^{n-k} \dots c_{n-k+1}pq^{n-k-1}}{q^{n-k}} = - \frac{c_{n-k}p^k  + c_{n-k-1}q p^{k-1} + \dots + q^k}{p^k}.$$
+Since $\gcd(p, q) = 1$ and both numerators are integers, it follows that both sides of the equation must be integer as desired.
+\end{proof}
+\pagebreak
+\subsection{B2 - Algebra}
+Let $m$ and $n$ be positive integers. Show that
+$\frac{(m+n)!}{(m+n)^{m+n}} < \frac{m!}{m^m}\cdot\frac{n!}{n^n}$
+\begin{proof}
+Note that
+\begin{align*}
+\frac{(m+n)!}{m!n!} = \binom{m+n}{m} &< \frac{(m+n)^{m+n}}{m^mn^n}  \\
+&= \frac{1}{m^mn^n} \sum_{k=0}^{m+n} \binom{m+n}{k} m^k n^{m+n-k} \\
+&=  \sum_{k=0}^{m+n} \binom{m+n}{k} \left( \frac{n}{m}\right)^{m-k},\\
+\end{align*}
+which is obvious.
+\end{proof}
+\pagebreak
+\subsection{B3 - Algebra/Geometry}
+Determine all real numbers $a>0$ for which there exists a nonnegative continuous function $f(x)$ defined on $[0,a]$ with the property that the region
+$R=\{(x,y): 0\le x\le a, 0\le y\le f(x)\}$
+has perimeter $k$ units and area $k$ square units for some real number $k$.
+\begin{proof}
+For $a > 2$, we can take $f(x) = \frac{2a}{a-2}$ so that the area and perimeter are given by $\frac{2a^2}{a-2}$.
+
+For $a \le 2$, we claim no such functions exist. Let $f \in C[0, a]$ and let $x_0 = \operatorname{argmax}_{[0, a]} f(x)$. Note that the area of the region is bounded by $af(x_0)$. For the perimeter, note that $(0, 0), (a, 0)$ and $(x_0, f(x_0))$ split up the boundary of $R$ into $3$ regions. The distance from $(0, 0)$ to $(a, 0)$ is at least $a$, the distance from $(0, 0)$ to $(x_0, f(x_0))$ is at least $f(x_0)$ and the distance from $(a, 0)$ to $(x_0, f(x_0))$ is at least $f(x_0)$. It follows that the perimeter is at least
+$$2f(x_0) + a > af(x_0),$$using the fact that $a \le 2$. It follows that we cannot have equal perimeter and area units.
 \end{proof}
 %\section{Putnam - 2019}
 %\subsection{A1 - Number Theory}
