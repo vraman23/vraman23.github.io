@@ -397,39 +397,7 @@ It follows that $(g*1)(n) = 1$ when $n$ is a perfect square and is $0$ otherwise
 \end{proof} 
 \pagebreak
 \section{Geometry}
-\subsection{Basics}
-\subsubsection{Similar Triangles}
-The first fundamental tool at our disposal is similar triangles, which give us relationships between the lengths and angles of segments.  \begin{definition} Two triangles $\triangle ABC, \triangle DEF$ and similar (denoted $\triangle ABC \sim \triangle DEF$) if $\angle A = \angle D$, $\angle B = \angle E$, and $\angle C = \angle F$.  If the above relations hold, then we also have
-$$\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD}.$$
-\end{definition}
 
-Similar triangles can be useful if a problem involves ratios or products of lengths.  Another use(though rare) is that we show triangles are similar by showing $AB/DE = AC/DF = BC/EF$ and deduce the angles are equal.  We could also show that pair of sides have equal ratio and the included angle is equal: $AB/DE = AC/DF$ and $\angle BAC = \angle EDF$, then $\triangle ABC \sim \triangle DEF$.
-
-We begin by present some applications.
-\begin{theorem}[Angle Bisector] Take $\triangle ABC$.  If $D \in BC$ so that $AD$ bisects $\angle BAC$, then $AB/BD = AC/CD$.
-\end{theorem}
-
-
-\subsubsection{Power of a Point}
-\begin{theorem}[Power of a Point] Take a point $P$ and circle $O$.  For any line that passes through $P$ and intersects $O$ at two points $X$ and $Y$, the product $(PX)(PY)$ is constant.  We call this product the \textbf{power of point} $P$ with respect to circle $O$.  
- \end{theorem}
-
-\subsubsection{Cyclic Quadrilaterals}
-\begin{definition} A quadrilateral is called \textbf{cyclic} if a circle can be drawn that passes through all four vertices.
-\end{definition}
-There are 4 equivalent methods to showing a quadrilateral $ABCD$ is cyclic, namely:
-\begin{itemize}
-\item Showing $\angle ABD = \angle ACD$(or any of the other pairs of similarly defined angles).
-\item Showing a pair of opposite angles sum to $180$ degrees.
-\item The converse of the Power of a Point: if $P$ is the intersection of lines $AB$ and $CD$ and 
-$$PA \cdot PB = PC \cdot PD$$
-or 
-$$QC \cdot QD = QB \cdot QA,$$
-then $A, B, C, D$ are all on a circle.
-\item The equality condition of \textbf{Ptolemy's Inequality}: In a quadrilateral $ABCD$, 
-$$AB \cdot CD + BC \cdot DA \ge AC \cdot BC,$$
-with equality if and only if $ABCD$ is cyclic.
-\end{itemize}
 \subsection{Complex Numbers}
 \begin{problem}[Putnam 2003/B5]Let $A$, $B$ and $C$ be equidistant points on the circumference of a circle of unit radius centered at $O$, and let $P$ be any point in the circle's interior. Let $a$, $b$, $c$ be the distances from $P$ to $A$, $B$, $C$ respectively. Show that there is a triangle with side lengths $a$, $b$, $c$, and that the area of this triangle depends only on the distance from $P$ to $O$.
 
