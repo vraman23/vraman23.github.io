@@ -108,10 +108,6 @@ $$2^{\alpha_1} 2^{\alpha_2} \dots 2^{\alpha_k} 5^{\alpha_1} 5^{\alpha_2} \dots 5
 If Bob sends $2^{\alpha_j}$ to $2^{\beta_1} ,2^{\beta_2}$, then Alice can send $5^{\alpha_j}$ to $5^{\beta_1} , 5^{\beta_2}$ and vice versa.  Otherwise, if Bob removes one or two integers $2^{\alpha_j}$, $2^{\alpha_k}$, then we have $\alpha_j = \alpha_j$ so Alice can remove one or two of $5^{\alpha_j}, 5^{\alpha_k}$ or vice versa.  Since Alice can always follow the copycat strategy and the game eventually terminates, we must have that Bob is unable to make a move at some point, which implies that Alice wins the game as desired.   
 \end{proof}
 
-\begin{problem}
-
-
-\end{problem}
 \subsection{Algorithms}
 
 \subsection{Generating Functions}
@@ -218,6 +214,9 @@ For each point on the boundary $(n, a_n) \in \partial A$, we must have that midp
 
 \pagebreak
 \section{Algebra}
+\subsection{Polynomials}
+\subsection{Inequalities}
+\subsection{Functional Equations}
 \subsection{Linear Algebra}
 \begin{problem} Let $A \in M_n(\R)$ be skew-symmetric. Show that $\det(A) \ge 0$.
 \end{problem}
@@ -272,10 +271,37 @@ It follows that $\det(A^2 + I) \ge 4$ as desired.  We have equality when the eig
 \subsection{Group Theory}
 \begin{theorem}[Lagrange's Theorem] Let $G$ be a finite field.  If $H$ is a subgroup of $G$, then $|G| = [G:H]|H|$.
 \end{theorem}
+\subsection{Field Theory}
 \pagebreak
 \section{Number Theory}
 \subsection{Orders}
-\subsection{Lifting the Exponent}
+\subsection{P-adic Valuation}
+\begin{definition} Let $p$ be a prime and let $n$ be a non-zero integer.  We define $\nu_p(n)$ to be the exponent of $p$ in the prime factorization of $n$.
+\end{definition}
+\begin{theorem}[Legendre's Theorem] 
+$$\nu_p(n!) = \sum_{k \ge 1} \floor{\frac{n}{p^k}}.$$
+\end{theorem}
+
+\begin{problem}[Putnam 2003/B3]
+Show that for each positive integer n,\[n!=\prod_{i=1}^n \; \text{lcm} \; \{1, 2, \ldots, \left\lfloor\frac{n}{i} \right\rfloor\}\](Here lcm denotes the least common multiple, and $\lfloor x\rfloor$ denotes the greatest integer $\le x$.)
+\end{problem}
+\begin{proof}
+ Note that 
+\begin{align*}
+\nu_p\left ( \prod_{k=1}^n \lcm \{1, 2, \dots, \floor{n/k}\}\right) &= \sum_{k=1}^n \nu_p \left (\lcm\{1, 2, \dots, \floor{n/k}\} \right) \\
+&= \sum_{k=1}^n \floor{\log_p \floor{n/k}} \\
+&= \sum_{k=1}^n \sum_{\ell : \floor{n/k} \ge p^\ell} 1 \\
+&= \sum_{\ell=1}^\infty \floor{n/p^\ell}.
+\end{align*}
+This is exactly $\nu_p(n!)$ by Legendre's Theorem.  
+\end{proof}
+\begin{theorem}[Lifting-the-Exponent(LTE) Lemma] 
+Let $p$ be prime, $x, y \in \Z$, $n \in \N$ and $p \mid(x-y)$, $p \nmid x$, $p \nmid y$. 
+\begin{itemize}
+\item if $p$ is odd, $\nu_p(x^n - y^n) = \nu_p(x-y) + \nu_p(n)$,
+\item for $p = 2$ and even $n$, $\nu_2(x^n - y^n) = \nu_2(x-y) + \nu_2(n) + \nu_2(x + y) - 1$.
+\end{itemize}
+\end{theorem}
 \subsection{Cyclotomic Polynomials}
 \subsection{Finite Field Arithmetic}
 Refer to \href{https://web.evanchen.cc/handouts/Summation/Summation.pdf}{Evan Chen, Summations}.
@@ -380,56 +406,14 @@ $$\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD}.$$
 Similar triangles can be useful if a problem involves ratios or products of lengths.  Another use(though rare) is that we show triangles are similar by showing $AB/DE = AC/DF = BC/EF$ and deduce the angles are equal.  We could also show that pair of sides have equal ratio and the included angle is equal: $AB/DE = AC/DF$ and $\angle BAC = \angle EDF$, then $\triangle ABC \sim \triangle DEF$.
 
 We begin by present some applications.
-\begin{thm}[Angle Bisector] Take $\triangle ABC$.  If $D \in BC$ so that $AD$ bisects $\angle BAC$, then $AB/BD = AC/CD$.
-\end{thm}
-\begin{proof}
-Draw a line through $C$ parallel to $AB$ and mark $E$ as the insertion of the parallel line through $C$ and the extension of $AD$. 
-\begin{center}
-\includegraphics[scale=0.5]{graphics/angBis.png}
-\end{center}
+\begin{theorem}[Angle Bisector] Take $\triangle ABC$.  If $D \in BC$ so that $AD$ bisects $\angle BAC$, then $AB/BD = AC/CD$.
+\end{theorem}
 
-Then $\angle ABC = \angle ECD$ and $\angle DEC = \angle DAC$ so it follows that $\triangle ABC \sim \triangle ECD$.  Thus, $AB/BD = EC/CD$.  Finally, $\angle CED = \angle DAC$ so it follows that $\triangle ACE$ is isosceles and $AC = EC$ so we find that 
-$$\frac{AB}{BD} = \frac{AC}{CD},$$
-as desired.
-\end{proof}
-\begin{remark} We also could prove this using the Law of Sines or the ratio of areas of the two triangles.
-\end{remark}
-
-\begin{Prob} Given that $AB || CD || EF$, prove that $\frac{1}{AB} + \frac{1}{EF} = \frac{1}{CD}$ in the following diagram:
-\begin{center}
-\includegraphics[scale=0.5]{graphics/simTri.png}
-\end{center}
-\end{Prob}
-\begin{proof}
-Multiplying through by $CD$, we get that 
-$$CD/AB + CD/EF = 1.$$
-
-Note that $\triangle ACD \sim \triangle AEF$ and $\triangle ECD \sim \triangle EAB$ so it follows that $CD/AB = CE/AE$ and $CD/EF = CA/AE$.
-
-Finally,
-$$\frac{CD}{AB} + \frac{CD}{EF} = \dfrac{CE}{AE}+\dfrac{CA}{AE} = \dfrac{AE}{AE} = 1.$$
-\end{proof}
 
 \subsubsection{Power of a Point}
-\begin{thm}[Power of a Point] Take a point $P$ and circle $O$.  For any line that passes through $P$ and intersects $O$ at two points $X$ and $Y$, the product $(PX)(PY)$ is constant.  We call this product the \textbf{power of point} $P$ with respect to circle $O$.  
- \end{thm}
- \begin{center}
-\includegraphics[scale=0.8]{graphics/pop.png}
-\end{center}
-The Power of a Point Theorem follows from similar triangles:
-\begin{center}
-\includegraphics[scale=0.4]{graphics/popproof.png}
-\end{center}
-\begin{Prob} $AB$ is a diameter of circle $O$. Points $C$ and $D$ are on the circle such that $D$ bisects arc $AC$.  Point $E$ is on the extension of $BC$ that that $BE$ is perpendicular to $DE$.  $F$ is the intersection of $AE$ and circle $O$.  Prove that the extension of $BF$ bisects segment $DE$ at $M$. 
-\end{Prob}
-\begin{center}
-\includegraphics[scale=0.6]{graphics/PoPp1.png}
-\end{center}
-\begin{proof}
-We first claim that $OD || EB$.  This is because $$\angle AOD = \text{arc}(AD) = \text{arc}(AC)/2 = \angle ABE.$$
-It follows that $ED$ is tangent to the circle, since $\angle ODE$ is a right angle.  Furthermore, $\angle AFB$ is a right angle since $AB$ is the diameter of the circle.  Now, note that $\text{Pow}_O(M) = MD^2 = MF \cdot FB.$  It suffices to show that $EF^2 = MF \cdot FB$.  This follows from the fact that $MFE \sim EFB$, so it follows that 
-$$\dfrac{EF}{FB} = \dfrac{ME}{FE} \Longrightarrow EF^2 = ME \cdot FB.$$
-\end{proof}
+\begin{theorem}[Power of a Point] Take a point $P$ and circle $O$.  For any line that passes through $P$ and intersects $O$ at two points $X$ and $Y$, the product $(PX)(PY)$ is constant.  We call this product the \textbf{power of point} $P$ with respect to circle $O$.  
+ \end{theorem}
+
 \subsubsection{Cyclic Quadrilaterals}
 \begin{definition} A quadrilateral is called \textbf{cyclic} if a circle can be drawn that passes through all four vertices.
 \end{definition}
@@ -446,24 +430,6 @@ then $A, B, C, D$ are all on a circle.
 $$AB \cdot CD + BC \cdot DA \ge AC \cdot BC,$$
 with equality if and only if $ABCD$ is cyclic.
 \end{itemize}
-I omit the basic examples but present some of the interesting ones:
-\begin{proposition} A chord $ST$ of constant length slides around a semicircle with diameter $AB$.  $M$ is the midpoint of $ST$ and $P$ is the foot of the perpendicular from $S$ to $AB$.  Prove that the angle $SPM$ is constant for all positions of $ST$.
-\end{proposition}
-\begin{proof}
-If $SM = MT$, then it follows $M$ is the perpendicular bisector of $\triangle OST$.  Thus, $OPSM$ is cyclic and $\angle SPM = \angle SOM$.  Finally, the length of $SM$ is constant, so it follows that the arc between intersection of the extension of $OM$ and the circle and $S$ is constant.  Thus, $\angle SPM$ is constant, as desired.
-\end{proof}
-
-\begin{proposition} $ABC$ is an acute triangle with $O$ as its circumcenter.  Let $S$ be the circle through $C, O, B$.  The lines $AB$ and $AC$ meet circle $S$ again at $P$ and $Q$, respectively.  Show that $AO$ and $PQ$ are perpendicular.  
-\end{proposition}
-\begin{center}
-\includegraphics[scale=0.6]{graphics/CQp1.png}
-\end{center}
-\begin{proof}
-It suffices to show that $\angle AZP$ is right, where $Z = AO \cap PQ$.  This reduces to showing that $\angle ZPA + \angle ZAP = 90$.  Since $PBCQ$ is cyclic, note that 
-$$\angle ZPA = 180 - \angle BCQ = \angle ACB,$$
-so it suffices to show that $ACB + OAB = 90$.  Mark $D$ as the intersection of $AO$ with the original circle.  Then, 
-$$\angle ACB + \angle OAB = \frac{\text{arc}(AB) + \text{arc}(BD)}{2} = \frac{\text{arc}(AD)}{2} = 90.$$
-\end{proof}
 \subsection{Complex Numbers}
 \begin{problem}[Putnam 2003/B5]Let $A$, $B$ and $C$ be equidistant points on the circumference of a circle of unit radius centered at $O$, and let $P$ be any point in the circle's interior. Let $a$, $b$, $c$ be the distances from $P$ to $A$, $B$, $C$ respectively. Show that there is a triangle with side lengths $a$, $b$, $c$, and that the area of this triangle depends only on the distance from $P$ to $O$.
 

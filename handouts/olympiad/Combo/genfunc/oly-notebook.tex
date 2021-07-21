@@ -108,10 +108,6 @@ $$2^{\alpha_1} 2^{\alpha_2} \dots 2^{\alpha_k} 5^{\alpha_1} 5^{\alpha_2} \dots 5
 If Bob sends $2^{\alpha_j}$ to $2^{\beta_1} ,2^{\beta_2}$, then Alice can send $5^{\alpha_j}$ to $5^{\beta_1} , 5^{\beta_2}$ and vice versa.  Otherwise, if Bob removes one or two integers $2^{\alpha_j}$, $2^{\alpha_k}$, then we have $\alpha_j = \alpha_j$ so Alice can remove one or two of $5^{\alpha_j}, 5^{\alpha_k}$ or vice versa.  Since Alice can always follow the copycat strategy and the game eventually terminates, we must have that Bob is unable to make a move at some point, which implies that Alice wins the game as desired.   
 \end{proof}
 
-\begin{problem}
-
-
-\end{problem}
 \subsection{Algorithms}
 
 \subsection{Generating Functions}
@@ -218,6 +214,9 @@ For each point on the boundary $(n, a_n) \in \partial A$, we must have that midp
 
 \pagebreak
 \section{Algebra}
+\subsection{Polynomials}
+\subsection{Inequalities}
+\subsection{Functional Equations}
 \subsection{Linear Algebra}
 \begin{problem} Let $A \in M_n(\R)$ be skew-symmetric. Show that $\det(A) \ge 0$.
 \end{problem}
@@ -272,10 +271,37 @@ It follows that $\det(A^2 + I) \ge 4$ as desired.  We have equality when the eig
 \subsection{Group Theory}
 \begin{theorem}[Lagrange's Theorem] Let $G$ be a finite field.  If $H$ is a subgroup of $G$, then $|G| = [G:H]|H|$.
 \end{theorem}
+\subsection{Field Theory}
 \pagebreak
 \section{Number Theory}
 \subsection{Orders}
-\subsection{Lifting the Exponent}
+\subsection{P-adic Valuation}
+\begin{definition} Let $p$ be a prime and let $n$ be a non-zero integer.  We define $\nu_p(n)$ to be the exponent of $p$ in the prime factorization of $n$.
+\end{definition}
+\begin{theorem}[Legendre's Theorem] 
+$$\nu_p(n!) = \sum_{k \ge 1} \floor{\frac{n}{p^k}}.$$
+\end{theorem}
+
+\begin{problem}[Putnam 2003/B3]
+Show that for each positive integer n,\[n!=\prod_{i=1}^n \; \text{lcm} \; \{1, 2, \ldots, \left\lfloor\frac{n}{i} \right\rfloor\}\](Here lcm denotes the least common multiple, and $\lfloor x\rfloor$ denotes the greatest integer $\le x$.)
+\end{problem}
+\begin{proof}
+ Note that 
+\begin{align*}
+\nu_p\left ( \prod_{k=1}^n \lcm \{1, 2, \dots, \floor{n/k}\}\right) &= \sum_{k=1}^n \nu_p \left (\lcm\{1, 2, \dots, \floor{n/k}\} \right) \\
+&= \sum_{k=1}^n \floor{\log_p \floor{n/k}} \\
+&= \sum_{k=1}^n \sum_{\ell : \floor{n/k} \ge p^\ell} 1 \\
+&= \sum_{\ell=1}^\infty \floor{n/p^\ell}.
+\end{align*}
+This is exactly $\nu_p(n!)$ by Legendre's Theorem.  
+\end{proof}
+\begin{theorem}[Lifting-the-Exponent(LTE) Lemma] 
+Let $p$ be prime, $x, y \in \Z$, $n \in \N$ and $p \mid(x-y)$, $p \nmid x$, $p \nmid y$. 
+\begin{itemize}
+\item if $p$ is odd, $\nu_p(x^n - y^n) = \nu_p(x-y) + \nu_p(n)$,
+\item for $p = 2$ and even $n$, $\nu_2(x^n - y^n) = \nu_2(x-y) + \nu_2(n) + \nu_2(x + y) - 1$.
+\end{itemize}
+\end{theorem}
 \subsection{Cyclotomic Polynomials}
 \subsection{Finite Field Arithmetic}
 Refer to \href{https://web.evanchen.cc/handouts/Summation/Summation.pdf}{Evan Chen, Summations}.
