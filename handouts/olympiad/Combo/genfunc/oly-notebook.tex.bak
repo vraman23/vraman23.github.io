@@ -1,0 +1,499 @@
+\documentclass[11pt]{article}
+\usepackage[sexy]{evan}
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\Im}{\text{Im }}
+\renewcommand{\>}{\rangle}
+\newcommand{\<}{\langle}
+
+
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\tr}{\operatorname{tr}}
+
+\let \phi \varphi
+\let \mc \mathcal
+\let \ms \mathscr
+\let \mb \mathbb
+\let \ol \overline
+\let \subset \subseteq
+\let \subsetneq \subset
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+\newcommand{\supp}{\text{supp }}
+
+\newcommand{\aint}{\mathrel{\int\!\!\!\!\!\!-}}
+\let \grad \nabla
+\declaretheorem[style=thmbluebox,name={Problem}]{prob}
+
+\begin{document}
+\title{Olympiad Notebook}
+\author{Vishal Raman}
+\maketitle
+\begin{abstract}
+An overview of topics from math olympiads with selected problems and solutions.  The sources for handouts and expositions are provided when available.  Any typos or mistakes are my own - kindly direct them to my inbox.  
+\end{abstract}
+\tableofcontents
+\pagebreak
+\section{Combinatorics}
+\subsection{Bijections}
+
+\subsection{Invariants and Monovariants}
+
+\subsection{Pigeonhole Principle}
+\begin{theorem}[Pigeonhole Principle] Let $m, n$ be positive integers with $m \ge n$.  If $m+1$ pigeons fly to $n$ pigeonholes, then at least one pigeonhole contains at least $\floor{\frac{m}{n}} + 1$ pigeons.
+\end{theorem}
+\subsection{Extremal Principle}
+\subsection{Combinatorial Games}
+The main strategies for analyzing combinatorial games are:
+\begin{itemize}
+\item Play the game: try to find some forced moves.
+\item Reduce the game to a simpler game.
+\item Start at the end of the game: find endgame positions which are winning and losing and work backwards.
+\item Find an invariant or monovariant that a player can control.  
+\end{itemize}
+
+\begin{problem} Four heaps contain $38, 45, 61,$ and $70$ matches respectively.  Two players take turns choosing any two of the heaps and removing a non-zero number of matches from each heap.  The player who cannot make a move loses. Which one of the players has a winning strategy?
+\end{problem}
+
+\begin{proof}
+Denote the heaps with a $4$-tuple $(w, x, y, z)$ with $w \le x \le y \le z$.  We claim the winning positions are of the form $(w, x, y, z)$ with $w < y$.  It is clear that $(0, 0, y, z)$ leads to a win by removing $y$ and $z$ and $(0, x, y, z)$ leads to a win by reducing to $(0, 1, 1, z)$ which is forced to leave either $1$ or $2$ heaps.
+
+Since we remove tiles on each move, the game must terminate.  If we have $(w, x, y, z)$ with $w < y$, we can reduce to $(w, w, w, x)$ by sending $y$ and $z$ to $w$.
+
+We show that $(w, w, w, z)$ is a losing position.  We have three cases:
+\begin{enumerate}
+\item If we remove from two of the $w$-heaps, we are left with $(w', w'', w, z)$.
+\item If we remove from a $w$-heap and the $z$-heap, we are left with either $(w', z', w, w)$ or $(w', w, z', w)$ or $(w', w, w, z')$.
+\item If we remove any number of heaps entirely, the resulting position is clearly winning.
+\end{enumerate}
+
+It follows that $(w, x, y, z)$ with $w < y$ is a winning position as desired. 
+\end{proof}
+
+\begin{problem} The number $10^{2015}$ is written on a blackboard.  Alice and Bob play a game where each player can do one of the following on each turn:
+\begin{itemize}
+\item replace an integer $x$ on the board with integers $a, b > 1$ so that $x = ab$
+\item erase one or both of two equal integers on the blackboard.  
+\end{itemize}
+The player who is not able to make a move loses the game.  Who has a winning strategy?
+\end{problem}
+\begin{proof}
+We claim Alice has a winning strategy.  First, it is clear that the game must eventually terminate.  On the first turn, Alice can replace $10^{2015}$ with $2^{2015}$ and $5^{2015}$.  We claim that after any of Bob's turns, Alice can move the board into the state 
+$$2^{\alpha_1} 2^{\alpha_2} \dots 2^{\alpha_k} 5^{\alpha_1} 5^{\alpha_2} \dots 5^{\alpha_k}.$$
+
+If Bob sends $2^{\alpha_j}$ to $2^{\beta_1} ,2^{\beta_2}$, then Alice can send $5^{\alpha_j}$ to $5^{\beta_1} , 5^{\beta_2}$ and vice versa.  Otherwise, if Bob removes one or two integers $2^{\alpha_j}$, $2^{\alpha_k}$, then we have $\alpha_j = \alpha_j$ so Alice can remove one or two of $5^{\alpha_j}, 5^{\alpha_k}$ or vice versa.  Since Alice can always follow the copycat strategy and the game eventually terminates, we must have that Bob is unable to make a move at some point, which implies that Alice wins the game as desired.   
+\end{proof}
+
+\begin{problem}
+
+
+\end{problem}
+\subsection{Algorithms}
+
+\subsection{Generating Functions}
+\begin{problem}[Putnam 2020 A2] Let $k$ be a non-negative integer.  Evaluate 
+$$\sum_{j=0}^k 2^{k-j} \binom{k+j}{j}.$$
+\begin{proof}
+We claim the sum evaluates to $4^k$.  Note that $\binom{k+j}{j} = \binom{k+j}{k}$.  It follows that the sum is the coefficient of $x^k$ in the power series $\sum_{j=0}^n 2^{k-j} (1 + x)^{k + j}$.  Evaluating this, we find
+\begin{align*}
+\sum_{j=0}^n 2^{k-j} (1 + x)^{k + j} &= 2^{k}(1 + x)^{k} \sum_{j=0}^k 2^{-j} (1 + x)^j \\
+&= 2^k (1 + x)^k \frac{1 - (1 + x)^{k+1}/2^{k+ 1}}{1 - (1 + x)/2} \\
+&= \frac{2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1}}{1 - x} \\
+&= 2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1} \sum_{n \ge 0} x^n.
+\end{align*}
+It follows that the coefficient of $x^k$ is given by 
+$$2^{k +1} \sum_{j=0}^k \binom{k}{j} - \sum_{j=0}^k \binom{2k+1}{j} = 2^{2k+1} - 2^{2k} = 4^k.$$
+\end{proof}
+\end{problem} 
+\begin{problem}(CJMO 2020/1) Let $N$ be a positive integer, and let $S$ be the set of all tuples with positive integer elements and a sum of $N$.  For all tuples $t$, let $p(t)$ denote the product of all the elements of $t$.  Evaluate 
+$$\sum_{t \in S} p(t).$$
+\end{problem}
+\begin{proof}
+We claim the sum evaluates to $F_{2N}$, where $F_k$ denotes the $k$-th Fibonacci number.  Note that the sum can be represented as the coefficient of $x^N$ in $\sum_{k=1}^N \left (\sum_{n \ge 0} nx^n \right)^k$.  Evaluating this, we find 
+\begin{align*}
+\sum_{k=1}^N \left (\sum_{n \ge 0} nx^n \right)^k &=  \sum_{k=1}^N \left ( \frac{x}{(1 - x)^2} \right)^k \\
+&= \sum_{k=1}^N \frac{x^k}{(1 - x)^{2k}} \\
+&= \sum_{k=1}^N \sum_{j \ge 0} \binom{2k - 1 + j}{2k - 1} x^{j + k} .
+\end{align*}
+The coefficient of $x^N$ is given by  $$\sum_{k=1}^N \binom{N + k - 1}{2k - 1} = \sum_{k=1}^N \binom{N + k - 1}{N - k} = \sum_{j \ge 0} \binom{2N - 1 - j}{j} = F_{2N}.$$
+\end{proof}
+\begin{problem}[IMO 1995/6] Let $p$ be an odd prime number. How many $p$-element subsets $ A$ of $ \{1,2,\dots,2p\}$ are there, the sum of whose elements is divisible by $p$?
+\end{problem}
+\begin{proof}
+Define $f(x, y) = \prod_{k=1}^{2p} (1 + x^k y)$.  We wish to find the sum of the coefficients of terms of the form $x^{p \ell} y^p$.  We do this by first considering $f$ as a generating function in $x$ using the root of unity filter associated to $\omega = e^{\frac{2\pi i }{p}}$.   Then, we read off the coefficient of $y^p$ to find the desired expression.
+
+Note that for $1 \le k \le p-1$, 
+$$f(\omega^k, y) = \prod_{k=1}^{2p} (1 + \omega^k y) = \prod_{k=1}^{p} (1 + \omega^k y)^2 = (1 + y^p)^2.$$
+
+It follows that 
+\begin{align*}
+\frac{1}{p} \sum_{i=0}^{p-1} f(\omega^k, y) &= \frac{1}{p} \left ((1 +y)^{2p} + \sum_{i=1}^{p-1} f(\omega^k, y) \right) \\
+&= \frac{(1 + y)^{2p} + (p-1)(1 + y^p)^2}{p}.
+\end{align*}
+Finally, the coefficient of $y^p$ is given by 
+$$\frac{\binom{2p}{p} + 2(p-1)}{2}.$$
+\end{proof}
+
+\subsection{Enumerative Combinatorics}
+
+\subsection{Probabilistic Method}
+
+
+%Some tips for using the probabilistic method:
+%\begin{itemize}
+%\item A statement $E$ can be true by showing that its probability is greater than $0$.
+%\item Show that $E$ is true is the same as showing $P(\lnot E) < 1$.
+%\item Show that $X$ can be at least or at most $a$ by showing $E[X] \ge a$ or $E[X] \le a$ respectively.
+%\item Show that it is possible for $|X|$ to be at least or at most $a > 0$ by showing $E[X] = 0$ and $\Var(X) \ge a^2$ or $\Var(X) \le a^2$ respectively.
+%\end{itemize}
+%
+%
+%
+%Sources:
+%\begin{enumerate}
+%\item Evan Chen, \href{https://web.evanchen.cc/handouts/ProbabilisticMethod/ProbabilisticMethod.pdf}{Expected Uses of Probability}
+%\item Espen Slettnes, \href{https://mathcircle.berkeley.edu/sites/default/files/handouts/2019/Probabilistic_Method_Espen_Slettnes_0.pdf}{Probabilistic Method} 
+%\end{enumerate}
+
+
+\subsection{Algebraic Combinatorics}
+
+\subsection{Combinatorial Geometry}
+\subsubsection{Convex Hull}
+\begin{problem}[Happy-Ending Problem] Suppose we have five points in the plane with no three collinear.  Show that we can find four points whose convex hull is a quadrilateral.
+\end{problem}
+\begin{proof}
+Take the convex hull of the five points.  If it is a quadrilateral or pentagon, we are done(choose any 4 points in the latter case).  Suppose the convex hull is a triangle.  Label the points with $A$ through $E$ and without loss of generality, let the points $A$, $B$, $C$ form the triangle and $D$, $E$, be the points inside the hull.
+
+Extend the line $DE$.  Note that two points must lie on one side of the line - if not then we have three collinear points.  It is easy to show that these four points form a convex quadrilateral. 
+\end{proof}
+\begin{problem} There are $n > 3$ coplanar points, no three collinear and every four of them are the vertices of a convex quadrilateral.  Prove that the $n$ points are the vertices of a convex $n$-sided polygon.
+\end{problem}
+\begin{proof}
+Suppose that some point $P$ is inside the convex hull of the $n$ points.  Let $Q$ be some vertex of the convex hull.  The diagonals from $Q$ to the other vertices divide the convex hull into triangles and since no three points are collinear, $P$ must lie inside some triangle $\triangle QRS$.  But this is a contradiction since $P, Q, R, S$ do not form a convex quadrilateral.
+\end{proof}
+
+\begin{problem}[1985 IMO Longlist] Let $A, B$ be finite disjoint sets of points in the plane such that any three distinct points in $A \cup B$ are not collinear.  Assume that at least one of the sets $A, B$ contains at least five points.  Show that there exists a triangle all of whose vertices are contained in $A$ or in $B$ that does not contain in its interior any point from the other set.
+\end{problem}
+\begin{proof}
+Suppose $A$ has at least five points.  Take $A_1A_2$ on the boundary of the convex hull of $A$.  For any other $A_i \in A$, define $\theta_i = \angle A_1A_2A_i$.  Without loss of generality, $\theta_3 < \theta_4 < \dots < 180^\circ$.  It follows that $\text{conv}(\{A_1, A_2, A_3, A_4, A_5\})$ contains no other points of $A$.
+\end{proof}
+
+\begin{problem}[Putnam 2001 B6] Assume that $(a_n)_{n \ge 1}$ is an increasing sequence of positive real numbers such that $\lim \frac{a_n}{n} = 0$.  Must there exist infinitely many positive integers $n$ such that 
+$$a_{n-i} + a_{n+i} < 2a_n$$
+for $i = 1, \dots, n-1$?
+\end{problem}
+\begin{proof}
+We claim such a subsequence exists.   Let $A = \operatorname{conv}\{(n, a_n) : n \in \N\}$ and let $\partial A$ denote the set of points on the boundary of the convex hull.  
+
+We claim that $\partial A$ contains infinitely many elements.  Suppose not.  Then, $\partial A$ has a last point $(N, a_N)$.  If we let $m = \sup_{n > N} \frac{a_n - a_N}{n - N}$, the slope of the line between $(N, a_N)$ and $(n, a_n)$, then the line through $(N, a_N)$ with slope $m$ lies above(or contains) each point $(n, a_n)$ for $n > N$.  However, since $a_n/n \to 0$ and $a_N, N$ are fixed, we have that $$\frac{a_n - a_N}{n - N} \to 0.$$
+This implies that the set of slopes attains a maximum, i. e. there is some point $(M, a_M)$ with $M > N$ so that $m = \frac{a_M - a_N}{M - N}$.  But then, we must also have that $(M, a_M) \in \partial A$, contradicting the fact that $(N, a_N)$ is the last point in $\partial A$.
+
+For each point on the boundary $(n, a_n) \in \partial A$, we must have that midpoint of the line through $(n-i, a_{n-i})$ and $(n+i, a_{n+i})$ for $i \in [n-1]$ must lie below $(n, a_n)$.  From this, it follows that $a_n > \frac{a_{n-i} + a_{n+i}}{2}$, which implies the result.  
+\end{proof}
+
+\pagebreak
+\section{Algebra}
+\subsection{Linear Algebra}
+\begin{problem} Let $A \in M_n(\R)$ be skew-symmetric. Show that $\det(A) \ge 0$.
+\end{problem}
+\begin{proof}
+If $n$ is odd, note that
+ $$\det(A) = \det(A^\intercal) = \det(-A) = (-1)^n \det(A) = -\det(A).$$
+ It follows that $\det(A) = 0$.
+
+Otherwise, suppose $n$ is even and let $p(\lambda) = \det(A - I_n \lambda)$.  If $\lambda \ne 0$ is an eigenvalue, note that $p(\lambda) = 0$ by the Cayley-Hamilton Theorem.  Moreover,
+$$p(-\lambda) = \det(A + I_n \lambda) = \det(A^\intercal + I_n^\intercal \lambda) = \det(-A + I_n \lambda) = 0.$$
+
+Moreover, let $v$ be an eigenvector with corresponding eigenvalue $\lambda$.   Note that 
+$$\<Av, v\> = \lambda\<v, v\> = \lambda \|v\|^2,$$
+$$\<Av, v\> = \<v, A^\intercal v\> = \<v, -Av\> = -\bar{\lambda} \<v, v\> = -\bar{\lambda} \|v\|^2.$$
+It follows that $\lambda = -\bar{\lambda}$, which implies that $\lambda = r i$ for $r \in \R$.  Hence,
+$$\det(A) = \prod_{j=1}^{n/2} (i \lambda_j)(-i \lambda_j) = \prod_{j=1}^n \lambda_j^2 \ge 0.$$ 
+\end{proof}
+
+\begin{problem} Let $A \in M_n(\R)$ with $A^3 = A + I_n$.  Show that $\det(A) > 0$.
+\end{problem}
+\begin{proof}
+Let $p(x) = x^3 - x - 1$.  Note that $p(0) = -1$, $p(2) = 5$, so the polynomial has a root in the interval $(0, 2)$ by the intermediate value theorem.  Furthermore, $p'(x) = 3x^2 - 1$ so the polynomial has critical points at $\pm\frac{1}{\sqrt{3}}$.  It is easy to see that at both of these values, $p(x) < 0$ so it follows that the other roots of $p(x)$ are conjugate complex numbers.  Let the roots be $\lambda_1, \lambda_2, \lambda_3$ with $\lambda_1$ being the positive real root and $\lambda_2, \lambda_3$ the conjugate complex ones.  If $A$ satisfies $A^3 = A + I_n$, then we must have the eigenvalues of $A$ are $\lambda_1, \lambda_2$ and $\lambda_3$, with multiplicity $\alpha_1, \alpha_2, \alpha_3$ respectively.  Since $\lambda_2, \lambda_3$ are complex conjugates, we must have $\alpha_2 = \alpha_3$, so it follows that 
+$$\det(A) = \lambda_1^{\alpha_1} (\lambda_2 \lambda_3)^{\alpha_2} = \lambda_1^{\alpha_1} |\lambda_2|^{\alpha_2} > 0.$$
+\end{proof}
+
+\begin{problem} If $A, B \in M_n(\R)$ such that $AB = BA$, then $\det(A^2 + B^2) \ge 0$.
+\end{problem}
+\begin{proof}
+$$\det(A^2 + B^2) = \det(A+iB)\det(A - iB) = \det(A + iB) \ol{\det(A + iB)} = |\det(A + iB)|^2\ge 0.$$
+\end{proof}
+\begin{problem} Let $A, B \in M_2(\R)$ such that $AB = BA$ and $\det(A^2 + B^2) = 0$.  Show that $\det(A) = \det(B)$.
+\end{problem}
+\begin{proof}
+Let $p_{A, B}(\lambda) = \det(A + \lambda B) = \det(B) \lambda^2 + (\tr A + \tr B - \tr(AB)) \lambda + \det(A)$.  By Problem $1.3$, we have $\det(A + iB)$ and $\det(A-iB) = 0$, which implies that $p_{A, B}(\lambda) = c(\lambda - i)(\lambda + i) = c(\lambda^2 + 1)$.  It follows that $c = \det B = \det A$.
+\end{proof}
+
+\begin{problem} Let $A \in M_2(\R)$ with $\det A = -1$.  Show that $\det(A^2 + I_2) \ge 4$.  When does equality hold?
+\end{problem}
+\begin{proof}
+First, note the identity 
+$$\det(X+Y) + \det(X - Y) = 2(\det X+ \det Y).$$
+This follows from writing $p(z) = \det(X + zY) = \det(Y) z^2 + (\tr X + \tr Y - \tr(XY)) z + \det(X)$ and taking 
+$$p(1) + p(-1) = \det(X+Y) + \det(X - Y) = 2\det Y + 2 \det X.$$
+
+Then, taking $X = A^2 + I$ and $Y = 2A$, we have 
+$$0 \le  \det(A + I)^2 + \det(A - I)^2 = 2(\det(A^2 + I) + \det(2A)) = 2(\det(A^2 + I) - 4).$$
+It follows that $\det(A^2 + I) \ge 4$ as desired.  We have equality when the eigenvalues of $A$ are $1$ and $-1$.  
+\end{proof}
+
+\begin{problem} Let $A, B \in M_3(\C)$ with $\det(A) = \det(B) = 1$.  Show that $\det(A + \sqrt{2} B) \ne 0$.
+\end{problem}
+\subsection{Group Theory}
+\begin{theorem}[Lagrange's Theorem] Let $G$ be a finite field.  If $H$ is a subgroup of $G$, then $|G| = [G:H]|H|$.
+\end{theorem}
+\pagebreak
+\section{Number Theory}
+\subsection{Orders}
+\subsection{Lifting the Exponent}
+\subsection{Cyclotomic Polynomials}
+\subsection{Finite Field Arithmetic}
+Refer to \href{https://web.evanchen.cc/handouts/Summation/Summation.pdf}{Evan Chen, Summations}.
+\begin{theorem}[Fermat's Little Theorem] Let $p$ be a prime.  Then $a^{p-1} \equiv 1 \pmod{p}$ whenever $\gcd(p, q) = 1$.
+\end{theorem}
+\begin{theorem}[Lagrange's Theorem] If $p$ is prime and $f(x) \in Z[x]$, then either
+\begin{itemize}
+\item every coefficient of $f(x)$ is divisible by $p$, or 
+\item $f(x) \equiv 0 \pmod{p}$ has at most $\deg(f)$ incongruent solutions.  
+\end{itemize}
+\end{theorem}
+\begin{theorem}[Wilson's Theorem] For any prime $p$,
+$$(p-1)! \equiv -1.$$
+\end{theorem}
+\begin{proof}
+Let $g(x) = (x-1)(x-2) \dots (x - (p-1))$ and $h(x) = x^{p-1} - 1$.  Both polynomials have degree $p-1$ and leading term $x^{p-1}$.  The constant term for $g(x)$ is $(p-1)!$.  By Fermat's little theorem, $h(x)$ has roots $1, 2, \dots, p-1$ in $\F_p$.
+
+Now, consider $f(x) = g(x) - h(x)$.  Note that $\deg(f) \le p-2$ since the leading terms cancel.  In $\F_p$, it also has the same roots $1, 2, \dots, p-1$.   By Lagrange's Theorem(3.2), we must have that $f(x) \equiv 0 \pmod{p}$.  It follows that $f(0) = (p-1)! + 1 \equiv 0 \pmod{p}$ which proves the result.  
+\end{proof}
+\begin{theorem}[Sums of Powers] Let $p$ be a prime and $n$ and integer.  Then,
+$$\sum_{k=1}^{p-1} k^m \equiv \begin{cases}
+0 \pmod{p} \quad \text{if } p-1 \nmid m \\
+-1 \pmod{p} \quad \text{if } p-1 \mid m
+\end{cases}$$
+\end{theorem}
+\begin{proof}
+If $p-1 \mid m$, then $(p-1)\ell =m$ for some $\ell$, so it follows that 
+$$\sum{k=1}^{p-1} k^m \equiv \sum_{k=1}^{p-1} (k^{p-1})^{\ell} \equiv \sum_{k=1}^{p-1} 1 \equiv p-1 \equiv -1 \pmod{p}.$$
+
+Otherwise, if we let $g$ be a generator for $(\Z/p\Z)^\times$, we have 
+$$\sum_{k=1}^{p-1} k^m \equiv \sum_{k=0}^{p-2} g^{km} \equiv \frac{g^{(p-1)m} - 1}{g^{m} - 1} \equiv 0 \pmod{p}$$
+since $g^{m} -1 \not \equiv 0 \pmod{p}$ .
+\end{proof}
+\begin{theorem}[Wolstenholme's Theorem] Let $p > 3$ be prime.  THen
+$$(p-1)! \left (\frac{1}{1} + \dots + \frac{1}{p-1} \right) \equiv 0 \pmod{p^2}.$$
+\end{theorem}
+\begin{theorem}[Harmonic modulo $p$]
+For any integer $k = 1, 2, \dots, p-1$, we have 
+$$\frac{1}{k} \equiv (-1)^{k-1} \frac{1}{p} \binom{p}{k} \pmod{p}.$$
+\end{theorem}
+
+\begin{problem}[ELMO 2009] Let $p$ be an odd prime and $x$ be an integer such that $p \mid x^3 - 1$ but $p \nmid x-1$.  Prove that $p$ divides 
+$$(p-1)! \left ( x - \frac{x^2}{2} + \frac{x^3}{3} - \dots - \frac{x^{p-1}}{p-1}\right).$$
+\end{problem}
+\begin{proof}
+Note that $p \mid x^3 - 1$ and $x \nmid x-1$ implies that $p \mid x^2 + x + 1$, so we have $1 + x \equiv -x^2 \pmod{p}$.
+Using Theorem $3.6$, we can rewrite the expression as 
+\begin{align*}
+x - \frac{x^2}{2} + \frac{x^3}{3} - \dots - \frac{x^{p-1}}{p-1} &\equiv \frac{x}{p} \binom{p}{1} + \frac{x^2}{p} \binom{p}{2} + \dots + \frac{x^{p-1}}{p} \binom{p}{p-1} \pmod{p} \\
+&=  \frac{1}{p} \left ((1 + x)^p - 1 - x^p \right) \pmod{p} \\
+&= -\frac{1}{p} \left (1 + x^p + x^{2p} \right).
+\end{align*}
+Note that $x^{2p} + x^p + 1 \equiv (x^2 + x)^p + 1 \pmod{p}$.  By the Lifting-The-Exponent(LTE) lemma, $$\nu_p((x^2 + x)^p + 1^p) = \nu_p (x^2 + x + 1) + \nu_p(p) \ge 2.$$
+
+It follows that $1 + x^p + x^{2p} \equiv 0 \pmod{p^2}$, which proves the result.  
+\end{proof}
+\subsection{Arithmetic Functions}
+\begin{definition} A function $f: \N \to \C$ is \textbf{multiplicative} if $f(mn) = f(m)f(n)$ whenever $\gcd(m, n) = 1$.  It is \textbf{completely multiplicative} if $f(mn) = f(m)f(n)$ for any $m, n \in \N$.
+\end{definition}
+
+\begin{definition}[Möbius Function] The Möbius Function, $\mu$, is defined by 
+$$\mu(n) = \begin{cases}
+(-1)^m \quad \text{if }n \text{ has }m \text{ distinct prime factors}, \\
+0 \quad \text{if }n \text{ is not squarefree}.
+\end{cases}$$
+\end{definition}
+
+\begin{definition}[Dirichlet Convolution] Given two arithmetic functions, $f, g: \N \to \C$, we define 
+$$(f * g)(n) = \sum_{d \mid n} f(d) g(n/d) = \sum_{de = n} f(d) g(e).$$
+\end{definition}
+
+\begin{theorem}[Möbius Inversion] Given two arithmetic functions $f, g: \N \to \C$, 
+$$g(n) = \sum_{d \mid n} f(d) \Longleftrightarrow f(n) = \sum_{d  \mid n} \mu(d) g(n/d).$$
+In other words, $g = f * 1$ if and only if $f = g * \mu$.
+\end{theorem}
+
+\begin{problem}[Bulgaria 1989] Let $\Omega(n)$ denote the number of prime factors of $n$, counted with multiplicity.  Evaluate 
+$$\sum_{n=1}^{1989} (-1)^{\Omega(n)} \floor{\frac{1989}{n}}.$$
+\end{problem}
+\begin{proof}
+Note that $g(n) = -1^{\Omega(n)}$ is (completely) multiplicative.  Then,
+\begin{align*}
+\sum_{n=1}^{1989} (-1)^{\Omega(n)} \floor{\frac{1989}{n}} &= \sum_{n=1}^{1989} \sum_{k \le 1989, n \mid k}  (-1)^{\Omega(n)} \\
+&= \sum_{k=1}^{1989} \sum_{n \mid k} (-1)^{\Omega(n)}.
+\end{align*}
+Note that $g * 1$ is multiplicative so it suffices to evaluate $(g * 1)(k) = \sum_{n \mid k} (-1)^{\Omega(n)}$ for prime powers.  Note that 
+$$(g*1)(p^k) = \sum_{r=0}^k (-1)^{r} = \begin{cases}
+1 \quad \text{if k is even}\\
+0 \quad \text{else}
+\end{cases}.$$
+
+It follows that $(g*1)(n) = 1$ when $n$ is a perfect square and is $0$ otherwise.  Hence, the sum evaluates to $\floor{\sqrt{1989}} = 44$.
+\end{proof} 
+\pagebreak
+\section{Geometry}
+\subsection{Basics}
+\subsubsection{Similar Triangles}
+The first fundamental tool at our disposal is similar triangles, which give us relationships between the lengths and angles of segments.  \begin{definition} Two triangles $\triangle ABC, \triangle DEF$ and similar (denoted $\triangle ABC \sim \triangle DEF$) if $\angle A = \angle D$, $\angle B = \angle E$, and $\angle C = \angle F$.  If the above relations hold, then we also have
+$$\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD}.$$
+\end{definition}
+
+Similar triangles can be useful if a problem involves ratios or products of lengths.  Another use(though rare) is that we show triangles are similar by showing $AB/DE = AC/DF = BC/EF$ and deduce the angles are equal.  We could also show that pair of sides have equal ratio and the included angle is equal: $AB/DE = AC/DF$ and $\angle BAC = \angle EDF$, then $\triangle ABC \sim \triangle DEF$.
+
+We begin by present some applications.
+\begin{thm}[Angle Bisector] Take $\triangle ABC$.  If $D \in BC$ so that $AD$ bisects $\angle BAC$, then $AB/BD = AC/CD$.
+\end{thm}
+\begin{proof}
+Draw a line through $C$ parallel to $AB$ and mark $E$ as the insertion of the parallel line through $C$ and the extension of $AD$. 
+\begin{center}
+\includegraphics[scale=0.5]{graphics/angBis.png}
+\end{center}
+
+Then $\angle ABC = \angle ECD$ and $\angle DEC = \angle DAC$ so it follows that $\triangle ABC \sim \triangle ECD$.  Thus, $AB/BD = EC/CD$.  Finally, $\angle CED = \angle DAC$ so it follows that $\triangle ACE$ is isosceles and $AC = EC$ so we find that 
+$$\frac{AB}{BD} = \frac{AC}{CD},$$
+as desired.
+\end{proof}
+\begin{remark} We also could prove this using the Law of Sines or the ratio of areas of the two triangles.
+\end{remark}
+
+\begin{Prob} Given that $AB || CD || EF$, prove that $\frac{1}{AB} + \frac{1}{EF} = \frac{1}{CD}$ in the following diagram:
+\begin{center}
+\includegraphics[scale=0.5]{graphics/simTri.png}
+\end{center}
+\end{Prob}
+\begin{proof}
+Multiplying through by $CD$, we get that 
+$$CD/AB + CD/EF = 1.$$
+
+Note that $\triangle ACD \sim \triangle AEF$ and $\triangle ECD \sim \triangle EAB$ so it follows that $CD/AB = CE/AE$ and $CD/EF = CA/AE$.
+
+Finally,
+$$\frac{CD}{AB} + \frac{CD}{EF} = \dfrac{CE}{AE}+\dfrac{CA}{AE} = \dfrac{AE}{AE} = 1.$$
+\end{proof}
+
+\subsubsection{Power of a Point}
+\begin{thm}[Power of a Point] Take a point $P$ and circle $O$.  For any line that passes through $P$ and intersects $O$ at two points $X$ and $Y$, the product $(PX)(PY)$ is constant.  We call this product the \textbf{power of point} $P$ with respect to circle $O$.  
+ \end{thm}
+ \begin{center}
+\includegraphics[scale=0.8]{graphics/pop.png}
+\end{center}
+The Power of a Point Theorem follows from similar triangles:
+\begin{center}
+\includegraphics[scale=0.4]{graphics/popproof.png}
+\end{center}
+\begin{Prob} $AB$ is a diameter of circle $O$. Points $C$ and $D$ are on the circle such that $D$ bisects arc $AC$.  Point $E$ is on the extension of $BC$ that that $BE$ is perpendicular to $DE$.  $F$ is the intersection of $AE$ and circle $O$.  Prove that the extension of $BF$ bisects segment $DE$ at $M$. 
+\end{Prob}
+\begin{center}
+\includegraphics[scale=0.6]{graphics/PoPp1.png}
+\end{center}
+\begin{proof}
+We first claim that $OD || EB$.  This is because $$\angle AOD = \text{arc}(AD) = \text{arc}(AC)/2 = \angle ABE.$$
+It follows that $ED$ is tangent to the circle, since $\angle ODE$ is a right angle.  Furthermore, $\angle AFB$ is a right angle since $AB$ is the diameter of the circle.  Now, note that $\text{Pow}_O(M) = MD^2 = MF \cdot FB.$  It suffices to show that $EF^2 = MF \cdot FB$.  This follows from the fact that $MFE \sim EFB$, so it follows that 
+$$\dfrac{EF}{FB} = \dfrac{ME}{FE} \Longrightarrow EF^2 = ME \cdot FB.$$
+\end{proof}
+\subsubsection{Cyclic Quadrilaterals}
+\begin{definition} A quadrilateral is called \textbf{cyclic} if a circle can be drawn that passes through all four vertices.
+\end{definition}
+There are 4 equivalent methods to showing a quadrilateral $ABCD$ is cyclic, namely:
+\begin{itemize}
+\item Showing $\angle ABD = \angle ACD$(or any of the other pairs of similarly defined angles).
+\item Showing a pair of opposite angles sum to $180$ degrees.
+\item The converse of the Power of a Point: if $P$ is the intersection of lines $AB$ and $CD$ and 
+$$PA \cdot PB = PC \cdot PD$$
+or 
+$$QC \cdot QD = QB \cdot QA,$$
+then $A, B, C, D$ are all on a circle.
+\item The equality condition of \textbf{Ptolemy's Inequality}: In a quadrilateral $ABCD$, 
+$$AB \cdot CD + BC \cdot DA \ge AC \cdot BC,$$
+with equality if and only if $ABCD$ is cyclic.
+\end{itemize}
+I omit the basic examples but present some of the interesting ones:
+\begin{proposition} A chord $ST$ of constant length slides around a semicircle with diameter $AB$.  $M$ is the midpoint of $ST$ and $P$ is the foot of the perpendicular from $S$ to $AB$.  Prove that the angle $SPM$ is constant for all positions of $ST$.
+\end{proposition}
+\begin{proof}
+If $SM = MT$, then it follows $M$ is the perpendicular bisector of $\triangle OST$.  Thus, $OPSM$ is cyclic and $\angle SPM = \angle SOM$.  Finally, the length of $SM$ is constant, so it follows that the arc between intersection of the extension of $OM$ and the circle and $S$ is constant.  Thus, $\angle SPM$ is constant, as desired.
+\end{proof}
+
+\begin{proposition} $ABC$ is an acute triangle with $O$ as its circumcenter.  Let $S$ be the circle through $C, O, B$.  The lines $AB$ and $AC$ meet circle $S$ again at $P$ and $Q$, respectively.  Show that $AO$ and $PQ$ are perpendicular.  
+\end{proposition}
+\begin{center}
+\includegraphics[scale=0.6]{graphics/CQp1.png}
+\end{center}
+\begin{proof}
+It suffices to show that $\angle AZP$ is right, where $Z = AO \cap PQ$.  This reduces to showing that $\angle ZPA + \angle ZAP = 90$.  Since $PBCQ$ is cyclic, note that 
+$$\angle ZPA = 180 - \angle BCQ = \angle ACB,$$
+so it suffices to show that $ACB + OAB = 90$.  Mark $D$ as the intersection of $AO$ with the original circle.  Then, 
+$$\angle ACB + \angle OAB = \frac{\text{arc}(AB) + \text{arc}(BD)}{2} = \frac{\text{arc}(AD)}{2} = 90.$$
+\end{proof}
+\subsection{Complex Numbers}
+\begin{problem}[Putnam 2003/B5]Let $A$, $B$ and $C$ be equidistant points on the circumference of a circle of unit radius centered at $O$, and let $P$ be any point in the circle's interior. Let $a$, $b$, $c$ be the distances from $P$ to $A$, $B$, $C$ respectively. Show that there is a triangle with side lengths $a$, $b$, $c$, and that the area of this triangle depends only on the distance from $P$ to $O$.
+
+\begin{proof}
+Let $\omega = e^{2\pi i / 3}$, $A = 1$, $B = \omega$, $C = \omega^2$, $P = z \in \C$ with $|z| < 1$.  We have 
+$$a = |z - 1|, b = |z - \omega|,  c = |z - \omega^2|.$$
+
+Note that 
+\begin{align*}
+(z - 1) + \omega(z - \omega) + \omega^2(z - \omega^2) &= z(1 + \omega + \omega^2) - (1 + \omega^2 + \omega^4) = 0.
+\end{align*}
+The corresponding triangle, where we visualize the complex numbers as vectors that are sides of the triangle, has side lengths of $a, b, c$ as desired.  
+
+The area of the triangle is given by 
+\begin{align*}
+|(z-1) \bar{\omega(z - \omega)} - \bar{z - 1} \omega(z - \omega)|/4 &= |(z - 1) (\omega^2\bar{z} - \omega) - (\bar{z} - 1) (\omega z - \omega^2)|/4 \\
+&= |z \bar{z} \omega^2 - \omega^2 \bar{z} - z\omega + \omega - z\bar{z} \omega + \omega z + \bar{z} \omega^2  - \omega^2|/4 \\
+&= |(z \bar{z} - 1) (\omega^2 - \omega)|/4\\
+&= \frac{(1 - |z|^2)\sqrt{3}}{4},
+\end{align*}
+which is a function of $z$, as desired. 
+\end{proof}
+\end{problem}
+\subsection{Barycentric Coordinates}
+\subsection{Projective Geometry}
+\subsection{Inversion}
+\pagebreak
+\section{Analysis}
+\subsection{Sequences and Series}
+\subsection{Measure Theory and Integration}
+\subsection{Complex Analysis}
+ \end{document}
+
