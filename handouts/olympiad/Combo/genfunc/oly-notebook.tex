@@ -59,9 +59,10 @@ An overview of topics from math olympiads with selected problems and solutions. 
 \tableofcontents
 \pagebreak
 \section{Combinatorics}
-\subsection{Bijections}
 
 \subsection{Invariants and Monovariants}
+
+\subsection{Bijections}
 
 \subsection{Pigeonhole Principle}
 \begin{theorem}[Pigeonhole Principle] Let $m, n$ be positive integers with $m \ge n$.  If $m+1$ pigeons fly to $n$ pigeonholes, then at least one pigeonhole contains at least $\floor{\frac{m}{n}} + 1$ pigeons.
@@ -159,16 +160,15 @@ $$\frac{\binom{2p}{p} + 2(p-1)}{2}.$$
 \subsection{Probabilistic Method}
 
 
-%Some tips for using the probabilistic method:
-%\begin{itemize}
-%\item A statement $E$ can be true by showing that its probability is greater than $0$.
-%\item Show that $E$ is true is the same as showing $P(\lnot E) < 1$.
-%\item Show that $X$ can be at least or at most $a$ by showing $E[X] \ge a$ or $E[X] \le a$ respectively.
-%\item Show that it is possible for $|X|$ to be at least or at most $a > 0$ by showing $E[X] = 0$ and $\Var(X) \ge a^2$ or $\Var(X) \le a^2$ respectively.
-%\end{itemize}
-%
-%
-%
+Some tips for using the probabilistic method:
+\begin{itemize}
+\item A statement $E$ can be true by showing that its probability is greater than $0$.
+item Show that $E$ is true is the same as showing $P(\lnot E) < 1$.
+\item Show that $X$ can be at least or at most $a$ by showing $E[X] \ge a$ or $E[X] \le a$ respectively.
+\item Show that it is possible for $|X|$ to be at least or at most $a > 0$ by showing $E[X] = 0$ and $\Var(X) \ge a^2$ or $\Var(X) \le a^2$ respectively.
+\end{itemize}
+
+
 %Sources:
 %\begin{enumerate}
 %\item Evan Chen, \href{https://web.evanchen.cc/handouts/ProbabilisticMethod/ProbabilisticMethod.pdf}{Expected Uses of Probability}
@@ -216,6 +216,32 @@ For each point on the boundary $(n, a_n) \in \partial A$, we must have that midp
 \section{Algebra}
 \subsection{Polynomials}
 \subsection{Inequalities}
+\begin{theorem}[QM-AM-GM-HM]
+Let $x_1, \dots, x_n \in \R^+$.  Then,
+\[\sqrt{\frac{x_1^2+\cdots+x_n^2}{n}} \ge\frac{x_1+\cdots+x_n}{n}\ge\sqrt[n]{x_1\cdots x_n}\ge\frac{n}{\frac{1}{x_1}+\cdots+\frac{1}{x_n}}\]
+with equality if and only if $x_1 = \dots = x_n$.
+\end{theorem}
+
+\begin{definition}[ Power Mean] Given $p \in \R$, $x_1, \dots, x_n \in \R^+$, define 
+$$M_p(x_1, \dots, x_n) = \begin{cases}\left (\sum_{i=1}^n w_i x_i^p \right)^{1/p} \quad \text{if } p \ne 0 \\ \prod_{i=1}^n x_i^{w_i} \quad \text{else} \end{cases}.$$
+\end{definition}
+\begin{definition}[Weighted Power Mean] Given $(w_i)_{i=1}^n$ with $\sum_i w_i = 1$, define 
+$$M_p^w(x_1, \dots, x_n) = \begin{cases}\left (\sum_{i=1}^n w_i x_i^p \right)^{1/p} \quad \text{if } p \ne 0 \\ \prod_{i=1}^n x_i^{w_i} \quad \text{else} \end{cases}.$$
+\end{definition}
+\begin{theorem}
+Given $x_1, \dots, x_n \in \R^+$, the following properties hold:
+\begin{itemize}
+\item $\min(x_1, \dots, x_n) \le M_p(x_1, \dots, x_n) \le M_p(x_1, \dots, x_n) \le \max(x_1, \dots, x_n)$ 
+\item $M_p(x_1, \dots, x_n) = M_p(\sigma(x_1, \dots, x_n))$ for $\sigma \in S_n$ 
+\item $M_p(bx_1, \dots, bx_n) = b M_p(x_1, \dots, x_n)$
+\item $M_p(x_1,\dots, x_{nk}) = M_p(M_p(x_1, \dots, x_n), M_p(x_{k+1}, \dots, x_{2k}), \dots, M_p(x_{(n-1)k + 1}, \dots, x_{nk}))$
+\end{itemize}
+\end{theorem}
+\begin{theorem}[Power Mean Inequality]
+If $p < q$,
+$$M_p(x_1, \dots, x_n) \le M_q(x_1, \dots, x_n),$$
+with equality if and only if $x_1 = \dots = x_n$.
+\end{theorem}
 \subsection{Functional Equations}
 \subsection{Linear Algebra}
 \begin{problem} Let $A \in M_n(\R)$ be skew-symmetric. Show that $\det(A) \ge 0$.
@@ -396,10 +422,131 @@ $$(g*1)(p^k) = \sum_{r=0}^k (-1)^{r} = \begin{cases}
 It follows that $(g*1)(n) = 1$ when $n$ is a perfect square and is $0$ otherwise.  Hence, the sum evaluates to $\floor{\sqrt{1989}} = 44$.
 \end{proof} 
 \pagebreak
-\section{Geometry}
+\section{Analysis}
+\subsection{Sequences and Series}
+\subsection{Measure Theory and Integration}
+\begin{problem}[Putnam 2002/A6] Fix an integer $b \ge 2$.  Let $f(1) = 1$, $f(2) = 2$, and for each $n \ge 3$, define $f(n) = nf(d)$, where $d$ is the number of base-$b$ digits of $n$.  For which values of $b$ does the sum $\sum_{n \ge 1} 1/f(n)$ converge?
+\end{problem}
 
+
+\begin{proof}
+The sum converges for $b = 2$ and diverges for $b \ge 3$.  
+
+We first consider $b \ge 3$.  Suppose the sum converges.  Note that we can write 
+$$\sum_{n = 1}^\infty \frac{1}{f(n)} = \sum_{d = 1}^\infty \frac{1}{f(d)}\sum_{n = b^{d-1}}^{b^{d} - 1} \frac{1}{n}.$$
+Note that $\sum_{n = b^{d-1}}^{b^d - 1} \frac{1}{n}$ is a left-endpoint Riemann approximation for the integral $\int_{b^{d-1}}^{b^d} \frac{1}{x}$ and the function $\frac{1}{x}$ is monotonically decreasing on this interval so it follows that 
+$$\sum_{n = b^{d-1}}^{b^d - 1} \frac{1}{n} > \int_{b^{d-1}}^{b^d} \frac{1}{x} = \log b.$$
+However, this implies that 
+$$\sum_{n = 1}^\infty \frac{1}{f(n)} > \log b \sum_{d = 1}^\infty \frac{1}{f(d)},$$
+which is a contradiction since $\log b > 1$.
+
+
+Now, we show that the sum converges in the case of $b = 2$.  Let $C = \log 2 + \frac{1}{8} < 1$.  We prove by induction that for each $m \in \N$, $$\sum_{n=1}^{2^{m} - 1} \frac{1}{f(m)} < 1 + \frac{1}{2} + \frac{1}{6(1-C)} = L.$$
+
+For $m = 1, 2$, the result is clear.  Suppose it is true for all $m \in \{1, 2, \dots, N-1\}$.  Note that 
+\begin{align*}
+\sum_{n=1}^{2^N - 1} \frac{1}{f(n)} &= 1 + \frac{1}{2} + \frac{1}{6} + \sum_{d=3}^N \frac{1}{f(d)} \sum_{n = 2^{d - 1}}^{2^d - 1} \frac{1}{n}.
+\end{align*}
+Then, using a right-endpoint Riemann approximation, we have 
+\begin{align*}
+\sum_{n = 2^{d-1}}^{2^d - 1} \frac{1}{n} &= \frac{1}{2^{d - 1}} - \frac{1}{2^{d}} + \sum_{n = 2^{d-1}+1}^{2^d} \frac{1}{n} \\
+&< 2^{-d} + \int_{2^{d-1}}^{2^d} \frac{dx}{x} \\
+&< \frac{1}{8} + \log 2 = C.
+\end{align*}
+It follows that 
+\begin{align}
+1 + \frac{1}{2} + \frac{1}{6} + \sum_{d=3}^N \frac{1}{f(d)} &< 1 + \frac{1}{2} + \frac{1}{6} + C \sum_{d = 3}^N \frac{1}{ f(d)} \\
+&< 1 + \frac{1}{2} + \frac{1}{6} + \frac{C}{6(1 - C)} \\
+&= 1 + \frac{1}{2} + \frac{1}{6(1-C)} = L,
+\end{align}
+where we used the strong induction hypothesis to obtain $(2)$.
+\end{proof}
+
+\begin{problem}[Putnam 2003/B6]
+Let $f(x)$ be a continuous real-valued function defined on $[0, 1]$.  Show that 
+$$\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \ge \int_0^1 |f(x)|\,dx.$$
+\end{problem}
+\begin{proof}
+Let $f^+ = \max(f(x), 0)$ and $f^- = f^+ - f$.  Let $A = \supp f^+$, $B = \supp f^-$.  We will denote $\|g\| = \int_{0}^1 |g(x)|\,dx$.
+
+Note that 
+$$\int_0^1 \int_0^1 |f(x) + f(y)|\,dxdy = \left (\iint_{A \times A} + \iint_{B \times B} + 2\iint_{A \times B} \right) |f(x) + f(y) | \,dxdy.$$
+
+Note that 
+\begin{align*}
+\iint_{A \times A} |f(x) + f(y)| \,dxdy &= \iint_{A \times A} (f(x) + f(y)) \,dx dy \\
+&= \iint_{A \times A} f(x) \,dxdy + \iint_{A \times A} f(y) \,dx dy \\
+&=2|A| \|f^+\|.
+\end{align*}
+Similarly,
+$\iint_{B \times B} |f(x) + f(y)| \,dxdy = 2|B| \|f^-\|$.
+
+Finally, note that 
+\begin{align*}
+\iint_{A \times B} |f(x) + f(y)| \,dxdy & = \iint_{A \times B} |f^+(x) - f^-(y)| \,dxdy \\
+&\ge \left | \iint_{A \times B} (f^+(x) - f^-(y))\,dxdy \right| \\
+&= ||B| \|f^+\| - |A| \|f^-\||.
+\end{align*}
+
+Combining the results, we have that 
+$$\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \ge 2|A| \|f^+\| + 2|B| \|f^-\| + 2 ||B| \|f^+\| - |A| \|f^-\||.$$
+
+Squaring both sides of the expression, we have that 
+\begin{align*}
+&\left (\int_{0}^1 \int_{0}^1 |f(x) + f(y)| \,dxdy \right)^2 \ge \left (2|A| \|f^+\| + 2|B| \|f^-\| + 2 ||B| \|f^+\| - |A| \|f^-\|| \right)^2 \\
+&= 4 (|A| \|f^+\| + |B| \|f^- \| + ||B| \|f^+\| - |A| \|f^-\||)^2 \\
+&= 4 (|A| \|f^+\| + |B| \|f^- \| )^2 + 4 (|B| \|f^+\| - |A| \|f^-\|)^2 + 8 (|A| \|f^+\| + |B| \|f^- \| )||B| \|f^+\| - |A| \|f^-\|| \\
+&\ge 4(|A|^2 \|f^+\|^2 + |B|^2 \|f^-\|^2 + |A|^2 \|f^-\|^2 + |B|^2 \|f^+\|^2) \\
+&\ge 4(|A|^2 + |B|^2) (\|f^+\|^2 + \|f^-\|^2) \\
+&\ge (|A| + |B|)^2 (\|f^+\| + \|f^-\|)^2 \\
+&= (1)^2 (\|f\|)^2 \\
+&= \left (\int_0^1 |f(x)|\,dx \right)^2.
+\end{align*}
+\end{proof}
+
+\subsection{Vector Calculus}
+\subsection{Complex Analysis}
+\pagebreak
+\section{Geometry}
+\subsection{Classical Results}
+\begin{theorem}[Incenter-Excenter Lemma]
+\end{theorem}
+\begin{theorem}[Euler's Theorem] Let $ABC$ be a triangle.  Let $R$ and $r$ denote its circumradius and inradius, respectively.  Let $O$ and $I$ denote the circumcenter and incenter.  then $OI^2 = R(R - 2r)$.  In particular, $R \ge 2r$.
+\end{theorem}
 \subsection{Complex Numbers}
+\begin{theorem}[Complex Special Points]
+Let $(ABC)$ be the unit circle.  We have
+\begin{itemize}
+\item the circumcenter, $o = 0$.
+\item the orthocenter, $h = a + b + c$.
+\item the centroid, $g = \frac{a + b + c}{3}$.
+\item the nine-point center, $n_9 = \frac{a + b + c }{ 2}$.
+\end{itemize}
+\end{theorem}
+\begin{theorem}[Complex Incenter] Given $ABC$ on the unit circle, it is possible to pick $u, v, w$ such that 
+\begin{itemize}
+\item $a = u^2, b = v^2, c = w^2,$
+\item the midpoint of $\hat{BC}$ is $-vw$, the midpoint of $\hat{CA}$ is $-wu$ and the midpoint of $\hat{ab}$ is $-uv$,
+\item the incenter $I = -(uv - vw - wu)$.
+\end{itemize}
+\end{theorem}
+\begin{theorem}[Complex Foot] If $a \ne b$ are on the unit circle and $z \in \C$, then the foot from $Z$ to $AB$ is given by 
+$$\frac{a + b + z - ab\bar{z}}{2 }$$
+\end{theorem}
+
+\begin{theorem}[Complex Shoelace] If $a, b, c \in \C$, the signed area of $\triangle ABC$ is given by 
+$$\frac{i}{4}\begin{vmatrix}
+a &\bar{a}  &1 \\ 
+ b&\bar b  &1 \\ 
+ c&\bar c  &1 
+\end{vmatrix}.$$
+\end{theorem}
+\begin{theorem}[Concyclic Complex Numbers] Let $a, b, c, d$ be distinct complex numbers, not all collinear.  Then $A, B, C, D$ are concyclic if and only if 
+$$\frac{b-a}{c-a} \div \frac{b-d}{c-d} \in \R.$$
+
+\end{theorem}
 \begin{problem}[Putnam 2003/B5]Let $A$, $B$ and $C$ be equidistant points on the circumference of a circle of unit radius centered at $O$, and let $P$ be any point in the circle's interior. Let $a$, $b$, $c$ be the distances from $P$ to $A$, $B$, $C$ respectively. Show that there is a triangle with side lengths $a$, $b$, $c$, and that the area of this triangle depends only on the distance from $P$ to $O$.
+\end{problem}
 
 \begin{proof}
 Let $\omega = e^{2\pi i / 3}$, $A = 1$, $B = \omega$, $C = \omega^2$, $P = z \in \C$ with $|z| < 1$.  We have 
@@ -420,14 +567,33 @@ The area of the triangle is given by
 \end{align*}
 which is a function of $z$, as desired. 
 \end{proof}
+
+\begin{problem}
+Let $H$ be the orthocenter of $\triangle ABC$.  Let $X$ be the reflection of $H$ over $\ol{BC}$ and $Y$ the reflection over the midpoint of $\ol{BC}$.  Prove that $X$ and $Y$ lie on $(ABC)$, and $\ol{AY}$ is a diameter.   
 \end{problem}
-\subsection{Barycentric Coordinates}
-\subsection{Projective Geometry}
-\subsection{Inversion}
+\begin{proof}
+Let $A = a, B = b, C = c$ be the complex number representation and without loss of generality, suppose that $(ABC)$ is the unit circle.  Note that the orthocenter is given by $h = a + b + c$.  Then,
+\begin{align*}
+x &= b + (c-b) \ol{\left (\frac{h-b}{c-b} \right)} \\
+&= b + (c-b) \left (\frac{\frac{1}{a} + \frac{1}{b} + \frac{1}{c}-\frac{1}{b}}  {\frac{1}{c}-\frac{1}{b}} \right) \\
+&= b - bc\left(\frac{a+c}{ac} \right) \\
+&= b(1 - 1 - \frac{c}{a}) \\
+&= -\frac{bc}{a} \in (ABC).
+\end{align*}
+Next, if we let $m = \frac{b+c}{2}$, note that we have 
+$$y-m = -(h-m) \Rightarrow y = 2m - h = -a \in (ABC).$$
+Furthermore, since $y = -a$, we have that $\ol{AY}$ is a diameter of $(ABC)$.
+\end{proof}
+
 \pagebreak
-\section{Analysis}
-\subsection{Sequences and Series}
-\subsection{Measure Theory and Integration}
-\subsection{Complex Analysis}
+Sources:
+\begin{enumerate}
+\item Arthur Engel, Problem Solving Strategies
+\item Evan Chen, \href{https://web.evanchen.cc/handouts/ProbabilisticMethod/ProbabilisticMethod.pdf}{Expected Uses of Probability}
+\item Evan Chen, \href{https://web.evanchen.cc/handouts/Summation/Summation.pdf}{Summation}
+\item Evan Chen, Euclidean Geometry in Mathematical Olympiads
+\item Espen Slettnes, \href{https://mathcircle.berkeley.edu/sites/default/files/handouts/2019/Probabilistic_Method_Espen_Slettnes_0.pdf}{Probabilistic Method} 
+\end{enumerate}
+
  \end{document}
 

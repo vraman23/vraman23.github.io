@@ -43,6 +43,13 @@
 \contentsline {section}{\numberline {4}Putnam - 2004}{40}{section.4}% 
 \contentsline {subsection}{\numberline {4.1}A1 - Number Theory}{40}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}A2 - Geometry}{41}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}B1 - Algebra}{42}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}B2 - Algebra}{43}{subsection.4.4}% 
-\contentsline {subsection}{\numberline {4.5}B3 - Algebra/Geometry}{44}{subsection.4.5}% 
+\contentsline {subsection}{\numberline {4.3}A3 - Algebra}{42}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}A4 - Algebra}{43}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.5}A5 - Combinatorics}{44}{subsection.4.5}% 
+\contentsline {subsection}{\numberline {4.6}A6 - Analysis}{45}{subsection.4.6}% 
+\contentsline {subsection}{\numberline {4.7}B1 - Algebra}{46}{subsection.4.7}% 
+\contentsline {subsection}{\numberline {4.8}B2 - Algebra}{47}{subsection.4.8}% 
+\contentsline {subsection}{\numberline {4.9}B3 - Algebra/Geometry}{48}{subsection.4.9}% 
+\contentsline {subsection}{\numberline {4.10}B4 - Algebra/Geometry}{49}{subsection.4.10}% 
+\contentsline {subsection}{\numberline {4.11}B5 - Analysis}{50}{subsection.4.11}% 
+\contentsline {subsection}{\numberline {4.12}B6 - Analysis}{51}{subsection.4.12}% 
