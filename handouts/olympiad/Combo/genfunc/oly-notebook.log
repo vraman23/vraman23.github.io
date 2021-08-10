@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  25 JUL 2021 20:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 AUG 2021 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1389,23 +1389,23 @@ Package hyperref Info: bookmark level for unknown problem defaults to 0 on inpu
 t line 80.
  [3] [4] [5] [6] [7]
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
-nput line 225.
+nput line 243.
  [8] [9] [10] [11] [12] [13] [14]
-[15] [16] [17] [18] [19] [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 598.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 598.
+[15] [16] [17] [18] [19] [20] [21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 626.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 626.
  (./oly-notebook.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 598.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 598.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 626.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 626.
 Package rerunfilecheck Info: File `oly-notebook.out' has not changed.
 (rerunfilecheck)             Checksum: 7E050880FE5BEAAA4F377A37A4C97541;2190.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 598.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 626.
  ) 
 Here is how much of TeX's memory you used:
- 35180 strings out of 492616
- 663191 string characters out of 6129482
- 758772 words of memory out of 5000000
- 38358 multiletter control sequences out of 15000+600000
+ 35187 strings out of 492616
+ 663323 string characters out of 6129482
+ 757772 words of memory out of 5000000
+ 38360 multiletter control sequences out of 15000+600000
  545005 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,12n,83p,932b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1429,10 +1429,10 @@ texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2
 019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on oly-notebook.pdf (20 pages, 278568 bytes).
+Output written on oly-notebook.pdf (21 pages, 284791 bytes).
 PDF statistics:
- 519 PDF objects out of 1000 (max. 8388607)
- 457 compressed objects within 5 object streams
- 165 named destinations out of 1000 (max. 500000)
+ 528 PDF objects out of 1000 (max. 8388607)
+ 465 compressed objects within 5 object streams
+ 170 named destinations out of 1000 (max. 500000)
  14717 words of extra memory for PDF output out of 17280 (max. 10000000)
 

@@ -215,6 +215,24 @@ For each point on the boundary $(n, a_n) \in \partial A$, we must have that midp
 \pagebreak
 \section{Algebra}
 \subsection{Polynomials}
+\begin{problem}[Putnam 2005/A3] Let $p(z)$ be a polynomial of degree $n,$ all of whose zeros have absolute value $1$ in the complex plane. Put $g(z)=\frac{p(z)}{z^{n/2}}.$ Show that all zeros of $g'(z)=0$ have absolute value $1.$
+\end{problem}
+\begin{proof}
+Note that we can write $p(z) = a \prod_{j=1}^n (z - \omega_j)$ where $|\omega_j| = 1$ for all $j$. It follows that 
+$$\log g(z) = \log a + \sum_{j=1}^n \log (z - \omega_j) - \frac{n}{2} \log z = \log a + \sum_{j=1}^n \left (\log (z - \omega_j) - \frac{\log z}{2} \right).$$
+
+Taking the derivative of both sides, we obtain
+\begin{align*}
+\frac{g'(z)}{g(z)} &= \sum_{j=1}^n \left (\frac{1}{z - \omega_j} - \frac{1}{2z} \right) \\
+&= \frac{1}{2z} \sum_{j=1}^n \frac{z + \omega_j}{z - \omega_j} \\
+&= \frac{1}{2z} \sum_{j=1}^n \frac{|z|^2 - 1 + \omega_j \bar{z} - z \bar{\omega_j}}{|z - \omega_j|^2} \\
+&= \frac{1}{2z} \sum_{j=1}^n \left ( \frac{|z|^2 - 1}{|z - \omega_j|^2} + i\frac{\operatorname{Im}(\omega_j \bar{z})}{|z - \omega_j|^2} \right).
+\end{align*}
+
+It follows that 
+$$\operatorname{Re}\left (\frac{zg'(z)}{g(z)} \right) = \frac{|z|^2 - 1}{2} \sum_{j=1}^n \frac{1}{|z - \omega_j|^2}.$$
+Since $\sum_{j=1}^n \frac{1}{|z - \omega_j|^2} > 0$, it follows that the real part of $\frac{zg'(z)}{g(z)}$ is zero if and only if $|z|^2 - 1 = 0$, which implies that $|z|^2 = 1$.  It follows that all the zeros of $g'(z)$ must either satisfy $|z|^2 = 1$ or $g(z) = 0$ which gives the desired result since the zeros of $g(z)$ lie on the unit circle on the complex plane.  
+\end{proof}
 \subsection{Inequalities}
 \begin{theorem}[QM-AM-GM-HM]
 Let $x_1, \dots, x_n \in \R^+$.  Then,
@@ -424,6 +442,16 @@ It follows that $(g*1)(n) = 1$ when $n$ is a perfect square and is $0$ otherwise
 \pagebreak
 \section{Analysis}
 \subsection{Sequences and Series}
+\begin{problem}[Putnam 2020/A3] 	Let $a_0=\pi /2$, and let $a_n=\sin (a_{n-1})$ for $n\ge 1$. Determine whether
+\[ \sum_{n=1}^{\infty}a_n^2 \]converges.
+\end{problem}
+\begin{proof}
+We claim the series diverges.   It suffices to show that $a_n \ge \frac{1}{\sqrt{n}}$. We proceed by induction.  It is clear that $a_1 = 1 \ge \frac{1}{\sqrt{1}} = 1$.  Suppose that $a_k \ge \frac{1}{\sqrt{k}}$.  Since $\sin x \ge x - x^3 / 6$ and $\sin x$ is monotonically increasing in $[0, \pi/2]$, we have 
+$$a_{k + 1} \ge \sin \left (\frac{1}{\sqrt{k}} \right) > \frac{1}{\sqrt{k}} - \frac{1}{6k\sqrt{k}} = \frac{6k-1}{6k\sqrt{k}}.$$
+It suffices to show that 
+$$\frac{6k-1}{6k} \ge \frac{\sqrt{k}}{\sqrt{k + 1}} \Leftrightarrow 24k^2 - 11k + 1 \ge 0,$$
+which is true for $k \ge 1$.
+\end{proof}
 \subsection{Measure Theory and Integration}
 \begin{problem}[Putnam 2002/A6] Fix an integer $b \ge 2$.  Let $f(1) = 1$, $f(2) = 2$, and for each $n \ge 3$, define $f(n) = nf(d)$, where $d$ is the number of base-$b$ digits of $n$.  For which values of $b$ does the sum $\sum_{n \ge 1} 1/f(n)$ converge?
 \end{problem}

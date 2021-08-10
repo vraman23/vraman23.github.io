@@ -87,7 +87,6 @@ My sketches to problems from the Putnam exams.   I tend to leave out a lot of th
 Note that 
 $$b = ((b*a)*b) * (b*a) = a * (b * a).$$
 \end{proof}
-\pagebreak
 \subsection{A2 - Combinatorics}
 You have coins $C_1, C_2, \dots, C_n$.  For each $k$, $C_k$ is biased so that when tossed, is has probability $1/(2k+1)$ of falling heads.  If the $n$ coins are tossed, what is the probability that the number of heads is odd?
 
@@ -113,7 +112,6 @@ Consider the polynomial $f(x) = \prod_{k=1}^n \left (\frac{x}{2k+1} + \frac{2k}{
 $$f(-1) = \prod_{k=1}^n \frac{2k-1}{2k+1} = \frac{1}{2n+1}.$$
 The overall probability is $\frac{n}{2n+1}$ as desired.
 \end{proof}
-\pagebreak
 \subsection{A3 - Algebra}
 For each integer $m$, consider the polynomial $$P_m(x) = x^4 - (2m+4)x^2 + (m-2)^2.$$
 
@@ -148,7 +146,6 @@ It is easy to verify that if $m$ is a square or twice a square, then $P_m(x)$ re
 %Hence, we have the only possible solution $m = 0$.  It is easy to verify that 
 %$$P_0(x) = x^4 - 4x^2 + 4 = (x^2 - 2)^2.$$
 \end{proof}
-\pagebreak
 \subsection{A4 - Geometry}
 Triangle $ABC$ has area $1$.  Points $E, F, G$ lie on sides $BC$, $CA$, $AB$ such that $AE$ bisects $BF$ at point $R$, $BF$ bisects $CG$ at point $S$, and $CG$ bisects $AE$ at point $T$.  Find the area of the triangle $RST$.
 
@@ -195,7 +192,6 @@ $$[RST] = \frac{[ABC]}{4} \begin{vmatrix}
  \alpha & 2\alpha - 1 \\ 1 - 2\alpha & 1 - \alpha
 \end{vmatrix}  = \frac{\alpha^2}{2} = \frac{7 - 3\sqrt{5}}{4}.$$
 \end{proof}
-\pagebreak
 \subsection{A5 - Number Theory}
  Show that there are unique positive integers $a, n$ such that $a^{n+1} - (a+1)^n = 2001$.
 
@@ -208,7 +204,6 @@ Considering the equation in $\Z_4$, we cannot have $a \equiv 0 \pmod{4}$, for th
 
 In the case with $a \equiv 1 \pmod{3}$ and $a \equiv 1 \pmod{4}$, we obtain $a \equiv 1 \pmod{12}$ and $n > 1$.   We see easily that $a = 1$ does not satisfy the equation for any $n > 1$.  For $a = 13$, we have a solution as above for $n = 2$.  It is easy to see that no higher value of $n$ also satisfies the equation since the function $f(x) = 13^{x + 1} - 14^x$ is monotonically increasing.   We can repeatedly apply similar arguments for the other cases to show that this is the unique solution.  
 \end{proof}
-\pagebreak
 \subsection{A6 - Calculus}
  Can an arc of a parabola inside a circle of radius $1$ have a length greater than $4$?
 
@@ -218,7 +213,6 @@ $$L(k) = 2\int_0^{\sqrt{2k-1}/k} \sqrt{1 + 4k^2 x^2}\,dx = \frac{1}{4k} \int_0^{
 
 It is easy to show that $\sqrt{1 +  x^2} \ge \frac{1}{x+1}$ so it follows that $\lim_{k \to \infty} L(k) = +\infty$.  It follows that there exists some $k$ so that $L(k) > 4$ as desired.  
 \end{proof}
-\pagebreak
 \subsection{B1 - Combinatorics}
  Let $n$ be an even positive integer.  Write the numbers $1, 2, \dots, n^2$ in the squares of an $n \times n$ grid from left to right.  Color the squares of the grid so that half of the squares in each row and in each column are red and the other half are black.  Prove that for each coloring, the sum of the numbers on the red squares is equal to the sum of the numbers on the black squares.  
 
@@ -228,8 +222,6 @@ I have two proofs.  An outline of the first follows the approach of invariants. 
 The other approach is as follows.  For convenience, we subtract $1$ from each square so that it starts at $0$.  We can take the expansion in base $n$, so the value of each square $s$ is given by $nf(s) + g(s)$ where $0 \le f(s), g(s) < n$.  If we let $R$ denote the set of red numbers and $B$ the set of black numbers, note that $\sum_{s \in R} f(s) = \sum_{s \in B} f(s)$ since the number of red and black squares in each row is the same.  Similarly, $\sum_{s \in R} g(s) = \sum_{s \in B} g(s)$ since the number of red and black squares in each column is the same.  It follows that 
 $$\sum_{s \in R} nf(s) + g(s) = \sum_{s \in B} nf(s) + g(s).$$
 \end{proof}
-
-\pagebreak
 \subsection{B2 - Algebra} 
 Find all pairs $(x, y) \in \R^2$ satisfying the system
 \begin{align*}
@@ -240,7 +232,6 @@ Find all pairs $(x, y) \in \R^2$ satisfying the system
 \begin{proof}
 An easy algebra exercise.  Expanding the right-hand sides, then adding/subtracting the equations, we obtain $(x+y)^5 = 3$ and $(x - y)^5 = 1$ respectively.  This has a unique solution in $\R^2$, $\left(\frac{3^{1/5} + 1}{2}, \frac{3^{1/5} - 1}{2} \right)$.
 \end{proof}
-\pagebreak
 \subsection{B3 - Analysis} 
 For any positive integer $n$, let $\<n\>$ denote the closest integer to $\sqrt{n}$.  Evaluate $\sum_{n=1}^\infty \frac{2^{\<n\>} + 2^{-\<n\>}}{2^n}$.
 
@@ -258,7 +249,6 @@ Combining the results, we have
 &= 2^{1} + 2^{0} = 3.
 \end{align*}
 \end{proof}
-\pagebreak
 \subsection{B4 - Number Theory}
  Let $S = \Q \setminus\{-1, 0, 1\}$.  Define $f: S \to S$ by $f(x) = x - 1/x$.  Prove or disprove that 
 $$\bigcap_{n=1}^\infty f^{(n)}(S) = \emptyset.$$
@@ -267,7 +257,6 @@ The claim is true.  Suppose we had $x = \frac{p}{q} \in \bigcap_{n=1}^\infty f^{
 $$f\left(\frac{p}{q} \right) = \frac{p^2 - q^2}{pq},$$
 and $|pq| > |q|$ since $p \not \in \{-1, 0, 1\}$.  Furthermore, note that $(p^2 - q^2, pq) = 1$.  If there is some prime $r$ diving both $p^2 - q^2$ and $pq$, then we have that $r$ divides one of $p-q, p+q$ and one of $p, q$.  However, from these we could conclude that $r$ divides both $p, q$ which contradicts the fact that $(p, q) = 1$.  It follows that since the denominators strictly increase, we cannot have $f^{(m)}(x) = x$.
 \end{proof}
-\pagebreak
 \subsection{B5 - Algebra}
 let $a, b \in (0, 1/2)$ and let $g$ be a continuous real-valued function such that $g(g(x)) = ag(x) + bx$ for all real $x$.  Prove that $g(x) = cx$ for some constant $c$.
 \begin{proof}
@@ -286,10 +275,7 @@ for constants $c_+, c_-$.
 Note that $\lambda_+ > 0, \lambda_- < 0$ and $1 > |\lambda_+| > |\lambda_-|$.  
 
 Suppose $f$ is monotone increasing(the case where $f$ is monotone decreasing is similar).  If $c_- \ne 0$ then as $n$ gets sufficiently small, $\lambda_-^n$ dominates $\lambda_+^n$, so there is some large enough $n$ so that $0 < x_n < x_{n+2}$ and $x_{n+3} < x_{n+1} < 0$, which would give that $g(x_n) > g(x_{n+2})$, a contradiction.  It follows that $c_- = 0$, so we have $x_0 = c_+$ and $g(x_0) = x_1 =  c_+ \lambda_+ = \lambda_+ x_0$, which gives the result.  
-
-
 \end{proof}
-\pagebreak
 \subsection{B6 - Algebra/Combinatorics}
 Assume $(a_n)_{n \ge 1}$ is an increasing sequence of positive real numbers such that $\lim a_n/n = 0$.  Must there exist infinitely many positive integers $n$ such that $a_{n-i} + a_{n+i} < 2a_n$ for $i = 1, 2, \dots, n-1$? 
 
@@ -309,8 +295,6 @@ This implies that the set of slopes attains a maximum, i. e. there is some point
 
 For each point on the boundary $(n, a_n) \in \partial A$, we must have that midpoint of the line through $(n-i, a_{n-i})$ and $(n+i, a_{n+i})$ for $i \in [n-1]$ must lie below $(n, a_n)$.  From this, it follows that $a_n > \frac{a_{n-i} + a_{n+i}}{2}$, which implies the result.  
 \end{proof}
-
-
 \pagebreak
 \section{Putnam - 2002}
 \subsection{A1 - Algebra}
@@ -342,20 +326,19 @@ P_n(x) &= (x^k - 1)^{n + 1} \frac{d^n}{dx^n} \frac{1}{x^k - 1} \\
 &= k^n (-1)^n n! + \dots.
 \end{align*}
 \end{proof}
-\pagebreak
+
 \subsection{A2 - Combinatorics}
 Given any five points on a sphere, show that some four of them must lie on a closed hemisphere.  
 \begin{proof}
 Draw a great circle through any two points and consider the remaining three.  By the pigeonhole principle, there is closed hemisphere with at least two points, and choosing this hemisphere gives the result.  
 \end{proof}
-\pagebreak
+
 \subsection{A3 - Combinatorics}
 Let $n \ge 2$ be an integer and $T_n$ the number of nonempty subsets $S$ of $\{1, 2, \dots, n\}$ with the property that the average of the elements of $S$ is an integer.  Prove that $T_n - n$ is always even.  
 \begin{proof}
 Note that each one element subset $\{1\}, \{2\}, \dots, \{n\}$ has the property that the average of the element is an integer.  It suffices to consider the subsets at least $2$ elements.  For set of size at least $2$, we can pair them into $(S, S \cup\{a\})$, where $a \not \in S$ and the average of the elements in $S$ is $a$.  Each subset is contained in exactly one pair, so each of them don't contribute to the parity of $T_n - n$.  It follows that $T_n - n$ is even as desired.  
 \end{proof}
 
-\pagebreak
 \subsection{A4 - Combinatorics}
 in Determinant Tic-Tac-Toe, Player 1 enters a 1 in an empty $3 \times 3$ matrix.  Player $0$ counters with a $0$ in a vacant position, and play continues in turn until the matrix is completed with five $1$'s and four $0$'s.  Player $0$ wins if the determinant is $0$ and player $1$ wins otherwise.  Who wins and how?
 \begin{proof}
@@ -374,7 +357,6 @@ For each of these cases, it suffices to check the first since we can exchange $a
 
 The other cases follow a similar analysis, creating a triangle block of $0$'s in other to create two threats.  
 \end{proof} 
-\pagebreak
 \subsection{A5 - Number Theory}
 
 Define a sequence by $a_0 = 1$, together with the rules $a_{2n+1} = a_n$ and $a_{2n+2} = a_n + a_{n+1}$ for each integer $n \ge 0$.  Prove that every positive rational number appears in the set $\{a_n/a_{n+1}: n \ge 0\}$.
@@ -387,7 +369,6 @@ $$\frac{n+1-k}{n+1}, \frac{n+1}{k}$$
 for each $1 \le k\le n$ so that $\gcd(n+1, k) = 1$, which proves the inductive step.  
 \end{proof}
 
-\pagebreak
 \subsection{A6 - Analysis}
 Fix an integer $b \ge 2$.  Let $f(1) = 1$, $f(2) = 2$, and for each $n \ge 3$, define $f(n) = nf(d)$, where $d$ is the number of base-$b$ digits of $n$.  For which values of $b$ does the sum $\sum_{n \ge 1} 1/f(n)$ converge?
 
@@ -423,8 +404,6 @@ It follows that
 \end{align}
 where we used the strong induction hypothesis to obtain $(2)$.
 \end{proof}
-
-\pagebreak
 \subsection{B1 - Probability}
 Shanille shoots free throws on a basketball court.  She hits the first and misses the second, and thereafter the probability that she hits the next shot is equal to the proportion of shots she has hit so far.  what is the probability she hits exactly $50$ of her first $100$ shots?
 \begin{proof}
@@ -433,7 +412,7 @@ $$\frac{k-1}{m} \cdot \frac{1}{m-1} + \frac{m - k}{m} \cdot \frac{1}{m-1} = \fra
 which proves the inductive hypothesis.  
 
 \end{proof}
-\pagebreak
+
 \subsection{B2 - Combinatorics}
 Consider a polyhedron with at least five faces such that exactly three edges emerge from each of its vertices. Two players play the following game: Each, in turn, signs his or her name on a previously unsigned face. The winner is the player who first succeeds in signing three faces that share a common vertex. Show that the player who signs first will always win by playing as well as possible.
 \begin{proof}
@@ -443,8 +422,6 @@ which is a contradiction since $F \ge 5$.
 
 Now, take the face with at least $4$ edges, call it $F_0$.  Player $1$ signs in $F_0$.  If player $2$ does not sign in a face adjacent to $F_0$, then player $1$ can sign in any face adjacent to $F_0$.  At this point, player $2$ cannot stop player $1$ from signing three faces that share a common vertex since there are two threats.  Hence, we can suppose player $2$ does sign in a face adjacent to $F_0$, call it $F_1$.  Since the face has at least $4$ edges, we can sign in a square adjacent to $F_0$ that is not adjacent to $F_1$.  at this point, player $2$ cannot stop player $1$ from signing three faces that share a common vertex since there are two threats.  
 \end{proof}
-
-\pagebreak
 \subsection{B3 - Analysis}
 Show that for $n > 1$,
 $$\frac{1}{2ne} < \frac{1}{e} - \left( 1 - \frac{1}{n} \right)^n < \frac{1}{ne}. $$
@@ -459,14 +436,12 @@ or equivalently
 $$\sum_{k\ge 1}\frac{1}{k(2n)^k} < \sum_{k \ge 1} \frac{1}{(k + 1)n^k} <\sum_{k \ge 1} \frac{1}{kn^k},$$
 which is evidently true since $k2^k > k + 1$ and $k+1 > k$ for $k \ge 1$.
 \end{proof}
-\pagebreak
 \subsection{B4 - Combinatorics}
 An integer $n$, unknown to you, has been randomly chosen in the interval $[1,2002]$ with uniform probability. Your objective is to select $n$ in an odd number of guess. After each incorrect guess, you are informed whether $n$ is higher or lower, and you $\textbf{must}$ guess an integer on your next turn among the numbers that are still feasibly correct. Show that you have a strategy so that the chance of winning is greater than $\tfrac{2}{3}$.
 
 \begin{proof}
 Guess the sequence of numbers $1, 3, 4, 6, 7, \dots$ alternating between $x \equiv 1 \pmod{3}$ and $x \equiv 1 \pmod{3}$.  If the chosen integer is  $1 \pmod{3}$, then it will be chosen in an odd turn.  If the chosen integer is $0 \pmod{3}$, then it will be chosen in an even turn.  Otherwise, it is $n \equiv 2 \pmod{3}$ so it will be chosen immediately after $n+1$ is chosen, which happens after an even turn, so it is an odd turn.  This gives a chance of winning of at least $2/3$ as desired.  
 \end{proof}
-\pagebreak
 \subsection{B5 - Number Theory}
 A palindrome in base $b$ is a positive integer whose base-$b$ digits read the same backwards and forwards; for example, $2002$ is a $4$-digit palindrome in base $10$. Note that $200$ is not a palindrome in base $10$, but it is a $3$-digit palindrome: $242$ in base $9$, and $404$ in base $7$. Prove that there is an integer which is a $3$-digit palindrome in base $b$ for at least $2002$ different values of $b$.
 \begin{proof}
@@ -478,7 +453,6 @@ Let $N = 2002!$.  We claim that $N^2$ is a $3$-digit palindrome in base $b_d = \
 \end{align*}
 
 \end{proof}
-\pagebreak
 \subsection{B6 - Number Theory}
 Let $p$ be a prime number. Prove that the determinant of the matrix\[ \begin{bmatrix}x & y & z\\ x^p & y^p & z^p \\ x^{p^2} & y^{p^2} & z^{p^2} \end{bmatrix} \]is congruent modulo $p$ to a product of polynomials of the form $ax+by+cz$, where $a$, $b$, and $c$ are integers. (We say two integer polynomials are congruent modulo $p$ if corresponding coefficients are congruent modulo $p$.)
 \begin{proof}
@@ -517,7 +491,6 @@ $$k+1 = 1 + a_1 + \dots + a_\ell = b_1 + b_2 + \dots + b_{\ell}$$
 is a valid combination for $k+1$.  There is exactly one indistinguishable way to group the extra $1$ since grouping with another $a_j = a_1$ is indistinguishable and if we group with $a_j = a_1 + 1$, then the overall sum does not satisfy the condition that the last term is bounded by one more than the first term.  Hence, we have exactly $k$ sums of the above form.  We have exactly one additional combination given by the sum of $k+1$ $1$'s, which is a total of $k+1$ ways, as desired.  
 
 \end{proof}
-\pagebreak
 \subsection{A2 - Algebra}
 Let $a_1, a_2, \cdots , a_n$ and $b_1, b_2,\cdots, b_n$ be nonnegative real numbers. Show that\[(a_1a_2 \cdots a_n)^{1/n}+ (b_1b_2 \cdots b_n)^{1/n} \le ((a_1 + b_1)(a_2 + b_2) \cdots (a_n + b_n))^{1/n}\]
 \begin{proof}
@@ -535,7 +508,6 @@ Note that
 Multiplying both sides of the inequality by $\prod_{k=1}^n (a_k+b_k)^{1/n}$ gives the desired result.  
 \end{proof}
 
-\pagebreak
 \subsection{A3 - Calculus}
 Find the minimum value of\[|\sin{x} + \cos{x} + \tan{x} + \cot{x} + \sec{x} + \csc{x}|\]for real numbers $x$.
 \begin{proof}
@@ -689,7 +661,6 @@ v_p\left ( \prod_{k=1}^n \lcm \{1, 2, \dots, \floor{n/k}\}\right) &= \sum_{k=1}^
 \end{align*}
 This is exactly $v_p(n!)$ by Legendre's Theorem.  
 \end{proof}
-\pagebreak
 \subsection{B4 - Algebra}
 Let $f(z) = az^4+ bz^3+ cz^2+ dz + e = a(z -r_1)(z -r_2)(z -r_3)(z -r_4)$ where $a, b, c, d, e$ are integers, $a \not= 0$. Show that if $r_1 + r_2$ is a rational number, and if $r_1 + r_2 \neq r_3 + r_4$, then $r_1r_2$ is a rational number.
 \begin{proof}
@@ -788,7 +759,6 @@ $$\frac{S(N)}{N} < \frac{4}{5}, \frac{S(N) + 1}{N + 1} > \frac{4}{5}.$$
 Cross-multiplying, this gives that $$5S(N) < 4N, 5S(N) > 4N -1,$$
 but this system of inequalities has no solutions in integers.  
 \end{proof}
-\pagebreak
 \subsection{A2 - Geometry}
 For $i=1,2,$ let $T_i$ be a triangle with side length $a_i,b_i,c_i,$ and area $A_i.$ Suppose that $a_1\le a_2, b_1\le b_2, c_1\le c_2,$ and that $T_2$ is an acute triangle. Does it follow that $A_1\le A_2$?
 \begin{proof}
@@ -800,7 +770,6 @@ so we must have at least one of $R_1 \le R_2$, $S_1 \le S_2$ or $T_1 \le T_2$.  
 $$A_1 = \frac{a_1b_1 \sin R_1}{2} \le \frac{a_2 b_2 \sin R_2}{2} = A_2,$$
 as desired.
 \end{proof}
-\pagebreak
 \subsection{A3 - Algebra}
 Define a sequence $\{u_n\}_{n=0}^{\infty}$ by $u_0=u_1=u_2=1,$ and thereafter by the condition that
 $\det\begin{vmatrix} u_n & u_{n+1} \\ u_{n+2} & u_{n+3} \end{vmatrix}=n!$
@@ -808,7 +777,6 @@ for all $n\ge 0.$ Show that $u_n$ is an integer for all $n.$ (By convention, $0!
 \begin{proof}
 Show by induction that $a_{2n} = (2n-1)(2n-3) \dots (3)(1)$, $a_{2n+1} = (2n)(2n-2)\dots(2)$.
 \end{proof}
-\pagebreak
 \subsection{A4 - Algebra}
 Show that for any positive integer $n$ there is an integer $N$ such that the product $x_1x_2\cdots x_n$ can be expressed identically in the form
 \[x_1x_2\cdots x_n=\sum_{i=1}^Nc_i(a_{i1}x_1+a_{i2}x_2+\cdots +a_{in}x_n)^n\]
@@ -826,7 +794,6 @@ However, $\deg P = n$, which implies that $\deg Q = 0$.  In other words,
 $$P(x_1, \dots, x_n) = \lambda x_1 \dots x_n$$
 for some $\lambda \ne 0$.  It is clear that $\lambda \in \Z$ since $P(x_1, \dots, x_n)$ is an integer linear combination of integer polynomials.  Then, $x_1 \dots x_n = \frac{1}{\lambda}P(x_1, \dots, x_n)$ is in the desired form.  
 \end{proof}
-\pagebreak
 \subsection{A5 - Combinatorics}
 	An $m\times n$ checkerboard is colored randomly: each square is independently assigned red or black with probability $\frac12.$ we say that two squares, $p$ and $q$, are in the same connected monochromatic region if there is a sequence of squares, all of the same color, starting at $p$ and ending at $q,$ in which successive squares in the sequence share a common side. Show that the expected number of connected monochromatic regions is greater than $\frac{mn}8.$
 \begin{proof}
@@ -843,7 +810,6 @@ It follows by linearity of expectation that
 &= \frac{mn + 3m + 3n + 1}{8} > \frac{mn}{8}.
 \end{align*}
 \end{proof}
-\pagebreak
 \subsection{A6 - Analysis}
 Suppose that $f(x,y)$ is a continuous real-valued function on the unit square $0\le x\le1,0\le y\le1.$ Show that
 
@@ -865,7 +831,6 @@ Then, note that
 $$4I =  \int_{[0, 1]^4} \left (f(x, y) - f(x, v) - f(u, y) + f(u, v) \right)^2 \,dxdydudv \ge 0,$$
 which proves the result.  
 \end{proof}
-\pagebreak
 \subsection{B1 - Algebra}
 Let $P(x)=c_nx^n+c_{n-1}x^{n-1}+\cdots+c_0$ be a polynomial with integer coefficients. Suppose that $r$ is a rational number such that $P(r)=0$. Show that the $n$ numbers
 $c_nr, c_nr^2+c_{n-1}r, c_nr^3+c_{n-1}r^2+c_{n-1}r, \dots, c_nr^n+c_{n-1}r^{n-1}+\cdots+c_1r$
@@ -877,7 +842,6 @@ Rewriting $r = \frac{p}{q}$ with $\gcd(p, q) = 1$, we have
 $$\frac{c_n p^{n-k} \dots c_{n-k+1}pq^{n-k-1}}{q^{n-k}} = - \frac{c_{n-k}p^k  + c_{n-k-1}q p^{k-1} + \dots + q^k}{p^k}.$$
 Since $\gcd(p, q) = 1$ and both numerators are integers, it follows that both sides of the equation must be integer as desired.
 \end{proof}
-\pagebreak
 \subsection{B2 - Algebra}
 Let $m$ and $n$ be positive integers. Show that
 $\frac{(m+n)!}{(m+n)^{m+n}} < \frac{m!}{m^m}\cdot\frac{n!}{n^n}$
@@ -890,7 +854,6 @@ Note that
 \end{align*}
 which is obvious.
 \end{proof}
-\pagebreak
 \subsection{B3 - Algebra/Geometry}
 Determine all real numbers $a>0$ for which there exists a nonnegative continuous function $f(x)$ defined on $[0,a]$ with the property that the region
 $R=\{(x,y): 0\le x\le a, 0\le y\le f(x)\}$
@@ -901,7 +864,6 @@ For $a > 2$, we can take $f(x) = \frac{2a}{a-2}$ so that the area and perimeter 
 For $a \le 2$, we claim no such functions exist. Let $f \in C[0, a]$ and let $x_0 = \operatorname{argmax}_{[0, a]} f(x)$. Note that the area of the region is bounded by $af(x_0)$. For the perimeter, note that $(0, 0), (a, 0)$ and $(x_0, f(x_0))$ split up the boundary of $R$ into $3$ regions. The distance from $(0, 0)$ to $(a, 0)$ is at least $a$, the distance from $(0, 0)$ to $(x_0, f(x_0))$ is at least $f(x_0)$ and the distance from $(a, 0)$ to $(x_0, f(x_0))$ is at least $f(x_0)$. It follows that the perimeter is at least
 $$2f(x_0) + a > af(x_0),$$using the fact that $a \le 2$. It follows that we cannot have equal perimeter and area units.
 \end{proof}
-\pagebreak
 \subsection{B4 - Algebra/Geometry}
 Let $n$ be a positive integer, $n \ge 2$, and put $\theta=\frac{2\pi}{n}$. Define points $P_k=(k,0)$ in the xy-plane, for $k=1,2,\dots,n$. Let $R_k$ be the map that rotates the plane counterclockwise by the angle $\theta$ about the point $P_k$. Let $R$ denote the map obtained by applying in order, $R_1$, then $R_2$, ..., then $R_n$. For an arbitrary point $(x,y)$, find and simplify the coordinates of $R(x,y)$.
 \begin{proof}
@@ -924,67 +886,240 @@ Let $L = \prod_{n=0}^{\infty}\left(\frac{1+x^{n+1}}{1+x^n}\right)^{x^n}$.  Note 
 \begin{align*}
 \log L &= \sum_{n=0}^{\infty} x^n \log (1 + x^{n + 1}) - x^n \log (1 + x^n) \\
 &= \frac{1}{x}\sum_{n=0}^{\infty} x^{n+1} \log (1 + x^{n+1})  - \sum_{n=0}^{\infty} x^n \log(1 + x^n) \\
-&=\left (\frac{1}{x} - 1 \right) \sum_{n=1}^\infty x^n \log(1 + x^n) - \log 2
+&=\left (\frac{1}{x} - 1 \right) \sum_{n=1}^\infty x^n \log(1 + x^n) - \log 2.
 \end{align*}
+Then, note that 
+\begin{align*}
+\sum_{n=1}^\infty x^n \log (1 + x^n) &= \sum_{n=1}^\infty \sum_{j=1}^\infty \frac{(-1)^j x^{n(j + 1)}}{j}.
+\end{align*}
+Then, note that the sum converges absolutely since 
+$$\sum_{n=1}^\infty \sum_{j=1}^\infty \frac{x^{n(j + 1)}}{j} = -\sum_{n=1}^\infty x^n \log(1 - x^n) \le -\sum_{n=1}^\infty x^n \log (1 - x) = \frac{x\log(1 - x)}{x - 1}.$$
+
+Hence, we can apply Fubini's Theorem to obtain
+\begin{align*}
+\sum_{n=1}^\infty \sum_{j=1}^\infty \frac{(-1)^j x^{n(j + 1)}}{j} &= \sum_{j=1}^\infty \frac{(-1)^j}{j}\sum_{n=1}^\infty x^{n(j + 1)} = \sum_{j=1}^\infty \frac{(-1)^j}{j} \frac{x^{j + 1}}{1 - x^{j + 1}}.
+\end{align*}
+Then,
+\begin{align*}
+\left (\frac{1}{x} - 1 \right) \sum_{j=1}^\infty \frac{(-1)^j}{j} \frac{x^{j + 1}}{1 - x^{j + 1}} &= \sum_{j=1}^\infty \frac{(-1)^j}{j} \frac{x^{j} (1 - x)}{1 - x^{j + 1}}.
+\end{align*}
+
+Note that the sum converges uniformly since $ \frac{x^{j} (1 - x)}{1 - x^{j + 1}} \le \frac{1}{j}$ and $\sum_{j=1}^\infty \frac{1}{j^2} < \infty$.  Therefore, we can take limits term by term to obtain
+$$ \frac{x^{j} (1 - x)}{1 - x^{j + 1}} = \frac{x^j(1 - x)}{(1 - x)(1 + x + \dots + x^{j})}\to \frac{1}{j + 1}.$$
+
+Finally, note that 
+\begin{align*}
+\sum_{j=1}^\infty \frac{(-1)^j}{j(j + 1)} &= \sum_{j=1}^\infty (-1)^j\left (\frac{1}{j} - \frac{1}{j + 1} \right) \\
+&= \sum_{j=1}^\infty \frac{(-1)^j}{j} + \sum_{j=2}^\infty \frac{(-1)^j}{j} \\
+&= 2\sum_{j=1}^\infty \frac{(-1)^j}{j} - 1 \\
+&= 2 \log 2 - 1.
+\end{align*}
+It follows that $\log L \to \log 2 - 1$, so we obtain $L = e^{\log 2 - 1} = 2/e$.
 \end{proof}
 \pagebreak
 \subsection{B6 - Analysis} 
 Let $A$ be a nonempty set of positive integers, and let $N(x)$ denote the number of elements of $A$ not exceeding $x$. Let $B$ denote the set of positive integers $b$ that can be written in the form $b=a-a^{\prime}$ with $a\in A$ and $a^{\prime}\in A$. Let $b_1<b_2<\cdots$ be the members of $B$, listed in increasing order. Show that if the sequence $b_{i+1}-b_i$ is unbounded, then $\lim_{x\to \infty}\frac{N(x)}{x}=0$.
-%\section{Putnam - 2019}
-%\subsection{A1 - Number Theory}
-%\begin{Prob}[2019 - A1] Determine all possible values of the expression $$A^3 + B^3 + C^3 - 3ABC,$$
-%where $A, B, C$ are nonnegative integers.
-%\end{Prob}
-%\begin{proof}
-%Let $S = A^3 + B^3 + C^3 - 3ABC$.  We claim that $S$ attains all values such that $S \ne 3, 6 \pmod{9}$.
-%
-%Note that the expression can be factored as 
-%$$A^3 + B^3 + C^3 - 3ABC = \left (\frac{A + B + C}{2}\right)\left((A-B)^2 + (B-C)^2 + (C-A)^2\right).$$
-%
-%If $(A, B, C) = (A, A+1, A+2)$, then 
-%$$S = \frac{3A+3}{2}(1^2 + 1^2 + 2^2) = (3A + 3)(3) = 9A + 9,$$
-%so we can achieve all $S \equiv 0 \pmod 9.$
-%
-%If $(A, B, C) = (A, A, A+1)$, then
-%$$S = \frac{3A+1}{2}(0^2+1^2+1^2) = 3A+1,$$
-%and if $(A, B, C) = (C+1, C+1, C)$, then 
-%$$S = \frac{3C+2}{2}(0^2+1^2+1^2) = 3C+2,$$
-%so we can achieve all $S \equiv 1, 2 \pmod{3}$.  
-%
-%It suffices to show that if $S \equiv 0 \pmod{3}$, then $S \equiv 0 \pmod{9}$.  This implies that we cannot have $S \ne 3, 6 \pmod{9}$ as desired.  If $S \equiv 0 \pmod{3}$, then we must have $A+B+C \equiv 0 \pmod 3$ or $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  In the first case, then without loss of generality, we must have either $(A, B, C) \in \{(0, 0, 0), (1, 1, 1),( 2, 2, 2), (0, 1, 2)\}$.  In each of these cases, we can show that $(A-B)^2 + (B-C)^2 + (C-A)^2 \equiv 0 \pmod 3$.  Similarly, in the second case, we must have that $(A-B)^2 = (B-C)^2 = (C-A)^2 = 0, 1$.  In the first case $A = B = C$, which gives that $A+B+C \equiv 0 \pmod{3}$.  In the second case, the remainders of $A, B, C$ must be distinct mod $3$, which, without loss of generality, gives $(A, B, C) = (0, 1, 2)$ which implies that $A+B+C \equiv 0 \pmod{3}$, as desired.  In all cases, we show that both terms in the product are $0 \pmod {3}$, which implies that the product is $0 \pmod {9}$.
-%\end{proof}
-%\subsection{A2 - Geometry}
-%\begin{Prob}[2019 - A2] In the triangle $ABC$, let $G$ be the centroid, and let $I$
-%be the center of the inscribed circle. Let $\alpha$ and $\beta$ be
-%the angles at the vertices $A$ and $B$, respectively. Suppose that the segment $IG$ is parallel to $AB$ and that
-%$\beta = 2\arctan(1/3)$. Find $\alpha$.
-%\end{Prob}
-%\begin{proof}
-%We use complex numbers.  Let $B = 0$.  Then $\text{arg}(I) = \beta/2 = \arctan(1/3)$, so $I = k(3+i)$ for some $k \in \R^+$.  Without loss of generality, let $k = 1$.  Let $A = a$.  Then, $IG$ is parallel to $AB$ which implies that $\operatorname{Im}(B-A) = \Im(I-G)$.  Then $\Im(B-A) = 0$, so $\Im(I) = \Im(G) = 1$.  
-%
-%Then, note that $\arg(I^2) = \arg(C)$, so $C = \ell(3+i)^2 = \ell(8+6i)$ for some $\ell \in \R^+$.  Then $G = \frac{A+B+C}{3} = \frac{A+C}{3}$, so $$1 = \Im(G) = \Im((A+C)/3) = \Im(C/3),$$ which implies that $\ell = \frac{1}{2}$.  Thus, $C = 4+3i$.  
-%
-%Finally, $$I = \frac{|CB|A + |AC|B + |AB|C}{|AB|+|BC|+|CA|} = \frac{5a + a(4+3i)}{5+a+\sqrt{(4-a)^2+9}} = 3+i.$$
-%
-%Hence,
-%$$5+a+\sqrt{(4-a)^2+9} = 3a,$$
-%which has solutions $a = 0, a = 4$.  Taking the positive solution, we have $A = 4$.  Then, note that $ABC$ is a right triangle with right angle at $A$, so $\alpha = \frac{\pi}{2}$.
-%\end{proof}
-%\subsection{A3 - Analysis}
-%\begin{Prob}[2019 - A3] Given real numbers $b_0, b_1, \dots, b_{2019}$ with $b_{2019} \ne 0$, let $z_1, z_2, \dots, z_{2019}$ be the roots in the complex plane of the polynomial $$P(z) = \sum_{k=0}^\infty b_kz^k.$$
-%Let $\mu = \frac{1}{2019}\sum_{k=1}^{2019}|z_k|$.  Determine the largest constant $M$ such that $\mu \ge M$ for all choices of $b_0, b_1, \dots, b_{2019}$ satisfying 
-%$$1 \le b_0 < b_1 < b_2 < \dots < b_{2019} \le 2019.$$
-%\end{Prob}
-%\begin{proof}
-%By the AM-GM inequality,
-%$$\mu = \frac{\sum_{k=1}^{2019}|z_k|}{2019} = \left (\prod_{k=1}^{2019} |z_k|\right )^{1/2019} = \left |\frac{b_0}{b_{2019}} \right|^{1/2019} \le (2019)^{-1/2019}.$$
-%
-%We show that $M = (2019)^{-1/2019}$.  Let $\zeta = e^{\frac{2\pi i}{2020}}$ and let $z_i = M\zeta^i$. Notice that $|z_i| = M$ for each $i$ and the roots $z_1, z_2, \dots, z_{2019}$ satisfy the polynomial
-%$$0 = \frac{(z_i/M)^{2020} - 1}{(z_i/M) - 1} = M^{-2019}\left (\frac{z_i^{2020} - M^{2020}}{z_i - M}\right ) =\sum_{k=0}^{2019}z_i^{k}M^{-k}.$$
-%
-%Hence, the polynomial $$P(z) = \sum_{k=1}^{2019}z_i^k2019^{k/2019}$$
-%satisfies the equality case $\mu = M$.  Furthermore, note that 
-%$b_0 = 1$, $b_{2019} = 2019$ and and $2019^{i/2019} < 2019^{j/2019}$ for all $i < j$.  Hence, $P$ satisfies the conditions.
-%\end{proof}
+\begin{proof}
+Suppose $\lim_{x \to \infty} \frac{N(x)}{x} > 0$.  Call $T = \{t_1, \dots, t_n\}$ good if all the $A+t_i = \{a + t_i: a \in A\}$ are mutually pairwise disjoint.  We start by proving a lemma.
+\begin{lemma}
+If $T = \{t_1, \dots, t_n\}$ is good and $\lim_{x \to \infty} \frac{N(x)}{x} > 0$, then 
+$$|T| \le \frac{1}{\limsup_{x \to \infty} \frac{N(x)}{x}}$$
+\end{lemma}
+\begin{proof}
+Note that 
+\begin{align*}
+x &\ge \left | \bigcup_{k=1}^n (A + t_i) \cap [0, x]\right| \\
+&= \sum_{k=1}^n |(A + t_i) \cap [0, x]| \\
+&= \sum_{k=1}^n N(x - t_i) \\
+&\ge \sum_{k=1}^n (N(x) - t_i) \\
+& = |T| N(x) - \sum_{k=1}^{n} t_i.
+\end{align*}
+After rearranging, we obtain
+$$\frac{N(x)}{x} \le \frac{1 + \sum_{k=1}^n \frac{t_i}{x}}{|T|},$$
+which implies the desired result upon taking the limsup of both sides.  
+\end{proof}
+Since the size of good sets are bounded, let $T_* = \{t_1, \dots, t_n\}$ be a good set of maximal size.  For any $t \in \N \setminus T_*$, we must have that $T_* \cup \{t\}$ is not good, so there is some $t_i$ and $a_i, a_j$ such that 
+$$a_i + t_i = a_j + t \rightarrow t - t_i = a_i - a_j \in B.$$
 
+In other words, for all $t \in \N \setminus T_*$, there exists $i \in [1, n] \cap \Z$ such that $t - t_j \in B$.  Applying the result for $t = b_{i+1}$, there is some $j \in [1, n] \cap \Z$ such that $b_{i+1} - t_j = b \in B$, so $t_j = b_{i + 1} - b \ge b_{i + 1} - b_i$.  Since $t_j \le \max T$, we have that $b_{i + 1} - b_i \le \max T$ is bounded, which proves the result.
+\end{proof}
+\pagebreak
+\section{Putnam 2005}
+\subsection{A1 - Number Theory}
+Show that every positive integer is a sum of one or more numbers of the form $2^r3^s,$ where $r$ and $s$ are nonnegative integers and no summand divides another.
+(For example, $23=9+8+6.)$
+\begin{proof}
+We proceed by strong induction.  Note that we can take $1 = 2^0$ which handles the base case.  We prove the even and odd cases separately.  Suppose the result is true for $n=1, 2, \dots, 2k-1$.  For $n = 2k$, note that we can write it as 
+$$n = 2k = 2\sum_{i=1}^\ell 2^{r_i}3^{s_i} = \sum_{i=1}^{\ell} 2^{r_i + 1} 3^{s_i}.$$
+If we have that $2^{r_i}3^{s_i} \nmid 2^{r_j} 3^{s_j}$ for any $i \ne j$ then it follows that $2^{r_i + 1}3^{s_i} \nmid 2^{r_j + 1} 3^{s_j}$, since otherwise we have $2^{r_j + 1} 3^{s_j} = m 2^{r_i + 1}3^{s_i}$ which implies that $2^{r_j} 3^{s_j} = m 2^{r_i}3^{s_i}$, a contradiction.
+
+Now, suppose the result is true for $n = 1, \dots, 2k$.  For $n = 2k+1$, let $m = \floor{\log_3(n)}$.  Note that we have $3^m \le n < 3^{m + 1}$.  If $n = 3^m$, then we are done.  Otherwise, note that $n - 3^m$ is even and less than $n$, so we can write 
+$$n = 3^m + (n - 3^m) = 3^m + \sum_{i=1}^\ell 2^{r_i + 1}3^{s_i}$$
+and note that 
+$$2^{r_i + 1} 3^{s_i} \le n - 3^m < 3^{m + 1} - 3^m = 2 \cdot 3^m,$$
+so it follows that $3^m > 2^{r_i}3^{s_i} \ge 3^{s_i}$, so we must have $s_i < m$ which implies that $3^m \nmid 2^{r_i + 1}3^{s_i}$.  It's also clear that $2^{r_i + 1} 3^{s_i }\nmid 3^m$ for any $i$, which completes the proof.
+\end{proof}
+\pagebreak
+\subsection{A2 - Combinatorics}
+Let $S=\{(a,b)|a=1,2,\dots,n,b=1,2,3\}$. A rook tour of $S$ is a polygonal path made up of line segments connecting points $p_1,p_2,\dots,p_{3n}$ is sequence such that
+
+(i) $p_i\in S,$
+
+(ii) $p_i$ and $p_{i+1}$ are a unit distance apart, for $1\le i<3n,$
+
+(iii) for each $p\in S$ there is a unique $i$ such that $p_i=p.$
+
+How many rook tours are there that begin at $(1,1)$ and end at $(n,1)?$
+
+\begin{proof}
+We claim the number of rook tours is given by $2^{n-2}$ for $n \ge 2$ and $0$ for $n = 1$.
+Let $A_n$ be the set of rook tours from $(1, 1)$ to $(n, 1)$ and let $B_n$ be the set of rook tours from $(1, 3)$ to $(n, 1)$.  It is clear that $|A_1| = 0$.
+\begin{lemma} For $n > 1$,
+$$|A_n| = |B_1| + \dots + |B_{n-1}|.$$
+\end{lemma}
+\begin{proof}
+We prove the result by strong induction.  For $n = 2$, it is clear that $|A_2| = 1 = |B_1|$.  
+
+Suppose the result is true for $2 \le n \le k$.  Note that in order to have a rook tour from $(1, 1) \to (k+1, 1)$ we must first go from $(1, 1) \to (\ell, 1)$ for some $1 \le \ell \le k$, then go from $(\ell, 1) \to (\ell, 2)$, and then take a path $(\ell, 2) \to (1, 2) \to (1, 3) \to (\ell, 3)$ in order to cover all the points in the rook tour.  Finally, the number of paths from $(\ell. 3) \to (k +1, 1)$ is given by $|B_{k - \ell + 1}|$.  It follows that 
+$$|A_{k + 1}| = |B_1| + \dots  + |B_k|,$$
+which proves the result.  
+\end{proof}
+
+We can similarly prove by strong induction that $|B_n| = |A_1| + \dots + |A_{n-1}|$ for $n > 1$ and $|B_1| = 1$.  This implies that 
+$$|A_n| = |A_{n-1}| + |B_{n-1}|, \quad |B_n| = |A_{n-1}| + |B_{n-1}|$$
+for $n > 2$, which implies that $|A_n| = 2|A_{n-1}|$ for $n > 2$.  It follows that $|A_n| = 2^{n-2}|A_2| = 2^{n-2}$ for $n > 2$, $|A_2| = 1$ and $|A_1| = 0$.
+\end{proof}
+\pagebreak
+\subsection{A3 - Algebra}
+Let $p(z)$ be a polynomial of degree $n,$ all of whose zeros have absolute value $1$ in the complex plane. Put $g(z)=\frac{p(z)}{z^{n/2}}.$ Show that all zeros of $g'(z)=0$ have absolute value $1.$
+\begin{proof}
+Note that we can write $p(z) = a \prod_{j=1}^n (z - \omega_j)$ where $|\omega_j| = 1$ for all $j$. It follows that 
+$$\log g(z) = \log a + \sum_{j=1}^n \log (z - \omega_j) - \frac{n}{2} \log z = \log a + \sum_{j=1}^n \left (\log (z - \omega_j) - \frac{\log z}{2} \right).$$
+
+Taking the derivative of both sides, we obtain
+\begin{align*}
+\frac{g'(z)}{g(z)} &= \sum_{j=1}^n \left (\frac{1}{z - \omega_j} - \frac{1}{2z} \right) \\
+&= \frac{1}{2z} \sum_{j=1}^n \frac{z + \omega_j}{z - \omega_j} \\
+&= \frac{1}{2z} \sum_{j=1}^n \frac{|z|^2 - 1 + \omega_j \bar{z} - z \bar{\omega_j}}{|z - \omega_j|^2} \\
+&= \frac{1}{2z} \sum_{j=1}^n \left ( \frac{|z|^2 - 1}{|z - \omega_j|^2} + i\frac{\operatorname{Im}(\omega_j \bar{z})}{|z - \omega_j|^2} \right).
+\end{align*}
+
+It follows that 
+$$\operatorname{Re}\left (\frac{zg'(z)}{g(z)} \right) = \frac{|z|^2 - 1}{2} \sum_{j=1}^n \frac{1}{|z - \omega_j|^2}.$$
+Since $\sum_{j=1}^n \frac{1}{|z - \omega_j|^2} > 0$, it follows that the real part of $\frac{zg'(z)}{g(z)}$ is zero if and only if $|z|^2 - 1 = 0$, which implies that $|z|^2 = 1$.  It follows that all the zeros of $g'(z)$ must either satisfy $|z|^2 = 1$ or $g(z) = 0$ which gives the desired result since the zeros of $g(z)$ lie on the unit circle on the complex plane.  
+\end{proof}
+\pagebreak
+\subsection{B1 - Algebra}
+Find a nonzero polynomial $P(x,y)$ such that $P(\lfloor a\rfloor,\lfloor 2a\rfloor)=0$ for all real numbers $a.$
+\subsection{B2 - Algebra}
+Find all positive integers $n,k_1,\dots,k_n$ such that $k_1+\cdots+k_n=5n-4$ and
+\[ \frac1{k_1}+\cdots+\frac1{k_n}=1. \]
+\subsection{B3 - Calculus}
+Find all differentiable functions $f: (0,\infty)\mapsto (0,\infty)$ for which there is a positive real number $a$ such that
+\[ f'\left(\frac ax\right)=\frac x{f(x)} \]
+for all $x>0.$
+
+
+\pagebreak
+\section{Putnam 2020}
+\subsection{A1 - Number Theory}
+How many positive integers $N$ satisfy all of the following three conditions?
+(i) $N$ is divisible by $2020$.
+(ii) $N$ has at most $2020$ decimal digits.
+(iii) The decimal digits of $N$ are a string of consecutive ones followed by a string of consecutive zeros.
+\begin{proof}
+We claim there are $508536$ positive integers satisfying the claim.  Note that the integer with decimal representation given by $m$ $1$'s followed by $k$ zeros is given by 
+$$\frac{10^m - 1}{9} \cdot 10^k.$$
+Since $2020 = 2^2 \cdot 5 \cdot 101$, we must have $2^2 \cdot 5 \mid 10^k$ and $101 \mid \frac{10^m - 1}{9}.$  The first condition gives $k \ge 2$ and the second condition gives 
+$$10^m \equiv 1 \pmod{101} \Rightarrow 4 \mid m.$$
+Finally, we need to satisfy the condition that $m + k \le 2020$.  We can write $m = 4 \ell$ and $k = 2 + j$ in order to rewrite this as 
+$$4\ell + j \le 2018, \ell \ge 1, j \ge 0 \Rightarrow 0 \le j \le 2018 - 4\ell.$$
+Since $2018 = 4(504) + 2$, the number of solutions is given by 
+\begin{align*}
+\sum_{\ell = 1}^{504} (2018 - 4\ell + 1) &= \sum_{\ell = 1}^{504} (2019 - 4\ell) \\
+&= (504)(2019) - 4 \sum_{\ell=1}^{504} \ell \\
+&= (504)(2019) - (504)(1010) \\
+&= (504)(1009) \\
+&= 508536.
+\end{align*}
+
+
+\end{proof}
+
+
+\pagebreak
+\subsection{A2 - Combinatorics}
+Let $k$ be a nonnegative integer. Evaluate
+\[ \sum_{j=0}^k 2^{k-j} \binom{k+j}{j}. \]
+\begin{proof}
+We claim the sum evaluates to $4^k$.  Note that $\binom{n + k}{j} = \binom{n + k}{k}$ so the desired expression is given by $[x^k]\{F(x)\}$ where 
+\begin{align*}
+F(x) &= \sum_{j=0}^k 2^{k-j} (1 + x)^{k + j} \\
+&= (2)^k(1 + x)^k \sum_{j=1}^k \left (\frac{1 + x}{2} \right)^j \\
+&= 2^k(1 + x)^k \left (\frac{1 - (1+x)^{k + 1}/2^{k + 1}}{1 - x} \right) \\
+&= \frac{2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1}}{1-x} \\
+&= (2^{k + 1}(1 + x)^k - (1 + x)^{2k + 1}) \sum_{n \ge 0} x^n.
+\end{align*}
+It follows that 
+\begin{align*}
+[x^k]\{F(x)\} &=  \sum_{n=0}^k \left ( 2^{k + 1} \binom{k}{k-n} - \binom{2k + 1}{k-n}\right)\\
+&= 2^{k + 1}\sum_{n=0}^k \binom{k}{n} - \sum_{n=0}^k \binom{2k + 1}{ k +1 + n} \\
+&= 2^{2k+1} - 2^{2k+1}/2 \\
+&= 2^{2k} \\
+&= 4^k.
+\end{align*}
+\end{proof}
+
+\pagebreak
+\subsection{A3 - Analysis}
+	Let $a_0=\pi /2$, and let $a_n=\sin (a_{n-1})$ for $n\ge 1$. Determine whether
+\[ \sum_{n=1}^{\infty}a_n^2 \]converges.
+\begin{proof}
+We claim the series diverges.   It suffices to show that $a_n \ge \frac{1}{\sqrt{n}}$. We proceed by induction.  It is clear that $a_1 = 1 \ge \frac{1}{\sqrt{1}} = 1$.  Suppose that $a_k \ge \frac{1}{\sqrt{k}}$.  Since $\sin x \ge x - x^3 / 6$ and $\sin x$ is monotonically increasing in $[0, \pi/2]$, we have 
+$$a_{k + 1} \ge \sin \left (\frac{1}{\sqrt{k}} \right) > \frac{1}{\sqrt{k}} - \frac{1}{6k\sqrt{k}} = \frac{6k-1}{6k\sqrt{k}}.$$
+It suffices to show that 
+$$\frac{6k-1}{6k} \ge \frac{\sqrt{k}}{\sqrt{k + 1}} \Leftrightarrow 24k^2 - 11k + 1 \ge 0,$$
+which is true for $k \ge 1$.
+\end{proof}
+\pagebreak
+\subsection{A4 - Combinatorics}
+Consider a horizontal strip of $N+2$ squares in which the first and the last square are black and the remaining $N$ squares are all white. Choose a white square uniformly at random, choose one of its two neighbors with equal probability, and color tis neighboring square black if it is not already black. Repeat this process until all the remaining white squares have only black neighbors. Let $w(N)$ be the expected number of white squares remaining. Find
+\[ \lim_{N\to\infty}\frac{w(N)}{N}.\]
+\begin{proof}
+We claim the limit is $1/e$.  Using a recursive argument, it is easy to show prove by induction that 
+$$w(N) =  \sum_{k=1}^{N-2}\left ( \frac{2w(k)}{N - 1} \right) + \frac{w(N - 1)}{N - 1}.$$
+
+This leads to the identity
+$$w(N + 1) = w(N) + \frac{w(N - 1)}{N - 2}.$$
+We can solve this via generating functions - define $W(z) = \sum_{k \ge 1} \frac{w(k + 1)}{k} z^k$.  From the recursive formula, we obtain
+
+$$W(z) + 1 = \frac{1-z}{z} W'(z) \Rightarrow W(z) = \frac{e^{-z}}{1 - z} - 1.$$
+
+Finally, note that 
+$$\frac{w(n-1)}{n} = [z^n]\{W(z)\} = [z^n] \{e^{-z} \sum_{k \ge 0} z^k\} = \sum_{k=0}^n \frac{(-1)^k}{k!} \xrightarrow{n \to \infty} \frac{1}{e}.$$
+\end{proof}
+\pagebreak
+\subsection{A5 - Combinatorics}
+Let $a_n$ be the number of sets $S$ of positive integers for which
+\[ \sum_{k\in S}F_k=n,\]where the Fibonacci sequence $(F_k)_{k\ge 1}$ satisfies $F_{k+2}=F_{k+1}+F_k$ and begins $F_1=1$, $F_2=1$, $F_3=2$, $F_4=3$. Find the largest number $n$ such that $a_n=2020$.
+\pagebreak
+\subsection{A6 - Analysis}
+For a positive integer $N$, let $f_N$ be the function defined by
+\[ f_N (x)=\sum_{n=0}^N \frac{N+1/2-n}{(N+1)(2n+1)} \sin\left((2n+1)x \right). \]Determine the smallest constant $M$ such that $f_N (x)\le M$ for all $N$ and all real $x$.
+
+\begin{proof}
+After partial fractions decomposition, we can write 
+$$f_N(x) = \sum_{n=0}^N \left (\frac{1}{2n+1} - \frac{1}{2N + 2} \right) \sin((2n + 1)x) = \sum_{n=0}^N \frac{\sin((2n + 1)x)}{2n + 1} - \frac{1 - \cos((2N + 2)x)}{(4N + 4)\sin x}.$$
+
+Upon taking the derivative and simplifying, we obtain
+$$f_N'(x) = \frac{\cos x (1 - \cos((2N + 2) x))}{(4N + 4) \sin^2 x}.$$
+Since $\frac{\cos x (1 - \cos((2N + 2) x))}{(4N + 4) \sin^2 x} \ge 0$, it follows that the sign of $f_N'(x)$ is determined completely by $\cos x$.  Namely, $f_N'(x)$ is nonnegative on $(0, \pi/2]$, zero at $\pi/2$, and nonpositive on $[\pi/2, \pi)$.  It follows that $f_N(x)$ obtains a global maximum at $\pi/2$.  
+
+Finally, note that 
+\begin{align*}
+f_N(\pi/2) &= \sum_{n=0}^N \frac{(-1)^n}{2n + 1} -  \frac{1}{2N+2}\sum_{n=0}^N(-1)^n.
+\end{align*}
+Since $f_{N+2}(\pi/2) > f_N(\pi/2)$, we can find the upper bound by taking the limit as $N \to \infty$, which gives 
+$$\lim_{n \to \infty} f_N(\pi/2) = \sum_{n=0}^\infty \frac{(-1)^n}{2n+1} = \arctan{1} = \frac{\pi}{4}.$$
+\end{proof}
 \end{document}
