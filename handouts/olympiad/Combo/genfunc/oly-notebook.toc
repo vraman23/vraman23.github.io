@@ -17,18 +17,19 @@
 \contentsline {subsection}{\numberline {2.3}Functional Equations}{9}{subsection.2.3}% 
 \contentsline {subsection}{\numberline {2.4}Linear Algebra}{9}{subsection.2.4}% 
 \contentsline {subsection}{\numberline {2.5}Group Theory}{11}{subsection.2.5}% 
-\contentsline {subsection}{\numberline {2.6}Field Theory}{11}{subsection.2.6}% 
-\contentsline {section}{\numberline {3}Number Theory}{12}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Orders}{12}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}P-adic Valuation}{12}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Cyclotomic Polynomials}{13}{subsection.3.3}% 
-\contentsline {subsection}{\numberline {3.4}Finite Field Arithmetic}{13}{subsection.3.4}% 
-\contentsline {subsection}{\numberline {3.5}Arithmetic Functions}{14}{subsection.3.5}% 
-\contentsline {section}{\numberline {4}Analysis}{16}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Sequences and Series}{16}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Measure Theory and Integration}{16}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Vector Calculus}{18}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Complex Analysis}{18}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}Geometry}{19}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Classical Results}{19}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Complex Numbers}{19}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {2.6}Field Theory}{12}{subsection.2.6}% 
+\contentsline {section}{\numberline {3}Number Theory}{13}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Orders}{13}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}P-adic Valuation}{13}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Cyclotomic Polynomials}{15}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Finite Field Arithmetic}{15}{subsection.3.4}% 
+\contentsline {subsection}{\numberline {3.5}Arithmetic Functions}{16}{subsection.3.5}% 
+\contentsline {subsection}{\numberline {3.6}Quadratic Reciprocity}{17}{subsection.3.6}% 
+\contentsline {section}{\numberline {4}Analysis}{19}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Sequences and Series}{19}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Measure Theory and Integration}{19}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Vector Calculus}{21}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Complex Analysis}{21}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}Geometry}{22}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Classical Results}{22}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Complex Numbers}{22}{subsection.5.2}% 

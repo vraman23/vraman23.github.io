@@ -315,6 +315,44 @@ It follows that $\det(A^2 + I) \ge 4$ as desired.  We have equality when the eig
 \subsection{Group Theory}
 \begin{theorem}[Lagrange's Theorem] Let $G$ be a finite field.  If $H$ is a subgroup of $G$, then $|G| = [G:H]|H|$.
 \end{theorem}
+
+\begin{theorem}[Chinese Remainder Theorem for Groups] If $\gcd(m, n) = 1$, then $\Z_n \times \Z_m \equiv \Z_{mn}$.
+\end{theorem}
+
+\begin{theorem}[Fundamental Theorem of Cyclic Groups] Every subgroup of a cyclic group is cyclic.  Moreover, if $|\<a\>| = n$, then the order of any subgroup of $\<a\>$ is a divisor of $n$; and, for each positive integer divisor $k$ or $n$, the group $\<a\>$ has exactly one subgroup of order $k$, namely $\<a^{n/k}\>$.
+\end{theorem}
+
+\begin{theorem}[Fundamental Theorem of Finitely Generated Abelian Groups] If $G$ is a finitely generated abelian group, there exists a unique integer $m$
+ and unique $p_1^{e_1}, p_2^{e_2}, \dots, p_n^{e^n}$ such that 
+ $$G \equiv \Z_{p_1^{e_1}} \times \dots \times Z_{p_n^{e_n}} \times \Z^m.$$
+\end{theorem}
+\begin{problem}[Putnam 2009/A5] Is there a finite abelian group $G$ such that the product of the orders of all its elements is $2^{2009}$.
+\end{problem}
+\begin{proof}
+Suppose such a group $G$ existed.  By FTFGAG, $G$ is a product of finite cyclic groups.  By Lagrange's theorem, the generators of the groups must have order that is a power of $2$.  Hence, it suffices to consider $G$ of the form 
+$$G \equiv \prod_{k=1}^{\infty} (\Z_{2^k})^{n_k},$$
+where all but finitely many of the $n_k$'s are zero.
+
+Let $d_k$ denote the number of elements of $G$ with order at most $2^k$.  Note that $d_0 = 1$ since $G$ has a unique identity element.  Then
+$$d_1 = \prod_{k=1}^\infty 2^{n_k} = 2^{\sum_{k=1}^\infty n_k}.$$
+since for each $\Z_{2^k}$, there are exactly two elements of order $1$ or $2$.  Similarly,
+$$d_2 = 2^{n_1} 4^{\sum_{k=2}^\infty n_k}.$$
+It is easy to prove by induction that $d_1 \mid d_k$ for all $k > 0$ and $d_1$ is a power of $2$.  
+
+Then, note that if we let $N$ denote the product of the orders of the elements of $G$, we have 
+$$N = 1^{d_0} 2^{d_1 - d_0} 4^{d_2 - d_1} \dots = \prod_{k=0}^\infty (2^k)^{d_{k + 1} - d_k}.$$
+Then, 
+$$\log_2 N = \sum_{k=1}^\infty k(d_{k + 1} - d_k).$$
+If we would like $2009 = \log_2 N$, note that we have $$2010 = d_1 + \sum_{k=2}^\infty k(d_{k + 1} - d_k),$$
+and the right hand side divides $d_1$ which is a power of $2$.  However, $2010 = 2 \cdot 1005$, so it follows that $d_1 = 2$.  Hence,
+$$1 = \log_2 d_1 = \sum_{k=0}^\infty d_1.$$
+
+It follows that $G \equiv \Z_{2^k}$ for some $k$.  This has $1$ element of order $1$ and $2^{k-1}$ elements of order $2^j$, so it follows that 
+$$\log_2 N = \sum_{j=1}^k j(2^{j - 1}) = 2^k(k - 1) + 1.$$
+If $2009 = \log_2 N$, then
+$$ 2^k(k - 1) = 2008 = 2^3 \cdot 251.$$
+This is a contradiction since $k \le 3$, but $8(3 - 1) = 16 < 2008$.
+\end{proof}
 \subsection{Field Theory}
 \pagebreak
 \section{Number Theory}
@@ -322,8 +360,16 @@ It follows that $\det(A^2 + I) \ge 4$ as desired.  We have equality when the eig
 \subsection{P-adic Valuation}
 \begin{definition} Let $p$ be a prime and let $n$ be a non-zero integer.  We define $\nu_p(n)$ to be the exponent of $p$ in the prime factorization of $n$.
 \end{definition}
+Some properties which can be easily verified:
+\begin{itemize}
+\item $\nu_p(a + b) \ge \min\{\nu_p(a), \nu_p(b)\}$
+\item $\nu_p(ab) = \nu_p(a) + \nu_p(b)$
+\item $v_p(\gcd(a_1, \dots, a_n)) = \min \{\nu_p(a_1), \dots, \nu_p(a_n)\}$ 
+\item $v_p(\lcm(a_1, \dots, a_n)) = \max\{\nu_p(a_1), \dots, \nu_p(a_n)\}$
+\end{itemize}
 \begin{theorem}[Legendre's Theorem] 
-$$\nu_p(n!) = \sum_{k \ge 1} \floor{\frac{n}{p^k}}.$$
+$$\nu_p(n!) = \sum_{k \ge 1} \floor{\frac{n}{p^k}} = \frac{n - s_p(n)}{p-1},$$
+where $s_p(n)$ denotes the sum of the digits when written in base $p$.
 \end{theorem}
 
 \begin{problem}[Putnam 2003/B3]
@@ -338,6 +384,28 @@ Show that for each positive integer n,\[n!=\prod_{i=1}^n \; \text{lcm} \; \{1, 2
 &= \sum_{\ell=1}^\infty \floor{n/p^\ell}.
 \end{align*}
 This is exactly $\nu_p(n!)$ by Legendre's Theorem.  
+\end{proof}
+
+\begin{problem} Prove that for any positive integer $n$, $n!$ is a divisor of 
+$$\prod_{k=0}^{n-1} (2^n - 2^k).$$
+\end{problem}
+\begin{proof}
+It suffices to show that for each prime $p \le n$, $\nu_p(n!) \le \nu_p\left (\prod_{k=0}^{n-1} (2^n - 2^k)\right) = \sum_{k=0}^{n-1} \nu_p(2^n - 2^k)$.
+
+For $p = 2$, 
+$$\nu_2(n!) = n - s_2(n) \le n - 1,$$
+$$\sum_{k=0}^{n-1} \nu_p(2^n - 2^k) \ge n - 1,$$
+since $2^n - 2^k$ is even for $k \ge 1$.  For $p > 2$, note that $2^{p-1} - 1 \equiv 0 \pmod{p}$ by Fermat's little theorem, which implies that $p \mid 2^{k(p-1)} - 1$ for all $k \ge 1$.  Then
+$$\prod_{k=0}^{n-1} (2^n - 2^k) = 2^{n(n-1)/2} \prod_{k=1}^n (2^k - 1),$$
+and $p \nmid 2^{n(n-1)/2}$, which implies that 
+\begin{align*}
+\nu_p\left (\prod_{k=0}^{n-1} ( 2^n - 2^k)\right) &= \sum_{k=1}^n \nu_p(2^k - 1) \\
+&\ge \sum_{1 \le k(p-1) \le n} \nu_p(2^{k(p-1)} - 1) \\
+&\ge \sum_{1 \le k(p-1) \le n} 1 \\
+&= \floor{\frac{n}{p-1}}.
+\end{align*}
+But note that 
+$$\nu_p(n!) = \frac{n - s_p(n)}{p-1} \le \frac{n-1}{p-1} \le \floor{\frac{n}{p-1}} \le \nu_p\left (\prod_{k=0}^{n-1} ( 2^n - 2^k)\right).$$
 \end{proof}
 \begin{theorem}[Lifting-the-Exponent(LTE) Lemma] 
 Let $p$ be prime, $x, y \in \Z$, $n \in \N$ and $p \mid(x-y)$, $p \nmid x$, $p \nmid y$. 
@@ -440,6 +508,47 @@ $$(g*1)(p^k) = \sum_{r=0}^k (-1)^{r} = \begin{cases}
 It follows that $(g*1)(n) = 1$ when $n$ is a perfect square and is $0$ otherwise.  Hence, the sum evaluates to $\floor{\sqrt{1989}} = 44$.
 \end{proof} 
 \subsection{Quadratic Reciprocity}
+\begin{definition}[Legendre Symbol] For a prime $p$ and integer $a$, set 
+$$\left ( \frac{a}{p}\right) = \begin{cases}
+0 \quad p \mid a\\
+1 \quad a \not \equiv 0 \text{ is a quadratic residue} \\
+-1 \quad a \not \equiv 0 \text{ is not a quadratic residue}
+\end{cases}.$$
+\end{definition}
+\begin{definition}[Legendre's Definition]
+For odd primes $p$, 
+$$\left ( \frac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \pmod{p}.$$
+\end{definition}
+
+\begin{definition}[Jacobi Symbol] For any integer $a$ and any odd positive integer $n = p_1^{e_1} \dots p_n^{e_n}$,
+$$\left ( \frac{a}{n}\right ) = \left ( \frac{a}{p_1}\right )^{e_1} \dots \left ( \frac{a}{p_n}\right )^{e_n}$$
+\end{definition}
+Some properties of the Jacobi Symbol:
+\begin{itemize}
+\item $\left ( \frac{a}{n}\right)=\left( \frac{b}{n} \right)$ when $a \equiv b \pmod{n}$
+\item $\left ( \frac{a}{n} \right) = 0$ if and only if $\gcd(a, n) > 1$ \\
+\item $\left (\frac{a}{2} \right) \in \{0, 1\}$.
+\end{itemize}
+\begin{theorem}[Quadratic Reciprocity] Let $m, n$ be relatively prime positive odd integers.  Then
+$$\left ( \frac{-1}{n}\right ) = (-1)^{\frac{n-1}{2}}, \quad \left ( \frac{2}{n}\right ) = (-1)^{\frac{n^2 - 1}{8}},$$
+and 
+$$\left ( \frac{m}{n}\right ) \left ( \frac{n}{m}\right ) = (-1)^{\frac{(m-1)(n-1)}{4}}$$
+or equivalently
+$$\left ( \frac{m}{n}\right ) = \left ( \frac{n}{m}\right ) (-1)^{(m-1)(n-1)/4}.$$
+\end{theorem}
+\begin{problem} Is $481$ a quadratic residue modulo $2017$?
+\end{problem}
+\begin{proof}
+$$\left ( \frac{481}{2017}\right) = \left (\frac{2017}{481} \right) = \left ( \frac{93}{481}\right ) = \left (\frac{481}{93} \right) = \left (\frac{16}{93} \right) = 1.$$
+\end{proof}
+
+\begin{problem} Show that $2^{n} + 1$ has no prime factors of the form $p = 8k + 7$.
+\end{problem}
+\begin{proof} Suppose $p \mid 2^n + 1$.  If $n$ is even, then $2^{2k} \equiv -1 \pmod{p}$ so $p \equiv 1 \pmod{4}$.  Otherwise, we have $2^{2k + 1} \equiv -1 \pmod{p}$ which implies that $-2 \equiv 2^{2(k + 1)} \pmod{p}$ so $-2$ is a quadratic residue modulo $p$.  Then
+$$1 = \left ( \frac{-2}{p}\right ) = (-1)^{\frac{p-1}{2} + \frac{p^2 - 1}{8}} = (-1)^{\frac{p^2 + 4p - 5}{8}} = (-1)^{\frac{(p + 5)(p - 1)}{8}}.$$
+
+If $p = 8k + 7$, then $4 \nmid p-1 = 8k + 6$ and $8 \nmid p + 5 = 8k + 12$, so we cannot have $16 \mid (p + 5)(p - 1)$, a contradiction.
+\end{proof}
 \pagebreak
 \section{Analysis}
 \subsection{Sequences and Series}
