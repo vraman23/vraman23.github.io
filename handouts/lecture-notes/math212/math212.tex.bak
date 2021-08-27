@@ -18,10 +18,13 @@
 \newcommand{\cov}{\operatorname{cov}}
 
 \DeclareMathOperator*{\Var}{Var}
+\newcommand{\Hol}{\operatorname{Hol}}
 
 \let \phi \varphi
 \let \hat \widehat
 \let \mc \mathcal
+\let \p \partial
+\let \eps \varepsilon
 \newcommand\at[2]{\left.#1\right|_{#2}}
 
 %From Topology
@@ -60,8 +63,35 @@ $ $
 \newpage
 %\maketitle
 
-\section{Lecture 1: 8/26/21}
-\subsection{Introduction}
+\section{Lecture 1: 4/26/2021}
+\subsection{Review of 1D Complex Analysis}
+\begin{definition}[Holomorphic] Let $D \subset \C$ be an open connected domain and take $u \in C^1(D)$.  The function $u$ is \textbf{holomorphic} if $\partial_{\ol{z}} u = 0$ where $\partial_{\ol{z}} = (\partial_x + i\partial_y)$.
+\end{definition}
 
+We also have the equivalent conditions that 
+$$u \in \Hol(D) \Leftrightarrow \p_{\ol{z}} = 0 \Leftrightarrow \lim_{h \to 0} \frac{u(z + h) - u(z)}{h} \text{ exists and is continuous.}$$
 
+\begin{fact}]Green's Theorem] For $\Omega \subset \C, \partial \Omega \in C^1$, we have 
+$$\int_{\p \Omega} u\,dz = \iint_{\Omega} \p_{\ol{z}} u \, d\ol{z} \wedge dz.$$
+\end{fact}
+
+\begin{theorem}[Cauchy-Pompieu Formula] Let $u \in C^1(\ol{\Omega})$.  For all $\zeta \in \Omega$, 
+$$u(\zeta) = \frac{1}{2\pi i} \left (\int_{\partial \Omega} \frac{u(z)}{z - \zeta}\,dz + \iint_{\Omega} \frac{\partial_{\ol{z}} u(z)}{z - \zeta}\, dz \wedge d\ol{z} \right)$$
+\end{theorem}
+\begin{proof}
+Let $\Omega_{\eps} = \Omega \setminus \ol{D(\zeta, \epsilon)}$, where $0 < \epsilon << 1$.  Applying Green's Theorem to $w(z) = \frac{u(z)}{z - \zeta} \in C^1(\ol{\Omega_\eps})$ and noting that $\p_{\ol{z}} w = \frac{\p_{\ol{z}} u(z)}{z - \zeta}$, we have 
+$$\iint_{\Omega_{\eps}} \frac{\p_{\ol{z}} u(z)}{z - \zeta} d\ol{z} \wedge dz = \int_{\p \Omega} \frac{u(z)}{z - \zeta} \,dz - \int_{\p D(\zeta, \epsilon)} \frac{u(z)}{z - \zeta} \,dz.$$
+
+The left-hand side converges to $\iint_\Omega \frac{\partial_{\ol{z}} u(z)}{z - \zeta} d\ol{z} \wedge dz$ by the dominated convergence theorem.  Parameterizing the disc via polar coordinates, we can write 
+$$\int_{\p D(\zeta, \epsilon)} \frac{u(z)}{z - \zeta} \,dz = \int_0^{2\pi} u(\zeta + \epsilon e^{i\theta})\,d\theta \to 2\pi i u(\zeta).$$
+
+The desired formula follows from rearranging the terms upon taking the limit as $\epsilon \to 0$.
+\end{proof}
+\begin{remark} We also have a partial converse: let $\phi \in C_c^k(\C)$ with $k \ge 1$ and $u(z) = \iint \frac{\phi(z)}{z - \zeta} dz \wedge d\ol{z}$.  Then $u \in C^k(\C)$ and $\p_{\ol{z}} u = \phi$.
+\end{remark}
+Some other notable corollaries that follow from Cauchy's Theorem:
+\begin{itemize}
+\item $u \in \Hol(D) \Rightarrow u \in C^\infty(D)$.
+\item Let $u \in \Hol(D)$
+\end{itemize}
 \end{document}
