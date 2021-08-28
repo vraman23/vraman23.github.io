@@ -54,6 +54,8 @@ $ $
 
 \centerline{\huge \textbf{Math 212, Lecture Notes}}
 \centerline{\Large \textbf{Several Complex Variables } }
+\centerline{Professor: Maciej Zworski, Fall 2021}
+\centerline{Scribe: Vishal Raman}
 \end{center}
 \vfill
 $ $
@@ -71,7 +73,7 @@ $ $
 We also have the equivalent conditions that 
 $$u \in \Hol(D) \Leftrightarrow \p_{\ol{z}} = 0 \Leftrightarrow \lim_{h \to 0} \frac{u(z + h) - u(z)}{h} \text{ exists and is continuous.}$$
 
-\begin{fact}]Green's Theorem] For $\Omega \subset \C, \partial \Omega \in C^1$, we have 
+\begin{fact}[Green's Theorem] For $\Omega \subset \C, \partial \Omega \in C^1$, we have 
 $$\int_{\p \Omega} u\,dz = \iint_{\Omega} \p_{\ol{z}} u \, d\ol{z} \wedge dz.$$
 \end{fact}
 
@@ -92,6 +94,8 @@ The desired formula follows from rearranging the terms upon taking the limit as 
 Some other notable corollaries that follow from Cauchy's Theorem:
 \begin{itemize}
 \item $u \in \Hol(D) \Rightarrow u \in C^\infty(D)$.
-\item Let $u \in \Hol(D)$
+\item For all $K \Subset \Omega \Subset D$, $k$, there exists $C$ such that for all $u \in \Hol(D)$, we have 
+$$\sup_{K} |u^{(j)}(z)| \le C \|u \|_{L^1(\Omega)}.$$
+\item $u_j \in \Hol(D)$, $u_j \to u$ uniformly on bounded sets, then $u \in \Hol(D)$.
 \end{itemize}
 \end{document}
