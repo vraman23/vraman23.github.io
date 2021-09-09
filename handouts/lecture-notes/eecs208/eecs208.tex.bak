@@ -1,0 +1,116 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{listings}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+\newcommand{\E}{\mathbb E}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\krank}{\operatorname{krank}}
+\DeclareMathOperator*{\Var}{Var}
+\newcommand{\Hol}{\operatorname{Hol}}
+
+\let \phi \varphi
+\let \hat \widehat
+\let \mc \mathcal
+\let \p \partial
+\let \eps \varepsilon
+\newcommand\at[2]{\left.#1\right|_{#2}}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+%Indicators 
+\newcommand{\1}{\textbf{1}} % vector of all 1's
+\newcommand{\I}[1]{\mathbb{I}{\left\{#1\right\}}} % indicator function
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Problem}, numberwithin=section]{prob}
+
+\begin{document}
+\title{EECS 208}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{EECS 208, Lecture Notes}}
+\centerline{\Large \textbf{Computational Principles of High-Dimensional Data Analysis } }
+\centerline{Professor: Yi Ma, Fall 2021}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+
+\section{Lecture 2, 8/31/21}
+We would like to recover $x$ from linear measurements given by $y = A x$, where $A$ are the measurements and $y$ are the observations.  We would like the vector $x$ to be sparse: most components are $0$.  Of course, this is extremely ideal, so we also allow noise in our measurements.  
+
+\subsection{Finding Sparse Solutions}
+We are finding $x$ where $y = A x$, $A \in \R^{m \times n}$ with $m \ll n$ and $x$ $k$-sparse.
+
+\begin{definition} A norm on a vector space $V$ over $\R$ is a function $\| \cdot \| : V \to \R$ such that 
+\begin{itemize}
+\item Positive Definite: $\|x\| \ge 0$ and $\|x \| = 0$ if and only if $x = 0$
+\item non-negatively homogeneous: $\|\alpha x\| = |\alpha| \|x\|$
+\item Triangle Inequality: $\|x + y\| \le \|x \| + \|y\|$.
+\end{itemize}
+\end{definition}
+
+Recall the classical $\ell^p$ norms.  We will consider these even for $0 \le p < 1$. 
+
+Given $y = Ax_0$, we wish to find $$\hat{x} = \operatorname{arg} \min \|x\|_0 \quad s. t. \quad Ax = y.$$
+
+\begin{definition}[Support]
+$$\supp(x) = \{i: x(u) \ne 0\} \subset [n].$$
+\end{definition}
+
+\begin{definition}[Kruskal Rank] The Kruskal rank of a matrix $A$ is the largest number $r$ such that every subset of $r$ columns of $A$ are linearly independent, denoted $\operatorname{krank}(A)$.
+\end{definition}
+
+\begin{theorem}[$\ell^0$ Recovery] Suppose $y = Ax_0$ with $\|x_0\|_0 \le \krank(A)/2$.  then $x_0$ is the unique optimal solution to the $\ell^0$ minimization problem
+$$\min\|x\|_0, \quad Ax = y.$$
+\end{theorem}
+
+\begin{theorem} The $\ell^0$-minimization problem is (strongly) NP-hard.
+\end{theorem}
+
+\subsection{Two Fundamental Questions}
+\begin{itemize}
+\item Sample Complexity: how many measurements are needed for the problem to become computationally tractable?
+\item Computational Complexity: Once tractable, what is the precise computational complexity in finding the correct solution?
+\end{itemize}
+\pagebreak
+\section{Lecture 3, September 2nd}
+\subsection{Convex Functions}
+We assume basic familiarity with convex functions.
+\begin{definition}[Lower Convex Envelope] A function $f_c(x)$ is said to be a (lower) convex envelope of $f(x)$ if for all convex functions $g \le f$, $g \le f_c$.
+\end{definition}
+\begin{example}
+For all $x \in \R^n$, we have $\|x\|_0 = \sum_{i = 1}^n 1_{x(i) \ne 0}$, $\|x\|_1 = \sum_{i=1}^n |x(i)|$.  The $\ell^1$ norm is the envelope of the $\ell^0$ norm.
+\end{example}
+
+
+\end{document}

@@ -1,2 +1,4 @@
 \contentsline {section}{\numberline {1}Lecture 1: 8/26/2021}{3}{section.1}% 
 \contentsline {subsection}{\numberline {1.1}Review of 1D Complex Analysis}{3}{subsection.1.1}% 
+\contentsline {section}{\numberline {2}Lecture 2: 8/31/2021}{4}{section.2}% 
+\contentsline {section}{\numberline {3}Lecture 3: 9/2/2021}{6}{section.3}% 

@@ -136,33 +136,8 @@ which implies the result.
 Suppose $\argmax |u| = z_0$ with $z_0 \in D$.  It follows that $u$ is constant in $D(z_0, r)$.  We will show later that this implies that $u$ is constant on $D$.  
 \end{proof}
 \item Let $u \in \mc O(D(0, r))$ then $u(z) = \sum \frac{u^{(n)}(0)}{n!}z^n$ with the series converging uniformly in $\ol{D(0, \rho)}$ for $\rho < r$. 
-\item $u \in \mc O(D(0, r)), u \not \equiv 0$, then there exists $n$, $v \in \mc O(D(0, r))$ with $u(z) = z^n v(z)$, $v(0) \ne 0$.
-\item If $\sum a_n z^n$ converges in $|z| \le r$, it is holomorphic on the disc.  
-\item If $u \in \mc O(D)$ and there exists $z_0 \in D$ such that $u^{(n)}(z_0) = 0$ for all $n$, then $u \equiv 0$.
-\item Liouville's Theorem: Suppose $u \in \mc O(\C)$ and $|u(z)| \le C + C|z|^n$ for all $z \in \C$.  Then $u$ is a polynomial of degree at most $n$.
-\item Suppose $u \in \mc O(\C)$, $u \in L^p(\C, d\mu)$ 
-for $p \in [1, \infty)$.  Then $u \equiv 0$.
 \end{itemize}
 \pagebreak
 \section{Lecture 3: 9/2/2021}
-We now move to complex variables in $\C^n$.  
-\begin{definition} $f$ is complex differentiable at $z_0 \in D$ if there exists $D \in \C$ such that 
-$$\frac{|f(z + h) - f(z) - Dh|}{|h|} \xrightarrow{h \to 0} 0.$$
-Then, $f$ is holomorphic in $D$ if it is complex differentiable at all points in $D$, denoted $f \in \mc O(D)$.
-\end{definition}
-
-An alternative definition is as follows:
-\begin{definition} $f \in C^1(D)$ is holomorphic if $\partial_{\bar{z}_j} f = \frac{1}{2} (\p_{x_j} + i \p_{y_j})f = 0$ for all $j$.
-\end{definition}
-
-Some basic properties that we can prove by reducing to the 1-D case.
-\begin{itemize}
-\item $f \in \mc O(\C^n)$, $|f(z)| \le M$, then $f$ is a constant.
-\item $f \in \mc O(D)$, $f \equiv 0$ on $B_r(a) \subset D$, then $f \equiv 0$ in $D$.
-\item Open Mapping Theorem: $f \in \mc O(D)$ and $f$ is not constant, then $f: D \to \C$ is an open map.
-\item Maximum Principle: $f \in \mc O(D)$, $\argmax |f| \in D$ implies that $f$ is a constant. 
-\item Schwarz' Lemma: $f \in \mc O(B_1(0))$, $f(0) = 0$, $|f(z)| \le 1$, then $|f(z)| \le |z|$.
-\end{itemize}
-
 
 \end{document}

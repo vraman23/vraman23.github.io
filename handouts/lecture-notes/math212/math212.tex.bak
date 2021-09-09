@@ -16,6 +16,7 @@
 \newcommand{\supp}{\text{supp }}
 \newcommand{\E}{\mathbb E}
 \newcommand{\cov}{\operatorname{cov}}
+\renewcommand{\Re}{\operatorname{Re}}
 
 \DeclareMathOperator*{\Var}{Var}
 \newcommand{\Hol}{\operatorname{Hol}}
@@ -24,6 +25,7 @@
 \let \hat \widehat
 \let \mc \mathcal
 \let \p \partial
+\let \bar \overline
 \let \eps \varepsilon
 \newcommand\at[2]{\left.#1\right|_{#2}}
 
@@ -65,7 +67,7 @@ $ $
 \newpage
 %\maketitle
 
-\section{Lecture 1: 4/26/2021}
+\section{Lecture 1: 8/26/2021}
 \subsection{Review of 1D Complex Analysis}
 \begin{definition}[Holomorphic] Let $D \subset \C$ be an open connected domain and take $u \in C^1(D)$.  The function $u$ is \textbf{holomorphic} if $\partial_{\ol{z}} u = 0$ where $\partial_{\ol{z}} = (\partial_x + i\partial_y)$.
 \end{definition}
@@ -98,4 +100,69 @@ Some other notable corollaries that follow from Cauchy's Theorem:
 $$\sup_{K} |u^{(j)}(z)| \le C \|u \|_{L^1(\Omega)}.$$
 \item $u_j \in \Hol(D)$, $u_j \to u$ uniformly on bounded sets, then $u \in \Hol(D)$.
 \end{itemize}
+\pagebreak
+\section{Lecture 2: 8/31/2021}
+We introduce the notation $u \in \mc O(D)$ to mean that $u$ is holomorphic.
+We continue with corollaries following from Cauchy's Theorem:
+\begin{itemize}
+\item Let $\{u_j\} \subset \mc O(D)$.  If for all $K \Subset D$, there exists $C$ such that $|u_j| \le C$, then there exists $u \in \mc O(D)$ and a subsequence $u_{j_k}$ such that $u_{j_k} \to u$ uniformly on compact sets.  
+\begin{proof}
+Recall the Arzela-Ascoli Theorem:
+\begin{theorem}[Arzela-Ascoli] Suppose $K \Subset \C$, $\{w_j\} \subset C(K)$ and there exists $C$ such that $|w_j| \le C$ and equicontinuous: for all $\epsilon > 0$, there exists $\delta$ such that for all $z, \zeta \in K$,
+$$\|z - \zeta\| < \delta \Rightarrow \|w_j(z) - w_j(\zeta) \| < \epsilon.$$
+Then, there exists $j_k$ and $w \in C(K)$ such that $w_{j_k} \to w$ in $C(K)$.
+\end{theorem}
+Let $D = \bigcup K_j$, $K_j \subset K_{j + 1} \Subset D$.  For example, we could take
+$$K_j = \{z \in D : d(z m \C \setminus D) \ge 1/j, |z| \le j\}.$$
+Then, $|u_j| \le C_{K_j}$ on ${K_j}$ so it follows that $|u_{j}'| \le C_k'$ on any $K_j$.
+
+By Arzela-Ascoli, we have a subsequence $\{u_{k}^{j + 1}\} \subset \{u_k^j\}$ such that $u_{n_k^j} \to u^j$ uniformly on $K_j$.  Then, since $u^{j + 1} \vert_{K_j} = u^j$, and $u^j \to u$ uniformly on compact sets.  
+\end{proof}
+\item Maximum Principle: $u \in \mc O(D(z_0, r))$ and $|u(z)| \le |u(z_0)|$, $z \in D(z_0, r)$, then $u$ is identically a constant.  
+\begin{proof}
+Suppose $u(z_0) \ne 0$(otherwise the problem is trivial).  
+\begin{align*}
+u(z_0) &= \frac{1}{2\pi i} \int_{\partial D(z_0, \rho), \rho < r} \frac{u(z)}{z - z_0} \,dz \\
+&= \frac{1}{2\pi} \int_0^{2\pi} u(z_0 + \rho e^{i \theta})\,dz 
+\end{align*}
+It follows that we have 
+$$0 = \int_0^{2\pi} \left (1 - \frac{u(z_0 + \rho e^{i \theta})}{u(z_0)} \right)$$
+Taking real parts, it follows that 
+$$1 = \frac{\Re\{u(z_0 + \rho e^{i \theta})\} \bar{u(z_0)}}{|u(z_0)|^2},$$
+which implies the result.
+\end{proof}
+\item Maximum Principle for Bounded Domain: $\ol{D} \Subset \C$, $u \in \mc O(D) \cap C(\ol{D})$ then $\max_{\ol{D}} |u|$ is attained on the boundary.
+\begin{proof}
+Suppose $\argmax |u| = z_0$ with $z_0 \in D$.  It follows that $u$ is constant in $D(z_0, r)$.  We will show later that this implies that $u$ is constant on $D$.  
+\end{proof}
+\item Let $u \in \mc O(D(0, r))$ then $u(z) = \sum \frac{u^{(n)}(0)}{n!}z^n$ with the series converging uniformly in $\ol{D(0, \rho)}$ for $\rho < r$. 
+\item $u \in \mc O(D(0, r)), u \not \equiv 0$, then there exists $n$, $v \in \mc O(D(0, r))$ with $u(z) = z^n v(z)$, $v(0) \ne 0$.
+\item If $\sum a_n z^n$ converges in $|z| \le r$, it is holomorphic on the disc.  
+\item If $u \in \mc O(D)$ and there exists $z_0 \in D$ such that $u^{(n)}(z_0) = 0$ for all $n$, then $u \equiv 0$.
+\item Liouville's Theorem: Suppose $u \in \mc O(\C)$ and $|u(z)| \le C + C|z|^n$ for all $z \in \C$.  Then $u$ is a polynomial of degree at most $n$.
+\item Suppose $u \in \mc O(\C)$, $u \in L^p(\C, d\mu)$ 
+for $p \in [1, \infty)$.  Then $u \equiv 0$.
+\end{itemize}
+\pagebreak
+\section{Lecture 3: 9/2/2021}
+We now move to complex variables in $\C^n$.  
+\begin{definition} $f$ is complex differentiable at $z_0 \in D$ if there exists $D \in \C$ such that 
+$$\frac{|f(z + h) - f(z) - Dh|}{|h|} \xrightarrow{h \to 0} 0.$$
+Then, $f$ is holomorphic in $D$ if it is complex differentiable at all points in $D$, denoted $f \in \mc O(D)$.
+\end{definition}
+
+An alternative definition is as follows:
+\begin{definition} $f \in C^1(D)$ is holomorphic if $\partial_{\bar{z}_j} f = \frac{1}{2} (\p_{x_j} + i \p_{y_j})f = 0$ for all $j$.
+\end{definition}
+
+Some basic properties that we can prove by reducing to the 1-D case.
+\begin{itemize}
+\item $f \in \mc O(\C^n)$, $|f(z)| \le M$, then $f$ is a constant.
+\item $f \in \mc O(D)$, $f \equiv 0$ on $B_r(a) \subset D$, then $f \equiv 0$ in $D$.
+\item Open Mapping Theorem: $f \in \mc O(D)$ and $f$ is not constant, then $f: D \to \C$ is an open map.
+\item Maximum Principle: $f \in \mc O(D)$, $\argmax |f| \in D$ implies that $f$ is a constant. 
+\item Schwarz' Lemma: $f \in \mc O(B_1(0))$, $f(0) = 0$, $|f(z)| \le 1$, then $|f(z)| \le |z|$.
+\end{itemize}
+
+
 \end{document}
