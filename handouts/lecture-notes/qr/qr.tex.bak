@@ -1,0 +1,193 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{listings}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+\newcommand{\E}{\mathbb E}
+\newcommand{\cov}{\operatorname{cov}}
+\renewcommand{\Re}{\operatorname{Re}}
+
+\DeclareMathOperator*{\Var}{Var}
+\newcommand{\Hol}{\operatorname{Hol}}
+
+\let \phi \varphi
+\let \hat \widehat
+\let \mc \mathcal
+\let \p \partial
+\let \bar \overline
+\let \eps \varepsilon
+\newcommand\at[2]{\left.#1\right|_{#2}}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+%Indicators 
+\newcommand{\1}{\textbf{1}} % vector of all 1's
+\newcommand{\I}[1]{\mathbb{I}{\left\{#1\right\}}} % indicator function
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Problem}, numberwithin=section]{prob}
+\begin{document}
+\title{QR Prep}
+\author{Vishal Raman}
+
+
+\maketitle
+
+
+\section{Technical Portion: Trading}
+\subsection{Probability}
+\begin{ques} Given the probability of coin head is $p$. What is the expected number to get three heads in a row?
+\end{ques}
+\begin{proof}
+We use a standard Markov chain argument.  Let $\mu_i$ denote the expected number of tosses to get $3$ heads after the first $i$ heads in a row.  We have the system
+\begin{align*}
+\mu_0 &= p(1 + \mu_1) + q(1 + \mu_0), \\
+\mu_1 &= p(1 + \mu_2) + q(1 + \mu_0) ,\\
+\mu_2 &= p(1) + q(1 + \mu_0).
+\end{align*}
+Solving the system for $\mu_0$, we obtain
+$$\mu_0 = \frac{1 + p + p^2}{p^3} = \frac{1}{p^3} + \frac{1}{p^2} + \frac{1}{p}$$
+
+Another way to solve the equation is as follows:
+\begin{align*}
+\mu_0 &= \frac{1}{q}(\mu_0 + 1) + \frac{1}{pq}(\mu_0 + 2) + \frac{1}{p^2q}(\mu_0 + 3) + \frac{1}{p^3}(3) \\
+%&= \frac{\mu_0}{q}\left(1 + \frac{1}{p} + \frac{1}{p^2}\right) + \frac{1}{q}\left( \right)\\ 
+\end{align*}
+
+
+\end{proof}
+\begin{ques} What is a martingale?  List a few examples.
+\end{ques}
+
+\begin{ques} You have $r$ red balls, $w$ white balls in a bag. If you keep drawing balls out of the bag until the bag now only contains balls of a single color (i.e. you run out of a color) what is the probability you run out of white balls first? (in terms of $r$ and $w$).
+\end{ques}
+
+\begin{ques} Given $\log X \sim N(0,1)$, compute the expectation of X.
+\end{ques}
+\subsection{Brain Teasers}
+\begin{ques} You are holding two eggs in a 100-story building. If an egg is thrown out of the window, it will not break if the floor number is less than X, and it will always break if the floor number is equal to or greater than X. What strategy would you use to determine X with the minimum number of drops in a worst case scenario?
+\end{ques}
+
+\begin{ques}
+You are given two indistinguishable envelopes, each containing money. One contains twice as much as the other. You may pick one envelope and keep the money it contains. Having chosen an envelope at will, but before inspecting it, you are given the chance to switch envelopes. Should you switch? 
+\end{ques}
+
+\begin{ques} Suppose there are 10 lions and a meat. If anyone of the lions eats the meat, she falls asleep. While she is sleeping, any other lion can eat her and also fall asleep. And so on. The question is, what will happen at the beginning? Will any lion eat the meat?
+\end{ques}
+
+\begin{ques} Given $3n$ people that the $i$-th person can pass a test with probability $p_i$,
+now you are required to divide them to $n$ groups that each group has $3$ people.
+The score of one group equals $1$ if at least two people pass the test, $0$ otherwise.
+In order to maximize the expectation of total score, how do you group them?
+\end{ques}
+\section{Technical Portion: Statistics}
+\subsection{Covariance and Correlation}
+\subsection{Central Limit Theorem, Law of Large Numbers}
+\subsection{Hypothesis Testing}
+
+\subsection{Sampling Methods}
+\begin{ques} How do you sample points uniformly from a circle?
+How do you sample points uniformly from a sphere? Can you generalize to $\mathbb{S}^n$?
+\end{ques}
+
+\begin{ques} How do you convert a uniform random variable to a normal random variable?
+\end{ques}
+
+
+\subsection{MLE and MAP Estimation}
+\begin{ques} Derive an unbiased estimator for the German Tank Problem.  Find the mean and variance of the estimator. 
+\end{ques}
+\section{Technical Portion: Regression Machine Learning}
+\subsection{Linear Algebra Fundamentals}
+\begin{ques} What is the time complexity of QR decomposition?  What do you do if the dimension is too big?
+\end{ques}
+$O(n^3)$.  
+
+\begin{ques} What is PCA?  Implement an algorithm to solve the PCA problem for a given dataset.
+\end{ques}
+\subsection{Linear Regression}
+\begin{ques} What is the difference between a linear regression of $X$ on $Y$ and of $Y$ on $X$?
+\end{ques}
+
+\begin{ques} What happens to the estimators of linear regression if you double the dataset?
+\end{ques}
+
+\begin{ques} What is ridge regression?  What is LASSO?  When would you use one over the other?
+\end{ques}
+
+\begin{ques} Find a closed form solution to the simple linear regression optimization problem.
+\end{ques}
+
+\begin{ques} Find a closed form solution to the ridge regression optimization problem.
+\end{ques}
+
+
+\subsection{Machine Learning}
+\begin{ques} What is a entropy in information theory?  What is the significance of a bit?
+\end{ques}
+\begin{ques} Implement the $k$-Nearest Neighbors Classification algorithm.
+\end{ques}
+
+\begin{ques} What happens if you initialize the weights of a neural network to zero?
+\end{ques}
+
+\begin{ques} Using stock data from last 5 years, how can we build a model to predict the price next day?
+\end{ques}
+
+\begin{ques} What is the Bias-Variance Tradeoff?  Derive the Bias-Variance decomposition.
+\end{ques}
+\section{Technical Portion: Programming}
+\subsection{C++ Questions}
+\begin{ques} What is a virtual function?  How do you use it?
+\end{ques}
+
+\begin{ques} Describe all the C++ casts and their properties.
+\end{ques}
+\subsection{Linear Regression in Python}
+\subsection{Algorithm Questions}
+\begin{ques}
+\begin{itemize}
+\item Given a series of real numbers, what's the optimal point in real line that minimize the distance between all these numbers?
+\item What's the best algorithm to calculate the median of a sequence of numbers?
+\item Design a algorithm able to update the median of sequence as there are new numbers coming in.
+\end{itemize}
+\end{ques}
+\begin{ques} Given an array of numbers: 1,5,3,2,4,2,3,1,2,3,2,4, return another array with duplicate numbers in consecutive positions and in order of their first appearance, in the example the result should be: 1,1,5,3,3,3,2,2,2,2,4,4.
+\end{ques}
+\begin{ques} Given an array, find out three numbers such that their product is maximum.
+\end{ques}
+\begin{ques} Find the rolling window correlation between two vectors $X, Y \in \R^n$.
+\end{ques}
+\begin{ques} Given a list of stock prices indexed over time, find the way to maximize profit.  
+\end{ques}
+\begin{ques} Design a trading exchange in C++.  Which data structures would you use to implement methods and what are their time complexity?
+\end{ques}
+\section{Non-Technical Portion}
+\subsection{General Questions}
+\begin{ques} Do you have any questions for me?
+\end{ques}
+\subsection{Career Questions}
+\subsection{Research Questions}
+
+
+
+\end{document}

@@ -1,0 +1,90 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Zh}{\mathbf{\widehat{Z}}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\V}{\mathbf{V}}
+
+\newcommand{\G}{\mathbf{G}}
+\newcommand{\Xh}{\mathbf{\widehat{X}}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+
+
+\newcommand{\Vu}{\mathbf{u}}
+\newcommand{\Vv}{\mathbf{v}}
+\newcommand{\Vw}{\mathbf{w}}
+\newcommand{\Vx}{\mathbf{x}}
+\newcommand{\Ve}{\mathbf{e}}
+\newcommand{\Vc}{\mathbf{c}}
+\newcommand{\Vb}{\mathbf{b}}
+
+\newcommand{\X}{\mathbf{X}}
+
+
+
+\newcommand{\Va}{\mathbf{a}}
+
+\newcommand{\Vhx}{\mathbf{\hat{x}}}
+
+\newcommand{\Vy}{\mathbf{y}}
+\newcommand{\Vz}{\mathbf{z}}
+\newcommand{\Vo}{\mathbf{0}}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Theorem}]{thm}
+
+\let \grad \nabla
+\let \hat \widehat
+
+\begin{document}
+\title{EECS 208 - Game Theroy}
+\author{Vishal Raman}
+\section{Game Theory Analysis}
+Formulation:  We restrict the problem to the case of classes of linear maps.  Let $\X \in \R^D$ be data.  For a map $T_L^b: \R^{d \times D} \times \R^{D \times d} \to \R$ defined by $T_L^b(\F, \G) = \Delta R (\Z(\F), \Zh(\F, \G))$ where $\Z(\F) = \F\X$ and $\Zh(\F, \G) = \F\G\F\X$.  
+
+Recall 
+
+$$   \Delta R(\Z, \Zh) = R\left(\begin{bmatrix}
+     \Z & \Zh
+     \end{bmatrix}\right) - \frac{1}{2}R(\Z) - \frac{1}{2} R(\Zh)$$
+
+where 
+$$R(\Z) = \frac{1}{2} \log \det \left(\mathbf{I}+ \alpha \Z\Z^*\right).$$
+\begin{definition}[Local Nash Equilibrium for $T_L^b$] The point $(\F_*, \G_*) \in \R^{d \times D} \times \R^{D \times d}$ is a local Nash Equilibrium for $T_L^b$if there exists $\delta > 0$ such that for all $(\F, \G) \in \R^{d \times D} \times \R^{D \times d}$ satisfying $\|\F - \F_*\|_F \le \delta$, $\|\G - \G_*\|_F \le \delta$,
+$$T_L^b(\F_*, \G) \le T_L^b(\F_*, \G_*) \le T_L^b(\F, \G_*).$$ 
+\end{definition}
+
+\begin{proposition}[First Order Necessary Condition] If $(\F_*, \G_*)$ is a local Nash Equilibrium, we must have that $\nabla_{\F}T_L^b(\F_*, \G_*) = 0$ and $\nabla_\G T_L^b(\F_*, \G_*) = 0$.
+\end{proposition}
+
+\begin{fact} $\grad_{\Z} R(\Z) = \alpha (I + \alpha \Z\Z^*)^{-1}\Z$.
+\end{fact}
+
+
+\begin{fact} $\grad_{\F} \Delta R(\F\X, \F\G\F\X) = ?$
+\end{fact}
+
+
+\begin{fact} $\grad_{\G} \Delta R(\F\X,\F\G\F\X) = ?$
+\end{fact}
+
+\begin{theorem}[Characterization of Linear Local Nash Equilibria] Suppose that $(\F_*, \G_*)$ is a local Nash Equilibrium for $T_L^b$ satisfying $T_L^b(\F_*, \G_*) = 0$ or equivalently, $\Z\Z^* = \Zh\Zh^*$.
+\end{theorem}
+
+
+\end{document}
