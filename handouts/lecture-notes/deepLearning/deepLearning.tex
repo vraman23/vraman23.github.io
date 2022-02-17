@@ -2,36 +2,41 @@
 \usepackage[sexy]{evan}
 \usepackage{graphicx}
 
+ %Sets
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+\newcommand{\E}{\mathbb E}
+\newcommand{\cov}{\operatorname{cov}}
+\renewcommand{\Re}{\operatorname{Re}}
 
+\DeclareMathOperator*{\Var}{Var}
+\newcommand{\Hol}{\operatorname{Hol}}
 
-\newcommand{\Vu}{\mathbf{u}}
-\newcommand{\Vv}{\mathbf{v}}
-\newcommand{\Vw}{\mathbf{w}}
-\newcommand{\Vx}{\mathbf{x}}
-\newcommand{\Ve}{\mathbf{e}}
-\newcommand{\Vc}{\mathbf{c}}
-\newcommand{\Vb}{\mathbf{b}}
-
-
-
-\newcommand{\Va}{\mathbf{a}}
-
-\newcommand{\Vhx}{\mathbf{\hat{x}}}
-
-\newcommand{\Vy}{\mathbf{y}}
-\newcommand{\Vz}{\mathbf{z}}
-\newcommand{\Vo}{\mathbf{0}}
+\let \phi \varphi
+\let \hat \widehat
+\let \mc \mathcal
+\let \mb \mathbb
+\let \p \partial
+\let \bar \overline
+\let \eps \varepsilon
+\newcommand\at[2]{\left.#1\right|_{#2}}
 
 %From Topology
 \newcommand{\cT}{\mathcal{T}}
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+%Indicators 
+\newcommand{\1}{\textbf{1}} % vector of all 1's
+\newcommand{\I}[1]{\mathbb{I}{\left\{#1\right\}}} % indicator function
 
 \usepackage{answers}
 \Newassociation{hint}{hintitem}{all-hints}
@@ -40,16 +45,16 @@
 \declaretheorem[style=thmbluebox,name={Theorem}]{thm}
 
 \begin{document}
-\title{Deep Learning}
+\title{CS 182}
 \author{Vishal Raman}
 \thispagestyle{empty}
 $ $
 \vfill
 \begin{center}
 
-\centerline{\huge \textbf{Deep Learning Specialization}}
-\centerline{\Large \textbf{deeplearning.ai} } 
-\centerline{Professor: Andrew Ng, Kian Katanforoosh}
+\centerline{\huge \textbf{CS 182, Lecture Notes}}
+\centerline{\Large \textbf{Intro to Deep Learning} } 
+\centerline{Professor: Marvin Zhang}
 \centerline{Scribe: Vishal Raman}
 \end{center}
 \vfill
@@ -59,9 +64,227 @@ $ $
 \tableofcontents
 \newpage
 %\maketitle
-\section{Neural Networks and Deep Learning}
-\section{Improving Deep Neural Networks}
-\section{Structuring Machine Learning Projects}
-\section{Convolutional Neural Networks}
-\section{Sequence Models}
-\end{document}
+\section{Lecture 1: 1/19/22}
+See the course website for logistical details.
+\subsection{Review of Machine Learning}
+What is machine learning?
+\begin{itemize}
+\item Machine has three core components: \textbf{model}, \textbf{optimization}, and \textbf{data}.
+\item The model is a function from inputs to outputs, but is \textbf{not} programmed by hand - instead, we have parameters to be optimized, and the optimization algorithm finds good parameters that fit the data.
+\item The process is highly data-driven - this course exists because we need to handle massive datasets and techniques that scale.
+\end{itemize}
+
+The classical view of machine learning is as followss:
+\begin{itemize}
+\item Regression problems: we try to predict outputs from new inputs given a dataset $\mc D = \{(X_i, y_i)\}$. 
+\item Classification models: In this example, we have a two-dimensional input $(x_1, x_2)$.  One way we can do this is through establishing a linear decision boundary.  Algebraicly, we can establish this as $\theta_1 x_1 + \theta_2 x_2 + \theta_3 = 0$.  The sign of $f(x, \theta) = \theta_1x_1 + \theta_2x_2 + \theta_3$ determines the class in the classification model.   The function $f_\theta(x) := f(x, \theta)$ is called the \textbf{model}.
+\end{itemize}
+
+\subsection{Intro to Deep Learning}
+Most data is very high dimensional.  For example,
+\begin{itemize}
+\item  An image consists of millions of pixels, each of which has some number corresponding to pixel intensity.  For example, an image could be $224 \times 224 \times 3 = 150528$ dimensional, and these are relatively low-dimensional.
+\item For language models, vectors are the size of the vocabulary, which corresponds to $10000$'s of dimensions.
+\item For audio models, one second can be $16000$ time steps of $16$-bit integer values.  
+\end{itemize}
+Our simple linear model from before will not be sufficient.
+
+Deep learning is about learning representations - namely, in order to handle a complex input, we need to learn a good representation that scales.  The power of deep learning lies in its ability to learn representations automatically from data.
+
+\subsection{Shallow/Feature-Based Learning}
+Before deep learning, a common approach was to use a fixed function for extracting features from the input. One example of this is in a model determining orientation of an image, they use an edge detector and a histogram of edges as the feature space, which is low dimensional.  
+
+This is a compromise solution because although we don't hand program the model, we hand program the features.  Learning on top of these features is very simple; however, coming up with good features is very hard. 
+
+In the shallow approach, we use the input and map them through a fixed feature extractor to get to hand-programmed features.  Then, we send them through a classifier to obtain labels.  In the deep learning approach, we use learned feature extrators to obtain learned features.  
+
+\subsection{End-to-end Learning}
+In deep learning, we process our input through multiple layers of learned transformations.  Each layer can be relatively simple, but we can obtain complex representations through composing large numbers of layers.  Higher level representations tend to be more abstract and more invariant to information that is not relevant to the label. 
+
+The overall model that represents the transformation from input to output is a deep neural network.  The parameters at each layer are usually trained with respect to the overall objective/loss.  This is referred to end-to-end learning. 
+
+In order to work, we need
+\begin{itemize}
+\item Big models with many layers
+\begin{itemize}
+\item Is more layers better? In training on a dataset called ImageSet, we had LeNet(7 Layers, 1989) to AlexNet(8 Layers, 2012), and the modern ResNet-152 has 152 layers(2015).
+\end{itemize}
+\item Large datasets with many examples
+\begin{itemize}
+\item One of the first datasets people considered was MNIST, which predicted digits from handwritten characters.  This consisted of $60000$ images.
+\item Another popular one was CalTech 101, 2003 which had 9000 color images.
+\item A similar dataset is CIFAR-10, 2009 with 60000 images.
+\item An important one ILSVRC(ImageNet), 2009 has 1.5 million images.
+\item The most modern one consists of billions of images, and we can scale as long as we have enough compute.
+\end{itemize}
+\item Enough compute power to handle all of this: more is better.
+\begin{itemize}
+\item GPUs(Graphical Processing Units) are very useful for parallel computations.
+\item TPUs(Tensor Processing Units) are optimized for matrix operations.
+\end{itemize} 
+\end{itemize}
+
+\subsection{Underlying Themes}
+Overall, we are seeing the perspective that deep learning is very expensive.  But deep learning also scales very well, which differs from the old shallow approaches.
+
+The underlying themes:
+\begin{itemize}
+\item Deep learning acquires representations by using high capacity models and lots of data, without requiring engineering features or representations.
+\item We don't need to know what the good features are, we can have the model figure it out from the data.
+\item This results in better performance, because when the representations are learned end-to-end, they are better tailored to the current task.
+\item Scaling is the ability of an algorithm to work better as more data and model capacity grows.  Deep learning models are very good at this.
+\item Inductive bias vs. learning: are we getting better performance from designer insight or learning from the data? 
+\begin{itemize}
+\item Inductive bias is the model we build into the model to make it learn effectively.
+\item Although deep learning moves away from heavy inductive bias, we cannot get away from it entirely.  
+\item Deep Network Models generally overtake the next best model after we figure out the right inductive biases for that application.
+\end{itemize}
+\end{itemize}
+
+
+Some successes of deep learning:
+\begin{itemize}
+\item Object Recognition: Mask R-CNN(2017)
+\item Speech Recognition
+\item Image Generation: BigGAN(2018)
+\item Text Generation: GPT-2(2019)
+\item Mastering Go: AlphaGoZero
+\item Protein Fold Prediction: AlphaFold(2021)
+\end{itemize}
+\pagebreak
+\section{Lecture 2: 1/24/2022}
+Today, we go over machine learning basics.
+
+\subsection{Supervised Learning}
+We are given a dataset $\mc D = \{(X_1, y_1), \dots, (X_N, y_N)\}$.  Our goal is to learn a function that predicts outputs given inputs: $f_\theta(X) = y$.
+
+Some things we are good at doing with supervised learning:
+\begin{itemize}
+\item Learning the category of an object from the image
+\item Learning the sentence in French from the sentence in English
+\item Learning the text of what was said using audio utterance
+\item Learning the 3D protein structure from an amino acid sequence.
+\end{itemize}
+
+Should the model just output $y$?  Consider the example of MNIST, digit classification.  Handwritten digits have a lot of ambiguity, so it makes more sense to output a probability distribution, rather than predicting the output.
+
+The way we do this is make the model output whatever it wants, and we make all the numbers positive and normalize.  We usually do this with the $\exp$ function.
+
+\subsection{Probabilistic Model for Discrete Labels}
+If there are $K$ possible labels, $f_\theta(x)$ is a vector of length $K$.  We represent the final probability using the softmax function: 
+$$\operatorname{softmax}{(f_\theta(x))_c} = \frac{    \exp\{f_\theta(x)_c\} }{\sum_{i=1}^K \exp\{f_\theta(x)_i\}} = p_\theta(y = c | x)$$
+
+How do we know whether model parameters are good and how do we find good parameters?
+
+\subsection{The Machine Learning Method}
+\begin{enumerate}
+\item Define your model: which neural network, what does it output, ...
+\item Define your loss function: which parameters are good vs. bad?
+\item Define your optimizer: how do we find good parameters?
+\item Run it on a GPU
+\end{enumerate}
+
+\subsubsection{Loss Function}
+In deciding on a loss function, we have some desiderata: 
+\begin{itemize}
+\item If our parameters perfectly explain data, we should incur minimal loss
+\item The loss should be easy to optimize
+\item We don't want to have to engineer new loss functions for every problem
+\end{itemize}
+
+We satisfy these using \textbf{maximum likelihood estimation(MLE)} - given data $\mc D = \{(X_1, y_1), \dots, (X_N, y_n)\}$, assume a set of distributions on $(X, y)$ given by $\{p_\theta: \theta \in \Theta\}$.  We assume some $p_{\text{data}}$ generated $\mc D$, with  Then, we seek to maximize:
+$$\theta_{MLE} = \argmax_{\theta \in \Theta} p(\mc D | \theta) = \argmax_{\theta \in \Theta} \prod_{i=1}^N p(x_i)p(y_i | x_i).$$
+
+A good way to find this is by taking a logarithm:
+$$\theta_{MLE} = \argmin_{\theta \in \Theta} -\log p(\mc D | \theta) = \argmin_{\theta \in \Theta} -\sum_{i=1}^N\log p_\theta(y_i | x_i)  =: \sum_{i=1}^N\ell(\theta: x_i, y_i).$$
+
+This is referred to as the cross entropy loss:
+$$H(p, q) := -\sum_{x} p(x)\log q(x) = \mb E_p (-\log q(X)).$$
+Note that 
+$$H(p_{data}, p_\theta) = \mb E_{p_{data}}[-\log p_\theta(X, y)] \approx \frac{1}{N} \sum_{i=1}^N - \log p(x_i) - \log p_\theta(y_i, x_i).$$
+
+\subsubsection{The Optimizer}
+Deep learning relies on iterative optimization: start from an initial guess, and refine until we are satisfied with the answer.
+
+Most techniques rely on gradient based optimization:
+$$\theta \leftarrow \theta - \alpha \nabla_\theta \frac{1}{N} \sum_{i=1}^N \ell(\theta; x_i, y_i).$$
+
+\pagebreak
+\section{Lecture 3: 1/26/2022}
+\subsection{True Risk and Empircal Risk}
+\begin{definition}[Risk] $R(\theta) := \mb E[\ell(\theta; x, y)]$.
+\end{definition}
+
+\begin{definition}[Empirical Risk] $\hat{R}(\theta) = \frac{1}{N} \sum_{i=1}^N \ell(\theta; x, y)$.
+\end{definition}
+
+The empirical risk looks like a Monte Carlo estimate of the true risk, so shouldn't we have $\hat{R}(\theta) \approx R(\theta)$?  The issue is that we are using the training dataset to learn $\theta$, so we can't reuse the same data to get an estimate of the risk.
+
+\begin{itemize}
+\item When empirical risk is low but the true risk is high, we are overfitting.
+\begin{itemize}
+\item This can happen if the dataset is too small or the model is too powerful.
+\item 
+\end{itemize}
+\item When empirical risk is high and the true risk is high, we are underfitting.
+\begin{itemize}
+\item This happens when the model is too weak or the optimization doesn't work well.
+\end{itemize}
+\end{itemize}
+"High" is up to the practitioner.
+
+The \textbf{model class} is used to describe the set of possible functions that the chosen model can represent via different parameter settings.  This could be:
+\begin{itemize}
+\item The set of all linear functions.
+\item the set of all neural network functios with a certain network architecture,
+\item etc.
+\end{itemize}
+The \textbf{capacity} of a model is a measure of how many different functions it can represent.
+
+\subsection{Training and Validation Set}
+To estimate $R(\theta)$, we split the dataset into two parts, one for learning $\theta$ and one for estimating $R(\theta)$.
+
+The first part is called the \textbf{training set}, which is used to learn $\theta$.  The loss on the training set can inform us whether the empirical risk is high. So, we can use this to make sure the otimization is working.
+
+The second part is called the \textbf{validation set}, which is used to diagnose overfitting.  The loss on the validation set should be an accurate estimate of the true risk, so we can compare losses on the two sets. 
+
+\subsection{Machine Learning Workflow}
+\begin{enumerate}
+\item Learn $\theta$ on the training set.
+\begin{itemize}
+\item If the training loss is now low enough, we are underfitting: increase model capacity, improve optimizer, ...
+\item Afterwards, go back to step 1.
+\end{itemize}
+\item Measure loss on the validation set.
+\begin{itemize}
+\item If the training loss is much smaller than the validation loss, we are overfitting: decrease model capacity, collect more data, ...
+\end{itemize}
+\item If not overfitting or underfitting, done!
+\end{enumerate}
+
+\subsection{Regularization}
+Underfitting is not as much as a concern as overfitting. Some techniques to handle overfitting are:
+\begin{itemize}
+\item Making the network smaller? But we like big models.
+\item Collect more data? This is fine, but not always possible.
+\item Add more inductive biases - we can do this via regularization.
+\end{itemize}
+
+A \textbf{regularizer} is anything we add to the loss function and/or optimization that does not depend on the data.  WE add it to encode some prior belief about what a good model looks like, so it is a form of inductive bias.
+
+Many regularization techniques can be interpreted from a Bayesian perspective as switching from MLE to maximum a posteriori(MAP) estimation.
+$$\text{MLE:} \quad \argmax_{\theta} \sum_{i=1}^N \log p_\theta(y_i | x_i)$$
+$$\text{MAP:} \quad \argmax_{\theta} \sum_{i=1}^N \log p(y_i| x_i, \theta) + \log p(\theta).$$
+
+For $\ell_2$ regularization, we chose $p(\theta) = \mc N(\theta; 0, \sigma^2 I)$, giving 
+$$-\log p(\theta) = \sum_{i=1}^D \frac{\theta_i^2}{2\sigma^2} + C = \lambda \|\theta \|_2^2, \qquad \lambda = \frac{1}{2\sigma^2}.$$
+
+\subsection{Bias-Variance Tradeoff}
+$$\mb E[(f_{\theta(\mc D)}(x') - y)^2] = (\bar{f}(x') - f(x'))^2 + E[(f_{\theta(\mc D)}(x') - \bar{f}(x'))^2] + \sigma^2.$$
+\begin{itemize}
+\item The first term is the Bias$^2$: how wrong is the model on expectation, regardless of the dataset it is trained on?
+\item The second term is Variance: regardless of the true function $f$, how much does the model change based on the training dataset?
+\item The last term is irreducible error: the noise in the process itself.
+\end{itemize}
+
+\end{document} 

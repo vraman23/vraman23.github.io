@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}Lecture 1: 1/18/2022}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Multiple Equilibria}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Qualitative Analysis: Equilibrium Points}{3}{subsection.1.2}% 

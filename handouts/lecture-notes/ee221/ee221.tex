@@ -1,0 +1,100 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{listings}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+\newcommand{\E}{\mathbb E}
+\newcommand{\cov}{\operatorname{cov}}
+\renewcommand{\Re}{\operatorname{Re}}
+
+\DeclareMathOperator*{\Var}{Var}
+\newcommand{\Hol}{\operatorname{Hol}}
+
+\let \phi \varphi
+\let \hat \widehat
+\let \mc \mathcal
+\let \mb \mathbb
+\let \p \partial
+\let \bar \overline
+\let \eps \varepsilon
+\newcommand\at[2]{\left.#1\right|_{#2}}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+%Indicators 
+\newcommand{\1}{\textbf{1}} % vector of all 1's
+\newcommand{\I}[1]{\mathbb{I}{\left\{#1\right\}}} % indicator function
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Problem}, numberwithin=section]{prob}
+
+\begin{document}
+\title{EE222}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{EE222, Lecture Notes}}
+\centerline{\Large \textbf{Nonlinear Systems} }
+\centerline{Professor: Shankar Sastry, Koushil Sreenath; Spring 2022}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+
+\section{Lecture 1: 1/18/2022}
+To dive into analysis, we first discuss how nonlinear systems differ from linear systems.
+\subsection{Multiple Equilibria}
+Write $\dot x = Ax$, $x \in \R^n$, $x = \theta_n = 0 \in \R^n$ is the only equilibrium if $A$ is nonsingular.  However, if $A$ is singular, $\null(A)$ are all equilibrium points.  
+
+\begin{example}[Euler's Buckling Beam] This happens when we take a beam and apply a stress to each side. This is governed by the equation
+$$m\ddot{x} + d\dot x - \mu x + \lambda x + x^3 = 0.$$
+We can equivalently solve the system
+$$\dot x = y,$$
+$$\dot y = -\frac{d}{m}y + \frac{\mu - \lambda}{m}x - \frac{x^3}{m}.$$
+If $\mu > \lambda$, we have $y = 0$, $x = \sqrt{\mu - \lambda}, x = -\sqrt{\mu - \lambda}, x = 0$ as equilibrium points. If $\mu \le \lambda$, we only have $(0, 0)$.
+\end{example}
+
+\begin{example}[Nonlinear Damping] When we bow a violin string, we can think of it as a mass on a spring sitting on a conveyor belt moving at a constant velocity.  The nonlinearity comes from the friction which is a function of $F(\dot{x} - b)$.  We have sticky friction:
+$$m\ddot{x} + kx + F(\dot{x} - b) = 0.$$
+\end{example}
+
+\subsection{Qualitative Analysis: Equilibrium Points}
+Take $\dot{x} = f(x)$, $x \in \R^2$, $x_0$ and equilibrium point of $f(x_0) = 0$, $x(0) = x_0, x(t) = x_0$ for all $t \ge 0$.
+
+Recall the Jacobian
+$$Df = \begin{pmatrix}
+\frac{\p f_1}{\p x_1} & \frac{\p f_1}{\p x_2} \\
+\frac{\p f_2}{\p x_1} & \frac{\p f_2}{\p x_2} \\
+\end{pmatrix}.$$
+
+We take $A = Df(x_0)$.  Consider the equation $\dot{z} = Az$, with $z \in \R^2$, $A = Df(x_0)$.  
+\begin{theorem}[Hartmann Grobman Theorem] Under certain conditions, if no eigenvalues of $A$ are imaginary or zero, then the flow of $\dot{x} = f(x)$ can be mapped to the flow of $\dot{z} = Az$.
+\end{theorem}
+\end{document}

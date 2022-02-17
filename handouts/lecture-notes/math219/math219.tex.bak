@@ -1,0 +1,399 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{listings}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+\newcommand{\E}{\mathbb E}
+\newcommand{\cov}{\operatorname{cov}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+
+\DeclareMathOperator*{\Var}{Var}
+\newcommand{\Hol}{\operatorname{Hol}}
+
+\let \phi \varphi
+\let \hat \widehat
+\let \mc \mathcal
+\let \mb \mathbb
+\let \p \partial
+\let \bar \overline
+\let \eps \varepsilon
+\newcommand\at[2]{\left.#1\right|_{#2}}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+%Indicators 
+\newcommand{\1}{\textbf{1}} % vector of all 1's
+\newcommand{\I}[1]{\mathbb{I}{\left\{#1\right\}}} % indicator function
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Problem}, numberwithin=section]{prob}
+
+\begin{document}
+\title{Math 219}
+\author{Vishal Raman}
+\thispagestyle{empty}
+$ $
+\vfill
+\begin{center}
+
+\centerline{\huge \textbf{Math 219, Lecture Notes}}
+\centerline{\Large \textbf{Dynamical Systems } }
+\centerline{Professor: Maciej Zworski, Spring 2022}
+\centerline{Scribe: Vishal Raman}
+\end{center}
+\vfill
+$ $
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+%\maketitle
+
+\section{Lecture 1: 1/18/2022}
+
+\subsection{Introduction}
+We are concerned with a transformation $T: X \to X$ and we are concerned with the behavior of $T^n = T \circ \dots \circ T$, $n \in \N_0$. This is the discrete setting.  We could also consider $n \in \Z$ if $T^{-1}$ exists, and we take $T^0 = \id$ by convention.
+
+In the continuous setting, we have a family $\phi_t: (\R^+)_t \times X \to X$ and we want the property that $\phi_{t + k} = \phi_t \circ \phi_s$ for $t, s \ge 0$.  This gives us a semigroup structure.  If $\phi_t$ is invertible, we take $\phi_{-t} = \phi_t^{-1}$ giving us a group.  It is already clear that $\phi_0 = \id$.
+
+Some questions we are concerned with:
+\begin{itemize}
+\item How many (if any) periodic orbits?  These are points with $T^n(x_0) = x_0$.  If we define $T^j(x_0) := x_j$, then $x_0 \to x_1 \to \dots x_n$ forms a periodic orbit of order $n$.
+\item Do we have invariant sets - subsets $Y \subset X$ such that $T(Y) \subset Y$.
+\item Do we have invariant measures - a measure on $X$ so that the measure is preserved under the transformation $T$.  We will talk about this more precisely in the next section.
+\end{itemize}
+\subsection{Invariant Measures}
+We have a measure space $(X, \mc M, \mu)$, where $\mu: \mc M \to \bar{\R}_+$ a measure and a measurable function $T: X \to X$.
+\begin{definition}[Invariant Measure] $\mu$ is an invariant measure for $T$ if $T^{-1}: \mc M \to \mc M$ and $\mu(T^{-1}(A)) = \mu(A)$.  We also say that $T$ is measure preserving.
+\end{definition}
+
+Why do we say $\mu(T^{-1}(A)) = \mu(A)$ and not $\mu(T(A)) = \mu(A)$?  
+\begin{itemize}
+\item $T_* \mu(A) := \mu(T^{-1}(A))$ is always a measure because $T^{-1}(A \cap B) = T^{-1}(A) \cap T^{-1}(B)$.  This is not true for $\mu \circ T$.
+\item If we have a function $f: X \to \R$, we can consider the pullback $T^* f(x) = f(T(x))$.  We have that 
+$$\int f \, d(T_*\mu) = \int T^*f \,d\mu.$$
+This follows by checking it on indicator functions and extending by linearity.  Note that $T^*(\1_A)(x) = \1_A(T(x)) = \1_{T^{-1}(A)}(x)$, which gives the result. 
+\end{itemize}
+
+\subsection{Ergodicity and Mixing}
+As before, we have $(X, \mc M, \mu), T: X \to X$ measure preserving. 
+\begin{definition}[Ergodic] We say that $T$ is \textbf{ergodic} if $T^{-1}(A) = A$ implies that $\mu(A) = 0$ or $\mu(X\setminus A) = 0$.
+\end{definition}
+\begin{definition}[Mixing] We say that $T$ is \textbf{mixing} if for all $A, B \subset \mc M$, $\mu(T^{-n}(A) \cap B) \to \mu(A) \mu(B)$ as $n \to \infty$.
+\end{definition}
+\begin{itemize}
+\item When $X$ is a measure space and $T$ is measure preserving, we have Measurable Dynamics, or Ergodic Theory.
+\item When $X$ is a metric space and $T$ is continuous, we have Topological Dynamics.
+\item When $X$ is a manifold and $T \in C^1$, $dT(x) : T_xX \to T_{T(x)}X$ continuous, we have Smooth Dynamics.  We have additional structure because we can also consider differentiability properties and use the properties of the tangent space.
+\item When $(X, \omega)$ is a symplectic manifold, $\omega$ a nondegenerate closed $2$-form.  For a function $f \in C^{\infty}(X) \to H_f$ a vector field on $x$, $\omega(\cdot, H_f) = df$.  We also obtain a flow $\phi_t = \exp tH_f$, where $\phi_t(x) = x(t)$, $\dot{x}(t) = H_f(x(t))$, $x(0) = 0$. This is Hamiltonian Dynamics.
+\end{itemize}
+
+\begin{example}[Newton's Equations] Taking $X = \R^{2n} = \R_x^n \times \R_\xi^n$, $f: \R^{2n} \to \R$.  We take
+$$H_f = \sum_{j=1}^n \frac{\p f}{\p \xi_j} \p_{x_j} - \frac{\p f}{\p x_j} \p_{\xi_j},$$
+$$\omega = \sum_{j=1}^n d\xi_j \wedge dx_j.$$
+Taking $f(x, \xi) = \frac{1}{2} \xi^2 + V(x)$, $H_f = \xi \cdot \partial_x - V'(x)\partial_{\xi}$, $\phi_t(x, \xi) = (x(t), \xi)(t))$.  We obtain $\dot x = \xi, \dot \xi = -V'(x)$, Newton's Equations.
+\end{example}
+\begin{example}[Invariant Measure on $\mb S^1$] Take $\mb S^1 = \R/(2\pi\Z)$.  Define $T: \mb S^1 \to \mb S^1$ defined by $T(x) = x + 2\pi \alpha \pmod{2\pi}$.  The invariant measure is given by the Lebesgue Measure, which is translation invariant.  We will see that this is the only invariant Borel measure(a measure generated by open sets).
+
+$T$ is continuous and smooth.  We will find that it is ergodic when $\alpha \not \in \Q$.  In other words, there are no invariant sets that are not measure $0$ or measure $2\pi$. 
+\end{example}
+\subsection{Equivalence}
+\begin{definition}[Semiconjugate] $S: Y \to Y$ is \textbf{semiconjugate} to $T: X \to X$ if there exists $\pi: Y \to X$ surjective such that $T\circ \pi = \pi \circ S$.  We say that $T$ is a \textbf{factor} of $S$.  If $\pi$ is bijective, then we say $S$ is conjugate to $T$.
+\end{definition}
+Note that if we have $S^n(x) = x$ semiconjugate to $T$, then $T^n(\pi(x)) = \pi(x)$.
+
+\begin{example} $T: \mb S^1 \to \mb S^1$, $x \mapsto x + 2 \pi \alpha \pmod{2\pi}$.  Take $S: \R^2\setminus 0 \to \R^2 \setminus 0$, $(x, y) \mapsto R_{2 \pi \alpha}(x, y)$, the rotation by $2 \pi \alpha$.  The map $\pi: (x, y) \mapsto \arg(x + iy)$.
+\end{example}
+\pagebreak
+\subsection{Poincaré Recurrence Theorem}
+\begin{theorem}[Poincaré Recurrence Theorem] We have $(X, \mc M, \mu)$ a measure space, $\mu(X) < \infty$, $T: X \to X$, $T_* \mu = \mu$, $A \in \mc M$ with $\mu(A) > 0$.  For almost every $x \in A$, there exists a subsequence $n_j$ such that $T^{n_j}(x) \in A$. 
+\end{theorem}
+
+The above theorem is a consequence of the following lemma:
+\begin{lemma} Suppose $\mu(A) > 0$.  Then, for almost every $x$, there exists $n > 0$ such that $T_*^x \in A$.
+\end{lemma}
+\begin{proof}
+Take $A, T^{-1}A, T^{-2}A, \dots$.  The claim is that there exists $j > i$ such that $\mu(T^{-i}A \cap T^{-j}A) > 0$.  Suppose not.  Then, the sequence $A, T^{-1}A, \dots$ is disjoint modulo sets of measure $0$.  It would follow that $\mu \left(\bigcup_{j=0}^\infty T^{-j}A \right) = \sum \mu(T^{-j}(A)) = \sum \mu(A) = \infty$, but $\mu(X)< \infty$ contradicting monotonicity.  It follows that $\mu(T^{-i} A \cap T^{-j} A)  - \mu(T^{-i}(A \cap T^{-j + i} A)) = \mu(A \cap T^{i-j}A) > 0$.
+\end{proof}
+
+\begin{example} Consider $A = \begin{pmatrix}
+2 & 1 \\ 1 & 1
+\end{pmatrix}$.  $A: \R^2 \to \R^2$.  It also takes $\Z^2 \to \Z^2$ and has an inverse taking $\Z^2 \to \Z^2$.  It follows that $A: \R^2 \setminus \Z^2 \to \R^2 \setminus \Z^2$, which is a torus action.  Taking $\mu$ to be the Lebesgue measure on the torus.  Since $\det A = 1$, it follows that $A_* \mu  = \mu$.
+
+Consider $T: (\mb T^2)^{\ N^2} \to  (\mb T^2)^{\ N^2}$, $T((x_j)) = T((Ax_j))$. We have a set of measure $1$ so we can apply Poincare's Theorem.
+\end{example}
+\pagebreak
+\section{Lecture 2: 1/20/2022}
+\subsection{Measurable Dynamics on $\mb S^1$}
+Recall last time we were discussing measurable dynamics: $(X, \mc M, \mu)$, where $\mc M$ is a $\sigma$-algebra of measurable sets, $\mu: \mc M \to \bar{\R_+}$ is a measure, and $T: X \to X$ is measure preserversing.
+
+\begin{definition}[Invariant Set] $A$ such that $T^{-1}(A)  = A$.
+\end{definition}
+
+Last time, we considered the example $T: \mb S^1 \to \mb S^1$ with $Tx = x + 2 \pi \alpha \pmod {2\ pi \Z}$.  We characterize the invariant sets of $T$.  If $\alpha = \frac{p}{q}, (p, q) = 1$, then $T^q x = x + 2 \pi q \frac{p}{q} = x + 2 \pi p = x \pmod{2 \pi \Z}$.  We can use this to easily construct sets of positive measure by extending the points to small arcs.
+
+Suppose we have $T_\alpha$, $\alpha, \beta \in \Q$ with $\alpha \ne \beta$.  When are $T_\alpha, T_\beta$ conjugate? 
+
+If $T_\alpha^q = \id$, then $T_\beta^q = \id$ and similarly if $T_\alpha^{q-1} \ne 0$, then $T_\beta^{q-1} \ne 0$ when they are conjugate.  This gives the necessary condition that $\alpha = \frac{p_1}{q}, \beta = \frac{p_2}{q}$ where $(p_1; q) = (p_2; q) = 1$.  However, we must have exactly, $\alpha = \beta$.  We will prove this later.
+
+Now, we consider $\alpha \not \in \Q$.  For $\alpha \in \R \setminus \Q$, $T_\alpha$ which maps $x \mapsto x + 2\pi \alpha \pmod{2 \pi \Z}$ for $x \in \mb S^1$ is ergodic, and for every $x \in \mb S^1$, $T^nx$ is dense in $\mb S^1$.
+\begin{theorem}[Weyl, Khinchin] Suppose $f \in C(\mb S^1)$.  Then for all $x \in \mb S^1$, 
+$$\frac{1}{N} \sum_{j=0}^{N-1} f(T^j(x)) \xrightarrow{N \to \infty} \frac{1}{2\pi} \int_0^{2\pi} f(y) \,dy =: \bar{f}.$$  
+\end{theorem}
+\begin{corollary} Every orbit $\{T^n x\}$ is dense on $\mb S^1$.
+\end{corollary}
+\begin{proof}
+If not, then there exists $K$ and an open set $U$ such that $T^n x \not \in U$ for $n > K$. We can take $U = (a, b)$, $f$ to be $0$ outside $(a, b)$ and a cone from $a$ to $b$.
+\begin{align*}
+\frac{1}{N} \sum_{j=0}^K f(T^j(x) ) + \frac{1}{N} \sum_{j = K+1}^{N-1} f(T^j(x)) = \frac{1}{N} \sum_{j=0}^K f(T^j(x)) \to 0,
+\end{align*}
+a contradiction.
+\end{proof}
+
+Now, we prove the main theorem.
+\begin{proof}
+We first prove the result for $f \in \mc P \subset C(S^1)$, $\mc P = \{\sum_{|j| \le J} a_j e^{ij x} : a_j \in \C\}$, the trignometric polynomials.  It is enough to prove it for $f(x) = e^{ij x}$, since elements of $\mc P$ are finite linear combinations of $e^{ij x}$.  Note that the theorem statement becomes 
+
+\begin{align*}
+\frac{1}{N} \sum_{k=0}^{N-1} e^{ixk} e^{i 2 \pi \alpha jk} &= e^{ixj} \frac{1}{N} \sum_{j=0}^{N - 1} e^{(2 \pi \alpha ij)k} \\ 
+&= \begin{cases}
+1, \quad j = 0 \\
+\frac{1}{N} \frac{1 - e^{2 \pi i \alpha j N}}{1 - e^{2 \pi i \alpha j}}, \quad j \ne 0
+\end{cases} \\
+&\rightarrow \delta_{\{j = 0\}} = \bar{f}.
+\end{align*}
+
+Finally, $\mc P \subset C(\mb S^1)$ is dense: if $f \in C(S^1)$, there exists $p \in \mc P$ such that $\|f - p\|_{\mb S^1} < \epsilon$.  This implies that 
+\begin{align*}
+\left | \frac{1}{N} \sum_{j=0}^{N-1} f(T^j(x)) -\frac{1}{2\pi} \int_0^{2\pi} f(y) \,dy\right| &\le \left | \frac{1}{N} \sum_{j=0}^{N-1} (f-p)(T^j(x)) - \bar{f - p} \right| + \left|\frac{1}{N} \sum_{k=0}^{N - 1} p(T^k x) - \bar p\right|  \\
+&\le 2 \epsilon + \left|\frac{1}{N} \sum_{k=0}^{N - 1} p(T^k x) - \bar p\right| 
+\rightarrow 2\epsilon.
+\end{align*} 
+\end{proof}
+We denote $S_N f(x) = \sum_{k=0}^N f(T^k(x))$, and we call $\frac{1}{N} S_N f(x)$ the \textbf{ergodic average}.
+
+\begin{theorem}[$L^2(\mb S^1)$ Ergodic Theorem] Suppose $f \in L^2(\mb S^1)$. Then 
+$$\frac{1}{N} S_N f \xrightarrow{L^2} \bar{f}$$
+\end{theorem}
+
+Recall that $L^2(\mb S^1) = \{f(x) = \sum_{n \in \Z} a_n e^{inx} : 2 \pi\sum_{n \in \Z} |a_n|^2 < \infty\}$,
+where 
+$$a_n = \frac{1}{2\pi} \int_0^{2\pi} f(x) e^{-inx}\,dx.$$  Note that $\{\frac{1}{\sqrt{n}} e^{inx}: n \in \Z\}$ is an orthonormal basis of $L^2(\mb S^1)$.
+
+\begin{proof}
+\begin{align*}
+\|\frac{1}{N} S_n \sum_{n \ne 0} f_n \|_{L^2} &= \| \sum_{n \ne 0} \frac{1}{N} S_N f_n \| L^2 \\
+&\le \sum_{0 < |n| < K} \|1/N S_N f_n\|_{L^2} + \| \sum_{|n| \ge K} f_n \|_{L^2} \\
+\end{align*}
+Take $\epsilon > 0$ and choose $K$ so that the tail is bounded by $\epsilon$.  Using the result with trignometric polynomials, $$1/N S_N f_n \to 0, |n| < K, n \ne 0, N \to \infty.$$
+In other words,
+$$\limsup \|\frac{1}{N} S_N \sum_{n \ne 0} f_n \| \le \sum_{0 < |n| < K} \lim \| \frac{1}{N} S_N f_n\| + \epsilon \le \epsilon.$$
+
+Finally,
+$\sum_{n \ne 0} f_n = f - \bar{f},$
+so $\| \frac{1}{N} S_N(f - \bar{f}) \|_{L^2} \to 0$ and $\frac{1}{N} S_N f \to \bar{f}$.
+\end{proof}
+
+
+\begin{theorem}[No Invariant Sets on $\mb S^1$]. If $A = T^{-1}(A)$, then $m(A) = 0$ or $m(A) = 2\pi$.
+\end{theorem}
+\begin{proof}
+Suppose not: $T^{-1}(A) = A$, $0 < m(S^1 \setminus A) < 2\pi$.  Take $f = \1_A(x) \in L^2(\mb S^1)$.
+\end{proof}
+
+\pagebreak
+\section{Lecture 3: 1/25/2022}
+\subsection{Comments about Invariant Sets}
+\begin{itemize}
+\item $T: X \to X$, for $A \subset X$, $T^{-1}(A) = \{x : Tx \in A\}$.
+\item $A$ is invariant under $T$ if and only if $T^{-1}(A) = A$.
+\item "Everything that lands in $A$ comes from $A$."
+\item Take $f: X \to \C$.  $T^*f = f \circ T: X \to \C$ is well-defined.  We also have $f_A = f\vert_A: A \to C$. If $A$ is invariant, then $(T^*f)_A = T^*(f_A)$.
+\item If $T$ is invertible, then this is the same as $T(A) = A$.
+\item Take $X = [0, \infty)$, $Tx = mx$, $0 < m < 1$.  $T([0, 1)) = [0, m) \subset [0, 1]$.  $T^{-1}([0, 1)) = [0, 1/m)$.  An example of an invariant set is $A = \{m^k: k \in \Z\}$.  This is not invariant when you take a one-sided set.
+\end{itemize}
+\subsection{Irrational Translations on $\mb S^1$, continued}
+We have $T: \mb S^1 \to \mb S^1$, $x \mapsto x + 2 \pi \alpha \pmod{2 \pi \Z}$ for $\alpha \not \in \Q$.
+\begin{itemize}
+\item For $f \in C(\mb S^1)$, $\frac{1}{N} S_N f(x) \to \bar{f} := \frac{1}{2\pi} \int_0^{2\pi} f$.  This is uniform in $x$ but not in $f$, which can even be seen by taking trignometric polynomials.
+\item Every orbit $\{T^j x\}_{j \in \N}$ is dense in $\mb S^1$.
+\item (Unique Ergodicity)The Lebesgue measure is the only Radon measure invariant under $T$.
+\begin{proof}
+Suppose $d\mu$ is invariant.  Then, $\int f(Tx) d\mu(x) = \int f d\mu$, which implies that $\frac{1}{N}\int S_N f(x) \,d\mu(x) = \int f d\mu$.  But the left-hand side converges uniformly to $\frac{1}{2\pi} \int f \,dx$ which is the Lebesgue measure, so it must follows that $d\mu$ is the Lebesgue measure.
+\end{proof}
+\item For every $f \in L^2$, $\frac{1}{N} S_N f \xrightarrow{L^2} \bar{f}$.
+\item Corollary: $T^{-1}(A) = A \Longrightarrow m(A) m(S^1\setminus A) = 0$.
+\begin{proof}
+Take $f = \1_A(x) \in L^2(\mb S^1)$.  Take $g = \1_{S^1 \setminus A} \in L^2(\mb S^1)$.  Note that $T^*\1_A = \1_{T^{-1}A} = \1_A$.
+\begin{align*}
+\<g, \frac{1}{N} S_N f\>_{L^2} &= \<\1_{\mb S^1 \setminus A}, \1_A\> = 0, \\
+\<g, \frac{1}{N} S_N f\>_{L^2} &\rightarrow \<g, \bar{f}\> = m(A)m(\mb S^1 \setminus A)/2\pi.
+\end{align*}
+\end{proof}
+\end{itemize}
+\subsection{General Theory}
+We have $(X, \mc M, \mu)$, $\mu$ a measure, $\mc M$ a $\sigma$-algebra, $T: X \to X$, with $T^{-1}: \mc M \to \mc M$, $T_*\mu = \mu$($T_*\mu(A) = \mu(T^{-1}(A))$).  We also have $\int T^* f d\mu = \int f d\mu$, $T^* f = f \circ T$.
+
+Recall $L^2(X, d\mu)= \{f: X \to \C | \int |f|^2 d\mu < \infty\}$, with the inner product $\<f, g\> = \int f \bar g d\mu(x)$.  This defines a complete metric topology.  From $T$, we obtain an operator $Uf = T^* f$.
+
+Note that 
+$$\<Uf, Uf\> = \int T^*f \bar{T^*f} d\mu = \int T^* |f|^2 \, d\mu = \<f, f\>.$$
+As before, we can take $S_N f = \sum_{j=0}^{N - 1} U^j f$.  
+
+\newcommand{\Inv}{\operatorname{Inv}}
+
+\begin{theorem}[Mean Ergodic Theorem] $\mc H$, a Hilbert space, $U: \mc H \to \mc H$ linear, $\|Uf\| \le \|f\|$ for all $f \in \mc H$.  Define $\operatorname{Inv} = \{f: f = Uf\}  = \ker(I - U)\subset \mc H$, a closed subspace.  Let $\mc P: H \to \operatorname{Inv}$ be the orthogonal projection($\mc P(\mc H) = \Inv, P^2 = P, P = P^*$). Then, 
+$$\|\frac{1}{N} S_N f - \mc P f \|_{L^2} \xrightarrow{N \to \infty} 0.$$
+\end{theorem}
+\begin{proof}
+We first prove a lemma:
+\begin{lemma} For all $g \in \mc H$, $Ug = g$ if and only if $U^* g = g$.
+\end{lemma}
+\begin{remark} Note that if $Uf = T^* f$, then $U^* f = T_* f$.  This follows from 
+$$\<f, Ug\> = \int_X f(x) \bar{g(y)}\, d\mu(x)  = \int_X f(T^{-1}(x)) \bar{g(y)} |D(T^{-1})(y)| dy = \<U^*f, g\>.$$
+\end{remark}
+\begin{proof}
+If $Ug = g$,
+$$\|U^*g - g\|^2 = \<U^* g - g, U^*g - g\> =\|U^*g\|^2 + \|g\|^2 - 2 \Re \<Ug, g\> $$
+$$\le 2\|g\|^2 - 2 \Re\<Ug, g\> =2 \Re \<g - Ug, g\> = 0.$$
+The opposite implication is given by reversing $U$ and $U^*$.
+\end{proof}
+\let \T \intercal
+If $f \in \Inv$, the result is obvious, so we need to show $\frac{1}{N} S_N f \xrightarrow{L^2} 0$ for all $f \in \Inv^\perp$.  
+\begin{align*}
+\| \frac{1}{N} S_N f\|^2 = \<f, \frac{1}{N} S_N^* \frac{1}{N} S_N f\> =: \<f, g_N\>.
+\end{align*}
+It is enough to show that $g_N \to 0$ weakly in $L^2$.  Note that 
+$\|g_N\| \le \|f\|$ since $\|Uf\| \le \|f\|$, which implies that $\{g_N\}$ is weakly compact(has a weakly converging subsequence).  If we know in some topology that $\{g_N\}$ is weakly compact, then $g_N \to 0$ weakly if every weak limit point of $g_n$ is $0$.
+
+It is enough to show that weak limits are invariant under $U$(or $U^*$).  Put $h = \frac{1}{N} S_N f$.
+\begin{align*}
+(I - U^*)\frac{1}{N} S_N^* h = \frac{1}{N}(I - U^*) \sum_{j=0}^{N - 1} (U^*)^j h = \frac{1}{N} (I - U^{*N}) h,
+\end{align*}
+and 
+$$\|\frac{1}{N} (I - U^{*N}) h\| \le \frac{1}{N} \|I - U^{*N}\| \|\frac{1}{N} S_Nf\| \le \frac{2}{N} \|f\|\to 0.$$
+
+It follows that $g = U^*g$, so $g = Ug$ and $g \in \Inv$ which implies that $g = 0$.
+\end{proof}
+
+An immediate consequence is the following:
+\begin{theorem}[Von Neumann, Ergodic Theorem] $(X, \mc M, \mu)$, $T: X \to X$ measure-preserving.  Then,
+$$\frac{1}{N} \sum_{j=0}^{N - 1} f \circ T^j \xrightarrow{L^2(X)} \mc Pf,$$
+where $\mc P: L^2 \xrightarrow{\perp} \{f \in L^2: f \circ T = f\}$.
+\end{theorem}
+
+\pagebreak
+\section{Lecture 4: 1/27/2022}
+\subsection{Invariant Everywhere from Invariant Almost Everywhere}
+\begin{proposition} Suppose $f(x) = f(T(x))$ almost everywhere where $f$ is measurable.  Then, there exists $g$ measurable such that $f = g$ almost everywhere and $g(x) = g(T(x))$ everywhere.
+\end{proposition}
+\begin{proof}
+We write $g(x) = \limsup_{n \to \infty} f(T^n(x))$.  This can potentially be infinite at certain points, which is not a problem.  Note that $g(x) = g(T(x))$, since $$g(T(x)) = \limsup_{n \to \infty} f(T^{n + 1}(x)) = g(x).$$
+
+Furthermore, note that $g(x) = f(x)$ if $f(T^n(x)) = f(x)$ for all $n \ge 0$, or equivalently, $f(T^{n + 1} x) = f(T^n x)$ for all $n \ge 0$.  Equivalently, $T^n(x) \in \{y : Tf(y) = f(y)\}$ or equivalently, $$x \in \bigcap T^{-n}(\{y: Tf(y) = f(y)\}) =: Y.$$
+Taking complements, $X \setminus Y = \bigcup T^{-n}( \{y: Tf(y) \ne f(y)\})$, but this set has measure zero.  This implies that $\mu(X \setminus Y) = 0$, so the set where $g(x) = f(x)$ has full measure. 
+
+\end{proof}
+
+In particular, if we take $f = \1_A$, $f = f \circ T$ almost everywhere is equivalent to $\1_A = \1_{T^{-1}(A)}$ almost everywhere.  This is equivalent to saying that the symmetric difference has measure zero:
+$$\mu((A \setminus T^{-1}(A)) \cup (T^{-1}(A) \setminus A)) = 0.$$
+If we take $g$ as constructed in the proposition, $g = \limsup f(T^n(x)) = \1_B$ for some $B$.  Since $\1_B = \1_A$ almost everywhere, $\mu((B \setminus A) \cup (A \setminus B)) = 0$ and $T^{-1}(B) = B$.  Hence
+
+Note that $\sup_{k \le n} \1_{B_k} = \1_{\bigcup_{k \le n} B_k}$, and $\int_{k \le n} \1_{B_k} = \1_{\bigcap_{k \le n} B_k}$.  It follows that 
+$$g(x) = \bigcap \bigcup T^{-1}{}.$$
+
+\let \ms \mathscr
+\subsection{$\sigma$-algebra of Invariant Sets}
+Take $\ms J \subset \ms M$, $\ms J = \{A \in \ms M: T^{-1}(A) = A\}$.
+\begin{proposition} A measurable function $f: X \to \R$ is invariant almost everywhere if and only if $f$ is measurable with respect to $\ms J$ - for every $(a, b) \subset \R$, $f^{-1}((a, b)) \in \ms J$.
+\end{proposition}
+\begin{proof} The forward direction is obvious.  For the backward direction, fix some $y \in \R$.  Then $f^{-1}(\{y\}) \in \ms J$.  This implies that $T^{-1}(f^{-1}(y)) = f^{-1}(y)$, which is the same as $(f \circ T)^{-1}(y) = f^{-1}(y)$.  This implies that $f \circ T(x) = f(x)$.
+\end{proof}
+\
+\subsection{Properties of $\mc P: L^2(X, d\mu) \to \Inv(T)$}
+\begin{itemize}
+\item For every $f \in L^2$, $g \in \Inv$, $\int Pf \cdot \bar{g} = \int f \cdot \bar {g}$.
+\begin{proof}
+$Pg = g$, $P = P^*$.
+\end{proof}
+\item $f \in L^2$, $T^{-1}(A) = A$, $\mu(A) < \infty$.  Then $\int_A Pf d\mu = \int_A f d\mu$.
+\begin{proof}  Take $g = \1_A$ and apply the previous result.
+\end{proof}
+\item $\mu(X) < \infty$, $f \in L^2$, then $\int Pf d\mu = \int f d\mu$
+\begin{proof}
+Take $X = A$ in the previous result.
+\end{proof}
+\item $\mu(X) < \infty$, for every $f \in L^2$, $f \ge 0$, then $f(x) > 0$ implies $Pf(x) > 0$.
+\begin{proof}
+If we have $a < 0$, 
+\begin{align*}
+\mu(\{x : g(x) < a\}) &\le \mu (\{x : |g(x)|^2 \ge a^2\}) \\
+&= \int_{|g(x)^2 \ge a^2|} d\mu\\
+&\le \int_{|g(x)^2 \ge a^2|} \frac{|g(x)|^2}{a^2} d\mu \\
+&\le \frac{1}{a^2} \int_X |g(x)|^2 d\,mu \\
+&= \|g\|_{L^2}/a^2.
+\end{align*}
+This is known as Chebyshev's Inequality.
+
+Hence,
+$$\mu(\{x: Pf(x) < -1/N\}) \le N^2 \int |Pf|^2 < \infty.$$
+
+Furthermore, note that $a\{x: g(x) < a\} \ge \int_{g(x) < a} g(x) d\mu$.  Applying this with $g = Pf$, $a = -1/N$, we have 
+$$\frac{-1}{N} \mu\{x: Pf(x) < -1/N\} \ge \int_{Pf < -1/N} Pf\, d\mu = \int_{Pf < -1/N} f \,d\mu \ge 0.$$
+It follows that $\mu\{x: Pf(x) < -1/N\} = 0$.  Taking a union over $N$, we have that $\mu\{x: Pf(x) < 0\} = 0$.
+
+This implies that 
+$$\int_{Pf = 0} f = \int_{Pf = 0} Pf = 0.$$
+Hence, $Pf = 0$ implies that $f = 0$.  But this is the same as saying $f(x) > 0 \Rightarrow Pf(x) > 0$.
+\end{proof}
+
+\begin{remark} If we don't assume $\mu(X) < \infty$, then $f \ge 0$ implies $Pf \ge 0$.  But if $\mu(X) < \infty$, we have the stronger statement that $f(x) > 0$ implies that $Pf(x) > 0$.
+
+This also follows from the mean ergodic theorem, $S_N f \ge 0$, $g = g^+ - g_-$, $g_+, g_- \ge 0$, $|g| = g^+ + g^-$.
+\end{remark}
+\end{itemize}
+Recall the statement:
+\begin{theorem}[Poincare Recurrence] $B \in M$, $\mu(B) > 0$, for almost every $x \in B$, there exists a subsequence $n_k$ such that $T^{n_k}(x) \in B$.
+\end{theorem}
+\begin{proof}
+If $\frac{1}{n} S_n f \xrightarrow{L^2} Pf$, then there exists a subsequence so that $1/n_k S_{n_k} f \to Pf(x)$ almost everywhere.  Taking $f = \1_B$, the last property of $\mc P$ shows that $\mc P \1_B(x) > 0$ almost everywhere in $B$.
+
+Hence for almost every $x$,
+$$\frac{1}{n_k} \sum_{k=0}^{n_k} \1_{B} \circ T^{n_k}(x) \to \mc P(x).$$
+
+But if no such subsequence existed, the LHS would converge to $0$.
+\end{proof}
+
+\subsection{Examples of Ergodic Functions}
+\begin{itemize}
+\item Recall the example $T: \mb S^1 \to \mb S^1$, $x \mapsto x + \theta \pmod{\Z}$.  If $\theta$ is irrational, then $T$ is ergodic.
+\item Take $Tx = mx$, $m \in \N$, $m \ge 2$, $T: \mb S^1 \to \mb S^1$. This is an $m$-to-$1$ map of $\mb S^1 \to \mb S^1$.  Is $T$ measure-preserving?  Take $[x, y) \subset \mb S^1$, $d(x, y) < 1/m$. Then, $T^{-1}([x, y)) = \bigcup_{j=0}^{m - 1} [x/m + j/m, y/m+j/m]$, each of which has length $(y - x)/m$, so $\mu(T^{-1}([x, y])) = y-x = \mu([x, y))$.
+\end{itemize}
+
+
+\pagebreak
+\renewcommand{\listtheoremname}{List of Definitions and Theorems}
+\listoftheorems[ignoreall,show={theorem,definition}]
+\end{document}
