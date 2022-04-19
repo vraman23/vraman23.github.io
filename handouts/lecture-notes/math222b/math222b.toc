@@ -1,82 +1,82 @@
-\contentsline {section}{\numberline {1}January 19th, 2021}{5}% 
-\contentsline {subsection}{\numberline {1.1}Review of Sobolev Spaces}{5}% 
-\contentsline {subsection}{\numberline {1.2}Fourier Transform}{6}% 
-\contentsline {section}{\numberline {2}December 21st, 2021}{7}% 
-\contentsline {subsection}{\numberline {2.1}Plancherel's Theorem}{7}% 
-\contentsline {subsection}{\numberline {2.2}Fourier Characterization of $H^k$ spaces}{7}% 
-\contentsline {section}{\numberline {3}January 26th, 2021}{9}% 
-\contentsline {subsection}{\numberline {3.1}Sobolev Spaces, continued}{9}% 
-\contentsline {subsection}{\numberline {3.2}Gagliardo-Nirenberg-Sobolev(GNS) Inequalities}{9}% 
-\contentsline {subsection}{\numberline {3.3}Compactness}{10}% 
-\contentsline {section}{\numberline {4}January 28th, 2021}{11}% 
-\contentsline {subsection}{\numberline {4.1}Compactness}{11}% 
-\contentsline {subsection}{\numberline {4.2}Rellich-Kondrachov}{11}% 
-\contentsline {section}{\numberline {5}February 2nd, 2021}{13}% 
-\contentsline {subsection}{\numberline {5.1}Rellich-Kondrachov, continued}{13}% 
-\contentsline {subsection}{\numberline {5.2}Morrey's Inequality}{14}% 
-\contentsline {section}{\numberline {6}February 4th, 2021}{15}% 
-\contentsline {subsection}{\numberline {6.1}Morrey's Inequality, continued}{15}% 
-\contentsline {section}{\numberline {7}February 9th, 2021}{17}% 
-\contentsline {subsection}{\numberline {7.1}Fourier Transform proof of Morrey's Inequality}{17}% 
-\contentsline {section}{\numberline {8}February 11th, 2021}{19}% 
-\contentsline {subsection}{\numberline {8.1}Finishing Morrey's Inequality}{19}% 
-\contentsline {subsection}{\numberline {8.2}Final Comments about Sobolev Spaces}{19}% 
-\contentsline {subsection}{\numberline {8.3}Duality}{19}% 
-\contentsline {subsection}{\numberline {8.4}Duality on Bounded Domains}{20}% 
-\contentsline {section}{\numberline {9}February 16th, 2021}{21}% 
-\contentsline {subsection}{\numberline {9.1}Calculus of Variations: Minimizing Distance in the Plane}{21}% 
-\contentsline {subsection}{\numberline {9.2}Calculus of Variations: Minimizing Area in ${R}^3$}{21}% 
-\contentsline {subsection}{\numberline {9.3}Calculus of Variations: General Setup}{22}% 
-\contentsline {subsection}{\numberline {9.4}Existence of Minimizers}{22}% 
-\contentsline {section}{\numberline {10}February 18th, 2021}{23}% 
-\contentsline {subsection}{\numberline {10.1}Second-Derivative Test}{23}% 
-\contentsline {subsection}{\numberline {10.2}Convexity}{23}% 
-\contentsline {subsection}{\numberline {10.3}Existence of Minimizers}{24}% 
-\contentsline {section}{\numberline {11}February 23rd, 2021}{25}% 
-\contentsline {subsection}{\numberline {11.1}Weak Convergence}{25}% 
-\contentsline {subsection}{\numberline {11.2}Calculus of Variations}{25}% 
-\contentsline {subsection}{\numberline {11.3}Getting around Lower Semicontinuity}{26}% 
-\contentsline {section}{\numberline {12}February 25th, 2021}{27}% 
-\contentsline {subsection}{\numberline {12.1}Existence of Minimizers}{27}% 
-\contentsline {subsection}{\numberline {12.2}Uniqueness of Minimizers}{27}% 
-\contentsline {subsection}{\numberline {12.3}The Euler-Lagrange Equation}{28}% 
-\contentsline {section}{\numberline {13}March 2nd, 2021}{29}% 
-\contentsline {subsection}{\numberline {13.1}Euler-Lagrange Equation, continued}{29}% 
-\contentsline {section}{\numberline {14}March 4th, 2021}{31}% 
-\contentsline {subsection}{\numberline {14.1}Regularity}{31}% 
-\contentsline {subsection}{\numberline {14.2}Interior Regularity}{31}% 
-\contentsline {section}{\numberline {15}March 9th, 2021}{33}% 
-\contentsline {subsection}{\numberline {15.1}Inner Regularity}{33}% 
-\contentsline {subsection}{\numberline {15.2}Higher Regularity}{34}% 
-\contentsline {section}{\numberline {16}March 11th, 2021}{35}% 
-\contentsline {subsection}{\numberline {16.1}Oscillatory Integrals}{35}% 
-\contentsline {subsection}{\numberline {16.2}General Theory: Amplitudes}{35}% 
-\contentsline {section}{\numberline {17}March 16th, 2021}{37}% 
-\contentsline {subsection}{\numberline {17.1}Amplitudes of Oscillatory Integrals}{37}% 
-\contentsline {subsection}{\numberline {17.2}A Cool Example}{37}% 
-\contentsline {subsection}{\numberline {17.3}Topology of the Symbol Space}{38}% 
-\contentsline {section}{\numberline {18}March 18th, 2021}{39}% 
-\contentsline {subsection}{\numberline {18.1}Topology of the Symbol Space, continued}{39}% 
-\contentsline {subsection}{\numberline {18.2}Phase Functions}{39}% 
-\contentsline {section}{\numberline {19}March 30th, 2021}{41}% 
-\contentsline {subsection}{\numberline {19.1}Oscillatory Integrals as Distributions}{41}% 
-\contentsline {subsection}{\numberline {19.2}Some Remarks}{42}% 
-\contentsline {section}{\numberline {20}April 1st, 2021}{43}% 
-\contentsline {subsection}{\numberline {20.1}Oscillatory Integrals, continued}{43}% 
-\contentsline {subsection}{\numberline {20.2}Fourier Integral Operators and Pseudodifferential Operators}{44}% 
-\contentsline {section}{\numberline {21}April 6th, 2021}{45}% 
-\contentsline {subsection}{\numberline {21.1}Operators on Oscillatory Integrals}{45}% 
-\contentsline {subsection}{\numberline {21.2}Method of Stationary Phase}{46}% 
-\contentsline {subsection}{\numberline {21.3}Steepest Descent}{46}% 
-\contentsline {section}{\numberline {22}April 8th, 2021}{48}% 
-\contentsline {subsection}{\numberline {22.1}Steepest Descent}{48}% 
-\contentsline {subsection}{\numberline {22.2}Stirling's Formula}{48}% 
-\contentsline {section}{\numberline {23}April 13th, 2021}{50}% 
-\contentsline {subsection}{\numberline {23.1}Stationary Phase}{50}% 
-\contentsline {subsection}{\numberline {23.2}Stationary Phase in Higher Dimensions}{51}% 
-\contentsline {section}{\numberline {24}April 18th, 2021}{52}% 
-\contentsline {subsection}{\numberline {24.1}Morse Lemma}{52}% 
-\contentsline {subsection}{\numberline {24.2}Higher Dimensional Method of Stationary Phase}{52}% 
-\contentsline {subsection}{\numberline {24.3}General Schrodinger Operators}{53}% 
-\contentsline {section}{\numberline {25}April 20th, 2021}{54}% 
-\contentsline {subsection}{\numberline {25.1}Pseudodifferential Operators}{54}% 
+\contentsline {section}{\numberline {1}January 19th, 2021}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Review of Sobolev Spaces}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Fourier Transform}{4}{subsection.1.2}% 
+\contentsline {section}{\numberline {2}December 21st, 2021}{5}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Plancherel's Theorem}{5}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Fourier Characterization of $H^k$ spaces}{5}{subsection.2.2}% 
+\contentsline {section}{\numberline {3}January 26th, 2021}{8}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Sobolev Spaces, continued}{8}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Gagliardo-Nirenberg-Sobolev(GNS) Inequalities}{8}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Compactness}{9}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}January 28th, 2021}{10}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Compactness}{10}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Rellich-Kondrachov}{10}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}February 2nd, 2021}{12}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Rellich-Kondrachov, continued}{12}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Morrey's Inequality}{13}{subsection.5.2}% 
+\contentsline {section}{\numberline {6}February 4th, 2021}{15}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Morrey's Inequality, continued}{15}{subsection.6.1}% 
+\contentsline {section}{\numberline {7}February 9th, 2021}{17}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Fourier Transform proof of Morrey's Inequality}{17}{subsection.7.1}% 
+\contentsline {section}{\numberline {8}February 11th, 2021}{19}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Finishing Morrey's Inequality}{19}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Final Comments about Sobolev Spaces}{19}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.3}Duality}{20}{subsection.8.3}% 
+\contentsline {subsection}{\numberline {8.4}Duality on Bounded Domains}{20}{subsection.8.4}% 
+\contentsline {section}{\numberline {9}February 16th, 2021}{22}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Calculus of Variations: Minimizing Distance in the Plane}{22}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Calculus of Variations: Minimizing Area in $\mathbb {R}^3$}{22}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Calculus of Variations: General Setup}{23}{subsection.9.3}% 
+\contentsline {subsection}{\numberline {9.4}Existence of Minimizers}{24}{subsection.9.4}% 
+\contentsline {section}{\numberline {10}February 18th, 2021}{25}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Second-Derivative Test}{25}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Convexity}{26}{subsection.10.2}% 
+\contentsline {subsection}{\numberline {10.3}Existence of Minimizers}{26}{subsection.10.3}% 
+\contentsline {section}{\numberline {11}February 23rd, 2021}{27}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Weak Convergence}{27}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Calculus of Variations}{28}{subsection.11.2}% 
+\contentsline {subsection}{\numberline {11.3}Getting around Lower Semicontinuity}{28}{subsection.11.3}% 
+\contentsline {section}{\numberline {12}February 25th, 2021}{30}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}Existence of Minimizers}{30}{subsection.12.1}% 
+\contentsline {subsection}{\numberline {12.2}Uniqueness of Minimizers}{30}{subsection.12.2}% 
+\contentsline {subsection}{\numberline {12.3}The Euler-Lagrange Equation}{31}{subsection.12.3}% 
+\contentsline {section}{\numberline {13}March 2nd, 2021}{33}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}Euler-Lagrange Equation, continued}{33}{subsection.13.1}% 
+\contentsline {section}{\numberline {14}March 4th, 2021}{35}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}Regularity}{35}{subsection.14.1}% 
+\contentsline {subsection}{\numberline {14.2}Interior Regularity}{35}{subsection.14.2}% 
+\contentsline {section}{\numberline {15}March 9th, 2021}{37}{section.15}% 
+\contentsline {subsection}{\numberline {15.1}Inner Regularity}{37}{subsection.15.1}% 
+\contentsline {subsection}{\numberline {15.2}Higher Regularity}{38}{subsection.15.2}% 
+\contentsline {section}{\numberline {16}March 11th, 2021}{39}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Oscillatory Integrals}{39}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}General Theory: Amplitudes}{40}{subsection.16.2}% 
+\contentsline {section}{\numberline {17}March 16th, 2021}{41}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}Amplitudes of Oscillatory Integrals}{41}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}A Cool Example}{41}{subsection.17.2}% 
+\contentsline {subsection}{\numberline {17.3}Topology of the Symbol Space}{42}{subsection.17.3}% 
+\contentsline {section}{\numberline {18}March 18th, 2021}{43}{section.18}% 
+\contentsline {subsection}{\numberline {18.1}Topology of the Symbol Space, continued}{43}{subsection.18.1}% 
+\contentsline {subsection}{\numberline {18.2}Phase Functions}{43}{subsection.18.2}% 
+\contentsline {section}{\numberline {19}March 30th, 2021}{45}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Oscillatory Integrals as Distributions}{45}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Some Remarks}{46}{subsection.19.2}% 
+\contentsline {section}{\numberline {20}April 1st, 2021}{47}{section.20}% 
+\contentsline {subsection}{\numberline {20.1}Oscillatory Integrals, continued}{47}{subsection.20.1}% 
+\contentsline {subsection}{\numberline {20.2}Fourier Integral Operators and Pseudodifferential Operators}{48}{subsection.20.2}% 
+\contentsline {section}{\numberline {21}April 6th, 2021}{49}{section.21}% 
+\contentsline {subsection}{\numberline {21.1}Operators on Oscillatory Integrals}{49}{subsection.21.1}% 
+\contentsline {subsection}{\numberline {21.2}Method of Stationary Phase}{50}{subsection.21.2}% 
+\contentsline {subsection}{\numberline {21.3}Steepest Descent}{50}{subsection.21.3}% 
+\contentsline {section}{\numberline {22}April 8th, 2021}{52}{section.22}% 
+\contentsline {subsection}{\numberline {22.1}Steepest Descent}{52}{subsection.22.1}% 
+\contentsline {subsection}{\numberline {22.2}Stirling's Formula}{52}{subsection.22.2}% 
+\contentsline {section}{\numberline {23}April 13th, 2021}{54}{section.23}% 
+\contentsline {subsection}{\numberline {23.1}Stationary Phase}{54}{subsection.23.1}% 
+\contentsline {subsection}{\numberline {23.2}Stationary Phase in Higher Dimensions}{55}{subsection.23.2}% 
+\contentsline {section}{\numberline {24}April 18th, 2021}{56}{section.24}% 
+\contentsline {subsection}{\numberline {24.1}Morse Lemma}{56}{subsection.24.1}% 
+\contentsline {subsection}{\numberline {24.2}Higher Dimensional Method of Stationary Phase}{56}{subsection.24.2}% 
+\contentsline {subsection}{\numberline {24.3}General Schrodinger Operators}{57}{subsection.24.3}% 
+\contentsline {section}{\numberline {25}April 20th, 2021}{58}{section.25}% 
+\contentsline {subsection}{\numberline {25.1}Pseudodifferential Operators}{58}{subsection.25.1}% 
