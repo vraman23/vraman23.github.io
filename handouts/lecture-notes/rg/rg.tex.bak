@@ -1,0 +1,145 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{listings}
+
+ %Sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\text{supp }}
+\newcommand{\E}{\mathbb E}
+\newcommand{\cov}{\operatorname{cov}}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+
+\DeclareMathOperator*{\Var}{Var}
+\newcommand{\Hol}{\operatorname{Hol}}
+
+\let \phi \varphi
+\let \tensor \otimes
+\let \hat \widehat
+\let \mc \mathcal
+\let \mb \mathbb
+\let \p \partial
+\let \bar \overline
+\let \eps \varepsilon
+\newcommand\at[2]{\left.#1\right|_{#2}}
+
+%From Topology
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cH}{\mathcal{H}}
+
+%Indicators 
+\newcommand{\1}{\textbf{1}} % vector of all 1's
+\newcommand{\I}[1]{\mathbb{I}{\left\{#1\right\}}} % indicator function
+
+
+\usepackage{answers}
+\Newassociation{hint}{hintitem}{all-hints}
+\renewcommand{\solutionextension}{out}
+\renewenvironment{hintitem}[1]{\item[\bfseries #1.]}{}
+\declaretheorem[style=thmbluebox,name={Problem}, numberwithin=section]{prob}
+
+\begin{document}
+\title{RGOM}
+\author{Vishal Raman}
+
+\begin{center}
+\centerline{ }
+\centerline{\huge \textbf{Riemannian Geometry}}
+\centerline{\Large \textit{with an introduction to Optimization on Manifolds} }
+\centerline{written by Vishal Raman}
+\end{center}
+\begin{abstract}
+We present detailed expository notes on Riemannian Geometry mainly following the treatment from \textit{Lee, Riemannian Manifolds}, \textit{Do Carmo, Riemannian Geometry}.  We finish with an introduction to optimization algorithms on smooth manifolds, following the treatment from Boumal.  Any typos or mistakes are my own - please redirect them to \href{vraman@berkeley.edu}{my email}. 
+\end{abstract}
+\tableofcontents
+%\maketitle
+
+\section{Review of Smooth Manifolds}
+\subsection{Tensors on a Vector Space}
+Let $V$ be a finite-dimensional vector space.  Recall the dual space $V^*$, the set of covectors on $V$.  We denote the natural pairing $V^* \times V \to \R$ by the notation $(\omega, X) \mapsto \omega(X)$ for $\omega \in V^*, X \in V$.
+
+\begin{definition}[Covariant Tensor] A covariant $k$-tensor on $V$ is a multilinear map $$F: \underbrace{V \times \dots \times V}_{k \text{ times}}\to \R.$$
+The space of covariant $k$-tensors on $V$ is denoted $T^k(V)$.
+\end{definition}
+
+\begin{definition}[Contravariant Tensor] A contravariant $k$-tensor on $V$ is a multilinear map $$F: \underbrace{V^* \times \dots \times V^*}_{k \text{ times}} \to \R.$$
+The space of contravariant $k$-tensors on $V$ is denoted $T_k(V)$.
+\end{definition}
+
+\begin{definition}[Mixed Tensor] A mixed $\binom{k}{l}$-tensor on $V$ is a multilinear map $$F: \underbrace{V^* \times \dots \times V^*}_{l \text{ times}} \underbrace{\times V \times \dots \times V}_{k \text{ times}} \to \R.$$
+The space of mixed $\binom{k}{l}$-tensors on $V$ is denoted $T^k_l(V)$.
+\end{definition}
+
+Some identifications:
+\begin{itemize}
+\item $T_0^k(V) = T^k(V)$, $T^k_0(V) = T^k_0(V),$.
+\item $T^1(V) = V^*$, $T_1(V) = V^{**} = V$.
+\item $T^0(V) = \R$.
+\item $T^1_1(V) = \End(V)$, the space of linear endomorphisms of $V$.
+\end{itemize}
+
+The last identification is a consequence of the following lemma:
+\begin{lemma} Let $V$ be a finite-dimensional vector space.  There is a natural isomorphism between $T^k_{l + 1}(V)$ and the space of multilinear maps
+$$\underbrace{V^* \times \dots \times V^*}_{l} \times \underbrace{V \times \dots \times V}_k \to V.$$
+\end{lemma}
+\begin{definition}[Tensor Product] If $F \in T_l^k(V)$ and $G \in T_q^p(V)$, the tensor $F \tensor G \in T_{l + q}^{k + p}(V)$ is defined by 
+$$F \tensor G(\omega^1, \dots, \omega^{l + q}, X_1, \dots, X_{k +p}) = F(\omega^1, \dots, \omega^l, X_1, \dots, X_k)G(\omega^{l + 1}, \dots, \omega^{l + q}, X_{k + 1}, \dots, X_{k + p}).$$
+\end{definition}
+
+If $(E_1, \dots, E_n)$ is a basis for $V$ and $(\phi^1, \dots, \phi^n)$ denotes the corresponding dual basis for $V^*$(defined by $\phi^i(E_j) = \delta_{ij}$), a basis for $T_l^k(V)$ is given by the set of tensors of the form
+$$E_{j_1} \tensor \dots \tensor E_{j_l} \tensor \phi^{i_1} \tensor \dots \tensor \phi^{i_k}.$$
+
+
+\newcommand{\tr}{\operatorname{tr}}
+
+\begin{definition}[Trace]
+Using Lemma $1.4$, we can define the \textit{trace operator} given by $\tr: T_{l+1}^{k + 1}(V) \to T^{k}_l(V)$ where $(\tr F)(\omega^1, \dots, \omega^k, v_1, \dots, v_l)$ is the trace of the tensor
+$$F(\omega^1, \dots, \omega^k, \cdot, v_1, \dots, v_l, \cdot) \in T_1^1(V).$$
+\end{definition}
+
+\subsection{Vector Bundles and Vector Fields}
+\subsection{Tensor Fields}
+\subsection{Lie Theory}
+
+\section{Riemannian Metrics}
+\begin{definition}[Riemannian Metric] Let $M$ be a smooth manifold.  A \textit{Riemannian metric} on $M$ is a smooth covariant $2$-tensor field $g \in \mc T^2(M)$ whose value $g_p$ at each $p \in M$ is an inner product on $T_pM$; i. e., $g$ is a symmetric $2$-tensor field that is positive definite in the sense that $g_p(v, v) \ge 0$ for each $p \in M$ and each $v \in T_pM$, with equality if and only if $v = 0$.
+\end{definition}
+
+\begin{definition}[Riemannian Manifold] A \textit{Riemannian manifold} is a pair $(M, g)$ where $M$ is a smooth manifold and $g$ is a Riemannian metric on $M$.
+\end{definition}
+
+\begin{proposition} Every smooth manifold admits a Riemannian metric.
+\end{proposition}
+\begin{proof}
+Let $M^n$ be a smooth manifold with a corresponding covering of smooth charts $(U_\alpha, \phi_\alpha)$.  In each of the coordinate domains, there is a Riemannian metric $g_{\alpha} = \phi_{\alpha}^* \bar{g}$, where $\bar{g} = \delta_{ij} dx^i dx^j$ is the Euclidean metric on $\R^n$.  Now, if we choose $\{\psi_{\alpha}\}$ to be a smooth partition of unity subordinate to $\{U_{\alpha}\}$, then, we can define $g = \sum_{\alpha} \phi_{\alpha} g_{\alpha}$, where each term is interpreted to be zero outside the support of $\phi_{\alpha}$.
+
+By local finiteness, there are only finitely many terms in a neighborhood of each point, so this defines a smooth tensor field.  It is also symmetric by construction.  Finally, if $v \in T_pM$ is nonzero,
+$$g_p(v, v) = \sum_{\alpha} \psi_{\alpha}(p) g_{\alpha}\vert_p(v, v) > 0$$
+since $g_{\alpha}\vert_p(v, v) > 0$ and at least one of the $\psi_{\alpha}(p) > 0$.
+\end{proof}
+
+We can similarly define a Riemannian manifold with boundary when $M$ is a smooth manifold with boundary.  
+
+We will use the notation $\<v, w\>_g = g_p(v, w)$ since $g_p$ is an inner product on $T_pM$.  This motivates the notion of angles, lengths, and orthogonality.  
+\subsection{Isometries}
+Suppose $(M, g)$ and $(\tilde{M}, \tilde{g})$ are Riemannian manifolds.  
+\begin{definition}[Isometry] An \textit{isometry} from $(M, g)$ to $(\tilde{M}, \tilde{g})$ is a diffeomorphism $\phi: M \to \tilde{M}$ such that $\phi^* \tilde{g}  = g$.  Equivalently, this is equivalent to the requirement that $\phi$ is a bijection and $d\phi_p: T_pM \to T_{\phi(p)}\tilde{M}$ is a linear isometry.  
+\end{definition}
+We denote the $\operatorname{Iso}(M, g)$ as the isometry group of $(M, g)$ under composition.  
+\pagebreak
+\renewcommand{\listtheoremname}{List of Definitions and Theorems}
+\listoftheorems[ignoreall,show={theorem,definition}]
+\end{document}

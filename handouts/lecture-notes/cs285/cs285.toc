@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Supervised Learning of Behaviors}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Terminology and Notation}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Imitation Learning}{3}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}DAgger: Dataset Aggregation}{4}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Deep Imitation In Practice}{5}{subsection.1.4}% 
+\contentsline {subsubsection}{\numberline {1.4.1}Non-Markovian Behavior}{5}{subsubsection.1.4.1}% 
+\contentsline {subsubsection}{\numberline {1.4.2}Multimodal Behavior}{5}{subsubsection.1.4.2}% 
+\contentsline {subsection}{\numberline {1.5}Cost/Reward Functions}{6}{subsection.1.5}% 

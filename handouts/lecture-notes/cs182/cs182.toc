@@ -1,7 +1,151 @@
-\contentsline {section}{\numberline {1}02/28/2022 - Recurrent Neural Networks}{3}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Problem Setup}{3}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Dealing with Variable Length Inputs}{3}{subsection.1.2}% 
-\contentsline {subsection}{\numberline {1.3}Recurrent Neural Networks}{4}{subsection.1.3}% 
-\contentsline {subsection}{\numberline {1.4}Generating Outputs from RNNs}{5}{subsection.1.4}% 
-\contentsline {subsection}{\numberline {1.5}Vanishing/Exploding Gradients}{5}{subsection.1.5}% 
-\contentsline {section}{\numberline {2}Long Short-Term Memory(LSTM)}{6}{section.2}% 
+\contentsline {section}{\numberline {1}02/28/2022 - Recurrent Neural Networks}{6}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Problem Setup}{6}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Dealing with Variable Length Inputs}{6}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Recurrent Neural Networks}{7}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Generating Outputs from RNNs}{8}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.5}Vanishing/Exploding Gradients}{8}{subsection.1.5}% 
+\contentsline {section}{\numberline {2}02/28/2022 - Long Short-Term Memory(LSTM)}{10}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Bidirectional RNN Models}{10}{subsection.2.1}% 
+\contentsline {section}{\numberline {3}3/7/2022 - Transformers}{12}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Setup}{12}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Why Transformers}{12}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Attention}{12}{subsection.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}What to attend over?}{13}{subsubsection.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}Details of Attention}{13}{subsubsection.3.3.2}% 
+\contentsline {subsubsection}{\numberline {3.3.3}Self-Attention}{14}{subsubsection.3.3.3}% 
+\contentsline {subsection}{\numberline {3.4}Transformers}{14}{subsection.3.4}% 
+\contentsline {subsubsection}{\numberline {3.4.1}Transformer Encoder}{14}{subsubsection.3.4.1}% 
+\contentsline {subsubsection}{\numberline {3.4.2}Positional Encoding}{15}{subsubsection.3.4.2}% 
+\contentsline {subsubsection}{\numberline {3.4.3}Multi-Head Attention}{15}{subsubsection.3.4.3}% 
+\contentsline {subsubsection}{\numberline {3.4.4}Transformer Decoder}{16}{subsubsection.3.4.4}% 
+\contentsline {subsubsection}{\numberline {3.4.5}Masked Attention}{16}{subsubsection.3.4.5}% 
+\contentsline {section}{\numberline {4}03/09/2022 - Transformer Models}{18}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Encoder: BERT}{18}{subsection.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}The GLUE Benchmark}{18}{subsubsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.2}Encoder: Vision Transformer}{19}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Swin Transformer}{20}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Unsupervised ViT}{20}{subsection.4.4}% 
+\contentsline {subsubsection}{\numberline {4.4.1}Masked Autoencoders}{20}{subsubsection.4.4.1}% 
+\contentsline {section}{\numberline {5}03/14/2022 - Sequence-to-Sequence Models}{22}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Seq2seq Models}{22}{subsection.5.1}% 
+\contentsline {subsubsection}{\numberline {5.1.1}RNN(LSTM) seq2seq, basic}{22}{subsubsection.5.1.1}% 
+\contentsline {subsubsection}{\numberline {5.1.2}Multilayer RNNs}{22}{subsubsection.5.1.2}% 
+\contentsline {subsubsection}{\numberline {5.1.3}Attention}{23}{subsubsection.5.1.3}% 
+\contentsline {subsection}{\numberline {5.2}Seq2Seq Transformers}{24}{subsection.5.2}% 
+\contentsline {subsubsection}{\numberline {5.2.1}Cross Attention Layers}{24}{subsubsection.5.2.1}% 
+\contentsline {subsection}{\numberline {5.3}Recent seq2seq: T5}{24}{subsection.5.3}% 
+\contentsline {section}{\numberline {6}03/16/2022 - John DeNero: Neural Machine Translation}{25}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Conditional Sequence Generation}{25}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Search Strategies}{25}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Training Loss}{26}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}Subwords}{27}{subsection.6.4}% 
+\contentsline {subsubsection}{\numberline {6.4.1}Byte-Pair Encoding}{27}{subsubsection.6.4.1}% 
+\contentsline {subsection}{\numberline {6.5}Back Translations}{27}{subsection.6.5}% 
+\contentsline {section}{\numberline {7}03/28/2022 - Distribution Shift}{28}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Risk}{28}{subsection.7.1}% 
+\contentsline {subsubsection}{\numberline {7.1.1}The ERM Assumption}{28}{subsubsection.7.1.1}% 
+\contentsline {subsection}{\numberline {7.2}Distribution Shift in the Real World}{28}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Distribution Shift Benchmarks}{29}{subsection.7.3}% 
+\contentsline {subsubsection}{\numberline {7.3.1}ImageNet Challenge Test Sets}{29}{subsubsection.7.3.1}% 
+\contentsline {subsubsection}{\numberline {7.3.2}WILDS Benchmark}{29}{subsubsection.7.3.2}% 
+\contentsline {subsection}{\numberline {7.4}NLP: ANLI Dataset}{30}{subsection.7.4}% 
+\contentsline {subsection}{\numberline {7.5}Robustification}{30}{subsection.7.5}% 
+\contentsline {subsubsection}{\numberline {7.5.1}Train on Larger Datasets}{30}{subsubsection.7.5.1}% 
+\contentsline {subsubsection}{\numberline {7.5.2}Data Augmentations}{30}{subsubsection.7.5.2}% 
+\contentsline {subsubsection}{\numberline {7.5.3}Masked Autoencoders}{31}{subsubsection.7.5.3}% 
+\contentsline {subsection}{\numberline {7.6}Anomaly Detection}{31}{subsection.7.6}% 
+\contentsline {subsubsection}{\numberline {7.6.1}Implementation}{31}{subsubsection.7.6.1}% 
+\contentsline {subsubsection}{\numberline {7.6.2}A Simple Baseline}{32}{subsubsection.7.6.2}% 
+\contentsline {subsubsection}{\numberline {7.6.3}Benchmarks for Anomaly Detection}{32}{subsubsection.7.6.3}% 
+\contentsline {subsubsection}{\numberline {7.6.4}Evaluting Binary Classifiers}{32}{subsubsection.7.6.4}% 
+\contentsline {section}{\numberline {8}04/04/2022 - Adversarial Examples}{33}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Test time Adaptation}{33}{subsection.8.1}% 
+\contentsline {subsubsection}{\numberline {8.1.1}Methods for Test-time Adaptation}{33}{subsubsection.8.1.1}% 
+\contentsline {subsection}{\numberline {8.2}Adversarial Robustness}{33}{subsection.8.2}% 
+\contentsline {subsubsection}{\numberline {8.2.1}Modern Adversarial Distortions}{34}{subsubsection.8.2.1}% 
+\contentsline {subsubsection}{\numberline {8.2.2}Fooling Binary Logistic Regression}{34}{subsubsection.8.2.2}% 
+\contentsline {subsection}{\numberline {8.3}Adversary Threat Models}{34}{subsection.8.3}% 
+\contentsline {subsubsection}{\numberline {8.3.1}Fast Gradient Sign Method(FGSM)}{35}{subsubsection.8.3.1}% 
+\contentsline {subsubsection}{\numberline {8.3.2}Projected Gradient Ascent(PGD)}{35}{subsubsection.8.3.2}% 
+\contentsline {subsection}{\numberline {8.4}Adversarial Training}{35}{subsection.8.4}% 
+\contentsline {subsubsection}{\numberline {8.4.1}Untargeted vs. Targeted Attacks}{35}{subsubsection.8.4.1}% 
+\contentsline {subsubsection}{\numberline {8.4.2}Transferability of attacks}{36}{subsubsection.8.4.2}% 
+\contentsline {subsubsection}{\numberline {8.4.3}Using Larger and More Diverse Data}{36}{subsubsection.8.4.3}% 
+\contentsline {subsubsection}{\numberline {8.4.4}Data Augmentation}{36}{subsubsection.8.4.4}% 
+\contentsline {subsubsection}{\numberline {8.4.5}Choice of Activation Functions}{36}{subsubsection.8.4.5}% 
+\contentsline {subsection}{\numberline {8.5}Unforeseen Adversaries}{36}{subsection.8.5}% 
+\contentsline {section}{\numberline {9}04/06/2022 - Generative Models}{38}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Density/Distribution Modeling}{38}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Generating New Data}{38}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Generative Adversarial Networks}{38}{subsection.9.3}% 
+\contentsline {subsubsection}{\numberline {9.3.1}Conditional Generation with GANs}{39}{subsubsection.9.3.1}% 
+\contentsline {subsubsection}{\numberline {9.3.2}Unsupervised Image-to-Image Translation}{39}{subsubsection.9.3.2}% 
+\contentsline {subsubsection}{\numberline {9.3.3}Summary}{39}{subsubsection.9.3.3}% 
+\contentsline {subsection}{\numberline {9.4}Density Models on Images}{39}{subsection.9.4}% 
+\contentsline {subsection}{\numberline {9.5}Autoregressive Models}{39}{subsection.9.5}% 
+\contentsline {subsubsection}{\numberline {9.5.1}Distribution over Pixels}{40}{subsubsection.9.5.1}% 
+\contentsline {subsubsection}{\numberline {9.5.2}Summary}{40}{subsubsection.9.5.2}% 
+\contentsline {subsection}{\numberline {9.6}Representation Learning}{40}{subsection.9.6}% 
+\contentsline {subsubsection}{\numberline {9.6.1}Latent Variable Models}{40}{subsubsection.9.6.1}% 
+\contentsline {subsubsection}{\numberline {9.6.2}Evidence Lower Bound(ELBO)}{41}{subsubsection.9.6.2}% 
+\contentsline {subsubsection}{\numberline {9.6.3}Variational Autoencoders(VAEs)}{41}{subsubsection.9.6.3}% 
+\contentsline {subsubsection}{\numberline {9.6.4}Summary}{41}{subsubsection.9.6.4}% 
+\contentsline {subsection}{\numberline {9.7}Generating Images from Language}{41}{subsection.9.7}% 
+\contentsline {section}{\numberline {10}04/11/2022 - Self-Supervised Learning}{42}{section.10}% 
+\contentsline {subsubsection}{\numberline {10.0.1}Why Self-Supervised}{42}{subsubsection.10.0.1}% 
+\contentsline {subsubsection}{\numberline {10.0.2}Examples}{42}{subsubsection.10.0.2}% 
+\contentsline {subsubsection}{\numberline {10.0.3}Masked Autoencoding(MAE)}{42}{subsubsection.10.0.3}% 
+\contentsline {subsection}{\numberline {10.1}Self-supervised Learning in Vision}{42}{subsection.10.1}% 
+\contentsline {subsubsection}{\numberline {10.1.1}Leveraging Spatial Context(2015)}{43}{subsubsection.10.1.1}% 
+\contentsline {subsubsection}{\numberline {10.1.2}Predicting Rotations(2018)}{43}{subsubsection.10.1.2}% 
+\contentsline {subsection}{\numberline {10.2}Contrastive Learning}{43}{subsection.10.2}% 
+\contentsline {subsubsection}{\numberline {10.2.1}Contrastive Predictive Coding(CPC)(2018)}{43}{subsubsection.10.2.1}% 
+\contentsline {subsection}{\numberline {10.3}Data Augmentation}{44}{subsection.10.3}% 
+\contentsline {subsubsection}{\numberline {10.3.1}Momentum Contrast(MoCo)(2019)}{44}{subsubsection.10.3.1}% 
+\contentsline {subsubsection}{\numberline {10.3.2}SimCLR}{44}{subsubsection.10.3.2}% 
+\contentsline {subsection}{\numberline {10.4}Bootstrap your own latent(BYOL)(2020)}{45}{subsection.10.4}% 
+\contentsline {subsection}{\numberline {10.5}Self-distillation with no labels (DINO)(2021)}{45}{subsection.10.5}% 
+\contentsline {subsection}{\numberline {10.6}Multimodal Constrastive Learning: CLIP(2021)}{45}{subsection.10.6}% 
+\contentsline {section}{\numberline {11}04/13/2022 - Massive Models}{46}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Scaling Laws}{46}{subsection.11.1}% 
+\contentsline {subsubsection}{\numberline {11.1.1}Scaling Laws for NLMs(2020)}{46}{subsubsection.11.1.1}% 
+\contentsline {subsubsection}{\numberline {11.1.2}Scaling Laws for autoregressive generative modeling(2020)}{46}{subsubsection.11.1.2}% 
+\contentsline {subsection}{\numberline {11.2}Massive Models}{47}{subsection.11.2}% 
+\contentsline {subsubsection}{\numberline {11.2.1}GPT-3(2020)}{47}{subsubsection.11.2.1}% 
+\contentsline {subsubsection}{\numberline {11.2.2}Gopher(2021)}{47}{subsubsection.11.2.2}% 
+\contentsline {subsubsection}{\numberline {11.2.3}Chinchilla(2022)}{47}{subsubsection.11.2.3}% 
+\contentsline {subsubsection}{\numberline {11.2.4}Megatron-Turing NLG(2022)}{47}{subsubsection.11.2.4}% 
+\contentsline {subsubsection}{\numberline {11.2.5}PaLM(2022)}{47}{subsubsection.11.2.5}% 
+\contentsline {subsection}{\numberline {11.3}Applications of Massive Models}{48}{subsection.11.3}% 
+\contentsline {subsubsection}{\numberline {11.3.1}Few-shot learning via Prompting}{48}{subsubsection.11.3.1}% 
+\contentsline {subsubsection}{\numberline {11.3.2}Medium-shot learning with fine tuning}{48}{subsubsection.11.3.2}% 
+\contentsline {subsubsection}{\numberline {11.3.3}Specializing to Code: Codex and AlphaCode}{48}{subsubsection.11.3.3}% 
+\contentsline {subsection}{\numberline {11.4}Limitations of Massive Models}{48}{subsection.11.4}% 
+\contentsline {subsubsection}{\numberline {11.4.1}Challenge Tasks}{48}{subsubsection.11.4.1}% 
+\contentsline {subsubsection}{\numberline {11.4.2}Potential Harms and Biases}{48}{subsubsection.11.4.2}% 
+\contentsline {section}{\numberline {12}04/18/2022 - Chelsea Finn: Meta Learning}{50}{section.12}% 
+\contentsline {subsection}{\numberline {12.1}How does Meta-Learning Work?}{50}{subsection.12.1}% 
+\contentsline {subsection}{\numberline {12.2}Mathematical Formulation of Meta Learning}{50}{subsection.12.2}% 
+\contentsline {subsection}{\numberline {12.3}Meta Learning Problem}{50}{subsection.12.3}% 
+\contentsline {subsubsection}{\numberline {12.3.1}Other Similar Problems}{51}{subsubsection.12.3.1}% 
+\contentsline {subsubsection}{\numberline {12.3.2}Terminology}{51}{subsubsection.12.3.2}% 
+\contentsline {subsubsection}{\numberline {12.3.3}Black-Box Meta-Learning}{52}{subsubsection.12.3.3}% 
+\contentsline {subsubsection}{\numberline {12.3.4}General Few Shot Meta-Learning Algorithm}{52}{subsubsection.12.3.4}% 
+\contentsline {subsection}{\numberline {12.4}Non-Parametric Few-Shot Learning}{52}{subsection.12.4}% 
+\contentsline {subsubsection}{\numberline {12.4.1}Non-parametric Methods}{53}{subsubsection.12.4.1}% 
+\contentsline {subsubsection}{\numberline {12.4.2}Algorithm}{53}{subsubsection.12.4.2}% 
+\contentsline {subsubsection}{\numberline {12.4.3}Prototypical Networks}{53}{subsubsection.12.4.3}% 
+\contentsline {subsection}{\numberline {12.5}Case Study: Feedback Generation}{54}{subsection.12.5}% 
+\contentsline {subsubsection}{\numberline {12.5.1}Framing as Meta-Learning}{54}{subsubsection.12.5.1}% 
+\contentsline {subsection}{\numberline {12.6}ProtoTransformer}{54}{subsection.12.6}% 
+\contentsline {subsection}{\numberline {12.7}Overview of Meta-Learners}{55}{subsection.12.7}% 
+\contentsline {section}{\numberline {13}04/20/2022 - Sergey Levine: Deep Reinforcement Learning}{56}{section.13}% 
+\contentsline {subsection}{\numberline {13.1}From Prediction to Control: Challenges}{56}{subsection.13.1}% 
+\contentsline {subsection}{\numberline {13.2}Terminology}{56}{subsection.13.2}% 
+\contentsline {subsection}{\numberline {13.3}Imitation Learning}{56}{subsection.13.3}% 
+\contentsline {subsubsection}{\numberline {13.3.1}Behavioral Cloning}{56}{subsubsection.13.3.1}% 
+\contentsline {subsubsection}{\numberline {13.3.2}DAgger: Dataset Aggregation}{57}{subsubsection.13.3.2}% 
+\contentsline {subsection}{\numberline {13.4}Q-Learning}{57}{subsection.13.4}% 
+\contentsline {subsection}{\numberline {13.5}Offline RL}{58}{subsection.13.5}% 
+\contentsline {subsubsection}{\numberline {13.5.1}Offline RL Workflow}{58}{subsubsection.13.5.1}% 
+\contentsline {subsubsection}{\numberline {13.5.2}Conservative Q}{58}{subsubsection.13.5.2}% 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  17 APR 2022 21:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  27 APR 2022 11:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1562,43 +1562,766 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 59
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 2):  16.42503pt
 text indent by \l@... (toc, 2):  25.18509pt
-number indent by parent (toc, 2):  12.04504pt
-text indent calculated (toc, 2): 19.46669pt
-number indent calculated (toc, 2): 12.04504pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
 number indent by \l@... (toc, 1):  0.0pt
 text indent by \l@... (toc, 1):  16.42503pt
 number indent by parent (toc, 1):  0.0pt
-text indent calculated (toc, 1): 12.04504pt
+text indent calculated (toc, 1): 18.06757pt
 number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+[2]
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+[3]
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+[4]
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 18.06757pt
+number indent calculated (toc, 1): 0.0pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  18.06757pt
+text indent calculated (toc, 2): 24.9417pt
+number indent calculated (toc, 2): 18.06757pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
+number indent by \l@... (toc, 3):  41.61012pt
+text indent by \l@... (toc, 3):  35.04005pt
+number indent by parent (toc, 3):  43.00926pt
+text indent calculated (toc, 3): 33.45837pt
+number indent calculated (toc, 3): 43.00926pt
 )
 \tf@toc=\write7
 \openout7 = `cs182.toc'.
 
- [2]
+ [5]
 LaTeX Font Info:    Try loading font information for TS1+cmss on input line 62.
 
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
@@ -1608,17 +2331,17 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<images/var_length.png, id=58, 610.28pt x 158.5925pt>
+<images/var_length.png, id=361, 610.28pt x 158.5925pt>
 File: images/var_length.png Graphic file (type png)
 <use images/var_length.png>
 Package pdftex.def Info: images/var_length.png  used on input line 87.
 (pdftex.def)             Requested size: 305.13925pt x 79.29604pt.
-<images/token.png, id=60, 449.68pt x 154.5775pt>
+<images/token.png, id=363, 449.68pt x 154.5775pt>
 File: images/token.png Graphic file (type png)
 <use images/token.png>
 Package pdftex.def Info: images/token.png  used on input line 92.
 (pdftex.def)             Requested size: 224.83945pt x 77.28854pt.
- [3 <./images/var_length.png> <./images/token.png>]
+ [6 <./images/var_length.png> <./images/token.png>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 108.
@@ -1634,18 +2357,18 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 115.
-<images/seqout.png, id=77, 370.38374pt x 157.58875pt>
+<images/seqout.png, id=378, 370.38374pt x 157.58875pt>
 File: images/seqout.png Graphic file (type png)
 <use images/seqout.png>
 Package pdftex.def Info: images/seqout.png  used on input line 120.
 (pdftex.def)             Requested size: 296.30739pt x 126.07115pt.
-<images/atob.png, id=78, 344.28625pt x 115.43124pt>
+<images/atob.png, id=379, 344.28625pt x 115.43124pt>
 File: images/atob.png Graphic file (type png)
 <use images/atob.png>
 Package pdftex.def Info: images/atob.png  used on input line 126.
 (pdftex.def)             Requested size: 275.42937pt x 92.34511pt.
- [4 <./images/seqout.png> <./images/atob.png>]
-<images/autoreg.png, id=89, 464.73625pt x 158.5925pt>
+ [7 <./images/seqout.png> <./images/atob.png>]
+<images/autoreg.png, id=391, 464.73625pt x 158.5925pt>
 File: images/autoreg.png Graphic file (type png)
 <use images/autoreg.png>
 Package pdftex.def Info: images/autoreg.png  used on input line 140.
@@ -1653,68 +2376,498 @@ Package pdftex.def Info: images/autoreg.png  used on input line 140.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 142.
-<images/grad.png, id=90, 404.51125pt x 81.30376pt>
+<images/grad.png, id=392, 404.51125pt x 81.30376pt>
 File: images/grad.png Graphic file (type png)
 <use images/grad.png>
 Package pdftex.def Info: images/grad.png  used on input line 148.
 (pdftex.def)             Requested size: 323.60944pt x 65.04308pt.
- [5 <./images/autoreg.png> <./images/grad.png>]
-<images/lstm.png, id=101, 840.13875pt x 335.2525pt>
+ [8 <./images/autoreg.png> <./images/grad.png>] [9]
+<images/lstm.png, id=408, 840.13875pt x 335.2525pt>
 File: images/lstm.png Graphic file (type png)
 <use images/lstm.png>
-Package pdftex.def Info: images/lstm.png  used on input line 165.
+Package pdftex.def Info: images/lstm.png  used on input line 166.
 (pdftex.def)             Requested size: 420.06834pt x 167.62584pt.
 
-Overfull \hbox (1.81279pt too wide) in paragraph at lines 165--166
+Overfull \hbox (1.81279pt too wide) in paragraph at lines 166--167
  [] 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 185.
-[6 <./images/lstm.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 187.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 187.
- (./cs182.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 187.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 187.
+(mdframed)              on input line 186.
+[10 <./images/lstm.png>] [11]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 217.
+<images/attention1.png, id=425, 623.32875pt x 177.66376pt>
+File: images/attention1.png Graphic file (type png)
+<use images/attention1.png>
+Package pdftex.def Info: images/attention1.png  used on input line 231.
+(pdftex.def)             Requested size: 311.6636pt x 88.83165pt.
+ [12 <./images/attention1.png>]
+<images/intuition.png, id=433, 679.53876pt x 118.4425pt>
+File: images/intuition.png Graphic file (type png)
+<use images/intuition.png>
+Package pdftex.def Info: images/intuition.png  used on input line 237.
+(pdftex.def)             Requested size: 339.76855pt x 59.2211pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 245.
+<images/details.png, id=434, 712.6625pt x 405.515pt>
+File: images/details.png Graphic file (type png)
+<use images/details.png>
+Package pdftex.def Info: images/details.png  used on input line 250.
+(pdftex.def)             Requested size: 356.33038pt x 202.75699pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 252.
+ [13 <./images/intuition.png> <./images/details.png>]
+<images/self-atten.png, id=447, 492.84125pt x 235.88126pt>
+File: images/self-atten.png Graphic file (type png)
+<use images/self-atten.png>
+Package pdftex.def Info: images/self-atten.png  used on input line 258.
+(pdftex.def)             Requested size: 246.42001pt x 117.94034pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 260.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 262.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 264.
+<images/encoder.png, id=448, 572.1375pt x 326.21875pt>
+File: images/encoder.png Graphic file (type png)
+<use images/encoder.png>
+Package pdftex.def Info: images/encoder.png  used on input line 271.
+(pdftex.def)             Requested size: 286.06804pt x 163.10896pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 273.
+ [14 <./images/self-atten.png> <./images/encoder.png>]
+<images/position.png, id=465, 656.4525pt x 165.61874pt>
+File: images/position.png Graphic file (type png)
+<use images/position.png>
+Package pdftex.def Info: images/position.png  used on input line 279.
+(pdftex.def)             Requested size: 328.22545pt x 82.80916pt.
+<images/relativepos.png, id=466, 252.945pt x 89.33376pt>
+File: images/relativepos.png Graphic file (type png)
+<use images/relativepos.png>
+Package pdftex.def Info: images/relativepos.png  used on input line 284.
+(pdftex.def)             Requested size: 379.41656pt x 134.00029pt.
+<images/multihead.png, id=467, 692.5875pt x 193.72375pt>
+File: images/multihead.png Graphic file (type png)
+<use images/multihead.png>
+Package pdftex.def Info: images/multihead.png  used on input line 290.
+(pdftex.def)             Requested size: 346.2929pt x 96.86163pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 292.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 294.
+Package mdframed Info: Not enough space on this page on input line 295.
+ [15 <./images/position.png> <./images/relativepos.png> <./images/multihead.png
+>]
+Package mdframed Info: Not enough space on this page on input line 295.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 296.
+<images/encoder-final.png, id=478, 558.085pt x 388.45125pt>
+File: images/encoder-final.png Graphic file (type png)
+<use images/encoder-final.png>
+Package pdftex.def Info: images/encoder-final.png  used on input line 300.
+(pdftex.def)             Requested size: 279.04182pt x 194.22514pt.
+<images/decoder.png, id=479, 544.0325pt x 276.03125pt>
+File: images/decoder.png Graphic file (type png)
+<use images/decoder.png>
+Package pdftex.def Info: images/decoder.png  used on input line 307.
+(pdftex.def)             Requested size: 272.01558pt x 138.01527pt.
+<images/masked.png, id=480, 884.30376pt x 252.945pt>
+File: images/masked.png Graphic file (type png)
+<use images/masked.png>
+Package pdftex.def Info: images/masked.png  used on input line 314.
+(pdftex.def)             Requested size: 442.1508pt x 126.47218pt.
+
+Overfull \hbox (23.89525pt too wide) in paragraph at lines 314--315
+ [] 
+ []
+
+[16 <./images/encoder-final.png> <./images/decoder.png>] [17 <./images/masked.p
+ng>]
+<images/BERT.png, id=496, 559.08875pt x 562.1pt>
+File: images/BERT.png Graphic file (type png)
+<use images/BERT.png>
+Package pdftex.def Info: images/BERT.png  used on input line 324.
+(pdftex.def)             Requested size: 167.7279pt x 168.6313pt.
+<images/GLUE.png, id=497, 1003.75pt x 455.7025pt>
+File: images/GLUE.png Graphic file (type png)
+<use images/GLUE.png>
+Package pdftex.def Info: images/GLUE.png  used on input line 331.
+(pdftex.def)             Requested size: 401.49289pt x 182.27776pt.
+<images/gluetest.png, id=498, 602.25pt x 584.1825pt>
+File: images/gluetest.png Graphic file (type png)
+<use images/gluetest.png>
+Package pdftex.def Info: images/gluetest.png  used on input line 335.
+(pdftex.def)             Requested size: 301.12425pt x 292.09053pt.
+ [18 <./images/BERT.png> <./images/GLUE.png>]
+<images/VIT.png, id=505, 762.85pt x 582.175pt>
+File: images/VIT.png Graphic file (type png)
+<use images/VIT.png>
+Package pdftex.def Info: images/VIT.png  used on input line 340.
+(pdftex.def)             Requested size: 228.85677pt x 174.65384pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 348.
+ [19 <./images/gluetest.png> <./images/VIT.png>]
+Package mdframed Info: Not enough space on this page on input line 349.
+<images/swin.png, id=513, 282.05376pt x 162.6075pt>
+File: images/swin.png Graphic file (type png)
+<use images/swin.png>
+Package pdftex.def Info: images/swin.png  used on input line 353.
+(pdftex.def)             Requested size: 169.23355pt x 97.56525pt.
+<images/shiftedwindow.png, id=514, 378.41376pt x 154.5775pt>
+File: images/shiftedwindow.png Graphic file (type png)
+<use images/shiftedwindow.png>
+Package pdftex.def Info: images/shiftedwindow.png  used on input line 358.
+(pdftex.def)             Requested size: 189.2064pt x 77.28854pt.
+<images/masked-autoencoder.png, id=515, 257.96375pt x 150.5625pt>
+File: images/masked-autoencoder.png Graphic file (type png)
+<use images/masked-autoencoder.png>
+Package pdftex.def Info: images/masked-autoencoder.png  used on input line 368.
+
+(pdftex.def)             Requested size: 206.37126pt x 120.45015pt.
+ [20 <./images/swin.png> <./images/shiftedwindow.png>]
+[21 <./images/masked-autoencoder.png>]
+<images/basicseq.png, id=529, 855.195pt x 273.02pt>
+File: images/basicseq.png Graphic file (type png)
+<use images/basicseq.png>
+Package pdftex.def Info: images/basicseq.png  used on input line 392.
+(pdftex.def)             Requested size: 342.07195pt x 109.20605pt.
+<images/multiseq.png, id=530, 738.76pt x 407.5225pt>
+File: images/multiseq.png Graphic file (type png)
+<use images/multiseq.png>
+Package pdftex.def Info: images/multiseq.png  used on input line 397.
+(pdftex.def)             Requested size: 295.49875pt x 163.0061pt.
+ [22 <./images/basicseq.png>]
+<images/rnn_attention.png, id=536, 532.99126pt x 429.605pt>
+File: images/rnn_attention.png Graphic file (type png)
+<use images/rnn_attention.png>
+Package pdftex.def Info: images/rnn_attention.png  used on input line 408.
+(pdftex.def)             Requested size: 159.8986pt x 128.88249pt.
+ [23 <./images/multiseq.png> <./images/rnn_attention.png>]
+<images/cross.png, id=543, 481.8pt x 369.38pt>
+File: images/cross.png Graphic file (type png)
+<use images/cross.png>
+Package pdftex.def Info: images/cross.png  used on input line 421.
+(pdftex.def)             Requested size: 240.8994pt x 184.68954pt.
+<images/T5.png, id=544, 367.3725pt x 146.5475pt>
+File: images/T5.png Graphic file (type png)
+<use images/T5.png>
+Package pdftex.def Info: images/T5.png  used on input line 430.
+(pdftex.def)             Requested size: 220.42519pt x 87.92915pt.
+ [24 <./images/cross.png> <./images/T5.png>]
+<images/sutskever.png, id=552, 975.645pt x 319.1925pt>
+File: images/sutskever.png Graphic file (type png)
+<use images/sutskever.png>
+Package pdftex.def Info: images/sutskever.png  used on input line 443.
+(pdftex.def)             Requested size: 390.25108pt x 127.67473pt.
+<images/beam.png, id=553, 1018.80624pt x 349.305pt>
+File: images/beam.png Graphic file (type png)
+<use images/beam.png>
+Package pdftex.def Info: images/beam.png  used on input line 454.
+(pdftex.def)             Requested size: 407.51527pt x 139.71951pt.
+<images/beam2.png, id=554, 1035.87pt x 376.40625pt>
+File: images/beam2.png Graphic file (type png)
+<use images/beam2.png>
+Package pdftex.def Info: images/beam2.png  used on input line 458.
+(pdftex.def)             Requested size: 414.34065pt x 150.55983pt.
+ [25 <./images/sutskever.png> <./images/beam.png>]
+<images/beamscore.png, id=562, 627.34375pt x 253.94875pt>
+File: images/beamscore.png Graphic file (type png)
+<use images/beamscore.png>
+Package pdftex.def Info: images/beamscore.png  used on input line 473.
+(pdftex.def)             Requested size: 250.93304pt x 101.5777pt.
+ [26 <./images/beam2.png> <./images/beamscore.png>]
+<images/bpe.png, id=569, 1037.8775pt x 297.11pt>
+File: images/bpe.png Graphic file (type png)
+<use images/bpe.png>
+Package pdftex.def Info: images/bpe.png  used on input line 499.
+(pdftex.def)             Requested size: 415.14365pt x 118.84189pt.
+ [27 <./images/bpe.png>]
+<images/dshift.png, id=575, 643.40375pt x 133.49875pt>
+File: images/dshift.png Graphic file (type png)
+<use images/dshift.png>
+Package pdftex.def Info: images/dshift.png  used on input line 530.
+(pdftex.def)             Requested size: 386.04523pt x 80.09984pt.
+ [28 <./images/dshift.png>]
+<images/ima.png, id=581, 683.55376pt x 298.11375pt>
+File: images/ima.png Graphic file (type png)
+<use images/ima.png>
+Package pdftex.def Info: images/ima.png  used on input line 543.
+(pdftex.def)             Requested size: 410.13542pt x 178.86963pt.
+<images/wilds.png, id=582, 700.6175pt x 167.62625pt>
+File: images/wilds.png Graphic file (type png)
+<use images/wilds.png>
+Package pdftex.def Info: images/wilds.png  used on input line 553.
+(pdftex.def)             Requested size: 420.37373pt x 100.5765pt.
+
+Overfull \hbox (2.11818pt too wide) in paragraph at lines 553--554
+ [] 
+ []
+
+[29 <./images/ima.png> <./images/wilds.png>]
+<images/large.png, id=589, 573.14125pt x 196.735pt>
+File: images/large.png Graphic file (type png)
+<use images/large.png>
+Package pdftex.def Info: images/large.png  used on input line 574.
+(pdftex.def)             Requested size: 458.51363pt x 157.38818pt.
+
+Overfull \hbox (40.25807pt too wide) in paragraph at lines 574--575
+ [] 
+ []
+
+[30 <./images/large.png>]
+File: images/masked-autoencoder.png Graphic file (type png)
+<use images/masked-autoencoder.png>
+Package pdftex.def Info: images/masked-autoencoder.png  used on input line 588.
+
+(pdftex.def)             Requested size: 232.1652pt x 135.50497pt.
+<images/masknumber.png, id=595, 314.17375pt x 79.29625pt>
+File: images/masknumber.png Graphic file (type png)
+<use images/masknumber.png>
+Package pdftex.def Info: images/masknumber.png  used on input line 592.
+(pdftex.def)             Requested size: 314.17297pt x 79.29604pt.
+ [31 <./images/masknumber.png>] [32]
+<images/selfsuper.png, id=606, 479.7925pt x 170.6375pt>
+File: images/selfsuper.png Graphic file (type png)
+<use images/selfsuper.png>
+Package pdftex.def Info: images/selfsuper.png  used on input line 646.
+(pdftex.def)             Requested size: 335.85245pt x 119.44542pt.
+<images/adversary.png, id=607, 467.7475pt x 162.6075pt>
+File: images/adversary.png Graphic file (type png)
+<use images/adversary.png>
+Package pdftex.def Info: images/adversary.png  used on input line 654.
+(pdftex.def)             Requested size: 280.65065pt x 97.56525pt.
+ [33 <./images/selfsuper.png> <./images/adversary.png>]
+<images/moderndist.png, id=614, 735.74875pt x 151.56625pt>
+File: images/moderndist.png Graphic file (type png)
+<use images/moderndist.png>
+Package pdftex.def Info: images/moderndist.png  used on input line 660.
+(pdftex.def)             Requested size: 294.29428pt x 60.62541pt.
+<images/binary.png, id=615, 504.88625pt x 230.8625pt>
+File: images/binary.png Graphic file (type png)
+<use images/binary.png>
+Package pdftex.def Info: images/binary.png  used on input line 669.
+(pdftex.def)             Requested size: 252.44249pt x 115.43095pt.
+ [34 <./images/moderndist.png> <./images/binary.png>]
+<images/target.png, id=623, 1034.86626pt x 237.88875pt>
+File: images/target.png Graphic file (type png)
+<use images/target.png>
+Package pdftex.def Info: images/target.png  used on input line 706.
+(pdftex.def)             Requested size: 413.93916pt x 95.15381pt.
+<images/armsrace.png, id=624, 468.75125pt x 263.98625pt>
+File: images/armsrace.png Graphic file (type png)
+<use images/armsrace.png>
+Package pdftex.def Info: images/armsrace.png  used on input line 710.
+(pdftex.def)             Requested size: 187.49716pt x 105.59262pt.
+ [35 <./images/target.png>]
+<images/cutmix.png, id=636, 886.31125pt x 288.07625pt>
+File: images/cutmix.png Graphic file (type png)
+<use images/cutmix.png>
+Package pdftex.def Info: images/cutmix.png  used on input line 725.
+(pdftex.def)             Requested size: 265.89542pt x 86.42354pt.
+<images/robustmatrix.png, id=637, 401.5pt x 389.455pt>
+File: images/robustmatrix.png Graphic file (type png)
+<use images/robustmatrix.png>
+Package pdftex.def Info: images/robustmatrix.png  used on input line 732.
+(pdftex.def)             Requested size: 240.90184pt x 233.67479pt.
+ [36 <./images/armsrace.png> <./images/cutmix.png>] [37 <./images/robustmatrix.
+png>] [38] [39] [40] [41] [42]
+<images/spatial_context.png, id=671, 419.5675pt x 189.70876pt>
+File: images/spatial_context.png Graphic file (type png)
+<use images/spatial_context.png>
+Package pdftex.def Info: images/spatial_context.png  used on input line 905.
+(pdftex.def)             Requested size: 251.74243pt x 113.82613pt.
+<images/predict-rotation.png, id=672, 476.78125pt x 269.005pt>
+File: images/predict-rotation.png Graphic file (type png)
+<use images/predict-rotation.png>
+Package pdftex.def Info: images/predict-rotation.png  used on input line 909.
+(pdftex.def)             Requested size: 286.07095pt x 161.40424pt.
+<images/CPC.png, id=673, 779.91376pt x 188.705pt>
+File: images/CPC.png Graphic file (type png)
+<use images/CPC.png>
+Package pdftex.def Info: images/CPC.png  used on input line 927.
+(pdftex.def)             Requested size: 311.95998pt x 75.48065pt.
+ [43 <./images/spatial_context.png> <./images/predict-rotation.png>]
+<images/simclr.png, id=681, 310.15875pt x 209.78375pt>
+File: images/simclr.png Graphic file (type png)
+<use images/simclr.png>
+Package pdftex.def Info: images/simclr.png  used on input line 950.
+(pdftex.def)             Requested size: 186.09668pt x 125.8712pt.
+ [44 <./images/CPC.png> <./images/simclr.png>] [45]
+<images/kaplan.png, id=692, 745.78625pt x 266.9975pt>
+File: images/kaplan.png Graphic file (type png)
+<use images/kaplan.png>
+Package pdftex.def Info: images/kaplan.png  used on input line 980.
+(pdftex.def)             Requested size: 372.89221pt x 133.49841pt.
+<images/henighan.png, id=693, 564.1075pt x 285.065pt>
+File: images/henighan.png Graphic file (type png)
+<use images/henighan.png>
+Package pdftex.def Info: images/henighan.png  used on input line 992.
+(pdftex.def)             Requested size: 338.4671pt x 171.04031pt.
+ [46 <./images/kaplan.png> <./images/henighan.png>]
+<images/gpt.png, id=700, 542.025pt x 173.64874pt>
+File: images/gpt.png Graphic file (type png)
+<use images/gpt.png>
+Package pdftex.def Info: images/gpt.png  used on input line 998.
+(pdftex.def)             Requested size: 271.01183pt x 86.82416pt.
+ [47 <./images/gpt.png>] [48] [49]
+<images/metatrain.png, id=715, 679.53876pt x 329.23pt>
+File: images/metatrain.png Graphic file (type png)
+<use images/metatrain.png>
+Package pdftex.def Info: images/metatrain.png  used on input line 1081.
+(pdftex.def)             Requested size: 407.72641pt x 197.53952pt.
+ [50 <./images/metatrain.png>]
+<images/metaterm.png, id=721, 579.16376pt x 290.08376pt>
+File: images/metaterm.png Graphic file (type png)
+<use images/metaterm.png>
+Package pdftex.def Info: images/metaterm.png  used on input line 1119.
+(pdftex.def)             Requested size: 347.50093pt x 174.05159pt.
+<images/blackmeta.png, id=722, 570.13pt x 207.77625pt>
+File: images/blackmeta.png Graphic file (type png)
+<use images/blackmeta.png>
+Package pdftex.def Info: images/blackmeta.png  used on input line 1123.
+(pdftex.def)             Requested size: 342.08064pt x 124.6667pt.
+ [51 <./images/metaterm.png>]
+<images/gradmeta.png, id=728, 561.09625pt x 215.80624pt>
+File: images/gradmeta.png Graphic file (type png)
+<use images/gradmeta.png>
+Package pdftex.def Info: images/gradmeta.png  used on input line 1127.
+(pdftex.def)             Requested size: 336.66034pt x 129.48474pt.
+ [52 <./images/blackmeta.png> <./images/gradmeta.png>]
+<images/twin.png, id=741, 358.33875pt x 212.795pt>
+File: images/twin.png Graphic file (type png)
+<use images/twin.png>
+Package pdftex.def Info: images/twin.png  used on input line 1149.
+(pdftex.def)             Requested size: 215.0049pt x 127.67796pt.
+<images/embedmeta.png, id=742, 1043.9pt x 441.65pt>
+File: images/embedmeta.png Graphic file (type png)
+<use images/embedmeta.png>
+Package pdftex.def Info: images/embedmeta.png  used on input line 1153.
+(pdftex.def)             Requested size: 313.17241pt x 132.49602pt.
+<images/proto.png, id=743, 574.145pt x 182.6825pt>
+File: images/proto.png Graphic file (type png)
+<use images/proto.png>
+Package pdftex.def Info: images/proto.png  used on input line 1166.
+(pdftex.def)             Requested size: 344.48965pt x 109.61034pt.
+ [53 <./images/twin.png> <./images/embedmeta.png>]
+<images/prototrans.png, id=755, 1022.82124pt x 359.3425pt>
+File: images/prototrans.png Graphic file (type png)
+<use images/prototrans.png>
+Package pdftex.def Info: images/prototrans.png  used on input line 1192.
+(pdftex.def)             Requested size: 306.84874pt x 107.80357pt.
+<images/prop1.png, id=756, 1223.57124pt x 687.56876pt>
+File: images/prop1.png Graphic file (type png)
+<use images/prop1.png>
+Package pdftex.def Info: images/prop1.png  used on input line 1202.
+(pdftex.def)             Requested size: 367.0742pt x 206.27222pt.
+ [54 <./images/proto.png> <./images/prototrans.png>]
+<images/prop2.png, id=763, 1218.5525pt x 681.54625pt>
+File: images/prop2.png Graphic file (type png)
+<use images/prop2.png>
+Package pdftex.def Info: images/prop2.png  used on input line 1204.
+(pdftex.def)             Requested size: 365.56857pt x 204.46545pt.
+<images/prop3.png, id=764, 1214.5375pt x 682.55pt>
+File: images/prop3.png Graphic file (type png)
+<use images/prop3.png>
+Package pdftex.def Info: images/prop3.png  used on input line 1206.
+(pdftex.def)             Requested size: 364.36406pt x 204.76657pt.
+ [55 <./images/prop1.png> <./images/prop2.png> <./images/prop3.png>]
+<images/bayes.png, id=773, 349.305pt x 91.34125pt>
+File: images/bayes.png Graphic file (type png)
+<use images/bayes.png>
+Package pdftex.def Info: images/bayes.png  used on input line 1220.
+(pdftex.def)             Requested size: 209.58461pt x 54.80516pt.
+<images/cloning.png, id=774, 428.60126pt x 243.91125pt>
+File: images/cloning.png Graphic file (type png)
+<use images/cloning.png>
+Package pdftex.def Info: images/cloning.png  used on input line 1234.
+(pdftex.def)             Requested size: 128.58136pt x 73.17393pt.
+ [56 <./images/bayes.png> <./images/cloning.png>]
+<images/qlearn.png, id=781, 1036.87375pt x 582.175pt>
+File: images/qlearn.png Graphic file (type png)
+<use images/qlearn.png>
+Package pdftex.def Info: images/qlearn.png  used on input line 1253.
+(pdftex.def)             Requested size: 311.06451pt x 174.65384pt.
+<images/offline.png, id=782, 505.89pt x 448.67625pt>
+File: images/offline.png Graphic file (type png)
+<use images/offline.png>
+Package pdftex.def Info: images/offline.png  used on input line 1265.
+(pdftex.def)             Requested size: 202.3524pt x 179.46732pt.
+ [57 <./images/qlearn.png>]
+<images/consq.png, id=797, 1059.96pt x 565.11125pt>
+File: images/consq.png Graphic file (type png)
+<use images/consq.png>
+Package pdftex.def Info: images/consq.png  used on input line 1278.
+(pdftex.def)             Requested size: 423.97649pt x 226.04048pt.
+
+Overfull \hbox (5.72093pt too wide) in paragraph at lines 1278--1279
+ [] 
+ []
+
+<images/consq2.png, id=798, 891.33pt x 308.15125pt>
+File: images/consq2.png Graphic file (type png)
+<use images/consq2.png>
+Package pdftex.def Info: images/consq2.png  used on input line 1281.
+(pdftex.def)             Requested size: 356.52568pt x 123.2583pt.
+[58 <./images/offline.png> <./images/consq.png>] [59 <./images/consq2.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1283.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1283.
+
+(./cs182.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1283.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1283.
+
 Package rerunfilecheck Info: File `cs182.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 187.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1283.
  ) 
 Here is how much of TeX's memory you used:
- 39109 strings out of 492616
- 769267 string characters out of 6129482
- 984802 words of memory out of 5000000
- 42414 multiletter control sequences out of 15000+600000
- 546750 words of font info for 95 fonts, out of 8000000 for 9000
+ 39927 strings out of 492616
+ 781456 string characters out of 6129482
+ 990381 words of memory out of 5000000
+ 42849 multiletter control sequences out of 15000+600000
+ 548988 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,20n,91p,9107b,994s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,21n,95p,9107b,994s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
 /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></u
 sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
-live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on cs182.pdf (6 pages, 996054 bytes).
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
+ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
+al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
+exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2019/te
+xmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019/texm
+f-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
+Output written on cs182.pdf (59 pages, 20964492 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 20168 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 1403 PDF objects out of 1440 (max. 8388607)
+ 1148 compressed objects within 12 object streams
+ 273 named destinations out of 1000 (max. 500000)
+ 22157 words of extra memory for PDF output out of 24883 (max. 10000000)
 
