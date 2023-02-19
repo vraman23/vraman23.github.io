@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 AUG 2022 14:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  14 FEB 2023 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1029,13 +1029,14 @@ Package thmtools Info: Key `mdframed' (with value `style=mdblackbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
 (thmtools)             that uses `style=thmblackbox' on input line 355.
-\c@theorem=\count299
 Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line
- 399.
+ 367.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/thmtools/thmdef-mdframed.sty
 Package: thmdef-mdframed 2014/04/21 v66
 )
+\c@theorem=\count299
+
 (/usr/local/texlive/2019/texmf-dist/tex/latex/koma-script/tocstyle.sty
 Package: tocstyle 2017/02/23 v0.2i-alpha KOMA-Script package (versatile toc sty
 les)
@@ -1553,7 +1554,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package tocbasic Info: character protrusion at toc deactivated on input line 67
+Package tocbasic Info: character protrusion at toc deactivated on input line 66
 .
  (./rg.toc
 number indent by \l@... (toc, 1):  0.0pt
@@ -1591,13 +1592,27 @@ text indent by \l@... (toc, 2):  25.18509pt
 number indent by parent (toc, 2):  12.04504pt
 text indent calculated (toc, 2): 19.46669pt
 number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 2):  16.42503pt
+text indent by \l@... (toc, 2):  25.18509pt
+number indent by parent (toc, 2):  12.04504pt
+text indent calculated (toc, 2): 19.46669pt
+number indent calculated (toc, 2): 12.04504pt
+number indent by \l@... (toc, 1):  0.0pt
+text indent by \l@... (toc, 1):  16.42503pt
+number indent by parent (toc, 1):  0.0pt
+text indent calculated (toc, 1): 12.04504pt
+number indent calculated (toc, 1): 0.0pt
 )
 \tf@toc=\write7
 \openout7 = `rg.toc'.
 
-LaTeX Font Info:    Try loading font information for TS1+cmss on input line 70.
+ [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
+]
+LaTeX Font Info:    Try loading font information for TS1+cmss on input line 76.
+
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1605,14 +1620,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
-nput line 74.
- [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-]
+nput line 80.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 101.
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
-line 95.
+line 101.
 
-Overfull \hbox (43.05116pt too wide) detected at line 99
+Overfull \hbox (43.05116pt too wide) detected at line 105
 \OML/cmm/m/it/10.95 F \OMS/cmsy/m/n/10.95 
  \OML/cmm/m/it/10.95 G\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ![]; [] ; ![]; X[
 ]; [] ; X[]\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 F\OT1/cmr/m/n/10.95 (\OML
@@ -1621,15 +1636,26 @@ Overfull \hbox (43.05116pt too wide) detected at line 99
 cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
  []
 
+[2] [3]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 130.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
-input line 124.
-[2]
+input line 130.
+Package hyperref Info: bookmark level for unknown exercise defaults to 0 on inp
+ut line 150.
+ [4]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 161.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
+t line 161.
+ [5] [6]
 showing theorem
 showing definition
-[3]
-Package tocbasic Info: character protrusion at lof deactivated on input line 14
-4.
- (./rg.loe
+Package tocbasic Info: character protrusion at lof deactivated on input line 18
+1.
+(./rg.loe
 number indent by \l@... (loe, 1):  16.42503pt
 text indent by \l@... (loe, 1):  25.18509pt
 number indent by parent (loe, 1):  16.42503pt
@@ -1670,27 +1696,42 @@ text indent by \l@... (loe, 1):  25.18509pt
 number indent by parent (loe, 1):  16.42503pt
 text indent calculated (loe, 1): 25.18509pt
 number indent calculated (loe, 1): 16.42503pt
-) [4]
+number indent by \l@... (loe, 1):  16.42503pt
+text indent by \l@... (loe, 1):  25.18509pt
+number indent by parent (loe, 1):  16.42503pt
+text indent calculated (loe, 1): 25.18509pt
+number indent calculated (loe, 1): 16.42503pt
+number indent by \l@... (loe, 1):  16.42503pt
+text indent by \l@... (loe, 1):  25.18509pt
+number indent by parent (loe, 1):  16.42503pt
+text indent calculated (loe, 1): 25.18509pt
+number indent calculated (loe, 1): 16.42503pt
+number indent by \l@... (loe, 1):  16.42503pt
+text indent by \l@... (loe, 1):  25.18509pt
+number indent by parent (loe, 1):  16.42503pt
+text indent calculated (loe, 1): 25.18509pt
+number indent calculated (loe, 1): 16.42503pt
+) [7]
 \tf@loe=\write8
 \openout8 = `rg.loe'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 182.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 182.
  (./rg.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 182.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 182.
 Package rerunfilecheck Info: File `rg.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 182.
  ) 
 Here is how much of TeX's memory you used:
- 38876 strings out of 492616
- 763786 string characters out of 6129482
- 987386 words of memory out of 5000000
- 42203 multiletter control sequences out of 15000+600000
- 543520 words of font info for 77 fonts, out of 8000000 for 9000
+ 39033 strings out of 492616
+ 767889 string characters out of 6129482
+ 987836 words of memory out of 5000000
+ 42346 multiletter control sequences out of 15000+600000
+ 542869 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,20n,91p,9104b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,21n,91p,9104b,1123s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1703,19 +1744,20 @@ al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
 /texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
 xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on rg.pdf (4 pages, 201044 bytes).
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texl
+ive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texliv
+e/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
+Output written on rg.pdf (7 pages, 214001 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 163 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 15525 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 252 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 14517 words of extra memory for PDF output out of 17280 (max. 10000000)
 

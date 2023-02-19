@@ -57,16 +57,22 @@
 
 \begin{center}
 \centerline{ }
-\centerline{\huge \textbf{Riemannian Geometry}}
-\centerline{\Large \textit{with an introduction to Optimization on Manifolds} }
+\centerline{\huge \textbf{Geometry}}
 \centerline{written by Vishal Raman}
 \end{center}
 \begin{abstract}
-We present detailed expository notes on Riemannian Geometry mainly following the treatment from \textit{Lee, Riemannian Manifolds}, \textit{Do Carmo, Riemannian Geometry}.  We finish with an introduction to optimization algorithms on smooth manifolds, following the treatment from Boumal.  Any typos or mistakes are my own - please redirect them to \href{vraman@berkeley.edu}{my email}. 
+We present detailed expository notes on topics in manifold theory, with plans to cover Riemannian Manifolds, Symplectic Manifolds, and Complex Manifolds. We assume familiarity with smooth manifolds(Lee, Smooth Manifoldsd) Any typos or mistakes are my own - please redirect them to \href{vraman@berkeley.edu}{my email}. 
 \end{abstract}
 \tableofcontents
 %\maketitle
-
+\pagebreak
+$ $
+\vfill
+\centerline{\huge \textbf{Part I}}
+\centerline{}
+\centerline{\huge \textbf{Riemannian Geometry}}
+\vfill
+$ $
 \section{Review of Smooth Manifolds}
 \subsection{Tensors on a Vector Space}
 Let $V$ be a finite-dimensional vector space.  Recall the dual space $V^*$, the set of covectors on $V$.  We denote the natural pairing $V^* \times V \to \R$ by the notation $(\omega, X) \mapsto \omega(X)$ for $\omega \in V^*, X \in V$.
@@ -136,9 +142,40 @@ We can similarly define a Riemannian manifold with boundary when $M$ is a smooth
 We will use the notation $\<v, w\>_g = g_p(v, w)$ since $g_p$ is an inner product on $T_pM$.  This motivates the notion of angles, lengths, and orthogonality.  
 \subsection{Isometries}
 Suppose $(M, g)$ and $(\tilde{M}, \tilde{g})$ are Riemannian manifolds.  
-\begin{definition}[Isometry] An \textit{isometry} from $(M, g)$ to $(\tilde{M}, \tilde{g})$ is a diffeomorphism $\phi: M \to \tilde{M}$ such that $\phi^* \tilde{g}  = g$.  Equivalently, this is equivalent to the requirement that $\phi$ is a bijection and $d\phi_p: T_pM \to T_{\phi(p)}\tilde{M}$ is a linear isometry.  
+\begin{definition}[Isometry] An \textit{isometry} from $(M, g)$ to $(\tilde{M}, \tilde{g})$ is a diffeomorphism $\phi: M \to \tilde{M}$ such that $\phi^* \tilde{g}  = g$.  This is equivalent to the requirement that $\phi$ is a bijection and $d\phi_p: T_pM \to T_{\phi(p)}\tilde{M}$ is a linear isometry.  
 \end{definition}
 We denote the $\operatorname{Iso}(M, g)$ as the isometry group of $(M, g)$ under composition.  
+\begin{definition}[Local Isometry] A map $\phi: M \to \tilde{M}$ is a local isometry if each point $p \in M$ has a neighborhood $U$ such that $\phi\vert_U$ is an isometry onto an open subset of $\tilde{M}$.
+\end{definition}
+\begin{exercise} Prove that if $(M, g)$ and $(\tilde M, \tilde g)$ are Riemannian manifolds of the same dimension, a smooth map $\phi: M \to \tilde{M}$ is a local isometry if and only if $\phi^* \tilde{g} = g$.
+\end{exercise}
+\begin{proof}
+The forward direction is obvious.  If $\phi$ is a local isometry, then $\phi\vert_U ^*\tilde{g} = g$ for all $p \in M$ and some open $U \ni p$, and it follows for all of $M$ (consider the definition in terms of the corresponding tangent spaces).
+
+For the reverse direction, take $p \in M$. Note that if $d\phi_p(v) = 0$ for $v \in T_pM$, then, we have 
+$$\tilde{g}(d\phi_p(v), d\phi_p(v)) = g(v, v) = 0,$$
+which implies that $v = 0$.  Therefore $d\phi_p$ is invertible, so it follows from the inverse function theorem that there exists $U \ni p$ such that $\phi\vert_U$ is a diffeomorphism, which proves the desired result.
+\end{proof}
+\begin{definition}[Flat Manifold] We say a Riemannian manifold is flat if it is isometric to a Euclidean space.
+\end{definition}
+\begin{theorem}['39, Myers-Steenrod]a If $M$ has finitely many components, then $\operatorname{Iso}(M, g)$ has a topology and smooth structure making it into a finite-dimensional Lie group acting smoothly on $M$.  
+\end{theorem}
+\subsection{Local Representations for Metrics}
+If $(M, g)$ is a Riemannian manifold with local coordinates $(x^1, \dots, x^n)$ on open subset $U \subset M$, then we can write $g$ locally as 
+$$g = g_{ij} dx^i \tensor dx^j,$$
+for smooth functions $g_{ij}$ (note the usage of Einstein summation convention).
+\pagebreak
+\let \T \intercal
+\section{Matrix Calculation}
+ We have $B \in \R^{D \times D}, V \in \R^{D \times d \times d}, A \in \R^{d \times d \times D}$ and $ f(V) = \|VA - B\|_F^2$.
+\begin{align*}
+f(V + \delta V) &= \|B - (V + \delta V)A\|_F^2 \\
+&\approx  f(V) + 2\<VA - B, \delta V A\> \\
+&= f(V) + 2 \Tr((VA - B)^\T \delta V A)\\
+&= f(V) + \Tr(2A(VA - B)^\T \delta V ) + o(\|\delta V \|)\\
+\end{align*}
+so $Df(V) = 2(VA - B) A^\T$.  We obtain from this that $VAA^\T = BA^\T$ giving $V = BA^\T(AA^\T)^{-1} \in \R^{D \times d \times d}$.
+
 \pagebreak
 \renewcommand{\listtheoremname}{List of Definitions and Theorems}
 \listoftheorems[ignoreall,show={theorem,definition}]
