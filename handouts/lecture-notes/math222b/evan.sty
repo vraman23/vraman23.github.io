@@ -152,6 +152,7 @@
 \newcommand{\ts}{\textsuperscript}
 \newcommand{\dg}{^\circ}
 \newcommand{\ii}{\item}
+\usepackage{scrlfile}
 
 % From Math 55 and Math 145 at Harvard
 \newenvironment{subproof}[1][Proof]{%
@@ -191,7 +192,7 @@
 \DeclareMathOperator{\Ext}{Ext} % Ext functor
 \DeclareMathOperator{\Tor}{Tor} % Tor functor
 \newcommand{\gl}{\opname{\mathfrak{gl}}} % frak gl group
-\renewcommand{\sl}{\opname{\mathfrak{sl}}} % frak sl group chktex 6
+% \renewcommand{\sl}{\opname{\mathfrak{sl}}} % frak sl group chktex 6
 
 % More script letters etc.
 \newcommand{\SA}{\mathcal A}
@@ -210,7 +211,6 @@
 \newcommand{\SCF}{\mathscr F}
 \newcommand{\SCG}{\mathscr G}
 \newcommand{\SCH}{\mathscr H}
-
 % Mathfrak primes
 \newcommand{\km}{\mathfrak m}
 \newcommand{\kp}{\mathfrak p}
@@ -449,30 +449,30 @@
 		\newtheorem*{abuse*}{Abuse of Notation}
 	\fi
 
-	%%fakesection Fancy section and chapter heads
-	\ifevancolorsec
-		\@ifundefined{KOMAClassName}{}{
-			\@ifundefined{chapter}{}{
-				\addtokomafont{partprefix}{\rmfamily}
-				\renewcommand*{\partformat}{\color{purple}
-					\scalebox{2.5}{\thepart}\enlargethispage{2em}}
-				\addtokomafont{chapterprefix}{\raggedleft}
-				\RedeclareSectionCommand[beforeskip=0.5em]{chapter}
-				\renewcommand*{\chapterformat}{\mbox{%
-					\scalebox{1.5}{\chapappifchapterprefix{\nobreakspace}}%
-					\scalebox{2.718}{\color{purple}\thechapter}\enskip}}
-			}
-			\renewcommand*{\sectionformat}%
-				{\color{purple}\S\thesection\enskip}
-			\renewcommand*{\subsectionformat}%
-				{\color{purple}\S\thesubsection\enskip}
-			\renewcommand*{\subsubsectionformat}%
-				{\color{purple}\S\thesubsubsection\enskip}
-			\KOMAoptions{numbers=noenddot}
-			\usepackage[tocindentauto]{tocstyle}
-			\usetocstyle{KOMAlike}
-		}
-	\fi
+	% %%fakesection Fancy section and chapter heads
+	% \ifevancolorsec
+	% 	\@ifundefined{KOMAClassName}{}{
+	% 		\@ifundefined{chapter}{}{
+	% 			\addtokomafont{partprefix}{\rmfamily}
+	% 			\renewcommand*{\partformat}{\color{purple}
+	% 				\scalebox{2.5}{\thepart}\enlargethispage{2em}}
+	% 			\addtokomafont{chapterprefix}{\raggedleft}
+	% 			\RedeclareSectionCommand[beforeskip=0.5em]{chapter}
+	% 			\renewcommand*{\chapterformat}{\mbox{%
+	% 				\scalebox{1.5}{\chapappifchapterprefix{\nobreakspace}}%
+	% 				\scalebox{2.718}{\color{purple}\thechapter}\enskip}}
+	% 		}
+	% 		\renewcommand*{\sectionformat}%
+	% 			{\color{purple}\S\thesection\enskip}
+	% 		\renewcommand*{\subsectionformat}%
+	% 			{\color{purple}\S\thesubsection\enskip}
+	% 		\renewcommand*{\subsubsectionformat}%
+	% 			{\color{purple}\S\thesubsubsection\enskip}
+	% 		\KOMAoptions{numbers=noenddot}
+	% 		\usepackage[tocindentauto]{tocbasic}
+	% 		\usetocbasic{KOMAlike}
+	% 	}
+	% \fi
 
 
 	%%fakesection Loads a bunch of useful packages (but allow disabling)
