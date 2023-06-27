@@ -12,7 +12,35 @@
 
   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
   <script type='text/javascript' src='js/dynamicpage.js'></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+    }
+    h1 {
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+        }
+    .image-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .audio-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .audio-item {
+            text-align: center;
+    }
+  </style> 
 </head>
 
 <body>
@@ -22,17 +50,66 @@
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr style="padding:0px">
             <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>:(</name>
-              </p>
-              <p> huh? he didn't hear you
-              </p>
+              <h1>Bebito's Piano Recital</h1>
+              <div class="image-container">
                 <img src="images/b1.png" width="150" height="200">
-  <img src="images/b2.png" width="200" height="200">
-  <img src="images/b3.png" width="150" height="200">
+                <img src="images/b2.png" width="200" height="200">
+                <img src="images/b3.png" width="150" height="200">
+              </div>
+              <div class="image-container">
+                <img src="images/keyboard_good.png">
+              </div>
+              <div class="audio-container">
+                <div class="audio-item">
+                <audio controls>
+                    <source src="audio/Come inside of my heart.m4a" type="audio/mpeg">
 
-  <p><a href = "emily-yes.html">YES <3  </a>                            <p><a href = "emily-no2.html">no (cringe option) </a> </p></p>
+                </audio>
+                <p>Come inside of my heart</p>
+              </div>
+              <div class="audio-item">
+                <audio controls>
+                    <source src="audio/Here with me.m4a" type="audio/mpeg">
 
+                </audio>
+                <p>Here with me</p>
+              </div>
+              <div class="audio-item">
+                <audio controls>
+                    <source src="audio/Pears.m4a" type="audio/mpeg">
+
+                </audio>
+                <p>Pears</p>
+              </div>
+              <div class="audio-item">
+                <audio controls>
+                    <source src="audio/Prettiest to me.m4a" type="audio/mpeg">
+
+                </audio>
+                <p>Prettiest to me</p>
+              </div>
+              <div class="audio-item">
+                <audio controls>
+                    <source src="audio/Show me how.m4a" type="audio/mpeg">
+
+                </audio>
+                <p>Show me how</p>
+              </div>
+              <div class="audio-item">
+                <audio controls>
+                    <source src="audio/Touch tank.m4a" type="audio/mpeg">
+
+                </audio>
+                <p>Touch tank</p>
+              </div>
+              <div class="audio-item">
+                <audio controls>
+                    <source src="audio/Surprise.m4a" type="audio/mpeg">
+
+                </audio>
+                <p>lol can you guess this one im sorry</p>
+              </div>
+            </div>
             </td>
             <!-- <td style="padding:2.5%;width:40%;max-width:40%">
               <a href="images/JonBarron.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/JonBarron_circle.jpg" class="hoverZoomLink"></a>
